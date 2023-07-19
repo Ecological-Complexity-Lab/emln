@@ -29,7 +29,7 @@ load_emln <- function(network_id) {
   #get the network name in order to load it -- depending on the network id entered
   #FOR DEBUG: network_name <- list.files('./data/',pattern = paste0('emln',as.character(network_id),'_'))
   pattern <- paste0("emln", network_id, "_")
-  network_name <- descriptions %>% filter(stringr::str_detect(network_name, pattern)) %>% slice(1) %>% pull(network_name)
+  network_name <- descriptions %>% dplyr::filter(stringr::str_detect(network_name, pattern)) %>% dplyr::slice(1) %>% dplyr::pull(network_name)
   if (length(network_name) == 0) {
     return(paste0('Error: Network id',network_name, ' does not exist'))
   } else {
@@ -45,7 +45,7 @@ load_emln <- function(network_id) {
     for (i in colnames(network$nodes)) {network$nodes[[i]] <- hablar::retype(network$nodes[[i]])}
 
   #if the same name id has different node id
-  nodes_vector <- network$nodes[,c(1,2)] %>% group_by(node_id, node_name) %>% summarise()
+  nodes_vector <- network$nodes[,c(1,2)] %>% dplyr::group_by(node_id, node_name) %>% dplyr::summarise()
   nodes_vector<- nodes_vector$node_name
   # nodes_vector <- network$nodes$node_name
   if(any(duplicated(nodes_vector))){
@@ -60,11 +60,11 @@ load_emln <- function(network_id) {
     #if there are multiple types to the same layer, write them as individual rows and not lists
     tidyr::unnest(cols = everything()) %>%
     #remove type column
-    select(-type) %>%
-    distinct() %>%
+    dplyr::select(-type) %>%
+    dplyr::distinct() %>%
     # The layer_id and layer_name are necessary because they are used by functions like get_sam
-    rename(layer_id=layer) %>%
-    mutate(layer_name=paste('layer_',layer_id,sep=''))
+    dplyr::rename(layer_id=layer) %>%
+    dplyr::mutate(layer_name=paste('layer_',layer_id,sep=''))
 
   #fix the column types
   for (i in colnames(network$layers)) {
@@ -86,8 +86,8 @@ load_emln <- function(network_id) {
     tidyr::pivot_wider(names_from = 'attribute', values_from = 'value', values_fn = list) %>%
      # dplyr::select(interaction_id,layer_from,node_from,layer_to,node_to,weight) %>%
      tidyr::unnest(cols = everything()) %>%
-     select(-interaction_id) %>%
-    select(layer_from, node_from, layer_to, node_to, everything())
+     dplyr::select(-interaction_id) %>%
+    dplyr::select(layer_from, node_from, layer_to, node_to, everything())
 
   #layer from and to are always ids
   #if the layer from and to are not in the layer ids, then convert to ids in edge list
@@ -114,12 +114,12 @@ load_emln <- function(network_id) {
   # Create a map of state nodes
   print('Creating state node map')
   state_nodes_map <-
-  bind_rows(network$interactions %>% distinct(layer_name=layer_from, node_name=node_from),
-            network$interactions %>% distinct(layer_name=layer_to, node_name=node_to)) %>%
-    distinct() %>%
-    left_join(network$nodes, by='node_name') %>%
-    left_join(network$layers %>% select(layer_id, layer_name), by='layer_name') %>%
-    select(layer_id, node_id, layer_name, node_name, everything())
+  dplyr::bind_rows(network$interactions %>% dplyr::distinct(layer_name=layer_from, node_name=node_from),
+            network$interactions %>% dplyr::distinct(layer_name=layer_to, node_name=node_to)) %>%
+    dplyr::distinct() %>%
+    dplyr::left_join(network$nodes, by='node_name') %>%
+    dplyr::left_join(network$layers %>% dplyr::select(layer_id, layer_name), by='layer_name') %>%
+    dplyr::select(layer_id, node_id, layer_name, node_name, everything())
 
   #Pivot state nodes to a wide format if more data on state nodes exist
   if ('state_nodes' %in% names(network)) {
@@ -127,7 +127,7 @@ load_emln <- function(network_id) {
       tidyr::pivot_wider(names_from = 'attribute',values_from = 'value', values_fn = list) %>%
       tidyr::unnest(cols = everything())
   print('Joining with state node information in the data set')
-  state_nodes_map %<>% left_join(network$state_nodes %>% select(-node_name), by=c('layer_id', 'node_id'))
+  state_nodes_map %<>% dplyr::left_join(network$state_nodes %>% dplyr::select(-node_name), by=c('layer_id', 'node_id'))
   }
 
   ###  conversion of the node names to node ids in the edge list  ###

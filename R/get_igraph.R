@@ -33,14 +33,14 @@ get_igraph <- function(multilayer, bipartite, directed) {
   state_nodes_map$tuple <- paste(state_nodes_map$layer_name,state_nodes_map$node_name,sep='_')
   # Create the full map. When layer and node ids are NA that means that the node did not occur in the layer
   state_nodes_map <-
-    left_join(state_nodes_map, multilayer$state_nodes) %>%
-    select(sn_id, layer_name, node_name, layer_id, node_id, tuple) %>%
-    left_join(nodes)
+    dplyr::left_join(state_nodes_map, multilayer$state_nodes) %>%
+    dplyr::select(sn_id, layer_name, node_name, layer_id, node_id, tuple) %>%
+    dplyr::left_join(nodes)
   # Split the ell to layers
   intra <- multilayer$extended %>% filter(layer_from==layer_to)
   # Need to convert ot a factor to maintain the order of layers
-  intra %<>% mutate(layer_from = factor(layer_from, levels = unique(layer_from)))
-  layers <- group_split(intra, intra$layer_from)
+  intra %<>% dplyr::mutate(layer_from = factor(layer_from, levels = unique(layer_from)))
+  layers <- dplyr::group_split(intra, intra$layer_from)
 
 
   layers_igraph <- NULL
@@ -48,19 +48,19 @@ get_igraph <- function(multilayer, bipartite, directed) {
   for (l in 1:length(layers)){
     lname <- layer_attributes$layer_name[l]
     net <- layers[[l]][,c(-1,-3)]
-    if ("intra$layer_from" %in% names(net)) {net %<>% select(-"intra$layer_from")} # this can be caused by the splitting
+    if ("intra$layer_from" %in% names(net)) {net %<>% dplyr::select(-"intra$layer_from")} # this can be caused by the splitting
     # The next line was developed with the user-provided network examples
     nodes_in_layer <-
       state_nodes_map %>%
-      filter(layer_name==lname) %>%
+      dplyr::filter(layer_name==lname) %>%
       # drop_na() %>% # Dropping NA may remove state nodes that are supposed to be in the layer
-      select(node_name, everything())
+      dplyr::select(node_name, everything())
 
     # Get the igraph object
     g <- list_to_matrix(x = net, directed = directed, bipartite = bipartite, node_metadata = nodes_in_layer)$igraph
-    g <- delete_vertex_attr(g, "layer_name")
-    g <- delete_vertex_attr(g, "layer_id")
-    g <- delete_vertex_attr(g, "tuple")
+    g <- igraph::delete_vertex_attr(g, "layer_name")
+    g <- igraph::delete_vertex_attr(g, "layer_id")
+    g <- igraph::delete_vertex_attr(g, "tuple")
     # Get the state node ids in addition to the physical node names
     layers_igraph[[l]] <- g
   }
