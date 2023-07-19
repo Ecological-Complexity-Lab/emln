@@ -34,7 +34,7 @@
 #'
 #' @export
 #' @import dplyr
-#' @importFrom Matrix Matrix isSymmetric
+#' @importFrom Matrix matrix isSymmetric
 
 get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_cols=F) {
   # Create a map of state nodes

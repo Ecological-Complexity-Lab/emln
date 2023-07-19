@@ -3,7 +3,6 @@
 #' @param fileName file to be downloaded
 #' @keywords internal
 #' @import tibble
-#' @import tidyverse
 
 loadRData <- function(fileName){
 load(fileName)
