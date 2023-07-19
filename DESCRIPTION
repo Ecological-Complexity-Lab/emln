@@ -1,0 +1,30 @@
+Package: emln
+Type: Package
+Title: A package to organize, handle, and explore ecological multilayer networks
+Version: 1.0
+URL: https://ecological-complexity-lab.github.io/emln_package/index.html
+Date: 2023-07-22
+Author: Noa Frydman, Shai Pilosof, Shirly Freilikhman
+Maintainer: Shirly Freilikhman <shirlyf@bgu.ac.il>, Shai Pilosof <pilos@bgu.ac.il>
+BugReports: https://github.com/Ecological-Complexity-Lab/emln_package/issues
+Description: An R package for data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+  R (>= 4.1.0),
+  magrittr,
+  stringr,
+  tidyverse,
+  igraph,
+  tibble,
+  dplyr,
+  purrr,
+  tidyr,
+  Matrix,
+  DT,
+  hablar
+Suggests:
+  bipartite
+RoxygenNote: 7.2.3
+Data: data/descriptions.rda
