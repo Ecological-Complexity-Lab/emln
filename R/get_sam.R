@@ -34,7 +34,7 @@
 #'
 #' @export
 #' @import dplyr
-#' @importFrom Matrix matrix
+#' @importFrom Matrix Matrix
 
 get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_cols=F) {
   # Create a map of state nodes
@@ -55,13 +55,13 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
     # The partial mat only contains the state nodes for which an interaction has been recorded
     partial_mat <- list_to_matrix(ell_tuples, bipartite = F, directed = directed)$mat
     # Create the complete layer*nodes matrix
-    M <- Matrix::matrix(0, nrow = nrow(state_nodes_map), ncol = nrow(state_nodes_map), dimnames = list(state_nodes_map$tuple, state_nodes_map$tuple))
+    M <- matrix(0, nrow = nrow(state_nodes_map), ncol = nrow(state_nodes_map), dimnames = list(state_nodes_map$tuple, state_nodes_map$tuple))
     # Embed the partial matrix inside the full one
     M[rownames(partial_mat), colnames(partial_mat)] <- partial_mat
    }
 
   if (bipartite){
-    M <- Matrix::matrix(0, nrow = nrow(state_nodes_map), ncol = nrow(state_nodes_map), dimnames = list(state_nodes_map$tuple, state_nodes_map$tuple))
+    M <- matrix(0, nrow = nrow(state_nodes_map), ncol = nrow(state_nodes_map), dimnames = list(state_nodes_map$tuple, state_nodes_map$tuple))
 
     # Split the ell to layers
     intra <- multilayer$extended %>% dplyr::filter(layer_from==layer_to)
@@ -78,7 +78,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
       # Create a new square matrix with dimensions m+n
       rcnames <- c(colnames(rect_matrix),rownames(rect_matrix))
       rcnames <- paste(layer_name,rcnames,sep='_')
-      square_matrix <- Matrix::matrix(0, nrow = m + n, ncol = m + n, dimnames = list(rcnames, rcnames))
+      square_matrix <- matrix(0, nrow = m + n, ncol = m + n, dimnames = list(rcnames, rcnames))
       # Copy the values from the rectangular matrix into the appropriate positions in the square matrix
       square_matrix[(n+1):(n+m), 1:n] <- rect_matrix
       square_matrix[1:n, (n+1):(n+m)] <- t(rect_matrix)
@@ -122,7 +122,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
   }
 
   # Make sparse?
-  if (sparse){M <- Matrix(M, sparse = T)}
+  if (sparse){M <- Matrix::Matrix(M, sparse = T)}
 
   out <- list(M=M, nodes=nodes, state_nodes_map=state_nodes_map)
 
