@@ -34,7 +34,7 @@
 #'
 #' @export
 #' @import dplyr
-#' @importFrom Matrix matrix isSymmetric
+#' @importFrom Matrix matrix
 
 get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_cols=F) {
   # Create a map of state nodes
@@ -112,7 +112,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
   state_nodes_map <- left_join(state_nodes_map, multilayer$state_nodes) %>%
     select(sn_id, layer_name, node_name, layer_id, node_id, tuple)
 
-  if (directed==F & !Matrix::isSymmetric(M)){warning('The SAM is not symmetric. Make sure this is what you expect because your network is not directed.')}
+  if (directed==F & !isSymmetric(M)){warning('The SAM is not symmetric. Make sure this is what you expect because your network is not directed.')}
 
   if (remove_zero_rows_cols==T){
     # Remove rows and columns whose sum is zero
