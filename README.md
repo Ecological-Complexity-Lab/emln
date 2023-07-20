@@ -1,6 +1,10 @@
 # PACKAGE IN DEVELOPMENT!
-About emln: An R package that standardizes workflows of mulilayer network analysis. Also contains 81 ecological multilayer networks for analysis.
 
-This repository accompanies the paper: TITLE/DOI. Please cite it when using the package.
+# About
+**This is the repository that contains the code for the R package EMLN.** EMLN is an R package that standardizes workflows of mulilayer network analysis. It also contains data sets of ecological multilayer networks for analysis.
 
-Full examples for handling monolayer and multilayer data using emln are in: [https://ecological-complexity-lab.github.io/emln_package/](https://ecological-complexity-lab.github.io/emln_package/).
+# Paper and ctitation
+TITLE/DOI. Please cite it when using the package.
+
+# Website
+Detailed explanations on workflows accomanied by examples for handling monolayer and multilayer data using emln are in: [https://ecological-complexity-lab.github.io/emln_package/](https://ecological-complexity-lab.github.io/emln_package/).
