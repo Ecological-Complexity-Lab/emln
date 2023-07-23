@@ -3,7 +3,7 @@
 # About
 **This is the repository that contains the code for the R package EMLN.** EMLN is an R package that standardizes workflows of mulilayer network analysis. It also contains data sets of ecological multilayer networks for analysis.
 
-# :page_facing_up: Paper and ctitation
+# :page_facing_up: Paper and citing
 TITLE/DOI. Please cite it when using the package.
 
 # :package: Installation
