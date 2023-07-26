@@ -1,10 +1,10 @@
-![](https://img.shields.io/badge/devtools%20installation-v1.0-blue.svg)  ![](https://img.shields.io/badge/R--CMD--CHK-Passed-green.svg)  [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)  [![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+![](https://img.shields.io/badge/R--CMD--CHK-Passed-green.svg)  [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) ![](https://img.shields.io/badge/devtools%20installation-v1.0-yellow.svg)  [![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![](https://img.shields.io/badge/doi-10.32942/X2PG6X-orange.svg)](https://doi.org/10.32942/X2PG6X)
 
 # :wave: About
 **This repository contains the code for the R package EMLN.** EMLN is an R package that standardizes workflows for creating, storing and converting mulilayer network data. It also contains data sets of ecological multilayer networks for analysis. Although designed with ecological dcata in mind, it is flexible and can handle data from other research domains.
 
 # :page_facing_up: Paper and citing
-TITLE/DOI. Please cite it when using the package.
+Frydman N, Freilikhman S, Talpaz I, Pilosof S. **Practical guidelines and the EMLN R package for handling ecological multilayer networks**. EcoEvoRxiv. 2023. DOI: https://doi.org/10.32942/X2PG6X. Please cite the paper when implementing the guidelines we describe or when using the package, this helps us a lot!
 
 # :package: Installation
 Current installation uses devtools. CRAN version will come next.
