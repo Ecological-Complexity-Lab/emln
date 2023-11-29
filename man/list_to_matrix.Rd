@@ -39,9 +39,9 @@ the names of the nodes in the edge list.
 }
 \examples{
 \dontrun{
-network <- load_emln(16)
+network <- load_emln(17)
 nodes <- network$nodes
-links<-subset(network$extended \%>\% filter(layer_from==1), select=c(node_from, node_to, weight))
+links<-subset(network$extended_ids \%>\% filter(layer_from==1), select=c(node_from, node_to, weight))
 
 list_to_matrix(links, directed = TRUE, bipartite = FALSE, node_metadata = nodes)
 
