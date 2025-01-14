@@ -112,24 +112,45 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
     layer_attributes <- data.frame(layer_attributes) # working with data frame is easier than with tibbles.
     if (names(layer_attributes)[1]!='layer_id') {stop('First column in layer attributes should be layer_id, and the order should be as provied in the list of layers.')}
     if (names(layer_attributes)[2]!='layer_name') {stop('Second column in layer attributes should be layer_name.')}
+    if (nrow(layer_attributes)!=length(list_of_layers)) {stop('The number of layers between list_of_layers and layer_attributes should be consistent.')}
   }
 
   #Loop over the list of layers, creating an edge list for each network separately.
   for (layer_id in 1:length(list_of_layers)) {
     # get the layer network
     the_layer <- list_of_layers[[layer_id]]
-
+    l_name <- layer_attributes[layer_id,'layer_name']
     print(sprintf('Layer #%s processing.', layer_id))
+
     ###  edge list  ###
     if (bipartite) {igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = T, group_names = c('set_cols','set_rows'))
                     edge_list <- igraph_network$edge_list
                     print('Done.')}
-    if (!bipartite) {
-                     #Expected a symmetric matrix in an undirected network. Otherwise, throw the warning.
+    if (!bipartite) {#Expected a symmetric matrix in an undirected network. Otherwise, throw the warning.
                      if ((directed == FALSE) && (isSymmetric(the_layer) ==FALSE)){
                        warning('WARNING: In an undirected network a symmetric matrix is expected. Proceed with caution!')
                      }
-                     igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = F)
+                     l_n_attrib <- state_node_attributes
+                     if ('data.frame'%in%class(the_layer) & is.null(l_n_attrib)){ # no explicit node data provided
+                        # get nodes from the edge list
+                        nodes <- unique(c(the_layer$from, the_layer$to))
+
+                        # get nodes from interlayer edge list
+                        if (!is.null(interlayer_links)){
+                          # filter links relevant to this layer
+                          f_inter <- interlayer_links %>% filter(layer_from == layer_id | layer_from == l_name)
+                          t_inter <- interlayer_links %>% filter(layer_to == layer_id | layer_to == l_name)
+                          more_nodes <- unique(c(f_inter$node_from, t_inter$node_to)) # get layer nodes present in the interlayer edges
+
+                          nodes <- unique(c(nodes, more_nodes))
+                        }
+                        l_n_attrib <- tibble(node_name = nodes, layer_name = layer_id)
+                     } # find node data so we don't lose singletons
+                     else if (!is.null(state_node_attributes)) {
+                       l_n_attrib <- state_node_attributes %>% filter(layer_name == l_name)
+                     }
+
+                     igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = F, node_metadata = l_n_attrib)
                      edge_list <- igraph_network$edge_list
                      print('Done.')
                      }
