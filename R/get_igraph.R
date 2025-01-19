@@ -11,7 +11,7 @@
 #' \itemize{
 #'   \item \code{layers_igraph} A list of igraph objects, one per layer
 #'   \item \code{nodes} A table of physical nodes, as in the multlayer object.
-#'   \item \code{state_nodes_map} A table with state nodes.
+#'   \item \code{state_nodes_map} A table with state nodes to map the nodes to the row and columns of a SAM.
 #' }
 #'
 #' @details If link, physical node or state node attributes are included in the multilayer network they are passed to the igraph objects.
@@ -38,7 +38,7 @@ get_igraph <- function(multilayer, bipartite, directed) {
     dplyr::left_join(nodes)
   # Split the ell to layers
   intra <- multilayer$extended %>% filter(layer_from==layer_to)
-  # Need to convert ot a factor to maintain the order of layers
+  # Need to convert to a factor to maintain the order of layers
   intra %<>% dplyr::mutate(layer_from = factor(layer_from, levels = unique(layer_from)))
   layers <- dplyr::group_split(intra, intra$layer_from)
 
@@ -51,17 +51,14 @@ get_igraph <- function(multilayer, bipartite, directed) {
     if ("intra$layer_from" %in% names(net)) {net %<>% dplyr::select(-"intra$layer_from")} # this can be caused by the splitting
     # The next line was developed with the user-provided network examples
     nodes_in_layer <-
-      state_nodes_map %>%
+      multilayer$state_nodes %>%
       dplyr::filter(layer_name==lname) %>%
-      # drop_na() %>% # Dropping NA may remove state nodes that are supposed to be in the layer
       dplyr::select(node_name, everything())
 
     # Get the igraph object
     g <- list_to_matrix(x = net, directed = directed, bipartite = bipartite, node_metadata = nodes_in_layer)$igraph
     g <- igraph::delete_vertex_attr(g, "layer_name")
-    g <- igraph::delete_vertex_attr(g, "layer_id")
-    g <- igraph::delete_vertex_attr(g, "tuple")
-    # Get the state node ids in addition to the physical node names
+
     layers_igraph[[l]] <- g
   }
   names(layers_igraph) <- layer_attributes$layer_name
