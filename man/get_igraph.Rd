@@ -19,7 +19,7 @@ A list:
 \itemize{
   \item \code{layers_igraph} A list of igraph objects, one per layer
   \item \code{nodes} A table of physical nodes, as in the multlayer object.
-  \item \code{state_nodes_map} A table with state nodes.
+  \item \code{state_nodes_map} A table with state nodes to map the nodes to the row and columns of a SAM.
 }
 }
 \description{

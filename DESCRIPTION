@@ -1,7 +1,7 @@
 Package: emln
 Type: Package
 Title: A package to organize, handle, and explore ecological multilayer networks
-Version: 1.0.1
+Version: 1.0.2
 URL: https://ecological-complexity-lab.github.io/emln_package/index.html
 Date: 2025-01-19
 Author: Noa Frydman, Shai Pilosof, Shirly Freilikhman
@@ -25,5 +25,5 @@ Depends:
   hablar
 Suggests:
   bipartite
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Data: data/descriptions.rda
