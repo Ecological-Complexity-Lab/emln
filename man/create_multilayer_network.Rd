@@ -28,9 +28,10 @@ value).}
 assuming no interlayer links.}
 
 \item{layer_attributes}{Optional. A data frame with layer attributes. The
-first column must be \code{layer_id} and the second \code{layer_name}.  The
-order of the rows and layer_id should be the same as in
-\code{list_of_layers}.}
+first column must be called \code{layer_id}, and it must have unique values (one row per layer).
+Layer name column, if exists must be called \code{layer_name}, and its values must be unique. The
+order of the rows and layer_id should be the same as in \code{list_of_layers}.
+No column is allowed to be named \code{name}.}
 
 \item{state_node_attributes}{Optional. Additional information on physical nodes in
 layers. Must contain columns \code{layer_name} and \code{node_name}.}

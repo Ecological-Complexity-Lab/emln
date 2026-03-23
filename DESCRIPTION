@@ -1,9 +1,9 @@
 Package: emln
 Type: Package
 Title: A package to organize, handle, and explore ecological multilayer networks
-Version: 1.0.2
+Version: 1.0.3
 URL: https://ecological-complexity-lab.github.io/emln_package/index.html
-Date: 2025-01-19
+Date: 2026-03-24
 Author: Noa Frydman, Shai Pilosof, Shirly Freilikhman
 Maintainer: Geut Galai <geutg@post.bgu.ac.il>, Shai Pilosof <pilos@bgu.ac.il>
 BugReports: https://github.com/Ecological-Complexity-Lab/emln_package/issues

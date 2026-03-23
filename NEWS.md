@@ -2,6 +2,13 @@
 
 # emln 1.0.2 (2025-01-19)
 
+## changes
+
+* change layer_attributes argument in create_multilayer_network to be more flexible. 
+  also ban column name "name" to avoid confusion with "layer_name".
+
+# emln 1.0.2 (2025-01-19)
+
 ## Bug fixes
 
 * Now supports layers without intralayer edges
