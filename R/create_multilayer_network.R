@@ -97,7 +97,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
       intralayer_headers <- names(list_of_layers[[1]])
       intralayer_headers <- intralayer_headers[4:length(intralayer_headers)]
       interlayer_headers <- names(interlayer_links)[6:length(interlayer_links)]
-      if(!identical(interlayer_headers, intralayer_headers)){stop('The link attributes of intralayer andinterlayer links must be identical')}
+      if(!identical(interlayer_headers, intralayer_headers)){stop('The link attributes of intralayer and interlayer links must be identical')}
     }
   }
 
