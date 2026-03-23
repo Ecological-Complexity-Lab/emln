@@ -12,9 +12,10 @@
 #'   \code{layer_from node_from layer_to node_to weight}. Default is NULL,
 #'   assuming no interlayer links.
 #' @param layer_attributes Optional. A data frame with layer attributes. The
-#'   first column must be \code{layer_id} and the second \code{layer_name}.  The
-#'   order of the rows and layer_id should be the same as in
-#'   \code{list_of_layers}.
+#'   first column must be called \code{layer_id}, and it must have unique values (one row per layer).
+#'   Layer name column, if exists must be called \code{layer_name}, and its values must be unique. The
+#'   order of the rows and layer_id should be the same as in \code{list_of_layers}.
+#'   No column is allowed to be named \code{name}.
 #' @param state_node_attributes Optional. Additional information on physical nodes in
 #'   layers. Must contain columns \code{layer_name} and \code{node_name}.
 #' @param physical_node_attributes Optional. Additional information on physical nodes. Must contain column \code{node_name}.
@@ -111,9 +112,22 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
   } else {
     layer_attributes <- data.frame(layer_attributes) # working with data frame is easier than with tibbles.
     if (names(layer_attributes)[1]!='layer_id') {stop('First column in layer attributes should be layer_id, and the order should be as provied in the list of layers.')}
-    if (names(layer_attributes)[2]!='layer_name') {stop('Second column in layer attributes should be layer_name.')}
     if (nrow(layer_attributes)!=length(list_of_layers)) {stop('The number of layers between list_of_layers and layer_attributes should be consistent.')}
+
+    # check if layer_name exists, if not then create it.
+    if (!'layer_name' %in% names(layer_attributes)) {
+      print('Layer name column not provided, will be generated')
+      layer_attributes$layer_name <- paste('layer_',1:length(list_of_layers),sep = '')}
+    else {# make sure the values are unique.
+      if (any(duplicated(layer_attributes$layer_name))==T){stop('Layer names should be unique.')}
+    }
+
+    # enforce not using the name 'name' for any column in the layer attributes
+    if ('name' %in% names(layer_attributes)){stop('The column name "name" is not allowed for any column in the layer attributes. Please change the name of the column.')}
   }
+
+  # make sure the order of columns is correct for the layer attributes
+  layer_attributes <- layer_attributes %>% select(layer_id, layer_name, everything())
 
   #Loop over the list of layers, creating an edge list for each network separately.
   for (layer_id in 1:length(list_of_layers)) {
