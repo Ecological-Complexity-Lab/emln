@@ -433,8 +433,9 @@
   <p>Layers placed on an interactive Leaflet world map. Only available when the dataset includes <code>latitude</code> and <code>longitude</code> on its layers.</p>
   <ul>
     <li><span class="key">Layer Markers</span> — layers appear as blue circle markers on the map.</li>
-    <li><span class="key">Pop-Out Layers</span> — click a marker to pop that layer into floating 3D space. Multiple layers can be popped simultaneously.</li>
-    <li><span class="key">Close Popped Layer</span> — click the red <code>✕</code> on a floating layer to return it to the map.</li>
+    <li><span class="key">Select Layers panel</span> — a draggable, collapsible panel (top-right by default) lists all layers. Click a layer name to pop it into floating 3D space; click <code>✕</code> next to an active layer to close it. Useful when multiple layers share the same geographic location and their markers overlap.</li>
+    <li><span class="key">Pop-Out Layers</span> — click a marker or a layer name in the Select Layers panel to pop that layer into floating 3D space. Multiple layers can be popped simultaneously.</li>
+    <li><span class="key">Close Popped Layer</span> — click the red <code>✕</code> on a floating layer or the <code>✕</code> in the Select Layers panel to return it to the map.</li>
     <li><span class="key">Map Opacity</span> — slider in the bottom bar fades the satellite imagery. Uncheck "Show Map" to remove it entirely.</li>
     <li><span class="key">Map Navigation</span> — pan and zoom the Leaflet map freely. <code>Shift</code> + drag carries popped-out layers with it.</li>
   </ul>
@@ -531,7 +532,7 @@
   <p>When every layer in the dataset has <code>latitude</code> and <code>longitude</code>, Layer View activates in <strong>Geographic mode</strong> automatically — bubbles are pinned to their real-world coordinates on a Leaflet satellite map background.</p>
   <ul>
     <li>A <span class="key">Force Layout</span> toggle button at the top of the Layers sidebar section switches to the standard force-directed view and back.</li>
-    <li>Bubbles cannot be dragged — they are pinned to map coordinates.</li>
+    <li>Bubbles cannot be dragged — they are pinned to map coordinates. Layers that share the same location (e.g. temporal networks sampled at one site) are automatically fanned out in a circle around their shared coordinate; a dashed tether line connects each bubble back to the true location.</li>
     <li>Scroll and drag pan/zoom the Leaflet map (not the canvas).</li>
     <li><span class="key">+</span> / <span class="key">−</span> toolbar buttons zoom the map; <span class="key">Reset</span> fits all layers into view.</li>
     <li><strong>Map Opacity</strong>, <strong>Show Map</strong>, and <strong>Street Map</strong> controls appear in the bottom bar (same controls as Map Mode).</li>
