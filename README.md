@@ -23,3 +23,8 @@ library(emln)
 
 # :globe_with_meridians: Website
 Detailed explanations on workflows accomanied by examples for handling monolayer and multilayer data using emln are in: [https://ecological-complexity-lab.github.io/emln_package/](https://ecological-complexity-lab.github.io/emln_package/).
+
+# :bar_chart: Multilayer Network Visualizer
+EMLN includes an interactive web-based visualizer for multilayer networks, accessible via `plot_multilayer()`. It supports multiple visualization modes (network, map, layer view, dashboard), built-in empirical datasets, and CSV/JSON data import.
+
+> **Beta notice:** The visualizer is currently in beta (development). A dedicated paper describing it is forthcoming. Feedback and bug reports are welcome at https://github.com/Ecological-Complexity-Lab/emln/issues.

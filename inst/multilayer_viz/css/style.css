@@ -1,0 +1,954 @@
+/* ============================================
+   style.css — UI for multilayer visualizer
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #1a1a2e;
+}
+
+/* ---- Canvas ---- */
+#networkCanvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  cursor: grab;
+  background: transparent;
+}
+
+/* ---- Background Map ---- */
+#backgroundMap, #lvBackgroundMap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: none;
+  /* hidden by default */
+}
+
+/* ---- Floating Panels (Glassmorphism) ---- */
+.panel {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.04) inset;
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+}
+
+/* ============================================
+   Collapsible Control Panels (top-left)
+   ============================================ */
+#controlPanels {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 240px;
+}
+
+.control-section {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.control-section[open] {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+.control-section summary {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a2e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  transition: background 0.15s ease;
+}
+
+.control-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.control-section summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.control-section[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.control-section summary:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.section-body {
+  padding: 4px 14px 12px;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  color: #1a1a2e;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  border-color: rgba(99, 102, 241, 0.25);
+  color: #4f46e5;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.25));
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);
+}
+
+.btn-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ---- Select (dropdown) ---- */
+.styled-select {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.03);
+  color: #1a1a2e;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  transition: border-color 0.15s ease;
+  margin-top: 3px;
+}
+
+.styled-select:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.styled-select:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+/* ---- File Input ---- */
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ============================================
+   Bottom-left: Zoom & Hints
+   ============================================ */
+#bottomPanel {
+  bottom: 12px;
+  left: 12px;
+  padding: 10px 14px;
+}
+
+.zoom-controls {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.toolbar-sep {
+  width: 1px;
+  height: 18px;
+  background: rgba(0,0,0,0.15);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.zoom-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.interaction-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   Bottom-right: Branding
+   ============================================ */
+#brandingPanel {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+.branding-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  letter-spacing: -0.01em;
+}
+
+.branding-version {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-left: -4px;
+}
+
+.branding-link {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.45);
+  transition: color 0.15s ease;
+}
+
+.branding-link:hover {
+  color: #1a1a2e;
+}
+
+.branding-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* ============================================
+   Info Panel (right side)
+   ============================================ */
+#infoPanel {
+  top: 16px;
+  right: 16px;
+  padding: 18px 20px;
+  width: 280px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  transform: translateX(320px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#infoPanel.visible {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+#infoPanel h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.info-section {
+  margin-bottom: 14px;
+}
+
+.info-section h4 {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 6px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3px 0;
+  font-size: 12.5px;
+}
+
+.info-row .info-key {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+}
+
+.info-row .info-value {
+  color: #1a1a2e;
+  font-weight: 500;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-word;
+}
+
+.info-connections {
+  list-style: none;
+  padding: 0;
+}
+
+.info-connections li {
+  font-size: 12px;
+  padding: 3px 0;
+  color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.info-connections li::before {
+  content: '→';
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 10px;
+}
+
+.collapse-info-btn {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.collapse-info-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #1a1a2e;
+}
+
+#infoPanel.visible.collapsed {
+  transform: translateX(256px);
+}
+
+#infoPanel.visible.collapsed #infoTitle,
+#infoPanel.visible.collapsed #infoContent {
+  visibility: hidden;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #1a1a2e;
+}
+
+/* ---- Layer Popout Close Buttons ---- */
+#layerCloseButtons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  /* Above canvas, below Leaflet markers */
+}
+
+.popout-close-btn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: rgba(255, 60, 60, 0.85);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(14px, -14px);
+  /* Push slightly top-right of the anchor */
+  pointer-events: auto;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.popout-close-btn:hover {
+  background: rgba(255, 20, 20, 1);
+  transform: translate(14px, -14px) scale(1.1);
+}
+
+/* ---- Map Markers Overlay ---- */
+.map-marker {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #6366f1;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.15s ease;
+}
+
+.map-marker:hover {
+  background: #4f46e5;
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+.map-marker-label {
+  position: absolute;
+  transform: translate(12px, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Map mode layer list ---- */
+.map-layer-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.12s, border-color 0.12s;
+}
+.map-layer-item:hover {
+  background: #f0f0ff;
+  border-color: #c7c7f0;
+}
+.map-layer-item.active {
+  background: #ebebff;
+  border-color: #4f46e5;
+  font-weight: 600;
+}
+.map-layer-item .map-layer-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #4f46e5;
+}
+.map-layer-item.active .map-layer-dot {
+  background: #22c55e;
+}
+.map-layer-item .map-layer-close {
+  margin-left: auto;
+  font-size: 11px;
+  color: #999;
+  line-height: 1;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.map-layer-item .map-layer-close:hover {
+  color: #ef4444;
+  background: #fee2e2;
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.6;
+    text-shadow: 0 0 0 rgba(234, 88, 12, 0);
+  }
+
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 6px rgba(234, 88, 12, 0.4);
+  }
+
+  100% {
+    opacity: 0.6;
+    text-shadow: 0 0 0 rgba(234, 88, 12, 0);
+  }
+}
+
+.pulse-highlight {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* ---- Scrollbar ---- */
+#infoPanel::-webkit-scrollbar {
+  width: 4px;
+}
+
+#infoPanel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#infoPanel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+}
+
+/* ---- Checkbox ---- */
+.checkbox-row {
+  margin-bottom: 4px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #1a1a2e;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: #6366f1;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* ---- Toggle Buttons ---- */
+.toggle-group {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.toggle-btn {
+  border: none;
+  border-radius: 0;
+  padding: 5px 10px;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.55);
+  transition: all 0.15s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: none;
+  border: none;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  color: #4f46e5;
+  font-weight: 600;
+  border: none;
+}
+
+.toggle-btn+.toggle-btn {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Slider ---- */
+.slider {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #6366f1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.3);
+}
+
+.slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #6366f1;
+  cursor: pointer;
+  border: none;
+}
+
+/* ---- Tooltip (for hover info) ---- */
+#tooltip {
+  position: fixed;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: #1a1a2e;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  max-width: 200px;
+  white-space: nowrap;
+}
+
+#tooltip.visible {
+  opacity: 1;
+}
+
+/* ============================================
+   Export Dialog
+   ============================================ */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  padding: 24px 28px;
+  width: 360px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: left;
+}
+
+#demoDatasetList .btn {
+  min-width: 0;
+  white-space: normal;
+  justify-content: flex-start;
+}
+
+#demoDatasetList .demo-info-btn {
+  justify-content: center;
+}
+
+.dialog-box h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.dialog-box p {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 16px;
+}
+
+.dialog-options {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Dashboard Mode ---- */
+#dashboardContainer {
+  position: absolute;
+  inset: 0;
+  background: #f3f4f8;
+  overflow-y: auto;
+  display: none;
+  z-index: 5;
+}
+
+.db-root {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+}
+
+.db-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.db-sec-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 16px;
+  cursor: pointer;
+  user-select: none;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.db-sec-hd:hover { background: #f3f4f6; }
+
+.db-sec-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.db-chevron { font-size: 12px; color: #9ca3af; }
+
+.db-sec-bd { padding: 16px; }
+
+/* KPI cards */
+.db-kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.db-card {
+  flex: 1 1 110px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.db-kpi-v {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.3;
+}
+
+.db-kpi-l {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 3px;
+}
+
+.db-kpi-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7280;
+  display: block;
+}
+
+.db-badge {
+  display: inline-block;
+  background: #ede9fe;
+  color: #6366f1;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-right: 4px;
+}
+
+/* Charts */
+.db-charts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.db-chart-box { flex: 1 1 250px; min-width: 0; }
+
+.db-chart-hl {
+  outline: 2px solid #6366f1;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.db-chart-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+/* Presence matrix */
+.db-matrix-wrap {
+  overflow: auto;
+  max-height: 460px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.db-matrix-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.db-sort-btn {
+  font-size: 11px;
+  padding: 3px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.db-sort-btn:hover { background: #f3f4f6; }
+
+.db-sort-btn.active {
+  background: #6366f1;
+  color: #fff;
+  border-color: #6366f1;
+}
+
+.db-weight-select {
+  font-size: 11px;
+  padding: 3px 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+  max-width: 220px;
+}
+
+.db-heatmap-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}

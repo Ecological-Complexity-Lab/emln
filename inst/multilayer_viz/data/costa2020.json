@@ -1,0 +1,3291 @@
+{
+  "directed": false,
+  "directed_interlayer": true,
+  "layers": [
+    {
+      "layer_id": 1,
+      "layer_name": "2012",
+      "bipartite": true
+    },
+    {
+      "layer_id": 2,
+      "layer_name": "2013",
+      "bipartite": true
+    },
+    {
+      "layer_id": 3,
+      "layer_name": "2014",
+      "bipartite": true
+    },
+    {
+      "layer_id": 4,
+      "layer_name": "2015",
+      "bipartite": true
+    },
+    {
+      "layer_id": 5,
+      "layer_name": "2016",
+      "bipartite": true
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "Cyanistes_caeruleus",
+      "layer_name": "2012",
+      "node_name": "Cyanistes_caeruleus",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0303,
+      "d_specialisation": 0.1275,
+      "versatility": 0.177277
+    },
+    {
+      "node_id": "Erithacus_rubecula",
+      "layer_name": "2012",
+      "node_name": "Erithacus_rubecula",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 26.0,
+      "degree": 5,
+      "strength": 1.6924,
+      "d_specialisation": 0.1916,
+      "versatility": 0.622956
+    },
+    {
+      "node_id": "Ficedula_hypoleuca",
+      "layer_name": "2012",
+      "node_name": "Ficedula_hypoleuca",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 6,
+      "interaction_frequency": 27.0,
+      "degree": 6,
+      "strength": 2.0389,
+      "d_specialisation": 0.1906,
+      "versatility": 0.406447
+    },
+    {
+      "node_id": "Sylvia_atricapilla",
+      "layer_name": "2012",
+      "node_name": "Sylvia_atricapilla",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 8,
+      "interaction_frequency": 45.0,
+      "degree": 8,
+      "strength": 3.4793,
+      "d_specialisation": 0.1546,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Sylvia_borin",
+      "layer_name": "2012",
+      "node_name": "Sylvia_borin",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 7,
+      "interaction_frequency": 51.0,
+      "degree": 7,
+      "strength": 1.9525,
+      "d_specialisation": 0.1261,
+      "versatility": 0.80175
+    },
+    {
+      "node_id": "Sylvia_communis",
+      "layer_name": "2012",
+      "node_name": "Sylvia_communis",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 2.0,
+      "degree": 2,
+      "strength": 0.0485,
+      "d_specialisation": 0.0115,
+      "versatility": 0.269776
+    },
+    {
+      "node_id": "Sylvia_melanocephala",
+      "layer_name": "2012",
+      "node_name": "Sylvia_melanocephala",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 22.0,
+      "degree": 5,
+      "strength": 1.9874,
+      "d_specialisation": 0.2829,
+      "versatility": 0.506431
+    },
+    {
+      "node_id": "Turdus_merula",
+      "layer_name": "2012",
+      "node_name": "Turdus_merula",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 12.0,
+      "degree": 4,
+      "strength": 0.7707,
+      "d_specialisation": 0.3883,
+      "versatility": 0.423721
+    },
+    {
+      "node_id": "Arbutus_unedo",
+      "layer_name": "2012",
+      "node_name": "Arbutus_unedo",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0222,
+      "d_specialisation": 0.0318,
+      "versatility": 0.256622
+    },
+    {
+      "node_id": "Daphne_gnidium",
+      "layer_name": "2012",
+      "node_name": "Daphne_gnidium",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 2,
+      "interaction_frequency": 2.0,
+      "degree": 2,
+      "strength": 0.0651,
+      "d_specialisation": 0.0925,
+      "versatility": 0.247103
+    },
+    {
+      "node_id": "Ficus_carica",
+      "layer_name": "2012",
+      "node_name": "Ficus_carica",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 30.0,
+      "degree": 4,
+      "strength": 0.9655,
+      "d_specialisation": 0.2305,
+      "versatility": 0.892827
+    },
+    {
+      "node_id": "Olea_europaea",
+      "layer_name": "2012",
+      "node_name": "Olea_europaea",
+      "node_type": "plant",
+      "n_years": 2,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0385,
+      "d_specialisation": 0.1714,
+      "versatility": 0.312945
+    },
+    {
+      "node_id": "Phytolacca_americana",
+      "layer_name": "2012",
+      "node_name": "Phytolacca_americana",
+      "node_type": "plant",
+      "n_years": 2,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.0741,
+      "d_specialisation": 0.3273,
+      "versatility": 0.261633
+    },
+    {
+      "node_id": "Pistacia_lentiscus",
+      "layer_name": "2012",
+      "node_name": "Pistacia_lentiscus",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 5,
+      "interaction_frequency": 36.0,
+      "degree": 5,
+      "strength": 1.2601,
+      "d_specialisation": 0.1557,
+      "versatility": 0.878505
+    },
+    {
+      "node_id": "Rhamnus_alaternus",
+      "layer_name": "2012",
+      "node_name": "Rhamnus_alaternus",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 7,
+      "interaction_frequency": 55.0,
+      "degree": 7,
+      "strength": 1.991,
+      "d_specialisation": 0.0577,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Rubia_peregrina",
+      "layer_name": "2012",
+      "node_name": "Rubia_peregrina",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.0909,
+      "d_specialisation": 0.3803,
+      "versatility": 0.265003
+    },
+    {
+      "node_id": "Rubus_ulmifolius",
+      "layer_name": "2012",
+      "node_name": "Rubus_ulmifolius",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 8,
+      "interaction_frequency": 33.0,
+      "degree": 8,
+      "strength": 2.5997,
+      "d_specialisation": 0.1565,
+      "versatility": 0.847004
+    },
+    {
+      "node_id": "Smilax_aspera",
+      "layer_name": "2012",
+      "node_name": "Smilax_aspera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 9.0,
+      "degree": 3,
+      "strength": 0.2418,
+      "d_specialisation": 0.1991,
+      "versatility": 0.476281
+    },
+    {
+      "node_id": "Solanum_nigrum",
+      "layer_name": "2012",
+      "node_name": "Solanum_nigrum",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 6.0,
+      "degree": 2,
+      "strength": 0.1481,
+      "d_specialisation": 0.2834,
+      "versatility": 0.288725
+    },
+    {
+      "node_id": "Vitis_vinifera",
+      "layer_name": "2012",
+      "node_name": "Vitis_vinifera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 9.0,
+      "degree": 3,
+      "strength": 0.5029,
+      "d_specialisation": 0.3881,
+      "versatility": 0.467201
+    },
+    {
+      "node_id": "Cyanistes_caeruleus",
+      "layer_name": "2013",
+      "node_name": "Cyanistes_caeruleus",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.0769,
+      "d_specialisation": 0.119,
+      "versatility": 0.177277
+    },
+    {
+      "node_id": "Erithacus_rubecula",
+      "layer_name": "2013",
+      "node_name": "Erithacus_rubecula",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 10.0,
+      "degree": 3,
+      "strength": 1.0434,
+      "d_specialisation": 0.4669,
+      "versatility": 0.622956
+    },
+    {
+      "node_id": "Ficedula_hypoleuca",
+      "layer_name": "2013",
+      "node_name": "Ficedula_hypoleuca",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 5.0,
+      "degree": 4,
+      "strength": 0.5034,
+      "d_specialisation": 0.1206,
+      "versatility": 0.406447
+    },
+    {
+      "node_id": "Sylvia_atricapilla",
+      "layer_name": "2013",
+      "node_name": "Sylvia_atricapilla",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 7,
+      "interaction_frequency": 28.0,
+      "degree": 7,
+      "strength": 3.7306,
+      "d_specialisation": 0.1228,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Sylvia_borin",
+      "layer_name": "2013",
+      "node_name": "Sylvia_borin",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 16.0,
+      "degree": 4,
+      "strength": 1.9829,
+      "d_specialisation": 0.2516,
+      "versatility": 0.80175
+    },
+    {
+      "node_id": "Sylvia_melanocephala",
+      "layer_name": "2013",
+      "node_name": "Sylvia_melanocephala",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 2,
+      "interaction_frequency": 3.0,
+      "degree": 2,
+      "strength": 0.2607,
+      "d_specialisation": 0.2378,
+      "versatility": 0.506431
+    },
+    {
+      "node_id": "Turdus_merula",
+      "layer_name": "2013",
+      "node_name": "Turdus_merula",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 2,
+      "interaction_frequency": 5.0,
+      "degree": 2,
+      "strength": 0.4021,
+      "d_specialisation": 0.4057,
+      "versatility": 0.423721
+    },
+    {
+      "node_id": "Ficus_carica",
+      "layer_name": "2013",
+      "node_name": "Ficus_carica",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 6,
+      "interaction_frequency": 26.0,
+      "degree": 6,
+      "strength": 2.6976,
+      "d_specialisation": 0.216,
+      "versatility": 0.892827
+    },
+    {
+      "node_id": "Lonicera_periclymenum",
+      "layer_name": "2013",
+      "node_name": "Lonicera_periclymenum",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 1,
+      "interaction_frequency": 3.0,
+      "degree": 1,
+      "strength": 0.1071,
+      "d_specialisation": 0.203,
+      "versatility": 0.218451
+    },
+    {
+      "node_id": "Phillyrea_latifolia",
+      "layer_name": "2013",
+      "node_name": "Phillyrea_latifolia",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 3,
+      "interaction_frequency": 5.0,
+      "degree": 3,
+      "strength": 0.4714,
+      "d_specialisation": 0.1552,
+      "versatility": 0.325987
+    },
+    {
+      "node_id": "Rhamnus_alaternus",
+      "layer_name": "2013",
+      "node_name": "Rhamnus_alaternus",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 9.0,
+      "degree": 4,
+      "strength": 1.1881,
+      "d_specialisation": 0.2423,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Rubus_ulmifolius",
+      "layer_name": "2013",
+      "node_name": "Rubus_ulmifolius",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 13.0,
+      "degree": 4,
+      "strength": 1.2589,
+      "d_specialisation": 0.2822,
+      "versatility": 0.847004
+    },
+    {
+      "node_id": "Smilax_aspera",
+      "layer_name": "2013",
+      "node_name": "Smilax_aspera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0357,
+      "versatility": 0.476281
+    },
+    {
+      "node_id": "Solanum_nigrum",
+      "layer_name": "2013",
+      "node_name": "Solanum_nigrum",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0625,
+      "d_specialisation": 0.1679,
+      "versatility": 0.288725
+    },
+    {
+      "node_id": "Vitis_vinifera",
+      "layer_name": "2013",
+      "node_name": "Vitis_vinifera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 11.0,
+      "degree": 3,
+      "strength": 1.1786,
+      "d_specialisation": 0.3467,
+      "versatility": 0.467201
+    },
+    {
+      "node_id": "Cyanistes_caeruleus",
+      "layer_name": "2014",
+      "node_name": "Cyanistes_caeruleus",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.3333,
+      "d_specialisation": 0.7192,
+      "versatility": 0.177277
+    },
+    {
+      "node_id": "Dendrocopos_major",
+      "layer_name": "2014",
+      "node_name": "Dendrocopos_major",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 3,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.1176,
+      "d_specialisation": 0.3655,
+      "versatility": 0.246215
+    },
+    {
+      "node_id": "Erithacus_rubecula",
+      "layer_name": "2014",
+      "node_name": "Erithacus_rubecula",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 7,
+      "interaction_frequency": 15.0,
+      "degree": 7,
+      "strength": 1.8181,
+      "d_specialisation": 0.1407,
+      "versatility": 0.622956
+    },
+    {
+      "node_id": "Ficedula_hypoleuca",
+      "layer_name": "2014",
+      "node_name": "Ficedula_hypoleuca",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 9.0,
+      "degree": 4,
+      "strength": 0.7303,
+      "d_specialisation": 0.1552,
+      "versatility": 0.406447
+    },
+    {
+      "node_id": "Muscicapa_striata",
+      "layer_name": "2014",
+      "node_name": "Muscicapa_striata",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 4,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.2,
+      "d_specialisation": 0.5886,
+      "versatility": 0.21341
+    },
+    {
+      "node_id": "Sylvia_atricapilla",
+      "layer_name": "2014",
+      "node_name": "Sylvia_atricapilla",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 8,
+      "interaction_frequency": 42.0,
+      "degree": 8,
+      "strength": 3.4835,
+      "d_specialisation": 0.1347,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Sylvia_borin",
+      "layer_name": "2014",
+      "node_name": "Sylvia_borin",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 16.0,
+      "degree": 5,
+      "strength": 1.0013,
+      "d_specialisation": 0.1406,
+      "versatility": 0.80175
+    },
+    {
+      "node_id": "Sylvia_communis",
+      "layer_name": "2014",
+      "node_name": "Sylvia_communis",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 3.0,
+      "degree": 2,
+      "strength": 0.24,
+      "d_specialisation": 0.1357,
+      "versatility": 0.269776
+    },
+    {
+      "node_id": "Sylvia_melanocephala",
+      "layer_name": "2014",
+      "node_name": "Sylvia_melanocephala",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 6,
+      "interaction_frequency": 20.0,
+      "degree": 6,
+      "strength": 3.1994,
+      "d_specialisation": 0.2951,
+      "versatility": 0.506431
+    },
+    {
+      "node_id": "Sylvia_undata",
+      "layer_name": "2014",
+      "node_name": "Sylvia_undata",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 2,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.04,
+      "d_specialisation": 0.0456,
+      "versatility": 0.2168
+    },
+    {
+      "node_id": "Turdus_merula",
+      "layer_name": "2014",
+      "node_name": "Turdus_merula",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 5.0,
+      "degree": 5,
+      "strength": 0.8364,
+      "d_specialisation": 0.1831,
+      "versatility": 0.423721
+    },
+    {
+      "node_id": "Arbutus_unedo",
+      "layer_name": "2014",
+      "node_name": "Arbutus_unedo",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 6.0,
+      "degree": 4,
+      "strength": 0.3839,
+      "d_specialisation": 0.0876,
+      "versatility": 0.256622
+    },
+    {
+      "node_id": "Daphne_gnidium",
+      "layer_name": "2014",
+      "node_name": "Daphne_gnidium",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.05,
+      "d_specialisation": 0.1985,
+      "versatility": 0.247103
+    },
+    {
+      "node_id": "Ficus_carica",
+      "layer_name": "2014",
+      "node_name": "Ficus_carica",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 17.0,
+      "degree": 4,
+      "strength": 1.7268,
+      "d_specialisation": 0.3204,
+      "versatility": 0.892827
+    },
+    {
+      "node_id": "Phillyrea_latifolia",
+      "layer_name": "2014",
+      "node_name": "Phillyrea_latifolia",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.05,
+      "d_specialisation": 0.1985,
+      "versatility": 0.325987
+    },
+    {
+      "node_id": "Pistacia_lentiscus",
+      "layer_name": "2014",
+      "node_name": "Pistacia_lentiscus",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 8,
+      "interaction_frequency": 50.0,
+      "degree": 8,
+      "strength": 4.2958,
+      "d_specialisation": 0.1072,
+      "versatility": 0.878505
+    },
+    {
+      "node_id": "Rhamnus_alaternus",
+      "layer_name": "2014",
+      "node_name": "Rhamnus_alaternus",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 11.0,
+      "degree": 5,
+      "strength": 0.7143,
+      "d_specialisation": 0.1232,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Rubia_peregrina",
+      "layer_name": "2014",
+      "node_name": "Rubia_peregrina",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 3,
+      "interaction_frequency": 5.0,
+      "degree": 3,
+      "strength": 0.4714,
+      "d_specialisation": 0.1951,
+      "versatility": 0.265003
+    },
+    {
+      "node_id": "Rubus_ulmifolius",
+      "layer_name": "2014",
+      "node_name": "Rubus_ulmifolius",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 3.0,
+      "degree": 3,
+      "strength": 1.1778,
+      "d_specialisation": 0.484,
+      "versatility": 0.847004
+    },
+    {
+      "node_id": "Smilax_aspera",
+      "layer_name": "2014",
+      "node_name": "Smilax_aspera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 13.0,
+      "degree": 4,
+      "strength": 0.5212,
+      "d_specialisation": 0.1607,
+      "versatility": 0.476281
+    },
+    {
+      "node_id": "Solanum_nigrum",
+      "layer_name": "2014",
+      "node_name": "Solanum_nigrum",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 2.0,
+      "degree": 2,
+      "strength": 0.0738,
+      "versatility": 0.288725
+    },
+    {
+      "node_id": "Viburnum_tinus",
+      "layer_name": "2014",
+      "node_name": "Viburnum_tinus",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 5.0,
+      "degree": 4,
+      "strength": 1.2683,
+      "d_specialisation": 0.3159,
+      "versatility": 0.282932
+    },
+    {
+      "node_id": "Vitis_vinifera",
+      "layer_name": "2014",
+      "node_name": "Vitis_vinifera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 2,
+      "interaction_frequency": 2.0,
+      "degree": 2,
+      "strength": 0.2667,
+      "d_specialisation": 0.3588,
+      "versatility": 0.467201
+    },
+    {
+      "node_id": "Chloris_chloris",
+      "layer_name": "2015",
+      "node_name": "Chloris_chloris",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 4,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0222,
+      "versatility": 0.251466
+    },
+    {
+      "node_id": "Erithacus_rubecula",
+      "layer_name": "2015",
+      "node_name": "Erithacus_rubecula",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 7,
+      "interaction_frequency": 20.0,
+      "degree": 7,
+      "strength": 1.5315,
+      "d_specialisation": 0.1948,
+      "versatility": 0.622956
+    },
+    {
+      "node_id": "Ficedula_hypoleuca",
+      "layer_name": "2015",
+      "node_name": "Ficedula_hypoleuca",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.0667,
+      "d_specialisation": 0.2886,
+      "versatility": 0.406447
+    },
+    {
+      "node_id": "Muscicapa_striata",
+      "layer_name": "2015",
+      "node_name": "Muscicapa_striata",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 4,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.0444,
+      "d_specialisation": 0.1821,
+      "versatility": 0.21341
+    },
+    {
+      "node_id": "Sylvia_atricapilla",
+      "layer_name": "2015",
+      "node_name": "Sylvia_atricapilla",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 13,
+      "interaction_frequency": 68.0,
+      "degree": 13,
+      "strength": 7.2375,
+      "d_specialisation": 0.1213,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Sylvia_borin",
+      "layer_name": "2015",
+      "node_name": "Sylvia_borin",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 7,
+      "interaction_frequency": 57.0,
+      "degree": 7,
+      "strength": 2.5986,
+      "d_specialisation": 0.1921,
+      "versatility": 0.80175
+    },
+    {
+      "node_id": "Sylvia_communis",
+      "layer_name": "2015",
+      "node_name": "Sylvia_communis",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 4,
+      "interaction_richness": 3,
+      "interaction_frequency": 7.0,
+      "degree": 3,
+      "strength": 0.6889,
+      "d_specialisation": 0.3802,
+      "versatility": 0.269776
+    },
+    {
+      "node_id": "Sylvia_melanocephala",
+      "layer_name": "2015",
+      "node_name": "Sylvia_melanocephala",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 20.0,
+      "degree": 4,
+      "strength": 0.6177,
+      "d_specialisation": 0.1996,
+      "versatility": 0.506431
+    },
+    {
+      "node_id": "Sylvia_undata",
+      "layer_name": "2015",
+      "node_name": "Sylvia_undata",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 2,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0333,
+      "d_specialisation": 0.1065,
+      "versatility": 0.2168
+    },
+    {
+      "node_id": "Turdus_merula",
+      "layer_name": "2015",
+      "node_name": "Turdus_merula",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 7.0,
+      "degree": 5,
+      "strength": 1.1593,
+      "d_specialisation": 0.1422,
+      "versatility": 0.423721
+    },
+    {
+      "node_id": "Arbutus_unedo",
+      "layer_name": "2015",
+      "node_name": "Arbutus_unedo",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.1429,
+      "d_specialisation": 0.5388,
+      "versatility": 0.256622
+    },
+    {
+      "node_id": "Ficus_carica",
+      "layer_name": "2015",
+      "node_name": "Ficus_carica",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 45.0,
+      "degree": 5,
+      "strength": 2.1378,
+      "d_specialisation": 0.2206,
+      "versatility": 0.892827
+    },
+    {
+      "node_id": "Lonicera_periclymenum",
+      "layer_name": "2015",
+      "node_name": "Lonicera_periclymenum",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0147,
+      "versatility": 0.218451
+    },
+    {
+      "node_id": "Phillyrea_angustifolia",
+      "layer_name": "2015",
+      "node_name": "Phillyrea_angustifolia",
+      "node_type": "plant",
+      "n_years": 1,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0147,
+      "versatility": 0.273921
+    },
+    {
+      "node_id": "Phillyrea_latifolia",
+      "layer_name": "2015",
+      "node_name": "Phillyrea_latifolia",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 4.0,
+      "degree": 2,
+      "strength": 0.0645,
+      "d_specialisation": 0.0352,
+      "versatility": 0.325987
+    },
+    {
+      "node_id": "Phytolacca_americana",
+      "layer_name": "2015",
+      "node_name": "Phytolacca_americana",
+      "node_type": "plant",
+      "n_years": 2,
+      "interaction_richness": 2,
+      "interaction_frequency": 3.0,
+      "degree": 2,
+      "strength": 0.047,
+      "d_specialisation": 0.0144,
+      "versatility": 0.261633
+    },
+    {
+      "node_id": "Pistacia_lentiscus",
+      "layer_name": "2015",
+      "node_name": "Pistacia_lentiscus",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 7,
+      "interaction_frequency": 45.0,
+      "degree": 7,
+      "strength": 2.5028,
+      "d_specialisation": 0.1287,
+      "versatility": 0.878505
+    },
+    {
+      "node_id": "Rhamnus_alaternus",
+      "layer_name": "2015",
+      "node_name": "Rhamnus_alaternus",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 27.0,
+      "degree": 5,
+      "strength": 0.7654,
+      "d_specialisation": 0.0511,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Rubia_peregrina",
+      "layer_name": "2015",
+      "node_name": "Rubia_peregrina",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 2,
+      "interaction_frequency": 4.0,
+      "degree": 2,
+      "strength": 0.0941,
+      "d_specialisation": 0.133,
+      "versatility": 0.265003
+    },
+    {
+      "node_id": "Rubus_ulmifolius",
+      "layer_name": "2015",
+      "node_name": "Rubus_ulmifolius",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 8,
+      "interaction_frequency": 30.0,
+      "degree": 8,
+      "strength": 3.5769,
+      "d_specialisation": 0.249,
+      "versatility": 0.847004
+    },
+    {
+      "node_id": "Smilax_aspera",
+      "layer_name": "2015",
+      "node_name": "Smilax_aspera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 2,
+      "interaction_frequency": 6.0,
+      "degree": 2,
+      "strength": 0.1235,
+      "d_specialisation": 0.1873,
+      "versatility": 0.476281
+    },
+    {
+      "node_id": "Solanum_nigrum",
+      "layer_name": "2015",
+      "node_name": "Solanum_nigrum",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 2.0,
+      "degree": 2,
+      "strength": 0.1576,
+      "d_specialisation": 0.2538,
+      "versatility": 0.288725
+    },
+    {
+      "node_id": "Viburnum_tinus",
+      "layer_name": "2015",
+      "node_name": "Viburnum_tinus",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 2,
+      "interaction_frequency": 3.0,
+      "degree": 2,
+      "strength": 0.1147,
+      "d_specialisation": 0.2162,
+      "versatility": 0.282932
+    },
+    {
+      "node_id": "Vitis_vinifera",
+      "layer_name": "2015",
+      "node_name": "Vitis_vinifera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 13.0,
+      "degree": 3,
+      "strength": 0.2435,
+      "d_specialisation": 0.0742,
+      "versatility": 0.467201
+    },
+    {
+      "node_id": "Cyanistes_caeruleus",
+      "layer_name": "2016",
+      "node_name": "Cyanistes_caeruleus",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.04,
+      "versatility": 0.177277
+    },
+    {
+      "node_id": "Erithacus_rubecula",
+      "layer_name": "2016",
+      "node_name": "Erithacus_rubecula",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 19.0,
+      "degree": 3,
+      "strength": 1.0055,
+      "d_specialisation": 0.4777,
+      "versatility": 0.622956
+    },
+    {
+      "node_id": "Ficedula_hypoleuca",
+      "layer_name": "2016",
+      "node_name": "Ficedula_hypoleuca",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 4.0,
+      "degree": 3,
+      "strength": 0.3255,
+      "d_specialisation": 0.0892,
+      "versatility": 0.406447
+    },
+    {
+      "node_id": "Sylvia_atricapilla",
+      "layer_name": "2016",
+      "node_name": "Sylvia_atricapilla",
+      "node_type": "bird",
+      "group": "partialmigratory",
+      "n_years": 5,
+      "interaction_richness": 9,
+      "interaction_frequency": 26.0,
+      "degree": 7,
+      "strength": 3.7438,
+      "d_specialisation": 0.4233,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Sylvia_borin",
+      "layer_name": "2016",
+      "node_name": "Sylvia_borin",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 23.0,
+      "degree": 3,
+      "strength": 0.4957,
+      "d_specialisation": 0.0729,
+      "versatility": 0.80175
+    },
+    {
+      "node_id": "Sylvia_communis",
+      "layer_name": "2016",
+      "node_name": "Sylvia_communis",
+      "node_type": "bird",
+      "group": "migratory",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 3.0,
+      "degree": 1,
+      "strength": 0.0455,
+      "d_specialisation": 0.0397,
+      "versatility": 0.269776
+    },
+    {
+      "node_id": "Sylvia_melanocephala",
+      "layer_name": "2016",
+      "node_name": "Sylvia_melanocephala",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 19.0,
+      "degree": 4,
+      "strength": 2.1903,
+      "d_specialisation": 0.3323,
+      "versatility": 0.506431
+    },
+    {
+      "node_id": "Turdus_merula",
+      "layer_name": "2016",
+      "node_name": "Turdus_merula",
+      "node_type": "bird",
+      "group": "resident",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 7.0,
+      "degree": 3,
+      "strength": 1.1538,
+      "d_specialisation": 0.6004,
+      "versatility": 0.423721
+    },
+    {
+      "node_id": "Crataegus_monogyna",
+      "layer_name": "2016",
+      "node_name": "Crataegus_monogyna",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 1,
+      "interaction_frequency": 1.0,
+      "degree": 1,
+      "strength": 0.0455,
+      "versatility": 0.319005
+    },
+    {
+      "node_id": "Daphne_gnidium",
+      "layer_name": "2016",
+      "node_name": "Daphne_gnidium",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.125,
+      "d_specialisation": 0.298,
+      "versatility": 0.247103
+    },
+    {
+      "node_id": "Ficus_carica",
+      "layer_name": "2016",
+      "node_name": "Ficus_carica",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 3,
+      "interaction_frequency": 13.0,
+      "degree": 3,
+      "strength": 0.8948,
+      "d_specialisation": 0.3949,
+      "versatility": 0.892827
+    },
+    {
+      "node_id": "Lonicera_periclymenum",
+      "layer_name": "2016",
+      "node_name": "Lonicera_periclymenum",
+      "node_type": "plant",
+      "n_years": 3,
+      "interaction_richness": 1,
+      "interaction_frequency": 2.0,
+      "degree": 1,
+      "strength": 0.0909,
+      "d_specialisation": 0.1905,
+      "versatility": 0.218451
+    },
+    {
+      "node_id": "Phillyrea_latifolia",
+      "layer_name": "2016",
+      "node_name": "Phillyrea_latifolia",
+      "node_type": "plant",
+      "n_years": 4,
+      "interaction_richness": 2,
+      "interaction_frequency": 3.0,
+      "degree": 2,
+      "strength": 0.1705,
+      "d_specialisation": 0.1664,
+      "versatility": 0.325987
+    },
+    {
+      "node_id": "Rhamnus_alaternus",
+      "layer_name": "2016",
+      "node_name": "Rhamnus_alaternus",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 6,
+      "interaction_frequency": 22.0,
+      "degree": 6,
+      "strength": 2.527,
+      "d_specialisation": 0.2125,
+      "versatility": 1.0
+    },
+    {
+      "node_id": "Rubus_ulmifolius",
+      "layer_name": "2016",
+      "node_name": "Rubus_ulmifolius",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 5,
+      "interaction_frequency": 25.0,
+      "degree": 5,
+      "strength": 2.9735,
+      "d_specialisation": 0.5186,
+      "versatility": 0.847004
+    },
+    {
+      "node_id": "Smilax_aspera",
+      "layer_name": "2016",
+      "node_name": "Smilax_aspera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 4,
+      "interaction_frequency": 5.0,
+      "degree": 4,
+      "strength": 0.556,
+      "d_specialisation": 0.1732,
+      "versatility": 0.476281
+    },
+    {
+      "node_id": "Vitis_vinifera",
+      "layer_name": "2016",
+      "node_name": "Vitis_vinifera",
+      "node_type": "plant",
+      "n_years": 5,
+      "interaction_richness": 2,
+      "interaction_frequency": 5.0,
+      "degree": 2,
+      "strength": 0.6169,
+      "d_specialisation": 0.5883,
+      "versatility": 0.467201
+    }
+  ],
+  "extended": [
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Cyanistes_caeruleus",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Ficus_carica",
+      "layer_to": "2012",
+      "node_to": "Erithacus_rubecula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Olea_europaea",
+      "layer_to": "2012",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2012",
+      "node_to": "Erithacus_rubecula",
+      "weight": 9
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2012",
+      "node_to": "Erithacus_rubecula",
+      "weight": 4
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Erithacus_rubecula",
+      "weight": 10
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Phytolacca_americana",
+      "layer_to": "2012",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 2
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2012",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 5
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2012",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 7
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 9
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2012",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 3
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2012",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Arbutus_unedo",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Ficus_carica",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 8
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 5
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 16
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 5
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 5
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2012",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 3
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Daphne_gnidium",
+      "layer_to": "2012",
+      "node_to": "Sylvia_borin",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Ficus_carica",
+      "layer_to": "2012",
+      "node_to": "Sylvia_borin",
+      "weight": 15
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2012",
+      "node_to": "Sylvia_borin",
+      "weight": 6
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2012",
+      "node_to": "Sylvia_borin",
+      "weight": 21
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Sylvia_borin",
+      "weight": 6
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2012",
+      "node_to": "Sylvia_borin",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2012",
+      "node_to": "Sylvia_borin",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2012",
+      "node_to": "Sylvia_communis",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Sylvia_communis",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Daphne_gnidium",
+      "layer_to": "2012",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2012",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 11
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2012",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 5
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubia_peregrina",
+      "layer_to": "2012",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 2
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 3
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Ficus_carica",
+      "layer_to": "2012",
+      "node_to": "Turdus_merula",
+      "weight": 5
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2012",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2012",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2012",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2012",
+      "node_to": "Turdus_merula",
+      "weight": 5
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficus_carica",
+      "layer_to": "2013",
+      "node_to": "Cyanistes_caeruleus",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2013",
+      "node_to": "Erithacus_rubecula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2013",
+      "node_to": "Erithacus_rubecula",
+      "weight": 6
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2013",
+      "node_to": "Erithacus_rubecula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficus_carica",
+      "layer_to": "2013",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2013",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2013",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2013",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficus_carica",
+      "layer_to": "2013",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 13
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Lonicera_periclymenum",
+      "layer_to": "2013",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 3
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2013",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2013",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2013",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2013",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2013",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 5
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficus_carica",
+      "layer_to": "2013",
+      "node_to": "Sylvia_borin",
+      "weight": 8
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2013",
+      "node_to": "Sylvia_borin",
+      "weight": 4
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2013",
+      "node_to": "Sylvia_borin",
+      "weight": 3
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2013",
+      "node_to": "Sylvia_borin",
+      "weight": 1
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficus_carica",
+      "layer_to": "2013",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2013",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 2
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficus_carica",
+      "layer_to": "2013",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2013",
+      "node_to": "Turdus_merula",
+      "weight": 4
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2014",
+      "node_to": "Cyanistes_caeruleus",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Ficus_carica",
+      "layer_to": "2014",
+      "node_to": "Dendrocopos_major",
+      "weight": 2
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 7
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rubia_peregrina",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Viburnum_tinus",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 6
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2014",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2014",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Viburnum_tinus",
+      "layer_to": "2014",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Viburnum_tinus",
+      "layer_to": "2014",
+      "node_to": "Muscicapa_striata",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Arbutus_unedo",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 3
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Ficus_carica",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 9
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 14
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rubia_peregrina",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 3
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 9
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Viburnum_tinus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Arbutus_unedo",
+      "layer_to": "2014",
+      "node_to": "Sylvia_borin",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Ficus_carica",
+      "layer_to": "2014",
+      "node_to": "Sylvia_borin",
+      "weight": 5
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_borin",
+      "weight": 5
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_borin",
+      "weight": 4
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2014",
+      "node_to": "Sylvia_borin",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_communis",
+      "weight": 2
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rubia_peregrina",
+      "layer_to": "2014",
+      "node_to": "Sylvia_communis",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Arbutus_unedo",
+      "layer_to": "2014",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Daphne_gnidium",
+      "layer_to": "2014",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2014",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 13
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 3
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2014",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Sylvia_undata",
+      "weight": 2
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Arbutus_unedo",
+      "layer_to": "2014",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Ficus_carica",
+      "layer_to": "2014",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2014",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2014",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2014",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Ficus_carica",
+      "layer_to": "2015",
+      "node_to": "Chloris_chloris",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Ficus_carica",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 7
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubia_peregrina",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 7
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Viburnum_tinus",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 2
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Muscicapa_striata",
+      "weight": 2
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Ficus_carica",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 15
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Lonicera_periclymenum",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Phillyrea_angustifolia",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Phytolacca_americana",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 19
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 10
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubia_peregrina",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 3
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 5
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Viburnum_tinus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 6
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Ficus_carica",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 25
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 2
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Phytolacca_americana",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 5
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 10
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 8
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 6
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_communis",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Sylvia_communis",
+      "weight": 5
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2015",
+      "node_to": "Sylvia_communis",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 10
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2015",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 5
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 4
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2015",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Sylvia_undata",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Arbutus_unedo",
+      "layer_to": "2015",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Ficus_carica",
+      "layer_to": "2015",
+      "node_to": "Turdus_merula",
+      "weight": 3
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2015",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2016",
+      "node_to": "Cyanistes_caeruleus",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2016",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2016",
+      "node_to": "Erithacus_rubecula",
+      "weight": 14
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2016",
+      "node_to": "Erithacus_rubecula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2016",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2016",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 2
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2016",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Crataegus_monogyna",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Ficus_carica",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 9
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Lonicera_periclymenum",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 2
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 7
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Ficus_carica",
+      "layer_to": "2016",
+      "node_to": "Sylvia_borin",
+      "weight": 2
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2016",
+      "node_to": "Sylvia_borin",
+      "weight": 4
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2016",
+      "node_to": "Sylvia_borin",
+      "weight": 4
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2016",
+      "node_to": "Sylvia_communis",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Daphne_gnidium",
+      "layer_to": "2016",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 2
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2016",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 2
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2016",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 8
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2016",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 4
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Ficus_carica",
+      "layer_to": "2016",
+      "node_to": "Turdus_merula",
+      "weight": 2
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2016",
+      "node_to": "Turdus_merula",
+      "weight": 1
+    },
+    {
+      "layer_from": "2016",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2016",
+      "node_to": "Turdus_merula",
+      "weight": 4
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Cyanistes_caeruleus",
+      "layer_to": "2014",
+      "node_to": "Cyanistes_caeruleus",
+      "weight": 1.102941,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Erithacus_rubecula",
+      "layer_to": "2014",
+      "node_to": "Erithacus_rubecula",
+      "weight": 0.617122,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficedula_hypoleuca",
+      "layer_to": "2014",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 0.396825,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Ficus_carica",
+      "layer_to": "2014",
+      "node_to": "Ficus_carica",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2014",
+      "node_to": "Rhamnus_alaternus",
+      "weight": 0.076923,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2014",
+      "node_to": "Rubus_ulmifolius",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2014",
+      "node_to": "Smilax_aspera",
+      "weight": 0.674089,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2014",
+      "node_to": "Solanum_nigrum",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Sylvia_atricapilla",
+      "layer_to": "2014",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1.797386,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Sylvia_borin",
+      "layer_to": "2014",
+      "node_to": "Sylvia_borin",
+      "weight": 0.588235,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Sylvia_melanocephala",
+      "layer_to": "2014",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 0.895141,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Turdus_merula",
+      "layer_to": "2014",
+      "node_to": "Turdus_merula",
+      "weight": 0.544662,
+      "directed": true
+    },
+    {
+      "layer_from": "2013",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2014",
+      "node_to": "Vitis_vinifera",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Arbutus_unedo",
+      "layer_to": "2015",
+      "node_to": "Arbutus_unedo",
+      "weight": 74.6,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Erithacus_rubecula",
+      "layer_to": "2015",
+      "node_to": "Erithacus_rubecula",
+      "weight": 1.62766,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Ficedula_hypoleuca",
+      "layer_to": "2015",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 2.175,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Ficus_carica",
+      "layer_to": "2015",
+      "node_to": "Ficus_carica",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Muscicapa_striata",
+      "layer_to": "2015",
+      "node_to": "Muscicapa_striata",
+      "weight": 2.55,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2015",
+      "node_to": "Phillyrea_latifolia",
+      "weight": 0.018868,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Pistacia_lentiscus",
+      "layer_to": "2015",
+      "node_to": "Pistacia_lentiscus",
+      "weight": 21.875,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2015",
+      "node_to": "Rhamnus_alaternus",
+      "weight": 93.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2015",
+      "node_to": "Rubus_ulmifolius",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2015",
+      "node_to": "Smilax_aspera",
+      "weight": 2.174174,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Solanum_nigrum",
+      "layer_to": "2015",
+      "node_to": "Solanum_nigrum",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Sylvia_atricapilla",
+      "layer_to": "2015",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 0.714773,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Sylvia_borin",
+      "layer_to": "2015",
+      "node_to": "Sylvia_borin",
+      "weight": 0.789286,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Sylvia_melanocephala",
+      "layer_to": "2015",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 1.882143,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Turdus_merula",
+      "layer_to": "2015",
+      "node_to": "Turdus_merula",
+      "weight": 1.105,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Viburnum_tinus",
+      "layer_to": "2015",
+      "node_to": "Viburnum_tinus",
+      "weight": 19.146341,
+      "directed": true
+    },
+    {
+      "layer_from": "2014",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2015",
+      "node_to": "Vitis_vinifera",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Erithacus_rubecula",
+      "layer_to": "2016",
+      "node_to": "Erithacus_rubecula",
+      "weight": 0.867725,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Ficedula_hypoleuca",
+      "layer_to": "2016",
+      "node_to": "Ficedula_hypoleuca",
+      "weight": 0.875753,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Ficus_carica",
+      "layer_to": "2016",
+      "node_to": "Ficus_carica",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Phillyrea_latifolia",
+      "layer_to": "2016",
+      "node_to": "Phillyrea_latifolia",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rhamnus_alaternus",
+      "layer_to": "2016",
+      "node_to": "Rhamnus_alaternus",
+      "weight": 0.010753,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Rubus_ulmifolius",
+      "layer_to": "2016",
+      "node_to": "Rubus_ulmifolius",
+      "weight": 1.0,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Smilax_aspera",
+      "layer_to": "2016",
+      "node_to": "Smilax_aspera",
+      "weight": 0.679558,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Sylvia_atricapilla",
+      "layer_to": "2016",
+      "node_to": "Sylvia_atricapilla",
+      "weight": 1.389961,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Sylvia_borin",
+      "layer_to": "2016",
+      "node_to": "Sylvia_borin",
+      "weight": 3.076923,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Sylvia_communis",
+      "layer_to": "2016",
+      "node_to": "Sylvia_communis",
+      "weight": 1.666667,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Sylvia_melanocephala",
+      "layer_to": "2016",
+      "node_to": "Sylvia_melanocephala",
+      "weight": 0.706605,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Turdus_merula",
+      "layer_to": "2016",
+      "node_to": "Turdus_merula",
+      "weight": 0.586081,
+      "directed": true
+    },
+    {
+      "layer_from": "2015",
+      "node_from": "Vitis_vinifera",
+      "layer_to": "2016",
+      "node_to": "Vitis_vinifera",
+      "weight": 1.0,
+      "directed": true
+    }
+  ],
+  "state_nodes": [
+    {
+      "layer_name": "2012",
+      "node_name": "Arbutus_unedo"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Arbutus_unedo"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Arbutus_unedo"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Chloris_chloris"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Crataegus_monogyna"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Cyanistes_caeruleus"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Cyanistes_caeruleus"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Cyanistes_caeruleus"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Cyanistes_caeruleus"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Daphne_gnidium"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Daphne_gnidium"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Daphne_gnidium"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Dendrocopos_major"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Erithacus_rubecula"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Erithacus_rubecula"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Erithacus_rubecula"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Erithacus_rubecula"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Erithacus_rubecula"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Ficedula_hypoleuca"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Ficedula_hypoleuca"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Ficedula_hypoleuca"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Ficedula_hypoleuca"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Ficedula_hypoleuca"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Ficus_carica"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Ficus_carica"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Ficus_carica"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Ficus_carica"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Ficus_carica"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Lonicera_periclymenum"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Lonicera_periclymenum"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Lonicera_periclymenum"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Muscicapa_striata"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Muscicapa_striata"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Olea_europaea"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Phillyrea_angustifolia"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Phillyrea_latifolia"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Phillyrea_latifolia"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Phillyrea_latifolia"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Phillyrea_latifolia"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Phytolacca_americana"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Phytolacca_americana"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Pistacia_lentiscus"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Pistacia_lentiscus"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Pistacia_lentiscus"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Rhamnus_alaternus"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Rhamnus_alaternus"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Rhamnus_alaternus"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Rhamnus_alaternus"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Rhamnus_alaternus"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Rubia_peregrina"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Rubia_peregrina"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Rubia_peregrina"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Rubus_ulmifolius"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Rubus_ulmifolius"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Rubus_ulmifolius"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Rubus_ulmifolius"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Rubus_ulmifolius"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Smilax_aspera"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Smilax_aspera"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Smilax_aspera"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Smilax_aspera"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Smilax_aspera"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Solanum_nigrum"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Solanum_nigrum"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Solanum_nigrum"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Solanum_nigrum"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Sylvia_atricapilla"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Sylvia_atricapilla"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Sylvia_atricapilla"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Sylvia_atricapilla"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Sylvia_atricapilla"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Sylvia_borin"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Sylvia_borin"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Sylvia_borin"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Sylvia_borin"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Sylvia_borin"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Sylvia_communis"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Sylvia_communis"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Sylvia_communis"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Sylvia_communis"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Sylvia_melanocephala"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Sylvia_melanocephala"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Sylvia_melanocephala"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Sylvia_melanocephala"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Sylvia_melanocephala"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Sylvia_undata"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Sylvia_undata"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Turdus_merula"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Turdus_merula"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Turdus_merula"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Turdus_merula"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Turdus_merula"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Viburnum_tinus"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Viburnum_tinus"
+    },
+    {
+      "layer_name": "2012",
+      "node_name": "Vitis_vinifera"
+    },
+    {
+      "layer_name": "2013",
+      "node_name": "Vitis_vinifera"
+    },
+    {
+      "layer_name": "2014",
+      "node_name": "Vitis_vinifera"
+    },
+    {
+      "layer_name": "2015",
+      "node_name": "Vitis_vinifera"
+    },
+    {
+      "layer_name": "2016",
+      "node_name": "Vitis_vinifera"
+    }
+  ]
+}
