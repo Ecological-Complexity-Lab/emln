@@ -589,10 +589,20 @@
       <!-- Nodes (optional) -->
       <div style="margin-bottom:16px;">
         <label style="font-size:12px; font-weight:600; display:block; margin-bottom:2px;">Node Attributes <span style="font-weight:400; color:#9ca3af;">(optional)</span></label>
-        <p style="font-size:11px; color:#9ca3af; margin:0 0 6px;">Columns: node_name · group (or node_type) · …</p>
+        <p style="font-size:11px; color:#9ca3af; margin:0 0 6px;">Columns: node_name · node_type · … (physical node attributes, same across layers)</p>
         <div class="file-input-wrapper" style="width:100%;">
           <button class="btn" id="csvNodesLabel" style="width:100%; text-align:left; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Choose file…</button>
           <input type="file" id="csvNodesFile" accept=".csv,.tsv,.txt">
+        </div>
+      </div>
+
+      <!-- State node attributes (optional) -->
+      <div style="margin-bottom:16px;">
+        <label style="font-size:12px; font-weight:600; display:block; margin-bottom:2px;">State Node Attributes <span style="font-weight:400; color:#9ca3af;">(optional)</span></label>
+        <p style="font-size:11px; color:#9ca3af; margin:0 0 6px;">Columns: layer_name · node_name · … (per-layer node attributes, e.g. abundance, module)</p>
+        <div class="file-input-wrapper" style="width:100%;">
+          <button class="btn" id="csvStateNodesLabel" style="width:100%; text-align:left; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Choose file…</button>
+          <input type="file" id="csvStateNodesFile" accept=".csv,.tsv,.txt">
         </div>
       </div>
 

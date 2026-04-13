@@ -20,9 +20,13 @@ multilayer_to_csv(
 already exist.}
 
 \item{prefix}{Character. File name prefix. Defaults to \code{"network"}.
-Three files are written:
+Three files are always written:
 \code{<prefix>_edges.csv}, \code{<prefix>_layers.csv},
-\code{<prefix>_nodes.csv}.}
+\code{<prefix>_nodes.csv}.
+A fourth file \code{<prefix>_state_nodes.csv} is written when the
+multilayer object contains per-(layer, node) attributes beyond
+\code{layer_name} and \code{node_name} (e.g. abundance,
+module).}
 
 \item{bipartite}{Logical. Whether the network is bipartite. Defaults to
 \code{FALSE}. When \code{TRUE}, the nodes table must contain a
@@ -34,22 +38,28 @@ written to the layers CSV.}
 (default), auto-detected by checking intralayer edge symmetry.}
 }
 \value{
-Invisibly returns a character vector with the three file paths.
+Invisibly returns a named character vector of file paths written
+  (\code{edges}, \code{layers}, \code{nodes}, and optionally
+  \code{state_nodes}).
 }
 \description{
 Writes an EMLN \code{multilayer} object as the three-file CSV set consumed
 by the Multilayer Network Visualizer's CSV importer.
 }
 \details{
-The three CSV files follow the schema accepted by the visualizer's CSV
-importer:
+The CSV files follow the schema accepted by the visualizer's CSV importer:
 \itemize{
   \item \strong{edges}: \code{layer_from, node_from, layer_to, node_to,
     weight} (+ any extra link attributes).
   \item \strong{layers}: \code{layer_id, layer_name} (+ \code{latitude,
     longitude, bipartite} and any extra layer attributes).
   \item \strong{nodes}: \code{node_name} (+ \code{node_type} and any extra
-    node attributes). \code{node_group} is renamed to \code{node_type}.
+    physical node attributes, same across all layers).
+    \code{node_group} is renamed to \code{node_type}.
+  \item \strong{state_nodes} (written only when extra per-(layer, node)
+    attributes exist): \code{layer_name, node_name} + extra columns.
+    Use this when the same node has different attribute values in
+    different layers (e.g. abundance, module membership).
 }
 The \code{directed} flag is not written to the CSV files; it is a property
 you specify in the visualizer's CSV import dialog at load time.

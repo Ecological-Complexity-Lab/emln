@@ -35,17 +35,22 @@ export function parseCsv(text) {
 /**
  * Convert CSV inputs to the JSON structure expected by parseMultilayerData().
  *
- * @param {string}      edgeListText  — Required. Extended edge list CSV text.
- * @param {string|null} layersText    — Optional. Layer attributes CSV text.
- * @param {string|null} nodesText     — Optional. Node attributes CSV text.
+ * @param {string}      edgeListText    — Required. Extended edge list CSV text.
+ * @param {string|null} layersText      — Optional. Layer attributes CSV text.
+ * @param {string|null} nodesText       — Optional. Node attributes CSV text.
+ * @param {string|null} stateNodesText  — Optional. State-node attributes CSV text.
+ *   Columns: layer_name, node_name, plus any extra per-(layer, node) attributes
+ *   (e.g. abundance, module). These are merged into the state_nodes array by
+ *   matching on (layer_name, node_name). Use this when the same physical node
+ *   has different attribute values in different layers.
  * Bipartite layers must be declared via a "bipartite" column in the layers CSV
  * (TRUE/FALSE per layer). Nodes participating in any bipartite layer must carry
  * a "node_type" column with exactly two distinct values across the file.
  *
  * @param {{ directed: boolean }} options
- * @returns {{ json: object, infoMessages: string[] }}
+ * @returns {{ json: object, infoMessages: string[], warnings: string[] }}
  */
-export function csvToJson(edgeListText, layersText, nodesText, options = {}) {
+export function csvToJson(edgeListText, layersText, nodesText, stateNodesText, options = {}) {
     const { directed = false } = options;
     const infoMessages = [];
 
@@ -167,6 +172,29 @@ export function csvToJson(edgeListText, layersText, nodesText, options = {}) {
                     node_name:  nodeName,
                 });
             }
+        }
+    }
+
+    // ── Merge state-node attributes ──────────────────────────────────────────
+    if (stateNodesText) {
+        const snRows = parseCsv(stateNodesText);
+        if (!('layer_name' in (snRows[0] ?? {})) || !('node_name' in (snRows[0] ?? {}))) {
+            throw new Error('State node attributes file is missing required columns: "layer_name" and "node_name".');
+        }
+        const CORE_SN = new Set(['layer_name', 'node_name', 'layer_id', 'node_id']);
+        const snByKey = new Map();
+        for (const row of snRows) {
+            const key = `${row.layer_name}::${row.node_name}`;
+            const extras = {};
+            for (const [k, v] of Object.entries(row)) {
+                if (!CORE_SN.has(k)) extras[k] = v;
+            }
+            snByKey.set(key, extras);
+        }
+        for (const sn of state_nodes) {
+            const key = `${sn.layer_name}::${sn.node_name}`;
+            const extras = snByKey.get(key);
+            if (extras) Object.assign(sn, extras);
         }
     }
 

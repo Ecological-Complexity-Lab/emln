@@ -257,14 +257,39 @@
   <p>Upload a <code>.json</code> file formatted according to the <a href="#data-format">JSON Format Spec</a> below.</p>
 
   <h3 id="import-csv">Load User Data (CSV)</h3>
-  <p>Load network data from CSV files. A modal dialog accepts up to three files:</p>
+  <p>Load network data from CSV files. A modal dialog accepts up to four files:</p>
   <ul>
     <li><em>Extended Edge List</em> <strong>(required)</strong> — one row per link, columns: <code>layer_from</code>, <code>node_from</code>, <code>layer_to</code>, <code>node_to</code>, <code>weight</code> (optional). Both intralayer and interlayer links go in this single file.</li>
-    <li><em>Layer Attributes</em> (optional) — columns: <code>layer_id</code>, <code>layer_name</code>, <code>latitude</code>, <code>longitude</code>, and <code>bipartite</code> (TRUE/FALSE per layer). If omitted, layers are derived from the edge list and all treated as unipartite.</li>
-    <li><em>Node Attributes</em> (optional) — columns: <code>node_name</code>, plus <code>node_type</code> (required when any layer is marked bipartite — must have exactly two distinct values). If omitted, nodes are derived from the edge list.</li>
+    <li><em>Layer Attributes</em> (optional) — columns: <code>layer_id</code>, <code>layer_name</code>, <code>latitude</code>, <code>longitude</code>, <code>bipartite</code> (TRUE/FALSE), and any additional columns for layer attributes (e.g. <code>area</code>, <code>elevation</code>) which become available for color mapping. If omitted, layers are derived from the edge list and all treated as unipartite.</li>
+    <li><em>Node Attributes</em> (optional) — columns: <code>node_name</code> (required), <code>node_type</code> (required when any layer is marked bipartite — must have exactly two distinct values), and any additional columns for <strong>physical</strong> node attributes that are the same across all layers (e.g. <code>body_mass</code>, <code>guild</code>). If omitted, nodes are derived from the edge list with no attributes.</li>
+    <li><em>State Node Attributes</em> (optional) — columns: <code>layer_name</code> (required), <code>node_name</code> (required), plus any additional columns for <strong>per-layer</strong> node attributes that can differ across layers (e.g. <code>abundance</code>, <code>module</code>). Use this when the same species or node has a different value in each temporal or spatial layer. Rows that do not match a (layer, node) pair already present in the edge list are silently ignored.</li>
   </ul>
   <div class="info-box"><strong>Bipartite declaration:</strong> bipartite is never auto-detected. Mark a layer as bipartite via the <code>bipartite=TRUE</code> column in the layers file, and provide a <code>node_type</code> column in the nodes file.</div>
   <p>The <strong>Directed</strong> checkbox marks all edges as directed before loading. Comma, tab, and semicolon delimiters are auto-detected.</p>
+  <div class="info-box"><strong>Note:</strong> The (layer, node) pairs are derived automatically from the edge list — you do not need to supply them. The optional <em>State Node Attributes</em> file lets you attach per-layer attributes to those pairs without modifying any other file.</div>
+
+  <h4 style="margin-top:14px;margin-bottom:6px;font-size:13px;">Example — four-file import (temporal network with per-layer abundance)</h4>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 8px;"><em>network_edges.csv</em> (required)</p>
+  <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:12px;font-size:12px;overflow-x:auto;margin:0 0 8px"><code style="background:none;border:none;padding:0;color:#1f2937">layer_from,node_from,layer_to,node_to,weight
+1982,Apodemus_agrarius,1982,Ixodes_ricinus,1
+1982,Apodemus_peninsulae,1982,Ixodes_ricinus,1
+1983,Apodemus_agrarius,1983,Ixodes_ricinus,1</code></pre>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 8px;"><em>network_layers.csv</em> (optional)</p>
+  <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:12px;font-size:12px;overflow-x:auto;margin:0 0 8px"><code style="background:none;border:none;padding:0;color:#1f2937">layer_id,layer_name
+1,1982
+2,1983</code></pre>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 8px;"><em>network_nodes.csv</em> (optional — physical attributes, same across all layers)</p>
+  <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:12px;font-size:12px;overflow-x:auto;margin:0 0 8px"><code style="background:none;border:none;padding:0;color:#1f2937">node_name,body_mass_g
+Apodemus_agrarius,22
+Apodemus_peninsulae,28
+Ixodes_ricinus,0.003</code></pre>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 8px;"><em>network_state_nodes.csv</em> (optional — per-layer attributes, can differ across layers)</p>
+  <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:12px;font-size:12px;overflow-x:auto;margin:0 0 8px"><code style="background:none;border:none;padding:0;color:#1f2937">layer_name,node_name,abundance,module
+1982,Apodemus_agrarius,82,3
+1982,Apodemus_peninsulae,14,3
+1983,Apodemus_agrarius,61,2
+1983,Apodemus_peninsulae,19,1</code></pre>
+  <p style="font-size:12px;color:#6b7280;">After loading, <code>abundance</code> and <code>module</code> appear in the Color By and Size By dropdowns as <em>State</em> attributes, and their values reflect the specific layer each node is in.</p>
 
   <hr>
 
@@ -324,6 +349,7 @@
   <p>Enumerates every (layer, node) pair present. Required for correct rendering.</p>
   <ul>
     <li><code>layer_name</code>, <code>node_name</code> — required.</li>
+    <li>Any extra columns carry <strong>per-layer node attributes</strong> — attributes whose value can differ for the same node in different layers (e.g. <code>abundance</code>, <code>module</code>). These are distinct from physical node attributes (in the <code>nodes</code> array), which are constant across layers. In CSV import, per-layer attributes are supplied via the optional <em>State Node Attributes</em> file.</li>
   </ul>
 
   <hr>
@@ -670,13 +696,13 @@ multilayer_to_csv(net, dir = "out/", prefix = "net60", bipartite = TRUE)</code><
   <p style="margin-top:8px"><strong>Legacy column renaming:</strong> the nodes table column <code>node_group</code> or <code>type</code> is automatically renamed to <code>node_type</code> (the canonical name) in the output.</p>
 
   <h3 id="emln-csv">multilayer_to_csv()</h3>
-  <p>Exports the network as three CSV files matching the <a href="#import-csv">CSV import</a> schema — ready to drag-and-drop into MultilayerViz.</p>
+  <p>Exports the network as CSV files matching the <a href="#import-csv">CSV import</a> schema — ready to drag-and-drop into MultilayerViz. Three files are always written (<code>_edges</code>, <code>_layers</code>, <code>_nodes</code>); a fourth <code>_state_nodes</code> file is added automatically when the multilayer object contains per-layer node attributes (e.g. <code>abundance</code>, <code>module</code>).</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
     <thead><tr style="background:#f3f4f6"><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Argument</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Default</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Description</th></tr></thead>
     <tbody>
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>multilayer</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">—</td><td style="padding:6px 10px;border:1px solid #e5e7eb">A multilayer object.</td></tr>
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>dir</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">—</td><td style="padding:6px 10px;border:1px solid #e5e7eb">Output directory. Created automatically if it does not exist.</td></tr>
-      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>prefix</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>"network"</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">File name prefix. Produces <code>&lt;prefix&gt;_edges.csv</code>, <code>&lt;prefix&gt;_layers.csv</code>, <code>&lt;prefix&gt;_nodes.csv</code>.</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>prefix</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>"network"</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">File name prefix. Always produces <code>&lt;prefix&gt;_edges.csv</code>, <code>&lt;prefix&gt;_layers.csv</code>, <code>&lt;prefix&gt;_nodes.csv</code>; optionally <code>&lt;prefix&gt;_state_nodes.csv</code>.</td></tr>
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>bipartite</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>FALSE</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">When <code>TRUE</code>, adds a <code>bipartite</code> column to the layers CSV and writes <code>node_type</code> to the nodes CSV.</td></tr>
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>directed</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>NULL</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Not written to files — set directed/undirected in the app's CSV import dialog at load time.</td></tr>
     </tbody>

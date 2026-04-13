@@ -42,9 +42,11 @@ const csvEdgeFile     = document.getElementById('csvEdgeFile');
 const csvEdgeLabel    = document.getElementById('csvEdgeLabel');
 const csvLayersFile   = document.getElementById('csvLayersFile');
 const csvLayersLabel  = document.getElementById('csvLayersLabel');
-const csvNodesFile    = document.getElementById('csvNodesFile');
-const csvNodesLabel   = document.getElementById('csvNodesLabel');
-const csvDirected     = document.getElementById('csvDirected');
+const csvNodesFile        = document.getElementById('csvNodesFile');
+const csvNodesLabel       = document.getElementById('csvNodesLabel');
+const csvStateNodesFile   = document.getElementById('csvStateNodesFile');
+const csvStateNodesLabel  = document.getElementById('csvStateNodesLabel');
+const csvDirected         = document.getElementById('csvDirected');
 const csvImportLoad   = document.getElementById('csvImportLoad');
 const csvImportCancel = document.getElementById('csvImportCancel');
 const csvImportError  = document.getElementById('csvImportError');
@@ -2180,7 +2182,7 @@ dataLoadedDontShow.addEventListener('click', () => {
 dataLoadedNotice.addEventListener('click', e => { if (e.target === dataLoadedNotice) _closeDataLoadedNotice(); });
 
 // ---- CSV Import ----
-let _csvEdgeText = null, _csvLayersText = null, _csvNodesText = null;
+let _csvEdgeText = null, _csvLayersText = null, _csvNodesText = null, _csvStateNodesText = null;
 let _csvPendingJson = null;
 
 function _readFileAsText(file) {
@@ -2199,10 +2201,11 @@ function _closeCsvModal() {
 }
 
 csvUploadBtn.addEventListener('click', () => {
-    _csvEdgeText = _csvLayersText = _csvNodesText = null;
+    _csvEdgeText = _csvLayersText = _csvNodesText = _csvStateNodesText = null;
     csvEdgeLabel.textContent = 'Choose file…';
     csvLayersLabel.textContent = 'Choose file…';
     csvNodesLabel.textContent = 'Choose file…';
+    csvStateNodesLabel.textContent = 'Choose file…';
     csvDirected.checked = false;
     csvImportLoad.disabled = true;
     csvImportLoad.style.opacity = '0.4';
@@ -2236,6 +2239,12 @@ csvNodesFile.addEventListener('change', async e => {
     _csvNodesText = await _readFileAsText(f);
 });
 
+csvStateNodesFile.addEventListener('change', async e => {
+    const f = e.target.files[0]; if (!f) return;
+    csvStateNodesLabel.textContent = f.name;
+    _csvStateNodesText = await _readFileAsText(f);
+});
+
 csvImportLoad.addEventListener('click', () => {
     // If user is confirming after a warning, load the pending json directly
     if (_csvPendingJson) {
@@ -2250,7 +2259,7 @@ csvImportLoad.addEventListener('click', () => {
     csvImportWarn.style.display  = 'none';
     csvImportInfo.style.display  = 'none';
     try {
-        const { json, infoMessages, warnings } = csvToJson(_csvEdgeText, _csvLayersText, _csvNodesText, {
+        const { json, infoMessages, warnings } = csvToJson(_csvEdgeText, _csvLayersText, _csvNodesText, _csvStateNodesText, {
             directed: csvDirected.checked,
         });
         if (warnings.length) {
@@ -2354,7 +2363,8 @@ function populateDropdowns() {
     const isNumericAttr = (attr, entities) => {
         for (const e of entities) {
             const v = e[attr];
-            if (v !== undefined && v !== null) return typeof v === 'number';
+            if (v !== undefined && v !== null && v !== '')
+                return typeof v === 'number' || (typeof v === 'string' && !isNaN(Number(v)));
         }
         return false;
     };
