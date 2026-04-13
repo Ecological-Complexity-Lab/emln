@@ -1018,13 +1018,7 @@ function toggleDashboard() {
     dashboardContainer.style.display = 'block';
     _showDashboardSidebar();
 
-    dashboard = new Dashboard(dashboardContainer, model, {
-        onLayerClick: () => {
-            _exitDashboard();
-            appMode = 'network';
-            renderer.render();
-        },
-    });
+    dashboard = new Dashboard(dashboardContainer, model, {});
     dashboard.render();
 }
 
@@ -3331,6 +3325,9 @@ const exportDialog = document.getElementById('exportDialog');
 const exportCancelBtn = document.getElementById('exportCancelBtn');
 
 captureBtn.addEventListener('click', () => {
+    const hasMap = appMode === 'map' || (appMode === 'layer' && renderer.layerView?.geoMode);
+    const gridLabel = exportDialog.querySelector('#exportGridCheckbox + span');
+    if (gridLabel) gridLabel.textContent = hasMap ? 'Background map' : 'Background grid';
     exportDialog.style.display = 'flex';
 });
 
@@ -3434,11 +3431,12 @@ async function exportScreenshot(format) {
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, offscreen.width, offscreen.height);
 
-    // In map mode: composite the Leaflet map underneath the canvas
-    if (appMode === 'map') {
+    // In map mode or layer view geo mode: composite the Leaflet map underneath the canvas
+    const isLvGeo = appMode === 'layer' && renderer.layerView?.geoMode;
+    if ((appMode === 'map' || isLvGeo) && includeGrid) {
         try {
             await _loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
-            const mapEl = document.getElementById('backgroundMap');
+            const mapEl = document.getElementById(appMode === 'map' ? 'backgroundMap' : 'lvBackgroundMap');
             const mapCanvas = await html2canvas(mapEl, {
                 scale, useCORS: true, allowTaint: true,
                 backgroundColor: '#ffffff', logging: false,
@@ -3559,11 +3557,12 @@ async function _exportPDF() {
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, offscreen.width, offscreen.height);
 
-        // Map background (if in map mode)
-        if (appMode === 'map') {
+        // Map background (if in map mode or layer view geo mode)
+        const isLvGeoPdf = appMode === 'layer' && renderer.layerView?.geoMode;
+        if ((appMode === 'map' || isLvGeoPdf) && includeGrid) {
             try {
                 await _loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
-                const mapEl = document.getElementById('backgroundMap');
+                const mapEl = document.getElementById(appMode === 'map' ? 'backgroundMap' : 'lvBackgroundMap');
                 const mapCanvas = await html2canvas(mapEl, {
                     scale, useCORS: true, allowTaint: true,
                     backgroundColor: '#ffffff', logging: false,

@@ -46,7 +46,7 @@ function svgBar(items, { width = 280, height = 200, color = BAR_FILL, yLabel = '
         const cx = PL + i * step + step / 2;
         const bh = (value / maxV) * H;
         bars    += `<rect x="${cx - barW / 2}" y="${PT + H - bh}" width="${barW}" height="${bh}" fill="${color}" rx="2"/>`;
-        xlabels += `<text transform="translate(${cx},${PT + H + 5}) rotate(40)" text-anchor="start" font-size="10" fill="${TEXT}" class="db-layer-link" data-layer-link="${label}" style="cursor:pointer">${label}</text>`;
+        xlabels += `<text transform="translate(${cx},${PT + H + 5}) rotate(40)" text-anchor="start" font-size="10" fill="${TEXT}">${label}</text>`;
     });
 
     const axis = `<line x1="${PL}" y1="${PT}" x2="${PL}" y2="${PT + H}" stroke="${GRID}" stroke-width="1.5"/>
@@ -92,7 +92,7 @@ function svgStackedBar(items, {
         const yB  = yA - bhB;
         bars    += `<rect x="${cx - barW / 2}" y="${yB}" width="${barW}" height="${bhB}" fill="${colorB}" rx="2"/>
                     <rect x="${cx - barW / 2}" y="${yA}" width="${barW}" height="${bhA}" fill="${colorA}"/>`;
-        xlabels += `<text transform="translate(${cx},${PT + H + 5}) rotate(40)" text-anchor="start" font-size="10" fill="${TEXT}" class="db-layer-link" data-layer-link="${label}" style="cursor:pointer">${label}</text>`;
+        xlabels += `<text transform="translate(${cx},${PT + H + 5}) rotate(40)" text-anchor="start" font-size="10" fill="${TEXT}">${label}</text>`;
     });
 
     const axis = `<line x1="${PL}" y1="${PT}" x2="${PL}" y2="${PT + H}" stroke="${GRID}" stroke-width="1.5"/>
@@ -245,7 +245,6 @@ export class Dashboard {
             ${this._sLayerSimilarity(s, bp)}
             ${this._sDegree(s, bp)}
             ${this._sParticipation(s, bp)}
-            ${bp ? this._sSetRatio(s) : ''}
         </div>`;
 
         this._attachEvents();
@@ -456,7 +455,7 @@ export class Dashboard {
 
             const colHdrs = s.layerNames.map((ln, j) => {
                 const x = LABEL_W + j * CELL + CELL / 2;
-                return `<text transform="translate(${x},${HDR_H}) rotate(-55)" text-anchor="start" font-size="10" fill="${TEXT}" class="db-layer-link" data-layer-link="${ln}" style="cursor:pointer">${ln}</text>`;
+                return `<text transform="translate(${x},${HDR_H}) rotate(-55)" text-anchor="start" font-size="10" fill="${TEXT}">${ln}</text>`;
             }).join('');
 
             let rowSvg = '';
@@ -497,7 +496,7 @@ export class Dashboard {
             s.layerNames.forEach((layerName, i) => {
                 const y   = HDR_H + 6 + i * CELL;
                 const lbl = layerName.length > 14 ? layerName.slice(0, 13) + '…' : layerName;
-                rowSvg += `<text x="${LABEL_W - 5}" y="${y + CELL / 2 + 3}" text-anchor="end" font-size="10" fill="${TEXT}" class="db-layer-link" data-layer-link="${layerName}" style="cursor:pointer">${lbl}</text>`;
+                rowSvg += `<text x="${LABEL_W - 5}" y="${y + CELL / 2 + 3}" text-anchor="end" font-size="10" fill="${TEXT}">${lbl}</text>`;
                 s.sortedNodes.forEach((nodeName, j) => {
                     const present = s.presence.has(`${layerName}::${nodeName}`);
                     const mem     = s.nodeSetMap.get(nodeName) ?? '';
@@ -820,14 +819,6 @@ export class Dashboard {
                 body.style.display = open ? 'none' : '';
                 chev.textContent   = open ? '▸' : '▾';
                 open ? this._collapsed.add(id) : this._collapsed.delete(id);
-            });
-        });
-
-        // Layer-name clicks → switch back to network mode
-        root.querySelectorAll('.db-layer-link').forEach(el => {
-            el.addEventListener('click', e => {
-                e.stopPropagation();
-                this.onLayerClick?.(el.dataset.layerLink);
             });
         });
 
