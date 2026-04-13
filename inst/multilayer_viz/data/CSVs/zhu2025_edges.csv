@@ -1,0 +1,1158 @@
+layer_from,node_from,layer_to,node_to,weight,c_value,z_value,role,compartment_group
+Island1,Plant3,Island1,Bird1,129,0.7,1.5509,peripheral,mix
+Island1,Plant3,Island1,Bird8,21,0.5,0.7179,peripheral,large
+Island1,Plant3,Island1,Bird4,80,0.5714,0.7179,peripheral,large
+Island1,Plant3,Island1,Bird2,100,0.5625,1.3371,peripheral,large
+Island1,Plant3,Island1,Bird7,57,0.7188,1.5509,peripheral,mix
+Island1,Plant1,Island1,Bird3,6,0.66,1.5774,module hub,small
+Island1,Plant1,Island1,Bird8,224,0.6,1.9562,module hub,large
+Island1,Plant1,Island1,Bird4,432,0.5625,1.3371,peripheral,large
+Island1,Plant1,Island1,Bird14,5,0.6122,0.7179,peripheral,large
+Island1,Plant1,Island1,Bird2,124,0.6942,1.5509,peripheral,mix
+Island1,Plant11,Island1,Bird3,1,0.75,0.9243,connector,small
+Island1,Plant11,Island1,Bird4,33,0.4444,-0.5203,peripheral,large
+Island1,Plant11,Island1,Bird2,7,0.625,-0.5437,peripheral,small
+Island1,Plant5,Island1,Bird4,22,0.5625,1.3371,peripheral,large
+Island1,Plant5,Island1,Bird2,161,0.7456,1.5509,peripheral,mix
+Island1,Plant5,Island1,Bird7,17,0.6914,0.9243,peripheral,small
+Island1,Plant9,Island1,Bird4,6,0.5,0.7179,peripheral,large
+Island1,Plant22,Island1,Bird6,11,0.5,-0.2562,peripheral,mix
+Island1,Plant22,Island1,Bird4,20,0,-0.2562,peripheral,mix
+Island1,Plant22,Island1,Bird14,2,0,-0.2562,peripheral,mix
+Island1,Plant3,Island1,Bird9,44,0.74,-0.5195,peripheral,small
+Island1,Plant12,Island1,Bird3,5,0.72,3.8426,module hub,mix
+Island1,Plant14,Island1,Bird3,10,0.625,3.8426,module hub,mix
+Island1,Plant14,Island1,Bird20,50,0,-0.2562,peripheral,mix
+Island1,Plant14,Island1,Bird1,4,0.625,3.8426,module hub,mix
+Island1,Plant14,Island1,Bird22,1,0,-0.2562,peripheral,mix
+Island1,Plant14,Island1,Bird11,103,0,-0.2562,peripheral,mix
+Island1,Plant14,Island1,Bird4,2,0.625,-0.5437,peripheral,small
+Island1,Plant19,Island1,Bird1,38,0.5,-0.9537,peripheral,small
+Island1,Plant19,Island1,Bird3,21,0.5,-0.9537,peripheral,small
+Island1,Plant19,Island1,Bird20,19,0,-0.2562,peripheral,mix
+Island1,Plant19,Island1,Bird11,38,0,-0.2562,peripheral,mix
+Island1,Plant18,Island1,Bird3,2,0.5,-0.5195,peripheral,small
+Island1,Plant18,Island1,Bird11,5,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird4,187,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird33,4,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird5,1,0,-0.2562,peripheral,mix
+Island1,Plant30,Island1,Bird3,5,0,-0.2562,peripheral,mix
+Island1,Plant30,Island1,Bird8,2,0,-0.2562,peripheral,mix
+Island1,Plant30,Island1,Bird22,7,0,-0.2562,peripheral,mix
+Island1,Plant30,Island1,Bird11,2,0,-0.2562,peripheral,mix
+Island1,Plant30,Island1,Bird7,3,0,-0.2562,peripheral,mix
+Island1,Plant30,Island1,Bird26,1,0,-0.2562,peripheral,mix
+Island1,Plant22,Island1,Bird13,2,0,-0.2562,peripheral,mix
+Island1,Plant22,Island1,Bird22,1,0,-0.2562,peripheral,mix
+Island1,Plant22,Island1,Bird8,3,0,-0.2562,peripheral,mix
+Island1,Plant10,Island1,Bird4,12,0.5,-0.7487,peripheral,mix
+Island1,Plant10,Island1,Bird2,29,0.72,-0.11,peripheral,small
+Island1,Plant3,Island1,Bird28,3,0,-0.2562,peripheral,mix
+Island1,Plant3,Island1,Bird5,15,0.7407,1.5509,peripheral,mix
+Island1,Plant3,Island1,Bird6,15,0.7188,1.5509,peripheral,mix
+Island1,Plant15,Island1,Bird8,50,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird22,12,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird14,4,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird11,23,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird7,13,0,-0.2562,peripheral,mix
+Island1,Plant10,Island1,Bird3,16,0.7778,-0.11,connector,small
+Island2,Plant14,Island2,Bird10,1,0.625,-0.5195,peripheral,small
+Island2,Plant14,Island2,Bird1,1,0.625,3.8426,module hub,mix
+Island2,Plant1,Island2,Bird4,113,0.5625,1.3371,peripheral,large
+Island2,Plant2,Island2,Bird1,161,0.75,1.5774,hub,small
+Island2,Plant2,Island2,Bird17,8,0.56,0.0988,peripheral,large
+Island2,Plant11,Island2,Bird3,6,0.75,0.9243,connector,small
+Island2,Plant9,Island2,Bird8,1,0.48,0.9243,peripheral,small
+Island2,Plant9,Island2,Bird4,6,0.5,0.7179,peripheral,large
+Island2,Plant9,Island2,Bird2,1,0.5625,1.3371,peripheral,large
+Island2,Plant1,Island2,Bird15,3,0.6667,-0.5437,peripheral,small
+Island2,Plant4,Island2,Bird4,4,0.6122,0.7179,peripheral,large
+Island2,Plant1,Island2,Bird2,26,0.6942,1.5509,peripheral,mix
+Island2,Plant6,Island2,Bird1,49,0.58,1.9562,module hub,large
+Island2,Plant6,Island2,Bird14,4,0,0.0988,peripheral,large
+Island2,Plant6,Island2,Bird7,9,0.449,1.3371,peripheral,large
+Island6,Plant2,Island6,Bird1,137,0.75,1.5774,hub,small
+Island5,Plant2,Island5,Bird24,8,0,0.0988,peripheral,large
+Island5,Plant2,Island5,Bird15,1,0.6914,-0.11,peripheral,small
+Island5,Plant2,Island5,Bird14,24,0.32,0.7179,peripheral,large
+Island5,Plant2,Island5,Bird1,139,0.75,1.5774,hub,small
+Island5,Plant2,Island5,Bird3,10,0.7361,1.5774,module hub,small
+Island5,Plant2,Island5,Bird10,2,0.7361,-0.11,peripheral,small
+Island5,Plant2,Island5,Bird2,116,0.7219,1.5774,module hub,small
+Island5,Plant2,Island5,Bird7,39,0.66,1.3371,peripheral,large
+Island5,Plant2,Island5,Bird19,2,0.7188,0.9243,peripheral,small
+Island5,Plant4,Island5,Bird18,8,0.75,2.3923,hub,small
+Island5,Plant4,Island5,Bird4,1,0.6122,0.7179,peripheral,large
+Island5,Plant8,Island5,Bird7,6,0.32,0.7179,peripheral,large
+Island5,Plant8,Island5,Bird8,65,0.56,0.0988,peripheral,large
+Island5,Plant8,Island5,Bird14,11,0,-0.5203,peripheral,large
+Island5,Plant7,Island5,Bird8,2,0,-0.5203,peripheral,large
+Island5,Plant7,Island5,Bird4,2,0.32,0.7179,peripheral,large
+Island5,Plant7,Island5,Bird7,3,0.4444,0.4011,peripheral,mix
+Island5,Plant5,Island5,Bird4,1,0.5625,1.3371,peripheral,large
+Island5,Plant1,Island5,Bird4,72,0.5625,1.3371,peripheral,large
+Island5,Plant1,Island5,Bird8,60,0.6,1.9562,module hub,large
+Island5,Plant1,Island5,Bird7,8,0.58,1.9562,module hub,large
+Island5,Plant1,Island5,Bird26,4,0,-0.5203,peripheral,large
+Island5,Plant1,Island5,Bird2,9,0.6942,1.5509,peripheral,mix
+Island5,Plant1,Island5,Bird18,4,0.7551,1.5774,hub,small
+Island5,Plant1,Island5,Bird24,2,0,-0.5203,peripheral,large
+Island5,Plant1,Island5,Bird6,36,0.75,1.5774,hub,small
+Island5,Plant6,Island5,Bird10,18,0.58,1.9562,module hub,large
+Island5,Plant6,Island5,Bird1,371,0.58,1.9562,module hub,large
+Island5,Plant6,Island5,Bird3,9,0.4938,1.9562,module hub,large
+Island5,Plant6,Island5,Bird8,17,0,-1.1395,peripheral,large
+Island5,Plant6,Island5,Bird4,14,0.32,0.7179,peripheral,large
+Island5,Plant6,Island5,Bird7,11,0.449,1.3371,peripheral,large
+Island5,Plant6,Island5,Bird21,24,0,0.0988,peripheral,large
+Island5,Plant6,Island5,Bird17,2,0.32,0.7179,peripheral,large
+Island5,Plant6,Island5,Bird24,1,0,0.0988,peripheral,large
+Island5,Plant2,Island5,Bird16,15,0.32,0.7179,peripheral,large
+Island5,Plant2,Island5,Bird8,1,0,-1.1395,peripheral,large
+Island5,Plant2,Island5,Bird18,3,0.72,0.7337,peripheral,small
+Island5,Plant2,Island5,Bird22,1,0.56,0.0988,peripheral,large
+Island5,Plant2,Island5,Bird4,20,0.5625,1.3371,peripheral,large
+Island5,Plant2,Island5,Bird26,2,0.625,0.9243,peripheral,small
+Island5,Plant16,Island5,Bird9,1,0.5,-0.7487,peripheral,mix
+Island5,Plant16,Island5,Bird4,6,0.5,-0.5437,peripheral,small
+Island3,Plant4,Island3,Bird1,19,0.7778,2.3923,hub,small
+Island3,Plant4,Island3,Bird5,84,0.7891,3.8604,hub,small
+Island3,Plant4,Island3,Bird18,28,0.75,2.3923,hub,small
+Island3,Plant4,Island3,Bird6,37,0.7654,1.8181,hub,small
+Island3,Plant4,Island3,Bird4,15,0.6122,0.7179,peripheral,large
+Island3,Plant4,Island3,Bird19,1,0.6667,-0.7487,peripheral,mix
+Island3,Plant18,Island3,Bird4,2,0,-0.7487,peripheral,mix
+Island3,Plant18,Island3,Bird2,4,0,-0.7487,peripheral,mix
+Island3,Plant18,Island3,Bird7,17,0.5,-0.7487,peripheral,mix
+Island3,Plant5,Island3,Bird6,8,0.72,0.9243,peripheral,small
+Island3,Plant5,Island3,Bird4,6,0.5625,1.3371,peripheral,large
+Island3,Plant5,Island3,Bird2,26,0.7456,1.5509,peripheral,mix
+Island3,Plant5,Island3,Bird7,20,0.6914,0.9243,peripheral,small
+Island3,Plant1,Island3,Bird6,24,0.75,1.5774,hub,small
+Island3,Plant1,Island3,Bird4,63,0.5625,1.3371,peripheral,large
+Island3,Plant1,Island3,Bird2,6,0.6942,1.5509,peripheral,mix
+Island3,Plant16,Island3,Bird2,1,0.72,0.9243,peripheral,small
+Island3,Plant1,Island3,Bird15,1,0.6667,-0.5437,peripheral,small
+Island3,Plant5,Island3,Bird3,4,0.7654,1.8181,hub,small
+Island3,Plant3,Island3,Bird4,33,0.5714,0.7179,peripheral,large
+Island3,Plant3,Island3,Bird9,11,0.74,-0.5195,peripheral,small
+Island3,Plant3,Island3,Bird7,2,0.7188,1.5509,peripheral,mix
+Island3,Plant4,Island3,Bird8,1,0.6667,2.3923,module hub,small
+Island3,Plant4,Island3,Bird9,15,0.7755,1.8181,hub,small
+Island3,Plant4,Island3,Bird2,2,0.375,0.0988,peripheral,large
+Island3,Plant1,Island3,Bird8,7,0.6,1.9562,module hub,large
+Island3,Plant3,Island3,Bird1,17,0.7,1.5509,peripheral,mix
+Island3,Plant3,Island3,Bird8,9,0.5,0.7179,peripheral,large
+Island3,Plant3,Island3,Bird3,21,0.7361,-0.11,peripheral,small
+Island4,Plant6,Island4,Bird4,4,0.32,0.7179,peripheral,large
+Island4,Plant6,Island4,Bird1,78,0.58,1.9562,module hub,large
+Island4,Plant7,Island4,Bird8,3,0,-0.5203,peripheral,large
+Island4,Plant7,Island4,Bird4,8,0.32,0.7179,peripheral,large
+Island4,Plant7,Island4,Bird2,8,0.7188,-0.11,peripheral,small
+Island4,Plant1,Island4,Bird7,22,0.58,1.9562,module hub,large
+Island4,Plant1,Island4,Bird2,35,0.6942,1.5509,peripheral,mix
+Island4,Plant9,Island4,Bird4,7,0.5,0.7179,peripheral,large
+Island4,Plant1,Island4,Bird4,76,0.5625,1.3371,peripheral,large
+Island4,Plant1,Island4,Bird8,22,0.6,1.9562,module hub,large
+Island4,Plant1,Island4,Bird13,1,0.7934,0.7337,connector,small
+Island4,Plant6,Island4,Bird15,2,0.4444,-0.5203,peripheral,large
+Island4,Plant2,Island4,Bird7,36,0.66,1.3371,peripheral,large
+Island7,Plant4,Island7,Bird4,6,0.6122,0.7179,peripheral,large
+Island7,Plant4,Island7,Bird5,167,0.7891,3.8604,hub,small
+Island7,Plant1,Island7,Bird2,158,0.6942,1.5509,peripheral,mix
+Island7,Plant9,Island7,Bird4,75,0.5,0.7179,peripheral,large
+Island7,Plant1,Island7,Bird3,4,0.66,1.5774,module hub,small
+Island7,Plant1,Island7,Bird4,15,0.5625,1.3371,peripheral,large
+Island7,Plant2,Island7,Bird14,5,0.32,0.7179,peripheral,large
+Island7,Plant5,Island7,Bird3,20,0.7654,1.8181,hub,small
+Island7,Plant5,Island7,Bird2,270,0.7456,1.5509,peripheral,mix
+Island7,Plant5,Island7,Bird7,43,0.6914,0.9243,peripheral,small
+Island7,Plant5,Island7,Bird19,1,0.4444,0.4011,peripheral,mix
+Island7,Plant11,Island7,Bird3,11,0.75,0.9243,connector,small
+Island7,Plant11,Island7,Bird15,2,0.72,-0.5437,peripheral,small
+Island7,Plant11,Island7,Bird4,12,0.4444,-0.5203,peripheral,large
+Island7,Plant4,Island7,Bird1,18,0.7778,2.3923,hub,small
+Island7,Plant4,Island7,Bird18,18,0.75,2.3923,hub,small
+Island7,Plant4,Island7,Bird15,1,0.6667,-0.7487,peripheral,mix
+Island7,Plant4,Island7,Bird8,4,0.6667,2.3923,module hub,small
+Island7,Plant4,Island7,Bird14,13,0,-1.1395,peripheral,large
+Island7,Plant4,Island7,Bird2,4,0.375,0.0988,peripheral,large
+Island7,Plant1,Island7,Bird7,97,0.58,1.9562,module hub,large
+Island7,Plant2,Island7,Bird16,70,0.32,0.7179,peripheral,large
+Island7,Plant2,Island7,Bird10,152,0.7361,-0.11,peripheral,small
+Island7,Plant2,Island7,Bird15,7,0.6914,-0.11,peripheral,small
+Island7,Plant2,Island7,Bird2,24,0.7219,1.5774,module hub,small
+Island7,Plant3,Island7,Bird1,4,0.7,1.5509,peripheral,mix
+Island7,Plant3,Island7,Bird3,3,0.7361,-0.11,peripheral,small
+Island7,Plant3,Island7,Bird15,1,0.625,3.8426,module hub,mix
+Island7,Plant3,Island7,Bird2,108,0.5625,1.3371,peripheral,large
+Island17,Plant11,Island17,Bird3,1,0.75,0.9243,connector,small
+Island17,Plant11,Island17,Bird6,1,0.6667,0.0988,peripheral,large
+Island17,Plant11,Island17,Bird13,1,0.6667,-0.9537,peripheral,small
+Island17,Plant1,Island17,Bird13,10,0.7934,0.7337,connector,small
+Island17,Plant1,Island17,Bird18,1,0.7551,1.5774,hub,small
+Island11,Plant5,Island11,Bird5,2,0.6531,1.5509,peripheral,mix
+Island11,Plant10,Island11,Bird1,251,0.72,-0.11,peripheral,small
+Island11,Plant10,Island11,Bird3,63,0.7778,-0.11,connector,small
+Island11,Plant10,Island11,Bird8,1,0,-0.7487,peripheral,mix
+Island11,Plant10,Island11,Bird5,23,0.75,-0.5437,connector,small
+Island11,Plant7,Island11,Bird3,5,0.5714,1.5774,module hub,small
+Island20,Plant16,Island20,Bird5,3,0.4444,0.9243,peripheral,small
+Island20,Plant16,Island20,Bird3,1,0.6667,-0.5437,peripheral,small
+Island20,Plant7,Island20,Bird2,23,0.7188,-0.11,peripheral,small
+Island20,Plant9,Island20,Bird5,12,0.7222,0.9243,peripheral,small
+Island20,Plant9,Island20,Bird6,1,0.6777,0.7337,peripheral,small
+Island20,Plant9,Island20,Bird8,4,0.48,0.9243,peripheral,small
+Island19,Plant10,Island19,Bird5,18,0.75,-0.5437,connector,small
+Island19,Plant10,Island19,Bird9,3,0.5,-0.5437,peripheral,small
+Island19,Plant10,Island19,Bird21,2,0.75,-0.5437,connector,small
+Island19,Plant1,Island19,Bird18,4,0.7551,1.5774,hub,small
+Island19,Plant9,Island19,Bird6,7,0.6777,0.7337,peripheral,small
+Island19,Plant9,Island19,Bird9,1,0.5,-0.5437,peripheral,small
+Island19,Plant9,Island19,Bird7,28,0.375,0.0988,peripheral,large
+Island19,Plant9,Island19,Bird5,3,0.7222,0.9243,peripheral,small
+Island19,Plant9,Island19,Bird2,2,0.5625,1.3371,peripheral,large
+Island19,Plant16,Island19,Bird5,2,0.4444,0.9243,peripheral,small
+Island12,Plant5,Island12,Bird9,2,0.7273,-0.5195,peripheral,small
+Island12,Plant5,Island12,Bird3,6,0.7654,1.8181,hub,small
+Island12,Plant5,Island12,Bird6,2,0.72,0.9243,peripheral,small
+Island12,Plant5,Island12,Bird28,1,0.75,-0.5195,connector,small
+Island12,Plant5,Island12,Bird25,2,0.5,-0.5195,peripheral,small
+Island12,Plant31,Island12,Bird3,25,0,-0.5195,peripheral,small
+Island10,Plant3,Island10,Bird1,8,0.7,1.5509,peripheral,mix
+Island10,Plant3,Island10,Bird5,8,0.7407,1.5509,peripheral,mix
+Island10,Plant5,Island10,Bird5,1,0.6531,1.5509,peripheral,mix
+Island10,Plant5,Island10,Bird19,1,0.4444,0.4011,peripheral,mix
+Island10,Plant5,Island10,Bird13,2,0.56,1.5509,peripheral,mix
+Island10,Plant7,Island10,Bird2,11,0.7188,-0.11,peripheral,small
+Island10,Plant18,Island10,Bird5,1,0.6667,-0.5195,peripheral,small
+Island10,Plant1,Island10,Bird6,1,0.75,1.5774,hub,small
+Island10,Plant2,Island10,Bird26,1,0.625,0.9243,peripheral,small
+Island10,Plant2,Island10,Bird1,74,0.75,1.5774,hub,small
+Island10,Plant2,Island10,Bird7,7,0.66,1.3371,peripheral,large
+Island18,Plant21,Island18,Bird3,31,0,-0.5437,peripheral,small
+Island18,Plant10,Island18,Bird5,15,0.75,-0.5437,connector,small
+Island18,Plant10,Island18,Bird9,1,0.5,-0.5437,peripheral,small
+Island18,Plant10,Island18,Bird11,110,0,-0.5437,peripheral,small
+Island18,Plant10,Island18,Bird3,483,0.7778,-0.11,connector,small
+Island18,Plant4,Island18,Bird5,1,0.7891,3.8604,hub,small
+Island18,Plant4,Island18,Bird8,4,0.6667,2.3923,module hub,small
+Island18,Plant4,Island18,Bird11,2,0,-0.5437,peripheral,small
+Island18,Plant4,Island18,Bird3,127,0.78,1.8181,hub,small
+Island18,Plant3,Island18,Bird3,3,0.7361,-0.11,peripheral,small
+Island14,Plant6,Island14,Bird1,119,0.58,1.9562,module hub,large
+Island14,Plant6,Island14,Bird10,3,0.58,1.9562,module hub,large
+Island14,Plant6,Island14,Bird3,79,0.4938,1.9562,module hub,large
+Island9,Plant3,Island9,Bird1,8,0.7,1.5509,peripheral,mix
+Island9,Plant3,Island9,Bird5,10,0.7407,1.5509,peripheral,mix
+Island9,Plant3,Island9,Bird6,1,0.7188,1.5509,peripheral,mix
+Island9,Plant3,Island9,Bird9,5,0.74,-0.5195,peripheral,small
+Island9,Plant3,Island9,Bird3,31,0.7361,-0.11,peripheral,small
+Island9,Plant9,Island9,Bird6,1,0.6777,0.7337,peripheral,small
+Island9,Plant9,Island9,Bird5,1,0.7222,0.9243,peripheral,small
+Island9,Plant9,Island9,Bird3,15,0.48,0.7337,peripheral,small
+Island9,Plant10,Island9,Bird1,1,0.72,-0.11,peripheral,small
+Island9,Plant10,Island9,Bird3,22,0.7778,-0.11,connector,small
+Island9,Plant1,Island9,Bird3,4,0.66,1.5774,module hub,small
+Island9,Plant1,Island9,Bird18,2,0.7551,1.5774,hub,small
+Island9,Plant1,Island9,Bird6,21,0.75,1.5774,hub,small
+Island9,Plant1,Island9,Bird9,15,0.7438,0.7337,peripheral,small
+Island15,Plant11,Island15,Bird3,3,0.75,0.9243,connector,small
+Island15,Plant3,Island15,Bird7,1,0.7188,1.5509,peripheral,mix
+Island15,Plant3,Island15,Bird15,5,0.625,3.8426,module hub,mix
+Island15,Plant3,Island15,Bird10,1,0.6111,1.5509,peripheral,mix
+Island15,Plant4,Island15,Bird4,1,0.6122,0.7179,peripheral,large
+Island15,Plant4,Island15,Bird5,17,0.7891,3.8604,hub,small
+Island15,Plant4,Island15,Bird8,5,0.6667,2.3923,module hub,small
+Island13,Plant11,Island13,Bird3,1,0.75,0.9243,connector,small
+Island13,Plant1,Island13,Bird18,1,0.7551,1.5774,hub,small
+Island13,Plant4,Island13,Bird3,7,0.78,1.8181,hub,small
+Island13,Plant11,Island13,Bird15,1,0.72,-0.5437,peripheral,small
+Island16,Plant7,Island16,Bird5,7,0.74,1.5774,module hub,small
+Island16,Plant7,Island16,Bird28,1,0,-0.9537,peripheral,small
+Island16,Plant9,Island16,Bird6,4,0.6777,0.7337,peripheral,small
+Island16,Plant11,Island16,Bird15,1,0.72,-0.5437,peripheral,small
+Island16,Plant1,Island16,Bird28,1,0.72,-0.11,peripheral,small
+Island16,Plant1,Island16,Bird18,1,0.7551,1.5774,hub,small
+Island22,Plant1,Island22,Bird18,2,0.7551,1.5774,hub,small
+Island22,Plant1,Island22,Bird6,1,0.75,1.5774,hub,small
+Island22,Plant1,Island22,Bird5,3,0.7755,1.5774,hub,small
+Island22,Plant1,Island22,Bird13,1,0.7934,0.7337,connector,small
+Island22,Plant12,Island22,Bird3,38,0.72,3.8426,module hub,mix
+Island22,Plant14,Island22,Bird15,1,0,-0.5195,peripheral,small
+Island22,Plant14,Island22,Bird5,3,0,-0.5195,peripheral,small
+Island22,Plant14,Island22,Bird9,1,0,-0.5195,peripheral,small
+Island22,Plant14,Island22,Bird19,4,0.6667,-0.5195,peripheral,small
+Island22,Plant14,Island22,Bird10,6,0.625,-0.5195,peripheral,small
+Island22,Plant14,Island22,Bird3,20,0.625,3.8426,module hub,mix
+Island21,Plant4,Island21,Bird3,8,0.78,1.8181,hub,small
+Island21,Plant4,Island21,Bird5,32,0.7891,3.8604,hub,small
+Island21,Plant11,Island21,Bird3,4,0.75,0.9243,connector,small
+Island21,Plant7,Island21,Bird5,3,0.74,1.5774,module hub,small
+Island21,Plant1,Island21,Bird18,17,0.7551,1.5774,hub,small
+Island21,Plant1,Island21,Bird6,7,0.75,1.5774,hub,small
+Island21,Plant1,Island21,Bird5,26,0.7755,1.5774,hub,small
+Island21,Plant12,Island21,Bird15,2,0,-0.9537,peripheral,small
+Island21,Plant12,Island21,Bird10,6,0.72,-0.11,peripheral,small
+Island21,Plant12,Island21,Bird3,43,0.72,3.8426,module hub,mix
+Island21,Plant12,Island21,Bird19,2,0.4444,-0.11,peripheral,small
+Island8,Plant11,Island8,Bird3,7,0.75,0.9243,connector,small
+Island8,Plant11,Island8,Bird8,2,0,-0.5437,peripheral,small
+Island8,Plant11,Island8,Bird6,5,0.6667,0.0988,peripheral,large
+Island8,Plant9,Island8,Bird6,60,0.6777,0.7337,peripheral,small
+Island8,Plant9,Island8,Bird5,6,0.7222,0.9243,peripheral,small
+Island8,Plant9,Island8,Bird8,12,0.48,0.9243,peripheral,small
+Island8,Plant9,Island8,Bird4,16,0.5,0.7179,peripheral,large
+Island8,Plant11,Island8,Bird2,1,0.625,-0.5437,peripheral,small
+Island8,Plant11,Island8,Bird9,1,0,-0.5437,peripheral,small
+Island8,Plant5,Island8,Bird4,2,0.5625,1.3371,peripheral,large
+Island8,Plant14,Island8,Bird1,60,0.625,3.8426,module hub,mix
+Island8,Plant14,Island8,Bird2,92,0.5,-0.5437,peripheral,small
+Island8,Plant14,Island8,Bird7,1,0.5,-0.5437,peripheral,small
+Island8,Plant4,Island8,Bird5,41,0.7891,3.8604,hub,small
+Island8,Plant4,Island8,Bird1,21,0.7778,2.3923,hub,small
+Island8,Plant4,Island8,Bird22,4,0,-0.5437,peripheral,small
+Island8,Plant4,Island8,Bird9,3,0.7755,1.8181,hub,small
+Island8,Plant4,Island8,Bird18,4,0.75,2.3923,hub,small
+Island8,Plant4,Island8,Bird8,10,0.6667,2.3923,module hub,small
+Island8,Plant4,Island8,Bird6,12,0.7654,1.8181,hub,small
+Island2,Plant4,Island2,Bird19,3,0.6667,-0.7487,peripheral,mix
+Island2,Plant4,Island2,Bird17,4,0.625,-0.7487,peripheral,mix
+Island15,Plant4,Island15,Bird6,19,0.7654,1.8181,hub,small
+Island15,Plant4,Island15,Bird15,11,0.6667,-0.7487,peripheral,mix
+Island15,Plant4,Island15,Bird19,7,0.6667,-0.7487,peripheral,mix
+Island13,Plant4,Island13,Bird1,1,0.7778,2.3923,hub,small
+Island13,Plant4,Island13,Bird18,9,0.75,2.3923,hub,small
+Island13,Plant4,Island13,Bird5,106,0.7891,3.8604,hub,small
+Island13,Plant4,Island13,Bird6,15,0.7654,1.8181,hub,small
+Island22,Plant4,Island22,Bird9,2,0.7755,1.8181,hub,small
+Island22,Plant4,Island22,Bird3,1,0.78,1.8181,hub,small
+Island22,Plant4,Island22,Bird18,1,0.75,2.3923,hub,small
+Island22,Plant4,Island22,Bird25,7,0,-0.5195,peripheral,small
+Island22,Plant4,Island22,Bird6,4,0.7654,1.8181,hub,small
+Island22,Plant4,Island22,Bird5,84,0.7891,3.8604,hub,small
+Island12,Plant4,Island12,Bird5,53,0.7891,3.8604,hub,small
+Island12,Plant4,Island12,Bird3,29,0.78,1.8181,hub,small
+Island12,Plant4,Island12,Bird9,2,0.7755,1.8181,hub,small
+Island19,Plant4,Island19,Bird5,5,0.7891,3.8604,hub,small
+Island4,Plant4,Island4,Bird2,1,0.375,0.0988,peripheral,large
+Island4,Plant4,Island4,Bird17,1,0.625,-0.7487,peripheral,mix
+Island9,Plant4,Island9,Bird1,1,0.7778,2.3923,hub,small
+Island9,Plant4,Island9,Bird9,2,0.7755,1.8181,hub,small
+Island9,Plant4,Island9,Bird3,3,0.78,1.8181,hub,small
+Island17,Plant4,Island17,Bird5,10,0.7891,3.8604,hub,small
+Island17,Plant4,Island17,Bird3,15,0.78,1.8181,hub,small
+Island17,Plant4,Island17,Bird1,3,0.7778,2.3923,hub,small
+Island17,Plant4,Island17,Bird12,1,0.5,-0.9537,peripheral,small
+Island10,Plant4,Island10,Bird5,6,0.7891,3.8604,hub,small
+Island5,Plant4,Island5,Bird7,3,0.5,-0.7487,peripheral,mix
+Island5,Plant4,Island5,Bird1,31,0.7778,2.3923,hub,small
+Island5,Plant4,Island5,Bird6,1,0.7654,1.8181,hub,small
+Island3,Plant4,Island3,Bird17,15,0.625,-0.7487,peripheral,mix
+Island1,Plant4,Island1,Bird17,1,0.625,-0.7487,peripheral,mix
+Island1,Plant4,Island1,Bird1,2,0.7778,2.3923,hub,small
+Island3,Plant4,Island3,Bird3,4,0.78,1.8181,hub,small
+Island3,Plant4,Island3,Bird7,2,0.5,-0.7487,peripheral,mix
+Island3,Plant4,Island3,Bird23,1,0,-0.7487,peripheral,mix
+Island2,Plant4,Island2,Bird2,4,0.375,0.0988,peripheral,large
+Island2,Plant4,Island2,Bird29,1,0,-0.5203,peripheral,large
+Island2,Plant4,Island2,Bird1,9,0.7778,2.3923,hub,small
+Island2,Plant4,Island2,Bird5,2,0.7891,3.8604,hub,small
+Island2,Plant4,Island2,Bird6,2,0.7654,1.8181,hub,small
+Island2,Plant4,Island2,Bird9,2,0.7755,1.8181,hub,small
+Island6,Plant4,Island6,Bird3,2,0.78,1.8181,hub,small
+Island6,Plant4,Island6,Bird5,4,0.7891,3.8604,hub,small
+Island6,Plant4,Island6,Bird1,4,0.7778,2.3923,hub,small
+Island7,Plant4,Island7,Bird27,6,0,-1.1395,peripheral,large
+Island7,Plant4,Island7,Bird6,2,0.7654,1.8181,hub,small
+Island7,Plant4,Island7,Bird29,3,0,-0.5203,peripheral,large
+Island1,Plant11,Island1,Bird6,6,0.6667,0.0988,peripheral,large
+Island1,Plant27,Island1,Bird13,18,0,-0.2562,peripheral,mix
+Island1,Plant27,Island1,Bird6,9,0,-0.2562,peripheral,mix
+Island1,Plant27,Island1,Bird9,49,0,-0.2562,peripheral,mix
+Island1,Plant27,Island1,Bird4,32,0,-0.2562,peripheral,mix
+Island1,Plant27,Island1,Bird2,22,0,-0.2562,peripheral,mix
+Island1,Plant27,Island1,Bird7,17,0,-0.2562,peripheral,mix
+Island1,Plant20,Island1,Bird9,2,0,-0.2562,peripheral,mix
+Island1,Plant20,Island1,Bird13,2,0,-0.2562,peripheral,mix
+Island1,Plant5,Island1,Bird9,3,0.7273,-0.5195,peripheral,small
+Island1,Plant15,Island1,Bird3,11,0,-0.2562,peripheral,mix
+Island1,Plant5,Island1,Bird3,4,0.7654,1.8181,hub,small
+Island1,Plant20,Island1,Bird2,1,0,-0.2562,peripheral,mix
+Island4,Plant5,Island4,Bird2,179,0.7456,1.5509,peripheral,mix
+Island4,Plant5,Island4,Bird7,21,0.6914,0.9243,peripheral,small
+Island4,Plant5,Island4,Bird3,23,0.7654,1.8181,hub,small
+Island21,Plant1,Island21,Bird3,3,0.66,1.5774,module hub,small
+Island11,Plant5,Island11,Bird12,99,0.6939,1.5509,peripheral,mix
+Island11,Plant5,Island11,Bird9,19,0.7273,-0.5195,peripheral,small
+Island2,Plant5,Island2,Bird3,13,0.7654,1.8181,hub,small
+Island2,Plant5,Island2,Bird12,43,0.6939,1.5509,peripheral,mix
+Island2,Plant5,Island2,Bird9,17,0.7273,-0.5195,peripheral,small
+Island2,Plant5,Island2,Bird2,55,0.7456,1.5509,peripheral,mix
+Island2,Plant5,Island2,Bird11,3,0,-1.1395,peripheral,large
+Island2,Plant5,Island2,Bird7,6,0.6914,0.9243,peripheral,small
+Island19,Plant8,Island19,Bird1,8,0.449,1.3371,peripheral,large
+Island19,Plant8,Island19,Bird5,34,0.6667,0.0988,peripheral,large
+Island19,Plant8,Island19,Bird6,23,0.5625,1.3371,peripheral,large
+Island9,Plant8,Island9,Bird9,6,0.6122,0.7179,peripheral,large
+Island9,Plant8,Island9,Bird1,3,0.449,1.3371,peripheral,large
+Island9,Plant8,Island9,Bird3,27,0.449,1.3371,peripheral,large
+Island9,Plant8,Island9,Bird2,76,0.56,0.0988,peripheral,large
+Island9,Plant8,Island9,Bird5,13,0.6667,0.0988,peripheral,large
+Island5,Plant8,Island5,Bird16,1,0,-0.5203,peripheral,large
+Island5,Plant8,Island5,Bird12,1,0.5,-0.7487,peripheral,mix
+Island5,Plant8,Island5,Bird9,19,0.6122,0.7179,peripheral,large
+Island5,Plant8,Island5,Bird17,16,0.5,0.7179,peripheral,large
+Island5,Plant8,Island5,Bird1,8,0.449,1.3371,peripheral,large
+Island5,Plant8,Island5,Bird6,4,0.5625,1.3371,peripheral,large
+Island5,Plant8,Island5,Bird25,1,0,-1.1395,peripheral,large
+Island1,Plant8,Island1,Bird5,6,0.6667,0.0988,peripheral,large
+Island1,Plant8,Island1,Bird6,24,0.5625,1.3371,peripheral,large
+Island1,Plant8,Island1,Bird8,6,0.56,0.0988,peripheral,large
+Island1,Plant8,Island1,Bird9,18,0.6122,0.7179,peripheral,large
+Island1,Plant8,Island1,Bird2,39,0.56,0.0988,peripheral,large
+Island1,Plant8,Island1,Bird3,2,0.449,1.3371,peripheral,large
+Island1,Plant8,Island1,Bird17,20,0.5,0.7179,peripheral,large
+Island1,Plant8,Island1,Bird7,12,0.32,0.7179,peripheral,large
+Island4,Plant8,Island4,Bird9,1,0.6122,0.7179,peripheral,large
+Island4,Plant8,Island4,Bird2,21,0.56,0.0988,peripheral,large
+Island4,Plant8,Island4,Bird4,38,0.5,0.7179,peripheral,large
+Island4,Plant8,Island4,Bird6,9,0.5625,1.3371,peripheral,large
+Island2,Plant8,Island2,Bird16,31,0,-0.5203,peripheral,large
+Island2,Plant8,Island2,Bird6,4,0.5625,1.3371,peripheral,large
+Island2,Plant8,Island2,Bird15,2,0,1.3371,peripheral,large
+Island1,Plant9,Island1,Bird7,3,0.375,0.0988,peripheral,large
+Island9,Plant5,Island9,Bird9,4,0.7273,-0.5195,peripheral,small
+Island9,Plant5,Island9,Bird2,5,0.7456,1.5509,peripheral,mix
+Island9,Plant1,Island9,Bird5,9,0.7755,1.5774,hub,small
+Island9,Plant1,Island9,Bird2,46,0.6942,1.5509,peripheral,mix
+Island8,Plant1,Island8,Bird13,2,0.7934,0.7337,connector,small
+Island8,Plant1,Island8,Bird2,9,0.6942,1.5509,peripheral,mix
+Island8,Plant1,Island8,Bird9,16,0.7438,0.7337,peripheral,small
+Island8,Plant9,Island8,Bird2,6,0.5625,1.3371,peripheral,large
+Island8,Plant1,Island8,Bird1,7,0.642,1.3371,peripheral,large
+Island8,Plant1,Island8,Bird25,1,0,-0.5437,peripheral,small
+Island2,Plant1,Island2,Bird7,32,0.58,1.9562,module hub,large
+Island2,Plant1,Island2,Bird1,5,0.642,1.3371,peripheral,large
+Island2,Plant1,Island2,Bird3,2,0.66,1.5774,module hub,small
+Island2,Plant1,Island2,Bird6,22,0.75,1.5774,hub,small
+Island2,Plant1,Island2,Bird8,23,0.6,1.9562,module hub,large
+Island2,Plant5,Island2,Bird5,1,0.6531,1.5509,peripheral,mix
+Island2,Plant5,Island2,Bird6,2,0.72,0.9243,peripheral,small
+Island2,Plant5,Island2,Bird4,7,0.5625,1.3371,peripheral,large
+Island1,Plant11,Island1,Bird7,2,0.5,-0.2562,peripheral,mix
+Island1,Plant5,Island1,Bird12,3,0.6939,1.5509,peripheral,mix
+Island1,Plant5,Island1,Bird28,1,0.75,-0.5195,connector,small
+Island3,Plant5,Island3,Bird9,16,0.7273,-0.5195,peripheral,small
+Island3,Plant1,Island3,Bird7,10,0.58,1.9562,module hub,large
+Island3,Plant1,Island3,Bird9,13,0.7438,0.7337,peripheral,small
+Island6,Plant5,Island6,Bird17,1,0,-1.1395,peripheral,large
+Island6,Plant9,Island6,Bird6,2,0.6777,0.7337,peripheral,small
+Island6,Plant1,Island6,Bird6,6,0.75,1.5774,hub,small
+Island7,Plant5,Island7,Bird4,8,0.5625,1.3371,peripheral,large
+Island7,Plant5,Island7,Bird9,1,0.7273,-0.5195,peripheral,small
+Island7,Plant5,Island7,Bird12,6,0.6939,1.5509,peripheral,mix
+Island7,Plant5,Island7,Bird5,1,0.6531,1.5509,peripheral,mix
+Island3,Plant5,Island3,Bird5,2,0.6531,1.5509,peripheral,mix
+Island3,Plant5,Island3,Bird28,2,0.75,-0.5195,connector,small
+Island1,Plant13,Island1,Bird1,28,0.375,0.0988,peripheral,large
+Island1,Plant13,Island1,Bird3,2,0.6667,-0.9537,peripheral,small
+Island1,Plant13,Island1,Bird22,5,0.5,-0.2562,peripheral,mix
+Island1,Plant13,Island1,Bird4,66,0.56,0.0988,peripheral,large
+Island1,Plant10,Island1,Bird1,14,0.72,-0.11,peripheral,small
+Island1,Plant10,Island1,Bird7,19,0.625,0.4011,peripheral,mix
+Island4,Plant2,Island4,Bird2,25,0.7219,1.5774,module hub,small
+Island4,Plant2,Island4,Bird17,4,0.56,0.0988,peripheral,large
+Island4,Plant2,Island4,Bird4,18,0.5625,1.3371,peripheral,large
+Island4,Plant2,Island4,Bird29,2,0,-1.1395,peripheral,large
+Island4,Plant2,Island4,Bird1,33,0.75,1.5774,hub,small
+Island16,Plant12,Island16,Bird10,1,0.72,-0.11,peripheral,small
+Island16,Plant12,Island16,Bird19,3,0.4444,-0.11,peripheral,small
+Island22,Plant12,Island22,Bird10,3,0.72,-0.11,peripheral,small
+Island22,Plant12,Island22,Bird1,40,0.6667,-0.5195,peripheral,small
+Island10,Plant5,Island10,Bird12,16,0.6939,1.5509,peripheral,mix
+Island10,Plant5,Island10,Bird3,2,0.7654,1.8181,hub,small
+Island10,Plant1,Island10,Bird7,1,0.58,1.9562,module hub,large
+Island10,Plant1,Island10,Bird2,2,0.6942,1.5509,peripheral,mix
+Island10,Plant1,Island10,Bird9,4,0.7438,0.7337,peripheral,small
+Island10,Plant1,Island10,Bird5,3,0.7755,1.5774,hub,small
+Island10,Plant1,Island10,Bird13,5,0.7934,0.7337,connector,small
+Island10,Plant1,Island10,Bird12,4,0.72,0.4011,peripheral,mix
+Island10,Plant5,Island10,Bird2,3,0.7456,1.5509,peripheral,mix
+Island10,Plant7,Island10,Bird13,19,0.64,-0.11,peripheral,small
+Island10,Plant7,Island10,Bird9,17,0.74,1.5774,module hub,small
+Island10,Plant7,Island10,Bird7,7,0.4444,0.4011,peripheral,mix
+Island10,Plant7,Island10,Bird3,31,0.5714,1.5774,module hub,small
+Island10,Plant7,Island10,Bird5,2,0.74,1.5774,module hub,small
+Island10,Plant7,Island10,Bird6,20,0.8,0.9243,connector,small
+Island8,Plant5,Island8,Bird13,9,0.56,1.5509,peripheral,mix
+Island8,Plant5,Island8,Bird25,1,0.5,-0.5195,peripheral,small
+Island8,Plant5,Island8,Bird2,9,0.7456,1.5509,peripheral,mix
+Island8,Plant5,Island8,Bird9,23,0.7273,-0.5195,peripheral,small
+Island8,Plant5,Island8,Bird12,5,0.6939,1.5509,peripheral,mix
+Island8,Plant5,Island8,Bird5,2,0.6531,1.5509,peripheral,mix
+Island8,Plant5,Island8,Bird6,4,0.72,0.9243,peripheral,small
+Island8,Plant5,Island8,Bird7,4,0.6914,0.9243,peripheral,small
+Island8,Plant1,Island8,Bird12,9,0.72,0.4011,peripheral,mix
+Island8,Plant9,Island8,Bird1,3,0.625,-0.11,peripheral,small
+Island8,Plant9,Island8,Bird13,3,0.5,-0.5437,peripheral,small
+Island8,Plant9,Island8,Bird9,37,0.5,-0.5437,peripheral,small
+Island8,Plant1,Island8,Bird4,84,0.5625,1.3371,peripheral,large
+Island8,Plant1,Island8,Bird8,2,0.6,1.9562,module hub,large
+Island8,Plant1,Island8,Bird6,17,0.75,1.5774,hub,small
+Island3,Plant5,Island3,Bird13,18,0.56,1.5509,peripheral,mix
+Island3,Plant5,Island3,Bird12,9,0.6939,1.5509,peripheral,mix
+Island3,Plant1,Island3,Bird23,2,0.5,-0.7487,peripheral,mix
+Island1,Plant3,Island1,Bird10,5,0.6111,1.5509,peripheral,mix
+Island1,Plant3,Island1,Bird17,2,0.625,-0.7487,peripheral,mix
+Island1,Plant3,Island1,Bird26,1,0,-0.2562,peripheral,mix
+Island19,Plant3,Island19,Bird25,1,0.375,0.0988,peripheral,large
+Island4,Plant3,Island4,Bird4,21,0.5714,0.7179,peripheral,large
+Island4,Plant3,Island4,Bird2,20,0.5625,1.3371,peripheral,large
+Island4,Plant3,Island4,Bird5,8,0.7407,1.5509,peripheral,mix
+Island4,Plant3,Island4,Bird1,27,0.7,1.5509,peripheral,mix
+Island4,Plant3,Island4,Bird3,2,0.7361,-0.11,peripheral,small
+Island9,Plant3,Island9,Bird2,3,0.5625,1.3371,peripheral,large
+Island11,Plant3,Island11,Bird25,18,0.375,0.0988,peripheral,large
+Island11,Plant3,Island11,Bird6,3,0.7188,1.5509,peripheral,mix
+Island11,Plant3,Island11,Bird5,29,0.7407,1.5509,peripheral,mix
+Island11,Plant3,Island11,Bird3,19,0.7361,-0.11,peripheral,small
+Island11,Plant3,Island11,Bird13,9,0.625,0.4011,peripheral,mix
+Island11,Plant3,Island11,Bird1,69,0.7,1.5509,peripheral,mix
+Island10,Plant13,Island10,Bird5,1,0.5,-0.7487,peripheral,mix
+Island10,Plant3,Island10,Bird13,1,0.625,0.4011,peripheral,mix
+Island10,Plant3,Island10,Bird6,10,0.7188,1.5509,peripheral,mix
+Island5,Plant13,Island5,Bird1,21,0.375,0.0988,peripheral,large
+Island5,Plant13,Island5,Bird17,7,0,-0.5203,peripheral,large
+Island2,Plant3,Island2,Bird9,6,0.74,-0.5195,peripheral,small
+Island2,Plant3,Island2,Bird3,43,0.7361,-0.11,peripheral,small
+Island2,Plant3,Island2,Bird2,11,0.5625,1.3371,peripheral,large
+Island7,Plant1,Island7,Bird14,15,0.6122,0.7179,peripheral,large
+Island7,Plant1,Island7,Bird6,21,0.75,1.5774,hub,small
+Island7,Plant1,Island7,Bird5,4,0.7755,1.5774,hub,small
+Island7,Plant1,Island7,Bird1,1,0.642,1.3371,peripheral,large
+Island7,Plant1,Island7,Bird38,1,0,-1.1395,peripheral,large
+Island7,Plant1,Island7,Bird37,1,0,-1.1395,peripheral,large
+Island7,Plant9,Island7,Bird3,2,0.48,0.7337,peripheral,small
+Island7,Plant9,Island7,Bird31,4,0,-1.1395,peripheral,large
+Island7,Plant9,Island7,Bird24,2,0,-1.1395,peripheral,large
+Island7,Plant9,Island7,Bird6,3,0.6777,0.7337,peripheral,small
+Island7,Plant9,Island7,Bird2,75,0.5625,1.3371,peripheral,large
+Island7,Plant1,Island7,Bird10,14,0,-1.1395,peripheral,large
+Island7,Plant9,Island7,Bird14,2,0,0.0988,peripheral,large
+Island7,Plant9,Island7,Bird7,13,0.375,0.0988,peripheral,large
+Island4,Plant7,Island4,Bird9,1,0.74,1.5774,module hub,small
+Island19,Plant7,Island19,Bird4,1,0.32,0.7179,peripheral,large
+Island9,Plant9,Island9,Bird1,1,0.625,-0.11,peripheral,small
+Island9,Plant7,Island9,Bird3,4,0.5714,1.5774,module hub,small
+Island9,Plant7,Island9,Bird5,3,0.74,1.5774,module hub,small
+Island9,Plant7,Island9,Bird9,3,0.74,1.5774,module hub,small
+Island9,Plant7,Island9,Bird2,3,0.7188,-0.11,peripheral,small
+Island14,Plant7,Island14,Bird3,2,0.5714,1.5774,module hub,small
+Island14,Plant7,Island14,Bird9,1,0.74,1.5774,module hub,small
+Island14,Plant7,Island14,Bird2,2,0.7188,-0.11,peripheral,small
+Island5,Plant9,Island5,Bird6,4,0.6777,0.7337,peripheral,small
+Island5,Plant9,Island5,Bird8,12,0.48,0.9243,peripheral,small
+Island5,Plant9,Island5,Bird4,2,0.5,0.7179,peripheral,large
+Island5,Plant9,Island5,Bird2,3,0.5625,1.3371,peripheral,large
+Island5,Plant9,Island5,Bird14,1,0,0.0988,peripheral,large
+Island5,Plant3,Island5,Bird9,2,0.74,-0.5195,peripheral,small
+Island8,Plant9,Island8,Bird12,1,0,-0.5437,peripheral,small
+Island8,Plant7,Island8,Bird1,1,0.6531,1.5509,peripheral,mix
+Island8,Plant7,Island8,Bird13,4,0.64,-0.11,peripheral,small
+Island8,Plant7,Island8,Bird9,4,0.74,1.5774,module hub,small
+Island8,Plant7,Island8,Bird5,9,0.74,1.5774,module hub,small
+Island8,Plant7,Island8,Bird6,2,0.8,0.9243,connector,small
+Island3,Plant9,Island3,Bird2,1,0.5625,1.3371,peripheral,large
+Island3,Plant9,Island3,Bird6,2,0.6777,0.7337,peripheral,small
+Island3,Plant9,Island3,Bird17,3,0,-0.7487,peripheral,mix
+Island3,Plant7,Island3,Bird2,2,0.7188,-0.11,peripheral,small
+Island3,Plant7,Island3,Bird7,2,0.4444,0.4011,peripheral,mix
+Island3,Plant7,Island3,Bird6,1,0.8,0.9243,connector,small
+Island3,Plant7,Island3,Bird9,1,0.74,1.5774,module hub,small
+Island17,Plant9,Island17,Bird13,4,0.5,-0.5437,peripheral,small
+Island17,Plant9,Island17,Bird3,11,0.48,0.7337,peripheral,small
+Island17,Plant9,Island17,Bird5,2,0.7222,0.9243,peripheral,small
+Island17,Plant9,Island17,Bird1,7,0.625,-0.11,peripheral,small
+Island17,Plant7,Island17,Bird12,1,0.4444,0.4011,peripheral,mix
+Island17,Plant7,Island17,Bird3,3,0.5714,1.5774,module hub,small
+Island17,Plant7,Island17,Bird13,3,0.64,-0.11,peripheral,small
+Island17,Plant7,Island17,Bird9,1,0.74,1.5774,module hub,small
+Island17,Plant7,Island17,Bird5,2,0.74,1.5774,module hub,small
+Island1,Plant9,Island1,Bird5,1,0.7222,0.9243,peripheral,small
+Island1,Plant7,Island1,Bird6,1,0.8,0.9243,connector,small
+Island1,Plant7,Island1,Bird9,6,0.74,1.5774,module hub,small
+Island1,Plant7,Island1,Bird4,1,0.32,0.7179,peripheral,large
+Island5,Plant1,Island5,Bird23,1,0.5,-0.7487,peripheral,mix
+Island5,Plant1,Island5,Bird1,3,0.642,1.3371,peripheral,large
+Island5,Plant5,Island5,Bird9,1,0.7273,-0.5195,peripheral,small
+Island5,Plant5,Island5,Bird2,5,0.7456,1.5509,peripheral,mix
+Island5,Plant5,Island5,Bird21,2,0.5,-0.7487,peripheral,mix
+Island5,Plant5,Island5,Bird34,1,0,-0.5203,peripheral,large
+Island7,Plant12,Island7,Bird7,2,0,-1.1395,peripheral,large
+Island7,Plant12,Island7,Bird10,18,0.72,-0.11,peripheral,small
+Island7,Plant12,Island7,Bird3,14,0.72,3.8426,module hub,mix
+Island7,Plant12,Island7,Bird1,3,0.6667,-0.5195,peripheral,small
+Island7,Plant2,Island7,Bird4,4,0.5625,1.3371,peripheral,large
+Island7,Plant2,Island7,Bird17,2,0.56,0.0988,peripheral,large
+Island7,Plant2,Island7,Bird3,20,0.7361,1.5774,module hub,small
+Island7,Plant2,Island7,Bird1,176,0.75,1.5774,hub,small
+Island7,Plant2,Island7,Bird22,25,0.56,0.0988,peripheral,large
+Island4,Plant2,Island4,Bird10,3,0.7361,-0.11,peripheral,small
+Island4,Plant2,Island4,Bird3,16,0.7361,1.5774,module hub,small
+Island3,Plant2,Island3,Bird2,18,0.7219,1.5774,module hub,small
+Island3,Plant2,Island3,Bird1,88,0.75,1.5774,hub,small
+Island3,Plant2,Island3,Bird17,1,0.56,0.0988,peripheral,large
+Island1,Plant13,Island1,Bird2,4,0.375,0.0988,peripheral,large
+Island8,Plant14,Island8,Bird19,17,0.6667,-0.5195,peripheral,small
+Island8,Plant14,Island8,Bird4,4,0.625,-0.5437,peripheral,small
+Island8,Plant2,Island8,Bird22,1,0.56,0.0988,peripheral,large
+Island8,Plant2,Island8,Bird26,2,0.625,0.9243,peripheral,small
+Island8,Plant2,Island8,Bird3,4,0.7361,1.5774,module hub,small
+Island8,Plant2,Island8,Bird4,10,0.5625,1.3371,peripheral,large
+Island8,Plant2,Island8,Bird1,358,0.75,1.5774,hub,small
+Island4,Plant11,Island4,Bird6,6,0.6667,0.0988,peripheral,large
+Island4,Plant3,Island4,Bird7,1,0.7188,1.5509,peripheral,mix
+Island4,Plant3,Island4,Bird6,4,0.7188,1.5509,peripheral,mix
+Island4,Plant4,Island4,Bird4,2,0.6122,0.7179,peripheral,large
+Island4,Plant4,Island4,Bird9,1,0.7755,1.8181,hub,small
+Island4,Plant4,Island4,Bird5,4,0.7891,3.8604,hub,small
+Island4,Plant11,Island4,Bird24,2,0,-1.1395,peripheral,large
+Island3,Plant13,Island3,Bird4,2,0.56,0.0988,peripheral,large
+Island1,Plant25,Island1,Bird2,40,0,-0.2562,peripheral,mix
+Island1,Plant13,Island1,Bird26,1,0.5,-0.2562,peripheral,mix
+Island3,Plant3,Island3,Bird5,5,0.7407,1.5509,peripheral,mix
+Island3,Plant3,Island3,Bird24,1,0,-0.7487,peripheral,mix
+Island3,Plant3,Island3,Bird6,15,0.7188,1.5509,peripheral,mix
+Island3,Plant3,Island3,Bird17,11,0.625,-0.7487,peripheral,mix
+Island3,Plant3,Island3,Bird15,5,0.625,3.8426,module hub,mix
+Island3,Plant3,Island3,Bird10,1,0.6111,1.5509,peripheral,mix
+Island3,Plant3,Island3,Bird2,30,0.5625,1.3371,peripheral,large
+Island2,Plant17,Island2,Bird13,4,0,-1.1395,peripheral,large
+Island2,Plant17,Island2,Bird3,2,0.5,-0.5437,peripheral,small
+Island2,Plant17,Island2,Bird16,3,0,-1.1395,peripheral,large
+Island2,Plant17,Island2,Bird5,1,0.5,-0.5437,peripheral,small
+Island2,Plant17,Island2,Bird22,1,0,-1.1395,peripheral,large
+Island2,Plant17,Island2,Bird9,1,0.5,-0.5437,peripheral,small
+Island2,Plant17,Island2,Bird4,3,0,-1.1395,peripheral,large
+Island2,Plant3,Island2,Bird1,62,0.7,1.5509,peripheral,mix
+Island2,Plant3,Island2,Bird13,1,0.625,0.4011,peripheral,mix
+Island2,Plant3,Island2,Bird5,10,0.7407,1.5509,peripheral,mix
+Island6,Plant16,Island6,Bird1,1,0.5,-0.7487,peripheral,mix
+Island6,Plant16,Island6,Bird3,27,0.6667,-0.5437,peripheral,small
+Island6,Plant16,Island6,Bird6,1,0.5,-0.5437,peripheral,small
+Island6,Plant16,Island6,Bird2,21,0.72,0.9243,peripheral,small
+Island6,Plant16,Island6,Bird7,6,0.4444,0.9243,peripheral,small
+Island13,Plant16,Island13,Bird2,10,0.72,0.9243,peripheral,small
+Island13,Plant16,Island13,Bird5,3,0.4444,0.9243,peripheral,small
+Island13,Plant16,Island13,Bird6,4,0.5,-0.5437,peripheral,small
+Island13,Plant16,Island13,Bird28,1,0,-0.5437,peripheral,small
+Island13,Plant16,Island13,Bird7,5,0.4444,0.9243,peripheral,small
+Island15,Plant3,Island15,Bird6,6,0.7188,1.5509,peripheral,mix
+Island15,Plant3,Island15,Bird9,2,0.74,-0.5195,peripheral,small
+Island15,Plant3,Island15,Bird13,2,0.625,0.4011,peripheral,mix
+Island15,Plant3,Island15,Bird3,3,0.7361,-0.11,peripheral,small
+Island15,Plant3,Island15,Bird5,6,0.7407,1.5509,peripheral,mix
+Island16,Plant7,Island16,Bird13,3,0.64,-0.11,peripheral,small
+Island16,Plant7,Island16,Bird6,10,0.8,0.9243,connector,small
+Island16,Plant7,Island16,Bird9,6,0.74,1.5774,module hub,small
+Island21,Plant7,Island21,Bird6,2,0.8,0.9243,connector,small
+Island21,Plant7,Island21,Bird3,8,0.5714,1.5774,module hub,small
+Island5,Plant9,Island5,Bird7,3,0.375,0.0988,peripheral,large
+Island11,Plant7,Island11,Bird1,5,0.6531,1.5509,peripheral,mix
+Island10,Plant8,Island10,Bird1,11,0.449,1.3371,peripheral,large
+Island10,Plant8,Island10,Bird12,1,0.5,-0.7487,peripheral,mix
+Island10,Plant8,Island10,Bird5,20,0.6667,0.0988,peripheral,large
+Island10,Plant8,Island10,Bird6,5,0.5625,1.3371,peripheral,large
+Island10,Plant8,Island10,Bird9,7,0.6122,0.7179,peripheral,large
+Island10,Plant8,Island10,Bird4,4,0.5,0.7179,peripheral,large
+Island10,Plant8,Island10,Bird17,1,0.5,0.7179,peripheral,large
+Island10,Plant7,Island10,Bird1,1,0.6531,1.5509,peripheral,mix
+Island10,Plant7,Island10,Bird12,6,0.4444,0.4011,peripheral,mix
+Island1,Plant1,Island1,Bird28,4,0.72,-0.11,peripheral,small
+Island1,Plant1,Island1,Bird9,13,0.7438,0.7337,peripheral,small
+Island1,Plant1,Island1,Bird13,31,0.7934,0.7337,connector,small
+Island1,Plant1,Island1,Bird6,49,0.75,1.5774,hub,small
+Island1,Plant1,Island1,Bird7,61,0.58,1.9562,module hub,large
+Island3,Plant1,Island3,Bird5,1,0.7755,1.5774,hub,small
+Island3,Plant1,Island3,Bird28,1,0.72,-0.11,peripheral,small
+Island3,Plant1,Island3,Bird17,4,0.6667,-0.7487,peripheral,mix
+Island3,Plant1,Island3,Bird14,1,0.6122,0.7179,peripheral,large
+Island3,Plant7,Island3,Bird1,2,0.6531,1.5509,peripheral,mix
+Island20,Plant7,Island20,Bird5,8,0.74,1.5774,module hub,small
+Island20,Plant7,Island20,Bird6,14,0.8,0.9243,connector,small
+Island20,Plant7,Island20,Bird1,2,0.6531,1.5509,peripheral,mix
+Island12,Plant18,Island12,Bird3,1,0.5,-0.5195,peripheral,small
+Island12,Plant18,Island12,Bird5,3,0.6667,-0.5195,peripheral,small
+Island6,Plant7,Island6,Bird1,1,0.6531,1.5509,peripheral,mix
+Island6,Plant7,Island6,Bird6,3,0.8,0.9243,connector,small
+Island6,Plant7,Island6,Bird9,1,0.74,1.5774,module hub,small
+Island6,Plant8,Island6,Bird1,5,0.449,1.3371,peripheral,large
+Island6,Plant8,Island6,Bird9,3,0.6122,0.7179,peripheral,large
+Island6,Plant8,Island6,Bird5,1,0.6667,0.0988,peripheral,large
+Island6,Plant8,Island6,Bird17,12,0.5,0.7179,peripheral,large
+Island6,Plant8,Island6,Bird15,1,0,1.3371,peripheral,large
+Island6,Plant1,Island6,Bird3,2,0.66,1.5774,module hub,small
+Island6,Plant1,Island6,Bird17,2,0.6667,-0.7487,peripheral,mix
+Island6,Plant1,Island6,Bird22,1,0.5,-0.5437,peripheral,small
+Island6,Plant8,Island6,Bird3,15,0.449,1.3371,peripheral,large
+Island6,Plant8,Island6,Bird2,32,0.56,0.0988,peripheral,large
+Island6,Plant1,Island6,Bird8,1,0.6,1.9562,module hub,large
+Island6,Plant1,Island6,Bird9,2,0.7438,0.7337,peripheral,small
+Island14,Plant1,Island14,Bird6,27,0.75,1.5774,hub,small
+Island14,Plant1,Island14,Bird9,6,0.7438,0.7337,peripheral,small
+Island14,Plant1,Island14,Bird3,2,0.66,1.5774,module hub,small
+Island14,Plant1,Island14,Bird5,2,0.7755,1.5774,hub,small
+Island20,Plant5,Island20,Bird6,2,0.72,0.9243,peripheral,small
+Island20,Plant5,Island20,Bird5,4,0.6531,1.5509,peripheral,mix
+Island19,Plant1,Island19,Bird5,1,0.7755,1.5774,hub,small
+Island19,Plant1,Island19,Bird7,1,0.58,1.9562,module hub,large
+Island19,Plant1,Island19,Bird8,2,0.6,1.9562,module hub,large
+Island19,Plant1,Island19,Bird1,1,0.642,1.3371,peripheral,large
+Island19,Plant1,Island19,Bird6,3,0.75,1.5774,hub,small
+Island19,Plant11,Island19,Bird6,1,0.6667,0.0988,peripheral,large
+Island19,Plant11,Island19,Bird2,1,0.625,-0.5437,peripheral,small
+Island19,Plant7,Island19,Bird2,3,0.7188,-0.11,peripheral,small
+Island19,Plant7,Island19,Bird6,16,0.8,0.9243,connector,small
+Island19,Plant7,Island19,Bird1,1,0.6531,1.5509,peripheral,mix
+Island19,Plant7,Island19,Bird5,22,0.74,1.5774,module hub,small
+Island4,Plant5,Island4,Bird4,3,0.5625,1.3371,peripheral,large
+Island4,Plant5,Island4,Bird9,15,0.7273,-0.5195,peripheral,small
+Island4,Plant5,Island4,Bird28,1,0.75,-0.5195,connector,small
+Island4,Plant5,Island4,Bird34,1,0,-0.5203,peripheral,large
+Island4,Plant5,Island4,Bird13,1,0.56,1.5509,peripheral,mix
+Island15,Plant7,Island15,Bird5,1,0.74,1.5774,module hub,small
+Island15,Plant7,Island15,Bird6,1,0.8,0.9243,connector,small
+Island15,Plant5,Island15,Bird2,1,0.7456,1.5509,peripheral,mix
+Island15,Plant5,Island15,Bird7,2,0.6914,0.9243,peripheral,small
+Island13,Plant5,Island13,Bird3,1,0.7654,1.8181,hub,small
+Island13,Plant5,Island13,Bird2,1,0.7456,1.5509,peripheral,mix
+Island13,Plant5,Island13,Bird7,4,0.6914,0.9243,peripheral,small
+Island18,Plant21,Island18,Bird5,15,0,-0.5437,peripheral,small
+Island18,Plant21,Island18,Bird11,19,0,-0.5437,peripheral,small
+Island18,Plant17,Island18,Bird3,162,0.5,-0.5437,peripheral,small
+Island18,Plant17,Island18,Bird11,25,0,-0.5437,peripheral,small
+Island12,Plant7,Island12,Bird3,1,0.5714,1.5774,module hub,small
+Island7,Plant1,Island7,Bird18,1,0.7551,1.5774,hub,small
+Island4,Plant1,Island4,Bird24,3,0,-0.5203,peripheral,large
+Island4,Plant1,Island4,Bird6,26,0.75,1.5774,hub,small
+Island4,Plant9,Island4,Bird1,2,0.625,-0.11,peripheral,small
+Island4,Plant9,Island4,Bird3,7,0.48,0.7337,peripheral,small
+Island4,Plant9,Island4,Bird34,1,0,-1.1395,peripheral,large
+Island4,Plant9,Island4,Bird6,41,0.6777,0.7337,peripheral,small
+Island4,Plant9,Island4,Bird8,9,0.48,0.9243,peripheral,small
+Island4,Plant9,Island4,Bird14,2,0,0.0988,peripheral,large
+Island4,Plant9,Island4,Bird2,8,0.5625,1.3371,peripheral,large
+Island22,Plant5,Island22,Bird3,3,0.7654,1.8181,hub,small
+Island16,Plant23,Island16,Bird5,4,0,-0.9537,peripheral,small
+Island21,Plant1,Island21,Bird12,1,0.72,0.4011,peripheral,mix
+Island21,Plant1,Island21,Bird13,3,0.7934,0.7337,connector,small
+Island3,Plant1,Island3,Bird1,1,0.642,1.3371,peripheral,large
+Island17,Plant1,Island17,Bird9,1,0.7438,0.7337,peripheral,small
+Island17,Plant1,Island17,Bird35,2,0,-0.9537,peripheral,small
+Island17,Plant1,Island17,Bird6,2,0.75,1.5774,hub,small
+Island17,Plant1,Island17,Bird5,14,0.7755,1.5774,hub,small
+Island17,Plant1,Island17,Bird3,13,0.66,1.5774,module hub,small
+Island17,Plant1,Island17,Bird1,5,0.642,1.3371,peripheral,large
+Island11,Plant5,Island11,Bird21,1,0.5,-0.7487,peripheral,mix
+Island11,Plant5,Island11,Bird13,19,0.56,1.5509,peripheral,mix
+Island11,Plant5,Island11,Bird2,2,0.7456,1.5509,peripheral,mix
+Island18,Plant17,Island18,Bird5,6,0.5,-0.5437,peripheral,small
+Island18,Plant21,Island18,Bird6,2,0,-0.5437,peripheral,small
+Island18,Plant21,Island18,Bird9,2,0,-0.5437,peripheral,small
+Island18,Plant21,Island18,Bird39,1,0,-0.5437,peripheral,small
+Island18,Plant26,Island18,Bird3,4,0,-0.5437,peripheral,small
+Island18,Plant26,Island18,Bird11,4,0,-0.5437,peripheral,small
+Island14,Plant9,Island14,Bird3,4,0.48,0.7337,peripheral,small
+Island14,Plant9,Island14,Bird6,3,0.6777,0.7337,peripheral,small
+Island14,Plant9,Island14,Bird2,3,0.5625,1.3371,peripheral,large
+Island14,Plant9,Island14,Bird35,1,0,-0.9537,peripheral,small
+Island6,Plant5,Island6,Bird2,11,0.7456,1.5509,peripheral,mix
+Island6,Plant5,Island6,Bird9,3,0.7273,-0.5195,peripheral,small
+Island6,Plant5,Island6,Bird4,1,0.5625,1.3371,peripheral,large
+Island6,Plant5,Island6,Bird7,2,0.6914,0.9243,peripheral,small
+Island6,Plant1,Island6,Bird5,2,0.7755,1.5774,hub,small
+Island6,Plant1,Island6,Bird4,1,0.5625,1.3371,peripheral,large
+Island6,Plant1,Island6,Bird14,2,0.6122,0.7179,peripheral,large
+Island6,Plant1,Island6,Bird2,7,0.6942,1.5509,peripheral,mix
+Island6,Plant1,Island6,Bird7,6,0.58,1.9562,module hub,large
+Island2,Plant6,Island2,Bird16,22,0,1.3371,peripheral,large
+Island2,Plant6,Island2,Bird10,44,0.58,1.9562,module hub,large
+Island2,Plant6,Island2,Bird17,1,0.32,0.7179,peripheral,large
+Island2,Plant6,Island2,Bird2,13,0.5312,1.3371,peripheral,large
+Island2,Plant6,Island2,Bird3,17,0.4938,1.9562,module hub,large
+Island2,Plant6,Island2,Bird24,2,0,0.0988,peripheral,large
+Island2,Plant6,Island2,Bird4,4,0.32,0.7179,peripheral,large
+Island2,Plant6,Island2,Bird23,1,0.4444,-0.5203,peripheral,large
+Island6,Plant6,Island6,Bird1,48,0.58,1.9562,module hub,large
+Island6,Plant6,Island6,Bird3,4,0.4938,1.9562,module hub,large
+Island6,Plant6,Island6,Bird10,6,0.58,1.9562,module hub,large
+Island6,Plant6,Island6,Bird17,4,0.32,0.7179,peripheral,large
+Island6,Plant6,Island6,Bird2,8,0.5312,1.3371,peripheral,large
+Island6,Plant6,Island6,Bird21,24,0,0.0988,peripheral,large
+Island6,Plant6,Island6,Bird7,3,0.449,1.3371,peripheral,large
+Island6,Plant6,Island6,Bird16,5,0,1.3371,peripheral,large
+Island6,Plant6,Island6,Bird4,1,0.32,0.7179,peripheral,large
+Island1,Plant6,Island1,Bird1,7,0.58,1.9562,module hub,large
+Island1,Plant6,Island1,Bird3,17,0.4938,1.9562,module hub,large
+Island1,Plant6,Island1,Bird10,21,0.58,1.9562,module hub,large
+Island1,Plant6,Island1,Bird4,1,0.32,0.7179,peripheral,large
+Island1,Plant6,Island1,Bird2,44,0.5312,1.3371,peripheral,large
+Island1,Plant6,Island1,Bird11,4,0,-0.2562,peripheral,mix
+Island1,Plant6,Island1,Bird7,13,0.449,1.3371,peripheral,large
+Island1,Plant6,Island1,Bird23,2,0.4444,-0.5203,peripheral,large
+Island1,Plant6,Island1,Bird17,1,0.32,0.7179,peripheral,large
+Island5,Plant6,Island5,Bird16,1,0,1.3371,peripheral,large
+Island9,Plant6,Island9,Bird1,137,0.58,1.9562,module hub,large
+Island9,Plant6,Island9,Bird3,36,0.4938,1.9562,module hub,large
+Island9,Plant6,Island9,Bird10,12,0.58,1.9562,module hub,large
+Island9,Plant6,Island9,Bird2,12,0.5312,1.3371,peripheral,large
+Island14,Plant6,Island14,Bird2,53,0.5312,1.3371,peripheral,large
+Island20,Plant6,Island20,Bird1,4,0.58,1.9562,module hub,large
+Island20,Plant6,Island20,Bird15,1,0.4444,-0.5203,peripheral,large
+Island20,Plant6,Island20,Bird10,2,0.58,1.9562,module hub,large
+Island19,Plant6,Island19,Bird1,32,0.58,1.9562,module hub,large
+Island19,Plant6,Island19,Bird3,6,0.4938,1.9562,module hub,large
+Island19,Plant6,Island19,Bird2,5,0.5312,1.3371,peripheral,large
+Island19,Plant6,Island19,Bird10,29,0.58,1.9562,module hub,large
+Island19,Plant6,Island19,Bird17,4,0.32,0.7179,peripheral,large
+Island19,Plant6,Island19,Bird21,17,0,0.0988,peripheral,large
+Island19,Plant6,Island19,Bird7,1,0.449,1.3371,peripheral,large
+Island7,Plant14,Island7,Bird7,8,0.5,-0.5437,peripheral,small
+Island7,Plant14,Island7,Bird2,3,0.5,-0.5437,peripheral,small
+Island7,Plant14,Island7,Bird4,1,0.625,-0.5437,peripheral,small
+Island7,Plant14,Island7,Bird3,18,0.625,3.8426,module hub,mix
+Island7,Plant14,Island7,Bird10,1,0.625,-0.5195,peripheral,small
+Island7,Plant6,Island7,Bird2,28,0.5312,1.3371,peripheral,large
+Island7,Plant6,Island7,Bird10,18,0.58,1.9562,module hub,large
+Island7,Plant6,Island7,Bird16,8,0,1.3371,peripheral,large
+Island7,Plant6,Island7,Bird14,2,0,0.0988,peripheral,large
+Island7,Plant6,Island7,Bird15,3,0.4444,-0.5203,peripheral,large
+Island7,Plant6,Island7,Bird1,6,0.58,1.9562,module hub,large
+Island7,Plant6,Island7,Bird3,8,0.4938,1.9562,module hub,large
+Island4,Plant6,Island4,Bird3,8,0.4938,1.9562,module hub,large
+Island4,Plant6,Island4,Bird16,8,0,1.3371,peripheral,large
+Island4,Plant6,Island4,Bird10,2,0.58,1.9562,module hub,large
+Island4,Plant6,Island4,Bird24,2,0,0.0988,peripheral,large
+Island4,Plant6,Island4,Bird2,15,0.5312,1.3371,peripheral,large
+Island4,Plant6,Island4,Bird7,1,0.449,1.3371,peripheral,large
+Island4,Plant6,Island4,Bird23,1,0.4444,-0.5203,peripheral,large
+Island4,Plant6,Island4,Bird14,1,0,0.0988,peripheral,large
+Island15,Plant12,Island15,Bird1,11,0.6667,-0.5195,peripheral,small
+Island15,Plant12,Island15,Bird3,54,0.72,3.8426,module hub,mix
+Island15,Plant12,Island15,Bird10,3,0.72,-0.11,peripheral,small
+Island15,Plant12,Island15,Bird19,1,0.4444,-0.11,peripheral,small
+Island7,Plant12,Island7,Bird2,1,0,-1.1395,peripheral,large
+Island7,Plant12,Island7,Bird14,5,0,-1.1395,peripheral,large
+Island19,Plant10,Island19,Bird3,1,0.7778,-0.11,connector,small
+Island19,Plant10,Island19,Bird2,5,0.72,-0.11,peripheral,small
+Island18,Plant10,Island18,Bird10,10,0.5,-0.5437,peripheral,small
+Island11,Plant10,Island11,Bird7,5,0.625,0.4011,peripheral,mix
+Island11,Plant10,Island11,Bird10,27,0.5,-0.5437,peripheral,small
+Island3,Plant10,Island3,Bird4,2,0.5,-0.7487,peripheral,mix
+Island3,Plant10,Island3,Bird7,2,0.625,0.4011,peripheral,mix
+Island8,Plant2,Island8,Bird2,11,0.7219,1.5774,module hub,small
+Island8,Plant14,Island8,Bird10,1,0.625,-0.5195,peripheral,small
+Island2,Plant2,Island2,Bird4,2,0.5625,1.3371,peripheral,large
+Island2,Plant2,Island2,Bird14,6,0.32,0.7179,peripheral,large
+Island2,Plant2,Island2,Bird2,24,0.7219,1.5774,module hub,small
+Island2,Plant2,Island2,Bird7,1,0.66,1.3371,peripheral,large
+Island2,Plant2,Island2,Bird16,3,0.32,0.7179,peripheral,large
+Island6,Plant2,Island6,Bird3,3,0.7361,1.5774,module hub,small
+Island6,Plant2,Island6,Bird16,3,0.32,0.7179,peripheral,large
+Island6,Plant2,Island6,Bird4,4,0.5625,1.3371,peripheral,large
+Island6,Plant2,Island6,Bird2,87,0.7219,1.5774,module hub,small
+Island6,Plant2,Island6,Bird24,2,0,0.0988,peripheral,large
+Island6,Plant2,Island6,Bird11,3,0.4444,-0.5203,peripheral,large
+Island6,Plant2,Island6,Bird7,3,0.66,1.3371,peripheral,large
+Island6,Plant13,Island6,Bird1,13,0.375,0.0988,peripheral,large
+Island6,Plant13,Island6,Bird4,21,0.56,0.0988,peripheral,large
+Island6,Plant13,Island6,Bird14,43,0,0.0988,peripheral,large
+Island6,Plant13,Island6,Bird7,2,0.625,-0.7487,peripheral,mix
+Island6,Plant13,Island6,Bird3,2,0.6667,-0.9537,peripheral,small
+Island6,Plant13,Island6,Bird17,4,0,-0.5203,peripheral,large
+Island6,Plant13,Island6,Bird2,16,0.375,0.0988,peripheral,large
+Island6,Plant13,Island6,Bird26,1,0.5,-0.2562,peripheral,mix
+Island6,Plant13,Island6,Bird24,5,0,-0.5203,peripheral,large
+Island1,Plant13,Island1,Bird8,5,0,-0.2562,peripheral,mix
+Island1,Plant13,Island1,Bird7,2,0.625,-0.7487,peripheral,mix
+Island9,Plant10,Island9,Bird5,3,0.75,-0.5437,connector,small
+Island9,Plant10,Island9,Bird2,2,0.72,-0.11,peripheral,small
+Island14,Plant13,Island14,Bird3,31,0.6667,-0.9537,peripheral,small
+Island5,Plant13,Island5,Bird4,118,0.56,0.0988,peripheral,large
+Island5,Plant13,Island5,Bird24,1,0,-0.5203,peripheral,large
+Island5,Plant13,Island5,Bird6,3,0.5,-0.2562,peripheral,mix
+Island5,Plant13,Island5,Bird14,8,0,0.0988,peripheral,large
+Island5,Plant13,Island5,Bird2,2,0.375,0.0988,peripheral,large
+Island5,Plant13,Island5,Bird7,2,0.625,-0.7487,peripheral,mix
+Island5,Plant13,Island5,Bird22,1,0.5,-0.2562,peripheral,mix
+Island5,Plant13,Island5,Bird23,2,0,-1.1395,peripheral,large
+Island10,Plant13,Island10,Bird7,1,0.625,-0.7487,peripheral,mix
+Island18,Plant10,Island18,Bird2,1,0.72,-0.11,peripheral,small
+Island7,Plant13,Island7,Bird4,1,0.56,0.0988,peripheral,large
+Island7,Plant13,Island7,Bird1,1,0.375,0.0988,peripheral,large
+Island7,Plant13,Island7,Bird2,1,0.375,0.0988,peripheral,large
+Island7,Plant13,Island7,Bird14,5,0,0.0988,peripheral,large
+Island18,Plant10,Island18,Bird1,1,0.72,-0.11,peripheral,small
+Island18,Plant10,Island18,Bird21,9,0.75,-0.5437,connector,small
+Island1,Plant24,Island1,Bird8,8,0,-0.2562,peripheral,mix
+Island1,Plant24,Island1,Bird4,3,0,-0.2562,peripheral,mix
+Island1,Plant24,Island1,Bird2,2,0,-0.2562,peripheral,mix
+Island1,Plant15,Island1,Bird1,8,0,-0.2562,peripheral,mix
+Island1,Plant13,Island1,Bird5,11,0.5,-0.7487,peripheral,mix
+Island1,Plant13,Island1,Bird6,56,0.5,-0.2562,peripheral,mix
+Island1,Plant13,Island1,Bird27,13,0,-0.2562,peripheral,mix
+Island5,Plant1,Island5,Bird3,3,0.66,1.5774,module hub,small
+Island5,Plant1,Island5,Bird20,2,0,-1.1395,peripheral,large
+Island5,Plant1,Island5,Bird9,18,0.7438,0.7337,peripheral,small
+Island11,Plant1,Island11,Bird13,10,0.7934,0.7337,connector,small
+Island11,Plant1,Island11,Bird12,18,0.72,0.4011,peripheral,mix
+Island11,Plant1,Island11,Bird18,4,0.7551,1.5774,hub,small
+Island11,Plant1,Island11,Bird6,4,0.75,1.5774,hub,small
+Island1,Plant8,Island1,Bird10,2,0,-0.2562,peripheral,mix
+Island1,Plant1,Island1,Bird5,3,0.7755,1.5774,hub,small
+Island1,Plant1,Island1,Bird17,1,0.6667,-0.7487,peripheral,mix
+Island9,Plant8,Island9,Bird6,22,0.5625,1.3371,peripheral,large
+Island9,Plant8,Island9,Bird8,14,0.56,0.0988,peripheral,large
+Island9,Plant1,Island9,Bird13,2,0.7934,0.7337,connector,small
+Island9,Plant1,Island9,Bird8,11,0.6,1.9562,module hub,large
+Island9,Plant19,Island9,Bird1,40,0.5,-0.9537,peripheral,small
+Island9,Plant19,Island9,Bird3,57,0.5,-0.9537,peripheral,small
+Island9,Plant19,Island9,Bird5,19,0,-0.9537,peripheral,small
+Island9,Plant19,Island9,Bird6,6,0,-0.9537,peripheral,small
+Island9,Plant19,Island9,Bird8,11,0,-0.9537,peripheral,small
+Island9,Plant19,Island9,Bird9,6,0,-0.9537,peripheral,small
+Island9,Plant19,Island9,Bird4,2,0,-0.9537,peripheral,small
+Island9,Plant19,Island9,Bird2,30,0,-0.9537,peripheral,small
+Island8,Plant1,Island8,Bird18,2,0.7551,1.5774,hub,small
+Island8,Plant1,Island8,Bird22,2,0.5,-0.5437,peripheral,small
+Island8,Plant1,Island8,Bird14,7,0.6122,0.7179,peripheral,large
+Island8,Plant1,Island8,Bird5,2,0.7755,1.5774,hub,small
+Island8,Plant29,Island8,Bird7,3,0,-0.5437,peripheral,small
+Island8,Plant1,Island8,Bird15,1,0.6667,-0.5437,peripheral,small
+Island8,Plant1,Island8,Bird7,16,0.58,1.9562,module hub,large
+Island2,Plant1,Island2,Bird26,5,0,-0.5203,peripheral,large
+Island2,Plant1,Island2,Bird28,2,0.72,-0.11,peripheral,small
+Island2,Plant1,Island2,Bird9,4,0.7438,0.7337,peripheral,small
+Island2,Plant1,Island2,Bird13,3,0.7934,0.7337,connector,small
+Island2,Plant1,Island2,Bird5,11,0.7755,1.5774,hub,small
+Island2,Plant1,Island2,Bird18,2,0.7551,1.5774,hub,small
+Island2,Plant8,Island2,Bird4,2,0.5,0.7179,peripheral,large
+Island1,Plant18,Island1,Bird5,3,0.6667,-0.5195,peripheral,small
+Island1,Plant18,Island1,Bird15,2,0,-0.2562,peripheral,mix
+Island1,Plant18,Island1,Bird7,2,0.5,-0.7487,peripheral,mix
+Island11,Plant7,Island11,Bird13,1,0.64,-0.11,peripheral,small
+Island11,Plant7,Island11,Bird12,4,0.4444,0.4011,peripheral,mix
+Island11,Plant7,Island11,Bird5,3,0.74,1.5774,module hub,small
+Island11,Plant1,Island11,Bird5,11,0.7755,1.5774,hub,small
+Island11,Plant1,Island11,Bird2,2,0.6942,1.5509,peripheral,mix
+Island11,Plant1,Island11,Bird3,1,0.66,1.5774,module hub,small
+Island9,Plant6,Island9,Bird7,1,0.449,1.3371,peripheral,large
+Island8,Plant2,Island8,Bird19,11,0.7188,0.9243,peripheral,small
+Island8,Plant2,Island8,Bird16,1,0.32,0.7179,peripheral,large
+Island8,Plant2,Island8,Bird17,1,0.56,0.0988,peripheral,large
+Island8,Plant2,Island8,Bird20,15,0.5,-0.5437,peripheral,small
+Island8,Plant2,Island8,Bird10,18,0.7361,-0.11,peripheral,small
+Island2,Plant2,Island2,Bird19,1,0.7188,0.9243,peripheral,small
+Island2,Plant3,Island2,Bird30,5,0,-1.1395,peripheral,large
+Island2,Plant3,Island2,Bird4,24,0.5714,0.7179,peripheral,large
+Island2,Plant3,Island2,Bird17,3,0.625,-0.7487,peripheral,mix
+Island2,Plant3,Island2,Bird23,1,0,-0.5203,peripheral,large
+Island2,Plant14,Island2,Bird4,2,0.625,-0.5437,peripheral,small
+Island2,Plant2,Island2,Bird10,4,0.7361,-0.11,peripheral,small
+Island9,Plant2,Island9,Bird1,25,0.75,1.5774,hub,small
+Island9,Plant2,Island9,Bird3,39,0.7361,1.5774,module hub,small
+Island9,Plant2,Island9,Bird2,19,0.7219,1.5774,module hub,small
+Island9,Plant2,Island9,Bird7,18,0.66,1.3371,peripheral,large
+Island14,Plant2,Island14,Bird1,27,0.75,1.5774,hub,small
+Island14,Plant2,Island14,Bird3,33,0.7361,1.5774,module hub,small
+Island14,Plant2,Island14,Bird2,3,0.7219,1.5774,module hub,small
+Island14,Plant2,Island14,Bird18,1,0.72,0.7337,peripheral,small
+Island14,Plant2,Island14,Bird7,1,0.66,1.3371,peripheral,large
+Island3,Plant2,Island3,Bird18,3,0.72,0.7337,peripheral,small
+Island3,Plant2,Island3,Bird15,2,0.6914,-0.11,peripheral,small
+Island3,Plant2,Island3,Bird7,9,0.66,1.3371,peripheral,large
+Island3,Plant2,Island3,Bird5,12,0.5,-0.7487,peripheral,mix
+Island3,Plant2,Island3,Bird4,20,0.5625,1.3371,peripheral,large
+Island5,Plant4,Island5,Bird3,1,0.78,1.8181,hub,small
+Island5,Plant3,Island5,Bird1,3,0.7,1.5509,peripheral,mix
+Island5,Plant3,Island5,Bird3,1,0.7361,-0.11,peripheral,small
+Island5,Plant3,Island5,Bird2,3,0.5625,1.3371,peripheral,large
+Island10,Plant2,Island10,Bird10,11,0.7361,-0.11,peripheral,small
+Island10,Plant3,Island10,Bird10,1,0.6111,1.5509,peripheral,mix
+Island10,Plant3,Island10,Bird7,1,0.7188,1.5509,peripheral,mix
+Island11,Plant10,Island11,Bird21,3,0.75,-0.5437,connector,small
+Island11,Plant3,Island11,Bird10,43,0.6111,1.5509,peripheral,mix
+Island17,Plant28,Island17,Bird1,15,0,-0.9537,peripheral,small
+Island17,Plant28,Island17,Bird3,22,0,-0.9537,peripheral,small
+Island17,Plant28,Island17,Bird5,1,0,-0.9537,peripheral,small
+Island11,Plant16,Island11,Bird1,8,0.5,-0.7487,peripheral,mix
+Island11,Plant16,Island11,Bird3,5,0.6667,-0.5437,peripheral,small
+Island11,Plant16,Island11,Bird12,10,0,-0.7487,peripheral,mix
+Island11,Plant16,Island11,Bird9,3,0.5,-0.7487,peripheral,mix
+Island11,Plant3,Island11,Bird9,2,0.74,-0.5195,peripheral,small
+Island1,Plant3,Island1,Bird3,17,0.7361,-0.11,peripheral,small
+Island1,Plant3,Island1,Bird27,1,0.5,-0.2562,peripheral,mix
+Island7,Plant1,Island7,Bird12,1,0.72,0.4011,peripheral,mix
+Island7,Plant1,Island7,Bird8,2,0.6,1.9562,module hub,large
+Island7,Plant1,Island7,Bird9,1,0.7438,0.7337,peripheral,small
+Island15,Plant4,Island15,Bird12,1,0.5,-0.9537,peripheral,small
+Island15,Plant4,Island15,Bird18,2,0.75,2.3923,hub,small
+Island19,Plant8,Island19,Bird15,74,0,1.3371,peripheral,large
+Island19,Plant8,Island19,Bird3,1,0.449,1.3371,peripheral,large
+Island19,Plant8,Island19,Bird7,1,0.32,0.7179,peripheral,large
+Island7,Plant8,Island7,Bird4,40,0.5,0.7179,peripheral,large
+Island7,Plant8,Island7,Bird14,3,0,-0.5203,peripheral,large
+Island7,Plant3,Island7,Bird4,3,0.5714,0.7179,peripheral,large
+Island7,Plant3,Island7,Bird17,1,0.625,-0.7487,peripheral,mix
+Island7,Plant8,Island7,Bird1,32,0.449,1.3371,peripheral,large
+Island7,Plant8,Island7,Bird3,3,0.449,1.3371,peripheral,large
+Island7,Plant8,Island7,Bird5,5,0.6667,0.0988,peripheral,large
+Island7,Plant8,Island7,Bird6,3,0.5625,1.3371,peripheral,large
+Island7,Plant8,Island7,Bird15,14,0,1.3371,peripheral,large
+Island7,Plant8,Island7,Bird8,24,0.56,0.0988,peripheral,large
+Island7,Plant8,Island7,Bird9,1,0.6122,0.7179,peripheral,large
+Island7,Plant8,Island7,Bird17,17,0.5,0.7179,peripheral,large
+Island7,Plant8,Island7,Bird2,15,0.56,0.0988,peripheral,large
+Island4,Plant8,Island4,Bird1,32,0.449,1.3371,peripheral,large
+Island4,Plant8,Island4,Bird3,2,0.449,1.3371,peripheral,large
+Island4,Plant8,Island4,Bird15,1,0,1.3371,peripheral,large
+Island4,Plant8,Island4,Bird8,15,0.56,0.0988,peripheral,large
+Island4,Plant8,Island4,Bird22,3,0,-1.1395,peripheral,large
+Island4,Plant8,Island4,Bird17,8,0.5,0.7179,peripheral,large
+Island4,Plant8,Island4,Bird7,5,0.32,0.7179,peripheral,large
+Island4,Plant8,Island4,Bird23,6,0,-1.1395,peripheral,large
+Island3,Plant4,Island3,Bird15,5,0.6667,-0.7487,peripheral,mix
+Island1,Plant3,Island1,Bird15,3,0.625,3.8426,module hub,mix
+Island1,Plant1,Island1,Bird1,1,0.642,1.3371,peripheral,large
+Island1,Plant1,Island1,Bird18,5,0.7551,1.5774,hub,small
+Island3,Plant3,Island3,Bird19,1,0,-0.7487,peripheral,mix
+Island15,Plant3,Island15,Bird4,2,0.5714,0.7179,peripheral,large
+Island15,Plant23,Island15,Bird15,3,0,-0.2562,peripheral,mix
+Island15,Plant23,Island15,Bird2,2,0,-0.2562,peripheral,mix
+Island15,Plant23,Island15,Bird7,1,0,-0.2562,peripheral,mix
+Island13,Plant4,Island13,Bird8,4,0.6667,2.3923,module hub,small
+Island12,Plant4,Island12,Bird1,3,0.7778,2.3923,hub,small
+Island12,Plant4,Island12,Bird6,4,0.7654,1.8181,hub,small
+Island12,Plant3,Island12,Bird9,1,0.74,-0.5195,peripheral,small
+Island18,Plant17,Island18,Bird6,2,0,-0.5437,peripheral,small
+Island18,Plant17,Island18,Bird9,3,0.5,-0.5437,peripheral,small
+Island7,Plant11,Island7,Bird2,33,0.625,-0.5437,peripheral,small
+Island7,Plant11,Island7,Bird13,1,0.6667,-0.9537,peripheral,small
+Island7,Plant11,Island7,Bird6,1,0.6667,0.0988,peripheral,large
+Island7,Plant11,Island7,Bird7,4,0.5,-0.2562,peripheral,mix
+Island1,Plant24,Island1,Bird17,1,0,-0.2562,peripheral,mix
+Island1,Plant24,Island1,Bird14,4,0,-0.2562,peripheral,mix
+Island1,Plant16,Island1,Bird2,5,0.72,0.9243,peripheral,small
+Island3,Plant5,Island3,Bird19,6,0.4444,0.4011,peripheral,mix
+Island3,Plant5,Island3,Bird23,13,0,-0.7487,peripheral,mix
+Island5,Plant1,Island5,Bird14,4,0.6122,0.7179,peripheral,large
+Island5,Plant8,Island5,Bird4,43,0.5,0.7179,peripheral,large
+Island5,Plant8,Island5,Bird3,11,0.449,1.3371,peripheral,large
+Island5,Plant1,Island5,Bird13,3,0.7934,0.7337,connector,small
+Island15,Plant2,Island15,Bird1,24,0.75,1.5774,hub,small
+Island15,Plant2,Island15,Bird5,1,0.5,-0.7487,peripheral,mix
+Island15,Plant2,Island15,Bird10,46,0.7361,-0.11,peripheral,small
+Island15,Plant2,Island15,Bird15,6,0.6914,-0.11,peripheral,small
+Island15,Plant2,Island15,Bird2,1,0.7219,1.5774,module hub,small
+Island15,Plant2,Island15,Bird19,10,0.7188,0.9243,peripheral,small
+Island15,Plant14,Island15,Bird19,2,0.6667,-0.5195,peripheral,small
+Island15,Plant14,Island15,Bird1,1,0.625,3.8426,module hub,mix
+Island15,Plant14,Island15,Bird3,3,0.625,3.8426,module hub,mix
+Island13,Plant2,Island13,Bird1,10,0.75,1.5774,hub,small
+Island13,Plant2,Island13,Bird3,2,0.7361,1.5774,module hub,small
+Island13,Plant2,Island13,Bird18,1,0.72,0.7337,peripheral,small
+Island13,Plant2,Island13,Bird19,20,0.7188,0.9243,peripheral,small
+Island13,Plant2,Island13,Bird26,10,0.625,0.9243,peripheral,small
+Island16,Plant2,Island16,Bird1,26,0.75,1.5774,hub,small
+Island16,Plant2,Island16,Bird3,3,0.7361,1.5774,module hub,small
+Island16,Plant2,Island16,Bird18,2,0.72,0.7337,peripheral,small
+Island16,Plant2,Island16,Bird10,23,0.7361,-0.11,peripheral,small
+Island16,Plant2,Island16,Bird15,1,0.6914,-0.11,peripheral,small
+Island16,Plant2,Island16,Bird2,18,0.7219,1.5774,module hub,small
+Island16,Plant2,Island16,Bird19,8,0.7188,0.9243,peripheral,small
+Island19,Plant2,Island19,Bird1,6,0.75,1.5774,hub,small
+Island19,Plant2,Island19,Bird18,2,0.72,0.7337,peripheral,small
+Island19,Plant2,Island19,Bird10,1,0.7361,-0.11,peripheral,small
+Island19,Plant2,Island19,Bird15,2,0.6914,-0.11,peripheral,small
+Island4,Plant2,Island4,Bird18,2,0.72,0.7337,peripheral,small
+Island4,Plant2,Island4,Bird15,9,0.6914,-0.11,peripheral,small
+Island4,Plant2,Island4,Bird22,1,0.56,0.0988,peripheral,large
+Island4,Plant2,Island4,Bird23,1,0,-1.1395,peripheral,large
+Island4,Plant2,Island4,Bird24,2,0,0.0988,peripheral,large
+Island4,Plant2,Island4,Bird14,5,0.32,0.7179,peripheral,large
+Island7,Plant2,Island7,Bird18,3,0.72,0.7337,peripheral,small
+Island7,Plant2,Island7,Bird19,3,0.7188,0.9243,peripheral,small
+Island7,Plant2,Island7,Bird11,5,0.4444,-0.5203,peripheral,large
+Island7,Plant2,Island7,Bird7,1,0.66,1.3371,peripheral,large
+Island3,Plant2,Island3,Bird3,9,0.7361,1.5774,module hub,small
+Island3,Plant2,Island3,Bird14,4,0.32,0.7179,peripheral,large
+Island3,Plant2,Island3,Bird10,9,0.7361,-0.11,peripheral,small
+Island1,Plant2,Island1,Bird1,73,0.75,1.5774,hub,small
+Island1,Plant2,Island1,Bird3,65,0.7361,1.5774,module hub,small
+Island1,Plant2,Island1,Bird10,12,0.7361,-0.11,peripheral,small
+Island1,Plant2,Island1,Bird32,4,0,-0.2562,peripheral,mix
+Island1,Plant2,Island1,Bird4,32,0.5625,1.3371,peripheral,large
+Island1,Plant2,Island1,Bird7,5,0.66,1.3371,peripheral,large
+Island1,Plant2,Island1,Bird15,1,0.6914,-0.11,peripheral,small
+Island1,Plant2,Island1,Bird2,11,0.7219,1.5774,module hub,small
+Island17,Plant2,Island17,Bird1,19,0.75,1.5774,hub,small
+Island17,Plant2,Island17,Bird3,34,0.7361,1.5774,module hub,small
+Island17,Plant2,Island17,Bird18,2,0.72,0.7337,peripheral,small
+Island17,Plant2,Island17,Bird10,2,0.7361,-0.11,peripheral,small
+Island17,Plant2,Island17,Bird15,1,0.6914,-0.11,peripheral,small
+Island17,Plant2,Island17,Bird2,3,0.7219,1.5774,module hub,small
+Island17,Plant2,Island17,Bird19,7,0.7188,0.9243,peripheral,small
+Island17,Plant3,Island17,Bird1,19,0.7,1.5509,peripheral,mix
+Island17,Plant3,Island17,Bird3,8,0.7361,-0.11,peripheral,small
+Island17,Plant3,Island17,Bird5,1,0.7407,1.5509,peripheral,mix
+Island17,Plant3,Island17,Bird7,8,0.7188,1.5509,peripheral,mix
+Island17,Plant10,Island17,Bird1,84,0.72,-0.11,peripheral,small
+Island17,Plant10,Island17,Bird3,12,0.7778,-0.11,connector,small
+Island17,Plant10,Island17,Bird2,9,0.72,-0.11,peripheral,small
+Island17,Plant10,Island17,Bird7,7,0.625,0.4011,peripheral,mix
+Island17,Plant10,Island17,Bird21,2,0.75,-0.5437,connector,small
+Island11,Plant3,Island11,Bird36,3,0,-0.7487,peripheral,mix
+Island11,Plant3,Island11,Bird7,2,0.7188,1.5509,peripheral,mix
+Island1,Plant2,Island1,Bird18,2,0.72,0.7337,peripheral,small
+Island1,Plant2,Island1,Bird22,8,0.56,0.0988,peripheral,large
+Island1,Plant2,Island1,Bird20,14,0.5,-0.5437,peripheral,small
+Island1,Plant2,Island1,Bird11,9,0.4444,-0.5203,peripheral,large
+Island1,Plant19,Island1,Bird21,9,0,-0.2562,peripheral,mix
+Island2,Plant7,Island2,Bird4,2,0.32,0.7179,peripheral,large
+Island2,Plant7,Island2,Bird2,3,0.7188,-0.11,peripheral,small
+Island2,Plant1,Island2,Bird14,2,0.6122,0.7179,peripheral,large
+Island2,Plant11,Island2,Bird15,1,0.72,-0.5437,peripheral,small
+Island2,Plant11,Island2,Bird4,2,0.4444,-0.5203,peripheral,large
+Island2,Plant22,Island2,Bird6,1,0.5,-0.2562,peripheral,mix
+Island2,Plant22,Island2,Bird26,1,0,-1.1395,peripheral,large
+Island2,Plant3,Island2,Bird8,7,0.5,0.7179,peripheral,large
+Island2,Plant3,Island2,Bird25,1,0.375,0.0988,peripheral,large
+Island2,Plant3,Island2,Bird6,4,0.7188,1.5509,peripheral,mix
+Island2,Plant3,Island2,Bird7,6,0.7188,1.5509,peripheral,mix
+Island2,Plant3,Island2,Bird27,4,0.5,-0.2562,peripheral,mix
+Island6,Plant3,Island6,Bird3,8,0.7361,-0.11,peripheral,small
+Island6,Plant3,Island6,Bird8,7,0.5,0.7179,peripheral,large
+Island6,Plant3,Island6,Bird4,7,0.5714,0.7179,peripheral,large
+Island6,Plant3,Island6,Bird2,70,0.5625,1.3371,peripheral,large
+Island6,Plant3,Island6,Bird23,7,0,-0.5203,peripheral,large
+Island20,Plant4,Island20,Bird1,1,0.7778,2.3923,hub,small
+Island20,Plant4,Island20,Bird5,9,0.7891,3.8604,hub,small
+Island20,Plant4,Island20,Bird4,31,0.6122,0.7179,peripheral,large
+Island20,Plant4,Island20,Bird18,1,0.75,2.3923,hub,small
+Island20,Plant16,Island20,Bird4,38,0.5,-0.5437,peripheral,small
+Island20,Plant16,Island20,Bird2,3,0.72,0.9243,peripheral,small
+Island20,Plant16,Island20,Bird7,8,0.4444,0.9243,peripheral,small
+Island7,Plant8,Island7,Bird7,3,0.32,0.7179,peripheral,large
+Island7,Plant3,Island7,Bird10,3,0.6111,1.5509,peripheral,mix
+Island7,Plant3,Island7,Bird9,1,0.74,-0.5195,peripheral,small
+Island7,Plant3,Island7,Bird8,1,0.5,0.7179,peripheral,large
+Island4,Plant3,Island4,Bird8,50,0.5,0.7179,peripheral,large
+Island4,Plant3,Island4,Bird9,87,0.74,-0.5195,peripheral,small
+Island4,Plant3,Island4,Bird25,1,0.375,0.0988,peripheral,large
+Island9,Plant1,Island9,Bird28,1,0.72,-0.11,peripheral,small
+Island4,Plant1,Island4,Bird18,1,0.7551,1.5774,hub,small
+Island4,Plant1,Island4,Bird1,1,0.642,1.3371,peripheral,large
+Island1,Plant11,Island1,Bird13,5,0.6667,-0.9537,peripheral,small
+Island1,Plant11,Island1,Bird15,3,0.72,-0.5437,peripheral,small
+Island1,Plant8,Island1,Bird4,7,0.5,0.7179,peripheral,large

@@ -1,0 +1,107 @@
+node_name,body_mass,mobility,functional_role,phylum,subphylum,cluster,functional_group,shore_height,shore_height_ordinal
+acanthina monodon,8,M,Predator,Mollusca,Gastropoda,4,Mobile consumers,"mid, low",1.5
+acanthocyclus gayi,6.01,M,Predator,Arthropoda,Crustacae,1,Mobile consumers,"mid, low",1.5
+acanthocyclus hassleri,6.65,M,Predator,Arthropoda,Crustacae,1,Mobile consumers,"mid, low",1.5
+acanthopleura echinata,5.1,M,Herbivore,Mollusca,Polyplacophora,7,Mobile consumers,low,1
+chaetopleura peruviana,0.18,M,Herbivore,Mollusca,Polyplacophora,7,Mobile consumers,low,1
+chiton  cummingii,8.23,M,Herbivore,Mollusca,Polyplacophora,7,Mobile consumers,low,1
+chiton  granosus,2.3,M,Herbivore,Mollusca,Polyplacophora,7,Mobile consumers,"mid, low",1.5
+chiton  latus,0.06,M,Herbivore,Mollusca,Polyplacophora,7,Mobile consumers,"mid, low",1.5
+lottia  orbigny,0.02,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,"high, mid",2.5
+concholepas concholepas,2.3,M,Predator,Mollusca,Gastropoda,1,Mobile consumers,"mid, low",1.5
+enoplochiton  niger,6,M,Herbivore,Mollusca,Polyplacophora,7,Mobile consumers,low,1
+fissurella  costata,49.03,M,Herbivore,Mollusca,Gastropoda,7,Mobile consumers,low,1
+fissurella  crassa,15.2,M,Herbivore,Mollusca,Gastropoda,7,Mobile consumers,"mid, low",1.5
+fissurella  cummingii,18,M,Herbivore,Mollusca,Gastropoda,14,Mobile consumers,low,1
+fissurella  limbata,16.45,M,Herbivore,Mollusca,Gastropoda,7,Mobile consumers,low,1
+fissurella  maxima,11,M,Herbivore,Mollusca,Gastropoda,14,Mobile consumers,low,1
+fissurella  picta,15,M,Herbivore,Mollusca,Gastropoda,14,Mobile consumers,low,1
+fissurella  puhlcra,15,M,Herbivore,Mollusca,Gastropoda,14,Mobile consumers,low,1
+heliaster helianthus,173.46,M,Predator,Echinodermata,Asteroidea,1,Mobile consumers,"mid, low",1.5
+scurria  araucana,0.02,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,"high, mid, low",2
+scurria  ceciliana,0.045,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,"high, mid",2.5
+scurria  plana,0.03,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,low,1
+scurria scurra,1.27,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,low,1
+scurria variabilis,0.3,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,"mid, low",1.5
+scurria viridula,1.84,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,"high, mid, low",2
+scurria zebrina,2.97,M,Herbivore,Mollusca,Gastropoda,14,Mobile consumers,"high, mid",2.5
+siphonaria lesoni,0.018,M,Herbivore,Mollusca,Gastropoda,14,Mobile consumers,"high, mid",2.5
+stichaster striatus,8.7,M,Omnivore,Echinodermata,Asteroidea,1,Mobile consumers,low,1
+tegula atra,1,M,Herbivore,Mollusca,Gastropoda,9,Mobile consumers,low,1
+tonicia  benaventii,6.14,M,Herbivore,Mollusca,Polyplacophora,14,Mobile consumers,low,1
+tonicia  chilensis,6.14,M,Herbivore,Mollusca,Polyplacophora,14,Mobile consumers,low,1
+tonicia  elegans,6.14,M,Herbivore,Mollusca,Polyplacophora,14,Mobile consumers,low,1
+adenocystis utricularis,4,S,Corticated,Algae,Phaeophyta,12,Primary producers,"mid, low",1.5
+ahnfeltiopsis spp.,5.65,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+anthotoe spp.,10,S,Scavenger,Cnidaria,Anthozoa,2,Sessile inedible consumers,"mid, low",1.5
+austromegabalanus psittacus,0.95,S,FilterFeeder,Arthropoda,Crustacae,13,Sessile facilitators/competitors,low,1
+balanus laevis,0.05,S,FilterFeeder,Arthropoda,Crustacae,6,Sessile facilitators/competitors,"mid, low",1.5
+benthic_diatoms,0.002,S,Ephemeral,Algae,Bacillariophacea,3,Primary producers,"high, mid, low",2
+brachidontes granulata,0.08,S,FilterFeeder,Mollusca,Bivalvia,4,Mobile consumers,"mid, low",1.5
+bryopsis_spp,0.25,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"mid, low",1.5
+bunodactis spp.,12,S,Scavenger,Cnidaria,Anthozoa,2,Sessile inedible consumers,"mid, low",1.5
+centroceras spp.,1.87,S,Ephemeral,Algae,Rhodophyta,11,Primary producers,"mid, low",1.5
+ceramium spp.,1.26,S,Ephemeral,Algae,Rhodophyta,11,Primary producers,"mid, low",1.5
+chaetomorpha_spp,5.88,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"mid, low",1.5
+chondrus  canaliculatus,0.68,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+cladophora spp.,3.5,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"mid, low",1.5
+codium dimorpha,0.65,S,Corticated,Algae,Chaetophyta,12,Primary producers,"mid, low",1.5
+colpomenia phaeodactyla,0.5,S,Corticated,Algae,Phaeophyta,12,Primary producers,"mid, low",1.5
+colpomenia sinuosa,0.5,S,Corticated,Algae,Phaeophyta,12,Primary producers,"mid, low",1.5
+corallina offcinalis var. chilensis,1.37,S,Articulated,Algae,Rhodophyta,13,Sessile facilitators/competitors,"mid, low",1.5
+durvillaea antarctica,10,S,Kelp,Algae,Phaeophyta,12,Primary producers,low,1
+ectocarpus silicosus,1,S,Ephemeral,Algae,Phaeophyta,11,Primary producers,"mid, low",1.5
+enteromorpha compressa,0.41,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"mid, low",1.5
+gelidium rex,3.92,S,Corticated,Algae,Rhodophyta,12,Primary producers,low,1
+gelidium spp.,3,S,Corticated,Algae,Rhodophyta,6,Sessile facilitators/competitors,"mid, low",1.5
+glossophora kunthii,7.88,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+grateloupia,10.31,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+gymnogongrus furcellatus,5.2,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+halopteris funicularis,1.5,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"mid, low",1.5
+hildenbrandia lecanelieri,0.07,S,Crustose,Algae,Rhodophyta,11,Primary producers,"mid, low",1.5
+isolauctis spp.,11,S,Scavenger,Cnidaria,Anthozoa,8,Sessile inedible consumers,"mid, low",1.5
+jhelius cirratus,0.05,S,FilterFeeder,Arthropoda,Crustacae,10,Sessile facilitators/competitors,"high, mid",2.5
+laurencia chilensis,3.01,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+lessonia nigrescens,15,S,Kelp,Algae,Phaeophyta,6,Sessile facilitators/competitors,low,1
+lithothamnion spp.,0.04,S,Crustose,Algae,Rhodophyta,6,Sessile facilitators/competitors,"mid, low",1.5
+mazzaella laminarioides,3.86,S,Corticated,Algae,Rhodophyta,10,Sessile facilitators/competitors,"mid, low",1.5
+montemaria horridula,0.14,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+nothobalanus flosculus,0.05,S,FilterFeeder,Arthropoda,Crustacae,6,Sessile facilitators/competitors,"mid, low",1.5
+nothochthamalus scabrosus,0.05,S,FilterFeeder,Arthropoda,Crustacae,10,Sessile facilitators/competitors,"high, mid",2.5
+nothogenia,2.24,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+parantheopsis,10,S,Scavenger,Cnidaria,Anthozoa,2,Sessile inedible consumers,"mid, low",1.5
+perumytilus purpuratus,2.52,S,FilterFeeder,Mollusca,Bivalvia,5,Multiplex hub,mid,2
+petalonia fascia,2,S,Corticated,Algae,Phaeophyta,12,Primary producers,"mid, low",1.5
+petroglossum spp.,5,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+peysonella spp.,0.05,S,Corticated,Algae,Rhodophyta,10,Sessile facilitators/competitors,"high, mid, low",2
+phragmatopoma spp.,2.5,S,FilterFeeder,Annelida,Polychaeta,13,Sessile facilitators/competitors,"mid, low",1.5
+phymactis spp.,11.91,S,Scavenger,Cnidaria,Anthozoa,2,Sessile inedible consumers,"mid, low",1.5
+plocamium cartilageneum,5,S,Corticated,Algae,Rhodophyta,12,Primary producers,low,1
+polysiphonia_spp,0.88,S,Ephemeral,Algae,Rhodophyta,11,Primary producers,"mid, low",1.5
+porphyra_spp,1.21,S,Ephemeral,Algae,Rhodophyta,10,Sessile facilitators/competitors,high,3
+prionitis spp,2.8,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+pyura chilensis,2.91,S,FilterFeeder,Chordata,Ascidiacea,13,Sessile facilitators/competitors,"mid, low",1.5
+ralfsia californica,0.05,S,Crustose,Algae,Phaeophyta,12,Primary producers,"mid, low",1.5
+rama novazelandensis,1.3,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"mid, low",1.5
+rhizoclonium cilindricum,2,S,Corticated,Algae,Rhodophyta,11,Primary producers,"mid, low",1.5
+rhodymenia sp,2.47,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+sarcothalia,2.5,S,Corticated,Algae,Rhodophyta,11,Primary producers,"mid, low",1.5
+schottera nicaensis,2.53,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+schyzimenia doryophora,3,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+scythosiphon lomentaria,1.5,S,Ephemeral,Algae,Rhodophyta,11,Primary producers,"mid, low",1.5
+semimytilus algosus,0.04,S,FilterFeeder,Mollusca,Bivalvia,5,Multiplex hub,"mid, low",1.5
+trematocarpus,3.33,S,Corticated,Algae,Rhodophyta,12,Primary producers,"mid, low",1.5
+ulva rigida,2.33,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"mid, low",1.5
+ulvella spp.,0.002,S,Ephemeral,Algae,Chaetophyta,11,Primary producers,"high, mid, low",2
+plankton,0,,,,,4,Mobile consumers,"high, mid, low",2
+gulls,500,M,Predator,Chordata,Aves,1,Mobile consumers,"high, mid, low",2
+cincloides,280,M,Predator,Chordata,Aves,1,Mobile consumers,"high, mid, low",2
+nodolittorina peruviana,0.0129,M,Herbivore,Mollusca,Gastropoda,4,Mobile consumers,high,3
+austrolittorina araucana,0.0068,M,Herbivore,Mollusca,Gastropoda,4,Mobile consumers,high,3
+onchidella,0.0077,M,Herbivore,Mollusca,Gastropoda,4,Mobile consumers,"high, mid, low",2
+petrolisthes punctatus,2,M,FilterFeeder,Arthropoda,Crustacae,4,Mobile consumers,low,1
+petrolisthes spinifrons,2,M,FilterFeeder,Arthropoda,Crustacae,4,Mobile consumers,low,1
+petrolisthes angulosus,2,M,FilterFeeder,Arthropoda,Crustacae,4,Mobile consumers,"mid, low",1.5
+petrolisthes tuberculatus,2,M,FilterFeeder,Arthropoda,Crustacae,4,Mobile consumers,"mid, low",1.5
+petrolisthes tuberculosus,2,M,FilterFeeder,Arthropoda,Crustacae,4,Mobile consumers,low,1
+trimusculus peruvianus,1,M,Herbivore,Mollusca,Gastropoda,4,Mobile consumers,"mid, low",1.5
