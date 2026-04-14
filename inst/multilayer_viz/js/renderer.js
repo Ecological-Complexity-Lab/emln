@@ -71,6 +71,9 @@ export class Renderer {
         this.layerViewMode = false;
         this.layerView = null;
 
+        // Meta-network view (when true, render() is a no-op — MetaNetwork draws directly)
+        this.metaNetworkMode = false;
+
         // Bipartite support
         this.bipartiteInfo = null; // Map<layerName, { isBipartite, setA, setB, setALabel, setBLabel }>
         this.layoutType = 'fruchterman'; // Current layout type (needed to know when to render bipartite)
@@ -346,6 +349,8 @@ export class Renderer {
      * Main render loop
      */
     render() {
+        if (this.metaNetworkMode) return; // MetaNetwork owns the canvas in this mode
+
         const ctx = this.ctx;
         const w = this.canvas.width;
         const h = this.canvas.height;

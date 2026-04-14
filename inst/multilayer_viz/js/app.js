@@ -9,7 +9,8 @@ import { InteractionHandler } from './interaction.js';
 import { ColorMapper } from './colorMapper.js';
 import { LayerView } from './layerView.js';
 import { csvToJson } from './csvImporter.js';
-import { Dashboard } from './dashboard.js';
+import { Dashboard, svgBar } from './dashboard.js';
+import { MetaNetwork } from './metaNetwork.js';
 
 // ---- State ----
 let model = null;
@@ -168,8 +169,24 @@ const lvSizeMult              = document.getElementById('lvSizeMult');
 const lvSizeMultLabel         = document.getElementById('lvSizeMultLabel');
 const lvSpacing               = document.getElementById('lvSpacing');
 const lvSpacingLabel          = document.getElementById('lvSpacingLabel');
-const LV_SECTIONS = ['sectionLayerViewCircles','sectionLayerViewEdges'];
-const DB_SECTIONS = [];
+const LV_SECTIONS   = ['sectionLayerViewCircles','sectionLayerViewEdges'];
+const DB_SECTIONS   = [];
+const META_SECTIONS = ['sectionMetaNetwork', 'sectionMnSearch'];
+const metaNetworkBtn = document.getElementById('metaNetworkBtn');
+const mnAggregationSelect  = document.getElementById('mnAggregationSelect');
+const mnLayoutSelect       = document.getElementById('mnLayoutSelect');
+const mnColorBySelect      = document.getElementById('mnColorBySelect');
+const mnSizeBySelect       = document.getElementById('mnSizeBySelect');
+const mnBaseSizeSlider     = document.getElementById('mnBaseSizeSlider');
+const mnBaseSizeLabel      = document.getElementById('mnBaseSizeLabel');
+const mnMinWeightSlider    = document.getElementById('mnMinWeightSlider');
+const mnMinWeightLabel     = document.getElementById('mnMinWeightLabel');
+const mnNestedSortCheckbox = document.getElementById('mnNestedSortCheckbox');
+const mnShowLabelsCheckbox = document.getElementById('mnShowLabelsCheckbox');
+const mnResetLayoutBtn     = document.getElementById('mnResetLayoutBtn');
+const mnSearchInput        = document.getElementById('mnSearchInput');
+const mnSearchResults      = document.getElementById('mnSearchResults');
+const mnSearchClearBtn     = document.getElementById('mnSearchClearBtn');
 const dashboardBtn       = document.getElementById('dashboardBtn');
 const dashboardContainer = document.getElementById('dashboardContainer');
 const dbBipartiteToggle  = document.getElementById('dbBipartiteToggle');
@@ -204,9 +221,12 @@ const collapseInfoBtn = document.getElementById('collapseInfoBtn');
 const tooltip = document.getElementById('tooltip');
 
 // ---- Application State ----
-let appMode = 'network'; // 'network', 'map', 'layer', or 'dashboard'
+let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', or 'metanetwork'
 let layerViewHandlers = null;
-let lvRAF  = null; // requestAnimationFrame id for meta-graph animation
+let lvRAF  = null; // requestAnimationFrame id for layer-view animation
+let metaNetwork = null;       // MetaNetwork instance
+let mnRAF       = null;       // requestAnimationFrame id for meta-network animation
+let _mnMouseHandlers = null;  // { onMouseDown, onMouseMove, onMouseUp, onWheel }
 let activeMapLayers = new Set();
 const mapMarkersOverlay = document.getElementById('mapMarkersOverlay');
 const layerCloseButtonsContainer = document.getElementById('layerCloseButtons');
@@ -215,6 +235,11 @@ const mapLayerPanelHeader = document.getElementById('mapLayerPanelHeader');
 const mapLayerPanelBody   = document.getElementById('mapLayerPanelBody');
 const mapLayerPanelToggle = document.getElementById('mapLayerPanelToggle');
 const mapLayerList        = document.getElementById('mapLayerList');
+const mnLayerPanel        = document.getElementById('mnLayerPanel');
+const mnLayerPanelHeader  = document.getElementById('mnLayerPanelHeader');
+const mnLayerPanelBody    = document.getElementById('mnLayerPanelBody');
+const mnLayerPanelToggle  = document.getElementById('mnLayerPanelToggle');
+const mnLayerList         = document.getElementById('mnLayerList');
 
 // ── Select Layers panel drag + collapse ──────────────────────────────────
 let _mlpDragging = false, _mlpHasDragged = false;
@@ -258,6 +283,50 @@ mapLayerPanelToggle.addEventListener('click', () => {
     mapLayerPanelBody.style.display = _mlpCollapsed ? 'none' : '';
     mapLayerPanelToggle.textContent  = _mlpCollapsed ? '+' : '−';
     mapLayerPanelToggle.title        = _mlpCollapsed ? 'Expand' : 'Collapse';
+});
+
+// ── Meta-network layer panel drag + collapse ──────────────────────────────
+let _mnpDragging = false, _mnpHasDragged = false;
+let _mnpStartX, _mnpStartY, _mnpStartLeft, _mnpStartTop;
+let _mnpCollapsed = false;
+
+mnLayerPanel.addEventListener('mousedown', (e) => {
+    if (e.target.closest('.legend-no-drag')) return;
+    const rect = mnLayerPanel.getBoundingClientRect();
+    mnLayerPanel.style.right = 'auto';
+    mnLayerPanel.style.left  = rect.left + 'px';
+    mnLayerPanel.style.top   = rect.top  + 'px';
+    _mnpDragging = true; _mnpHasDragged = false;
+    _mnpStartX = e.clientX; _mnpStartY = e.clientY;
+    _mnpStartLeft = parseFloat(mnLayerPanel.style.left);
+    _mnpStartTop  = parseFloat(mnLayerPanel.style.top);
+    mnLayerPanel.style.cursor = 'grabbing';
+    document.body.style.cursor = 'grabbing';
+});
+
+window.addEventListener('mousemove', (e) => {
+    if (!_mnpDragging) return;
+    const dx = e.clientX - _mnpStartX, dy = e.clientY - _mnpStartY;
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) _mnpHasDragged = true;
+    mnLayerPanel.style.left = (_mnpStartLeft + dx) + 'px';
+    mnLayerPanel.style.top  = (_mnpStartTop  + dy) + 'px';
+});
+
+window.addEventListener('mouseup', () => {
+    if (_mnpDragging) {
+        _mnpDragging = false;
+        mnLayerPanel.style.cursor = 'grab';
+        document.body.style.cursor = '';
+        setTimeout(() => { _mnpHasDragged = false; }, 0);
+    }
+});
+
+mnLayerPanelToggle.addEventListener('click', () => {
+    if (_mnpHasDragged) return;
+    _mnpCollapsed = !_mnpCollapsed;
+    mnLayerPanelBody.style.display = _mnpCollapsed ? 'none' : '';
+    mnLayerPanelToggle.textContent  = _mnpCollapsed ? '+' : '−';
+    mnLayerPanelToggle.title        = _mnpCollapsed ? 'Expand' : 'Collapse';
 });
 
 // ---- Init Background Map (network map mode) ----
@@ -494,9 +563,10 @@ function loadData(json) {
         }
 
         // Reset out of any non-network mode when loading new data
-        if (appMode === 'map')       { toggleMapMode(); }
-        if (appMode === 'layer')     { _exitLayerView(); appMode = 'network'; }
-        if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; }
+        if (appMode === 'map')         { toggleMapMode(); }
+        if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
+        if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
+        if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
 
         // Pass bipartite info to layout engine
         layout.bipartiteInfo = model.bipartiteInfo;
@@ -755,8 +825,9 @@ Object.keys(DATASET_INFO).forEach(file => {
 
 // ---- Map Mode Logic ----
 function toggleMapMode() {
-    if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; }
-    if (appMode === 'layer')     { _exitLayerView(); appMode = 'network'; renderer.render(); }
+    if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
+    if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; renderer.render(); }
+    if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
     appMode = appMode === 'network' ? 'map' : 'network';
 
     if (appMode === 'map') {
@@ -810,8 +881,9 @@ function toggleLayerView() {
         renderer.render();
         return;
     }
-    if (appMode === 'map')       toggleMapMode();
-    if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; }
+    if (appMode === 'map')         toggleMapMode();
+    if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
+    if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
     appMode = 'layer';
     renderer.layerView = new LayerView(model, positions);
     window._layerView = renderer.layerView;
@@ -1009,8 +1081,9 @@ function toggleDashboard() {
         return;
     }
     // Exit other active modes first
-    if (appMode === 'layer') { _exitLayerView(); appMode = 'network'; }
-    if (appMode === 'map')   { toggleMapMode(); }
+    if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
+    if (appMode === 'map')         { toggleMapMode(); }
+    if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
 
     appMode = 'dashboard';
     dashboardBtn.classList.add('active');
@@ -1024,11 +1097,496 @@ function toggleDashboard() {
 
 dashboardBtn.addEventListener('click', toggleDashboard);
 
+// ── Meta-network layer palette (same as LayerView PALETTE) ────────────────
+const MN_LAYER_PALETTE = [
+    '#6ee7b7','#fbbf24','#f87171','#60a5fa','#a78bfa',
+    '#fb923c','#34d399','#f472b6','#38bdf8','#facc15',
+    '#c084fc','#4ade80','#fb7185','#22d3ee','#e879f9',
+];
+
+// ─── Meta-network mode ────────────────────────────────────────────────────
+
+function _showMetaNetworkSidebar() {
+    NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+    LV_SECTIONS.forEach(id => document.getElementById(id).style.display = 'none');
+    DB_SECTIONS.forEach(id => document.getElementById(id).style.display = 'none');
+    META_SECTIONS.forEach(id => document.getElementById(id).style.display = '');
+    mnLayerPanel.style.display = '';
+    renderMetaNetworkLegend();
+}
+
+function _hideMetaNetworkSidebar() {
+    META_SECTIONS.forEach(id => document.getElementById(id).style.display = 'none');
+    mnLayerPanel.style.display = 'none';
+    NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+    renderLegends();
+}
+
+function _syncMetaNetworkControls() {
+    if (!metaNetwork) return;
+    const s = metaNetwork.settings;
+    mnAggregationSelect.value      = s.aggregation;
+    mnLayoutSelect.value           = s.layout;
+    mnColorBySelect.value          = s.colorBy;
+    mnSizeBySelect.value           = s.sizeBy;
+    mnBaseSizeSlider.value         = s.baseSize;
+    mnBaseSizeLabel.textContent    = s.baseSize.toFixed(1) + '×';
+    mnNestedSortCheckbox.checked   = s.nestedSort;
+    mnShowLabelsCheckbox.checked   = s.showLabels;
+    // Set slider range from maxEdgeWeight
+    const maxW = metaNetwork.maxEdgeWeight;
+    mnMinWeightSlider.max   = maxW;
+    mnMinWeightSlider.step  = (maxW / 100).toFixed(4);
+    mnMinWeightSlider.value = 0;
+    mnMinWeightLabel.textContent = '0';
+    mnSearchInput.value  = '';
+    mnSearchResults.style.display = 'none';
+}
+
+function _buildMnLayerPanel() {
+    if (!model) return;
+    mnLayerList.innerHTML = '';
+    model.layers.forEach((layer, i) => {
+        const color = MN_LAYER_PALETTE[i % MN_LAYER_PALETTE.length];
+        const li = document.createElement('li');
+        li.className = 'map-layer-item';
+        li.dataset.layerName = layer.layer_name;
+        li.innerHTML = `<span class="map-layer-dot" style="background:${color};"></span>
+                        <span style="font-size:11px; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${layer.layer_name}</span>`;
+        li.addEventListener('click', () => {
+            if (!metaNetwork) return;
+            const name = layer.layer_name;
+            const sel  = metaNetwork.state.selectedLayers;
+            if (sel.has(name)) sel.delete(name); else sel.add(name);
+            li.classList.toggle('active', sel.has(name));
+            _ensureMetaNetworkLoop();
+        });
+        mnLayerList.appendChild(li);
+    });
+}
+
+function _startMetaNetworkLoop() {
+    function loop() {
+        if (appMode !== 'metanetwork' || !metaNetwork) { mnRAF = null; return; }
+        const stillHot = metaNetwork.tick();
+        metaNetwork.render(renderer.ctx, canvas.width, canvas.height);
+        mnRAF = stillHot ? requestAnimationFrame(loop) : null;
+    }
+    mnRAF = requestAnimationFrame(loop);
+}
+
+function _ensureMetaNetworkLoop() {
+    if (!mnRAF && appMode === 'metanetwork' && metaNetwork) _startMetaNetworkLoop();
+}
+
+// Render one frame immediately (synchronous), then keep the loop alive if the
+// sim is still hot. Use this whenever state changes need instant visual feedback.
+function _mnRenderSync() {
+    if (!metaNetwork || appMode !== 'metanetwork') return;
+    if (mnRAF) { cancelAnimationFrame(mnRAF); mnRAF = null; }
+    metaNetwork.render(renderer.ctx, canvas.width, canvas.height);
+    if (metaNetwork.tick()) _startMetaNetworkLoop();
+}
+
+function toggleMetaNetwork() {
+    if (!model) return;
+    if (appMode === 'metanetwork') {
+        _exitMetaNetwork();
+        appMode = 'network';
+        renderer.render();
+        return;
+    }
+    if (appMode === 'map')       toggleMapMode();
+    if (appMode === 'layer')     { _exitLayerView(); appMode = 'network'; }
+    if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; }
+
+    appMode = 'metanetwork';
+    metaNetworkBtn.classList.add('active');
+    renderer.metaNetworkMode = true;
+    canvas.style.display = '';
+    canvas.style.cursor  = 'grab';
+
+    metaNetwork = new MetaNetwork(model, canvas.width, canvas.height);
+    _showMetaNetworkSidebar();
+    _syncMetaNetworkControls();
+    _buildMnLayerPanel();
+
+    // Mouse handlers
+    let _isDragging    = false;
+    let _isNodeDrag    = false;
+    let _mouseDownX    = 0, _mouseDownY = 0;
+    let _dragStartX    = 0, _dragStartY = 0;
+    let _offsetStartX  = 0, _offsetStartY = 0;
+
+    const canvasCoords = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            mx: (e.clientX - rect.left) * (canvas.width  / rect.width),
+            my: (e.clientY - rect.top)  * (canvas.height / rect.height),
+        };
+    };
+
+    const onMouseDown = (e) => {
+        if (e.button !== 0) return;
+        _mouseDownX = e.clientX; _mouseDownY = e.clientY;
+        const { mx, my } = canvasCoords(e);
+        const hitName = metaNetwork.startDragNode(mx, my, canvas.width, canvas.height);
+        if (hitName) {
+            _isNodeDrag = true;
+            _isDragging = true;
+            _ensureMetaNetworkLoop();
+        } else {
+            _isNodeDrag  = false;
+            _isDragging  = true;
+            _dragStartX  = e.clientX; _dragStartY  = e.clientY;
+            _offsetStartX = metaNetwork.viewOffsetX;
+            _offsetStartY = metaNetwork.viewOffsetY;
+            canvas.style.cursor = 'grabbing';
+        }
+    };
+
+    const onMouseMove = (e) => {
+        if (_isDragging) {
+            if (_isNodeDrag) {
+                const { mx, my } = canvasCoords(e);
+                metaNetwork.moveDragNode(mx, my, canvas.width, canvas.height);
+                _ensureMetaNetworkLoop();
+            } else {
+                metaNetwork.viewOffsetX = _offsetStartX + (e.clientX - _dragStartX);
+                metaNetwork.viewOffsetY = _offsetStartY + (e.clientY - _dragStartY);
+                _ensureMetaNetworkLoop();
+            }
+            tooltip.classList.remove('visible');
+            return;
+        }
+        const { mx, my } = canvasCoords(e);
+        const hitName = metaNetwork.hitTestNode(mx, my, canvas.width, canvas.height);
+        if (hitName) {
+            const n = metaNetwork._nodeMap.get(hitName);
+            tooltip.textContent = `${hitName} — participation ${n.participation}, meta-degree ${n.metaDegree}`;
+            tooltip.classList.add('visible');
+            tooltip.style.left = (e.clientX + 14) + 'px';
+            tooltip.style.top  = (e.clientY - 8)  + 'px';
+            canvas.style.cursor = 'pointer';
+            return;
+        }
+        const hitEdge = metaNetwork.hitTestEdge(mx, my, canvas.width, canvas.height);
+        if (hitEdge) {
+            tooltip.textContent = `${hitEdge.source} — ${hitEdge.target}  (weight ${hitEdge.weight.toFixed(2)})`;
+            tooltip.classList.add('visible');
+            tooltip.style.left = (e.clientX + 14) + 'px';
+            tooltip.style.top  = (e.clientY - 8)  + 'px';
+            canvas.style.cursor = 'default';
+            return;
+        }
+        tooltip.classList.remove('visible');
+        canvas.style.cursor = 'grab';
+    };
+
+    const onMouseUp = (e) => {
+        const wasDragging = _isDragging;
+        const wasNodeDrag = _isNodeDrag;
+        _isDragging = false;
+        if (wasNodeDrag) {
+            metaNetwork.endDragNode();
+        } else {
+            canvas.style.cursor = 'grab';
+        }
+        // Click if minimal movement
+        const moved = Math.abs(e.clientX - _mouseDownX) > 3 || Math.abs(e.clientY - _mouseDownY) > 3;
+        if (wasDragging && moved) return;
+
+        const { mx, my } = canvasCoords(e);
+        const hitName = metaNetwork.hitTestNode(mx, my, canvas.width, canvas.height);
+        if (hitName) {
+            // Toggle node selection (deselect if already selected)
+            if (metaNetwork.state.selectedNode === hitName) {
+                metaNetwork.state.selectedNode = null;
+                metaNetwork.state.selectedEdge = null;
+                metaNetwork._focusSet = null;
+                infoPanel.classList.remove('visible');
+            } else {
+                metaNetwork.state.selectedNode = hitName;
+                metaNetwork.state.selectedEdge = null;
+                metaNetwork._computeFocusSet(hitName);
+                _showMnNodeInfo(hitName);
+            }
+            _mnRenderSync();
+            return;
+        }
+        const hitEdge = metaNetwork.hitTestEdge(mx, my, canvas.width, canvas.height);
+        if (hitEdge) {
+            // Toggle edge selection
+            if (metaNetwork.state.selectedEdge === hitEdge) {
+                metaNetwork.state.selectedEdge = null;
+                metaNetwork.state.selectedNode = null;
+                metaNetwork._focusSet = null;
+                infoPanel.classList.remove('visible');
+            } else {
+                metaNetwork.state.selectedEdge = hitEdge;
+                metaNetwork.state.selectedNode = null;
+                metaNetwork._focusSet = null;
+                _showMnEdgeInfo(hitEdge);
+            }
+            _mnRenderSync();
+            return;
+        }
+        // Click on empty space: deselect
+        if (metaNetwork.state.selectedNode || metaNetwork.state.selectedEdge) {
+            metaNetwork.state.selectedNode = null;
+            metaNetwork.state.selectedEdge = null;
+            metaNetwork._focusSet = null;
+            infoPanel.classList.remove('visible');
+            _mnRenderSync();
+        }
+    };
+
+    const onWheel = (e) => {
+        e.preventDefault();
+        const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+        const rect = canvas.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) * (canvas.width  / rect.width);
+        const my = (e.clientY - rect.top)  * (canvas.height / rect.height);
+        const prevScale = metaNetwork.viewScale;
+        metaNetwork.viewScale = Math.min(Math.max(prevScale * zoomFactor, 0.05), 10);
+        const scaleDelta = metaNetwork.viewScale / prevScale;
+        metaNetwork.viewOffsetX = mx - scaleDelta * (mx - metaNetwork.viewOffsetX - canvas.width  / 2) - canvas.width  / 2;
+        metaNetwork.viewOffsetY = my - scaleDelta * (my - metaNetwork.viewOffsetY - canvas.height / 2) - canvas.height / 2;
+        _ensureMetaNetworkLoop();
+    };
+
+    canvas.addEventListener('mousedown', onMouseDown);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseup',   onMouseUp);
+    canvas.addEventListener('wheel',     onWheel, { passive: false });
+    _mnMouseHandlers = { onMouseDown, onMouseMove, onMouseUp, onWheel };
+
+    _startMetaNetworkLoop();
+}
+
+function _exitMetaNetwork() {
+    if (mnRAF) { cancelAnimationFrame(mnRAF); mnRAF = null; }
+    renderer.metaNetworkMode = false;
+    if (_mnMouseHandlers) {
+        canvas.removeEventListener('mousedown', _mnMouseHandlers.onMouseDown);
+        canvas.removeEventListener('mousemove', _mnMouseHandlers.onMouseMove);
+        canvas.removeEventListener('mouseup',   _mnMouseHandlers.onMouseUp);
+        canvas.removeEventListener('wheel',     _mnMouseHandlers.onWheel);
+        _mnMouseHandlers = null;
+    }
+    metaNetwork?._sim?.stop();
+    metaNetwork = null;
+    metaNetworkBtn.classList.remove('active');
+    canvas.style.cursor = '';
+    tooltip.classList.remove('visible');
+    infoPanel.classList.remove('visible');
+    _hideMetaNetworkSidebar();
+}
+
+function _showMnNodeInfo(nodeName) {
+    const node = metaNetwork._nodeMap.get(nodeName);
+    const layerList = [...node.layers].sort().join(', ');
+    infoTitle.textContent = `Node: ${nodeName}`;
+    infoContent.innerHTML = `
+        <ul style="margin:6px 0 0; padding-left:18px; font-size:12px; line-height:1.7;">
+          <li><b>Participation:</b> ${node.participation}</li>
+          <li><b>Layers:</b> ${layerList}</li>
+          <li><b>Meta-degree:</b> ${node.metaDegree}</li>
+          <li><b>Meta-strength:</b> ${node.metaStrength.toFixed(2)}</li>
+        </ul>`;
+    infoPanel.classList.add('visible');
+    infoPanel.classList.remove('collapsed');
+}
+
+function _showMnEdgeInfo(edge) {
+    const arrow   = metaNetwork?._model?.directed ? '→' : '—';
+    const srcName = typeof edge.source === 'string' ? edge.source : edge.source.name;
+    const tgtName = typeof edge.target === 'string' ? edge.target : edge.target.name;
+    const barData = edge.perLayer.map(({ layerName, weight }) => ({ label: layerName, value: weight }));
+    infoTitle.textContent = `Link: ${srcName} ${arrow} ${tgtName}`;
+    infoContent.innerHTML = `
+        <p>Appears in <b>${edge.perLayer.length}</b> layer${edge.perLayer.length !== 1 ? 's' : ''}:</p>
+        ${svgBar(barData, { width: 240, height: 160, yLabel: 'weight' })}`;
+    infoPanel.classList.add('visible');
+    infoPanel.classList.remove('collapsed');
+}
+
+metaNetworkBtn.addEventListener('click', toggleMetaNetwork);
+
+// ── Meta-network sidebar controls ─────────────────────────────────────────
+mnAggregationSelect.addEventListener('change', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('aggregation', mnAggregationSelect.value);
+    const maxW = metaNetwork.maxEdgeWeight;
+    mnMinWeightSlider.max   = maxW;
+    mnMinWeightSlider.step  = (maxW / 100).toFixed(4);
+    mnMinWeightSlider.value = 0;
+    mnMinWeightLabel.textContent = '0';
+    metaNetwork.settings.minWeight = 0;
+    _ensureMetaNetworkLoop();
+});
+
+mnLayoutSelect.addEventListener('change', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('layout', mnLayoutSelect.value);
+    _ensureMetaNetworkLoop();
+});
+
+mnColorBySelect.addEventListener('change', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('colorBy', mnColorBySelect.value);
+    renderMetaNetworkLegend();
+    _ensureMetaNetworkLoop();
+});
+
+mnSizeBySelect.addEventListener('change', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('sizeBy', mnSizeBySelect.value);
+    renderMetaNetworkLegend();
+    _ensureMetaNetworkLoop();
+});
+
+mnMinWeightSlider.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    const val = parseFloat(mnMinWeightSlider.value);
+    mnMinWeightLabel.textContent = val.toFixed(2);
+    metaNetwork.settings.minWeight = val;
+    _ensureMetaNetworkLoop();
+});
+
+mnNestedSortCheckbox.addEventListener('change', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('nestedSort', mnNestedSortCheckbox.checked);
+    _ensureMetaNetworkLoop();
+});
+
+mnShowLabelsCheckbox.addEventListener('change', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('showLabels', mnShowLabelsCheckbox.checked);
+    _ensureMetaNetworkLoop();
+});
+
+mnResetLayoutBtn.addEventListener('click', () => {
+    if (!metaNetwork) return;
+    metaNetwork.resetLayout();
+    _mnRenderSync();
+});
+
+mnBaseSizeSlider.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    const val = parseFloat(mnBaseSizeSlider.value);
+    mnBaseSizeLabel.textContent = val.toFixed(1) + '×';
+    metaNetwork.updateSetting('baseSize', val);
+    renderMetaNetworkLegend();
+    _ensureMetaNetworkLoop();
+});
+
+// ── Meta-network search ────────────────────────────────────────────────────
+
+function _mnCloseDrop() {
+    mnSearchResults.style.display = 'none';
+    mnSearchResults.innerHTML = '';
+}
+
+function _mnSelectNode(name) {
+    if (!metaNetwork) return;
+    mnSearchInput.value = name;
+    _mnCloseDrop();
+    metaNetwork.state.selectedNode = name;
+    metaNetwork.state.selectedEdge = null;
+    metaNetwork._computeFocusSet(name);
+    _showMnNodeInfo(name);
+    _mnRenderSync();
+}
+
+mnSearchInput.addEventListener('input', () => {
+    const query = mnSearchInput.value.trim().toLowerCase();
+    if (!metaNetwork || !query) { _mnCloseDrop(); return; }
+    const matches = [...metaNetwork._nodeMap.keys()]
+        .filter(n => n.toLowerCase().includes(query))
+        .slice(0, 12);
+    if (!matches.length) {
+        mnSearchResults.innerHTML = '<div style="font-size:11px;color:#999;padding:6px 10px;">No results</div>';
+        mnSearchResults.style.display = 'block';
+        return;
+    }
+    mnSearchResults.innerHTML = matches.map(n =>
+        `<div data-name="${n}" style="font-size:11px;padding:6px 10px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${n}</div>`
+    ).join('');
+    mnSearchResults.style.display = 'block';
+    // Shared closure state for hover preview/restore.
+    // _hoverCommitted prevents mouseout from undoing a click-committed selection:
+    // closing the dropdown (display:none) fires mouseout asynchronously *after*
+    // _mnSelectNode has already run, so without the flag mouseout would clear it.
+    let _hoverSavedNode = null, _hoverSavedFocus = null, _hoverCommitted = false;
+    mnSearchResults.querySelectorAll('[data-name]').forEach(el => {
+        el.addEventListener('mouseover', () => {
+            el.style.background = 'rgba(0,0,0,0.06)';
+            if (!metaNetwork) return;
+            _hoverCommitted  = false;
+            _hoverSavedNode  = metaNetwork.state.selectedNode;
+            _hoverSavedFocus = metaNetwork._focusSet;
+            metaNetwork.state.selectedNode = el.dataset.name;
+            metaNetwork.state.selectedEdge = null;
+            metaNetwork._computeFocusSet(el.dataset.name);
+            _mnRenderSync();
+        });
+        el.addEventListener('mouseout', () => {
+            el.style.background = '';
+            if (!metaNetwork || _hoverCommitted) return; // click already committed
+            metaNetwork.state.selectedNode = _hoverSavedNode;
+            metaNetwork._focusSet          = _hoverSavedFocus;
+            _mnRenderSync();
+        });
+        el.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            _hoverCommitted = true; // block the deferred mouseout from undoing this
+            _mnSelectNode(el.dataset.name);
+        });
+    });
+});
+
+mnSearchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { _mnCloseDrop(); mnSearchInput.value = ''; }
+    if (e.key === 'Enter') {
+        const first = mnSearchResults.querySelector('[data-name]');
+        if (first) _mnSelectNode(first.dataset.name);
+    }
+});
+
+mnSearchInput.addEventListener('blur', () => { setTimeout(_mnCloseDrop, 150); });
+
+mnSearchClearBtn.addEventListener('click', () => {
+    mnSearchInput.value = '';
+    _mnCloseDrop();
+    if (!metaNetwork) return;
+    metaNetwork.state.selectedNode = null;
+    metaNetwork.state.selectedEdge = null;
+    metaNetwork._focusSet = null;
+    infoPanel.classList.remove('visible');
+    _mnRenderSync();
+});
+
+document.getElementById('mnSelectAllLayers').addEventListener('click', () => {
+    if (!metaNetwork || !model) return;
+    model.layers.forEach(l => metaNetwork.state.selectedLayers.add(l.layer_name));
+    mnLayerList.querySelectorAll('li').forEach(li => li.classList.add('active'));
+    _ensureMetaNetworkLoop();
+});
+
+document.getElementById('mnClearLayers').addEventListener('click', () => {
+    if (!metaNetwork) return;
+    metaNetwork.state.selectedLayers.clear();
+    mnLayerList.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+    _ensureMetaNetworkLoop();
+});
+
 function goToNetworkMode() {
     if (!model || appMode === 'network') return;
-    if (appMode === 'map')       toggleMapMode();
-    if (appMode === 'layer')     { _exitLayerView(); appMode = 'network'; renderer.render(); }
-    if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; renderer.render(); }
+    if (appMode === 'map')         toggleMapMode();
+    if (appMode === 'layer')       { _exitLayerView();     appMode = 'network'; renderer.render(); }
+    if (appMode === 'dashboard')   { _exitDashboard();     appMode = 'network'; renderer.render(); }
+    if (appMode === 'metanetwork') { _exitMetaNetwork();   appMode = 'network'; renderer.render(); }
 }
 networkModeBtn.addEventListener('click', goToNetworkMode);
 dbBipartiteToggle.addEventListener('change', () => dashboard?.setShowBipartite(dbBipartiteToggle.checked));
@@ -2718,6 +3276,11 @@ zoomInBtn.addEventListener('click', () => {
         renderer.render();
         return;
     }
+    if (appMode === 'metanetwork' && metaNetwork) {
+        metaNetwork.viewScale = Math.min(metaNetwork.viewScale * 1.2, 10);
+        _ensureMetaNetworkLoop();
+        return;
+    }
     const cx = canvas.width / 2;
     const cy = canvas.height / 2;
     const factor = 1.2;
@@ -2733,6 +3296,11 @@ zoomOutBtn.addEventListener('click', () => {
         if (renderer.layerView.geoMode) { lvMap.zoomOut(1); return; }
         renderer.layerView.viewScale /= 1.2;
         renderer.render();
+        return;
+    }
+    if (appMode === 'metanetwork' && metaNetwork) {
+        metaNetwork.viewScale = Math.max(metaNetwork.viewScale / 1.2, 0.05);
+        _ensureMetaNetworkLoop();
         return;
     }
     const cx = canvas.width / 2;
@@ -2769,6 +3337,14 @@ zoomResetBtn.addEventListener('click', () => {
         renderer.layerView.viewOffsetX = 0;
         renderer.layerView.viewOffsetY = 0;
         _ensureLayerViewLoop();
+        return;
+    }
+
+    if (appMode === 'metanetwork' && metaNetwork) {
+        metaNetwork.viewScale   = 1;
+        metaNetwork.viewOffsetX = 0;
+        metaNetwork.viewOffsetY = 0;
+        _ensureMetaNetworkLoop();
         return;
     }
 
@@ -3087,7 +3663,8 @@ function createLegendDOM(titleText, scale, id) {
 
         const track = document.createElement('div');
         if (scale.type === 'continuous') {
-            track.style.cssText = 'height: 12px; border-radius: 6px; background: linear-gradient(to right, rgb(68,1,84), rgb(49,104,142), rgb(53,183,121), rgb(253,231,37));';
+            const grad = scale.gradient || 'linear-gradient(to right, rgb(68,1,84), rgb(49,104,142), rgb(53,183,121), rgb(253,231,37))';
+            track.style.cssText = `height: 12px; border-radius: 6px; background: ${grad};`;
         } else {
             track.style.cssText = 'height: 24px; position: relative; border-bottom: 1px solid #e5e7eb; display: flex; align-items: flex-end; justify-content: space-between; padding-bottom: 4px;';
             const dot1 = document.createElement('div');
@@ -3116,6 +3693,47 @@ function createLegendDOM(titleText, scale, id) {
     }
 
     return wrapper;
+}
+
+// ── Meta-network Legend ────────────────────────────────────────────────────
+
+const MN_ICE_GRADIENT = 'linear-gradient(to right, #cde9f0, #6cb8d8, #0c6a9e, #092651, #060d35)';
+
+function renderMetaNetworkLegend() {
+    if (appMode !== 'metanetwork' || !metaNetwork) return;
+    legendPanel.innerHTML = '';
+    const nodes = metaNetwork._mnNodes;
+    if (!nodes.length) return;
+
+    const { colorBy, sizeBy } = metaNetwork.settings;
+    const ATTR_LABELS = { participation: 'Participation', metaDegree: 'Meta-degree', uniform: 'Uniform' };
+
+    // Ensure meta-network legend items are always shown expanded
+    expandedLegends.add('mnColor');
+    expandedLegends.add('mnSize');
+
+    // ── Color legend
+    if (colorBy !== 'uniform') {
+        const vals = nodes.map(n => colorBy === 'participation' ? n.participation : n.metaDegree);
+        const min  = Math.min(...vals), max = Math.max(...vals);
+        const colorScale = {
+            type: 'continuous', attrName: ATTR_LABELS[colorBy],
+            min, max, canToggle: false,
+            gradient: MN_ICE_GRADIENT,
+        };
+        renderScaleLegend(colorScale, 'mnColor', 'Node Color');
+    }
+
+    // ── Size legend
+    if (sizeBy !== 'uniform') {
+        const vals = nodes.map(n => sizeBy === 'participation' ? n.participation : n.metaDegree);
+        const min  = Math.min(...vals), max = Math.max(...vals);
+        const sizeScale = {
+            type: 'size', attrName: ATTR_LABELS[sizeBy],
+            min, max, canToggle: false,
+        };
+        renderScaleLegend(sizeScale, 'mnSize', 'Node Size');
+    }
 }
 
 // ── Layer View Legend ──────────────────────────────────────────────────────
@@ -3279,6 +3897,18 @@ const HELP_CONTENT = {
   <li><b>Scroll</b> to zoom; drag background to pan</li>
 </ul>
 <p><b>Blue lines</b> = interlayer links &nbsp;·&nbsp; <b>Gray lines</b> = shared nodes</p>`,
+    },
+    metanetwork: {
+        title: 'Σ Meta-network Mode',
+        body: `<p>All intralayer links are aggregated into a single flat network of unique nodes.</p>
+<ul style="padding-left:16px;margin:8px 0;">
+  <li><b>Click</b> a node — ego-network highlight + info panel</li>
+  <li><b>Click</b> an edge — per-layer weight bar chart</li>
+  <li><b>Drag</b> a node to pin it; <b>Reset layout</b> to unpin all</li>
+  <li><b>Scroll</b> to zoom; drag background to pan</li>
+  <li>Use <b>Filter Layers</b> panel to show only links from selected layers</li>
+</ul>
+<p>Use the left panel to change aggregation, layout, color, and size.</p>`,
     },
     dashboard: {
         title: '📊 Dashboard Mode',

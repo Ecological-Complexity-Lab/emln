@@ -338,6 +338,87 @@
       </div>
     </details>
 
+    <!-- ── Meta-network section (hidden until meta-network mode) ── -->
+    <details class="control-section" id="sectionMetaNetwork" style="display:none;" open>
+      <summary>Meta-network</summary>
+      <div class="section-body">
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:#666;">Aggregation</label>
+          <select id="mnAggregationSelect" class="styled-select">
+            <option value="sumOccurrence">Sum occurrence</option>
+            <option value="sumWeights">Sum weights</option>
+            <option value="union">Union</option>
+          </select>
+        </div>
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:#666;">Layout</label>
+          <select id="mnLayoutSelect" class="styled-select">
+            <option value="circular">Circular</option>
+            <option value="force">Force</option>
+            <option value="bipartite">Two-row</option>
+          </select>
+        </div>
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:#666;">Color By</label>
+          <select id="mnColorBySelect" class="styled-select">
+            <option value="participation">Participation</option>
+            <option value="metaDegree">Meta-degree</option>
+            <option value="uniform">Uniform</option>
+          </select>
+        </div>
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:#666;">Size By</label>
+          <select id="mnSizeBySelect" class="styled-select">
+            <option value="participation">Participation</option>
+            <option value="metaDegree">Meta-degree</option>
+            <option value="uniform">Uniform</option>
+          </select>
+        </div>
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:#666;">Node Size &nbsp;<span id="mnBaseSizeLabel">1.0×</span></label>
+          <input type="range" id="mnBaseSizeSlider" min="0.2" max="3" step="0.1" value="1" class="slider">
+        </div>
+        <div style="margin-bottom:8px;">
+          <label style="font-size:11px;color:#666;">Min Link Weight &nbsp;<span id="mnMinWeightLabel">0</span></label>
+          <input type="range" id="mnMinWeightSlider" min="0" max="1" step="0.01" value="0" class="slider">
+        </div>
+        <div class="checkbox-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="mnNestedSortCheckbox" checked>
+            <span>Nested sort</span>
+          </label>
+        </div>
+        <div class="checkbox-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="mnShowLabelsCheckbox" checked>
+            <span>Show labels</span>
+          </label>
+        </div>
+        <div style="margin-top:8px;">
+          <button id="mnResetLayoutBtn" class="btn" style="width:100%; font-size:11px;">Reset layout</button>
+        </div>
+      </div>
+    </details>
+
+    <details class="control-section" id="sectionMnSearch" style="display:none; overflow:visible;">
+      <summary>Search Node</summary>
+      <div class="section-body" style="overflow:visible;">
+        <div style="position:relative;">
+          <div style="display:flex; gap:4px;">
+            <input type="text" id="mnSearchInput" class="styled-select"
+              placeholder="type to search…"
+              style="margin-top:0; padding:4px 8px; flex:1;" autocomplete="off">
+            <button id="mnSearchClearBtn" class="btn" style="padding:0 9px; font-size:14px; line-height:1;" title="Clear search">×</button>
+          </div>
+          <div id="mnSearchResults"
+            style="display:none; position:absolute; left:0; right:0; top:calc(100% + 3px);
+                   background:rgba(255,255,255,0.97); border:1px solid rgba(0,0,0,0.12);
+                   border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.12);
+                   max-height:160px; overflow-y:auto; z-index:1000;"></div>
+        </div>
+      </div>
+    </details>
+
   </div>
 
   <!-- Bottom-left: Zoom & interaction hints -->
@@ -400,6 +481,7 @@
           <line x1="7.5" y1="19" x2="16.5" y2="19"/>
         </svg>
       </button>
+      <button id="metaNetworkBtn" class="btn zoom-btn" title="Meta-network View" style="font-size:15px; font-weight:600; letter-spacing:-1px;">Σ</button>
       <button id="dashboardBtn" class="btn zoom-btn" title="Toggle Dashboard">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
           <rect x="3" y="12" width="5" height="9" rx="1"/>
@@ -488,6 +570,21 @@
     </div>
     <div id="mapLayerPanelBody" style="padding:6px 8px; max-height:55vh; overflow-y:auto;">
       <ul id="mapLayerList" style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;"></ul>
+    </div>
+  </div>
+
+  <!-- Meta-network Layer Filter Panel -->
+  <div id="mnLayerPanel" style="display:none; position:absolute; top:16px; right:16px; z-index:20; background:rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.1); border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.08); font-family:Inter,system-ui,sans-serif; min-width:160px; max-width:220px; pointer-events:auto; cursor:grab; user-select:none; backdrop-filter:blur(8px);">
+    <div id="mnLayerPanelHeader" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid rgba(0,0,0,0.07);">
+      <span style="font-size:11px; font-weight:700; color:#1a1a2e; text-transform:uppercase; letter-spacing:0.5px;">Filter Layers</span>
+      <button id="mnLayerPanelToggle" class="legend-no-drag" style="background:none; border:none; cursor:pointer; color:#6b7280; font-size:13px; padding:0 2px; line-height:1;" title="Collapse">−</button>
+    </div>
+    <div id="mnLayerPanelBody" style="padding:6px 8px; max-height:55vh; overflow-y:auto;">
+      <ul id="mnLayerList" style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;"></ul>
+      <div style="display:flex; gap:4px; margin-top:6px; padding-top:6px; border-top:1px solid rgba(0,0,0,0.07);">
+        <button id="mnSelectAllLayers" class="btn" style="flex:1; font-size:11px; padding:4px 0;">All</button>
+        <button id="mnClearLayers"     class="btn" style="flex:1; font-size:11px; padding:4px 0;">Clear</button>
+      </div>
     </div>
   </div>
 

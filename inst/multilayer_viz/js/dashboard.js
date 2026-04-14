@@ -23,7 +23,7 @@ const fmtRatio   = d3.format('.2f');   // ratios / Jaccard: 0.75
  * Simple bar chart (one value per layer).
  * items: [{label, value}]
  */
-function svgBar(items, { width = 280, height = 200, color = BAR_FILL, yLabel = '', fmt = null } = {}) {
+export function svgBar(items, { width = 280, height = 200, color = BAR_FILL, yLabel = '', fmt = null } = {}) {
     const PL = 46, PR = 10, PT = 14, PB = 56;
     const W = width - PL - PR, H = height - PT - PB;
     if (!items.length) return `<svg width="${width}" height="${height}"></svg>`;

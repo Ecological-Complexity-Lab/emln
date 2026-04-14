@@ -107,6 +107,8 @@
     h2.sec.mode-layer .badge    { background: #ccfbf1; color: #0f766e; }
     h2.sec.mode-controls { color: #b45309; border-color: #b4530922; }
     h2.sec.mode-controls .badge { background: #fef3c7; color: #b45309; }
+    h2.sec.mode-meta     { color: #0c6a9e; border-color: #0c6a9e22; }
+    h2.sec.mode-meta .badge     { background: #cde9f0; color: #0c6a9e; }
     h2.sec.mode-misc     { color: #374151; border-color: #37415122; }
 
     h3 {
@@ -183,6 +185,7 @@
     .pill-map      { background: #e0f2fe; color: #0369a1; }
     .pill-layer    { background: #ccfbf1; color: #0f766e; }
     .pill-dashboard { background: #eef2ff; color: #6366f1; }
+    .pill-meta     { background: #cde9f0; color: #0c6a9e; }
   </style>
 </head>
 <body>
@@ -218,6 +221,11 @@
   <a href="#lv-interactions" class="l3">Interactions</a>
   <a href="#lv-controls" class="l3">Sidebar Controls</a>
   <a href="#lv-geo" class="l3">Geographic Mode</a>
+  <a href="#metanetwork" class="l2">Σ Meta-Network Mode</a>
+  <a href="#mn-interactions" class="l3">Interactions</a>
+  <a href="#mn-controls" class="l3">Sidebar Controls</a>
+  <a href="#mn-layerfilter" class="l3">Layer Filter</a>
+  <a href="#mn-search" class="l3">Search</a>
 
   <div class="toc-sep"></div>
 
@@ -416,7 +424,7 @@ Ixodes_ricinus,0.003</code></pre>
 
   <!-- ── MODES ─────────────────────────────────────────────────────── -->
   <h2 class="sec mode-misc" id="modes">🌎 Visualization Modes</h2>
-  <p>Four modes are available, switched via the bottom-left toolbar. The left sidebar changes with each mode.</p>
+  <p>Five modes are available, switched via the bottom-left toolbar. The left sidebar changes with each mode.</p>
 
   <!-- Network Mode -->
   <h2 class="sec mode-network" id="network">🕸️ Network Mode <span class="badge">Default</span></h2>
@@ -565,6 +573,79 @@ Ixodes_ricinus,0.003</code></pre>
     <li>Hover tooltips, bubble selection, and Cmd+click comparison all work normally.</li>
   </ul>
 
+  <!-- Meta-Network Mode -->
+  <h2 class="sec mode-meta" id="metanetwork">Σ Meta-Network Mode</h2>
+  <p>Aggregates all intralayer links across every layer into a single, flat 2D network of unique physical nodes. Use this mode to see the <strong>full interaction graph</strong> of your multilayer network, independent of which layer each interaction was observed in.</p>
+  <ul>
+    <li><strong>Nodes</strong> — every unique physical node that appears in at least one layer.</li>
+    <li><strong>Edges</strong> — one edge per unique node pair that shares an intralayer link in any layer. Edge weight depends on the aggregation mode.</li>
+    <li><strong>Bipartite networks</strong> — when the dataset contains bipartite layers, the mode defaults to the <em>Two-row</em> layout with Set A above and Set B below, separated by dashed guide lines.</li>
+    <li><strong>Directed networks</strong> — direction is preserved; arrowheads are drawn on each edge.</li>
+  </ul>
+  <div class="info-box">Activate via the <strong>Σ</strong> button in the bottom-left toolbar. Clicking it again returns to Network Mode.</div>
+
+  <h3 id="mn-interactions">Interactions</h3>
+  <h4>Node selection</h4>
+  <ul>
+    <li><span class="key">Click a node</span> — selects it. The selected node and all its direct neighbours stay fully opaque; everything else fades. An <strong>Info panel</strong> appears showing Participation, Layers, Meta-degree, and Meta-strength.</li>
+    <li><span class="key">Click the same node again</span> — deselects and restores all opacities.</li>
+    <li><span class="key">Click empty space</span> — deselects.</li>
+    <li><span class="key">Drag a node</span> — pins it at the new position (force and two-row layouts). Click-and-release without moving never pins.</li>
+  </ul>
+  <h4>Edge selection</h4>
+  <ul>
+    <li><span class="key">Click an edge</span> — selects it. The edge is redrawn in blue; its two endpoint nodes get blue selection rings and stay fully opaque; all other nodes and edges fade. The <strong>Info panel</strong> shows how many layers the edge appears in and a per-layer bar chart of its weight.</li>
+    <li><span class="key">Click the same edge again</span> — deselects.</li>
+  </ul>
+  <h4>Navigation</h4>
+  <ul>
+    <li><span class="key">Scroll</span> — zoom centred on the cursor.</li>
+    <li><span class="key">Drag background</span> — pan the view.</li>
+  </ul>
+
+  <h3 id="mn-controls">Sidebar Controls</h3>
+  <h4>Aggregation</h4>
+  <ul>
+    <li><span class="key">Union</span> — an edge exists if it appears in at least one layer; all weights = 1.</li>
+    <li><span class="key">Sum weights</span> — edge weight = sum of <code>weight</code> values across all layers it appears in.</li>
+    <li><span class="key">Sum occurrence</span> (default) — edge weight = number of layers the edge appears in.</li>
+  </ul>
+  <p>Edge thickness in the canvas scales linearly with weight.</p>
+
+  <h4>Layout</h4>
+  <ul>
+    <li><span class="key">Circular</span> (default for unipartite) — nodes arranged on a circle, sorted by meta-degree. Layout is static; dragging nodes keeps them pinned at the new position until <strong>Reset Layout</strong> is clicked.</li>
+    <li><span class="key">Force layout</span> — d3-force simulation. Nodes repel each other; edges act as springs. The layout settles automatically; individual nodes can be dragged to pin them.</li>
+    <li><span class="key">Two-row</span> (default for bipartite) — Set A fixed on the top row, Set B on the bottom row. Nodes are sorted by meta-degree within each row; when rows are dense, circles overlap to fit within the canvas. The <em>Nested sort</em> checkbox (enabled by default) controls this sorting.</li>
+  </ul>
+  <ul>
+    <li><span class="key">Reset Layout</span> — re-runs the layout algorithm from scratch, clearing any manual node positions.</li>
+  </ul>
+
+  <h4>Appearance</h4>
+  <ul>
+    <li><span class="key">Color By</span> — color nodes by <em>Participation</em> (number of layers) or <em>Meta-degree</em> (number of unique neighbours), both using the <strong>ice</strong> palette (light cyan → dark navy). <em>Uniform</em> applies a single green tint to all nodes. A gradient legend appears in the bottom-right corner.</li>
+    <li><span class="key">Size By</span> — scale node radius by <em>Meta-degree</em> (default) or <em>Participation</em>. <em>Uniform</em> gives all nodes the same radius. A size legend appears alongside the color legend.</li>
+    <li><span class="key">Base Size</span> — global multiplier (0.5× – 3.0×) applied on top of the Size By scaling.</li>
+    <li><span class="key">Min Link Weight</span> — hide edges whose weight is below this threshold. Slider maximum matches the heaviest edge in the current aggregation.</li>
+    <li><span class="key">Show Labels</span> — toggle node name labels. Labels are drawn at 45° to reduce overlap; in two-row layout, Set A labels angle upward and Set B downward.</li>
+    <li><span class="key">Nested sort</span> <span class="pill pill-meta">two-row only</span> — sort each row by meta-degree so high-degree nodes cluster at the centre.</li>
+  </ul>
+
+  <h3 id="mn-layerfilter">Layer Filter</h3>
+  <p>A draggable, collapsible <strong>Select Layers</strong> panel appears in the top-right corner. By default all layers are included (no filtering). Click a layer name to activate it; click again to deactivate. <strong>All</strong> / <strong>Clear</strong> buttons select or deselect every layer at once.</p>
+  <p>When one or more layers are active, only nodes and edges that have links <em>in those layers</em> remain fully opaque; the rest fade to near-invisible. This lets you isolate temporal or spatial slices of the aggregated network.</p>
+
+  <h3 id="mn-search">Search</h3>
+  <p>The <strong>Search Nodes</strong> panel in the sidebar (below the main controls) works like network-mode search:</p>
+  <ul>
+    <li>Type a name to filter nodes. Up to 12 matches appear in a dropdown.</li>
+    <li><span class="key">Hover</span> a result — the node's ego-network is previewed in the canvas immediately.</li>
+    <li><span class="key">Click</span> a result (or press <kbd>Enter</kbd> for the first match) — commits the selection, opens the Info panel, and keeps the ego-network visible.</li>
+    <li><span class="key">✕ Clear</span> button — clears the search field and deselects.</li>
+    <li>Press <kbd>Escape</kbd> — closes the dropdown without selecting.</li>
+  </ul>
+
   <hr>
 
   <!-- ── TOOLBAR ─────────────────────────────────────────────────── -->
@@ -588,7 +669,11 @@ Ixodes_ricinus,0.003</code></pre>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 12,13.5 22,7"/><polyline points="2,12 12,18.5 22,12"/><polyline points="2,16 12,22.5 22,16"/></svg>
         </td>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Layer Mode</span> — toggle Layer Mode (meta-graph).</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Layer Mode</span> — toggle Layer Mode (meta-graph of layers).</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;font-size:15px;font-weight:600;letter-spacing:-1px;color:#0c6a9e;">Σ</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Meta-Network Mode</span> — toggle Meta-Network Mode. Aggregates all intralayer links into a single 2D monolayer network of unique physical nodes.</td>
       </tr>
       <tr>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
