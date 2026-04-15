@@ -111,7 +111,7 @@ function svgStackedBar(items, {
  * bins: [{x0, count}]
  */
 function svgHist(bins, { width = 300, height = 160, color = BAR_FILL, xLabel = '', yLabel = 'Nodes' } = {}) {
-    const PL = 40, PR = 10, PT = 14, PB = 42;
+    const PL = 40, PR = 20, PT = 14, PB = 42;
     const W = width - PL - PR, H = height - PT - PB;
     if (!bins.length) return `<svg width="${width}" height="${height}"><text x="${PL + W / 2}" y="${PT + H / 2}" text-anchor="middle" font-size="11" fill="${SUBTEXT}">No data</text></svg>`;
 
@@ -710,19 +710,23 @@ export class Dashboard {
             ? `<button id="dbInterClearBtn" class="db-sort-btn" style="margin-left:8px;">✕ Clear</button>`
             : '';
 
+        const heatmapOpen = !!this._interPair;
+        const toggleLabel = heatmapOpen ? 'Filter by pair ▾' : 'Filter by pair ▸';
+
         const interHist = interWeights.length === 0
             ? `<p style="font-size:11px;color:${SUBTEXT};margin:8px 0;">No links for this pair.</p>`
             : svgHist(makeBins(interWeights), { width: W_HIST, height: H_HIST, color: INTER_COLOR, xLabel: 'Weight', yLabel: 'Links' });
 
-        const interPanel = `<div class="db-chart-box" style="display:flex;gap:20px;align-items:flex-start;">
-            <div style="flex:0 0 auto;">
-                <div class="db-chart-title" style="font-size:11px;color:${SUBTEXT};margin-bottom:4px;">Link counts (click to filter)</div>
+        const interPanel = `<div class="db-chart-box">
+            <div class="db-chart-title" style="display:flex;align-items:center;gap:6px;">
+                ${interTitle}${clearBtn}
+                <button id="dbInterToggleBtn" class="db-sort-btn" style="margin-left:auto;">${toggleLabel}</button>
+            </div>
+            <div id="dbInterHeatmapWrap" style="${heatmapOpen ? '' : 'display:none;'}margin-top:10px;">
+                <div style="font-size:11px;color:${SUBTEXT};margin-bottom:6px;">Click a cell to filter by layer pair</div>
                 <div style="overflow:auto;">${heatmapSvg}</div>
             </div>
-            <div style="flex:1 1 0;min-width:0;">
-                <div class="db-chart-title" style="display:flex;align-items:center;gap:6px;">${interTitle}${clearBtn}</div>
-                ${interHist}
-            </div>
+            ${interHist}
         </div>`;
 
         return this._sec('weightdist', 'Link Weight Distributions',
@@ -859,6 +863,18 @@ export class Dashboard {
                 this.render();
             });
         });
+
+        // Weight distribution: toggle heatmap visibility
+        const toggleBtn = root.querySelector('#dbInterToggleBtn');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const wrap = root.querySelector('#dbInterHeatmapWrap');
+                if (!wrap) return;
+                const open = wrap.style.display !== 'none';
+                wrap.style.display = open ? 'none' : '';
+                toggleBtn.textContent = open ? 'Filter by pair ▸' : 'Filter by pair ▾';
+            });
+        }
 
         // Weight distribution: clear interlayer filter
         const clearBtn = root.querySelector('#dbInterClearBtn');

@@ -313,6 +313,12 @@ body {
   color: #1a1a2e;
 }
 
+.branding-favicon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
 .branding-icon {
   width: 22px;
   height: 22px;
