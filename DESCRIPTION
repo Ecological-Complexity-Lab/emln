@@ -2,28 +2,35 @@ Package: emln
 Type: Package
 Title: A package to organize, handle, and explore ecological multilayer networks
 Version: 1.0.3
-URL: https://ecological-complexity-lab.github.io/emln_package/index.html
 Date: 2026-03-24
-Author: Noa Frydman, Shai Pilosof, Shirly Freilikhman
-Maintainer: Geut Galai <geutg@post.bgu.ac.il>, Shai Pilosof <pilos@bgu.ac.il>
+Authors@R: c(
+    person("Noa", "Frydman", role = "aut"),
+    person("Shai", "Pilosof", role = c("aut", "fnd"), email = "pilos@bgu.ac.il"),
+    person("Shirly", "Freilikhman", role = "aut"),
+    person("Geut", "Galai", role = "cre", email = "geutg@post.bgu.ac.il")
+    )
+URL: https://ecological-complexity-lab.github.io/emln_package/index.html
 BugReports: https://github.com/Ecological-Complexity-Lab/emln_package/issues
-Description: An R package for data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. Includes an interactive multilayer network visualizer (beta, paper forthcoming). This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof.
+Description: An R package for data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. Includes an interactive multilayer network visualizer (beta, paper forthcoming), and a collection of 78 empirical ecological multilayer network datasets. This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof.
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression: xz
 Depends:
-  R (>= 4.1.0),
-  magrittr,
-  stringr,
-  igraph,
-  tibble,
-  dplyr,
-  purrr,
-  tidyr,
-  Matrix,
-  DT,
-  hablar
+    R (>= 4.1.0)
+Imports:
+    magrittr,
+    stringr,
+    igraph,
+    tibble,
+    dplyr,
+    purrr,
+    tidyr,
+    Matrix,
+    DT,
+    hablar
 Suggests:
-  bipartite
-RoxygenNote: 7.3.3
-Data: data/descriptions.rda
+    bipartite,
+    testthat (>= 3.0.0)
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3

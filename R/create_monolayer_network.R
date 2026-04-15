@@ -69,7 +69,7 @@ create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_nam
     mode <- ifelse(igraph::is.bipartite(g),'B','U')
 
     node_list <- igraph::as_data_frame(g, what = 'vertices') %>%
-      mutate(node_id=1:vcount(g)) %>%
+      mutate(node_id=1:igraph::vcount(g)) %>%
       rename(node_name=name) %>%
       select(node_id, node_name, everything())
 
@@ -101,5 +101,6 @@ create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_nam
     left_join(out$nodes, by=c('to' = 'node_name')) %>%
     dplyr::select(-from, -to) %>%
     dplyr::select(from=node_id.x, to=node_id.y, weight)
+  class(out) <- "monolayer"
   return(out)
 }
