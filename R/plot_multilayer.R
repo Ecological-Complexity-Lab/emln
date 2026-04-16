@@ -14,6 +14,9 @@
 #' @param port Integer. Port for the local HTTP server. Default is 8080.
 #' @param viz_path Character. Path to the multilayer_viz directory. If NULL
 #'   (default), uses the \code{viz} directory bundled with the package.
+#' @param browser Choose the specific browser to open the visualizer.
+#'  Defaults to the system default via \code{getOption("browser")}.
+#'  Can be a browser name (e.g. "chrome", "firefox") or a command (e.g. "open -a 'Google Chrome'").
 #'
 #' @note The Multilayer Network Visualizer that this function targets is
 #'   currently in beta. Feedback and bug reports are welcome at
@@ -49,10 +52,6 @@
 plot_multilayer <- function(multilayer, bipartite = FALSE, directed = NULL,
                             port = 8080, viz_path = NULL,
                             browser = getOption("browser")) {
-  if (!requireNamespace("httpuv", quietly = TRUE)) {
-    stop("Package 'httpuv' is required. Install it with: install.packages('httpuv')")
-  }
-
   message("Note: The Multilayer Network Visualizer is currently in beta. ",
           "Please report issues at https://github.com/ecomplab/emln/issues")
 
