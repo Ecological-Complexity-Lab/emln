@@ -3740,14 +3740,6 @@ if (IS_EMLN) {
     const betaEl = document.querySelector('.branding-beta');
     if (betaEl) betaEl.textContent = '(EMLN)';
 
-    // Add EMLN alert in toolbar
-    const alertsZone = document.getElementById('toolbarAlerts');
-    if (alertsZone) {
-        const emlnAlert = document.createElement('div');
-        emlnAlert.className = 'emln-alert';
-        emlnAlert.innerHTML = `Example datasets available at the <a href="${ONLINE_URL}" target="_blank" rel="noopener">online version &#x2197;</a>`;
-        alertsZone.prepend(emlnAlert);
-    }
 }
 
 function renderScaleLegend(scale, id, titleText) {

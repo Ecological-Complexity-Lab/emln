@@ -1398,17 +1398,6 @@ body {
 }
 
 /* EMLN mode styles */
-.emln-alert {
-  font-size: 11px;
-  color: #6b7280;
-}
-.emln-alert a {
-  color: #2563eb;
-  text-decoration: none;
-}
-.emln-alert a:hover {
-  text-decoration: underline;
-}
 .emln-data-msg {
   font-size: 12px;
   color: #4b5563;
