@@ -11,6 +11,7 @@ import { LayerView } from './layerView.js';
 import { csvToJson } from './csvImporter.js';
 import { Dashboard, svgBar } from './dashboard.js';
 import { MetaNetwork } from './metaNetwork.js';
+import { DataMode, dataMode, layerColors, initLayerColors } from './dataMode.js';
 
 // ---- State ----
 let model = null;
@@ -29,6 +30,9 @@ let activeNodeSizeScale = null;
 let activeLinkColorScale = null;
 let activeLayerColorScale = null;
 const colorScaleOverrides = new Map(); // attrName -> 'categorical' | 'continuous'
+
+// ---- EMLN mode detection ----
+const IS_EMLN = new URLSearchParams(window.location.search).get('autoload') === 'true';
 
 // ---- DOM Elements ----
 const canvas = document.getElementById('networkCanvas');
@@ -183,6 +187,14 @@ const mnMinWeightSlider    = document.getElementById('mnMinWeightSlider');
 const mnMinWeightLabel     = document.getElementById('mnMinWeightLabel');
 const mnNestedSortCheckbox = document.getElementById('mnNestedSortCheckbox');
 const mnShowLabelsCheckbox = document.getElementById('mnShowLabelsCheckbox');
+const mnLabelSizeSlider    = document.getElementById('mnLabelSizeSlider');
+const mnLabelSizeLabel     = document.getElementById('mnLabelSizeLabel');
+const mnLabelSizeRow       = document.getElementById('mnLabelSizeRow');
+const mnBpColorRow         = document.getElementById('mnBpColorRow');
+const mnColorSetA          = document.getElementById('mnColorSetA');
+const mnColorSetALabel     = document.getElementById('mnColorSetALabel');
+const mnColorSetB          = document.getElementById('mnColorSetB');
+const mnColorSetBLabel     = document.getElementById('mnColorSetBLabel');
 const mnResetLayoutBtn     = document.getElementById('mnResetLayoutBtn');
 const mnSearchInput        = document.getElementById('mnSearchInput');
 const mnSearchResults      = document.getElementById('mnSearchResults');
@@ -221,12 +233,18 @@ const collapseInfoBtn = document.getElementById('collapseInfoBtn');
 const tooltip = document.getElementById('tooltip');
 
 // ---- Application State ----
-let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', or 'metanetwork'
+let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', 'metanetwork', or 'data'
 let layerViewHandlers = null;
 let lvRAF  = null; // requestAnimationFrame id for layer-view animation
 let metaNetwork = null;       // MetaNetwork instance
 let mnRAF       = null;       // requestAnimationFrame id for meta-network animation
 let _mnMouseHandlers = null;  // { onMouseDown, onMouseMove, onMouseUp, onWheel }
+let dataModeInstance = null;   // DataMode instance
+const dataModePanel = document.getElementById('dataModePanel');
+const dataModeBtn   = document.getElementById('dataModeBtn');
+const dataFilterBanner = document.getElementById('dataFilterBanner');
+const dataFilterText   = document.getElementById('dataFilterText');
+const dataFilterClear  = document.getElementById('dataFilterClear');
 let activeMapLayers = new Set();
 const mapMarkersOverlay = document.getElementById('mapMarkersOverlay');
 const layerCloseButtonsContainer = document.getElementById('layerCloseButtons');
@@ -567,6 +585,11 @@ function loadData(json) {
         if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
         if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
         if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+        if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
+        dataMode.clear();
+        _updateFilterBanner();
+        _updateModeButtons();
+        initLayerColors(model.layers);
 
         // Pass bipartite info to layout engine
         layout.bipartiteInfo = model.bipartiteInfo;
@@ -823,15 +846,27 @@ Object.keys(DATASET_INFO).forEach(file => {
     document.getElementById('demoDatasetList').appendChild(buildDatasetRow(file));
 });
 
+// ---- Mode Button Highlighting ----
+const MODE_BTNS = document.querySelectorAll('.mode-btn');
+function _updateModeButtons() {
+    const modeMap = { network: 'network', map: 'map', layer: 'layer',
+                      metanetwork: 'meta', dashboard: 'dashboard', data: 'data' };
+    const activeMode = modeMap[appMode] || 'network';
+    MODE_BTNS.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === activeMode);
+    });
+}
+
 // ---- Map Mode Logic ----
 function toggleMapMode() {
     if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
     if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; renderer.render(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
     appMode = appMode === 'network' ? 'map' : 'network';
 
+    _updateModeButtons();
     if (appMode === 'map') {
-        mapModeBtn.classList.add('active');
         mapEl.style.display = 'block';
         bgMap.invalidateSize();
 
@@ -844,7 +879,6 @@ function toggleMapMode() {
         mapOpacityControl.style.display = 'flex';
         mapLayerPanel.style.display = '';
     } else {
-        mapModeBtn.classList.remove('active');
         mapEl.style.display = 'none';
         activeMapLayers.clear();
         renderer.showMapBackground = false;
@@ -854,6 +888,7 @@ function toggleMapMode() {
     }
 
     updateMapModeViews();
+    _updateFilterBanner();
 }
 
 mapModeBtn.addEventListener('click', toggleMapMode);
@@ -878,17 +913,21 @@ function toggleLayerView() {
     if (appMode === 'layer') {
         _exitLayerView();
         appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
         renderer.render();
         return;
     }
     if (appMode === 'map')         toggleMapMode();
     if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
     appMode = 'layer';
+    _updateFilterBanner();
+    _updateModeButtons();
     renderer.layerView = new LayerView(model, positions);
     window._layerView = renderer.layerView;
     renderer.layerViewMode = true;
-    layerViewBtn.classList.add('active');
     canvas.style.cursor = 'grab';
     _showLayerViewSidebar();
 
@@ -1068,7 +1107,6 @@ function _exitDashboard() {
     dashboard = null;
     dashboardContainer.style.display = 'none';
     canvas.style.display = '';
-    dashboardBtn.classList.remove('active');
     _hideDashboardSidebar();
 }
 
@@ -1077,6 +1115,8 @@ function toggleDashboard() {
     if (appMode === 'dashboard') {
         _exitDashboard();
         appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
         renderer.render();
         return;
     }
@@ -1084,9 +1124,11 @@ function toggleDashboard() {
     if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
     if (appMode === 'map')         { toggleMapMode(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
 
     appMode = 'dashboard';
-    dashboardBtn.classList.add('active');
+    _updateFilterBanner();
+    _updateModeButtons();
     canvas.style.display = 'none';
     dashboardContainer.style.display = 'block';
     _showDashboardSidebar();
@@ -1096,6 +1138,89 @@ function toggleDashboard() {
 }
 
 dashboardBtn.addEventListener('click', toggleDashboard);
+
+// ─── Data Mode ───────────────────────────────────────────────────────────────
+
+function _exitDataMode() {
+    dataModeInstance?.destroy();
+    dataModeInstance = null;
+    dataModePanel.style.display = 'none';
+    canvas.style.display = '';
+    dataMode.active = false;
+    document.getElementById('controlPanels').style.display = '';
+    legendPanel.style.display = '';
+    renderer.searchedNodeName = null;
+}
+
+function _updateFilterBanner() {
+    const show = dataMode.isSubsetActive() && (appMode === 'network' || appMode === 'map');
+    if (!show) {
+        dataFilterBanner.style.display = 'none';
+        return;
+    }
+    const parts = [];
+    if (dataMode.filteredNodeNames) parts.push(`${dataMode.filteredNodeNames.size} nodes`);
+    if (dataMode.filteredLayerNames) parts.push(`${dataMode.filteredLayerNames.size} layers`);
+    if (dataMode.filteredLinkKeys) parts.push(`${dataMode.filteredLinkKeys.size} links`);
+    dataFilterText.textContent = `\u26A1 Data filter active \u2014 ${parts.join(', ')} visible`;
+    dataFilterBanner.style.display = 'flex';
+}
+
+function toggleDataMode() {
+    if (!model) return;
+    if (appMode === 'data') {
+        _exitDataMode();
+        appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
+        renderer.render();
+        return;
+    }
+    if (appMode === 'map')         toggleMapMode();
+    if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
+    if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
+    if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+
+    appMode = 'data';
+    _updateFilterBanner();
+    _updateModeButtons();
+    dataMode.active = true;
+    canvas.style.display = 'none';
+    dataModePanel.style.display = 'flex';
+    legendPanel.style.display = 'none';
+
+    // Hide sidebar
+    document.getElementById('controlPanels').style.display = 'none';
+
+    dataModeInstance = new DataMode(dataModePanel, model, () => {
+        _updateFilterBanner();
+        if (appMode !== 'data') renderer.render();
+    });
+    dataModeInstance._onSelect = (type, name) => {
+        if (type === 'node') {
+            renderer.searchedNodeName = name;
+        } else if (type === 'layer') {
+            renderer.searchedNodeName = null;
+        } else {
+            renderer.searchedNodeName = null;
+        }
+    };
+    dataModeInstance._onColorChange = () => {
+        if (layerColorSelect.value === '__individual__') {
+            updateLayerColors();
+        }
+    };
+}
+
+dataModeBtn.addEventListener('click', toggleDataMode);
+
+dataFilterClear.addEventListener('click', () => {
+    if (dataModeInstance) dataModeInstance.clearFilters();
+    dataMode.clear();
+    renderer.searchedNodeName = null;
+    _updateFilterBanner();
+    if (appMode !== 'data') renderer.render();
+});
 
 // ── Meta-network layer palette (same as LayerView PALETTE) ────────────────
 const MN_LAYER_PALETTE = [
@@ -1122,6 +1247,16 @@ function _hideMetaNetworkSidebar() {
     renderLegends();
 }
 
+function _updateMnBpColorPickerVisibility() {
+    const show = metaNetwork && metaNetwork.hasBipartite && metaNetwork.settings.colorBy === 'uniform';
+    mnBpColorRow.style.display = show ? '' : 'none';
+    if (show) {
+        const { labelA, labelB } = metaNetwork.bipartiteSetLabels;
+        mnColorSetALabel.textContent = labelA + ' color';
+        mnColorSetBLabel.textContent = labelB + ' color';
+    }
+}
+
 function _syncMetaNetworkControls() {
     if (!metaNetwork) return;
     const s = metaNetwork.settings;
@@ -1133,6 +1268,12 @@ function _syncMetaNetworkControls() {
     mnBaseSizeLabel.textContent    = s.baseSize.toFixed(1) + '×';
     mnNestedSortCheckbox.checked   = s.nestedSort;
     mnShowLabelsCheckbox.checked   = s.showLabels;
+    mnLabelSizeSlider.value        = s.labelFontSize;
+    mnLabelSizeLabel.textContent   = s.labelFontSize + 'px';
+    mnLabelSizeRow.style.display   = s.showLabels ? '' : 'none';
+    mnColorSetA.value              = s.uniformColorA;
+    mnColorSetB.value              = s.uniformColorB;
+    _updateMnBpColorPickerVisibility();
     // Set slider range from maxEdgeWeight
     const maxW = metaNetwork.maxEdgeWeight;
     mnMinWeightSlider.max   = maxW;
@@ -1193,15 +1334,19 @@ function toggleMetaNetwork() {
     if (appMode === 'metanetwork') {
         _exitMetaNetwork();
         appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
         renderer.render();
         return;
     }
     if (appMode === 'map')       toggleMapMode();
     if (appMode === 'layer')     { _exitLayerView(); appMode = 'network'; }
     if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; }
+    if (appMode === 'data')      { _exitDataMode();  appMode = 'network'; }
 
     appMode = 'metanetwork';
-    metaNetworkBtn.classList.add('active');
+    _updateFilterBanner();
+    _updateModeButtons();
     renderer.metaNetworkMode = true;
     canvas.style.display = '';
     canvas.style.cursor  = 'grab';
@@ -1217,6 +1362,7 @@ function toggleMetaNetwork() {
     let _mouseDownX    = 0, _mouseDownY = 0;
     let _dragStartX    = 0, _dragStartY = 0;
     let _offsetStartX  = 0, _offsetStartY = 0;
+    let _mouseDownOnCanvas = false; // true only when mousedown originated on the canvas
 
     const canvasCoords = (e) => {
         const rect = canvas.getBoundingClientRect();
@@ -1228,6 +1374,7 @@ function toggleMetaNetwork() {
 
     const onMouseDown = (e) => {
         if (e.button !== 0) return;
+        _mouseDownOnCanvas = true;
         _mouseDownX = e.clientX; _mouseDownY = e.clientY;
         const { mx, my } = canvasCoords(e);
         const hitName = metaNetwork.startDragNode(mx, my, canvas.width, canvas.height);
@@ -1284,6 +1431,8 @@ function toggleMetaNetwork() {
     };
 
     const onMouseUp = (e) => {
+        if (!_mouseDownOnCanvas) return; // mousedown was on another element (e.g. search dropdown)
+        _mouseDownOnCanvas = false;
         const wasDragging = _isDragging;
         const wasNodeDrag = _isNodeDrag;
         _isDragging = false;
@@ -1376,7 +1525,6 @@ function _exitMetaNetwork() {
     }
     metaNetwork?._sim?.stop();
     metaNetwork = null;
-    metaNetworkBtn.classList.remove('active');
     canvas.style.cursor = '';
     tooltip.classList.remove('visible');
     infoPanel.classList.remove('visible');
@@ -1429,12 +1577,14 @@ mnAggregationSelect.addEventListener('change', () => {
 mnLayoutSelect.addEventListener('change', () => {
     if (!metaNetwork) return;
     metaNetwork.updateSetting('layout', mnLayoutSelect.value);
+    _updateMnBpColorPickerVisibility();
     _ensureMetaNetworkLoop();
 });
 
 mnColorBySelect.addEventListener('change', () => {
     if (!metaNetwork) return;
     metaNetwork.updateSetting('colorBy', mnColorBySelect.value);
+    _updateMnBpColorPickerVisibility();
     renderMetaNetworkLegend();
     _ensureMetaNetworkLoop();
 });
@@ -1463,6 +1613,27 @@ mnNestedSortCheckbox.addEventListener('change', () => {
 mnShowLabelsCheckbox.addEventListener('change', () => {
     if (!metaNetwork) return;
     metaNetwork.updateSetting('showLabels', mnShowLabelsCheckbox.checked);
+    mnLabelSizeRow.style.display = mnShowLabelsCheckbox.checked ? '' : 'none';
+    _ensureMetaNetworkLoop();
+});
+
+mnLabelSizeSlider.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    const val = parseInt(mnLabelSizeSlider.value);
+    mnLabelSizeLabel.textContent = val + 'px';
+    metaNetwork.updateSetting('labelFontSize', val);
+    _ensureMetaNetworkLoop();
+});
+
+mnColorSetA.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('uniformColorA', mnColorSetA.value);
+    _ensureMetaNetworkLoop();
+});
+
+mnColorSetB.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('uniformColorB', mnColorSetB.value);
     _ensureMetaNetworkLoop();
 });
 
@@ -1587,6 +1758,9 @@ function goToNetworkMode() {
     if (appMode === 'layer')       { _exitLayerView();     appMode = 'network'; renderer.render(); }
     if (appMode === 'dashboard')   { _exitDashboard();     appMode = 'network'; renderer.render(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork();   appMode = 'network'; renderer.render(); }
+    if (appMode === 'data')        { _exitDataMode();      appMode = 'network'; renderer.render(); }
+    _updateFilterBanner();
+    _updateModeButtons();
 }
 networkModeBtn.addEventListener('click', goToNetworkMode);
 dbBipartiteToggle.addEventListener('change', () => dashboard?.setShowBipartite(dbBipartiteToggle.checked));
@@ -1628,7 +1802,6 @@ function _exitLayerView() {
     renderer.layerViewMode = false;
     renderer.layerView = null;
     window._layerView = null;
-    layerViewBtn.classList.remove('active');
     canvas.style.cursor = '';
     tooltip.classList.remove('visible');
     _hideLayerViewSidebar();
@@ -2964,14 +3137,14 @@ function populateDropdowns() {
     }
 
     // Layer color options
-    layerColorSelect.innerHTML = '<option value="">Default</option>';
+    layerColorSelect.innerHTML = '<option value="">Default</option><option value="__individual__">Individual</option>';
     for (const attr of model.layerAttributeNames) {
         const opt = document.createElement('option');
         opt.value = attr;
         opt.textContent = attr;
         layerColorSelect.appendChild(opt);
     }
-    layerColorSelect.disabled = model.layerAttributeNames.length === 0;
+    layerColorSelect.disabled = false;
 
 }
 
@@ -3242,11 +3415,17 @@ function _hexToRgba(color, alpha) {
 
 function updateLayerColors() {
     const attrName = layerColorSelect.value;
-    layerColorSwatches.style.display = attrName ? 'none' : 'flex';
+    layerColorSwatches.style.display = (!attrName) ? 'flex' : 'none';
 
     if (!model) { renderer.layerColorFn = null; activeLayerColorScale = null; renderer.render(); return; }
 
-    if (attrName) {
+    if (attrName === '__individual__') {
+        activeLayerColorScale = null;
+        renderer.layerColorFn = (layerIndex, layer) => {
+            const hex = layerColors.get(layer.layer_name) || '#8b5cf6';
+            return { fill: _hexToRgba(hex, 0.35), border: _hexToRgba(hex, 0.7), text: hex };
+        };
+    } else if (attrName) {
         const override = colorScaleOverrides.get(attrName);
         const sc = colorMapper.buildColorScale(model.layers, attrName, override);
         activeLayerColorScale = sc;
@@ -3543,6 +3722,34 @@ function hideTooltip() {
     }
 })();
 
+// ---- EMLN mode UI setup ----
+if (IS_EMLN) {
+    const ONLINE_URL = 'https://ecological-complexity-lab.github.io/multilayer_viz/';
+
+    // Replace data import buttons with message
+    const btnRow = document.querySelector('#sectionData .btn-row');
+    if (btnRow) {
+        btnRow.innerHTML = `<div class="emln-data-msg">
+            Network loaded from EMLN.<br>
+            For example datasets and manual import, use the
+            <a href="${ONLINE_URL}" target="_blank" rel="noopener">online version &#x2197;</a>
+        </div>`;
+    }
+
+    // Swap "(Beta)" → "(EMLN)" in branding
+    const betaEl = document.querySelector('.branding-beta');
+    if (betaEl) betaEl.textContent = '(EMLN)';
+
+    // Add EMLN alert in toolbar
+    const alertsZone = document.getElementById('toolbarAlerts');
+    if (alertsZone) {
+        const emlnAlert = document.createElement('div');
+        emlnAlert.className = 'emln-alert';
+        emlnAlert.innerHTML = `Example datasets available at the <a href="${ONLINE_URL}" target="_blank" rel="noopener">online version &#x2197;</a>`;
+        alertsZone.prepend(emlnAlert);
+    }
+}
+
 function renderScaleLegend(scale, id, titleText) {
     if (!scale) return;
     if (expandedLegends.has(id)) {
@@ -3609,11 +3816,10 @@ function createLegendDOM(titleText, scale, id) {
 
     if (scale.canToggle && scale.type !== 'size') {
         const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = '⇌';
-        toggleBtn.title = 'Switch between Categorical and Continuous palettes';
-        toggleBtn.style.cssText = 'background: none; border: 1px solid rgba(0,0,0,0.12); cursor: pointer; color: #4b5563; border-radius: 4px; font-size: 10px; line-height: 1; padding: 2px 4px; font-weight: bold; display: flex; align-items: center; justify-content: center; height: 18px;';
-        toggleBtn.onmouseover = () => toggleBtn.style.background = '#f3f4f6';
-        toggleBtn.onmouseout = () => toggleBtn.style.background = 'none';
+        toggleBtn.className = 'ltp-pill';
+        const isCont = scale.type === 'continuous';
+        toggleBtn.innerHTML = `<span class="ltp-opt${isCont ? ' ltp-active' : ''}">Continuous</span><span class="ltp-opt${!isCont ? ' ltp-active' : ''}">Discrete</span>`;
+        toggleBtn.title = 'Switch between Continuous and Discrete palettes';
         toggleBtn.onclick = () => {
             const newType = scale.type === 'continuous' ? 'categorical' : 'continuous';
             colorScaleOverrides.set(scale.attrName, newType);
@@ -3769,9 +3975,11 @@ function _createLVLegendBox(scale) {
 
     if (scale.canToggle) {
         const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = '⇌';
-        toggleBtn.title = 'Switch between Continuous and Categorical display';
-        toggleBtn.style.cssText = 'background:none;border:1px solid rgba(0,0,0,0.12);cursor:pointer;color:#4b5563;border-radius:4px;font-size:10px;padding:2px 4px;font-weight:bold;height:18px;';
+        toggleBtn.className = 'ltp-pill';
+        const lv0 = renderer.layerView;
+        const isCont = lv0 && lv0.settings.colorLegendType === 'continuous';
+        toggleBtn.innerHTML = `<span class="ltp-opt${isCont ? ' ltp-active' : ''}">Continuous</span><span class="ltp-opt${!isCont ? ' ltp-active' : ''}">Discrete</span>`;
+        toggleBtn.title = 'Switch between Continuous and Discrete display';
         toggleBtn.onclick = () => {
             const lv = renderer.layerView;
             if (!lv) return;
@@ -3909,6 +4117,18 @@ const HELP_CONTENT = {
   <li>Use <b>Filter Layers</b> panel to show only links from selected layers</li>
 </ul>
 <p>Use the left panel to change aggregation, layout, color, and size.</p>`,
+    },
+    data: {
+        title: '📋 Data Mode',
+        body: `<p>Inspect raw data tables and create subsets that propagate to all visualization modes.</p>
+<ul style="padding-left:16px;margin:8px 0;">
+  <li><b>Tabs</b> — Nodes, State Nodes, Links, Layers</li>
+  <li><b>Click a column header</b> — sort ascending/descending/reset</li>
+  <li><b>Filter inputs</b> — text columns: substring match; numeric: <code>&gt;5</code>, <code>&lt;10</code>, <code>=3</code></li>
+  <li><b>Click a row</b> to select it (highlights the node/layer in other modes)</li>
+  <li><b>Export CSV</b> — downloads the currently filtered rows</li>
+</ul>
+<p>Active filters create a <b>subset</b> visible across all modes (yellow banner).</p>`,
     },
     dashboard: {
         title: '📊 Dashboard Mode',

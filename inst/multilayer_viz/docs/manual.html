@@ -109,6 +109,8 @@
     h2.sec.mode-controls .badge { background: #fef3c7; color: #b45309; }
     h2.sec.mode-meta     { color: #0c6a9e; border-color: #0c6a9e22; }
     h2.sec.mode-meta .badge     { background: #cde9f0; color: #0c6a9e; }
+    h2.sec.mode-data     { color: #9333ea; border-color: #9333ea22; }
+    h2.sec.mode-data .badge     { background: #f3e8ff; color: #9333ea; }
     h2.sec.mode-misc     { color: #374151; border-color: #37415122; }
 
     h3 {
@@ -186,6 +188,7 @@
     .pill-layer    { background: #ccfbf1; color: #0f766e; }
     .pill-dashboard { background: #eef2ff; color: #6366f1; }
     .pill-meta     { background: #cde9f0; color: #0c6a9e; }
+    .pill-data     { background: #f3e8ff; color: #9333ea; }
   </style>
 </head>
 <body>
@@ -226,6 +229,13 @@
   <a href="#mn-controls" class="l3">Sidebar Controls</a>
   <a href="#mn-layerfilter" class="l3">Layer Filter</a>
   <a href="#mn-search" class="l3">Search</a>
+  <a href="#datamode" class="l2">📋 Data Mode</a>
+  <a href="#dm-tables" class="l3">Tables</a>
+  <a href="#dm-filters" class="l3">Column Filters</a>
+  <a href="#dm-selection" class="l3">Row Selection</a>
+  <a href="#dm-subsetting" class="l3">Subsetting</a>
+  <a href="#dm-colors" class="l3">Layer Colors</a>
+  <a href="#dm-export" class="l3">CSV Export</a>
 
   <div class="toc-sep"></div>
 
@@ -424,7 +434,7 @@ Ixodes_ricinus,0.003</code></pre>
 
   <!-- ── MODES ─────────────────────────────────────────────────────── -->
   <h2 class="sec mode-misc" id="modes">🌎 Visualization Modes</h2>
-  <p>Five modes are available, switched via the bottom-left toolbar. The left sidebar changes with each mode.</p>
+  <p>Six modes are available, switched via the bottom-left toolbar. The left sidebar changes with each mode.</p>
 
   <!-- Network Mode -->
   <h2 class="sec mode-network" id="network">🕸️ Network Mode <span class="badge">Default</span></h2>
@@ -646,6 +656,58 @@ Ixodes_ricinus,0.003</code></pre>
     <li>Press <kbd>Escape</kbd> — closes the dropdown without selecting.</li>
   </ul>
 
+  <!-- ── DATA MODE ─────────────────────────────────────────────── -->
+  <h2 class="sec mode-data" id="datamode">📋 Data Mode</h2>
+  <p>A tabular inspection and subsetting interface for your network data — similar to Gephi's Data Laboratory. Switch to Data Mode via the grid icon in the bottom-left toolbar.</p>
+
+  <h3 id="dm-tables">Tables</h3>
+  <p>Four tabs display different aspects of the loaded network:</p>
+  <ul>
+    <li><span class="key">Nodes</span> — one row per physical node. Shows <code>node_name</code>, <code>layer_count</code> (number of layers the node appears in), and any imported node attributes.</li>
+    <li><span class="key">State Nodes</span> — one row per (layer, node) pair. Shows <code>layer_name</code>, <code>node_name</code>, computed <code>degree</code>, and any per-layer state node attributes (e.g. <code>abundance</code>, <code>module</code>).</li>
+    <li><span class="key">Links</span> — one row per edge. Shows <code>layer_from</code>, <code>node_from</code>, <code>layer_to</code>, <code>node_to</code>, <code>weight</code>, a <span class="pill pill-network">type</span> pill (intralayer or interlayer), and any imported link attributes.</li>
+    <li><span class="key">Layers</span> — one row per layer. Shows <code>layer_name</code>, <code>node_count</code>, <code>link_count</code>, a color picker, and any imported layer attributes.</li>
+  </ul>
+  <p>Click any column header label to <strong>sort</strong> by that column. Click again to reverse the sort order. A third click removes sorting.</p>
+
+  <h3 id="dm-filters">Column Filters</h3>
+  <p>Each column header shows a <strong>funnel icon</strong> (▼). Click it to open a filter popup for that column:</p>
+  <ul>
+    <li><span class="key">Checkbox filter</span> — for columns with 40 or fewer unique values. A scrollable list of checkboxes lets you include or exclude specific values. A search box at the top narrows the list. Use <em>Select All</em> / <em>Clear All</em> for bulk toggling.</li>
+    <li><span class="key">Text filter</span> — for numeric columns or columns with many unique values. Type a substring to match against. Press <kbd>Enter</kbd> or click <em>Apply</em> to commit.</li>
+  </ul>
+  <p>Active filters are indicated by a highlighted (indigo) funnel icon. Multiple column filters combine with AND logic — a row must match all active filters to appear.</p>
+  <p>Click <em>Reset</em> inside any popup to clear that column's filter.</p>
+
+  <h3 id="dm-selection">Row Selection</h3>
+  <p>Click any row to select it (highlighted in indigo). Multi-select is supported:</p>
+  <ul>
+    <li><span class="key"><code>Cmd</code> / <code>Ctrl</code> + Click</span> — toggle individual rows on or off.</li>
+    <li><span class="key"><code>Shift</code> + Click</span> — select a contiguous range from the last-clicked row to the current row.</li>
+  </ul>
+  <p>When rows are selected, a purple action bar appears at the top showing the count. Click <strong>Filter to selection</strong> to subset the network to only the selected rows. Click <strong>Clear</strong> to deselect all.</p>
+
+  <h3 id="dm-subsetting">Subsetting</h3>
+  <p>Filters and selections in Data Mode propagate to <span class="pill pill-network">Network</span> and <span class="pill pill-map">Map</span> modes. When a subset is active:</p>
+  <ul>
+    <li>Only matching nodes, links, and layers are rendered on the canvas.</li>
+    <li>A compact <strong>amber filter banner</strong> appears in the bottom-right corner (above the branding panel) showing how many items are filtered and a <em>Clear</em> button.</li>
+    <li>The banner is visible only in Network and Map modes — it hides in other modes.</li>
+  </ul>
+  <p>Subsets are derived from the active tab: filtering the <em>Nodes</em> tab subsets by node names; filtering <em>Layers</em> subsets by layer names; filtering <em>Links</em> subsets by individual link keys.</p>
+  <div class="tip-box"><strong>Tip:</strong> Use column filters to narrow the table first, then use row multi-select + <em>Filter to selection</em> for precise control over which items appear in the visualization.</div>
+
+  <h3 id="dm-colors">Layer Colors</h3>
+  <p>The <em>Layers</em> tab includes a <strong>color picker</strong> in each row. Changing a layer's color here updates it everywhere:</p>
+  <ul>
+    <li>The color persists when switching back to Network or Map mode.</li>
+    <li>In the Network Mode sidebar, set <strong>Layer Color By</strong> to <em>Individual</em> to use these per-layer colors for the layer planes.</li>
+  </ul>
+  <p>Default colors are assigned from a built-in palette and can be customized at any time.</p>
+
+  <h3 id="dm-export">CSV Export</h3>
+  <p>Click the <strong>Export CSV</strong> button to download the currently visible (filtered) rows as a <code>.csv</code> file. The export respects all active column filters and row selections — only what you see in the table is exported.</p>
+
   <hr>
 
   <!-- ── TOOLBAR ─────────────────────────────────────────────────── -->
@@ -680,6 +742,12 @@ Ixodes_ricinus,0.003</code></pre>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="#374151"><rect x="3" y="12" width="5" height="9" rx="1"/><rect x="9.5" y="7" width="5" height="14" rx="1"/><rect x="16" y="3" width="5" height="18" rx="1"/></svg>
         </td>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Dashboard Mode</span> — toggle Dashboard Mode.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Data Mode</span> — toggle Data Mode. Tabular view of nodes, links, layers, and state nodes with filtering and subsetting.</td>
       </tr>
       <tr>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">

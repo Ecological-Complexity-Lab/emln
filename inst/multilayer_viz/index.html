@@ -41,6 +41,10 @@
   <!-- Dashboard Container -->
   <div id="dashboardContainer"></div>
 
+  <!-- Data Mode Panel -->
+  <div id="dataModePanel" style="display:none;"></div>
+
+
   <!-- Tooltip (follows mouse on hover) -->
   <div id="tooltip"></div>
 
@@ -366,6 +370,16 @@
             <option value="uniform">Uniform</option>
           </select>
         </div>
+        <div id="mnBpColorRow" style="display:none; margin-bottom:8px; margin-top:-2px;">
+          <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+            <label id="mnColorSetALabel" style="font-size:11px;color:#666;flex:1;">Set A color</label>
+            <input type="color" id="mnColorSetA" value="#0072b2" style="width:32px;height:22px;padding:1px 2px;border:1px solid rgba(0,0,0,0.15);border-radius:4px;cursor:pointer;">
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <label id="mnColorSetBLabel" style="font-size:11px;color:#666;flex:1;">Set B color</label>
+            <input type="color" id="mnColorSetB" value="#f472b6" style="width:32px;height:22px;padding:1px 2px;border:1px solid rgba(0,0,0,0.15);border-radius:4px;cursor:pointer;">
+          </div>
+        </div>
         <div style="margin-bottom:8px;">
           <label style="font-size:11px;color:#666;">Size By</label>
           <select id="mnSizeBySelect" class="styled-select">
@@ -393,6 +407,10 @@
             <input type="checkbox" id="mnShowLabelsCheckbox" checked>
             <span>Show labels</span>
           </label>
+        </div>
+        <div id="mnLabelSizeRow" style="margin-top:6px;">
+          <label style="font-size:11px;color:#666;">Label Size &nbsp;<span id="mnLabelSizeLabel">12px</span></label>
+          <input type="range" id="mnLabelSizeSlider" min="8" max="24" value="12" class="slider">
         </div>
         <div style="margin-top:8px;">
           <button id="mnResetLayoutBtn" class="btn" style="width:100%; font-size:11px;">Reset layout</button>
@@ -422,10 +440,10 @@
   </div>
 
   <!-- Bottom-left: Zoom & interaction hints -->
-  <div id="bottomPanel" class="panel">
-    <!-- Map Opacity & Visibility Control (only visible in map mode) -->
+  <!-- Map controls (float above bottom bar) -->
+  <div id="mapControlsFloat" class="panel">
     <div id="mapOpacityControl"
-      style="display:none; flex-direction:row; align-items:center; gap:8px; margin-bottom:8px;">
+      style="display:none; flex-direction:row; align-items:center; gap:8px;">
       <label style="font-size:11px; color:#333; margin-bottom:0;">Map Opacity</label>
       <input type="range" id="mapOpacitySlider" min="0" max="1" step="0.05" value="1" style="width:70px; margin:0;"
         title="Map Background Opacity">
@@ -442,10 +460,8 @@
         <span style="font-size:11px; margin-left:2px;">Street Map</span>
       </label>
     </div>
-
-    <!-- Layer View Geo Map Controls (only visible in layer view geo mode) -->
     <div id="lvMapOpacityControl"
-      style="display:none; flex-direction:row; align-items:center; gap:8px; margin-bottom:8px;">
+      style="display:none; flex-direction:row; align-items:center; gap:8px;">
       <label style="font-size:11px; color:#333; margin-bottom:0;">Map Opacity</label>
       <input type="range" id="lvMapOpacitySlider" min="0" max="1" step="0.05" value="1" style="width:70px; margin:0;"
         title="Map Background Opacity">
@@ -458,70 +474,104 @@
         <span style="font-size:11px; margin-left:2px;">Street Map</span>
       </label>
     </div>
+  </div>
 
-    <div class="zoom-controls">
-      <button id="helpBtn" class="btn zoom-btn" title="Help" style="font-size:13px;font-weight:700;">?</button>
+  <!-- Unified Bottom Bar -->
+  <div id="bottomBar">
+    <button id="helpBtn" class="btn zoom-btn" title="Help" style="font-size:13px;font-weight:700;">?</button>
 
-      <span class="toolbar-sep"></span>
+    <span class="toolbar-sep"></span>
 
-      <button id="networkModeBtn" class="btn zoom-btn" title="Network View">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
-          <polygon points="12,2 22,8.5 12,15 2,8.5"/>
-          <polyline points="2,12 12,18.5 22,12"/>
-          <polyline points="2,16 12,22.5 22,16"/>
-        </svg>
-      </button>
-      <button id="layerViewBtn" class="btn zoom-btn" title="Toggle Layer Mode">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <circle cx="12" cy="5" r="2.5"/>
-          <circle cx="5" cy="19" r="2.5"/>
-          <circle cx="19" cy="19" r="2.5"/>
-          <line x1="12" y1="7.5" x2="5.9" y2="16.6"/>
-          <line x1="12" y1="7.5" x2="18.1" y2="16.6"/>
-          <line x1="7.5" y1="19" x2="16.5" y2="19"/>
-        </svg>
-      </button>
-      <button id="metaNetworkBtn" class="btn zoom-btn" title="Meta-network View" style="font-size:15px; font-weight:600; letter-spacing:-1px;">Σ</button>
-      <button id="dashboardBtn" class="btn zoom-btn" title="Toggle Dashboard">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <rect x="3" y="12" width="5" height="9" rx="1"/>
-          <rect x="9.5" y="7" width="5" height="14" rx="1"/>
-          <rect x="16" y="3" width="5" height="18" rx="1"/>
-        </svg>
-      </button>
-      <button id="mapModeBtn" class="btn zoom-btn" title="Toggle Map View" style="display:none;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
-        </svg>
-      </button>
+    <button id="networkModeBtn" class="btn zoom-btn mode-btn" data-mode="network" title="Network Mode">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+        <polygon points="12,2 22,8.5 12,15 2,8.5"/>
+        <polyline points="2,12 12,18.5 22,12"/>
+        <polyline points="2,16 12,22.5 22,16"/>
+      </svg>
+    </button>
+    <button id="mapModeBtn" class="btn zoom-btn mode-btn" data-mode="map" title="Map Mode" style="display:none;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+      </svg>
+    </button>
+    <button id="layerViewBtn" class="btn zoom-btn mode-btn" data-mode="layer" title="Layer Mode">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="5" r="2.5"/>
+        <circle cx="5" cy="19" r="2.5"/>
+        <circle cx="19" cy="19" r="2.5"/>
+        <line x1="12" y1="7.5" x2="5.9" y2="16.6"/>
+        <line x1="12" y1="7.5" x2="18.1" y2="16.6"/>
+        <line x1="7.5" y1="19" x2="16.5" y2="19"/>
+      </svg>
+    </button>
+    <button id="metaNetworkBtn" class="btn zoom-btn mode-btn" data-mode="meta" title="Meta-Network Mode" style="font-size:15px; font-weight:600; letter-spacing:-1px;">Σ</button>
+    <button id="dashboardBtn" class="btn zoom-btn mode-btn" data-mode="dashboard" title="Dashboard">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <rect x="3" y="12" width="5" height="9" rx="1"/>
+        <rect x="9.5" y="7" width="5" height="14" rx="1"/>
+        <rect x="16" y="3" width="5" height="18" rx="1"/>
+      </svg>
+    </button>
+    <button id="dataModeBtn" class="btn zoom-btn mode-btn" data-mode="data" title="Data Mode">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <line x1="3" y1="9" x2="21" y2="9"/>
+        <line x1="3" y1="15" x2="21" y2="15"/>
+        <line x1="9" y1="3" x2="9" y2="21"/>
+      </svg>
+    </button>
 
-      <span class="toolbar-sep"></span>
+    <span class="toolbar-sep"></span>
 
-      <button id="zoomInBtn" class="btn zoom-btn">+</button>
-      <button id="zoomOutBtn" class="btn zoom-btn">−</button>
-      <button id="zoomResetBtn" class="btn" style="font-size: 11px;">Reset</button>
-      <button id="toggleLegendBtn" class="btn zoom-btn" title="Toggle legend panels">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="16" rx="2"/>
-          <circle cx="7" cy="9" r="1.3" fill="currentColor"/>
-          <line x1="11" y1="9" x2="18" y2="9"/>
-          <circle cx="7" cy="14" r="1.3" fill="currentColor"/>
-          <line x1="11" y1="14" x2="18" y2="14"/>
-        </svg>
-      </button>
-      <button id="captureBtn" class="btn zoom-btn" title="Save screenshot">
-        <svg width="14" height="14" viewBox="0 0 512 512" fill="currentColor">
-          <path
-            d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 384c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z" />
-        </svg>
-      </button>
+    <button id="zoomInBtn" class="btn zoom-btn" title="Zoom In">+</button>
+    <button id="zoomOutBtn" class="btn zoom-btn" title="Zoom Out">−</button>
+    <button id="zoomResetBtn" class="btn zoom-btn bar-btn-text" title="Reset Viewport">Reset</button>
+
+    <span class="toolbar-sep"></span>
+
+    <button id="toggleLegendBtn" class="btn zoom-btn" title="Toggle Legend">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="16" rx="2"/>
+        <circle cx="7" cy="9" r="1.3" fill="currentColor"/>
+        <line x1="11" y1="9" x2="18" y2="9"/>
+        <circle cx="7" cy="14" r="1.3" fill="currentColor"/>
+        <line x1="11" y1="14" x2="18" y2="14"/>
+      </svg>
+    </button>
+    <button id="captureBtn" class="btn zoom-btn" title="Save Snapshot">
+      <svg width="14" height="14" viewBox="0 0 512 512" fill="currentColor">
+        <path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 384c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z" />
+      </svg>
+    </button>
+
+    <!-- Alerts zone (elastic middle) -->
+    <div id="toolbarAlerts">
+      <div id="dataFilterBanner" style="display:none;">
+        <span id="dataFilterText"></span>
+        <button id="dataFilterClear">Clear</button>
+      </div>
     </div>
-    <div class="interaction-hints">
-      <span>drag: rotate 3D</span>
-      <span>⇧+drag: pan</span>
-      <span>⌘+drag: move layer</span>
-      <span>click layer: info</span>
+
+    <span class="toolbar-sep"></span>
+
+    <!-- Branding -->
+    <div id="brandingGroup">
+      <a href="https://ecological-complexity-lab.github.io/multilayer_viz/" target="_blank" rel="noopener" title="Open MultilayerViz online" class="branding-home-link">
+        <img src="assets/multiviz_favicon.png" alt="MultilayerViz" class="branding-favicon">
+        <span class="branding-title">MultilayerViz</span>
+      </a>
+      <span class="branding-beta">(Beta)</span>
+      <span class="branding-version">v0.9.2</span>
+      <a href="https://github.com/Ecological-Complexity-Lab/multilayer_viz" target="_blank" rel="noopener"
+        title="GitHub Repository" class="branding-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+      </a>
+      <a href="https://ecomplab.com" target="_blank" rel="noopener" title="Ecological Complexity Lab"
+        class="branding-link">
+        <img src="assets/ecomplab_logo.png" alt="ECompLab" class="branding-icon">
+      </a>
     </div>
   </div>
 
@@ -532,27 +582,9 @@
   <div id="mapMarkersOverlay"
     style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:40;"></div>
 
-  <!-- Bottom-right: Branding -->
-  <div id="brandingPanel">
-    <img src="assets/multiviz_favicon.png" alt="MultilayerViz" class="branding-favicon">
-    <span class="branding-title">MultilayerViz</span>
-    <span class="branding-version">v0.9</span>
-    <a href="https://github.com/Ecological-Complexity-Lab/multilayer_viz" target="_blank" rel="noopener"
-      title="GitHub Repository" class="branding-link">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-      </svg>
-    </a>
-    <a href="https://ecomplab.com" target="_blank" rel="noopener" title="Ecological Complexity Lab"
-      class="branding-link">
-      <img src="assets/ecomplab_logo.png" alt="ECompLab" class="branding-icon">
-    </a>
-  </div>
-
-  <!-- Legend Panel (bottom right) -->
+  <!-- Legend Panel (bottom right, above bar) -->
   <div id="legendPanel"
-    style="position: absolute; bottom: 65px; right: 20px; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; max-height: 80vh; overflow-y: auto; pointer-events: none; z-index: 10;">
+    style="position: absolute; bottom: 50px; right: 20px; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; max-height: 80vh; overflow-y: auto; pointer-events: none; z-index: 10;">
   </div>
 
   <!-- Info Panel (shown when a node/layer is selected) -->
@@ -564,7 +596,7 @@
   </div>
 
   <!-- Map Mode: Select Layers floating panel -->
-  <div id="mapLayerPanel" style="display:none; position:absolute; top:16px; right:16px; z-index:20; background:rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.1); border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.08); font-family:Inter,system-ui,sans-serif; min-width:160px; max-width:220px; pointer-events:auto; cursor:grab; user-select:none; backdrop-filter:blur(8px);">
+  <div id="mapLayerPanel" style="display:none; position:absolute; top:50px; right:16px; z-index:20; background:rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.1); border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.08); font-family:Inter,system-ui,sans-serif; min-width:160px; max-width:220px; pointer-events:auto; cursor:grab; user-select:none; backdrop-filter:blur(8px);">
     <div id="mapLayerPanelHeader" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid rgba(0,0,0,0.07);">
       <span style="font-size:11px; font-weight:700; color:#1a1a2e; text-transform:uppercase; letter-spacing:0.5px;">Select Layers</span>
       <button id="mapLayerPanelToggle" class="legend-no-drag" style="background:none; border:none; cursor:pointer; color:#6b7280; font-size:13px; padding:0 2px; line-height:1;" title="Collapse">−</button>
@@ -575,7 +607,7 @@
   </div>
 
   <!-- Meta-network Layer Filter Panel -->
-  <div id="mnLayerPanel" style="display:none; position:absolute; top:16px; right:16px; z-index:20; background:rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.1); border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.08); font-family:Inter,system-ui,sans-serif; min-width:160px; max-width:220px; pointer-events:auto; cursor:grab; user-select:none; backdrop-filter:blur(8px);">
+  <div id="mnLayerPanel" style="display:none; position:absolute; top:50px; right:16px; z-index:20; background:rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.1); border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.08); font-family:Inter,system-ui,sans-serif; min-width:160px; max-width:220px; pointer-events:auto; cursor:grab; user-select:none; backdrop-filter:blur(8px);">
     <div id="mnLayerPanelHeader" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid rgba(0,0,0,0.07);">
       <span style="font-size:11px; font-weight:700; color:#1a1a2e; text-transform:uppercase; letter-spacing:0.5px;">Filter Layers</span>
       <button id="mnLayerPanelToggle" class="legend-no-drag" style="background:none; border:none; cursor:pointer; color:#6b7280; font-size:13px; padding:0 2px; line-height:1;" title="Collapse">−</button>
@@ -748,7 +780,7 @@
   </div>
 
   <!-- Help popup -->
-  <div id="helpPopup" style="display:none; position:fixed; bottom:56px; left:12px; width:320px; background:#fff; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.18); z-index:4000; overflow:hidden; font-size:13px;">
+  <div id="helpPopup" style="display:none; position:fixed; top:46px; left:12px; width:320px; background:#fff; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.18); z-index:4000; overflow:hidden; font-size:13px;">
     <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 14px 10px; border-bottom:1px solid #f3f4f6;">
       <span id="helpPopupTitle" style="font-weight:700; font-size:13px; color:#1f2937;"></span>
       <button id="helpPopupClose" style="background:none;border:none;cursor:pointer;font-size:16px;color:#9ca3af;line-height:1;padding:0 2px;">✕</button>
@@ -761,9 +793,6 @@
 
   <script type="module" src="js/app.js?v=2"></script>
 
-  <div style="position:fixed; bottom:0; left:0; right:0; text-align:center; font-size:10px; color:rgba(0,0,0,0.35); padding:3px 0; pointer-events:none; z-index:1000; font-family:Inter,system-ui,sans-serif;">
-    Beta (development) — code and paper coming soon
-  </div>
 </body>
 
 </html>
