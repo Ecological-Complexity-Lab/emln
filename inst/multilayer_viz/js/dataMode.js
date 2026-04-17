@@ -92,6 +92,7 @@ export class DataMode {
         this._sortCol = null;
         this._sortDir = 0;
         this._filters = {};
+        this._selectionFilter = null;
         this._selectedKeys = new Set();
         this._lastClickedIndex = -1;
         this._tables = {};
@@ -262,6 +263,7 @@ export class DataMode {
         this._sortCol = null;
         this._sortDir = 0;
         this._filters = {};
+        this._selectionFilter = null;
         this._selectedKeys = new Set();
         this._lastClickedIndex = -1;
         this._tabButtons.forEach((btn, i) => {
@@ -281,9 +283,10 @@ export class DataMode {
         if (!rows || !cols) return;
 
         // Filter
-        const filtered = rows.filter(row =>
-            cols.every(col => matchesFilter(row[col.key], this._filters[col.key], col.numeric))
-        );
+        const filtered = rows.filter(row => {
+            if (this._selectionFilter && !this._selectionFilter.has(this._rowKey(row))) return false;
+            return cols.every(col => matchesFilter(row[col.key], this._filters[col.key], col.numeric));
+        });
 
         // Sort
         let sorted = filtered;
@@ -485,8 +488,10 @@ export class DataMode {
         } else if (this._activeTab === 'layers') {
             dataMode.filteredLayerNames = new Set(selected.map(r => r.layer_name));
         }
+        this._selectionFilter = new Set(this._selectedKeys);
         this._selectedKeys.clear();
         this._updateSelBar();
+        this.renderTable();
         if (this._onSubsetChange) this._onSubsetChange();
     }
 
@@ -745,6 +750,7 @@ export class DataMode {
 
     clearFilters() {
         this._filters = {};
+        this._selectionFilter = null;
         this._selectedKeys.clear();
         this._lastClickedIndex = -1;
         dataMode.clear();

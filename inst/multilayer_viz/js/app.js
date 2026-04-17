@@ -3492,14 +3492,15 @@ zoomOutBtn.addEventListener('click', () => {
 });
 
 zoomResetBtn.addEventListener('click', () => {
-    if (appMode === 'map') {
-        fitMapToLayers();
+    if (appMode === 'dashboard') return;
+
+    if (appMode === 'data') {
+        dataModeInstance?.clearFilters();
         return;
     }
 
     if (appMode === 'layer' && renderer.layerView) {
         if (renderer.layerView.geoMode) {
-            // Fit lvMap to layer coordinates
             const coords = model.layers
                 .filter(l => l.latitude != null && l.longitude != null)
                 .map(l => [l.latitude, l.longitude]);
@@ -3508,7 +3509,6 @@ zoomResetBtn.addEventListener('click', () => {
             return;
         }
         renderer.layerView.resetLayout();
-        // Re-fit the viewport to the new layout
         const lr = renderer.layerView.layoutRadius();
         const margin = 60;
         const fitScale = Math.min(canvas.width, canvas.height) / (2 * (lr + margin));
@@ -3520,19 +3520,53 @@ zoomResetBtn.addEventListener('click', () => {
     }
 
     if (appMode === 'metanetwork' && metaNetwork) {
-        metaNetwork.viewScale   = 1;
-        metaNetwork.viewOffsetX = 0;
-        metaNetwork.viewOffsetY = 0;
+        // Clear selection
+        metaNetwork.state.selectedNode = null;
+        metaNetwork.state.selectedEdge = null;
+        metaNetwork._focusSet = null;
+        hideNodeInfo();
+        // Fit viewport to current node positions
+        const nodes = metaNetwork._mnNodes;
+        if (nodes.length > 0) {
+            let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+            for (const n of nodes) {
+                if (n.x != null) {
+                    minX = Math.min(minX, n.x); maxX = Math.max(maxX, n.x);
+                    minY = Math.min(minY, n.y); maxY = Math.max(maxY, n.y);
+                }
+            }
+            const pad = 60;
+            const rawW = (maxX - minX) || 1;
+            const rawH = (maxY - minY) || 1;
+            const scale = Math.min(
+                (canvas.width  - 2 * pad) / rawW,
+                (canvas.height - 2 * pad) / rawH,
+                10
+            );
+            metaNetwork.viewScale   = scale;
+            metaNetwork.viewOffsetX = -((minX + maxX) / 2) * scale;
+            metaNetwork.viewOffsetY = -((minY + maxY) / 2) * scale;
+        } else {
+            metaNetwork.viewScale   = 1;
+            metaNetwork.viewOffsetX = 0;
+            metaNetwork.viewOffsetY = 0;
+        }
         _ensureMetaNetworkLoop();
         return;
     }
 
-    // Reset rotation angles to defaults
+    // Network and Map modes: clear selection + reset view
+    renderer.selectedNode = null;
+    renderer.selectedLink = null;
+    renderer.selectedLayer = null;
+    hideNodeInfo();
     renderer.skewX = 0.7;
     renderer.skewY = 0.55;
     renderer.resetLayerOffsets();
     renderer.centerView();
     renderer.render();
+
+    if (appMode === 'map') fitMapToLayers();
 });
 
 // ---- Node Info Panel ----
