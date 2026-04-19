@@ -6,8 +6,8 @@
 \usage{
 list_to_matrix(
   x,
-  directed = F,
-  bipartite = T,
+  directed = FALSE,
+  bipartite = TRUE,
   group_names = c("set_cols", "set_rows"),
   node_metadata = NULL
 )

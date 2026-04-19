@@ -53,13 +53,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' pond_1 <- matrix(c(0,1,1,0,0,1,0,0,0), byrow = T,
+#' pond_1 <- matrix(c(0,1,1,0,0,1,0,0,0), byrow = TRUE,
 #' nrow = 3, ncol = 3, dimnames = list(c('pelican','fish','crab'),
 #' c('pelican','fish','crab')))
-#' pond_2 <- matrix(c(0,1,0,0,0,1,0,0,0), byrow = T,
+#' pond_2 <- matrix(c(0,1,0,0,0,1,0,0,0), byrow = TRUE,
 #' nrow = 3, ncol = 3, dimnames = list(c('pelican','fish','crab'),
 #' c('pelican','fish','crab')))
-#' pond_3 <- matrix(c(0,1,1,0,0,1,0,0,0), byrow = T,
+#' pond_3 <- matrix(c(0,1,1,0,0,1,0,0,0), byrow = TRUE,
 #' nrow = 3, ncol = 3, dimnames = list(c('pelican','fish','tadpole'),
 #' c('pelican','fish','tadpole')))
 #'
@@ -82,7 +82,7 @@
 #'
 #' multilayer <- create_multilayer_network(list_of_layers =
 #' list(pond_1, pond_2, pond_3), layer_attributes = layer_attrib,
-#' interlayer_links = interlayer, bipartite = F, directed = T)
+#' interlayer_links = interlayer, bipartite = FALSE, directed = TRUE)
 #' }
 
 create_multilayer_network <- function(list_of_layers, bipartite, directed, interlayer_links = NULL, layer_attributes = NULL, state_node_attributes = NULL, physical_node_attributes = NULL) {
@@ -91,7 +91,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
   if ("data.frame" %in% class(list_of_layers[[1]])){
     headers <- lapply(list_of_layers, names)
     all_identical <- all(sapply(headers, function(x) identical(x, headers[[1]])))
-    if (all_identical==F){stop('The headers of all the link lists in list_of_layers must be identical')}
+    if (all_identical==FALSE){stop('The headers of all the link lists in list_of_layers must be identical')}
 
     # To compare with interlayer links take only the headers after the weight
     if (!is.null(interlayer_links)){
@@ -108,7 +108,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
 
   # Check validity of layer attribute table
   if (is.null(layer_attributes)) {
-    print('Layer attributes not provided, I added them (see layer_attributes in the final object)')
+    message('Layer attributes not provided, I added them (see layer_attributes in the final object)')
     layer_attributes <- data.frame(layer_id = 1:length(list_of_layers), layer_name=paste('layer_',1:length(list_of_layers),sep = ''))
   } else {
     layer_attributes <- data.frame(layer_attributes) # working with data frame is easier than with tibbles.
@@ -117,10 +117,10 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
 
     # check if layer_name exists, if not then create it.
     if (!'layer_name' %in% names(layer_attributes)) {
-      print('Layer name column not provided, will be generated')
+      message('Layer name column not provided, will be generated')
       layer_attributes$layer_name <- paste('layer_',1:length(list_of_layers),sep = '')}
     else {# make sure the values are unique.
-      if (any(duplicated(layer_attributes$layer_name))==T){stop('Layer names should be unique.')}
+      if (any(duplicated(layer_attributes$layer_name))==TRUE){stop('Layer names should be unique.')}
     }
 
     # enforce not using the name 'name' for any column in the layer attributes
@@ -135,12 +135,12 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
     # get the layer network
     the_layer <- list_of_layers[[layer_id]]
     l_name <- layer_attributes[layer_id,'layer_name']
-    print(sprintf('Layer #%s processing.', layer_id))
+    message(sprintf('Layer #%s processing.', layer_id))
 
     ###  edge list  ###
-    if (bipartite) {igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = T, group_names = c('set_cols','set_rows'))
+    if (bipartite) {igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = TRUE, group_names = c('set_cols','set_rows'))
                     edge_list <- igraph_network$edge_list
-                    print('Done.')}
+                    message('Done.')}
     if (!bipartite) {#Expected a symmetric matrix in an undirected network. Otherwise, throw the warning.
                      if ((directed == FALSE) && (isSymmetric(the_layer) ==FALSE)){
                        warning('WARNING: In an undirected network a symmetric matrix is expected. Proceed with caution!')
@@ -165,9 +165,9 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
                        l_n_attrib <- state_node_attributes %>% filter(.data$layer_name == l_name)
                      }
 
-                     igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = F, node_metadata = l_n_attrib)
+                     igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = FALSE, node_metadata = l_n_attrib)
                      edge_list <- igraph_network$edge_list
-                     print('Done.')
+                     message('Done.')
                      }
 
     #add the current edge list to the extended_edge_list
@@ -185,13 +185,13 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
     # If some nodes do not appear in the list of provided layers, interlayer_links will not be added to the extended edge list
     nodes_in_interlayer <- unique(c(interlayer_links$node_from, interlayer_links$node_to))
     nodes_in_layers <- unique(c(extended_edge_list$node_from, extended_edge_list$node_to))
-    if (any(nodes_in_interlayer %in% nodes_in_layers)==F){
+    if (any(nodes_in_interlayer %in% nodes_in_layers)==FALSE){
       stop('STOPPING: Check node names in the interlayer_links dataframe. Some nodes do not appear in the list of provided layers')
     }
     # If some layers do not appear in the list of provided layers, interlayer_links will not be added to the extended edge list
     layers_in_interlayer <- unique(c(interlayer_links$layer_from, interlayer_links$layer_to))
     layers_in_intralayer <- unique(c(extended_edge_list$layer_from, extended_edge_list$layer_to))
-    if (any(layers_in_interlayer %in% layers_in_intralayer)==F){
+    if (any(layers_in_interlayer %in% layers_in_intralayer)==FALSE){
       stop('STOPPING: Check layer names in the interlayer_links dataframe. Some layers do not appear in the list of provided layer attributes. You must provide a layer attributes table that include layer names.')
     }
 
@@ -207,12 +207,12 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
   physical_nodes <- data.frame(node_id = 1:length(physical_nodes), node_name = sort(physical_nodes))
   # Add user-provided attributes
   if (!is.null(physical_node_attributes)){
-    print('Organizing state nodes')
+    message('Organizing state nodes')
     suppressMessages(physical_nodes %<>% left_join(physical_node_attributes))
   }
 
   ###  conversion of the node names to node ids in the edge list  ###
-  print('Creating extended link list with node IDs')
+  message('Creating extended link list with node IDs')
   extended_edge_list_ids <- extended_edge_list
   for (i in 1:nrow(extended_edge_list)) {
     extended_edge_list_ids[i,2] <- physical_nodes[physical_nodes$node_name == extended_edge_list[i,2],]$node_id
@@ -230,7 +230,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
   extended_edge_list_ids$node_to <- as.integer(extended_edge_list_ids$node_to)
 
   # Organized the layer_attributes and state_nodes
-  print('Organizing state nodes')
+  message('Organizing state nodes')
   state_nodes <- as_tibble(state_nodes)
   suppressMessages(
   state_nodes %<>% left_join(layer_attributes) %>%
@@ -238,7 +238,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
     select("layer_id", "node_id", "layer_name", "node_name")
   )
   if (!is.null(state_node_attributes)){
-    print('Joining with user-provided state nodes')
+    message('Joining with user-provided state nodes')
     state_nodes %<>% left_join(state_node_attributes)
   }
 
@@ -262,15 +262,15 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
 # x <- matrix(rbinom(n = 15, size = 1, prob = 0.5),nrow=3, ncol = 5)
 # y <- matrix(rbinom(n = 15, size = 1, prob = 0.5),nrow=3, ncol = 5)
 #
-# matrix1 <- as.matrix(create_multilayer_network(list(x,y), bipartite = T, directed = T,
-#                                                get_sam = T))
+# matrix1 <- as.matrix(create_multilayer_network(list(x,y), bipartite = TRUE, directed = TRUE,
+#                                                get_sam = TRUE))
 # matrix2 <- as.matrix(create_multilayer_network(list(bipartite::olesen2002aigrettes,bipartite::olesen2002flores),
-#                                                get_sam = T, bipartite = T, directed = F, interlayer_links = data.frame(node_from = 'Protaetia.aurichalcea', layer_from = 1, node_to = 'Reseda:luteola', layer_to = 2, weight = 234)))
+#                                                get_sam = TRUE, bipartite = TRUE, directed = FALSE, interlayer_links = data.frame(node_from = 'Protaetia.aurichalcea', layer_from = 1, node_to = 'Reseda:luteola', layer_to = 2, weight = 234)))
 #
 #
 #
 #
-# image(x = matrix2, useRaster=TRUE, axes=F)
+# image(x = matrix2, useRaster=TRUE, axes=FALSE)
 
 
 #### QA ### Shirly

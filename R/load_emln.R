@@ -48,8 +48,8 @@ load_emln <- function(network_id) {
   nodes_vector<- nodes_vector$node_name
   # nodes_vector <- network$nodes$node_name
   if(any(duplicated(nodes_vector))){
-    print('WARNING! Some node names appear more than once:')
-    print(nodes_vector[which(duplicated(nodes_vector))])
+    message('WARNING! Some node names appear more than once:')
+    message(nodes_vector[which(duplicated(nodes_vector))])
   }
 
 
@@ -77,7 +77,7 @@ load_emln <- function(network_id) {
   }
 
   if(any(duplicated(network$layers$layer_id))){
-    print('WARNING! Some layer names appear more than once!')
+    message('WARNING! Some layer names appear more than once!')
   }
 
   #Pivot links to a wide format
@@ -111,7 +111,7 @@ load_emln <- function(network_id) {
   if (all(grepl(x = network$interactions$layer_to,pattern = '^[0-9]*$'))) {network$interactions$layer_to <- paste('layer_',network$interactions$layer_to,sep='')}
 
   # Create a map of state nodes
-  print('Creating state node map')
+  message('Creating state node map')
   state_nodes_map <-
   dplyr::bind_rows(network$interactions %>% dplyr::distinct(layer_name=.data$layer_from, node_name=.data$node_from),
             network$interactions %>% dplyr::distinct(layer_name=.data$layer_to, node_name=.data$node_to)) %>%
@@ -125,12 +125,12 @@ load_emln <- function(network_id) {
   network$state_nodes %<>%
       tidyr::pivot_wider(names_from = 'attribute',values_from = 'value', values_fn = list) %>%
       tidyr::unnest(cols = everything())
-  print('Joining with state node information in the data set')
+  message('Joining with state node information in the data set')
   state_nodes_map %<>% dplyr::left_join(network$state_nodes %>% dplyr::select(-"node_name"), by=c('layer_id', 'node_id'))
   }
 
   ###  conversion of the node names to node ids in the edge list  ###
-  print('Creating extended link list with node IDs')
+  message('Creating extended link list with node IDs')
   extended_edge_list <- extended_edge_list_ids <- as.data.frame(network$interactions)
 
   i=1

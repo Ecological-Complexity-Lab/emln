@@ -19,7 +19,7 @@ view_emln <- function() {
       call. = FALSE
     )
   }
-  datatable(descriptions,rownames = F)
+  datatable(descriptions,rownames = FALSE)
 }
 
 

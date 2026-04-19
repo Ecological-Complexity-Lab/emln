@@ -34,14 +34,14 @@
 #' @import dplyr
 #' @importFrom igraph graph_from_data_frame V as_biadjacency_matrix as_adjacency_matrix
 
-list_to_matrix <- function(x, directed=F, bipartite=T, group_names=c('set_cols','set_rows'), node_metadata=NULL){
+list_to_matrix <- function(x, directed=FALSE, bipartite=TRUE, group_names=c('set_cols','set_rows'), node_metadata=NULL){
   names(x)[3] <- 'weight'
   g <- igraph::graph_from_data_frame(x, directed = directed, vertices = node_metadata)
   if(bipartite){
     igraph::V(g)$type <- igraph::V(g)$name %in% as.data.frame(x)[,1] # As.data.frame is necessary because if x is a tibble then x[,1] does not work
-    output_mat <- igraph::as_biadjacency_matrix(g, names = T, attr = 'weight', sparse = F)
+    output_mat <- igraph::as_biadjacency_matrix(g, names = TRUE, attr = 'weight', sparse = FALSE)
   } else {
-    output_mat <- igraph::as_adjacency_matrix(g, names = T, sparse = F, attr = 'weight')
+    output_mat <- igraph::as_adjacency_matrix(g, names = TRUE, sparse = FALSE, attr = 'weight')
     output_mat <- t(output_mat) # This is needed so from will be in columns and to in rows
   }
 
@@ -56,7 +56,7 @@ list_to_matrix <- function(x, directed=F, bipartite=T, group_names=c('set_cols',
                         node_name=nodes)
   }
 
-  # print(dim(output_mat))
+  # message(dim(output_mat))
   if(any(rowSums(output_mat)==0)){message('Warning: One or more rows sum to 0. This may be ok if you expect some links with only outgoing links (e.g., basal species in a food web)')}
   if(any(colSums(output_mat)==0)){message('Warning: One or more columns sum to 0. This may be ok if you expect some links with only incoming links (e.g., top predators in a food web)')}
 

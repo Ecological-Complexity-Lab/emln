@@ -48,7 +48,7 @@ create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_nam
   # Input is a matrix
   if ('matrix'%in%class(x)){
     if(bipartite){
-      print('Input: a bipartite matrix')
+      message('Input: a bipartite matrix')
       out <- matrix_to_list_bipartite(x, group_names = group_names)
     } else {
       out <- matrix_to_list_unipartite(x, directed = directed)
@@ -57,15 +57,15 @@ create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_nam
 
   # Input is an edge list
   if ('data.frame'%in%class(x)){
-    if (bipartite){print('Input: a bipartite edge list')}
-    if (!bipartite){print('Input: an unipartite edge list')}
+    if (bipartite){message('Input: a bipartite edge list')}
+    if (!bipartite){message('Input: an unipartite edge list')}
     out <- list_to_matrix(x, directed, bipartite, group_names, node_metadata = node_metadata)
   }
 
   # Input is an igrpah object
   if('igraph'%in%class(x)){
-    print('Input: an igraph object:')
-    print(x)
+    message('Input: an igraph object:')
+    message(x)
     g <- x
     mode <- ifelse(igraph::is_bipartite(g),'B','U')
 
@@ -76,11 +76,11 @@ create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_nam
 
     if(mode=='B'){
       node_list$node_group <- NA
-      node_list$node_group[node_list$type==T] <- group_names[1]
-      node_list$node_group[node_list$type==F] <- group_names[2]
-      mat <- igraph::as_biadjacency_matrix(g,names = T, attr = 'weight', sparse = F)
+      node_list$node_group[node_list$type==TRUE] <- group_names[1]
+      node_list$node_group[node_list$type==FALSE] <- group_names[2]
+      mat <- igraph::as_biadjacency_matrix(g,names = TRUE, attr = 'weight', sparse = FALSE)
     } else {
-      mat <- igraph::as_adjacency_matrix(g, type = 'both', attr = 'weight', sparse = F)
+      mat <- igraph::as_adjacency_matrix(g, type = 'both', attr = 'weight', sparse = FALSE)
     }
 
     out <- list(mode=mode,

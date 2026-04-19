@@ -4,7 +4,13 @@
 \alias{get_sam}
 \title{Convert a multilayer class to a supra-adjacency matrix}
 \usage{
-get_sam(multilayer, bipartite, directed, sparse = F, remove_zero_rows_cols = F)
+get_sam(
+  multilayer,
+  bipartite,
+  directed,
+  sparse = FALSE,
+  remove_zero_rows_cols = FALSE
+)
 }
 \arguments{
 \item{multilayer}{The multilayer object.}

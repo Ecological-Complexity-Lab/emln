@@ -6,7 +6,7 @@
 A list with:
 \itemize{
   \item mode: bipartite (B) or unipartite (U)
-  \item directed: T/F
+  \item directed: TRUE/FALSE
   \item nodes: a tibble with information on the nodes (name, id, type, other attributes)
   \item mat: the network in a matrix format
   \item edge_list: the network in an edge list format

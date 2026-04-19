@@ -16,7 +16,7 @@ package.list <-  package.list[!loaded]
 installed <-  package.list %in% .packages(TRUE)
 if (!all(installed)) install.packages(package.list[!installed],repos="http://cran.rstudio.com/")
 
-devtools::install_github('Ecological-Complexity-Lab/emln', force=T)
+devtools::install_github('Ecological-Complexity-Lab/emln', force=TRUE)
 library(emln)
 ```
 

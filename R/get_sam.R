@@ -38,7 +38,7 @@
 #' @importFrom Matrix Matrix
 #' @importFrom rlang .data
 
-get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_cols=F) {
+get_sam <- function(multilayer, bipartite, directed, sparse=FALSE, remove_zero_rows_cols=FALSE) {
   # Create a map of state nodes
   nodes <- multilayer$nodes
   layer_attributes <- multilayer$layers
@@ -55,7 +55,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
       dplyr::mutate(to=paste(.data$layer_to, .data$node_to, sep='_')) %>%
       dplyr::select("from", "to", "weight")
     # The partial mat only contains the state nodes for which an interaction has been recorded
-    partial_mat <- list_to_matrix(ell_tuples, bipartite = F, directed = directed)$mat
+    partial_mat <- list_to_matrix(ell_tuples, bipartite = FALSE, directed = directed)$mat
     # Create the complete layer*nodes matrix
     M <- matrix(0, nrow = nrow(state_nodes_map), ncol = nrow(state_nodes_map), dimnames = list(state_nodes_map$tuple, state_nodes_map$tuple))
     # Embed the partial matrix inside the full one
@@ -72,7 +72,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
     layers <- dplyr::group_split(intra, intra$layer_from)
     for (l in layers){
       layer_name <- l$layer_from[1]
-      rect_matrix <- list_to_matrix(l[,c(2,4,5)], directed = F, bipartite = T)$mat
+      rect_matrix <- list_to_matrix(l[,c(2,4,5)], directed = FALSE, bipartite = TRUE)$mat
       # rect_matrix <- rect_matrix[sort(rownames(rect_matrix)),]
       # Get the dimensions of the rectangular matrix
       m <- nrow(rect_matrix)
@@ -99,7 +99,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
         dplyr::mutate(to=paste(.data$layer_to, .data$node_to, sep='_')) %>%
         dplyr::select("from", "to", "weight")
       # The interlayer matrix
-      inter_mat <- list_to_matrix(inter_tuples, bipartite = F, directed = directed)$mat
+      inter_mat <- list_to_matrix(inter_tuples, bipartite = FALSE, directed = directed)$mat
       # Populate the SAM with interlayer links
       M[rownames(inter_mat), colnames(inter_mat)] <- inter_mat
     }
@@ -114,9 +114,9 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
   state_nodes_map <- left_join(state_nodes_map, multilayer$state_nodes) %>%
     select("sn_id", "layer_name", "node_name", "layer_id", "node_id", "tuple")
 
-  if (directed==F & !isSymmetric(M)){warning('The SAM is not symmetric. Make sure this is what you expect because your network is not directed.')}
+  if (directed==FALSE & !isSymmetric(M)){warning('The SAM is not symmetric. Make sure this is what you expect because your network is not directed.')}
 
-  if (remove_zero_rows_cols==T){
+  if (remove_zero_rows_cols==TRUE){
     # Remove rows and columns whose sum is zero
     rows_to_keep <- rowSums(M) != 0
     cols_to_keep <- colSums(M) != 0
@@ -124,7 +124,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
   }
 
   # Make sparse?
-  if (sparse){M <- Matrix::Matrix(M, sparse = T)}
+  if (sparse){M <- Matrix::Matrix(M, sparse = TRUE)}
 
   out <- list(M=M, nodes=nodes, state_nodes_map=state_nodes_map)
 

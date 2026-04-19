@@ -28,15 +28,15 @@
 
 matrix_to_list_unipartite <- function(x, directed){
   # Assign column and row names if missing
-  if (is.null(rownames(x)) && is.null(colnames(x))) {print('Assigning missing row and column names'); rownames(x) <- colnames(x) <- paste('X',1:nrow(x),sep='')}
-  if (is.null(rownames(x)) && !is.null(colnames(x))) {print('Rows renamed as columns'); rownames(x) <- colnames(x)}
-  if (!is.null(rownames(x)) && is.null(colnames(x))) {print('Columns renamed as rows'); colnames(x) <- rownames(x)}
+  if (is.null(rownames(x)) && is.null(colnames(x))) {message('Assigning missing row and column names'); rownames(x) <- colnames(x) <- paste('X',1:nrow(x),sep='')}
+  if (is.null(rownames(x)) && !is.null(colnames(x))) {message('Rows renamed as columns'); rownames(x) <- colnames(x)}
+  if (!is.null(rownames(x)) && is.null(colnames(x))) {message('Columns renamed as rows'); colnames(x) <- rownames(x)}
   # Or make sure they are identical
   if(!identical(rownames(x),colnames(x))){message('Rows and columns do not have the same names or are not in the same order! Proceed with caution!')}
 
-  g <- igraph::graph_from_adjacency_matrix(t(x), weighted = T, mode = ifelse(directed, 'directed','undirected')) # For some reason igraph considers the from to be ther rows. Need to transpose the matrix
+  g <- igraph::graph_from_adjacency_matrix(t(x), weighted = TRUE, mode = ifelse(directed, 'directed','undirected')) # For some reason igraph considers the from to be ther rows. Need to transpose the matrix
   # summary(g)
-  if(any(igraph::degree(g)==0)){print('Some nodes have no interactions. They will appear in the node table but not in the edge list')}
+  if(any(igraph::degree(g)==0)){message('Some nodes have no interactions. They will appear in the node table but not in the edge list')}
   l_unip <- as_tibble(igraph::as_data_frame(g, 'edges'))
 
   nodes <- rownames(x)
