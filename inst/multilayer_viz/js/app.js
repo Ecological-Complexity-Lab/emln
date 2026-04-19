@@ -11,6 +11,7 @@ import { LayerView } from './layerView.js';
 import { csvToJson } from './csvImporter.js';
 import { Dashboard, svgBar } from './dashboard.js';
 import { MetaNetwork } from './metaNetwork.js';
+import { DataMode, dataMode, layerColors, initLayerColors } from './dataMode.js';
 
 // ---- State ----
 let model = null;
@@ -26,9 +27,41 @@ let activeNodeColorScale = null;
 let activeNodeColorScaleA = null;
 let activeNodeColorScaleB = null;
 let activeNodeSizeScale = null;
+let activeNodeSizeScaleA = null;
+let activeNodeSizeScaleB = null;
 let activeLinkColorScale = null;
 let activeLayerColorScale = null;
 const colorScaleOverrides = new Map(); // attrName -> 'categorical' | 'continuous'
+const categoryColorOverrides = new Map(); // attrName -> Map<value, hex color>
+
+function applyCategoryOverride(attrName, value, fallback) {
+    const m = categoryColorOverrides.get(attrName);
+    if (m && m.has(value)) return m.get(value);
+    return fallback;
+}
+
+function isClassicBipartiteUI() {
+    if (!model || layout?.layoutType !== 'bipartite') return false;
+    const types = new Set();
+    for (const n of model.nodes) {
+        const t = n.node_type ?? n.type;
+        if (t !== undefined && t !== null) types.add(t);
+    }
+    return types.size === 2;
+}
+
+function applyBipartiteUIVisibility() {
+    const classic = isClassicBipartiteUI();
+    const isBip   = layout?.layoutType === 'bipartite';
+    document.getElementById('setNamesContainer').style.display = isBip ? '' : 'none';
+    colorByContainer.style.display          = classic ? 'none' : '';
+    bipartiteColorByContainer.style.display = classic ? '' : 'none';
+    sizeByContainer.style.display           = classic ? 'none' : '';
+    bipartiteSizeByContainer.style.display  = classic ? '' : 'none';
+}
+
+// ---- EMLN mode detection ----
+const IS_EMLN = new URLSearchParams(window.location.search).get('autoload') === 'true';
 
 // ---- DOM Elements ----
 const canvas = document.getElementById('networkCanvas');
@@ -183,6 +216,14 @@ const mnMinWeightSlider    = document.getElementById('mnMinWeightSlider');
 const mnMinWeightLabel     = document.getElementById('mnMinWeightLabel');
 const mnNestedSortCheckbox = document.getElementById('mnNestedSortCheckbox');
 const mnShowLabelsCheckbox = document.getElementById('mnShowLabelsCheckbox');
+const mnLabelSizeSlider    = document.getElementById('mnLabelSizeSlider');
+const mnLabelSizeLabel     = document.getElementById('mnLabelSizeLabel');
+const mnLabelSizeRow       = document.getElementById('mnLabelSizeRow');
+const mnBpColorRow         = document.getElementById('mnBpColorRow');
+const mnColorSetA          = document.getElementById('mnColorSetA');
+const mnColorSetALabel     = document.getElementById('mnColorSetALabel');
+const mnColorSetB          = document.getElementById('mnColorSetB');
+const mnColorSetBLabel     = document.getElementById('mnColorSetBLabel');
 const mnResetLayoutBtn     = document.getElementById('mnResetLayoutBtn');
 const mnSearchInput        = document.getElementById('mnSearchInput');
 const mnSearchResults      = document.getElementById('mnSearchResults');
@@ -221,12 +262,18 @@ const collapseInfoBtn = document.getElementById('collapseInfoBtn');
 const tooltip = document.getElementById('tooltip');
 
 // ---- Application State ----
-let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', or 'metanetwork'
+let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', 'metanetwork', or 'data'
 let layerViewHandlers = null;
 let lvRAF  = null; // requestAnimationFrame id for layer-view animation
 let metaNetwork = null;       // MetaNetwork instance
 let mnRAF       = null;       // requestAnimationFrame id for meta-network animation
 let _mnMouseHandlers = null;  // { onMouseDown, onMouseMove, onMouseUp, onWheel }
+let dataModeInstance = null;   // DataMode instance
+const dataModePanel = document.getElementById('dataModePanel');
+const dataModeBtn   = document.getElementById('dataModeBtn');
+const dataFilterBanner = document.getElementById('dataFilterBanner');
+const dataFilterText   = document.getElementById('dataFilterText');
+const dataFilterClear  = document.getElementById('dataFilterClear');
 let activeMapLayers = new Set();
 const mapMarkersOverlay = document.getElementById('mapMarkersOverlay');
 const layerCloseButtonsContainer = document.getElementById('layerCloseButtons');
@@ -440,6 +487,10 @@ function resetVisualizationOptions() {
     // Checkboxes
     showLabelsCheckbox.checked = false;
     renderer.showLabels = false;
+    labelSizeRow.style.display = 'none';
+    labelSizeSlider.value = 12;
+    labelSizeLabel.textContent = '12px';
+    renderer.labelFont = '12px Inter, system-ui, sans-serif';
 
     transformNodesCheckbox.checked = true;
     renderer.transformNodes = true;
@@ -497,9 +548,14 @@ function resetVisualizationOptions() {
     activeNodeColorScale = null;
     activeNodeColorScaleA = null;
     activeNodeColorScaleB = null;
+    activeNodeSizeScale = null;
+    activeNodeSizeScaleA = null;
+    activeNodeSizeScaleB = null;
     activeLinkColorScale = null;
     activeLayerColorScale = null;
     colorScaleOverrides.clear();
+    categoryColorOverrides.clear();
+    expandedLegends.clear();
 
     // Layer view
     if (appMode === 'layer') _exitLayerView();
@@ -567,6 +623,11 @@ function loadData(json) {
         if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
         if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
         if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+        if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
+        dataMode.clear();
+        _updateFilterBanner();
+        _updateModeButtons();
+        initLayerColors(model.layers);
 
         // Pass bipartite info to layout engine
         layout.bipartiteInfo = model.bipartiteInfo;
@@ -615,13 +676,7 @@ function loadData(json) {
         renderer.bipartiteInfo = model.bipartiteInfo;
         renderer.layoutType = layout.layoutType;
 
-        // Show/hide UI elements based on layout
-        const isBipartiteLayout = layout.layoutType === 'bipartite';
-        document.getElementById('setNamesContainer').style.display = isBipartiteLayout ? '' : 'none';
-        colorByContainer.style.display = isBipartiteLayout ? 'none' : '';
-        bipartiteColorByContainer.style.display = isBipartiteLayout ? '' : 'none';
-        sizeByContainer.style.display = isBipartiteLayout ? 'none' : '';
-        bipartiteSizeByContainer.style.display = isBipartiteLayout ? '' : 'none';
+        applyBipartiteUIVisibility();
 
         populateDropdowns();
         resetVisualizationOptions();
@@ -630,6 +685,9 @@ function loadData(json) {
         updateLinkColors();
 
         renderer.setData(model, positions);
+        renderer.skewX = 0.7;
+        renderer.skewY = 0.55;
+        renderer.resetLayerOffsets();
         renderer.centerView();
         renderer.render();
 
@@ -724,18 +782,6 @@ const DATASET_INFO = {
         nodeAttrs: ['node_type (plant / bird)', 'group (resident / partial-migratory)', 'versatility', 'degree', 'strength', 'd_specialisation', 'n_years'],
         linkAttrs: ['weight (seed count)'],
     },
-    zhu2025: {
-        name: 'Thousand Island Lake seed dispersal network',
-        citation: 'Zhu et al. 2025',
-        doi: 'https://doi.org/10.1073/pnas.2415846122',
-        dataDoi: 'https://doi.org/10.6084/m9.figshare.26095444',
-        layers: '22 layers — land-bridge islands (Thousand Island Lake, China)',
-        nodes: '70 species (31 plants · 39 birds)',
-        links: '1,157 intralayer (camera-trap visits)',
-        network: 'Undirected · bipartite per layer · layer attributes: area (ha) and isolation (m)',
-        nodeAttrs: ['node_type (plant / bird)', 'body_mass_g', 'HWI (hand-wing index)', 'migrant_status'],
-        linkAttrs: ['weight (visit frequency)', 'role (meta-network)', 'c_value', 'z_value', 'compartment_group'],
-    },
 };
 
 function buildDatasetRow(file) {
@@ -823,15 +869,27 @@ Object.keys(DATASET_INFO).forEach(file => {
     document.getElementById('demoDatasetList').appendChild(buildDatasetRow(file));
 });
 
+// ---- Mode Button Highlighting ----
+const MODE_BTNS = document.querySelectorAll('.mode-btn');
+function _updateModeButtons() {
+    const modeMap = { network: 'network', map: 'map', layer: 'layer',
+                      metanetwork: 'meta', dashboard: 'dashboard', data: 'data' };
+    const activeMode = modeMap[appMode] || 'network';
+    MODE_BTNS.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === activeMode);
+    });
+}
+
 // ---- Map Mode Logic ----
 function toggleMapMode() {
     if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
     if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; renderer.render(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
     appMode = appMode === 'network' ? 'map' : 'network';
 
+    _updateModeButtons();
     if (appMode === 'map') {
-        mapModeBtn.classList.add('active');
         mapEl.style.display = 'block';
         bgMap.invalidateSize();
 
@@ -844,7 +902,6 @@ function toggleMapMode() {
         mapOpacityControl.style.display = 'flex';
         mapLayerPanel.style.display = '';
     } else {
-        mapModeBtn.classList.remove('active');
         mapEl.style.display = 'none';
         activeMapLayers.clear();
         renderer.showMapBackground = false;
@@ -854,6 +911,7 @@ function toggleMapMode() {
     }
 
     updateMapModeViews();
+    _updateFilterBanner();
 }
 
 mapModeBtn.addEventListener('click', toggleMapMode);
@@ -878,17 +936,21 @@ function toggleLayerView() {
     if (appMode === 'layer') {
         _exitLayerView();
         appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
         renderer.render();
         return;
     }
     if (appMode === 'map')         toggleMapMode();
     if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
     appMode = 'layer';
+    _updateFilterBanner();
+    _updateModeButtons();
     renderer.layerView = new LayerView(model, positions);
     window._layerView = renderer.layerView;
     renderer.layerViewMode = true;
-    layerViewBtn.classList.add('active');
     canvas.style.cursor = 'grab';
     _showLayerViewSidebar();
 
@@ -1068,7 +1130,6 @@ function _exitDashboard() {
     dashboard = null;
     dashboardContainer.style.display = 'none';
     canvas.style.display = '';
-    dashboardBtn.classList.remove('active');
     _hideDashboardSidebar();
 }
 
@@ -1077,6 +1138,8 @@ function toggleDashboard() {
     if (appMode === 'dashboard') {
         _exitDashboard();
         appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
         renderer.render();
         return;
     }
@@ -1084,9 +1147,11 @@ function toggleDashboard() {
     if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
     if (appMode === 'map')         { toggleMapMode(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
 
     appMode = 'dashboard';
-    dashboardBtn.classList.add('active');
+    _updateFilterBanner();
+    _updateModeButtons();
     canvas.style.display = 'none';
     dashboardContainer.style.display = 'block';
     _showDashboardSidebar();
@@ -1096,6 +1161,89 @@ function toggleDashboard() {
 }
 
 dashboardBtn.addEventListener('click', toggleDashboard);
+
+// ─── Data Mode ───────────────────────────────────────────────────────────────
+
+function _exitDataMode() {
+    dataModeInstance?.destroy();
+    dataModeInstance = null;
+    dataModePanel.style.display = 'none';
+    canvas.style.display = '';
+    dataMode.active = false;
+    document.getElementById('controlPanels').style.display = '';
+    legendPanel.style.display = '';
+    renderer.searchedNodeName = null;
+}
+
+function _updateFilterBanner() {
+    const show = dataMode.isSubsetActive() && (appMode === 'network' || appMode === 'map');
+    if (!show) {
+        dataFilterBanner.style.display = 'none';
+        return;
+    }
+    const parts = [];
+    if (dataMode.filteredNodeNames) parts.push(`${dataMode.filteredNodeNames.size} nodes`);
+    if (dataMode.filteredLayerNames) parts.push(`${dataMode.filteredLayerNames.size} layers`);
+    if (dataMode.filteredLinkKeys) parts.push(`${dataMode.filteredLinkKeys.size} links`);
+    dataFilterText.textContent = `\u26A1 Data filter active \u2014 ${parts.join(', ')} visible`;
+    dataFilterBanner.style.display = 'flex';
+}
+
+function toggleDataMode() {
+    if (!model) return;
+    if (appMode === 'data') {
+        _exitDataMode();
+        appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
+        renderer.render();
+        return;
+    }
+    if (appMode === 'map')         toggleMapMode();
+    if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
+    if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
+    if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+
+    appMode = 'data';
+    _updateFilterBanner();
+    _updateModeButtons();
+    dataMode.active = true;
+    canvas.style.display = 'none';
+    dataModePanel.style.display = 'flex';
+    legendPanel.style.display = 'none';
+
+    // Hide sidebar
+    document.getElementById('controlPanels').style.display = 'none';
+
+    dataModeInstance = new DataMode(dataModePanel, model, () => {
+        _updateFilterBanner();
+        if (appMode !== 'data') renderer.render();
+    });
+    dataModeInstance._onSelect = (type, name) => {
+        if (type === 'node') {
+            renderer.searchedNodeName = name;
+        } else if (type === 'layer') {
+            renderer.searchedNodeName = null;
+        } else {
+            renderer.searchedNodeName = null;
+        }
+    };
+    dataModeInstance._onColorChange = () => {
+        if (layerColorSelect.value === '__individual__') {
+            updateLayerColors();
+        }
+    };
+}
+
+dataModeBtn.addEventListener('click', toggleDataMode);
+
+dataFilterClear.addEventListener('click', () => {
+    if (dataModeInstance) dataModeInstance.clearFilters();
+    dataMode.clear();
+    renderer.searchedNodeName = null;
+    _updateFilterBanner();
+    if (appMode !== 'data') renderer.render();
+});
 
 // ── Meta-network layer palette (same as LayerView PALETTE) ────────────────
 const MN_LAYER_PALETTE = [
@@ -1122,6 +1270,16 @@ function _hideMetaNetworkSidebar() {
     renderLegends();
 }
 
+function _updateMnBpColorPickerVisibility() {
+    const show = metaNetwork && metaNetwork.hasBipartite && metaNetwork.settings.colorBy === 'uniform';
+    mnBpColorRow.style.display = show ? '' : 'none';
+    if (show) {
+        const { labelA, labelB } = metaNetwork.bipartiteSetLabels;
+        mnColorSetALabel.textContent = labelA + ' color';
+        mnColorSetBLabel.textContent = labelB + ' color';
+    }
+}
+
 function _syncMetaNetworkControls() {
     if (!metaNetwork) return;
     const s = metaNetwork.settings;
@@ -1133,6 +1291,12 @@ function _syncMetaNetworkControls() {
     mnBaseSizeLabel.textContent    = s.baseSize.toFixed(1) + '×';
     mnNestedSortCheckbox.checked   = s.nestedSort;
     mnShowLabelsCheckbox.checked   = s.showLabels;
+    mnLabelSizeSlider.value        = s.labelFontSize;
+    mnLabelSizeLabel.textContent   = s.labelFontSize + 'px';
+    mnLabelSizeRow.style.display   = s.showLabels ? '' : 'none';
+    mnColorSetA.value              = s.uniformColorA;
+    mnColorSetB.value              = s.uniformColorB;
+    _updateMnBpColorPickerVisibility();
     // Set slider range from maxEdgeWeight
     const maxW = metaNetwork.maxEdgeWeight;
     mnMinWeightSlider.max   = maxW;
@@ -1193,15 +1357,19 @@ function toggleMetaNetwork() {
     if (appMode === 'metanetwork') {
         _exitMetaNetwork();
         appMode = 'network';
+        _updateFilterBanner();
+        _updateModeButtons();
         renderer.render();
         return;
     }
     if (appMode === 'map')       toggleMapMode();
     if (appMode === 'layer')     { _exitLayerView(); appMode = 'network'; }
     if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; }
+    if (appMode === 'data')      { _exitDataMode();  appMode = 'network'; }
 
     appMode = 'metanetwork';
-    metaNetworkBtn.classList.add('active');
+    _updateFilterBanner();
+    _updateModeButtons();
     renderer.metaNetworkMode = true;
     canvas.style.display = '';
     canvas.style.cursor  = 'grab';
@@ -1217,6 +1385,7 @@ function toggleMetaNetwork() {
     let _mouseDownX    = 0, _mouseDownY = 0;
     let _dragStartX    = 0, _dragStartY = 0;
     let _offsetStartX  = 0, _offsetStartY = 0;
+    let _mouseDownOnCanvas = false; // true only when mousedown originated on the canvas
 
     const canvasCoords = (e) => {
         const rect = canvas.getBoundingClientRect();
@@ -1228,6 +1397,7 @@ function toggleMetaNetwork() {
 
     const onMouseDown = (e) => {
         if (e.button !== 0) return;
+        _mouseDownOnCanvas = true;
         _mouseDownX = e.clientX; _mouseDownY = e.clientY;
         const { mx, my } = canvasCoords(e);
         const hitName = metaNetwork.startDragNode(mx, my, canvas.width, canvas.height);
@@ -1284,6 +1454,8 @@ function toggleMetaNetwork() {
     };
 
     const onMouseUp = (e) => {
+        if (!_mouseDownOnCanvas) return; // mousedown was on another element (e.g. search dropdown)
+        _mouseDownOnCanvas = false;
         const wasDragging = _isDragging;
         const wasNodeDrag = _isNodeDrag;
         _isDragging = false;
@@ -1376,7 +1548,6 @@ function _exitMetaNetwork() {
     }
     metaNetwork?._sim?.stop();
     metaNetwork = null;
-    metaNetworkBtn.classList.remove('active');
     canvas.style.cursor = '';
     tooltip.classList.remove('visible');
     infoPanel.classList.remove('visible');
@@ -1429,12 +1600,14 @@ mnAggregationSelect.addEventListener('change', () => {
 mnLayoutSelect.addEventListener('change', () => {
     if (!metaNetwork) return;
     metaNetwork.updateSetting('layout', mnLayoutSelect.value);
+    _updateMnBpColorPickerVisibility();
     _ensureMetaNetworkLoop();
 });
 
 mnColorBySelect.addEventListener('change', () => {
     if (!metaNetwork) return;
     metaNetwork.updateSetting('colorBy', mnColorBySelect.value);
+    _updateMnBpColorPickerVisibility();
     renderMetaNetworkLegend();
     _ensureMetaNetworkLoop();
 });
@@ -1463,6 +1636,27 @@ mnNestedSortCheckbox.addEventListener('change', () => {
 mnShowLabelsCheckbox.addEventListener('change', () => {
     if (!metaNetwork) return;
     metaNetwork.updateSetting('showLabels', mnShowLabelsCheckbox.checked);
+    mnLabelSizeRow.style.display = mnShowLabelsCheckbox.checked ? '' : 'none';
+    _ensureMetaNetworkLoop();
+});
+
+mnLabelSizeSlider.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    const val = parseInt(mnLabelSizeSlider.value);
+    mnLabelSizeLabel.textContent = val + 'px';
+    metaNetwork.updateSetting('labelFontSize', val);
+    _ensureMetaNetworkLoop();
+});
+
+mnColorSetA.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('uniformColorA', mnColorSetA.value);
+    _ensureMetaNetworkLoop();
+});
+
+mnColorSetB.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('uniformColorB', mnColorSetB.value);
     _ensureMetaNetworkLoop();
 });
 
@@ -1587,6 +1781,9 @@ function goToNetworkMode() {
     if (appMode === 'layer')       { _exitLayerView();     appMode = 'network'; renderer.render(); }
     if (appMode === 'dashboard')   { _exitDashboard();     appMode = 'network'; renderer.render(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork();   appMode = 'network'; renderer.render(); }
+    if (appMode === 'data')        { _exitDataMode();      appMode = 'network'; renderer.render(); }
+    _updateFilterBanner();
+    _updateModeButtons();
 }
 networkModeBtn.addEventListener('click', goToNetworkMode);
 dbBipartiteToggle.addEventListener('change', () => dashboard?.setShowBipartite(dbBipartiteToggle.checked));
@@ -1628,7 +1825,6 @@ function _exitLayerView() {
     renderer.layerViewMode = false;
     renderer.layerView = null;
     window._layerView = null;
-    layerViewBtn.classList.remove('active');
     canvas.style.cursor = '';
     tooltip.classList.remove('visible');
     _hideLayerViewSidebar();
@@ -2605,8 +2801,20 @@ function updateCloseButtons() {
 }
 
 // ---- Toggle Labels ----
+const labelSizeRow    = document.getElementById('labelSizeRow');
+const labelSizeSlider = document.getElementById('labelSizeSlider');
+const labelSizeLabel  = document.getElementById('labelSizeLabel');
+
 showLabelsCheckbox.addEventListener('change', () => {
     renderer.showLabels = showLabelsCheckbox.checked;
+    labelSizeRow.style.display = showLabelsCheckbox.checked ? '' : 'none';
+    renderer.render();
+});
+
+labelSizeSlider.addEventListener('input', () => {
+    const px = parseInt(labelSizeSlider.value);
+    labelSizeLabel.textContent = px + 'px';
+    renderer.labelFont = `${px}px Inter, system-ui, sans-serif`;
     renderer.render();
 });
 
@@ -2673,13 +2881,7 @@ layoutSelect.addEventListener('change', () => {
     renderer.setData(model, positions);
     renderer.layoutType = layout.layoutType;
 
-    // Show/hide UI elements based on layout
-    const isBipartiteLayout = layout.layoutType === 'bipartite';
-    document.getElementById('setNamesContainer').style.display = isBipartiteLayout ? '' : 'none';
-    colorByContainer.style.display = isBipartiteLayout ? 'none' : '';
-    bipartiteColorByContainer.style.display = isBipartiteLayout ? '' : 'none';
-    sizeByContainer.style.display = isBipartiteLayout ? 'none' : '';
-    bipartiteSizeByContainer.style.display = isBipartiteLayout ? '' : 'none';
+    applyBipartiteUIVisibility();
 
     updateNodeColors();
     renderer.render();
@@ -2708,6 +2910,8 @@ fileInput.addEventListener('change', (e) => {
             _showDataLoadedNotice();
         } catch (err) {
             alert('Invalid JSON file: ' + err.message);
+        } finally {
+            e.target.value = '';
         }
     };
     reader.readAsText(file);
@@ -2964,14 +3168,14 @@ function populateDropdowns() {
     }
 
     // Layer color options
-    layerColorSelect.innerHTML = '<option value="">Default</option>';
+    layerColorSelect.innerHTML = '<option value="">Default</option><option value="__individual__">Individual</option>';
     for (const attr of model.layerAttributeNames) {
         const opt = document.createElement('option');
         opt.value = attr;
         opt.textContent = attr;
         layerColorSelect.appendChild(opt);
     }
-    layerColorSelect.disabled = model.layerAttributeNames.length === 0;
+    layerColorSelect.disabled = false;
 
 }
 
@@ -3039,14 +3243,20 @@ linkColorSelect.addEventListener('change', () => {
 
 
 
+function _toNumber(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'string') { const n = Number(v); return isNaN(n) ? null : n; }
+    return null;
+}
+
 function _buildSizeScaleFn(val, entities, stateEntities) {
     if (!val) return null;
     const [source, attrName] = val.split(':');
     const items = source === 'node' ? entities : stateEntities;
     let minVal = Infinity, maxVal = -Infinity;
     for (const e of items) {
-        const v = e[attrName];
-        if (typeof v === 'number') {
+        const v = _toNumber(e[attrName]);
+        if (v !== null) {
             if (v < minVal) minVal = v;
             if (v > maxVal) maxVal = v;
         }
@@ -3054,9 +3264,10 @@ function _buildSizeScaleFn(val, entities, stateEntities) {
     const range = maxVal - minVal;
     const scale = { type: 'size', min: minVal, max: maxVal, attrName };
     const compute = (v) => {
-        if (typeof v !== 'number') return 1.0;
+        const n = _toNumber(v);
+        if (n === null) return 1.0;
         if (range === 0) return 1.0;
-        return 0.3 + ((v - minVal) / range) * 1.7;
+        return 0.3 + ((n - minVal) / range) * 1.7;
     };
     const fn = source === 'node'
         ? (layerName, nodeName) => { const n = model.nodesByName.get(nodeName); return n ? compute(n[attrName]) : 1.0; }
@@ -3065,15 +3276,20 @@ function _buildSizeScaleFn(val, entities, stateEntities) {
 }
 
 function updateNodeSizes() {
-    if (!model) { renderer.nodeSizeFn = null; return; }
+    activeNodeSizeScale = null;
+    activeNodeSizeScaleA = null;
+    activeNodeSizeScaleB = null;
+
+    if (!model) { renderer.nodeSizeFn = null; renderLegends(); return; }
 
     const isBipartiteLayout = layout.layoutType === 'bipartite';
 
-    if (isBipartiteLayout) {
+    if (isClassicBipartiteUI()) {
         const resA = _buildSizeScaleFn(nodeSizeSelectSetA.value, model.nodes, model.stateNodes);
         const resB = _buildSizeScaleFn(nodeSizeSelectSetB.value, model.nodes, model.stateNodes);
 
-        activeNodeSizeScale = resA?.scale || resB?.scale || null;
+        activeNodeSizeScaleA = resA?.scale || null;
+        activeNodeSizeScaleB = resB?.scale || null;
 
         if (!resA && !resB) {
             renderer.nodeSizeFn = null;
@@ -3098,6 +3314,9 @@ function updateNodeSizes() {
         renderer.nodeSizeFn = res?.fn || null;
     }
 
+    if (activeNodeSizeScale)  expandedLegends.add('nodeSize');
+    if (activeNodeSizeScaleA) expandedLegends.add('nodeSizeA');
+    if (activeNodeSizeScaleB) expandedLegends.add('nodeSizeB');
     renderLegends();
 }
 
@@ -3113,7 +3332,7 @@ function updateNodeColors() {
         return;
     }
 
-    if (layout.layoutType === 'bipartite') {
+    if (isClassicBipartiteUI()) {
         const valA = nodeColorSelectSetA.value;
         const valB = nodeColorSelectSetB.value;
 
@@ -3153,7 +3372,7 @@ function updateNodeColors() {
                 if (scA) {
                     const [source, attrName] = valA.split(':');
                     const obj = source === 'node' ? model.nodesByName.get(nodeName) : model.stateNodeMap.get(`${layerName}::${nodeName}`);
-                    return obj ? scA.scaleFn(obj[attrName]) : '#6b7280';
+                    return obj ? applyCategoryOverride(attrName, obj[attrName], scA.scaleFn(obj[attrName])) : '#6b7280';
                 } else {
                     return colorMapper.getBipartiteNodeColor(true);
                 }
@@ -3161,13 +3380,15 @@ function updateNodeColors() {
                 if (scB) {
                     const [source, attrName] = valB.split(':');
                     const obj = source === 'node' ? model.nodesByName.get(nodeName) : model.stateNodeMap.get(`${layerName}::${nodeName}`);
-                    return obj ? scB.scaleFn(obj[attrName]) : '#6b7280';
+                    return obj ? applyCategoryOverride(attrName, obj[attrName], scB.scaleFn(obj[attrName])) : '#6b7280';
                 } else {
                     return colorMapper.getBipartiteNodeColor(false);
                 }
             }
             return '#6b7280'; // fallback
         };
+        if (activeNodeColorScaleA) expandedLegends.add('nodeColorA');
+        if (activeNodeColorScaleB) expandedLegends.add('nodeColorB');
         renderLegends();
         return;
     }
@@ -3190,7 +3411,7 @@ function updateNodeColors() {
         activeNodeColorScale = sc;
         renderer.nodeColorFn = (layerName, nodeName) => {
             const node = model.nodesByName.get(nodeName);
-            return node ? sc.scaleFn(node[attrName]) : '#6b7280';
+            return node ? applyCategoryOverride(attrName, node[attrName], sc.scaleFn(node[attrName])) : '#6b7280';
         };
     } else if (source === 'state') {
         // Color by state node attribute
@@ -3200,10 +3421,11 @@ function updateNodeColors() {
         renderer.nodeColorFn = (layerName, nodeName) => {
             const key = `${layerName}::${nodeName}`;
             const sn = model.stateNodeMap.get(key);
-            return sn ? sc.scaleFn(sn[attrName]) : '#6b7280';
+            return sn ? applyCategoryOverride(attrName, sn[attrName], sc.scaleFn(sn[attrName])) : '#6b7280';
         };
     }
 
+    if (activeNodeColorScale) expandedLegends.add('nodeColor');
     renderLegends();
 }
 
@@ -3223,7 +3445,8 @@ function updateLinkColors() {
     const override = colorScaleOverrides.get(attrName);
     const sc = colorMapper.buildColorScale(model.extended, attrName, override);
     activeLinkColorScale = sc;
-    renderer.linkColorFn = (link) => sc.scaleFn(link[attrName]);
+    renderer.linkColorFn = (link) => applyCategoryOverride(attrName, link[attrName], sc.scaleFn(link[attrName]));
+    if (activeLinkColorScale) expandedLegends.add('linkColor');
     renderLegends();
 }
 
@@ -3242,16 +3465,22 @@ function _hexToRgba(color, alpha) {
 
 function updateLayerColors() {
     const attrName = layerColorSelect.value;
-    layerColorSwatches.style.display = attrName ? 'none' : 'flex';
+    layerColorSwatches.style.display = (!attrName) ? 'flex' : 'none';
 
     if (!model) { renderer.layerColorFn = null; activeLayerColorScale = null; renderer.render(); return; }
 
-    if (attrName) {
+    if (attrName === '__individual__') {
+        activeLayerColorScale = null;
+        renderer.layerColorFn = (layerIndex, layer) => {
+            const hex = layerColors.get(layer.layer_name) || '#8b5cf6';
+            return { fill: _hexToRgba(hex, 0.35), border: _hexToRgba(hex, 0.7), text: hex };
+        };
+    } else if (attrName) {
         const override = colorScaleOverrides.get(attrName);
         const sc = colorMapper.buildColorScale(model.layers, attrName, override);
         activeLayerColorScale = sc;
         renderer.layerColorFn = (layerIndex, layer) => {
-            const hex = sc.scaleFn(layer[attrName]);
+            const hex = applyCategoryOverride(attrName, layer[attrName], sc.scaleFn(layer[attrName]));
             return { fill: _hexToRgba(hex, 0.35), border: _hexToRgba(hex, 0.7), text: hex };
         };
     } else {
@@ -3261,6 +3490,7 @@ function updateLayerColors() {
             { fill: _hexToRgba(hex, 0.18), border: _hexToRgba(hex, 0.55), text: hex }
         );
     }
+    if (activeLayerColorScale) expandedLegends.add('layerColor');
     renderLegends();
     renderer.render();
 }
@@ -3313,14 +3543,15 @@ zoomOutBtn.addEventListener('click', () => {
 });
 
 zoomResetBtn.addEventListener('click', () => {
-    if (appMode === 'map') {
-        fitMapToLayers();
+    if (appMode === 'dashboard') return;
+
+    if (appMode === 'data') {
+        dataModeInstance?.clearFilters();
         return;
     }
 
     if (appMode === 'layer' && renderer.layerView) {
         if (renderer.layerView.geoMode) {
-            // Fit lvMap to layer coordinates
             const coords = model.layers
                 .filter(l => l.latitude != null && l.longitude != null)
                 .map(l => [l.latitude, l.longitude]);
@@ -3329,7 +3560,6 @@ zoomResetBtn.addEventListener('click', () => {
             return;
         }
         renderer.layerView.resetLayout();
-        // Re-fit the viewport to the new layout
         const lr = renderer.layerView.layoutRadius();
         const margin = 60;
         const fitScale = Math.min(canvas.width, canvas.height) / (2 * (lr + margin));
@@ -3341,19 +3571,53 @@ zoomResetBtn.addEventListener('click', () => {
     }
 
     if (appMode === 'metanetwork' && metaNetwork) {
-        metaNetwork.viewScale   = 1;
-        metaNetwork.viewOffsetX = 0;
-        metaNetwork.viewOffsetY = 0;
+        // Clear selection
+        metaNetwork.state.selectedNode = null;
+        metaNetwork.state.selectedEdge = null;
+        metaNetwork._focusSet = null;
+        hideNodeInfo();
+        // Fit viewport to current node positions
+        const nodes = metaNetwork._mnNodes;
+        if (nodes.length > 0) {
+            let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+            for (const n of nodes) {
+                if (n.x != null) {
+                    minX = Math.min(minX, n.x); maxX = Math.max(maxX, n.x);
+                    minY = Math.min(minY, n.y); maxY = Math.max(maxY, n.y);
+                }
+            }
+            const pad = 60;
+            const rawW = (maxX - minX) || 1;
+            const rawH = (maxY - minY) || 1;
+            const scale = Math.min(
+                (canvas.width  - 2 * pad) / rawW,
+                (canvas.height - 2 * pad) / rawH,
+                10
+            );
+            metaNetwork.viewScale   = scale;
+            metaNetwork.viewOffsetX = -((minX + maxX) / 2) * scale;
+            metaNetwork.viewOffsetY = -((minY + maxY) / 2) * scale;
+        } else {
+            metaNetwork.viewScale   = 1;
+            metaNetwork.viewOffsetX = 0;
+            metaNetwork.viewOffsetY = 0;
+        }
         _ensureMetaNetworkLoop();
         return;
     }
 
-    // Reset rotation angles to defaults
+    // Network and Map modes: full reset — visualization options + view
+    resetVisualizationOptions();
+    updateLayerColors();
+    updateNodeColors();
+    updateLinkColors();
     renderer.skewX = 0.7;
     renderer.skewY = 0.55;
     renderer.resetLayerOffsets();
     renderer.centerView();
     renderer.render();
+
+    if (appMode === 'map') fitMapToLayers();
 });
 
 // ---- Node Info Panel ----
@@ -3543,6 +3807,26 @@ function hideTooltip() {
     }
 })();
 
+// ---- EMLN mode UI setup ----
+if (IS_EMLN) {
+    const ONLINE_URL = 'https://ecological-complexity-lab.github.io/multilayer_viz/';
+
+    // Replace data import buttons with message
+    const btnRow = document.querySelector('#sectionData .btn-row');
+    if (btnRow) {
+        btnRow.innerHTML = `<div class="emln-data-msg">
+            Network loaded from EMLN.<br>
+            For example datasets and manual import, use the
+            <a href="${ONLINE_URL}" target="_blank" rel="noopener">online version &#x2197;</a>
+        </div>`;
+    }
+
+    // Swap "(Beta)" → "(EMLN)" in branding
+    const betaEl = document.querySelector('.branding-beta');
+    if (betaEl) betaEl.textContent = '(EMLN)';
+
+}
+
 function renderScaleLegend(scale, id, titleText) {
     if (!scale) return;
     if (expandedLegends.has(id)) {
@@ -3572,19 +3856,24 @@ function renderLegends() {
 
     legendPanel.innerHTML = '';
 
-    const isBipartite = layout.layoutType === 'bipartite';
+    const stripPrefix = (text, prefix) => text.replace(new RegExp('^' + prefix + '\\s*', 'i'), '').trim();
 
-    if (!isBipartite) {
+    if (!isClassicBipartiteUI()) {
         renderScaleLegend(activeNodeColorScale, 'nodeColor', 'Node Color');
+        renderScaleLegend(activeNodeSizeScale, 'nodeSize', 'Node Size');
     } else {
-        const titleA = bipartiteColorLabelA.textContent.replace('Color by ', '').replace('Color By ', '');
-        renderScaleLegend(activeNodeColorScaleA, 'nodeColorA', 'Node Color (' + titleA + ')');
+        const colorTitleA = stripPrefix(bipartiteColorLabelA.textContent, 'Color By');
+        renderScaleLegend(activeNodeColorScaleA, 'nodeColorA', 'Node Color (' + colorTitleA + ')');
 
-        const titleB = bipartiteColorLabelB.textContent.replace('Color by ', '').replace('Color By ', '');
-        renderScaleLegend(activeNodeColorScaleB, 'nodeColorB', 'Node Color (' + titleB + ')');
+        const colorTitleB = stripPrefix(bipartiteColorLabelB.textContent, 'Color By');
+        renderScaleLegend(activeNodeColorScaleB, 'nodeColorB', 'Node Color (' + colorTitleB + ')');
+
+        const sizeTitleA = stripPrefix(bipartiteSizeLabelA.textContent, 'Size By');
+        renderScaleLegend(activeNodeSizeScaleA, 'nodeSizeA', 'Node Size (' + sizeTitleA + ')');
+
+        const sizeTitleB = stripPrefix(bipartiteSizeLabelB.textContent, 'Size By');
+        renderScaleLegend(activeNodeSizeScaleB, 'nodeSizeB', 'Node Size (' + sizeTitleB + ')');
     }
-
-    renderScaleLegend(activeNodeSizeScale, 'nodeSize', 'Node Size');
     renderScaleLegend(activeLinkColorScale, 'linkColor', 'Link Color');
     renderScaleLegend(activeLayerColorScale, 'layerColor', 'Layer Color');
 }
@@ -3609,11 +3898,10 @@ function createLegendDOM(titleText, scale, id) {
 
     if (scale.canToggle && scale.type !== 'size') {
         const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = '⇌';
-        toggleBtn.title = 'Switch between Categorical and Continuous palettes';
-        toggleBtn.style.cssText = 'background: none; border: 1px solid rgba(0,0,0,0.12); cursor: pointer; color: #4b5563; border-radius: 4px; font-size: 10px; line-height: 1; padding: 2px 4px; font-weight: bold; display: flex; align-items: center; justify-content: center; height: 18px;';
-        toggleBtn.onmouseover = () => toggleBtn.style.background = '#f3f4f6';
-        toggleBtn.onmouseout = () => toggleBtn.style.background = 'none';
+        toggleBtn.className = 'ltp-pill';
+        const isCont = scale.type === 'continuous';
+        toggleBtn.innerHTML = `<span class="ltp-opt${isCont ? ' ltp-active' : ''}">Continuous</span><span class="ltp-opt${!isCont ? ' ltp-active' : ''}">Discrete</span>`;
+        toggleBtn.title = 'Switch between Continuous and Discrete palettes';
         toggleBtn.onclick = () => {
             const newType = scale.type === 'continuous' ? 'categorical' : 'continuous';
             colorScaleOverrides.set(scale.attrName, newType);
@@ -3647,8 +3935,28 @@ function createLegendDOM(titleText, scale, id) {
         for (const [val, col] of scale.map.entries()) {
             const row = document.createElement('div');
             row.style.cssText = 'display: flex; align-items: center; gap: 6px; font-size: 12px; color: #4b5563;';
-            const swatch = document.createElement('div');
-            swatch.style.cssText = `width: 12px; height: 12px; border-radius: 50%; background: ${col}; flex-shrink: 0;`;
+            const swatch = document.createElement('input');
+            swatch.type = 'color';
+            swatch.className = 'legend-color-pick legend-no-drag';
+            const overrideMap = categoryColorOverrides.get(scale.attrName);
+            swatch.value = (overrideMap && overrideMap.has(val)) ? overrideMap.get(val) : col;
+            swatch.title = `Change color for "${val}"`;
+            swatch.addEventListener('input', () => {
+                if (!categoryColorOverrides.has(scale.attrName)) {
+                    categoryColorOverrides.set(scale.attrName, new Map());
+                }
+                categoryColorOverrides.get(scale.attrName).set(val, swatch.value);
+                // The existing colorFn closures already call applyCategoryOverride,
+                // so just re-render the canvas — no legend rebuild needed mid-interaction.
+                renderer.render();
+            });
+            swatch.addEventListener('change', () => {
+                // Picker closed/committed — rebuild legend so the swatch reflects the new color.
+                updateNodeColors();
+                updateLinkColors();
+                updateLayerColors();
+                renderer.render();
+            });
             const text = document.createElement('span');
             text.textContent = val;
             text.style.cssText = 'white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px;';
@@ -3769,9 +4077,11 @@ function _createLVLegendBox(scale) {
 
     if (scale.canToggle) {
         const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = '⇌';
-        toggleBtn.title = 'Switch between Continuous and Categorical display';
-        toggleBtn.style.cssText = 'background:none;border:1px solid rgba(0,0,0,0.12);cursor:pointer;color:#4b5563;border-radius:4px;font-size:10px;padding:2px 4px;font-weight:bold;height:18px;';
+        toggleBtn.className = 'ltp-pill';
+        const lv0 = renderer.layerView;
+        const isCont = lv0 && lv0.settings.colorLegendType === 'continuous';
+        toggleBtn.innerHTML = `<span class="ltp-opt${isCont ? ' ltp-active' : ''}">Continuous</span><span class="ltp-opt${!isCont ? ' ltp-active' : ''}">Discrete</span>`;
+        toggleBtn.title = 'Switch between Continuous and Discrete display';
         toggleBtn.onclick = () => {
             const lv = renderer.layerView;
             if (!lv) return;
@@ -3909,6 +4219,18 @@ const HELP_CONTENT = {
   <li>Use <b>Filter Layers</b> panel to show only links from selected layers</li>
 </ul>
 <p>Use the left panel to change aggregation, layout, color, and size.</p>`,
+    },
+    data: {
+        title: '📋 Data Mode',
+        body: `<p>Inspect raw data tables and create subsets that propagate to all visualization modes.</p>
+<ul style="padding-left:16px;margin:8px 0;">
+  <li><b>Tabs</b> — Nodes, State Nodes, Links, Layers</li>
+  <li><b>Click a column header</b> — sort ascending/descending/reset</li>
+  <li><b>Filter inputs</b> — text columns: substring match; numeric: <code>&gt;5</code>, <code>&lt;10</code>, <code>=3</code></li>
+  <li><b>Click a row</b> to select it (highlights the node/layer in other modes)</li>
+  <li><b>Export CSV</b> — downloads the currently filtered rows</li>
+</ul>
+<p>Active filters create a <b>subset</b> visible across all modes (yellow banner).</p>`,
     },
     dashboard: {
         title: '📊 Dashboard Mode',

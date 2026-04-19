@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Multilayer Network Visualizer — Manual</title>
+  <link rel="icon" href="../assets/multiviz_logo.png" type="image/png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -97,18 +98,18 @@
     }
 
     /* Mode colors */
-    h2.sec.mode-network  { color: #7c3aed; border-color: #7c3aed22; }
-    h2.sec.mode-network .badge  { background: #ede9fe; color: #7c3aed; }
-    h2.sec.mode-map      { color: #0369a1; border-color: #0369a122; }
-    h2.sec.mode-map .badge      { background: #e0f2fe; color: #0369a1; }
-    h2.sec.mode-dashboard { color: #6366f1; border-color: #6366f122; }
-    h2.sec.mode-dashboard .badge { background: #eef2ff; color: #6366f1; }
-    h2.sec.mode-layer    { color: #0f766e; border-color: #0f766e22; }
-    h2.sec.mode-layer .badge    { background: #ccfbf1; color: #0f766e; }
-    h2.sec.mode-controls { color: #b45309; border-color: #b4530922; }
-    h2.sec.mode-controls .badge { background: #fef3c7; color: #b45309; }
-    h2.sec.mode-meta     { color: #0c6a9e; border-color: #0c6a9e22; }
-    h2.sec.mode-meta .badge     { background: #cde9f0; color: #0c6a9e; }
+    h2.sec.mode-network  { color: #6d28d9; border-color: #6d28d922; }
+    h2.sec.mode-network .badge  { background: #ede9fe; color: #6d28d9; }
+    h2.sec.mode-map      { color: #0284c7; border-color: #0284c722; }
+    h2.sec.mode-map .badge      { background: #e0f2fe; color: #0284c7; }
+    h2.sec.mode-dashboard { color: #dc2626; border-color: #dc262622; }
+    h2.sec.mode-dashboard .badge { background: #fee2e2; color: #dc2626; }
+    h2.sec.mode-layer    { color: #059669; border-color: #05966922; }
+    h2.sec.mode-layer .badge    { background: #d1fae5; color: #059669; }
+    h2.sec.mode-meta     { color: #d97706; border-color: #d9770622; }
+    h2.sec.mode-meta .badge     { background: #fef3c7; color: #d97706; }
+    h2.sec.mode-data     { color: #c51b7d; border-color: #c51b7d22; }
+    h2.sec.mode-data .badge     { background: #fce7f3; color: #c51b7d; }
     h2.sec.mode-misc     { color: #374151; border-color: #37415122; }
 
     h3 {
@@ -181,11 +182,21 @@
       border-radius: 20px;
       vertical-align: middle;
     }
-    .pill-network  { background: #ede9fe; color: #7c3aed; }
-    .pill-map      { background: #e0f2fe; color: #0369a1; }
-    .pill-layer    { background: #ccfbf1; color: #0f766e; }
-    .pill-dashboard { background: #eef2ff; color: #6366f1; }
-    .pill-meta     { background: #cde9f0; color: #0c6a9e; }
+    .pill-network  { background: #ede9fe; color: #6d28d9; }
+    .pill-map      { background: #e0f2fe; color: #0284c7; }
+    .pill-layer    { background: #d1fae5; color: #059669; }
+    .pill-dashboard { background: #fee2e2; color: #dc2626; }
+    .pill-meta     { background: #fef3c7; color: #d97706; }
+    .pill-data     { background: #fce7f3; color: #c51b7d; }
+
+    /* ── Collapsible TOC ─────────────────────────────────────────────── */
+    .toc-group { }
+    .toc-children { overflow: hidden; }
+    .toc-children.collapsed { display: none; }
+    .toc-toggle { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; }
+    .toc-chevron { font-size: 10px; color: #9ca3af; margin-left: 4px; transition: transform 0.15s; flex-shrink: 0; }
+    .toc-toggle.open .toc-chevron { transform: rotate(0deg); }
+    .toc-toggle:not(.open) .toc-chevron { transform: rotate(-90deg); }
   </style>
 </head>
 <body>
@@ -194,51 +205,91 @@
 <nav id="toc">
   <h2>Contents</h2>
 
-  <a href="#data-import" class="l1">📂 Data Import</a>
-  <a href="#import-example" class="l2">Example Data</a>
-  <a href="#import-json" class="l2">Load JSON</a>
-  <a href="#import-csv" class="l2">Load CSV</a>
-  <a href="#data-format" class="l2">JSON Format Spec</a>
-  <a href="#examples" class="l2">Built-in Datasets</a>
+  <div class="toc-group">
+    <a href="#data-import" class="l1 toc-toggle" data-group="g-import"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;vertical-align:middle;margin-right:4px"><path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/><path d="M15.5 10.5C15.5 10.5 12.9223 7.00001 12 7C11.0777 6.99999 8.5 10.5 8.5 10.5M12 7.5V14M8.5 17H15.5"/></svg>Import Network Data <span class="toc-chevron">▾</span></a>
+    <div class="toc-children" id="g-import">
+      <a href="#import-example" class="l2">Example Data</a>
+      <a href="#import-json" class="l2">Load JSON</a>
+      <a href="#import-csv" class="l2">Load CSV</a>
+      <a href="#examples" class="l2">Built-in Datasets</a>
+    </div>
+  </div>
 
   <div class="toc-sep"></div>
 
-  <a href="#modes" class="l1">Visualization Modes</a>
-  <a href="#network" class="l2">🕸️ Network Mode</a>
-  <a href="#network-controls" class="l3">Sidebar Controls</a>
-  <a href="#map" class="l2">🗺️ Map Mode</a>
-  <a href="#map-controls" class="l3">Sidebar Controls</a>
-  <a href="#dashboard" class="l2">📊 Dashboard Mode</a>
-  <a href="#dashboard-kpi" class="l3">KPI Cards</a>
-  <a href="#dashboard-bars" class="l3">Per-Layer Charts</a>
-  <a href="#dashboard-weights" class="l3">Link Weight Distributions</a>
-  <a href="#dashboard-matrix" class="l3">Presence Matrix</a>
-  <a href="#dashboard-jaccard" class="l3">Layer Similarity</a>
-  <a href="#dashboard-degree" class="l3">Degree Distributions</a>
-  <a href="#dashboard-participation" class="l3">Node Participation</a>
-  <a href="#dashboard-setratio" class="l3">Set Size Ratio</a>
-  <a href="#layerview" class="l2">🔵 Layer Mode</a>
-  <a href="#lv-interactions" class="l3">Interactions</a>
-  <a href="#lv-controls" class="l3">Sidebar Controls</a>
-  <a href="#lv-geo" class="l3">Geographic Mode</a>
-  <a href="#metanetwork" class="l2">Σ Meta-Network Mode</a>
-  <a href="#mn-interactions" class="l3">Interactions</a>
-  <a href="#mn-controls" class="l3">Sidebar Controls</a>
-  <a href="#mn-layerfilter" class="l3">Layer Filter</a>
-  <a href="#mn-search" class="l3">Search</a>
+  <div class="toc-group">
+    <a href="#modes" class="l1 toc-toggle" data-group="g-modes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" style="flex-shrink:0;vertical-align:middle;margin-right:4px"><path d="M3 6.5C3 5.09554 3 4.39331 3.33706 3.88886C3.48297 3.67048 3.67047 3.48298 3.88885 3.33706C4.3933 3 5.09553 3 6.5 3C7.90446 3 8.60669 3 9.11114 3.33706C9.32952 3.48298 9.51702 3.67048 9.66294 3.88886C10 4.39331 10 5.09554 10 6.5C10 7.90446 10 8.60669 9.66294 9.11114C9.51702 9.32952 9.32952 9.51702 9.11114 9.66294C8.60669 10 7.90446 10 6.5 10C5.09554 10 4.3933 10 3.88885 9.66294C3.67047 9.51702 3.48297 9.32952 3.33706 9.11114C3 8.60669 3 7.90446 3 6.5Z"/><path d="M14 6.5C14 5.09554 14 4.39331 14.3371 3.88886C14.483 3.67048 14.6705 3.48298 14.8889 3.33706C15.3933 3 16.0955 3 17.5 3C18.9045 3 19.6067 3 20.1111 3.33706C20.3295 3.48298 20.517 3.67048 20.6629 3.88886C21 4.39331 21 5.09554 21 6.5C21 7.90446 21 8.60669 20.6629 9.11114C20.517 9.32952 20.3295 9.51702 20.1111 9.66294C19.6067 10 18.9045 10 17.5 10C16.0955 10 15.3933 10 14.8889 9.66294C14.6705 9.51702 14.483 9.32952 14.3371 9.11114C14 8.60669 14 7.90446 14 6.5Z"/><path d="M3 17.5C3 16.0955 3 15.3933 3.33706 14.8889C3.48297 14.6705 3.67047 14.483 3.88885 14.3371C4.3933 14 5.09553 14 6.5 14C7.90446 14 8.60669 14 9.11114 14.3371C9.32952 14.483 9.51702 14.6705 9.66294 14.8889C10 15.3933 10 16.0955 10 17.5C10 18.9045 10 19.6067 9.66294 20.1111C9.51702 20.3295 9.32952 20.517 9.11114 20.6629C8.60669 21 7.90446 21 6.5 21C5.09554 21 4.3933 21 3.88885 20.6629C3.67047 20.517 3.48297 20.3295 3.33706 20.1111C3 19.6067 3 18.9045 3 17.5Z"/><path d="M14 17.5C14 16.0955 14 15.3933 14.3371 14.8889C14.483 14.6705 14.6705 14.483 14.8889 14.3371C15.3933 14 16.0955 14 17.5 14C18.9045 14 19.6067 14 20.1111 14.3371C20.3295 14.483 20.517 14.6705 20.6629 14.8889C21 15.3933 21 16.0955 21 17.5C21 18.9045 21 19.6067 20.6629 20.1111C20.517 20.3295 20.3295 20.517 20.1111 20.6629C19.6067 21 18.9045 21 17.5 21C16.0955 21 15.3933 21 14.8889 20.6629C14.6705 20.517 14.483 20.3295 14.3371 20.1111C14 19.6067 14 18.9045 14 17.5Z"/></svg>Visualization Modes <span class="toc-chevron">▾</span></a>
+    <div class="toc-children" id="g-modes">
+      <div class="toc-group">
+        <a href="#network" class="l2 toc-toggle" data-group="g-network">Network Mode <span class="toc-chevron">▾</span></a>
+        <div class="toc-children" id="g-network">
+          <a href="#network-controls" class="l3">Sidebar Controls</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <a href="#map" class="l2 toc-toggle" data-group="g-map">Map Mode <span class="toc-chevron">▾</span></a>
+        <div class="toc-children" id="g-map">
+          <a href="#map-controls" class="l3">Sidebar Controls</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <a href="#layerview" class="l2 toc-toggle" data-group="g-layer">Layer Mode <span class="toc-chevron">▾</span></a>
+        <div class="toc-children" id="g-layer">
+          <a href="#lv-interactions" class="l3">Interactions</a>
+          <a href="#lv-controls" class="l3">Sidebar Controls</a>
+          <a href="#lv-geo" class="l3">Geographic Mode</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <a href="#metanetwork" class="l2 toc-toggle" data-group="g-meta">Σ Meta-Network Mode <span class="toc-chevron">▾</span></a>
+        <div class="toc-children" id="g-meta">
+          <a href="#mn-interactions" class="l3">Interactions</a>
+          <a href="#mn-controls" class="l3">Sidebar Controls</a>
+          <a href="#mn-layerfilter" class="l3">Layer Filter</a>
+          <a href="#mn-search" class="l3">Search</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <a href="#dashboard" class="l2 toc-toggle" data-group="g-dash">Dashboard Mode <span class="toc-chevron">▾</span></a>
+        <div class="toc-children" id="g-dash">
+          <a href="#dashboard-kpi" class="l3">KPI Cards</a>
+          <a href="#dashboard-bars" class="l3">Per-Layer Charts</a>
+          <a href="#dashboard-weights" class="l3">Link Weight Distributions</a>
+          <a href="#dashboard-matrix" class="l3">Presence Matrix</a>
+          <a href="#dashboard-jaccard" class="l3">Layer Similarity</a>
+          <a href="#dashboard-degree" class="l3">Degree Distributions</a>
+          <a href="#dashboard-participation" class="l3">Node Participation</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <a href="#datamode" class="l2 toc-toggle" data-group="g-data">Data Mode <span class="toc-chevron">▾</span></a>
+        <div class="toc-children" id="g-data">
+          <a href="#dm-tables" class="l3">Tables</a>
+          <a href="#dm-filters" class="l3">Column Filters</a>
+          <a href="#dm-selection" class="l3">Row Selection</a>
+          <a href="#dm-subsetting" class="l3">Subsetting</a>
+          <a href="#dm-colors" class="l3">Layer Colors</a>
+          <a href="#dm-export" class="l3">CSV Export</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="toc-sep"></div>
 
-  <a href="#toolbar" class="l1">Bottom-Left Toolbar</a>
-  <a href="#legend" class="l1">Dynamic Legend</a>
-  <a href="#interactions" class="l1">Advanced Interactions</a>
+  <a href="#toolbar" class="l1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:4px"><path d="M2 12C2 8.31088 2 6.46632 2.81382 5.15878C3.1149 4.67504 3.48891 4.25428 3.91891 3.91556C5.08116 3.00002 6.72077 3.00002 10 3.00002H14C17.2792 3.00002 18.9188 3.00002 20.0811 3.91556C20.5111 4.25428 20.8851 4.67504 21.1862 5.15878C22 6.46632 22 8.31088 22 12C22 15.6891 22 17.5337 21.1862 18.8412C20.8851 19.325 20.5111 19.7457 20.0811 20.0845C18.9188 21 17.2792 21 14 21H10C6.72077 21 5.08116 21 3.91891 20.0845C3.48891 19.7457 3.1149 19.325 2.81382 18.8412C2 17.5337 2 15.6891 2 12Z"/><path d="M2 9.5L22 9.5" stroke-linejoin="round"/></svg>Top Toolbar Strip</a>
+  <a href="#legend" class="l1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="7" cy="9" r="1.3" fill="currentColor" stroke="none"/><line x1="11" y1="9" x2="18" y2="9"/><circle cx="7" cy="14" r="1.3" fill="currentColor" stroke="none"/><line x1="11" y1="14" x2="18" y2="14"/></svg>Dynamic Legend</a>
 
   <div class="toc-sep"></div>
 
-  <a href="#emln" class="l1">📦 Integration with emln</a>
-  <a href="#emln-plot" class="l2">plot_multilayer()</a>
-  <a href="#emln-json" class="l2">multilayer_to_json()</a>
-  <a href="#emln-csv" class="l2">multilayer_to_csv()</a>
+  <div class="toc-group">
+    <a href="#emln" class="l1 toc-toggle" data-group="g-emln"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;vertical-align:middle;margin-right:4px"><path d="M12 22C11.1818 22 10.4002 21.6708 8.83693 21.0123C4.94564 19.3734 3 18.5539 3 17.1754V7.54234M12 22C12.8182 22 13.5998 21.6708 15.1631 21.0123C19.0544 19.3734 21 18.5539 21 17.1754V7.54234M12 22V12.0292M3 7.54234C3 8.15478 3.80157 8.54152 5.40472 9.315L8.32592 10.7244C10.1288 11.5943 11.0303 12.0292 12 12.0292M3 7.54234C3 6.9299 3.80157 6.54317 5.40472 5.76969L7 5M21 7.54234C21 8.15478 20.1984 8.54152 18.5953 9.315L15.6741 10.7244C13.8712 11.5943 12.9697 12.0292 12 12.0292M21 7.54234C21 6.9299 20.1984 6.54316 18.5953 5.76969L17.0446 5.02151"/><path d="M12 9L12 2M12 2C11.7332 1.99649 11.4737 2.18028 11.2822 2.40466L10 3.93826M12 2C12.2501 2.00348 12.5071 2.18632 12.7103 2.40466L14 3.93826"/></svg>Integration with emln <span class="toc-chevron">▾</span></a>
+    <div class="toc-children" id="g-emln">
+      <a href="#emln-plot" class="l2">plot_multilayer()</a>
+      <a href="#emln-json" class="l2">multilayer_to_json()</a>
+      <a href="#emln-csv" class="l2">multilayer_to_csv()</a>
+    </div>
+  </div>
 </nav>
 
 <!-- ══ Content ══════════════════════════════════════════════════════════ -->
@@ -255,24 +306,79 @@
   <hr>
 
   <!-- ── DATA IMPORT ───────────────────────────────────────────── -->
-  <h2 class="sec mode-misc" id="data-import">📂 Data Import</h2>
+  <h2 class="sec mode-misc" id="data-import"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/><path d="M15.5 10.5C15.5 10.5 12.9223 7.00001 12 7C11.0777 6.99999 8.5 10.5 8.5 10.5M12 7.5V14M8.5 17H15.5"/></svg> Import Network Data</h2>
   <p>The <strong>Data</strong> panel is always visible in the left sidebar, regardless of active mode.</p>
 
   <h3 id="import-example">Load Example Data</h3>
   <p>Opens a dialog with seven built-in datasets. See <a href="#examples">Built-in Datasets</a> below for the full list.</p>
 
   <h3 id="import-json">Load User Data (JSON)</h3>
-  <p>Upload a <code>.json</code> file formatted according to the <a href="#data-format">JSON Format Spec</a> below.</p>
+  <p>Upload a <code>.json</code> file formatted according to the JSON format below.</p>
+
+  <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:16px;font-size:12px;overflow-x:auto;line-height:1.6"><code style="background:none;border:none;padding:0;color:#1f2937">{
+  "directed": false,
+  "directed_interlayer": false,
+  "layers": [
+    { "layer_id": 1, "layer_name": "Forest", "latitude": 42.3, "longitude": 3.1, "bipartite": true }
+  ],
+  "nodes": [
+    { "node_id": "sp_1", "node_name": "Bee", "node_type": "pollinator" }
+  ],
+  "extended": [
+    { "layer_from": "Forest", "node_from": "Bee", "layer_to": "Forest", "node_to": "Flower", "weight": 1.5 }
+  ],
+  "state_nodes": [
+    { "layer_name": "Forest", "node_name": "Bee" }
+  ]
+}</code></pre>
+
+  <h4 style="margin-top:14px">Global fields</h4>
+  <ul>
+    <li><code>directed</code> <em>(Boolean)</em> — renders arrowheads on all edges. Default: <code>false</code>.</li>
+    <li><code>directed_interlayer</code> <em>(Boolean, optional)</em> — when <code>true</code>, interlayer edges are treated as directed even if the overall network is undirected. Useful for temporal networks where direction represents time (e.g. year t → year t+1). Defaults to the value of <code>directed</code>.</li>
+  </ul>
+
+  <h4><code>layers</code> array</h4>
+  <ul>
+    <li><code>layer_id</code> — unique identifier.</li>
+    <li><code>layer_name</code> — display name.</li>
+    <li><code>latitude</code> / <code>longitude</code> <em>(optional)</em> — unlocks Map Mode.</li>
+    <li><code>bipartite</code> <em>(optional, Boolean)</em> — set <code>true</code> to mark this layer bipartite. Nodes must carry a <code>node_type</code> attribute with exactly two distinct values <em>within this layer</em>. Different layers may use different pairs (diagonal-coupling). Never auto-detected.</li>
+    <li>Any extra fields become selectable attributes for color/size mapping.</li>
+  </ul>
+
+  <h4><code>nodes</code> array</h4>
+  <ul>
+    <li><code>node_id</code> — unique identifier.</li>
+    <li><code>node_name</code> — display label.</li>
+    <li><code>node_type</code> <em>(required for bipartite layers)</em> — each bipartite layer must have exactly two distinct values among its own nodes; determines Set A vs. Set B. Globally more than two values are allowed (diagonal-coupling networks).</li>
+    <li>Any extra fields become selectable attributes for color/size mapping.</li>
+  </ul>
+
+  <h4><code>extended</code> array</h4>
+  <p>One row per edge. Intralayer and interlayer edges both go here.</p>
+  <ul>
+    <li><code>layer_from</code>, <code>node_from</code>, <code>layer_to</code>, <code>node_to</code> — required.</li>
+    <li><code>weight</code> <em>(optional)</em> — line thickness/opacity. Defaults to 1.</li>
+    <li>Any extra fields become selectable attributes for color/size mapping.</li>
+  </ul>
+
+  <h4><code>state_nodes</code> array</h4>
+  <p>Enumerates every (layer, node) pair present. Required for correct rendering.</p>
+  <ul>
+    <li><code>layer_name</code>, <code>node_name</code> — required.</li>
+    <li>Any extra fields carry <strong>per-layer node attributes</strong> — attributes whose value can differ for the same node in different layers (e.g. <code>abundance</code>, <code>module</code>). These are distinct from physical node attributes (in the <code>nodes</code> array), which are constant across layers.</li>
+  </ul>
 
   <h3 id="import-csv">Load User Data (CSV)</h3>
   <p>Load network data from CSV files. A modal dialog accepts up to four files:</p>
   <ul>
     <li><em>Extended Edge List</em> <strong>(required)</strong> — one row per link, columns: <code>layer_from</code>, <code>node_from</code>, <code>layer_to</code>, <code>node_to</code>, <code>weight</code> (optional). Both intralayer and interlayer links go in this single file.</li>
     <li><em>Layer Attributes</em> (optional) — columns: <code>layer_id</code>, <code>layer_name</code>, <code>latitude</code>, <code>longitude</code>, <code>bipartite</code> (TRUE/FALSE), and any additional columns for layer attributes (e.g. <code>area</code>, <code>elevation</code>) which become available for color mapping. If omitted, layers are derived from the edge list and all treated as unipartite.</li>
-    <li><em>Node Attributes</em> (optional) — columns: <code>node_name</code> (required), <code>node_type</code> (required when any layer is marked bipartite — must have exactly two distinct values), and any additional columns for <strong>physical</strong> node attributes that are the same across all layers (e.g. <code>body_mass</code>, <code>guild</code>). If omitted, nodes are derived from the edge list with no attributes.</li>
+    <li><em>Node Attributes</em> (optional) — columns: <code>node_name</code> (required), <code>node_type</code> (required when any layer is marked bipartite — each bipartite layer must have exactly two distinct <code>node_type</code> values among its own nodes, but different layers may use different pairs, supporting diagonal-coupling networks), and any additional columns for <strong>physical</strong> node attributes that are the same across all layers (e.g. <code>body_mass</code>, <code>guild</code>). If omitted, nodes are derived from the edge list with no attributes.</li>
     <li><em>State Node Attributes</em> (optional) — columns: <code>layer_name</code> (required), <code>node_name</code> (required), plus any additional columns for <strong>per-layer</strong> node attributes that can differ across layers (e.g. <code>abundance</code>, <code>module</code>). Use this when the same species or node has a different value in each temporal or spatial layer. Rows that do not match a (layer, node) pair already present in the edge list are silently ignored.</li>
   </ul>
-  <div class="info-box"><strong>Bipartite declaration:</strong> bipartite is never auto-detected. Mark a layer as bipartite via the <code>bipartite=TRUE</code> column in the layers file, and provide a <code>node_type</code> column in the nodes file.</div>
+  <div class="info-box"><strong>Bipartite declaration:</strong> bipartite is never auto-detected. Mark a layer as bipartite via the <code>bipartite=TRUE</code> column in the layers file, and provide a <code>node_type</code> column in the nodes file. Each bipartite layer must have exactly two distinct <code>node_type</code> values among its own nodes. <strong>Diagonal-coupling networks</strong> (e.g. plant–pollinator + plant–herbivore) are supported: different layers may share one node set but pair it with a different partner set, resulting in more than two <code>node_type</code> values globally — this is fine as long as each individual layer has exactly two.</div>
   <p>The <strong>Directed</strong> checkbox marks all edges as directed before loading. Comma, tab, and semicolon delimiters are auto-detected.</p>
   <div class="info-box"><strong>Note:</strong> The (layer, node) pairs are derived automatically from the edge list — you do not need to supply them. The optional <em>State Node Attributes</em> file lets you attach per-layer attributes to those pairs without modifying any other file.</div>
 
@@ -301,69 +407,8 @@ Ixodes_ricinus,0.003</code></pre>
 
   <hr>
 
-  <!-- ── DATA FORMAT ───────────────────────────────────────────── -->
-  <h2 class="sec mode-misc" id="data-format">📄 JSON Format Spec</h2>
-  <p>Prepare a <code>.json</code> file with the structure below.</p>
-
-  <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:16px;font-size:12px;overflow-x:auto;line-height:1.6"><code style="background:none;border:none;padding:0;color:#1f2937">{
-  "directed": false,
-  "directed_interlayer": false,
-  "layers": [
-    { "layer_id": 1, "layer_name": "Forest", "latitude": 42.3, "longitude": 3.1, "bipartite": true }
-  ],
-  "nodes": [
-    { "node_id": "sp_1", "node_name": "Bee", "node_type": "pollinator" }
-  ],
-  "extended": [
-    { "layer_from": "Forest", "node_from": "Bee", "layer_to": "Forest", "node_to": "Flower", "weight": 1.5 }
-  ],
-  "state_nodes": [
-    { "layer_name": "Forest", "node_name": "Bee" }
-  ]
-}</code></pre>
-
-  <h3>Global fields</h3>
-  <ul>
-    <li><code>directed</code> <em>(Boolean)</em> — renders arrowheads on all edges. Default: <code>false</code>.</li>
-    <li><code>directed_interlayer</code> <em>(Boolean, optional)</em> — when <code>true</code>, interlayer edges are treated as directed (arrowheads rendered) even if the overall network is undirected. Useful for temporal networks where direction represents time (e.g. year t → year t+1). Defaults to the value of <code>directed</code>.</li>
-  </ul>
-
-  <h3><code>layers</code> array</h3>
-  <ul>
-    <li><code>layer_id</code> — unique identifier.</li>
-    <li><code>layer_name</code> — display name.</li>
-    <li><code>latitude</code> / <code>longitude</code> <em>(optional)</em> — unlocks Map Mode.</li>
-    <li><code>bipartite</code> <em>(optional, Boolean)</em> — set <code>true</code> to mark this layer bipartite. Requires nodes to carry <code>node_type</code> with exactly two distinct values. Never auto-detected.</li>
-    <li>Any extra columns become selectable attributes for color/size mapping.</li>
-  </ul>
-
-  <h3><code>nodes</code> array</h3>
-  <ul>
-    <li><code>node_id</code> — unique identifier.</li>
-    <li><code>node_name</code> — display label.</li>
-    <li><code>node_type</code> <em>(required for bipartite layers)</em> — exactly two distinct values; determines Set A vs. Set B.</li>
-    <li>Any extra columns become selectable attributes for color/size mapping.</li>
-  </ul>
-
-  <h3><code>extended</code> array</h3>
-  <p>One row per edge. Intralayer and interlayer edges both go here.</p>
-  <ul>
-    <li><code>layer_from</code>, <code>node_from</code>, <code>layer_to</code>, <code>node_to</code> — required.</li>
-    <li><code>weight</code> <em>(optional)</em> — line thickness/opacity. Defaults to 1.</li>
-    <li>Any extra columns become selectable attributes for color/size mapping.</li>
-  </ul>
-
-  <h3><code>state_nodes</code> array</h3>
-  <p>Enumerates every (layer, node) pair present. Required for correct rendering.</p>
-  <ul>
-    <li><code>layer_name</code>, <code>node_name</code> — required.</li>
-    <li>Any extra columns carry <strong>per-layer node attributes</strong> — attributes whose value can differ for the same node in different layers (e.g. <code>abundance</code>, <code>module</code>). These are distinct from physical node attributes (in the <code>nodes</code> array), which are constant across layers. In CSV import, per-layer attributes are supplied via the optional <em>State Node Attributes</em> file.</li>
-  </ul>
-
-  <hr>
-
   <!-- ── EXAMPLE DATASETS ───────────────────────────────────────── -->
-  <h2 class="sec mode-misc" id="examples">📦 Built-in Example Datasets</h2>
+  <h2 class="sec mode-misc" id="examples"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" style="flex-shrink:0"><ellipse cx="12" cy="5" rx="8" ry="3" stroke-linecap="round"/><path d="M7 10.842C7.60158 11.0229 8.27434 11.1718 9 11.282"/><path d="M20 12C20 13.6569 16.4183 15 12 15C7.58172 15 4 13.6569 4 12"/><path d="M7 17.842C7.60158 18.0229 8.27434 18.1718 9 18.282"/><path d="M20 5V19C20 20.6569 16.4183 22 12 22C7.58172 22 4 20.6569 4 19V5"/></svg> Built-in Example Datasets</h2>
   <table style="width:100%;border-collapse:collapse;font-size:13px;">
     <thead>
       <tr style="background:#f3f4f6;">
@@ -381,13 +426,6 @@ Ixodes_ricinus,0.003</code></pre>
         <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Undirected bipartite</td>
         <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">5</td>
         <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Spatial pollination; GPS coordinates → Map Mode and geographic Layer View</td>
-      </tr>
-      <tr>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Thousand Island Lake seed dispersal</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Zhu et al. 2025</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Undirected bipartite</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">22</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Layer attributes (area in ha, isolation in m)</td>
       </tr>
       <tr>
         <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Basque Country spatial pollination</td>
@@ -423,17 +461,24 @@ Ixodes_ricinus,0.003</code></pre>
   <hr>
 
   <!-- ── MODES ─────────────────────────────────────────────────────── -->
-  <h2 class="sec mode-misc" id="modes">🌎 Visualization Modes</h2>
-  <p>Five modes are available, switched via the bottom-left toolbar. The left sidebar changes with each mode.</p>
+  <h2 class="sec mode-misc" id="modes"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linejoin="round" style="flex-shrink:0"><path d="M3.88884 9.66294C4.39329 10 5.09552 10 6.49998 10C7.90445 10 8.60668 10 9.11113 9.66294C9.32951 9.51702 9.51701 9.32952 9.66292 9.11114C9.99998 8.60669 9.99998 7.90446 9.99998 6.5C9.99998 5.09554 9.99998 4.39331 9.66292 3.88886C9.51701 3.67048 9.32951 3.48298 9.11113 3.33706C8.60668 3 7.90445 3 6.49998 3C5.09552 3 4.39329 3 3.88884 3.33706C3.67046 3.48298 3.48296 3.67048 3.33705 3.88886C2.99998 4.39331 2.99998 5.09554 2.99998 6.5C2.99998 7.90446 2.99998 8.60669 3.33705 9.11114C3.48296 9.32952 3.67046 9.51702 3.88884 9.66294Z"/><path d="M14.8888 9.66294C15.3933 10 16.0955 10 17.5 10C18.9044 10 19.6067 10 20.1111 9.66294C20.3295 9.51702 20.517 9.32952 20.6629 9.11114C21 8.60669 21 7.90446 21 6.5C21 5.09554 21 4.39331 20.6629 3.88886C20.517 3.67048 20.3295 3.48298 20.1111 3.33706C19.6067 3 18.9044 3 17.5 3C16.0955 3 15.3933 3 14.8888 3.33706C14.6705 3.48298 14.483 3.67048 14.337 3.88886C14 4.39331 14 5.09554 14 6.5C14 7.90446 14 8.60669 14.337 9.11114C14.483 9.32952 14.6705 9.51702 14.8888 9.66294Z"/><path d="M3.88884 20.6629C4.39329 21 5.09552 21 6.49998 21C7.90445 21 8.60668 21 9.11113 20.6629C9.32951 20.517 9.51701 20.3295 9.66292 20.1111C9.99998 19.6067 9.99998 18.9045 9.99998 17.5C9.99998 16.0955 9.99998 15.3933 9.66292 14.8889C9.51701 14.6705 9.32951 14.483 9.11113 14.3371C8.60668 14 7.90445 14 6.49998 14C5.09552 14 4.39329 14 3.88884 14.3371C3.67046 14.483 3.48296 14.6705 3.33705 14.8889C2.99998 15.3933 2.99998 16.0955 2.99998 17.5C2.99998 18.9045 2.99998 19.6067 3.33705 20.1111C3.48296 20.3295 3.67046 20.517 3.88884 20.6629Z"/><path d="M14.8888 20.6629C15.3933 21 16.0955 21 17.5 21C18.9044 21 19.6067 21 20.1111 20.6629C20.3295 20.517 20.517 20.3295 20.6629 20.1111C21 19.6067 21 18.9045 21 17.5C21 16.0955 21 15.3933 20.6629 14.8889C20.517 14.6705 20.3295 14.483 20.1111 14.3371C19.6067 14 18.9044 14 17.5 14C16.0955 14 15.3933 14 14.8888 14.3371C14.6705 14.483 14.483 14.6705 14.337 14.8889C14 15.3933 14 16.0955 14 17.5C14 18.9045 14 19.6067 14.337 20.1111C14.483 20.3295 14.6705 20.517 14.8888 20.6629Z"/></svg> Visualization Modes</h2>
+  <p>Six modes are available, switched via the top toolbar strip. <strong>The left sidebar is dynamic</strong> — its panels (Data, Layers, Nodes, Links, Search, and others) change automatically to show controls relevant to the active mode.</p>
 
   <!-- Network Mode -->
-  <h2 class="sec mode-network" id="network">🕸️ Network Mode <span class="badge">Default</span></h2>
+  <h2 class="sec mode-network" id="network"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2" stroke-linejoin="round" style="flex-shrink:0"><polygon points="12,2 22,8.5 12,15 2,8.5"/><polyline points="2,12 12,18.5 22,12"/><polyline points="2,16 12,22.5 22,16"/></svg> Network Mode <span class="badge">Default</span></h2>
   <p>All layers rendered simultaneously in a continuous 3D coordinate space.</p>
+  <h4>Navigation</h4>
   <ul>
     <li><span class="key">Rotate</span> — drag the background.</li>
     <li><span class="key">Pan</span> — <code>Shift</code> + drag.</li>
     <li><span class="key">Drag a layer</span> — <code>Cmd</code> / <code>Ctrl</code> + drag a layer outline.</li>
     <li><span class="key">Zoom</span> — scroll wheel or <code>+</code> / <code>−</code> toolbar buttons.</li>
+  </ul>
+  <h4>Interactions</h4>
+  <ul>
+    <li><span class="key">Node / Link Hover</span> — highlights the hovered element's connections and dims the rest. A tooltip shows node or link data.</li>
+    <li><span class="key">Click a node</span> — locks its web of connections in focus. Click the background to clear.</li>
+    <li><span class="key">Search Nodes</span> — type in the sidebar search box to locate a node by name; click a result to select and center it.</li>
   </ul>
 
   <h3 id="network-controls">Sidebar Controls</h3>
@@ -463,7 +508,7 @@ Ixodes_ricinus,0.003</code></pre>
   </ul>
 
   <!-- Map Mode -->
-  <h2 class="sec mode-map" id="map">🗺️ Map Mode</h2>
+  <h2 class="sec mode-map" id="map"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0284c7" style="flex-shrink:0"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg> Map Mode</h2>
   <p>Layers placed on an interactive Leaflet world map. Only available when the dataset includes <code>latitude</code> and <code>longitude</code> on its layers.</p>
   <ul>
     <li><span class="key">Layer Markers</span> — layers appear as blue circle markers on the map.</li>
@@ -483,52 +528,8 @@ Ixodes_ricinus,0.003</code></pre>
     <li><span class="key">Street Map</span> — switch between satellite imagery (default) and OpenStreetMap street tiles.</li>
   </ul>
 
-  <!-- Dashboard Mode -->
-  <h2 class="sec mode-dashboard" id="dashboard">📊 Dashboard Mode</h2>
-  <p>Replaces the canvas with analytics panels. All sections are collapsible — click a header to expand/collapse.</p>
-
-  <h3>Sidebar Controls</h3>
-  <ul>
-    <li><span class="key">Sort layers by</span> — order layers in all charts by Participation, Nodes, Intra-links, Inter-links, or Density.</li>
-    <li><span class="key">Show bipartite detail</span> — (bipartite networks only) hide/show Set A / Set B split panels. This checkbox appears in the sidebar only while Dashboard Mode is active.</li>
-  </ul>
-
-  <h4 id="dashboard-kpi">KPI Cards</h4>
-  <p>Five headline numbers: total unique nodes, total layers, total intralayer links, total interlayer links, and mean edge density.</p>
-
-  <h4 id="dashboard-bars">Per-Layer Bar Charts</h4>
-  <p>Side-by-side bars per layer: node count, intralayer links, interlayer links, and edge density. The highest-value bar is accent-colored. For bipartite networks the node-count chart becomes a stacked bar split by <span style="color:#0072b2;font-weight:600">Set A</span> and <span style="color:#f472b6;font-weight:600">Set B</span>. Clicking a layer name highlights it in the background network.</p>
-
-  <h4 id="dashboard-weights">Link Weight Distributions</h4>
-  <p>Two histograms showing the distribution of edge weights across the network.</p>
-  <ul>
-    <li><strong>Intralayer</strong> — a dropdown above the histogram lets you choose <em>All layers</em> (aggregated, default) or any specific layer.</li>
-    <li><strong>Interlayer</strong> — histogram paired with a count heatmap to its left. Heatmap cells show the raw number of interlayer links between each pair of layers (amber colour scale). Click a non-empty cell to filter the histogram to that pair; a <strong>✕ Clear</strong> button resets to all pairs. For temporal networks with <code>directed_interlayer: true</code> the heatmap is asymmetric (e.g. 1982→1983 is distinct from 1983→1982).</li>
-  </ul>
-  <p>Only shown when the dataset has weighted edges (all weights = 1 still displays, confirming the network is unweighted).</p>
-
-  <h4 id="dashboard-matrix">Node × Layer Presence Matrix</h4>
-  <p>Heatmap of which nodes appear in which layers. A toggle switches orientation between <strong>Layer rows × Node cols</strong> (default, exploits screen width) and <strong>Node rows × Layer cols</strong>. Sort buttons reorder alphabetically or by participation count.</p>
-
-  <h4 id="dashboard-jaccard">Layer Similarity (Jaccard)</h4>
-  <p>Square heatmaps where rows and columns are layers. Each cell = Jaccard similarity (0 = white → 1 = accent).</p>
-  <ul>
-    <li><strong>Node identity</strong> — overlap in which physical nodes appear. Bipartite networks split into <span style="color:#0072b2;font-weight:600">Set A</span>, <span style="color:#f472b6;font-weight:600">Set B</span>, and edge matrices (three total).</li>
-    <li><strong>Edge identity</strong> — overlap in which edges appear across layers (amber).</li>
-  </ul>
-  <p>Diagonal = 1 by computation. Empty layers → gray (NaN).</p>
-
-  <h4 id="dashboard-degree">Degree Distributions</h4>
-  <p>Histograms of node degree for the full network and per layer. Bipartite: separate histograms for Set A and Set B.</p>
-
-  <h4 id="dashboard-participation">Node Participation</h4>
-  <p>Bar chart showing how many layers each node appears in, sorted by count. Bipartite: Set A and Set B shown separately.</p>
-
-  <h4 id="dashboard-setratio">Set Size Ratio <span class="pill pill-dashboard">bipartite only</span></h4>
-  <p>Bar chart showing the ratio of Set A to Set B nodes per layer — a quick view of balance across layers.</p>
-
   <!-- Layer Mode -->
-  <h2 class="sec mode-layer" id="layerview">🔵 Layer Mode</h2>
+  <h2 class="sec mode-layer" id="layerview"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><line x1="12" y1="7.5" x2="5.9" y2="16.6"/><line x1="12" y1="7.5" x2="18.1" y2="16.6"/><line x1="7.4" y1="19" x2="16.6" y2="19"/></svg> Layer Mode</h2>
   <p>Each layer becomes an interactive bubble in a force-directed meta-graph. Individual nodes are abstracted away.</p>
   <ul>
     <li>Inside each bubble: a <strong>micro-graph preview</strong> of internal topology.</li>
@@ -574,7 +575,7 @@ Ixodes_ricinus,0.003</code></pre>
   </ul>
 
   <!-- Meta-Network Mode -->
-  <h2 class="sec mode-meta" id="metanetwork">Σ Meta-Network Mode</h2>
+  <h2 class="sec mode-meta" id="metanetwork"><span style="font-size:18px;font-weight:700;color:#d97706;line-height:1;flex-shrink:0;">Σ</span> Meta-Network Mode</h2>
   <p>Aggregates all intralayer links across every layer into a single, flat 2D network of unique physical nodes. Use this mode to see the <strong>full interaction graph</strong> of your multilayer network, independent of which layer each interaction was observed in.</p>
   <ul>
     <li><strong>Nodes</strong> — every unique physical node that appears in at least one layer.</li>
@@ -582,7 +583,7 @@ Ixodes_ricinus,0.003</code></pre>
     <li><strong>Bipartite networks</strong> — when the dataset contains bipartite layers, the mode defaults to the <em>Two-row</em> layout with Set A above and Set B below, separated by dashed guide lines.</li>
     <li><strong>Directed networks</strong> — direction is preserved; arrowheads are drawn on each edge.</li>
   </ul>
-  <div class="info-box">Activate via the <strong>Σ</strong> button in the bottom-left toolbar. Clicking it again returns to Network Mode.</div>
+  <div class="info-box">Activate via the <strong>Σ</strong> button in the top toolbar strip. Clicking it again returns to Network Mode.</div>
 
   <h3 id="mn-interactions">Interactions</h3>
   <h4>Node selection</h4>
@@ -646,11 +647,104 @@ Ixodes_ricinus,0.003</code></pre>
     <li>Press <kbd>Escape</kbd> — closes the dropdown without selecting.</li>
   </ul>
 
+  <!-- Dashboard Mode -->
+  <h2 class="sec mode-dashboard" id="dashboard"><svg width="18" height="18" viewBox="0 0 24 24" fill="#dc2626" style="flex-shrink:0"><rect x="3" y="12" width="5" height="9" rx="1"/><rect x="9.5" y="7" width="5" height="14" rx="1"/><rect x="16" y="3" width="5" height="18" rx="1"/></svg> Dashboard Mode</h2>
+  <p>Replaces the canvas with analytics panels. All sections are collapsible — click a header to expand/collapse.</p>
+
+  <h3>Sidebar Controls</h3>
+  <ul>
+    <li><span class="key">Sort layers by</span> — order layers in all charts by Participation, Nodes, Intra-links, Inter-links, or Density.</li>
+    <li><span class="key">Show bipartite detail</span> — (bipartite networks only) hide/show Set A / Set B split panels. This checkbox appears in the sidebar only while Dashboard Mode is active.</li>
+  </ul>
+
+  <h4 id="dashboard-kpi">KPI Cards</h4>
+  <p>Five headline numbers: total unique nodes, total layers, total intralayer links, total interlayer links, and mean edge density.</p>
+
+  <h4 id="dashboard-bars">Per-Layer Bar Charts</h4>
+  <p>Side-by-side bars per layer: node count, intralayer links, interlayer links, and edge density. The highest-value bar is accent-colored. For bipartite networks the node-count chart becomes a stacked bar split by <span style="color:#0072b2;font-weight:600">Set A</span> and <span style="color:#f472b6;font-weight:600">Set B</span>. Clicking a layer name highlights it in the background network.</p>
+
+  <h4 id="dashboard-weights">Link Weight Distributions</h4>
+  <p>Two histograms showing the distribution of edge weights across the network.</p>
+  <ul>
+    <li><strong>Intralayer</strong> — a dropdown above the histogram lets you choose <em>All layers</em> (aggregated, default) or any specific layer.</li>
+    <li><strong>Interlayer</strong> — histogram paired with a count heatmap to its left. Heatmap cells show the raw number of interlayer links between each pair of layers (amber colour scale). Click a non-empty cell to filter the histogram to that pair; a <strong>✕ Clear</strong> button resets to all pairs. For temporal networks with <code>directed_interlayer: true</code> the heatmap is asymmetric (e.g. 1982→1983 is distinct from 1983→1982).</li>
+  </ul>
+  <p>Only shown when the dataset has weighted edges (all weights = 1 still displays, confirming the network is unweighted).</p>
+
+  <h4 id="dashboard-matrix">Node × Layer Presence Matrix</h4>
+  <p>Heatmap of which nodes appear in which layers. A toggle switches orientation between <strong>Layer rows × Node cols</strong> (default, exploits screen width) and <strong>Node rows × Layer cols</strong>. Sort buttons reorder alphabetically or by participation count.</p>
+
+  <h4 id="dashboard-jaccard">Layer Similarity (Jaccard)</h4>
+  <p>Square heatmaps where rows and columns are layers. Each cell = Jaccard similarity (0 = white → 1 = accent).</p>
+  <ul>
+    <li><strong>Node identity</strong> — overlap in which physical nodes appear. Bipartite networks split into <span style="color:#0072b2;font-weight:600">Set A</span>, <span style="color:#f472b6;font-weight:600">Set B</span>, and edge matrices (three total).</li>
+    <li><strong>Edge identity</strong> — overlap in which edges appear across layers (amber).</li>
+  </ul>
+  <p>Diagonal = 1 by computation. Empty layers → gray (NaN).</p>
+
+  <h4 id="dashboard-degree">Degree Distributions</h4>
+  <p>Histograms of node degree for the full network and per layer. Bipartite: separate histograms for Set A and Set B.</p>
+
+  <h4 id="dashboard-participation">Node Participation</h4>
+  <p>Bar chart showing how many layers each node appears in, sorted by count. Bipartite: Set A and Set B shown separately.</p>
+
+  <!-- ── DATA MODE ─────────────────────────────────────────────── -->
+  <h2 class="sec mode-data" id="datamode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c51b7d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg> Data Mode</h2>
+  <p>A tabular inspection and subsetting interface for your network data — similar to Gephi's Data Laboratory. Switch to Data Mode via the grid icon in the top toolbar strip.</p>
+
+  <h3 id="dm-tables">Tables</h3>
+  <p>Four tabs display different aspects of the loaded network:</p>
+  <ul>
+    <li><span class="key">Nodes</span> — one row per physical node. Shows <code>node_name</code>, <code>layer_count</code> (number of layers the node appears in), and any imported node attributes.</li>
+    <li><span class="key">State Nodes</span> — one row per (layer, node) pair. Shows <code>layer_name</code>, <code>node_name</code>, computed <code>degree</code>, and any per-layer state node attributes (e.g. <code>abundance</code>, <code>module</code>).</li>
+    <li><span class="key">Links</span> — one row per edge. Shows <code>layer_from</code>, <code>node_from</code>, <code>layer_to</code>, <code>node_to</code>, <code>weight</code>, a <span class="pill pill-network">type</span> pill (intralayer or interlayer), and any imported link attributes.</li>
+    <li><span class="key">Layers</span> — one row per layer. Shows <code>layer_name</code>, <code>node_count</code>, <code>link_count</code>, a color picker, and any imported layer attributes.</li>
+  </ul>
+  <p>Click any column header label to <strong>sort</strong> by that column. Click again to reverse the sort order. A third click removes sorting.</p>
+
+  <h3 id="dm-filters">Column Filters</h3>
+  <p>Each column header shows a <strong>funnel icon</strong> (▼). Click it to open a filter popup for that column:</p>
+  <ul>
+    <li><span class="key">Checkbox filter</span> — for columns with 40 or fewer unique values. A scrollable list of checkboxes lets you include or exclude specific values. A search box at the top narrows the list. Use <em>Select All</em> / <em>Clear All</em> for bulk toggling.</li>
+    <li><span class="key">Text filter</span> — for numeric columns or columns with many unique values. Type a substring to match against. Press <kbd>Enter</kbd> or click <em>Apply</em> to commit.</li>
+  </ul>
+  <p>Active filters are indicated by a highlighted (indigo) funnel icon. Multiple column filters combine with AND logic — a row must match all active filters to appear.</p>
+  <p>Click <em>Reset</em> inside any popup to clear that column's filter.</p>
+
+  <h3 id="dm-selection">Row Selection</h3>
+  <p>Click any row to select it (highlighted in indigo). Multi-select is supported:</p>
+  <ul>
+    <li><span class="key"><code>Cmd</code> / <code>Ctrl</code> + Click</span> — toggle individual rows on or off.</li>
+    <li><span class="key"><code>Shift</code> + Click</span> — select a contiguous range from the last-clicked row to the current row.</li>
+  </ul>
+  <p>When rows are selected, a purple action bar appears at the top showing the count. Click <strong>Filter to selection</strong> to subset the network to only the selected rows. Click <strong>Clear</strong> to deselect all.</p>
+
+  <h3 id="dm-subsetting">Subsetting</h3>
+  <p>Filters and selections in Data Mode propagate to <span class="pill pill-network">Network</span> and <span class="pill pill-map">Map</span> modes. When a subset is active:</p>
+  <ul>
+    <li>Only matching nodes, links, and layers are rendered on the canvas.</li>
+    <li>A compact <strong>amber filter banner</strong> appears in the bottom-right corner (above the branding panel) showing how many items are filtered and a <em>Clear</em> button.</li>
+    <li>The banner is visible only in Network and Map modes — it hides in other modes.</li>
+  </ul>
+  <p>Subsets are derived from the active tab: filtering the <em>Nodes</em> tab subsets by node names; filtering <em>Layers</em> subsets by layer names; filtering <em>Links</em> subsets by individual link keys.</p>
+  <div class="tip-box"><strong>Tip:</strong> Use column filters to narrow the table first, then use row multi-select + <em>Filter to selection</em> for precise control over which items appear in the visualization.</div>
+
+  <h3 id="dm-colors">Layer Colors</h3>
+  <p>The <em>Layers</em> tab includes a <strong>color picker</strong> in each row. Changing a layer's color here updates it everywhere:</p>
+  <ul>
+    <li>The color persists when switching back to Network or Map mode.</li>
+    <li>In the Network Mode sidebar, set <strong>Layer Color By</strong> to <em>Individual</em> to use these per-layer colors for the layer planes.</li>
+  </ul>
+  <p>Default colors are assigned from a built-in palette and can be customized at any time.</p>
+
+  <h3 id="dm-export">CSV Export</h3>
+  <p>Click the <strong>Export CSV</strong> button to download the currently visible (filtered) rows as a <code>.csv</code> file. The export respects all active column filters and row selections — only what you see in the table is exported.</p>
+
   <hr>
 
   <!-- ── TOOLBAR ─────────────────────────────────────────────────── -->
-  <h2 class="sec mode-misc" id="toolbar">🛠️ Bottom-Left Toolbar</h2>
-  <p>Buttons from left to right:</p>
+  <h2 class="sec mode-misc" id="toolbar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" style="flex-shrink:0"><path d="M2 12C2 8.31088 2 6.46632 2.81382 5.15878C3.1149 4.67504 3.48891 4.25428 3.91891 3.91556C5.08116 3.00002 6.72077 3.00002 10 3.00002H14C17.2792 3.00002 18.9188 3.00002 20.0811 3.91556C20.5111 4.25428 20.8851 4.67504 21.1862 5.15878C22 6.46632 22 8.31088 22 12C22 15.6891 22 17.5337 21.1862 18.8412C20.8851 19.325 20.5111 19.7457 20.0811 20.0845C18.9188 21 17.2792 21 14 21H10C6.72077 21 5.08116 21 3.91891 20.0845C3.48891 19.7457 3.1149 19.325 2.81382 18.8412C2 17.5337 2 15.6891 2 12Z"/><path d="M2 9.50002L22 9.50002" stroke-linejoin="round"/><path d="M6 6.00002H7M10 6.00002H11" stroke-linecap="round" stroke-linejoin="round"/></svg> Top Toolbar Strip</h2>
+  <p>A full-width frosted-glass strip pinned to the top of the canvas. Buttons from left to right:</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;">
     <thead>
       <tr style="background:#f3f4f6;">
@@ -660,32 +754,47 @@ Ixodes_ricinus,0.003</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;font-size:13px;font-weight:700;color:#374151;">?</td>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Help</span> — opens this manual in a new tab. In the app, clicking it first shows a context-sensitive quick-help popup for the current mode.</td>
       </tr>
       <tr>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 12,13.5 22,7"/><polyline points="2,12 12,18.5 22,12"/><polyline points="2,16 12,22.5 22,16"/></svg>
+          <!-- Network Mode — violet #6d28d9 -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2" stroke-linejoin="round"><polygon points="12,2 22,8.5 12,15 2,8.5"/><polyline points="2,12 12,18.5 22,12"/><polyline points="2,16 12,22.5 22,16"/></svg>
         </td>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Layer Mode</span> — toggle Layer Mode (meta-graph of layers).</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;font-size:15px;font-weight:600;letter-spacing:-1px;color:#0c6a9e;">Σ</td>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Meta-Network Mode</span> — toggle Meta-Network Mode. Aggregates all intralayer links into a single 2D monolayer network of unique physical nodes.</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Network Mode</span> — return to the default 3D oblique multilayer canvas.</td>
       </tr>
       <tr>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#374151"><rect x="3" y="12" width="5" height="9" rx="1"/><rect x="9.5" y="7" width="5" height="14" rx="1"/><rect x="16" y="3" width="5" height="18" rx="1"/></svg>
-        </td>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Dashboard Mode</span> — toggle Dashboard Mode.</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#374151"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+          <!-- Map Mode — sky blue #0284c7 -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0284c7"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
         </td>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Map Mode</span> — toggle geographic Map Mode (only visible when dataset has coordinates).</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
+          <!-- Layer Mode — emerald #059669 -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><line x1="12" y1="7.5" x2="5.9" y2="16.6"/><line x1="12" y1="7.5" x2="18.1" y2="16.6"/><line x1="7.4" y1="19" x2="16.6" y2="19"/></svg>
+        </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Layer Mode</span> — toggle Layer Mode (interactive meta-graph of layers).</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;font-size:15px;font-weight:600;letter-spacing:-1px;color:#d97706;">Σ</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Meta-Network Mode</span> — aggregate all intralayer links into a single 2D monolayer network.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
+          <!-- Dashboard Mode — red #dc2626 -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#dc2626"><rect x="3" y="12" width="5" height="9" rx="1"/><rect x="9.5" y="7" width="5" height="14" rx="1"/><rect x="16" y="3" width="5" height="18" rx="1"/></svg>
+        </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Dashboard Mode</span> — toggle analytics dashboard.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
+          <!-- Data Mode — magenta #c51b7d -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c51b7d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Data Mode</span> — tabular inspection and subsetting (nodes, links, layers, state nodes).</td>
       </tr>
       <tr>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;font-weight:700;color:#374151;">+</td>
@@ -697,7 +806,7 @@ Ixodes_ricinus,0.003</code></pre>
       </tr>
       <tr>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;font-size:10px;color:#374151;">Reset</td>
-        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Reset Viewport</span> — reset zoom and pan. In Layer Mode, also unpins all bubbles and re-runs the force layout.</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Reset Viewport</span> — reset zoom, pan, and 3D angle. In Layer Mode, also unpins all bubbles and re-runs the force layout.</td>
       </tr>
       <tr>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
@@ -717,28 +826,20 @@ Ixodes_ricinus,0.003</code></pre>
   <hr>
 
   <!-- ── LEGEND ──────────────────────────────────────────────────── -->
-  <h2 class="sec mode-misc" id="legend">🏷️ Dynamic Legend</h2>
-  <p>A legend panel appears in the bottom-right corner whenever color or size mappings are active. Toggle visibility with the legend button in the toolbar.</p>
+  <h2 class="sec mode-misc" id="legend"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="7" cy="9" r="1.3" fill="#374151" stroke="none"/><line x1="11" y1="9" x2="18" y2="9"/><circle cx="7" cy="14" r="1.3" fill="#374151" stroke="none"/><line x1="11" y1="14" x2="18" y2="14"/></svg> Dynamic Legend</h2>
+  <p>A legend panel appears in the bottom-right corner whenever color or size mappings are active. Legends expand automatically when you select an attribute. Toggle panel visibility with the legend button in the top toolbar strip.</p>
   <ul>
-    <li><span class="key">Draggable</span> — drag the title bar to reposition anywhere on screen.</li>
-    <li><span class="key">Collapsible</span> — click <strong>−</strong> to collapse to a tab; <strong>+</strong> to expand again.</li>
-    <li><span class="key">Closeable</span> — click <strong>✕</strong> to dismiss. Reappears on new data load or setting change.</li>
-    <li><span class="key">Interactive toggle</span> (Layer Mode) — when coloring by Node count or Edge density, a button switches between a continuous gradient bar and a categorical list.</li>
-  </ul>
-
-  <hr>
-
-  <!-- ── ADVANCED ────────────────────────────────────────────────── -->
-  <h2 class="sec mode-network" id="interactions">🖱️ Advanced Interactions (Network Mode)</h2>
-  <ul>
-    <li><span class="key">Node / Link Hover</span> — highlights nearest connections and dims the rest. A tooltip shows exact node data.</li>
-    <li><span class="key">Selection Focus</span> — click a node to lock its web of connections. Click the background to clear the selection.</li>
+    <li><span class="key">Draggable</span> — drag the legend box to reposition it anywhere on screen.</li>
+    <li><span class="key">Collapsible</span> — click <strong>✕</strong> on a legend box to collapse it to a small expand button; click the button to restore it.</li>
+    <li><span class="key">Per-set legends</span> — bipartite networks show separate color and size legends for Set A and Set B (e.g. "Node Color (bird)" / "Node Color (plant)").</li>
+    <li><span class="key">Categorical color pickers</span> — for any categorical attribute (e.g. <code>node_type</code>, <code>module</code>), each legend entry shows a circular color swatch. Click a swatch to open the OS color picker and assign a custom color to that value. Changes apply instantly. Overrides persist for the session and are cleared by <em>Reset Visualization Options</em>.</li>
+    <li><span class="key">Continuous/Discrete toggle</span> — for numeric attributes, a pill button in the legend header switches between a continuous gradient and a discrete categorical palette.</li>
   </ul>
 
   <hr>
 
   <!-- ── EMLN INTEGRATION ──────────────────────────────────────────────── -->
-  <h2 class="sec mode-misc" id="emln">📦 Integration with the emln R Package</h2>
+  <h2 class="sec mode-misc" id="emln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 22C11.1818 22 10.4002 21.6708 8.83693 21.0123C4.94564 19.3734 3 18.5539 3 17.1754V7.54234M12 22C12.8182 22 13.5998 21.6708 15.1631 21.0123C19.0544 19.3734 21 18.5539 21 17.1754V7.54234M12 22V12.0292M3 7.54234C3 8.15478 3.80157 8.54152 5.40472 9.315L8.32592 10.7244C10.1288 11.5943 11.0303 12.0292 12 12.0292M3 7.54234C3 6.9299 3.80157 6.54317 5.40472 5.76969L7 5M21 7.54234C21 8.15478 20.1984 8.54152 18.5953 9.315L15.6741 10.7244C13.8712 11.5943 12.9697 12.0292 12 12.0292M21 7.54234C21 6.9299 20.1984 6.54316 18.5953 5.76969L17.0446 5.02151M6 13.0263L8 14.0234"/><path d="M11.9963 9L11.9963 2.00005M11.9963 2.00005C11.7332 1.99649 11.4737 2.18028 11.2822 2.40466L10 3.93826M11.9963 2.00005C12.2501 2.00348 12.5071 2.18632 12.7103 2.40466L14 3.93826"/></svg> Integration with the emln R Package</h2>
   <p>The <a href="https://ecological-complexity-lab.github.io/emln_package/" target="_blank">emln</a> R package provides three functions to load and export multilayer networks directly into MultilayerViz — no manual file preparation required.</p>
 
   <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:14px;font-size:12px;line-height:1.7"><code style="background:none;border:none;padding:0;color:#1f2937">library(emln)
@@ -796,7 +897,38 @@ multilayer_to_csv(net, dir = "out/", prefix = "net60", bipartite = TRUE)</code><
 </main>
 
 <script>
-  // Highlight active TOC link on scroll
+  // ── Collapsible TOC groups ──────────────────────────────────────────
+  document.querySelectorAll('.toc-toggle').forEach(toggle => {
+    const groupId = toggle.dataset.group;
+    const children = document.getElementById(groupId);
+    if (!children) return;
+
+    // Start collapsed (except top-level Data Import open by default)
+    children.classList.add('collapsed');
+    toggle.classList.remove('open');
+
+    toggle.addEventListener('click', e => {
+      // Still navigate to anchor on click
+      const href = toggle.getAttribute('href');
+      const collapsed = children.classList.toggle('collapsed');
+      toggle.classList.toggle('open', !collapsed);
+    });
+  });
+
+  // Open the group that contains the active section on scroll
+  function openParentGroups(tocLink) {
+    let el = tocLink.parentElement;
+    while (el && el.id !== 'toc') {
+      if (el.classList.contains('toc-children')) {
+        el.classList.remove('collapsed');
+        const toggle = el.previousElementSibling;
+        if (toggle) toggle.classList.add('open');
+      }
+      el = el.parentElement;
+    }
+  }
+
+  // ── Highlight active TOC link on scroll ────────────────────────────
   const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
   const tocLinks  = document.querySelectorAll('#toc a');
 
@@ -805,7 +937,10 @@ multilayer_to_csv(net, dir = "out/", prefix = "net60", bipartite = TRUE)</code><
       if (entry.isIntersecting) {
         tocLinks.forEach(a => a.classList.remove('active'));
         const active = document.querySelector(`#toc a[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
+        if (active) {
+          active.classList.add('active');
+          openParentGroups(active);
+        }
       }
     });
   }, { rootMargin: '-10% 0px -80% 0px' });

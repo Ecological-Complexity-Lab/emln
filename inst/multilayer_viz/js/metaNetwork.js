@@ -8,6 +8,8 @@
  * on selection and layer filter.
  */
 
+import { BIPARTITE_SET_A_COLOR, BIPARTITE_SET_B_COLOR } from './colorMapper.js';
+
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 const MN_ROW_SPACING   = 150;   // sim-coord distance from centre to each bipartite row
@@ -67,7 +69,9 @@ export class MetaNetwork {
             showLabels:    true,
             labelFontSize: 12,
             nestedSort:    true,
-            baseSize:      1.0,   // multiplier applied to all node radii
+            baseSize:      1.0,            // multiplier applied to all node radii
+            uniformColorA: BIPARTITE_SET_A_COLOR, // uniform color for bipartite Set A
+            uniformColorB: BIPARTITE_SET_B_COLOR, // uniform color for bipartite Set B
         };
 
         this.state = {
@@ -92,6 +96,19 @@ export class MetaNetwork {
 
     get _useCircularLayout() {
         return this.settings.layout === 'circular';
+    }
+
+    /** True when the model has at least one bipartite layer (nodes have Set A / Set B types). */
+    get hasBipartite() {
+        return this._mnNodes.some(n => n.nodeType !== null);
+    }
+
+    /** Labels for Set A and Set B from the first bipartite layer, falling back to generic names. */
+    get bipartiteSetLabels() {
+        for (const info of this._model.bipartiteInfo.values()) {
+            if (info.isBipartite) return { labelA: info.setALabel, labelB: info.setBLabel };
+        }
+        return { labelA: 'Set A', labelB: 'Set B' };
     }
 
     _buildBipartiteSets() {
@@ -233,7 +250,9 @@ export class MetaNetwork {
 
             // ── Color
             if (colorBy === 'uniform') {
-                n.color = MN_UNIFORM_COLOR;
+                if (n.nodeType === 'A')      n.color = this.settings.uniformColorA;
+                else if (n.nodeType === 'B') n.color = this.settings.uniformColorB;
+                else                         n.color = MN_UNIFORM_COLOR;
             } else {
                 const [val, lo, hi] = colorBy === 'participation'
                     ? [n.participation, minPart, maxPart]
@@ -645,6 +664,8 @@ export class MetaNetwork {
             case 'colorBy':
             case 'sizeBy':
             case 'baseSize':
+            case 'uniformColorA':
+            case 'uniformColorB':
                 this._updateNodeStyles();
                 break;
             case 'nestedSort':

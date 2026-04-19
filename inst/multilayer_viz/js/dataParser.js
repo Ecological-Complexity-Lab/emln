@@ -182,9 +182,6 @@ function detectBipartiteLayers(layers, nodes, intralayerLinks, nodesPerLayer, no
       nodeTypeValues.set(node.node_name, typeValue);
     }
   }
-  const distinctTypes = [...new Set(nodeTypeValues.values())];
-  const hasValidNodeType = distinctTypes.length === 2;
-
   for (const layer of layers) {
     const layerName = layer.layer_name;
     const layerNodes = nodesPerLayer.get(layerName);
@@ -194,10 +191,16 @@ function detectBipartiteLayers(layers, nodes, intralayerLinks, nodesPerLayer, no
       continue;
     }
 
-    if (!hasValidNodeType) {
+    const layerTypes = new Set();
+    for (const nodeName of layerNodes) {
+      const t = nodeTypeValues.get(nodeName);
+      if (t !== undefined) layerTypes.add(t);
+    }
+    const distinctTypes = [...layerTypes].sort();
+    if (distinctTypes.length !== 2) {
       console.warn(
-        `Layer "${layerName}" is declared bipartite but nodes lack a valid "node_type" ` +
-        `attribute with exactly 2 distinct values. Treating as unipartite.`
+        `Layer "${layerName}" is declared bipartite but its nodes have ${distinctTypes.length} ` +
+        `distinct node_type values (need exactly 2). Treating as unipartite.`
       );
       info.set(layerName, { isBipartite: false });
       continue;
