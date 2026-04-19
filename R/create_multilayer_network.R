@@ -49,6 +49,7 @@
 #' @seealso \code{multilayer, create_monolayer_network}
 #'
 #' @export
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{
@@ -127,7 +128,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
   }
 
   # make sure the order of columns is correct for the layer attributes
-  layer_attributes <- layer_attributes %>% select(layer_id, layer_name, everything())
+  layer_attributes <- layer_attributes %>% select("layer_id", "layer_name", everything())
 
   #Loop over the list of layers, creating an edge list for each network separately.
   for (layer_id in 1:length(list_of_layers)) {
@@ -152,8 +153,8 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
                         # get nodes from interlayer edge list
                         if (!is.null(interlayer_links)){
                           # filter links relevant to this layer
-                          f_inter <- interlayer_links %>% filter(layer_from == layer_id | layer_from == l_name)
-                          t_inter <- interlayer_links %>% filter(layer_to == layer_id | layer_to == l_name)
+                          f_inter <- interlayer_links %>% filter(.data$layer_from == layer_id | .data$layer_from == l_name)
+                          t_inter <- interlayer_links %>% filter(.data$layer_to == layer_id | .data$layer_to == l_name)
                           more_nodes <- unique(c(f_inter$node_from, t_inter$node_to)) # get layer nodes present in the interlayer edges
 
                           nodes <- unique(c(nodes, more_nodes))
@@ -161,7 +162,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
                         l_n_attrib <- tibble(node_name = nodes, layer_name = layer_id)
                      } # find node data so we don't lose singletons
                      else if (!is.null(state_node_attributes)) {
-                       l_n_attrib <- state_node_attributes %>% filter(layer_name == l_name)
+                       l_n_attrib <- state_node_attributes %>% filter(.data$layer_name == l_name)
                      }
 
                      igraph_network <- create_monolayer_network(x = the_layer, directed = directed, bipartite = F, node_metadata = l_n_attrib)
@@ -234,7 +235,7 @@ create_multilayer_network <- function(list_of_layers, bipartite, directed, inter
   suppressMessages(
   state_nodes %<>% left_join(layer_attributes) %>%
     left_join(as_tibble(physical_nodes)) %>%
-    select(layer_id, node_id, layer_name, node_name)
+    select("layer_id", "node_id", "layer_name", "node_name")
   )
   if (!is.null(state_node_attributes)){
     print('Joining with user-provided state nodes')

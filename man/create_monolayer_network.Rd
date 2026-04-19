@@ -22,8 +22,8 @@ create_monolayer_network(
 \item{group_names}{For bipartite networks: name of the groups in the columns
 and rows, respectively (e.g., parasites and hosts).}
 
-\item{node_metadata}{Following the igraph method of \code{graph.data.frame}.
-Must have a column called node_name with names matching those in x.}
+\item{node_metadata}{Following the igraph method of \code{graph_from_data_frame}.
+First column must be have names matching those in x.}
 }
 \value{
 A \code{monolayer} object.

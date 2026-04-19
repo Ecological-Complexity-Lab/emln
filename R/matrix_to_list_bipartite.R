@@ -21,7 +21,7 @@
 #'
 #' @export
 #' @import dplyr
-#' @importFrom igraph graph.incidence degree
+#' @importFrom igraph graph_from_biadjacency_matrix degree
 
 matrix_to_list_bipartite <- function(x, group_names=c('set_cols','set_rows')){
   # Assign column and row names
@@ -31,7 +31,7 @@ matrix_to_list_bipartite <- function(x, group_names=c('set_cols','set_rows')){
   #Check that in the bipartite network no overlap between the sets of nodes.
   if (length(intersect(rownames(x),colnames(x)))>0)  {stop('ERROR: Check that there is no overlap between communities in the bipartite network.')}
 
-  g <- igraph::graph.incidence(t(x), weighted = T) # transposing ensures that "from" is at the columns and "to" is the rows
+  g <- igraph::graph_from_biadjacency_matrix(t(x), weighted = T) # transposing ensures that "from" is at the columns and "to" is the rows
   l_bip <- as_tibble(igraph::as_data_frame(g, 'edges'))
   # summary(g)
   if(any(igraph::degree(g)==0)){print('Some node have no interactions. They will appear in the node table but not in the edge list')}

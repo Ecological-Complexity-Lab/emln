@@ -18,11 +18,13 @@
 #'
 #' @examples
 #'
-#' # See examples in: https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_igraph_objects
+#' # See examples in:
+#' # https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_igraph_objects
 #'
 #' @export
 #' @importFrom igraph delete_vertex_attr
 #' @import dplyr
+#' @importFrom rlang .data
 
 get_igraph <- function(multilayer, bipartite, directed) {
   # Create the SAM with all the state nodes
@@ -34,12 +36,12 @@ get_igraph <- function(multilayer, bipartite, directed) {
   # Create the full map. When layer and node ids are NA that means that the node did not occur in the layer
   state_nodes_map <-
     dplyr::left_join(state_nodes_map, multilayer$state_nodes) %>%
-    dplyr::select(sn_id, layer_name, node_name, layer_id, node_id, tuple) %>%
+    dplyr::select("sn_id", "layer_name", "node_name", "layer_id", "node_id", "tuple") %>%
     dplyr::left_join(nodes)
   # Split the ell to layers
-  intra <- multilayer$extended %>% filter(layer_from==layer_to)
+  intra <- multilayer$extended %>% filter(.data$layer_from==.data$layer_to)
   # Need to convert to a factor to maintain the order of layers
-  intra %<>% dplyr::mutate(layer_from = factor(layer_from, levels = unique(layer_from)))
+  intra %<>% dplyr::mutate(layer_from = factor(.data$layer_from, levels = unique(.data$layer_from)))
   layers <- dplyr::group_split(intra, intra$layer_from)
 
 
@@ -52,8 +54,8 @@ get_igraph <- function(multilayer, bipartite, directed) {
     # The next line was developed with the user-provided network examples
     nodes_in_layer <-
       multilayer$state_nodes %>%
-      dplyr::filter(layer_name==lname) %>%
-      dplyr::select(node_name, everything())
+      dplyr::filter(.data$layer_name==lname) %>%
+      dplyr::select("node_name", everything())
 
     # Get the igraph object
     g <- list_to_matrix(x = net, directed = directed, bipartite = bipartite, node_metadata = nodes_in_layer)$igraph

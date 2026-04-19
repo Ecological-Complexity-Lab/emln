@@ -102,7 +102,7 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, direc
   if (is.null(directed)) {
     # Check intralayer edge symmetry: if every (a->b) has a matching (b->a), it's undirected
     intra <- multilayer$extended %>%
-      dplyr::filter(layer_from == layer_to)
+      dplyr::filter(.data$layer_from == .data$layer_to)
     if (nrow(intra) > 0) {
       # Create a set of "layer|from|to" keys
       fwd_keys <- paste(intra$layer_from, intra$node_from, intra$node_to, sep = "|")

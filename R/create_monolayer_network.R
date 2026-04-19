@@ -8,8 +8,8 @@
 #' @param bipartite Is the network bipartite? Ignored when the input is an igraph object.
 #' @param group_names For bipartite networks: name of the groups in the columns
 #'   and rows, respectively (e.g., parasites and hosts).
-#' @param node_metadata Following the igraph method of \code{graph.data.frame}.
-#'   Must have a column called node_name with names matching those in x.
+#' @param node_metadata Following the igraph method of \code{graph_from_data_frame}.
+#'   First column must be have names matching those in x.
 #'
 #' @return A \code{monolayer} object.
 #'
@@ -41,6 +41,7 @@
 #' @export
 #' @import dplyr
 #' @importFrom igraph graph.incidence V
+#' @importFrom rlang .data
 
 create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_names=c('set_cols','set_rows'), node_metadata=NULL){
 
@@ -66,24 +67,24 @@ create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_nam
     print('Input: an igraph object:')
     print(x)
     g <- x
-    mode <- ifelse(igraph::is.bipartite(g),'B','U')
+    mode <- ifelse(igraph::is_bipartite(g),'B','U')
 
     node_list <- igraph::as_data_frame(g, what = 'vertices') %>%
       mutate(node_id=1:igraph::vcount(g)) %>%
       rename(node_name=name) %>%
-      select(node_id, node_name, everything())
+      select("node_id", "node_name", everything())
 
     if(mode=='B'){
       node_list$node_group <- NA
       node_list$node_group[node_list$type==T] <- group_names[1]
       node_list$node_group[node_list$type==F] <- group_names[2]
-      mat <- igraph::as_incidence_matrix(g,names = T, attr = 'weight', sparse = F)
+      mat <- igraph::as_biadjacency_matrix(g,names = T, attr = 'weight', sparse = F)
     } else {
       mat <- igraph::as_adjacency_matrix(g, type = 'both', attr = 'weight', sparse = F)
     }
 
     out <- list(mode=mode,
-                directed=is.directed(g),
+                directed=igraph::is_directed(g),
                 nodes=node_list,
                 mat= mat,
                 edge_list=as_tibble(igraph::as_data_frame(g, 'edges')),
@@ -99,8 +100,8 @@ create_monolayer_network <- function(x, directed=NULL, bipartite=NULL, group_nam
     out$edge_list %>%
     left_join(out$nodes, by=c('from' = 'node_name')) %>%
     left_join(out$nodes, by=c('to' = 'node_name')) %>%
-    dplyr::select(-from, -to) %>%
-    dplyr::select(from=node_id.x, to=node_id.y, weight)
+    dplyr::select(-"from", -"to") %>%
+    dplyr::select(from="node_id.x", to="node_id.y", "weight")
   class(out) <- "monolayer"
   return(out)
 }

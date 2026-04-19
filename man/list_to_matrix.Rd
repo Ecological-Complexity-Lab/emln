@@ -22,7 +22,7 @@ list_to_matrix(
 \item{group_names}{For bipartite networks: name of the groups in the columns
 and rows, respectively (e.g., parasites and hosts).}
 
-\item{node_metadata}{Following the igraph method of \code{graph.data.frame}.
+\item{node_metadata}{Following the igraph method of \code{graph_from_data_frame}.
 Must have a column called node_name with names matching those in x.}
 }
 \value{
@@ -46,9 +46,10 @@ links<-subset(network$extended_ids \%>\% filter(layer_from==1), select=c(node_fr
 list_to_matrix(links, directed = TRUE, bipartite = FALSE, node_metadata = nodes)
 
 
-# See examples in: https://ecological-complexity-lab.github.io/emln_package/monolayer.html#Unipartite
+# See examples in:
+# https://ecological-complexity-lab.github.io/emln_package/monolayer.html#Unipartite
 }
 }
 \seealso{
-Functions \code{create_monolayer_network, monolayer} and \code{graph.data.frame} from igraph.
+Functions \code{create_monolayer_network, monolayer} and \code{graph_from_data_frame} from igraph.
 }

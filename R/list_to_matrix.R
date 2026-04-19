@@ -12,11 +12,11 @@
 #' @param bipartite Is network bipartite?
 #' @param group_names For bipartite networks: name of the groups in the columns
 #'   and rows, respectively (e.g., parasites and hosts).
-#' @param node_metadata Following the igraph method of \code{graph.data.frame}.
+#' @param node_metadata Following the igraph method of \code{graph_from_data_frame}.
 #'   Must have a column called node_name with names matching those in x.
 #'
 #' @return A \code{monolayer} object.
-#' @seealso Functions \code{create_monolayer_network, monolayer} and \code{graph.data.frame} from igraph.
+#' @seealso Functions \code{create_monolayer_network, monolayer} and \code{graph_from_data_frame} from igraph.
 #'
 #' @examples
 #' \dontrun{
@@ -27,18 +27,19 @@
 #' list_to_matrix(links, directed = TRUE, bipartite = FALSE, node_metadata = nodes)
 #'
 #'
-#' # See examples in: https://ecological-complexity-lab.github.io/emln_package/monolayer.html#Unipartite
+#' # See examples in:
+#' # https://ecological-complexity-lab.github.io/emln_package/monolayer.html#Unipartite
 #' }
 #' @export
 #' @import dplyr
-#' @importFrom igraph graph.data.frame V as_incidence_matrix as_adjacency_matrix
+#' @importFrom igraph graph_from_data_frame V as_biadjacency_matrix as_adjacency_matrix
 
 list_to_matrix <- function(x, directed=F, bipartite=T, group_names=c('set_cols','set_rows'), node_metadata=NULL){
   names(x)[3] <- 'weight'
-  g <- igraph::graph.data.frame(x, directed = directed, vertices = node_metadata)
+  g <- igraph::graph_from_data_frame(x, directed = directed, vertices = node_metadata)
   if(bipartite){
     igraph::V(g)$type <- igraph::V(g)$name %in% as.data.frame(x)[,1] # As.data.frame is necessary because if x is a tibble then x[,1] does not work
-    output_mat <- igraph::as_incidence_matrix(g, names = T, attr = 'weight', sparse = F)
+    output_mat <- igraph::as_biadjacency_matrix(g, names = T, attr = 'weight', sparse = F)
   } else {
     output_mat <- igraph::as_adjacency_matrix(g, names = T, sparse = F, attr = 'weight')
     output_mat <- t(output_mat) # This is needed so from will be in columns and to in rows

@@ -30,6 +30,7 @@ If link, physical node or state node attributes are included in the multilayer n
 }
 \examples{
 
-# See examples in: https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_igraph_objects
+# See examples in:
+# https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_igraph_objects
 
 }

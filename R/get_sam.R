@@ -30,11 +30,13 @@
 #'
 #' @examples
 #'
-#' # See examples in: https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_supra-adjacency_matrices
+#' # See examples in:
+#' #https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_supra-adjacency_matrices
 #'
 #' @export
 #' @import dplyr
 #' @importFrom Matrix Matrix
+#' @importFrom rlang .data
 
 get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_cols=F) {
   # Create a map of state nodes
@@ -49,9 +51,9 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
 
       # Use state node names (the layer-node tuple) in the extended link list
     ell_tuples <- multilayer$extended %>%
-      dplyr::mutate(from=paste(layer_from,node_from,sep='_')) %>%
-      dplyr::mutate(to=paste(layer_to,node_to,sep='_')) %>%
-      dplyr::select(from,to,weight)
+      dplyr::mutate(from=paste(.data$layer_from, .data$node_from, sep='_')) %>%
+      dplyr::mutate(to=paste(.data$layer_to, .data$node_to, sep='_')) %>%
+      dplyr::select("from", "to", "weight")
     # The partial mat only contains the state nodes for which an interaction has been recorded
     partial_mat <- list_to_matrix(ell_tuples, bipartite = F, directed = directed)$mat
     # Create the complete layer*nodes matrix
@@ -64,9 +66,9 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
     M <- matrix(0, nrow = nrow(state_nodes_map), ncol = nrow(state_nodes_map), dimnames = list(state_nodes_map$tuple, state_nodes_map$tuple))
 
     # Split the ell to layers
-    intra <- multilayer$extended %>% dplyr::filter(layer_from==layer_to)
+    intra <- multilayer$extended %>% dplyr::filter(.data$layer_from==.data$layer_to)
     # Need to convert to a factor to maintain the order of layers
-    intra %<>% dplyr::mutate(layer_from = factor(layer_from, levels = unique(layer_from)))
+    intra %<>% dplyr::mutate(layer_from = factor(.data$layer_from, levels = unique(.data$layer_from)))
     layers <- dplyr::group_split(intra, intra$layer_from)
     for (l in layers){
       layer_name <- l$layer_from[1]
@@ -88,14 +90,14 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
     }
 
     # Identify and populate interlayer interactions
-    inter <- multilayer$extended %>% dplyr::filter(layer_from!=layer_to)
+    inter <- multilayer$extended %>% dplyr::filter(.data$layer_from!=.data$layer_to)
     # If there are interlayer links
     if (nrow(inter)>0){
       # Use state node names (the layer-node tuple) in the extended link list
       inter_tuples <- inter %>%
-        dplyr::mutate(from=paste(layer_from,node_from,sep='_')) %>%
-        dplyr::mutate(to=paste(layer_to,node_to,sep='_')) %>%
-        dplyr::select(from,to,weight)
+        dplyr::mutate(from=paste(.data$layer_from, .data$node_from, sep='_')) %>%
+        dplyr::mutate(to=paste(.data$layer_to, .data$node_to, sep='_')) %>%
+        dplyr::select("from", "to", "weight")
       # The interlayer matrix
       inter_mat <- list_to_matrix(inter_tuples, bipartite = F, directed = directed)$mat
       # Populate the SAM with interlayer links
@@ -110,7 +112,7 @@ get_sam <- function(multilayer, bipartite, directed, sparse=F, remove_zero_rows_
   rownames(M) <- state_nodes_map$sn_id[match(rownames(M),state_nodes_map$tuple)]
   # Create the full map. When layer and node ids are NA that means that the node did not occur in the layer
   state_nodes_map <- left_join(state_nodes_map, multilayer$state_nodes) %>%
-    select(sn_id, layer_name, node_name, layer_id, node_id, tuple)
+    select("sn_id", "layer_name", "node_name", "layer_id", "node_id", "tuple")
 
   if (directed==F & !isSymmetric(M)){warning('The SAM is not symmetric. Make sure this is what you expect because your network is not directed.')}
 

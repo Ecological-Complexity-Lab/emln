@@ -30,9 +30,9 @@ distinct values across the network.}
 \item{viz_path}{Character. Path to the multilayer_viz directory. If NULL
 (default), uses the \code{viz} directory bundled with the package.}
 
-\item{browser}{Choose the browser to open the visualizer.
+\item{browser}{Choose the specific browser to open the visualizer.
 Defaults to the system default via \code{getOption("browser")}.
-Can be a specific browser name (e.g. "chrome", "firefox") or a command (e.g. "open -a 'Google Chrome'").}
+Can be a browser name (e.g. "chrome", "firefox") or a command (e.g. "open -a 'Google Chrome'").}
 }
 \value{
 Invisibly returns the server handle. Use

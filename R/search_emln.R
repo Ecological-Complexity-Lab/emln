@@ -19,7 +19,8 @@
 #'
 #' @examples
 #' \dontrun{
-#' # See examples in: https://ecological-complexity-lab.github.io/emln_package/data.html#Browsing_the_data
+#' # See examples in:
+#' # https://ecological-complexity-lab.github.io/emln_package/data.html#Browsing_the_data
 #'
 #' # Generates a tibble of all the networks in the package that are pollination networks
 #' search_emln(ecological_network_type = 'Plant-Ant')
@@ -33,6 +34,7 @@
 #' @importFrom stringr str_to_title
 #' @importFrom purrr compact
 #' @importFrom magrittr %>% %<>%
+#' @importFrom rlang .data
 
 
 
@@ -66,11 +68,11 @@ search_emln <- function(ecological_network_type=NULL,multilayer_network_type=NUL
         next
       } else if (i == 'node_number_minimum') {
         desc <- desc %>%
-          dplyr::filter(node_num >= attributes_entered[['node_number_minimum']])
+          dplyr::filter(.data$node_num >= attributes_entered[['node_number_minimum']])
         next
       } else if (i == 'layer_number_minimum') {
         desc <- desc %>%
-          dplyr::filter(layer_num >= attributes_entered[['layer_number_minimum']])
+          dplyr::filter(.data$layer_num >= attributes_entered[['layer_number_minimum']])
         next
       } else if (i == 'weighted') {
         desc <- desc %>%
@@ -90,8 +92,8 @@ search_emln <- function(ecological_network_type=NULL,multilayer_network_type=NUL
   #sort the tibble
 
   desc <- desc %>%
-    dplyr::group_by(network_id,network_name)  %>%
-    dplyr::arrange(network_id,network_name)
+    dplyr::group_by(.data$network_id, .data$network_name)  %>%
+    dplyr::arrange(.data$network_id, .data$network_name)
 
   if (nrow(desc) == 0) {return('There are no Networks with that combination of attributes')}
 

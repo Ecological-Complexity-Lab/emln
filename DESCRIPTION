@@ -29,6 +29,7 @@ Imports:
     Matrix,
     DT,
     hablar,
+    rlang,
     httpuv
 Suggests:
     bipartite,

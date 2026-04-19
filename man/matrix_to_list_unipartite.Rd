@@ -22,7 +22,8 @@ Assigns column and row names if those do not exist. Cannot handle node attribute
 }
 \examples{
 \dontrun{
-# See examples in: https://ecological-complexity-lab.github.io/emln_package/monolayer.html#Unipartite
+# See examples in:
+# https://ecological-complexity-lab.github.io/emln_package/monolayer.html#Unipartite
 
 # Generate a matrix with radnom weighted interactions
 x <- matrix(rbinom(100,1,0.6),10,10)
