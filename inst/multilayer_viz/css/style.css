@@ -1412,3 +1412,20 @@ body {
 .emln-data-msg a:hover {
   text-decoration: underline;
 }
+
+/* ---- Legend categorical color picker ---- */
+.legend-color-pick {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  background: none;
+}
+.legend-color-pick::-webkit-color-swatch-wrapper { padding: 0; }
+.legend-color-pick::-webkit-color-swatch { border: none; border-radius: 50%; }
+.legend-color-pick::-moz-color-swatch     { border: none; border-radius: 50%; }

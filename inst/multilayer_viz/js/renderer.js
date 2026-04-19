@@ -758,11 +758,24 @@ export class Renderer {
 
             // Label
             if (this.showLabels) {
+                ctx.save();
                 ctx.font = this.labelFont;
                 ctx.fillStyle = 'rgba(0,0,0,0.75)';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'top';
-                ctx.fillText(nodeName, sp.x, sp.y + r + 4);
+
+                const useDiagonal = this.transformNodes && this.layoutType === 'bipartite' && bpInfo;
+                if (useDiagonal) {
+                    const above = bpInfo.setA.has(nodeName);
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'middle';
+                    ctx.translate(sp.x, sp.y + (above ? -(r + 3) : (r + 3)));
+                    ctx.rotate(above ? -Math.PI / 4 : Math.PI / 4);
+                    ctx.fillText(nodeName, 0, 0);
+                } else {
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText(nodeName, sp.x, sp.y + r + 4);
+                }
+                ctx.restore();
             }
         }
     }

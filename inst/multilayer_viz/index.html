@@ -58,10 +58,10 @@
         <div class="btn-row" style="flex-direction: column; gap: 8px;">
           <button id="openDemoDialogBtn" class="btn btn-primary" style="width:100%;">Load Example Data</button>
           <div class="file-input-wrapper" style="width:100%;">
-            <button class="btn" id="uploadLabel" style="width:100%;">📂 Load User Data (JSON)</button>
+            <button class="btn" id="uploadLabel" style="width:100%;">Load User Data (JSON)</button>
             <input type="file" id="fileInput" accept=".json">
           </div>
-          <button class="btn" id="csvUploadBtn" style="width:100%;">📊 Load User Data (CSV)</button>
+          <button class="btn" id="csvUploadBtn" style="width:100%;">Load User Data (CSV)</button>
         </div>
         <div class="checkbox-row" id="dbBipartiteRow" style="display:none;margin-top:10px;">
           <label class="checkbox-label">
@@ -138,6 +138,10 @@
             <input type="checkbox" id="showLabelsCheckbox">
             <span>Node Labels</span>
           </label>
+          <div id="labelSizeRow" style="display:none; margin-top:6px;">
+            <label style="font-size:11px;color:#666;">Label Size <span id="labelSizeLabel">12px</span></label>
+            <input type="range" id="labelSizeSlider" min="8" max="24" value="12" step="1" class="slider">
+          </div>
           <div class="checkbox-row" style="margin-top: 6px;">
             <label class="checkbox-label">
               <input type="checkbox" id="transformNodesCheckbox" checked
@@ -791,7 +795,7 @@
     </div>
   </div>
 
-  <script type="module" src="js/app.js?v=2"></script>
+  <script type="module" src="js/app.js?v=8"></script>
 
 </body>
 
