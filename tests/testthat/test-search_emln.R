@@ -57,15 +57,18 @@ test_that("search_emln filters by state_nodes", {
 
 test_that("search_emln filters by layer_number_minimum", {
   min_layers <- 5
-  result <- search_emln(layer_number_minimum = min_layers)
+  result <- search_emln(layer_number_minimum = 5)
+  print(result)
   if (is.data.frame(result) && nrow(result) > 0) {
     expect_true(all(result$layer_num >= min_layers))
+  } else { # got a string
+    expect_true(FALSE, info = "Expected a data frame with at least one row.")
   }
 })
 
 test_that("search_emln filters by node_number_minimum", {
   min_nodes <- 10
-  result <- search_emln(node_number_minimum = min_nodes)
+  result <- search_emln(node_number_minimum = 10)
   if (is.data.frame(result) && nrow(result) > 0) {
     expect_true(all(result$node_num >= min_nodes))
   }

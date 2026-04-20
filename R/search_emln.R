@@ -20,7 +20,7 @@
 #' @examples
 #' \dontrun{
 #' # See examples in:
-#' # https://ecological-complexity-lab.github.io/emln_package/data.html#Browsing_the_data
+#' # https://emln.ecomplab.com/data.html#Browsing_the_data
 #'
 #' # Generates a tibble of all the networks in the package that are pollination networks
 #' search_emln(ecological_network_type = 'Plant-Ant')
@@ -76,15 +76,15 @@ search_emln <- function(ecological_network_type=NULL,multilayer_network_type=NUL
         next
       } else if (i == 'weighted') {
         desc <- desc %>%
-          dplyr::filter(weighted == attributes_entered[['weighted']])
+          dplyr::filter(.data$weighted == attributes_entered[['weighted']])
         next
       } else if (i == 'directed') {
         desc <- desc %>%
-          dplyr::filter(directed == attributes_entered[['directed']])
+          dplyr::filter(.data$directed == attributes_entered[['directed']])
         next
       } else if (i == 'interlayer') {
         desc <- desc %>%
-          dplyr::filter(interlayer == attributes_entered[['interlayer']])
+          dplyr::filter(.data$interlayer == attributes_entered[['interlayer']])
         }
         next
       }
