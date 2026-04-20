@@ -20,7 +20,7 @@
 #'
 #' @note The Multilayer Network Visualizer that this function targets is
 #'   currently in beta. Feedback and bug reports are welcome at
-#'   \url{https://github.com/ecomplab/emln/issues}.
+#'   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
 #'
 #' @return Invisibly returns the server handle. Use
 #'   \code{httpuv::stopServer(handle)} to stop the server when done.
@@ -53,7 +53,7 @@ plot_multilayer <- function(multilayer, bipartite = FALSE, directed = NULL,
                             port = 8080, viz_path = NULL,
                             browser = getOption("browser")) {
   message("Note: The Multilayer Network Visualizer is currently in beta. ",
-          "Please report issues at https://github.com/ecomplab/emln/issues")
+          "Please report issues at https://github.com/Ecological-Complexity-Lab/emln/issues")
 
   # Convert to JSON
   json_str <- multilayer_to_json(multilayer, bipartite = bipartite, directed = directed)

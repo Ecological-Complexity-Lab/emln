@@ -41,7 +41,7 @@ Search the database for networks depending on search parameters specified below.
 \examples{
 \dontrun{
 # See examples in:
-# https://ecological-complexity-lab.github.io/emln_package/data.html#Browsing_the_data
+# https://emln.ecomplab.com/data.html#Browsing_the_data
 
 # Generates a tibble of all the networks in the package that are pollination networks
 search_emln(ecological_network_type = 'Plant-Ant')

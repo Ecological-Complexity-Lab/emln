@@ -51,6 +51,6 @@ By default, a SAM contains all the nodes in all the layers. However,
 \examples{
 
 # See examples in:
-#https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_supra-adjacency_matrices
+# https://emln.ecomplab.com/multilayer.html#To_supra-adjacency_matrices
 
 }

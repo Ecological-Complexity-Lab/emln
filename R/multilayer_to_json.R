@@ -19,7 +19,7 @@
 #'
 #' @note The Multilayer Network Visualizer that this function targets is
 #'   currently in beta. Feedback and bug reports are welcome at
-#'   \url{https://github.com/ecomplab/emln/issues}.
+#'   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
 #'
 #' @return If \code{file} is NULL, returns the JSON string invisibly.
 #'   If \code{file} is specified, writes JSON to disk and returns the file path
@@ -69,7 +69,7 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, direc
   }
 
   message("Note: The Multilayer Network Visualizer is currently in beta. ",
-          "Please report issues at https://github.com/ecomplab/emln/issues")
+          "Please report issues at https://github.com/Ecological-Complexity-Lab/emln/issues")
 
   # Resolve canonical type column. Precedence: node_type > node_group > type.
   # node_group and type are legacy names from older emln data.

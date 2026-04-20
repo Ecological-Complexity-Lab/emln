@@ -1,5 +1,10 @@
 # *News*
 
+# emln 1.1.0 (2026-04-20)
+
+## changes
+* Code standards changes and unit testing, to prepare for CRAN release
+
 # emln 1.0.3 (2026-03-24)
 
 ## changes

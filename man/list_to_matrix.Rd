@@ -47,7 +47,7 @@ list_to_matrix(links, directed = TRUE, bipartite = FALSE, node_metadata = nodes)
 
 
 # See examples in:
-# https://ecological-complexity-lab.github.io/emln_package/monolayer.html#Unipartite
+# https://emln.ecomplab.com/monolayer.html#Unipartite
 }
 }
 \seealso{

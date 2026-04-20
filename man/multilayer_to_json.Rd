@@ -53,7 +53,7 @@ The JSON output contains four arrays matching the visualizer's expected format:
 \note{
 The Multilayer Network Visualizer that this function targets is
   currently in beta. Feedback and bug reports are welcome at
-  \url{https://github.com/ecomplab/emln/issues}.
+  \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
 }
 \examples{
 \dontrun{

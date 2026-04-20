@@ -25,7 +25,7 @@
 #'
 #' @note The Multilayer Network Visualizer that this function targets is
 #'   currently in beta. Feedback and bug reports are welcome at
-#'   \url{https://github.com/ecomplab/emln/issues}.
+#'   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
 #'
 #' @return Invisibly returns a named character vector of file paths written
 #'   (\code{edges}, \code{layers}, \code{nodes}, and optionally
@@ -72,7 +72,7 @@ multilayer_to_csv <- function(multilayer, dir, prefix = "network",
   }
 
   message("Note: The Multilayer Network Visualizer is currently in beta. ",
-          "Please report issues at https://github.com/ecomplab/emln/issues")
+          "Please report issues at https://github.com/Ecological-Complexity-Lab/emln/issues")
 
   if (!dir.exists(dir)) {
     dir.create(dir, recursive = TRUE)

@@ -1,16 +1,16 @@
 Package: emln
 Type: Package
-Title: A package to organize, handle, and explore ecological multilayer networks
-Version: 1.0.3
-Date: 2026-03-24
+Title: A Package to Organize, Handle, and Explore Ecological Multilayer Networks
+Version: 1.1.0
+Date: 2026-04-20
 Authors@R: c(
     person("Noa", "Frydman", role = "aut"),
     person("Shai", "Pilosof", role = c("aut", "fnd"), email = "pilos@bgu.ac.il"),
     person("Shirly", "Freilikhman", role = "aut"),
     person("Geut", "Galai", role = "cre", email = "geutg@post.bgu.ac.il")
     )
-URL: https://ecological-complexity-lab.github.io/emln_package/index.html
-BugReports: https://github.com/Ecological-Complexity-Lab/emln_package/issues
+URL: https://emln.ecomplab.com/
+BugReports: https://github.com/Ecological-Complexity-Lab/emln/issues
 Description: An R package for data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. Includes an interactive multilayer network visualizer (beta, paper forthcoming), and a collection of 78 empirical ecological multilayer network datasets. This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof.
 License: CC BY 4.0
 Encoding: UTF-8
@@ -29,10 +29,10 @@ Imports:
     Matrix,
     DT,
     hablar,
-    rlang,
-    httpuv
+    rlang
 Suggests:
     bipartite,
+    httpuv,
     testthat (>= 3.0.0)
 RoxygenNote: 7.3.2
 Config/testthat/edition: 3

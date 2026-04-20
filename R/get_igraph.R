@@ -19,7 +19,7 @@
 #' @examples
 #'
 #' # See examples in:
-#' # https://ecological-complexity-lab.github.io/emln_package/multilayer.html#To_igraph_objects
+#' # https://emln.ecomplab.com/multilayer.html#To_igraph_objects
 #'
 #' @export
 #' @importFrom igraph delete_vertex_attr
