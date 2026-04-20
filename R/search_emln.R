@@ -56,15 +56,15 @@ search_emln <- function(ecological_network_type=NULL,multilayer_network_type=NUL
   for (i in names(attributes_entered)) {
       if (i == 'ecological_network_type') {
         desc <- desc %>%
-          dplyr::filter(ecological_network_type == stringr::str_to_title(attributes_entered[['ecological_network_type']]))
+          dplyr::filter(.data$ecological_network_type == stringr::str_to_title(attributes_entered[['ecological_network_type']]))
         next
       } else if (i == 'multilayer_network_type') {
         desc <- desc %>%
-          dplyr::filter(multilayer_network_type == stringr::str_to_title(attributes_entered[['multilayer_network_type']]))
+          dplyr::filter(.data$multilayer_network_type == stringr::str_to_title(attributes_entered[['multilayer_network_type']]))
         next
       } else if (i == 'state_nodes') {
         desc <- desc %>%
-          dplyr::filter(state_nodes == attributes_entered[['state_nodes']])
+          dplyr::filter(.data$state_nodes == attributes_entered[['state_nodes']])
         next
       } else if (i == 'node_number_minimum') {
         desc <- desc %>%

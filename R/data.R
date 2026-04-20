@@ -2,7 +2,7 @@
 #'
 #'  @format Data set of multilayer networks
 #'
-#'  @source {create}
+#'  @source \code{create}
 #'
 #'  @examples
 #'  data(descriptions)

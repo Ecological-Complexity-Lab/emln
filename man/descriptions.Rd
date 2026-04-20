@@ -14,7 +14,7 @@ descriptions
 @format Data set of multilayer networks
 }
 \details{
-@source {create}
+@source \code{create}
 
  @examples
  data(descriptions)

@@ -3,4 +3,7 @@
 
 ## usethis namespace: start
 ## usethis namespace: end
-NULL
+
+utils::globalVariables(c("descriptions",
+                         "from", "to", "layer", "layer_id", "name"))
+
