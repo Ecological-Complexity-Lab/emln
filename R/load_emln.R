@@ -12,7 +12,9 @@
 #' Use the \code{search_emln} and \code{view_emln} functions to obtain network IDs.
 #'
 #' @examples
+#' \donttest{
 #' load_emln(network_id = 38)
+#' }
 #'
 #' @seealso \code{multilayer}
 #'

@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 .claude/
+/emln.Rcheck
+.DS_Store
+emln_1.1.0.tar.gz
