@@ -70,9 +70,9 @@ The Multilayer Network Visualizer that this function targets is
   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
 }
 \examples{
-\dontrun{
+\donttest{
 net <- load_emln(14)
-multilayer_to_csv(net, dir = "out/", prefix = "kefi", bipartite = TRUE)
+multilayer_to_csv(net, dir = "tests/out/", prefix = "kefi", bipartite = TRUE)
 }
 }
 \seealso{

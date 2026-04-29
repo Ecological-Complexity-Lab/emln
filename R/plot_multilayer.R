@@ -42,7 +42,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()){
 #' net <- load_emln(60)
 #' srv <- plot_multilayer(net, bipartite = TRUE)
 #'

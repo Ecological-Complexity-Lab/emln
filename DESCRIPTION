@@ -1,6 +1,6 @@
 Package: emln
 Type: Package
-Title: A Package to Organize, Handle, and Explore Ecological Multilayer Networks
+Title: Organize, Handle, and Explore Ecological Multilayer Networks
 Version: 1.1.0
 Date: 2026-04-20
 Authors@R: c(

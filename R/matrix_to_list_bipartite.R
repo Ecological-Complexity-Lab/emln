@@ -15,9 +15,7 @@
 #'
 #' # See examples in: https://emln.ecomplab.com/monolayer.html#Bipartite
 #'
-#'\dontrun{
 #' matrix_to_list_bipartite(bipartite::memmott1999, group_names = c('Animals', 'Plants'))
-#'}
 #'
 #' @export
 #' @import dplyr

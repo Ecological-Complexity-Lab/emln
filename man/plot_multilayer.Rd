@@ -60,7 +60,7 @@ The Multilayer Network Visualizer that this function targets is
   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
 }
 \examples{
-\dontrun{
+if (interactive()){
 net <- load_emln(60)
 srv <- plot_multilayer(net, bipartite = TRUE)
 

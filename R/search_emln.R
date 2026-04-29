@@ -18,7 +18,6 @@
 #'
 #'
 #' @examples
-#' \dontrun{
 #' # See examples in:
 #' # https://emln.ecomplab.com/data.html#Browsing_the_data
 #'
@@ -28,7 +27,6 @@
 #' # Generates a tibble of all the networks in the package that have state nodes and are temporal
 #' search_emln(multilayer_network_type = 'Temporal', state_node = TRUE)
 #'
-#' }
 #' @export search_emln
 #' @import dplyr
 #' @importFrom stringr str_to_title

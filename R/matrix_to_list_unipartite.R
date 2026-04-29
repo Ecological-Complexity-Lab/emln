@@ -12,16 +12,15 @@
 #' @seealso \code{create_monolayer_network, monolayer}
 #'
 #' @examples
-#' \dontrun{
 #' # See examples in:
 #' # https://emln.ecomplab.com/monolayer.html#Unipartite
 #'
-#' # Generate a matrix with radnom weighted interactions
+#' # Generate a matrix with random weighted interactions
 #' x <- matrix(rbinom(100,1,0.6),10,10)
 #' x <- x*round(runif(100,1,5),0)
 #' # run
 #' matrix_to_list_unipartite(x, directed = TRUE)
-#'}
+#'
 #' @export
 #' @import dplyr
 #' @importFrom igraph is_directed graph_from_adjacency_matrix degree

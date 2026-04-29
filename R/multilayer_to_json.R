@@ -49,10 +49,10 @@
 #' @import tibble
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Export to file
 #' net <- load_emln(14)
-#' multilayer_to_json(net, file = "my_network.json", bipartite = TRUE)
+#' multilayer_to_json(net, file = "tests/my_network.json", bipartite = TRUE)
 #'
 #' # Get JSON string
 #' json_str <- multilayer_to_json(net)

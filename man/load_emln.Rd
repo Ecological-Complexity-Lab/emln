@@ -19,9 +19,8 @@ Load a specific network by specifying its ID.
 Use the \code{search_emln} and \code{view_emln} functions to obtain network IDs.
 }
 \examples{
-\dontrun{
 load_emln(network_id = 38)
-}
+
 }
 \seealso{
 \code{multilayer}

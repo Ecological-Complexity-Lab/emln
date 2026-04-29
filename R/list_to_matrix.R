@@ -19,7 +19,7 @@
 #' @seealso Functions \code{create_monolayer_network, monolayer} and \code{graph_from_data_frame} from igraph.
 #'
 #' @examples
-#' \dontrun{
+#' library(dplyr)
 #' network <- load_emln(17)
 #' nodes <- network$nodes
 #' links<-subset(network$extended_ids %>% filter(layer_from==1), select=c(node_from, node_to, weight))
@@ -29,7 +29,7 @@
 #'
 #' # See examples in:
 #' # https://emln.ecomplab.com/monolayer.html#Unipartite
-#' }
+#'
 #' @export
 #' @import dplyr
 #' @importFrom igraph graph_from_data_frame V as_biadjacency_matrix as_adjacency_matrix

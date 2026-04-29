@@ -52,7 +52,7 @@
 #' @importFrom rlang .data
 #'
 #' @examples
-#' \dontrun{
+#' library(tibble)
 #' pond_1 <- matrix(c(0,1,1,0,0,1,0,0,0), byrow = TRUE,
 #' nrow = 3, ncol = 3, dimnames = list(c('pelican','fish','crab'),
 #' c('pelican','fish','crab')))
@@ -83,7 +83,7 @@
 #' multilayer <- create_multilayer_network(list_of_layers =
 #' list(pond_1, pond_2, pond_3), layer_attributes = layer_attrib,
 #' interlayer_links = interlayer, bipartite = FALSE, directed = TRUE)
-#' }
+#'
 
 create_multilayer_network <- function(list_of_layers, bipartite, directed, interlayer_links = NULL, layer_attributes = NULL, state_node_attributes = NULL, physical_node_attributes = NULL) {
 

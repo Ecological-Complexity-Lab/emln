@@ -56,10 +56,10 @@ The Multilayer Network Visualizer that this function targets is
   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
 }
 \examples{
-\dontrun{
+\donttest{
 # Export to file
 net <- load_emln(14)
-multilayer_to_json(net, file = "my_network.json", bipartite = TRUE)
+multilayer_to_json(net, file = "tests/my_network.json", bipartite = TRUE)
 
 # Get JSON string
 json_str <- multilayer_to_json(net)

@@ -38,7 +38,7 @@ igraph. The first column in the \code{node_metadata} data frame should have
 the names of the nodes in the edge list.
 }
 \examples{
-\dontrun{
+library(dplyr)
 network <- load_emln(17)
 nodes <- network$nodes
 links<-subset(network$extended_ids \%>\% filter(layer_from==1), select=c(node_from, node_to, weight))
@@ -48,7 +48,7 @@ list_to_matrix(links, directed = TRUE, bipartite = FALSE, node_metadata = nodes)
 
 # See examples in:
 # https://emln.ecomplab.com/monolayer.html#Unipartite
-}
+
 }
 \seealso{
 Functions \code{create_monolayer_network, monolayer} and \code{graph_from_data_frame} from igraph.

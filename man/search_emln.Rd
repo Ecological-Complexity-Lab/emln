@@ -39,7 +39,6 @@ A tibble containing the network id, and all the search arguments for each of the
 Search the database for networks depending on search parameters specified below.
 }
 \examples{
-\dontrun{
 # See examples in:
 # https://emln.ecomplab.com/data.html#Browsing_the_data
 
@@ -49,5 +48,4 @@ search_emln(ecological_network_type = 'Plant-Ant')
 # Generates a tibble of all the networks in the package that have state nodes and are temporal
 search_emln(multilayer_network_type = 'Temporal', state_node = TRUE)
 
-}
 }
