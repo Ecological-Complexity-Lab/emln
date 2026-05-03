@@ -6,7 +6,7 @@
 \alias{emln-package}
 \title{emln: Organize, Handle, and Explore Ecological Multilayer Networks}
 \description{
-Data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. Includes an interactive multilayer network visualizer (beta, paper forthcoming), and a collection of 78 empirical ecological multilayer network datasets. This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof. Noa Frydman (2023) \doi{doi.org/10.1111/2041-210X.14225}.
+Data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. Includes an interactive multilayer network visualizer (beta, paper forthcoming), and a collection of 78 empirical ecological multilayer network datasets. This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof. Noa Frydman (2023) \doi{10.1111/2041-210X.14225}.
 }
 \seealso{
 Useful links:
