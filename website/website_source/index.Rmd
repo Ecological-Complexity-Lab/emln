@@ -27,16 +27,11 @@ Frydman N, Freilikhman S, Talpaz I, Pilosof S. **Practical guidelines and the EM
 
 
 # Installation
-The EMLN package was built under R 4.1.0 and depends on several packages. The package is installed directly from GitHub. Run this code to install dependencies and the package. We are working on a CRAN version.
+The EMLN package requires R version 4.1.0 and up, and depends on several packages. 
+The package is installed directly from CRAN. Run this code to install and load it:
 
 ```{r eval=FALSE, include=TRUE}
-package.list=c("tidyverse", "magrittr","igraph","Matrix","DT","hablar","devtools")
-loaded <-  package.list %in% .packages()
-package.list <-  package.list[!loaded]
-installed <-  package.list %in% .packages(TRUE)
-if (!all(installed)) install.packages(package.list[!installed],repos="http://cran.rstudio.com/")
-
-devtools::install_github('Ecological-Complexity-Lab/emln', force=T)
+install.packages("emln")
 library(emln)
 ```
 
