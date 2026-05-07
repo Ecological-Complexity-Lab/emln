@@ -9,6 +9,7 @@ multilayer_to_csv(
   dir,
   prefix = "network",
   bipartite = FALSE,
+  setA_type = NULL,
   directed = NULL
 )
 }
@@ -34,6 +35,14 @@ module).}
 distinct values across the network, and a \code{bipartite} column is
 written to the layers CSV.}
 
+\item{setA_type}{Optional character. The \code{node_type} value to render
+as Set A (top row) in MiRA's bipartite layout. By ecological convention
+this is the higher trophic level (e.g. \code{"pollinator"},
+\code{"parasite"}, \code{"disperser"}). Only used when
+\code{bipartite = TRUE}; written as a \code{setA_type} column in the
+layers CSV. If \code{NULL} (default), MiRA falls back to alphabetical
+ordering of the two types.}
+
 \item{directed}{Logical or NULL. Whether the network is directed. If NULL
 (default), auto-detected by checking intralayer edge symmetry.}
 }
@@ -43,11 +52,13 @@ Invisibly returns a named character vector of file paths written
   \code{state_nodes}).
 }
 \description{
-Writes an EMLN \code{multilayer} object as the three-file CSV set consumed
-by the Multilayer Network Visualizer's CSV importer.
+Writes an EMLN \code{multilayer} object as a set of CSV files consumed
+by MiRA's CSV importer. Three files are always written; a fourth
+(\code{<prefix>_state_nodes.csv}) is added when per-(layer, node)
+attributes are present.
 }
 \details{
-The CSV files follow the schema accepted by the visualizer's CSV importer:
+The CSV files follow the schema accepted by MiRA's CSV importer:
 \itemize{
   \item \strong{edges}: \code{layer_from, node_from, layer_to, node_to,
     weight} (+ any extra link attributes).
@@ -62,12 +73,19 @@ The CSV files follow the schema accepted by the visualizer's CSV importer:
     different layers (e.g. abundance, module membership).
 }
 The \code{directed} flag is not written to the CSV files; it is a property
-you specify in the visualizer's CSV import dialog at load time.
+you specify in MiRA's CSV import dialog at load time.
 }
 \note{
-The Multilayer Network Visualizer that this function targets is
-  currently in beta. Feedback and bug reports are welcome at
-  \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
+MiRA (Multilayer Interactive Rendering Application) is a browser-based
+interactive visualization tool for multilayer networks, available at
+\url{https://mira.ecomplab.com/}.
+
+If you use MiRA in published research, please cite:
+Nehorai S, Bloch Y and Pilosof S. Interactively visualizing biological
+multilayer networks using MiRA. (forthcoming)
+
+Feedback and bug reports:
+\url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
 }
 \examples{
 \donttest{

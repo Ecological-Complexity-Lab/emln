@@ -4,6 +4,9 @@
  * distributions, participation histogram, and set-size ratio chart.
  */
 
+import { computeLayerSimilarity } from './calc/similarity.js';
+import { computePerLayerStats } from './calc/layerMetrics.js';
+
 const ACCENT      = '#6366f1';
 const SET_A_COLOR = '#0072b2';
 const SET_B_COLOR = '#f472b6';
@@ -244,7 +247,7 @@ export class Dashboard {
             ${this._sMatrix(s, bp)}
             ${this._sLayerSimilarity(s, bp)}
             ${this._sDegree(s, bp)}
-            ${this._sParticipation(s, bp)}
+            ${this._sStrength(s, bp)}
         </div>`;
 
         this._attachEvents();
@@ -272,38 +275,8 @@ export class Dashboard {
             }
         }
 
-        // Per-layer stats
-        const edgeKeySets = new Map(); // layerName → Set of deduplicated edge keys
-        const perLayer = layerNames.map((layerName, li) => {
-            const nodeSet = m.nodesPerLayer.get(layerName) ?? new Set();
-            const N  = nodeSet.size;
-            const bp = bpInfoAll[li];
-            const isBp = bp?.isBipartite ?? false;
-            const nA = isBp ? (bp.setA?.size ?? 0) : 0;
-            const nB = isBp ? (bp.setB?.size ?? 0) : 0;
-
-            const edgeKeys = new Set();
-            for (const lk of m.intralayerLinks) {
-                if (lk.layer_from !== layerName) continue;
-                const key = isDir
-                    ? `${lk.node_from}→${lk.node_to}`
-                    : [lk.node_from, lk.node_to].sort().join('::');
-                edgeKeys.add(key);
-            }
-            edgeKeySets.set(layerName, edgeKeys);
-            const E = edgeKeys.size;
-
-            let Emax;
-            if (isBp)  Emax = isDir ? 2 * nA * nB : nA * nB;
-            else       Emax = isDir ? N * (N - 1)  : N * (N - 1) / 2;
-            const density = Emax > 0 ? E / Emax : 0;
-
-            return { layerName, N, E, density, nA, nB, isBp };
-        });
-
-        const avgDensity = perLayer.length
-            ? perLayer.reduce((sum, l) => sum + l.density, 0) / perLayer.length
-            : 0;
+        // Per-layer stats — math lives in js/calc/layerMetrics.js.
+        const { perLayer, edgeKeySets, avgDensity } = computePerLayerStats(m);
 
         // Node participation
         const nodeParticipation = new Map();
@@ -312,11 +285,36 @@ export class Dashboard {
             nodeParticipation.set(sn.node_name, (nodeParticipation.get(sn.node_name) ?? 0) + 1);
         }
 
-        // Degree: summed across all layers per physical node
-        const nodeDegree = new Map();
-        for (const sn of m.stateNodes) {
-            nodeDegree.set(sn.node_name, (nodeDegree.get(sn.node_name) ?? 0) + (sn.degree ?? 0));
-        }
+        // Degree & strength per physical node, summed across layers, kept
+        // separate for intralayer vs interlayer (Boccaletti 2014; De Domenico
+        // 2015). For directed networks the intra_degree / inter_degree
+        // scalars don't exist on the state node — only their in/out splits —
+        // so we accumulate those into separate maps and let the renderer
+        // pick which set to display.
+        const accumByName = (field) => {
+            const out = new Map();
+            for (const sn of m.stateNodes) {
+                const v = sn[field];
+                if (v === undefined) continue;
+                out.set(sn.node_name, (out.get(sn.node_name) ?? 0) + v);
+            }
+            return out;
+        };
+
+        const nodeMaps = {
+            intra_degree:        accumByName('intra_degree'),
+            intra_strength:      accumByName('intra_strength'),
+            intra_in_degree:     accumByName('intra_in_degree'),
+            intra_out_degree:    accumByName('intra_out_degree'),
+            intra_in_strength:   accumByName('intra_in_strength'),
+            intra_out_strength:  accumByName('intra_out_strength'),
+            inter_degree:        accumByName('inter_degree'),
+            inter_strength:      accumByName('inter_strength'),
+            inter_in_degree:     accumByName('inter_in_degree'),
+            inter_out_degree:    accumByName('inter_out_degree'),
+            inter_in_strength:   accumByName('inter_in_strength'),
+            inter_out_strength:  accumByName('inter_out_strength'),
+        };
 
         // Presence set for matrix ("layerName::nodeName")
         const presence = new Set();
@@ -337,8 +335,13 @@ export class Dashboard {
             setALabel, setBLabel, setANodes, setBNodes, nodeSetMap,
             totalNodes: m.nodes.length, totalLayers: layerNames.length,
             totalIntra: m.intralayerLinks.length, totalInter: m.interlayerLinks.length,
+            hasInterlayer: m.interlayerLinks.length > 0,
+            directedIntra: m.directed ?? false,
+            directedInter: m.directedInterlayer ?? false,
             avgDensity, perLayer, layerNames,
-            nodeParticipation, nodeDegree, presence, sortedNodes, edgeKeySets,
+            nodeParticipation,
+            nodeMaps,
+            presence, sortedNodes, edgeKeySets,
         };
     }
 
@@ -434,7 +437,8 @@ export class Dashboard {
         const HDR_H = 88;
 
         const flipped   = this._matrixFlipped;
-        const title     = flipped ? 'Layer × Node Presence Matrix' : 'Node × Layer Presence Matrix';
+        const matrixSubtitle = flipped ? 'Layer × Node Presence Matrix' : 'Node × Layer Presence Matrix';
+        const title     = 'Participation';
 
         // Controls row: sort + orientation toggle
         const sortCtrl = `<div class="db-matrix-ctrl">
@@ -510,67 +514,135 @@ export class Dashboard {
             svgContent = colHdrs + rowSvg;
         }
 
+        const histogramHtml = this._participationHistogram(s, bp);
+
         return this._sec('matrix', title, `
+            <div class="db-chart-title" style="margin-bottom:8px;">${matrixSubtitle}</div>
             ${sortCtrl}
             <div class="db-matrix-wrap">
                 <svg width="${svgW}" height="${svgH}" style="overflow:visible">${svgContent}</svg>
+            </div>
+            <div style="margin-top:24px;">
+                <div class="db-chart-title" style="margin-bottom:8px;">Participation distribution (multiplexity)</div>
+                ${histogramHtml}
             </div>`);
     }
 
-    _sDegree(s, bp) {
-        const makeBins = (vals, nBins = 10) => {
-            if (!vals.length) return [];
-            const max = Math.max(...vals);
-            if (max === 0) return [{ x0: 0, count: vals.length }];
-            const bw   = Math.max(1, Math.ceil(max / nBins));
-            const n    = Math.ceil((max + 1) / bw);
-            const bins = Array.from({ length: n }, (_, i) => ({ x0: i * bw, count: 0 }));
-            for (const v of vals) bins[Math.min(Math.floor(v / bw), n - 1)].count++;
-            while (bins.length > 1 && bins.at(-1).count === 0) bins.pop();
-            return bins;
-        };
-
-        let content;
-        if (bp) {
-            const dA = [...s.setANodes].map(n => s.nodeDegree.get(n) ?? 0);
-            const dB = [...s.setBNodes].map(n => s.nodeDegree.get(n) ?? 0);
-            content = `<div class="db-charts-row">
-                <div class="db-chart-box"><div class="db-chart-title">${s.setALabel} — degree distribution</div>
-                    ${svgHist(makeBins(dA), { width: 300, height: 160, color: SET_A_COLOR, xLabel: 'Degree' })}</div>
-                <div class="db-chart-box"><div class="db-chart-title">${s.setBLabel} — degree distribution</div>
-                    ${svgHist(makeBins(dB), { width: 300, height: 160, color: SET_B_COLOR, xLabel: 'Degree' })}</div>
-            </div>`;
-        } else {
-            const d = [...s.nodeDegree.values()];
-            content = `<div class="db-chart-box"><div class="db-chart-title">Degree distribution</div>
-                ${svgHist(makeBins(d), { width: 460, height: 200, xLabel: 'Degree' })}</div>`;
-        }
-        return this._sec('degree', 'Degree Distributions', content);
-    }
-
-    _sParticipation(s, bp) {
-        const L       = s.totalLayers;
+    // Participation histogram (was previously its own section). Returns the
+    // chart-row HTML so _sMatrix can embed it under the presence matrix.
+    _participationHistogram(s, bp) {
+        const L = s.totalLayers;
         const makeBins = vals => Array.from({ length: L }, (_, i) => ({
             x0: i + 1,
             count: vals.filter(v => v === i + 1).length,
         }));
 
-        let content;
         if (bp) {
             const vA = [...s.setANodes].map(n => s.nodeParticipation.get(n) ?? 0);
             const vB = [...s.setBNodes].map(n => s.nodeParticipation.get(n) ?? 0);
-            content = `<div class="db-charts-row">
-                <div class="db-chart-box"><div class="db-chart-title">${s.setALabel} — layer participation</div>
+            return `<div class="db-charts-row">
+                <div class="db-chart-box"><div class="db-chart-title">${s.setALabel}</div>
                     ${svgHist(makeBins(vA), { width: 300, height: 160, color: SET_A_COLOR, xLabel: 'Number of layers' })}</div>
-                <div class="db-chart-box"><div class="db-chart-title">${s.setBLabel} — layer participation</div>
+                <div class="db-chart-box"><div class="db-chart-title">${s.setBLabel}</div>
                     ${svgHist(makeBins(vB), { width: 300, height: 160, color: SET_B_COLOR, xLabel: 'Number of layers' })}</div>
             </div>`;
-        } else {
-            const v = [...s.nodeParticipation.values()];
-            content = `<div class="db-chart-box"><div class="db-chart-title">Layer participation (multiplexity)</div>
-                ${svgHist(makeBins(v), { width: 460, height: 200, xLabel: 'Number of layers' })}</div>`;
         }
-        return this._sec('participation', 'Node Participation (Multiplexity)', content);
+        const v = [...s.nodeParticipation.values()];
+        return `<div class="db-chart-box">
+            ${svgHist(makeBins(v), { width: 460, height: 200, xLabel: 'Number of layers' })}
+        </div>`;
+    }
+
+    // Integer-valued bin builder, shared by degree and strength panels.
+    _intBins(vals, nBins = 10) {
+        if (!vals.length) return [];
+        const max = Math.max(...vals);
+        if (max === 0) return [{ x0: 0, count: vals.length }];
+        const bw   = Math.max(1, Math.ceil(max / nBins));
+        const n    = Math.ceil((max + 1) / bw);
+        const bins = Array.from({ length: n }, (_, i) => ({ x0: i * bw, count: 0 }));
+        for (const v of vals) bins[Math.min(Math.floor(v / bw), n - 1)].count++;
+        while (bins.length > 1 && bins.at(-1).count === 0) bins.pop();
+        return bins;
+    }
+
+    // Continuous-valued bin builder for strength distributions.
+    _floatBins(vals, nBins = 12) {
+        if (!vals.length) return [];
+        const mn = Math.min(...vals), mx = Math.max(...vals);
+        if (mn === mx) return [{ x0: parseFloat(mn.toFixed(3)), count: vals.length }];
+        const bw   = (mx - mn) / nBins;
+        const bins = Array.from({ length: nBins }, (_, i) => ({
+            x0: parseFloat((mn + i * bw).toFixed(3)), count: 0,
+        }));
+        for (const v of vals) bins[Math.min(Math.floor((v - mn) / bw), nBins - 1)].count++;
+        while (bins.length > 1 && bins.at(-1).count === 0) bins.pop();
+        return bins;
+    }
+
+    // Render a {From-data} × {Set A / Set B / unipartite} histogram grid for
+    // a single primitive (intra or inter, degree or strength). Pulls per-
+    // physical-node sums out of the supplied Map.
+    _renderDistPanel(title, valsMap, s, bp, { binner, color = ACCENT, xLabel }) {
+        if (bp) {
+            const dA = [...s.setANodes].map(n => valsMap.get(n) ?? 0);
+            const dB = [...s.setBNodes].map(n => valsMap.get(n) ?? 0);
+            return `<div class="db-charts-row">
+                <div class="db-chart-box"><div class="db-chart-title">${title} — ${s.setALabel}</div>
+                    ${svgHist(binner(dA), { width: 300, height: 160, color: SET_A_COLOR, xLabel })}</div>
+                <div class="db-chart-box"><div class="db-chart-title">${title} — ${s.setBLabel}</div>
+                    ${svgHist(binner(dB), { width: 300, height: 160, color: SET_B_COLOR, xLabel })}</div>
+            </div>`;
+        }
+        const vals = [...valsMap.values()];
+        return `<div class="db-chart-box"><div class="db-chart-title">${title}</div>
+            ${svgHist(binner(vals), { width: 460, height: 200, color, xLabel })}</div>`;
+    }
+
+    // Build the per-section panel list ("intra" / "inter") for a given
+    // primitive ("degree" / "strength"). Splits into in/out when the
+    // matching edge type is directed; skips the inter half when the network
+    // has no interlayer links.
+    _distPanels(s, bp, primitive, opts) {
+        const panels = [];
+        const sides = [
+            { kind: 'intra', label: 'Intralayer', directed: s.directedIntra, color: undefined },
+            ...(s.hasInterlayer ? [{ kind: 'inter', label: 'Interlayer', directed: s.directedInter, color: '#f59e0b' }] : []),
+        ];
+        for (const side of sides) {
+            if (side.directed) {
+                const inMap  = s.nodeMaps[`${side.kind}_in_${primitive}`];
+                const outMap = s.nodeMaps[`${side.kind}_out_${primitive}`];
+                panels.push(this._renderDistPanel(`${side.label} in-${primitive}`,  inMap,  s, bp, { ...opts, color: side.color }));
+                panels.push(this._renderDistPanel(`${side.label} out-${primitive}`, outMap, s, bp, { ...opts, color: side.color }));
+            } else {
+                const map = s.nodeMaps[`${side.kind}_${primitive}`];
+                panels.push(this._renderDistPanel(`${side.label} ${primitive}`, map, s, bp, { ...opts, color: side.color }));
+            }
+        }
+        return panels;
+    }
+
+    _sDegree(s, bp) {
+        const panels = this._distPanels(s, bp, 'degree', { binner: vals => this._intBins(vals), xLabel: 'Degree' });
+        const title = s.hasInterlayer ? 'Degree Distributions (intra vs inter)' : 'Degree Distribution';
+        return this._sec('degree', title, `<div class="db-degree-grid">${panels.join('')}</div>`);
+    }
+
+    _sStrength(s, bp) {
+        // Auto-hide if all weights are identical — strength then conveys no
+        // extra information beyond degree.
+        const allWeights = [
+            ...this.model.intralayerLinks.map(l => l.weight ?? 1),
+            ...this.model.interlayerLinks.map(l => l.weight ?? 1),
+        ];
+        if (allWeights.length === 0) return '';
+        const w0 = allWeights[0];
+        if (allWeights.every(w => w === w0)) return '';
+
+        const panels = this._distPanels(s, bp, 'strength', { binner: vals => this._floatBins(vals), xLabel: 'Strength' });
+        const title = s.hasInterlayer ? 'Strength Distributions (intra vs inter)' : 'Strength Distribution';
+        return this._sec('strength', title, `<div class="db-degree-grid">${panels.join('')}</div>`);
     }
 
     _sSetRatio(s) {
@@ -736,74 +808,27 @@ export class Dashboard {
     _sLayerSimilarity(s, bp) {
         const L = s.layerNames;
         const n = L.length;
-        const m = this.model;
-
-        // Jaccard index between two sets
-        const jaccard = (A, B) => {
-            if (!A.size && !B.size) return NaN;
-            let inter = 0;
-            const [small, large] = A.size <= B.size ? [A, B] : [B, A];
-            for (const x of small) if (large.has(x)) inter++;
-            return inter / (A.size + B.size - inter);
-        };
-
         const cellSize = n <= 8 ? 44 : n <= 14 ? 32 : n <= 22 ? 22 : 14;
 
-        // Edge similarity matrix (always shown)
-        const matE = Array.from({ length: n }, (_, i) =>
-            Array.from({ length: n }, (_, j) =>
-                jaccard(s.edgeKeySets.get(L[i]) ?? new Set(), s.edgeKeySets.get(L[j]) ?? new Set())
-            )
-        );
+        const sim = computeLayerSimilarity(this.model, s.edgeKeySets, bp
+            ? { setANodes: s.setANodes, setBNodes: s.setBNodes }
+            : {});
 
-        let content;
-        if (bp) {
-            // Per-layer Set A and Set B node subsets
-            const layerA = L.map(ln => {
-                const all = m.nodesPerLayer.get(ln) ?? new Set();
-                return new Set([...all].filter(x => s.setANodes.has(x)));
-            });
-            const layerB = L.map(ln => {
-                const all = m.nodesPerLayer.get(ln) ?? new Set();
-                return new Set([...all].filter(x => s.setBNodes.has(x)));
-            });
-            const matA = Array.from({ length: n }, (_, i) =>
-                Array.from({ length: n }, (_, j) => jaccard(layerA[i], layerA[j]))
-            );
-            const matB = Array.from({ length: n }, (_, i) =>
-                Array.from({ length: n }, (_, j) => jaccard(layerB[i], layerB[j]))
-            );
-            content = `<div class="db-heatmap-col">
-                <div class="db-chart-box">
-                    <div class="db-chart-title">${s.setALabel} node identity (Jaccard)</div>
-                    ${svgHeatmap(matA, L, { accentColor: SET_A_COLOR, cellSize })}
-                </div>
-                <div class="db-chart-box">
-                    <div class="db-chart-title">${s.setBLabel} node identity (Jaccard)</div>
-                    ${svgHeatmap(matB, L, { accentColor: SET_B_COLOR, cellSize })}
-                </div>
-                <div class="db-chart-box">
-                    <div class="db-chart-title">Edge identity (Jaccard)</div>
-                    ${svgHeatmap(matE, L, { accentColor: '#f59e0b', cellSize })}
-                </div>
+        const box = (title, mat, accentColor) => `<div class="db-chart-box">
+            <div class="db-chart-title">${title}</div>
+            ${svgHeatmap(mat, L, { accentColor, cellSize })}
+        </div>`;
+
+        const content = bp
+            ? `<div class="db-heatmap-col">
+                ${box(`${s.setALabel} node identity (Jaccard)`, sim.setA, SET_A_COLOR)}
+                ${box(`${s.setBLabel} node identity (Jaccard)`, sim.setB, SET_B_COLOR)}
+                ${box('Edge identity (Jaccard)', sim.edge, '#f59e0b')}
+            </div>`
+            : `<div class="db-heatmap-col">
+                ${box('Node identity (Jaccard)', sim.node, ACCENT)}
+                ${box('Edge identity (Jaccard)', sim.edge, '#f59e0b')}
             </div>`;
-        } else {
-            const matN = Array.from({ length: n }, (_, i) =>
-                Array.from({ length: n }, (_, j) =>
-                    jaccard(m.nodesPerLayer.get(L[i]) ?? new Set(), m.nodesPerLayer.get(L[j]) ?? new Set())
-                )
-            );
-            content = `<div class="db-heatmap-col">
-                <div class="db-chart-box">
-                    <div class="db-chart-title">Node identity (Jaccard)</div>
-                    ${svgHeatmap(matN, L, { accentColor: ACCENT, cellSize })}
-                </div>
-                <div class="db-chart-box">
-                    <div class="db-chart-title">Edge identity (Jaccard)</div>
-                    ${svgHeatmap(matE, L, { accentColor: '#f59e0b', cellSize })}
-                </div>
-            </div>`;
-        }
 
         return this._sec('similarity', 'Layer Similarity (Jaccard)', content);
     }

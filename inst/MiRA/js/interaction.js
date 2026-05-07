@@ -50,6 +50,7 @@ export class InteractionHandler {
         // Mouse wheel → zoom
         this.canvas.addEventListener('wheel', (e) => {
             e.preventDefault();
+            if (this.renderer.gridViewMode) return;
             const rect = this.canvas.getBoundingClientRect();
             const mx = e.clientX - rect.left;
             const my = e.clientY - rect.top;
@@ -81,7 +82,7 @@ export class InteractionHandler {
 
         // Mouse down → start rotation, pan, layer drag, or select
         this.canvas.addEventListener('mousedown', (e) => {
-            if (this.renderer.layerViewMode) return;
+            if (this.renderer.layerViewMode || this.renderer.gridViewMode) return;
             if (e.button !== 0) return; // only handle left-click
 
             const rect = this.canvas.getBoundingClientRect();
@@ -154,7 +155,7 @@ export class InteractionHandler {
 
         // Mouse up → stop rotation, pan, or layer drag; also detect layer clicks
         this.canvas.addEventListener('mouseup', (e) => {
-            if (this.renderer.layerViewMode) return;
+            if (this.renderer.layerViewMode || this.renderer.gridViewMode) return;
             const wasDragging = this.isRotating || this.isPanning || this.isDraggingLayer;
             this.isRotating = false;
             this.isPanning = false;
@@ -189,7 +190,7 @@ export class InteractionHandler {
 
         // Mouse move → rotate, pan, layer drag, or hover
         this.canvas.addEventListener('mousemove', (e) => {
-            if (this.renderer.layerViewMode) return;
+            if (this.renderer.layerViewMode || this.renderer.gridViewMode) return;
             const rect = this.canvas.getBoundingClientRect();
             const mx = e.clientX - rect.left;
             const my = e.clientY - rect.top;
@@ -290,6 +291,7 @@ export class InteractionHandler {
 
         // Double-click on empty space to deselect
         this.canvas.addEventListener('dblclick', (e) => {
+            if (this.renderer.gridViewMode) return;
             const rect = this.canvas.getBoundingClientRect();
             const mx = e.clientX - rect.left;
             const my = e.clientY - rect.top;

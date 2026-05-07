@@ -33,6 +33,7 @@ export class Renderer {
         this.showSetNames = options.showSetNames || false;
         this.labelFont = '12px Inter, system-ui, sans-serif';
         this.layerLabelFont = 'bold 14px Inter, system-ui, sans-serif';
+        this.layerNameFontSize = 14; // px — drives Network-mode layer names and Grid-view cell headers
 
         // State
         this.model = null;
@@ -56,14 +57,18 @@ export class Renderer {
         // Color-by functions
         this.nodeColorFn = null;
         this.nodeSizeFn = null;
-        this.linkColorFn = null;          // attribute-based; overrides defaults below
+        this.linkColorFn = null;          // global fallback; overrides defaults below
+        this.intraLinkColorFn = null;     // per-type override for intralayer links
+        this.interLinkColorFn = null;     // per-type override for interlayer links
         this.defaultIntraColor = 'rgba(0,0,0,0.85)';
         this.defaultInterColor = 'rgba(30,100,220,0.8)';
         this.layerColorFn = null; // (layerIndex, layer) -> { fill, border, text }
 
-        this.arrowheadSize = 1;       // multiplier, 1 = default
-        this.interlayerCurvature = 0.35; // fraction of link distance
-        this.interlayerMinWeight = 0;    // links below this weight are hidden
+        this.arrowheadSize = 1;            // multiplier, 1 = default
+        this.interlayerCurvature = 0.35;   // fraction of link distance
+        this.intraMinWeight = 0;           // intralayer links below this weight are hidden
+        this.interlayerMinWeight = 0;      // interlayer links below this weight are hidden
+        this.interlayerLayerPairs = null;  // null = show all; Set<"from::to"> = selected pairs
 
         this.showMapBackground = false;
         this.isMapMode = false;
@@ -79,10 +84,17 @@ export class Renderer {
         this.bipartiteInfo = null; // Map<layerName, { isBipartite, setA, setB, setALabel, setBLabel }>
         this.layoutType = 'fruchterman'; // Current layout type (needed to know when to render bipartite)
 
+        this.dpr = window.devicePixelRatio || 1;
+
         // Konva hit-test overlay (populated after each render)
         this._konvaStage = null;
         this._konvaHitLayer = null;
         this._initKonvaOverlay();
+
+        // Splash screen logo
+        this._logoImage = new Image();
+        this._logoImage.onload = () => { if (!this.model) this.render(); };
+        this._logoImage.src = 'assets/MiRA_logo.svg';
     }
 
     setData(model, positions) {
@@ -254,7 +266,7 @@ export class Renderer {
 
         // 1. Check Interlayer links (curved) - tested first as they are drawn on top
         if (this.showInterlayerLinks) {
-            for (const link of this.model.interlayerLinks) {
+            for (const link of this._visibleInterlayerLinks()) {
                 const fromScreen = this.getNodeScreenPos(link.layer_from, link.node_from);
                 const toScreen = this.getNodeScreenPos(link.layer_to, link.node_to);
                 if (!fromScreen || !toScreen) continue;
@@ -353,11 +365,46 @@ export class Renderer {
         if (this.metaNetworkMode) return; // MetaNetwork owns the canvas in this mode
 
         const ctx = this.ctx;
-        const w = this.canvas.width;
-        const h = this.canvas.height;
+        const dpr = this.dpr || 1;
+        const w = Math.round(this.canvas.width / dpr);
+        const h = Math.round(this.canvas.height / dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.clearRect(0, 0, w, h);
 
-        if (this.layerViewMode && this.layerView) {
+        if (this.gridViewMode && this._gridView) {
+            // _gridMarginOverride lets exports request margin=0 so the grid fills
+            // the entire image instead of leaving a strip where the on-screen
+            // sidebar/toolbar were.
+            let marginLeft, marginTop;
+            if (this._gridMarginOverride) {
+                marginLeft = this._gridMarginOverride.left;
+                marginTop  = this._gridMarginOverride.top;
+            } else {
+                const panelsEl  = document.getElementById('controlPanels');
+                const barEl     = document.getElementById('bottomBar');
+                marginLeft = panelsEl ? Math.ceil(panelsEl.getBoundingClientRect().right) + 8 : 8;
+                marginTop  = barEl    ? Math.ceil(barEl.getBoundingClientRect().bottom)  + 8 : 8;
+            }
+            this._gridView.render(ctx, w, h, this.model, this.positions, {
+                nodeRadius:       this.nodeRadius,
+                nodeColorFn:      this.nodeColorFn,
+                nodeSizeFn:       this.nodeSizeFn,
+                intraLinkColorFn: this.intraLinkColorFn ?? this.linkColorFn,
+                intraMinWeight:   this.intraMinWeight,
+                layerColorFn:     this.layerColorFn,
+                layerWidth:       this.layerWidth,
+                layerHeight:      this.layerHeight,
+                columns:          this._gridColumns ?? 3,
+                marginLeft,
+                marginTop,
+                selectedNodeName: this.searchedNodeName ?? this.selectedNode?.nodeName ?? null,
+                bipartiteInfo:    this.bipartiteInfo,
+                showSetNames:     this.showSetNames && this.layoutType === 'bipartite',
+                showLabels:       this.showLabels,
+                labelFont:        this.labelFont,
+                headerFontSize:   this.layerNameFontSize,
+            });
+        } else if (this.layerViewMode && this.layerView) {
             this.layerView.render(ctx, w, h);
         } else {
             this.renderToContext(ctx, w, h);
@@ -448,10 +495,68 @@ export class Renderer {
     }
 
     _drawPlaceholder(ctx, w, h) {
+        const logoGap = 16;
+        const line1   = 'Welcome to MiRA, the Multilayer Interactive Rendering App';
+        const devBy   = 'Developed by the ';
+        const labName = 'Ecological Complexity Lab';
+        const line3   = 'Load a multilayer network via the Data panel to visualize';
+
+        // Line y-offsets relative to cy (textBaseline = 'middle')
+        const L1_OFF = -24, L4_OFF = 70;
+        const FONT1 = 18, FONT4 = 14;
+        const textBlockTop    = L1_OFF - FONT1 / 2;  // top of first line
+        const textBlockBottom = L4_OFF + FONT4 / 2;  // bottom of last line
+        const logoH = textBlockBottom - textBlockTop; // matches text block height exactly
+
+        const img = this._logoImage;
+        const logoW = (img?.complete && img.naturalWidth > 0)
+            ? Math.round(logoH * img.naturalWidth / img.naturalHeight)
+            : logoH;
+
+        ctx.font = 'bold 18px Inter, system-ui, sans-serif';
+        const line1W = ctx.measureText(line1).width;
+        ctx.font = '16px Inter, system-ui, sans-serif';
+        const line2W = ctx.measureText(devBy + labName).width;
+        ctx.font = '15px Inter, system-ui, sans-serif';
+        const line3W = ctx.measureText(line3).width;
+
+        const textBlockW = Math.max(line1W, line2W, line3W);
+        const totalW = logoW + logoGap + textBlockW;
+        const startX = (w - totalW) / 2;
+        const cy = h / 2;
+
+        if (img?.complete && img.naturalWidth > 0) {
+            ctx.drawImage(img, startX, cy + textBlockTop, logoW, logoH);
+        }
+
+        const textX = startX + logoW + logoGap;
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+
         ctx.fillStyle = '#1f2937';
-        ctx.font = '18px Inter, system-ui, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Load a multilayer network via the Data panel to visualize', w / 2, h / 2);
+        ctx.font = 'bold 18px Inter, system-ui, sans-serif';
+        ctx.fillText(line1, textX, cy - 24);
+
+        ctx.font = '16px Inter, system-ui, sans-serif';
+        const devByW = ctx.measureText(devBy).width;
+        ctx.fillText(devBy, textX, cy + 4);
+        ctx.fillStyle = '#6366f1';
+        ctx.fillText(labName, textX + devByW, cy + 4);
+        const labW = ctx.measureText(labName).width;
+        this._ecoLabBounds = { x: textX + devByW, y: cy + 4 - 12, w: labW, h: 24 };
+
+        ctx.fillStyle = '#6b7280';
+        ctx.font = '15px Inter, system-ui, sans-serif';
+        ctx.fillText(line3, textX, cy + 44);
+
+        const line4 = 'See our visualization guidelines for best practices →';
+        ctx.font = '14px Inter, system-ui, sans-serif';
+        const line4W = ctx.measureText(line4).width;
+        ctx.fillStyle = '#6366f1';
+        ctx.fillText(line4, textX, cy + 70);
+        this._guidelinesBounds = { x: textX, y: cy + 70 - 11, w: line4W, h: 22 };
+
+        ctx.textBaseline = 'alphabetic';
         ctx.textAlign = 'left';
     }
 
@@ -487,7 +592,7 @@ export class Renderer {
             ctx.save();
             ctx.translate(anchor.x, anchor.y);
             ctx.rotate(xAngle);
-            ctx.font = 'bold 15px Inter, system-ui, sans-serif';
+            ctx.font = `bold ${this.layerNameFontSize}px Inter, system-ui, sans-serif`;
             ctx.fillStyle = layerColors.text;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'top';
@@ -540,6 +645,7 @@ export class Renderer {
         const useBipartiteGradient = bpInfo && bpInfo.isBipartite;
 
         for (const link of links) {
+            if (this.intraMinWeight > 0 && (link.weight || 0) < this.intraMinWeight) continue;
             if (dataMode.filteredNodeNames &&
                 (!dataMode.filteredNodeNames.has(link.node_from) || !dataMode.filteredNodeNames.has(link.node_to))) continue;
             if (dataMode.filteredLinkKeys) {
@@ -554,10 +660,12 @@ export class Renderer {
             const from = this.project(fromPos.x, fromPos.y, layerIndex);
             const to = this.project(toPos.x, toPos.y, layerIndex);
 
-            // Determine color
-            const color = this.linkColorFn
-                ? this.linkColorFn(link)
-                : this.defaultIntraColor;
+            // Determine color: per-type fn → global fn → default
+            const color = this.intraLinkColorFn
+                ? this.intraLinkColorFn(link)
+                : this.linkColorFn
+                    ? this.linkColorFn(link)
+                    : this.defaultIntraColor;
 
             const isHighlighted = this._isLinkHighlighted(link);
             const _fn = this.selectedNode ? this.selectedNode.nodeName : this.searchedNodeName;
@@ -581,11 +689,11 @@ export class Renderer {
         }
     }
 
-    _drawInterlayerLinks(ctx) {
-        // Pre-compute weight range for normalized line width
-        const visibleLinks = this.model.interlayerLinks.filter(l => {
+    _visibleInterlayerLinks() {
+        return this.model.interlayerLinks.filter(l => {
             if (this.activeMapLayers && (!this.activeMapLayers.has(l.layer_from) || !this.activeMapLayers.has(l.layer_to))) return false;
             if (this.interlayerMinWeight > 0 && (l.weight || 0) < this.interlayerMinWeight) return false;
+            if (this.interlayerLayerPairs !== null && !this.interlayerLayerPairs.has(`${l.layer_from}::${l.layer_to}`)) return false;
             if (dataMode.filteredLayerNames && (!dataMode.filteredLayerNames.has(l.layer_from) || !dataMode.filteredLayerNames.has(l.layer_to))) return false;
             if (dataMode.filteredNodeNames && (!dataMode.filteredNodeNames.has(l.node_from) || !dataMode.filteredNodeNames.has(l.node_to))) return false;
             if (dataMode.filteredLinkKeys) {
@@ -594,6 +702,11 @@ export class Renderer {
             }
             return true;
         });
+    }
+
+    _drawInterlayerLinks(ctx) {
+        // Pre-compute weight range for normalized line width
+        const visibleLinks = this._visibleInterlayerLinks();
         const weights = visibleLinks.map(l => l.weight || 0).filter(w => w > 0);
         const maxW = weights.length ? Math.max(...weights) : 1;
         const minW = weights.length ? Math.min(...weights) : 0;
@@ -604,9 +717,11 @@ export class Renderer {
             const toScreen = this.getNodeScreenPos(link.layer_to, link.node_to);
             if (!fromScreen || !toScreen) continue;
 
-            const color = this.linkColorFn
-                ? this.linkColorFn(link)
-                : this.defaultInterColor;
+            const color = this.interLinkColorFn
+                ? this.interLinkColorFn(link)
+                : this.linkColorFn
+                    ? this.linkColorFn(link)
+                    : this.defaultInterColor;
 
             const isHighlighted = this._isLinkHighlighted(link);
             const _fn = this.selectedNode ? this.selectedNode.nodeName : this.searchedNodeName;
@@ -762,7 +877,7 @@ export class Renderer {
                 ctx.font = this.labelFont;
                 ctx.fillStyle = 'rgba(0,0,0,0.75)';
 
-                const useDiagonal = this.transformNodes && this.layoutType === 'bipartite' && bpInfo;
+                const useDiagonal = this.transformNodes && this.layoutType === 'bipartite' && bpInfo?.isBipartite;
                 if (useDiagonal) {
                     const above = bpInfo.setA.has(nodeName);
                     ctx.textAlign = 'left';
@@ -917,15 +1032,18 @@ export class Renderer {
         // Compute scale to fit with padding
         const padX = 120;
         const padY = 80;
-        const availW = this.canvas.width - padX;
-        const availH = this.canvas.height - padY;
+        const dpr = this.dpr || 1;
+        const cssW = Math.round(this.canvas.width / dpr);
+        const cssH = Math.round(this.canvas.height / dpr);
+        const availW = cssW - padX;
+        const availH = cssH - padY;
         this.scale = Math.min(availW / rawWidth, availH / rawHeight, 1.8);
 
         // Compute center offset so projected bounding box is centered
         const scaledW = rawWidth * this.scale;
         const scaledH = rawHeight * this.scale;
-        this.offsetX = (this.canvas.width - scaledW) / 2 - minX * this.scale;
-        this.offsetY = (this.canvas.height - scaledH) / 2 - minY * this.scale;
+        this.offsetX = (cssW - scaledW) / 2 - minX * this.scale;
+        this.offsetY = (cssH - scaledH) / 2 - minY * this.scale;
     }
 
     // ---- Konva hit-test overlay ----
@@ -937,10 +1055,11 @@ export class Renderer {
         container.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;';
         this.canvas.parentElement.style.position = 'relative';
         this.canvas.parentElement.appendChild(container);
+        const dpr = this.dpr || 1;
         this._konvaStage = new Konva.Stage({
             container,
-            width: this.canvas.width,
-            height: this.canvas.height,
+            width:  Math.round(this.canvas.width  / dpr),
+            height: Math.round(this.canvas.height / dpr),
         });
         this._konvaHitLayer = new Konva.Layer();
         this._konvaStage.add(this._konvaHitLayer);
@@ -975,6 +1094,7 @@ export class Renderer {
             if (!layerPos) continue;
             const links = this.model.intralayerLinks.filter(l => l.layer_from === layer.layer_name);
             for (const link of links) {
+                if (this.intraMinWeight > 0 && (link.weight || 0) < this.intraMinWeight) continue;
                 if (dataMode.filteredNodeNames &&
                     (!dataMode.filteredNodeNames.has(link.node_from) || !dataMode.filteredNodeNames.has(link.node_to))) continue;
                 const fromPos = layerPos.get(link.node_from);
@@ -994,7 +1114,7 @@ export class Renderer {
 
         // Interlayer links (curved)
         if (this.showInterlayerLinks) {
-            for (const link of this.model.interlayerLinks) {
+            for (const link of this._visibleInterlayerLinks()) {
                 const fromScreen = this.getNodeScreenPos(link.layer_from, link.node_from);
                 const toScreen = this.getNodeScreenPos(link.layer_to, link.node_to);
                 if (!fromScreen || !toScreen) continue;

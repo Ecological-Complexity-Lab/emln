@@ -5,7 +5,8 @@
  * Accepts:
  *   1. Extended edge list (required) — layer_from, node_from, layer_to, node_to, weight
  *   2. Layer attributes CSV (optional) — layer_id, layer_name, latitude, longitude,
- *        bipartite (TRUE/FALSE — required for any bipartite layer), …
+ *        bipartite (TRUE/FALSE — required for any bipartite layer),
+ *        setA_type (optional — node_type value rendered as the top row), …
  *   3. Node attributes CSV (optional) — node_name, node_type (required when any
  *        layer is bipartite — exactly two distinct values across the network), …
  */
@@ -46,6 +47,8 @@ export function parseCsv(text) {
  * Bipartite layers must be declared via a "bipartite" column in the layers CSV
  * (TRUE/FALSE per layer). Nodes participating in any bipartite layer must carry
  * a "node_type" column with exactly two distinct values across the file.
+ * An optional "setA_type" column on the layers CSV pins which node_type is
+ * rendered as the top row (Set A). If omitted, types are sorted alphabetically.
  *
  * @param {{ directed: boolean }} options
  * @returns {{ json: object, infoMessages: string[], warnings: string[] }}
@@ -206,7 +209,7 @@ export function csvToJson(edgeListText, layersText, nodesText, stateNodesText, o
             node_from:  e.node_from,
             layer_to:   e.layer_to,
             node_to:    e.node_to,
-            weight:     e.weight !== undefined && e.weight !== '' ? (parseFloat(e.weight) || 1) : 1,
+            weight:     parseEdgeWeight(e.weight),
         };
         // Preserve any extra columns
         for (const [k, v] of Object.entries(e)) {
@@ -244,4 +247,12 @@ export function csvToJson(edgeListText, layersText, nodesText, stateNodesText, o
     };
 
     return { json, infoMessages, warnings };
+}
+
+/** Parse a CSV weight cell. Empty/missing/non-numeric → 1. Preserves 0 (so the
+ *  parser can drop zero-weight rows downstream rather than silently rewriting them). */
+function parseEdgeWeight(raw) {
+    if (raw === undefined || raw === null || raw === '') return 1;
+    const n = parseFloat(raw);
+    return Number.isFinite(n) ? n : 1;
 }

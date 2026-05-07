@@ -1,46 +1,66 @@
 #' Export a multilayer network to JSON
 #'
-#' Converts an EMLN \code{multilayer} object to JSON format compatible with the
-#' Multilayer Network Visualizer web app.
+#' Converts an EMLN \code{multilayer} object to JSON format compatible with
+#' MiRA, the multilayer interactive R-network app.
 #'
 #' @param multilayer A multilayer object (created by \code{create_multilayer_network}
 #'   or \code{load_emln}).
 #' @param file Optional file path to write the JSON to. If NULL, returns the JSON
 #'   string.
 #' @param bipartite Logical. Whether the network is bipartite. Defaults to
-#'   \code{FALSE}. The visualizer no longer auto-detects bipartite structure —
-#'   you must set this to \code{TRUE} explicitly. When \code{TRUE}, the nodes
-#'   table must contain a \code{node_type} (or legacy \code{node_group}) column
+#'   \code{FALSE}. MiRA does not auto-detect bipartite structure — you must
+#'   set this to \code{TRUE} explicitly. When \code{TRUE}, the nodes table
+#'   must contain a \code{node_type} (or legacy \code{node_group}) column
 #'   with exactly two distinct values across the network. Any \code{node_group}
 #'   column is renamed to \code{node_type} in the output regardless of the
-#'   bipartite flag (canonical name for the visualizer).
-#' @param directed Logical or NULL. Whether the network is directed. If NULL
-#'   (default), auto-detected by checking edge list symmetry.
+#'   bipartite flag (MiRA's canonical name).
+#' @param setA_type Optional character. The \code{node_type} value to render
+#'   as Set A (top row) in MiRA's bipartite layout. By ecological convention
+#'   this is the higher trophic level (e.g. \code{"pollinator"},
+#'   \code{"parasite"}, \code{"disperser"}). Only used when
+#'   \code{bipartite = TRUE}. If \code{NULL} (default), MiRA falls back to
+#'   alphabetical ordering of the two types.
+#' @param directed Logical or NULL. Whether intralayer links are directed.
+#'   If NULL (default), auto-detected by checking intralayer edge symmetry.
+#' @param directed_interlayer Logical or NULL. Whether interlayer links are
+#'   directed. If NULL (default), inherits from \code{directed} (matching
+#'   MiRA's parser behavior). Set explicitly when intra- and interlayer
+#'   directionality differ.
 #'
-#' @note The Multilayer Network Visualizer that this function targets is
-#'   currently in beta. Feedback and bug reports are welcome at
-#'   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
+#' @note
+#' MiRA (Multilayer Interactive Rendering Application) is a browser-based
+#' interactive visualization tool for multilayer networks, available at
+#' \url{https://mira.ecomplab.com/}.
+#'
+#' If you use MiRA in published research, please cite:
+#' Nehorai S, Bloch Y and Pilosof S. Interactively visualizing biological
+#' multilayer networks using MiRA. (forthcoming)
+#'
+#' Feedback and bug reports:
+#' \url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
 #'
 #' @return If \code{file} is NULL, returns the JSON string invisibly.
 #'   If \code{file} is specified, writes JSON to disk and returns the file path
 #'   invisibly.
 #'
 #' @details
-#' The JSON output contains four arrays matching the visualizer's expected format:
+#' The JSON output contains four arrays matching MiRA's expected format:
 #' \itemize{
 #'   \item \code{nodes}: Physical nodes with \code{node_id}, \code{node_name}, and
 #'     any extra attributes. For bipartite networks, \code{node_group} is mapped to
 #'     \code{node_type}.
 #'   \item \code{layers}: Layer metadata with \code{layer_id}, \code{layer_name},
 #'     and extra attributes. For bipartite networks, a \code{bipartite: true} flag
-#'     is added.
+#'     is added; if \code{setA_type} is given it is also written per layer.
 #'   \item \code{extended}: The extended edge list with \code{layer_from},
 #'     \code{node_from}, \code{layer_to}, \code{node_to}, \code{weight}, and any
-#'     link attributes. For directed networks, a \code{directed: true} flag is
-#'     added to each link.
+#'     link attributes.
 #'   \item \code{state_nodes}: State node map with \code{layer_id}, \code{node_id},
-#'     \code{layer_name}, \code{node_name}.
+#'     \code{layer_name}, \code{node_name}, plus any extra per-(layer, node)
+#'     attributes (e.g. \code{abundance}, \code{module}).
 #' }
+#' Top-level flags \code{directed} and (when set) \code{directed_interlayer}
+#' indicate edge directionality globally; they are not repeated per link.
 #'
 #' @seealso \code{plot_multilayer, create_multilayer_network, load_emln}
 #'
@@ -54,11 +74,16 @@
 #' net <- load_emln(14)
 #' multilayer_to_json(net, file = "tests/my_network.json", bipartite = TRUE)
 #'
+#' # Bipartite with explicit Set A ordering
+#' multilayer_to_json(net, bipartite = TRUE, setA_type = "pollinator")
+#'
 #' # Get JSON string
 #' json_str <- multilayer_to_json(net)
 #' }
 
-multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, directed = NULL) {
+multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE,
+                               setA_type = NULL, directed = NULL,
+                               directed_interlayer = NULL) {
 
   if (!inherits(multilayer, "multilayer")) {
     stop("Input must be a multilayer object (class 'multilayer').")
@@ -67,9 +92,22 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, direc
   if (!is.logical(bipartite) || length(bipartite) != 1) {
     stop("`bipartite` must be a single TRUE/FALSE value (auto-detection has been removed).")
   }
+  if (!is.null(setA_type)) {
+    if (!is.character(setA_type) || length(setA_type) != 1 || is.na(setA_type)) {
+      stop("`setA_type` must be a single character string or NULL.")
+    }
+    if (!isTRUE(bipartite)) {
+      warning("`setA_type` is only used when bipartite = TRUE; ignoring.")
+      setA_type <- NULL
+    }
+  }
+  if (!is.null(directed_interlayer) &&
+      (!is.logical(directed_interlayer) || length(directed_interlayer) != 1)) {
+    stop("`directed_interlayer` must be a single TRUE/FALSE value or NULL.")
+  }
 
-  message("Note: The Multilayer Network Visualizer is currently in beta. ",
-          "Please report issues at https://github.com/Ecological-Complexity-Lab/emln/issues")
+  message("Please report issues at ",
+          "https://github.com/Ecological-Complexity-Lab/MiRA/issues")
 
   # Resolve canonical type column. Precedence: node_type > node_group > type.
   # node_group and type are legacy names from older emln data.
@@ -116,7 +154,7 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, direc
 
   # ---- Build nodes array ----
   nodes_df <- as.data.frame(multilayer$nodes)
-  # Canonicalize legacy names -> node_type (visualizer's canonical name).
+  # Canonicalize legacy names -> node_type (MiRA's canonical name).
   # Precedence: node_type > node_group > type.
   if (!("node_type" %in% names(nodes_df))) {
     if ("node_group" %in% names(nodes_df)) {
@@ -125,7 +163,7 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, direc
       names(nodes_df)[names(nodes_df) == "type"] <- "node_type"
     }
   }
-  # Dedupe by node_name — the visualizer expects one physical node per row
+  # Dedupe by node_name — MiRA expects one physical node per row
   if ("node_name" %in% names(nodes_df)) {
     nodes_df <- nodes_df[!duplicated(nodes_df$node_name), , drop = FALSE]
   }
@@ -138,9 +176,22 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, direc
   layers_df <- as.data.frame(multilayer$layers)
   # Drop legacy 'name' column — layer_name is canonical
   layers_df <- layers_df[, names(layers_df) != "name", drop = FALSE]
-  # Add bipartite flag
+  # Add bipartite flag and (optionally) setA_type per layer
   if (bipartite) {
     layers_df$bipartite <- TRUE
+    if (!is.null(setA_type)) {
+      # Validate setA_type matches a node_type present in the network
+      type_values <- unique(nodes_df[["node_type"]])
+      type_values <- type_values[!is.na(type_values)]
+      if (!(setA_type %in% type_values)) {
+        stop(sprintf(
+          paste0("`setA_type = \"%s\"` does not match any node_type in the ",
+                 "network (found: %s)."),
+          setA_type, paste(type_values, collapse = ", ")
+        ))
+      }
+      layers_df$setA_type <- setA_type
+    }
   }
 
   # ---- Build extended edge list ----
@@ -178,18 +229,23 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE, direc
       match(state_nodes_df$layer_name, layers_df$layer_name)
     ]
   }
+  # Keep core identity columns first, then any extra per-(layer, node)
+  # attributes (e.g. abundance, module). MiRA's parser surfaces these in
+  # the state-node attribute dropdown.
   core_cols <- c("layer_id", "node_id", "layer_name", "node_name")
-  available_cols <- intersect(core_cols, names(state_nodes_df))
-  state_nodes_df <- state_nodes_df[, available_cols, drop = FALSE]
+  available_core <- intersect(core_cols, names(state_nodes_df))
+  extra_cols <- setdiff(names(state_nodes_df), core_cols)
+  state_nodes_df <- state_nodes_df[, c(available_core, extra_cols), drop = FALSE]
 
   # ---- Assemble JSON ----
-  json_list <- list(
-    directed = directed,
-    nodes = .df_to_list_of_rows(nodes_df),
-    layers = .df_to_list_of_rows(layers_df),
-    extended = .df_to_list_of_rows(extended_df),
-    state_nodes = .df_to_list_of_rows(state_nodes_df)
-  )
+  json_list <- list(directed = directed)
+  if (!is.null(directed_interlayer)) {
+    json_list$directed_interlayer <- directed_interlayer
+  }
+  json_list$nodes       <- .df_to_list_of_rows(nodes_df)
+  json_list$layers      <- .df_to_list_of_rows(layers_df)
+  json_list$extended    <- .df_to_list_of_rows(extended_df)
+  json_list$state_nodes <- .df_to_list_of_rows(state_nodes_df)
 
   json_str <- .to_json(json_list)
 

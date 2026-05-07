@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multilayer Network Visualizer — Manual</title>
-  <link rel="icon" href="../assets/multiviz_logo.png" type="image/png">
+  <title>MiRA — Manual</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -27,7 +27,9 @@
       overflow-y: auto;
       background: #fff;
       border-right: 1px solid #e5e7eb;
-      padding: 24px 0 40px;
+      padding: 24px 0 0;
+      display: flex;
+      flex-direction: column;
     }
 
     #toc h2 {
@@ -110,6 +112,8 @@
     h2.sec.mode-meta .badge     { background: #fef3c7; color: #d97706; }
     h2.sec.mode-data     { color: #c51b7d; border-color: #c51b7d22; }
     h2.sec.mode-data .badge     { background: #fce7f3; color: #c51b7d; }
+    h2.sec.mode-grid     { color: #f73ce1; border-color: #f73ce122; }
+    h2.sec.mode-grid .badge     { background: #fdf2fb; color: #f73ce1; }
     h2.sec.mode-misc     { color: #374151; border-color: #37415122; }
 
     h3 {
@@ -189,6 +193,17 @@
     .pill-meta     { background: #fef3c7; color: #d97706; }
     .pill-data     { background: #fce7f3; color: #c51b7d; }
 
+    /* Dataset table pills */
+    .pill-attr   { background:#f3f4f6; border:1px solid #e5e7eb; color:#4b5563; }
+    .pill-dir-u  { background:#f0fdf4; color:#166534; }
+    .pill-dir-d  { background:#fff7ed; color:#c2410c; }
+    .pill-dir-m  { background:#faf5ff; color:#7e22ce; }
+    .pill-bio    { background:#ecfeff; color:#0e7490; }
+    .pill-unip   { background:#f8fafc; color:#64748b; }
+    .pill-ml-sp  { background:#e0f2fe; color:#0369a1; }
+    .pill-ml-te  { background:#fff7ed; color:#b45309; }
+    .pill-ml-mp  { background:#f1f5f9; color:#475569; }
+
     /* ── Collapsible TOC ─────────────────────────────────────────────── */
     .toc-group { }
     .toc-children { overflow: hidden; }
@@ -241,6 +256,14 @@
         </div>
       </div>
       <div class="toc-group">
+        <a href="#gridview" class="l2 toc-toggle" data-group="g-grid">Grid View <span class="toc-chevron">▾</span></a>
+        <div class="toc-children" id="g-grid">
+          <a href="#grid-interactions" class="l3">Interactions</a>
+          <a href="#grid-controls" class="l3">Sidebar Controls</a>
+          <a href="#grid-bipartite" class="l3">Bipartite Layers</a>
+        </div>
+      </div>
+      <div class="toc-group">
         <a href="#metanetwork" class="l2 toc-toggle" data-group="g-meta">Σ Meta-Network Mode <span class="toc-chevron">▾</span></a>
         <div class="toc-children" id="g-meta">
           <a href="#mn-interactions" class="l3">Interactions</a>
@@ -278,7 +301,23 @@
   <div class="toc-sep"></div>
 
   <a href="#toolbar" class="l1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:4px"><path d="M2 12C2 8.31088 2 6.46632 2.81382 5.15878C3.1149 4.67504 3.48891 4.25428 3.91891 3.91556C5.08116 3.00002 6.72077 3.00002 10 3.00002H14C17.2792 3.00002 18.9188 3.00002 20.0811 3.91556C20.5111 4.25428 20.8851 4.67504 21.1862 5.15878C22 6.46632 22 8.31088 22 12C22 15.6891 22 17.5337 21.1862 18.8412C20.8851 19.325 20.5111 19.7457 20.0811 20.0845C18.9188 21 17.2792 21 14 21H10C6.72077 21 5.08116 21 3.91891 20.0845C3.48891 19.7457 3.1149 19.325 2.81382 18.8412C2 17.5337 2 15.6891 2 12Z"/><path d="M2 9.5L22 9.5" stroke-linejoin="round"/></svg>Top Toolbar Strip</a>
+  <a href="#session" class="l1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"/><path d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002M11.9997 15.0002V3.00016"/></svg>Save / Load Session</a>
+  <a href="#session-share" class="l2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Sharing Online via GitHub Gist</a>
   <a href="#legend" class="l1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="7" cy="9" r="1.3" fill="currentColor" stroke="none"/><line x1="11" y1="9" x2="18" y2="9"/><circle cx="7" cy="14" r="1.3" fill="currentColor" stroke="none"/><line x1="11" y1="14" x2="18" y2="14"/></svg>Dynamic Legend</a>
+
+  <div class="toc-sep"></div>
+
+  <div class="toc-group">
+    <a href="#guidelines" class="l1 toc-toggle" data-group="g-guidelines"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;vertical-align:middle;margin-right:4px"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>Visualization Guidelines <span class="toc-chevron">▾</span></a>
+    <div class="toc-children" id="g-guidelines">
+      <a href="#guidelines-display" class="l2">Screen &amp; Display</a>
+      <a href="#guidelines-complexity" class="l2">Managing Complexity</a>
+      <a href="#guidelines-modes" class="l2">Choosing a Mode</a>
+      <a href="#guidelines-workflow" class="l2">Workflow &amp; Quick Reference</a>
+      <a href="#guidelines-performance" class="l2">Performance</a>
+      <a href="#guidelines-stress" class="l2">Stress Test</a>
+    </div>
+  </div>
 
   <div class="toc-sep"></div>
 
@@ -290,15 +329,28 @@
       <a href="#emln-csv" class="l2">multilayer_to_csv()</a>
     </div>
   </div>
+
+  <div style="margin-top:auto; padding:16px 12px 0; text-align:center;">
+    <a href="https://mira.ecomplab.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#1a1a2e;">
+      <img src="../assets/MiRA_logo.svg" alt="MiRA" style="height:100px; width:auto; object-fit:contain;">
+      <span style="font-size:14px; font-weight:500;">v1.0</span>
+    </a>
+  </div>
+  <div style="padding:16px 12px 12px; border-top:1px solid rgba(0,0,0,0.07); text-align:center;">
+    <a href="https://ecomplab.com" target="_blank" rel="noopener" style="display:inline-flex; flex-direction:column; align-items:center; gap:6px; text-decoration:none; color:#6b7280;">
+      <img src="../assets/ecomplab_logo.png" alt="Ecological Complexity Lab" style="height:50px; width:auto; object-fit:contain;">
+      <span style="font-size:11px; line-height:1.3;">Developed by the<br>Ecological Complexity Lab</span>
+    </a>
+  </div>
 </nav>
 
 <!-- ══ Content ══════════════════════════════════════════════════════════ -->
 <main id="content">
 
-  <div style="display:flex; align-items:center; gap:18px; margin-bottom:16px;">
-    <img src="../assets/multiviz_logo.png" alt="Multilayer Network Visualizer logo" style="width:80px; height:80px; object-fit:contain;">
+  <div style="display:flex; align-items:stretch; gap:18px; margin-bottom:16px;">
+    <img src="../assets/MiRA_logo.svg" alt="MiRA logo" style="height: 120px;; width:auto; object-fit:contain;">
     <div>
-      <h1 style="margin-bottom:4px;">Multilayer Network Visualizer</h1>
+      <h1 style="margin-bottom:4px;">MiRA — Multilayer Interactive Rendering Application</h1>
       <p class="subtitle" style="margin-bottom:0;">Interactive manual — all features, modes, and controls</p>
     </div>
   </div>
@@ -310,7 +362,7 @@
   <p>The <strong>Data</strong> panel is always visible in the left sidebar, regardless of active mode.</p>
 
   <h3 id="import-example">Load Example Data</h3>
-  <p>Opens a dialog with seven built-in datasets. See <a href="#examples">Built-in Datasets</a> below for the full list.</p>
+  <p>Opens a dialog with eight built-in datasets. See <a href="#examples">Built-in Datasets</a> below for the full list.</p>
 
   <h3 id="import-json">Load User Data (JSON)</h3>
   <p>Upload a <code>.json</code> file formatted according to the JSON format below.</p>
@@ -319,7 +371,7 @@
   "directed": false,
   "directed_interlayer": false,
   "layers": [
-    { "layer_id": 1, "layer_name": "Forest", "latitude": 42.3, "longitude": 3.1, "bipartite": true }
+    { "layer_id": 1, "layer_name": "Forest", "latitude": 42.3, "longitude": 3.1, "bipartite": true, "setA_type": "pollinator" }
   ],
   "nodes": [
     { "node_id": "sp_1", "node_name": "Bee", "node_type": "pollinator" }
@@ -344,6 +396,7 @@
     <li><code>layer_name</code> — display name.</li>
     <li><code>latitude</code> / <code>longitude</code> <em>(optional)</em> — unlocks Map Mode.</li>
     <li><code>bipartite</code> <em>(optional, Boolean)</em> — set <code>true</code> to mark this layer bipartite. Nodes must carry a <code>node_type</code> attribute with exactly two distinct values <em>within this layer</em>. Different layers may use different pairs (diagonal-coupling). Never auto-detected.</li>
+    <li><code>setA_type</code> <em>(optional, string)</em> — for bipartite layers only. Pins which <code>node_type</code> value is rendered as Set A (the top row). By ecological convention this is the higher trophic level (e.g. <code>"pollinator"</code>, <code>"parasite"</code>, <code>"bird"</code>). If omitted, the two types are sorted alphabetically and the first becomes Set A. The value must match one of the two <code>node_type</code> values in the layer; otherwise it's ignored with a warning.</li>
     <li>Any extra fields become selectable attributes for color/size mapping.</li>
   </ul>
 
@@ -374,11 +427,11 @@
   <p>Load network data from CSV files. A modal dialog accepts up to four files:</p>
   <ul>
     <li><em>Extended Edge List</em> <strong>(required)</strong> — one row per link, columns: <code>layer_from</code>, <code>node_from</code>, <code>layer_to</code>, <code>node_to</code>, <code>weight</code> (optional). Both intralayer and interlayer links go in this single file.</li>
-    <li><em>Layer Attributes</em> (optional) — columns: <code>layer_id</code>, <code>layer_name</code>, <code>latitude</code>, <code>longitude</code>, <code>bipartite</code> (TRUE/FALSE), and any additional columns for layer attributes (e.g. <code>area</code>, <code>elevation</code>) which become available for color mapping. If omitted, layers are derived from the edge list and all treated as unipartite.</li>
+    <li><em>Layer Attributes</em> (optional) — columns: <code>layer_id</code>, <code>layer_name</code>, <code>latitude</code>, <code>longitude</code>, <code>bipartite</code> (TRUE/FALSE), <code>setA_type</code> (optional — pins the top-row <code>node_type</code> for bipartite layers), and any additional columns for layer attributes (e.g. <code>area</code>, <code>elevation</code>) which become available for color mapping. If omitted, layers are derived from the edge list and all treated as unipartite.</li>
     <li><em>Node Attributes</em> (optional) — columns: <code>node_name</code> (required), <code>node_type</code> (required when any layer is marked bipartite — each bipartite layer must have exactly two distinct <code>node_type</code> values among its own nodes, but different layers may use different pairs, supporting diagonal-coupling networks), and any additional columns for <strong>physical</strong> node attributes that are the same across all layers (e.g. <code>body_mass</code>, <code>guild</code>). If omitted, nodes are derived from the edge list with no attributes.</li>
     <li><em>State Node Attributes</em> (optional) — columns: <code>layer_name</code> (required), <code>node_name</code> (required), plus any additional columns for <strong>per-layer</strong> node attributes that can differ across layers (e.g. <code>abundance</code>, <code>module</code>). Use this when the same species or node has a different value in each temporal or spatial layer. Rows that do not match a (layer, node) pair already present in the edge list are silently ignored.</li>
   </ul>
-  <div class="info-box"><strong>Bipartite declaration:</strong> bipartite is never auto-detected. Mark a layer as bipartite via the <code>bipartite=TRUE</code> column in the layers file, and provide a <code>node_type</code> column in the nodes file. Each bipartite layer must have exactly two distinct <code>node_type</code> values among its own nodes. <strong>Diagonal-coupling networks</strong> (e.g. plant–pollinator + plant–herbivore) are supported: different layers may share one node set but pair it with a different partner set, resulting in more than two <code>node_type</code> values globally — this is fine as long as each individual layer has exactly two.</div>
+  <div class="info-box"><strong>Bipartite declaration:</strong> bipartite is never auto-detected. Mark a layer as bipartite via the <code>bipartite=TRUE</code> column in the layers file, and provide a <code>node_type</code> column in the nodes file. Each bipartite layer must have exactly two distinct <code>node_type</code> values among its own nodes. Use the optional <code>setA_type</code> layer column to pin which <code>node_type</code> is rendered on top — by ecological convention the higher trophic level (pollinators, parasites, dispersers). <strong>Diagonal-coupling networks</strong> (e.g. plant–pollinator + plant–herbivore) are supported: different layers may share one node set but pair it with a different partner set, resulting in more than two <code>node_type</code> values globally — this is fine as long as each individual layer has exactly two.</div>
   <p>The <strong>Directed</strong> checkbox marks all edges as directed before loading. Comma, tab, and semicolon delimiters are auto-detected.</p>
   <div class="info-box"><strong>Note:</strong> The (layer, node) pairs are derived automatically from the edge list — you do not need to supply them. The optional <em>State Node Attributes</em> file lets you attach per-layer attributes to those pairs without modifying any other file.</div>
 
@@ -409,51 +462,148 @@ Ixodes_ricinus,0.003</code></pre>
 
   <!-- ── EXAMPLE DATASETS ───────────────────────────────────────── -->
   <h2 class="sec mode-misc" id="examples"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" style="flex-shrink:0"><ellipse cx="12" cy="5" rx="8" ry="3" stroke-linecap="round"/><path d="M7 10.842C7.60158 11.0229 8.27434 11.1718 9 11.282"/><path d="M20 12C20 13.6569 16.4183 15 12 15C7.58172 15 4 13.6569 4 12"/><path d="M7 17.842C7.60158 18.0229 8.27434 18.1718 9 18.282"/><path d="M20 5V19C20 20.6569 16.4183 22 12 22C7.58172 22 4 20.6569 4 19V5"/></svg> Built-in Example Datasets</h2>
-  <table style="width:100%;border-collapse:collapse;font-size:13px;">
+  <table style="width:100%;border-collapse:collapse;font-size:12.5px;">
     <thead>
       <tr style="background:#f3f4f6;">
-        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;">Dataset</th>
-        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;">Reference</th>
-        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;">Type</th>
-        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;">Layers</th>
-        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;">Notes</th>
+        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;width:18%">Dataset</th>
+        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;width:10%">Domain</th>
+        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;width:15%">Reference</th>
+        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;width:14%">Type</th>
+        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;width:18%">Size</th>
+        <th style="text-align:left;padding:7px 10px;border-bottom:2px solid #e5e7eb;">Attributes</th>
       </tr>
     </thead>
     <tbody>
+      <!-- Canary Islands -->
       <tr>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Canary Islands pollination network</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Vitali et al. 2024</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Undirected bipartite</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">5</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Spatial pollination; GPS coordinates → Map Mode and geographic Layer View</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Canary Islands pollination network</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(34,197,94,0.18);border:1px solid rgba(34,197,94,0.35);color:#166534;">Ecology</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1111/1365-2656.14174" target="_blank">Vitali et al. 2024</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://doi.org/10.5061/dryad.76173" target="_blank" style="color:#888;">Dryad</a></span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Undirected · bipartite<br>Spatial</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">5 layers · 235 nodes<br>651 intra + 154 inter links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">layers</span>
+            <span class="pill pill-attr">nodes</span>
+            <span class="pill pill-attr">links</span>
+          </div>
+        </td>
       </tr>
+      <!-- Siberian host-parasite -->
       <tr>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Basque Country spatial pollination</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Magrach et al. (EuPPollNet)</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Undirected bipartite</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">5</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Spatial pollination; GPS coordinates</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Siberian host–parasite network</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(34,197,94,0.18);border:1px solid rgba(34,197,94,0.35);color:#166534;">Ecology</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1038/s41559-017-0101" target="_blank">Pilosof et al. 2017</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://doi.org/10.1038/s41559-017-0101" target="_blank" style="color:#888;">Pilosof et al. 2017</a><br>Originally: <a href="https://doi.org/10.1111/j.1600-0706.2009.17902.x" target="_blank" style="color:#888;">Krasnov et al. 2009</a></span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Mixed · bipartite<br>Temporal</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">6 layers · 78 nodes<br>1,817 intra + 284 inter links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">nodes</span>
+            <span class="pill pill-attr">state nodes</span>
+            <span class="pill pill-attr">links</span>
+          </div>
+        </td>
       </tr>
+      <!-- Basque Country -->
       <tr>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Portuguese temporal seed dispersal</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Costa et al. 2020</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Undirected bipartite, directed interlayer</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">5</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Temporal (annual 2012–2016); interlayer weights = abundance ratio t+1/t</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Basque Country spatial pollination network</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(34,197,94,0.18);border:1px solid rgba(34,197,94,0.35);color:#166534;">Ecology</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1111/geb.70000" target="_blank">Magrach et al. 2024</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://github.com/JoseBSL/EuPPollNet" target="_blank" style="color:#888;">EuPPollNet</a></span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Undirected · bipartite<br>Spatial</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">5 layers · 137 nodes<br>376 intra + 142 inter links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">layers</span>
+            <span class="pill pill-attr">nodes</span>
+            <span class="pill pill-attr">links</span>
+          </div>
+        </td>
       </tr>
+      <!-- Portuguese seed dispersal -->
       <tr>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Chilean intertidal food web</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Kéfi et al. 2016</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Directed unipartite</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">3</td>
-        <td style="padding:6px 10px;border-bottom:1px solid #f3f4f6;">Multiplex: trophic, positive non-trophic, negative non-trophic interactions</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Portuguese temporal seed dispersal network</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(34,197,94,0.18);border:1px solid rgba(34,197,94,0.35);color:#166534;">Ecology</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1111/1365-2745.13391" target="_blank">Costa et al. 2020</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://doi.org/10.6084/m9.figshare.11985912" target="_blank" style="color:#888;">figshare</a></span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Mixed · bipartite<br>Temporal</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">5 layers · 29 nodes<br>170 intra + 43 inter links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">nodes</span>
+            <span class="pill pill-attr">links</span>
+          </div>
+        </td>
       </tr>
+      <!-- P. falciparum -->
       <tr>
-        <td style="padding:6px 10px;">Siberian host–parasite network</td>
-        <td style="padding:6px 10px;">Pilosof et al. 2017</td>
-        <td style="padding:6px 10px;">Undirected bipartite, directed interlayer</td>
-        <td style="padding:6px 10px;">6</td>
-        <td style="padding:6px 10px;">Temporal (annual 1982–1987)</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><i>P. falciparum</i> var gene recombination network</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(245,158,11,0.16);border:1px solid rgba(245,158,11,0.33);color:#b45309;">Population genetics</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1371/journal.pcbi.1003268" target="_blank">Larremore et al. 2013</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://github.com/dblarremore/data_malaria_PLOSCompBiology_2013" target="_blank" style="color:#888;">GitHub</a></span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Undirected · unipartite<br>Multiplex</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">9 layers · 307 nodes<br>2,763 state nodes · 35,306 links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">nodes</span>
+          </div>
+        </td>
+      </tr>
+      <!-- Diseasome -->
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Human disease multiplex network</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(244,63,94,0.15);border:1px solid rgba(244,63,94,0.32);color:#be123c;">Biomedicine</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1038/s41540-019-0092-5" target="_blank">Halu et al. 2019</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://github.com/manlius/MultiplexDiseasome" target="_blank" style="color:#888;">MultiplexDiseasome</a> (ODbL)</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Undirected · unipartite<br>Multiplex</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">2 layers · 478 nodes<br>2,098 intra + 199 inter links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">nodes</span>
+            <span class="pill pill-attr">links</span>
+          </div>
+        </td>
+      </tr>
+      <!-- Brain connectome -->
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Human brain structural connectome</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(139,92,246,0.18);border:1px solid rgba(139,92,246,0.35);color:#6d28d9;">Neuroscience</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1038/s41598-022-06697-4" target="_blank">Keresztes et al. 2022</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://braingraph.org/download-pit-group-connectomes/" target="_blank" style="color:#888;">braingraph.org</a> (OASIS-3, CC-BY)</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Undirected · unipartite<br>Temporal</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">3 layers · 124 nodes<br>372 state nodes · 1,827 intra + 220 inter links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">nodes</span>
+            <span class="pill pill-attr">links</span>
+          </div>
+        </td>
+      </tr>
+      <!-- Shemesh chaperones -->
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Human chaperone co-expression network</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><span class="pill" style="background:rgba(235,52,210,0.15);border:1px solid rgba(235,52,210,0.32);color:#9b1599;">Molecular Biology</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;"><a href="https://doi.org/10.1038/s41467-021-22369-9" target="_blank">Shemesh et al. 2021</a><br><span style="font-size:11px;color:#888;">Data: Supplementary (Nature Comms.)</span></td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">Undirected · unipartite<br>Multiplex</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">8 layers · 50 hub proteins<br>6,640 intra + 1,400 interlayer links</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">family</span>
+            <span class="pill pill-attr">core_variable</span>
+            <span class="pill pill-attr">stress</span>
+            <span class="pill pill-attr">weight</span>
+          </div>
+        </td>
+      </tr>
+      <!-- Shapiro plasmids -->
+      <tr>
+        <td style="padding:7px 10px;vertical-align:top;">Plasmid genetic-similarity network in dairy cows</td>
+        <td style="padding:7px 10px;vertical-align:top;"><span class="pill" style="background:rgba(6,182,212,0.18);border:1px solid rgba(6,182,212,0.35);color:#0e7490;">Microbiology</span></td>
+        <td style="padding:7px 10px;vertical-align:top;"><a href="https://doi.org/10.1038/s41396-023-01373-5" target="_blank">Shapiro et al. 2023</a><br><span style="font-size:11px;color:#888;">Data: <a href="https://github.com/Ecological-Complexity-Lab/Plasmid_multilayer_networks" target="_blank" style="color:#888;">GitHub</a></span></td>
+        <td style="padding:7px 10px;vertical-align:top;">Undirected · unipartite<br>Multiplex</td>
+        <td style="padding:7px 10px;vertical-align:top;">15 layers · 1,344 nodes<br>1,471 state nodes · 101 intra + 2,384 inter links</td>
+        <td style="padding:7px 10px;vertical-align:top;">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;">
+            <span class="pill pill-attr">nodes</span>
+            <span class="pill pill-attr">state nodes</span>
+            <span class="pill pill-attr">links</span>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -462,7 +612,7 @@ Ixodes_ricinus,0.003</code></pre>
 
   <!-- ── MODES ─────────────────────────────────────────────────────── -->
   <h2 class="sec mode-misc" id="modes"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linejoin="round" style="flex-shrink:0"><path d="M3.88884 9.66294C4.39329 10 5.09552 10 6.49998 10C7.90445 10 8.60668 10 9.11113 9.66294C9.32951 9.51702 9.51701 9.32952 9.66292 9.11114C9.99998 8.60669 9.99998 7.90446 9.99998 6.5C9.99998 5.09554 9.99998 4.39331 9.66292 3.88886C9.51701 3.67048 9.32951 3.48298 9.11113 3.33706C8.60668 3 7.90445 3 6.49998 3C5.09552 3 4.39329 3 3.88884 3.33706C3.67046 3.48298 3.48296 3.67048 3.33705 3.88886C2.99998 4.39331 2.99998 5.09554 2.99998 6.5C2.99998 7.90446 2.99998 8.60669 3.33705 9.11114C3.48296 9.32952 3.67046 9.51702 3.88884 9.66294Z"/><path d="M14.8888 9.66294C15.3933 10 16.0955 10 17.5 10C18.9044 10 19.6067 10 20.1111 9.66294C20.3295 9.51702 20.517 9.32952 20.6629 9.11114C21 8.60669 21 7.90446 21 6.5C21 5.09554 21 4.39331 20.6629 3.88886C20.517 3.67048 20.3295 3.48298 20.1111 3.33706C19.6067 3 18.9044 3 17.5 3C16.0955 3 15.3933 3 14.8888 3.33706C14.6705 3.48298 14.483 3.67048 14.337 3.88886C14 4.39331 14 5.09554 14 6.5C14 7.90446 14 8.60669 14.337 9.11114C14.483 9.32952 14.6705 9.51702 14.8888 9.66294Z"/><path d="M3.88884 20.6629C4.39329 21 5.09552 21 6.49998 21C7.90445 21 8.60668 21 9.11113 20.6629C9.32951 20.517 9.51701 20.3295 9.66292 20.1111C9.99998 19.6067 9.99998 18.9045 9.99998 17.5C9.99998 16.0955 9.99998 15.3933 9.66292 14.8889C9.51701 14.6705 9.32951 14.483 9.11113 14.3371C8.60668 14 7.90445 14 6.49998 14C5.09552 14 4.39329 14 3.88884 14.3371C3.67046 14.483 3.48296 14.6705 3.33705 14.8889C2.99998 15.3933 2.99998 16.0955 2.99998 17.5C2.99998 18.9045 2.99998 19.6067 3.33705 20.1111C3.48296 20.3295 3.67046 20.517 3.88884 20.6629Z"/><path d="M14.8888 20.6629C15.3933 21 16.0955 21 17.5 21C18.9044 21 19.6067 21 20.1111 20.6629C20.3295 20.517 20.517 20.3295 20.6629 20.1111C21 19.6067 21 18.9045 21 17.5C21 16.0955 21 15.3933 20.6629 14.8889C20.517 14.6705 20.3295 14.483 20.1111 14.3371C19.6067 14 18.9044 14 17.5 14C16.0955 14 15.3933 14 14.8888 14.3371C14.6705 14.483 14.483 14.6705 14.337 14.8889C14 15.3933 14 16.0955 14 17.5C14 18.9045 14 19.6067 14.337 20.1111C14.483 20.3295 14.6705 20.517 14.8888 20.6629Z"/></svg> Visualization Modes</h2>
-  <p>Six modes are available, switched via the top toolbar strip. <strong>The left sidebar is dynamic</strong> — its panels (Data, Layers, Nodes, Links, Search, and others) change automatically to show controls relevant to the active mode.</p>
+  <p>Six modes are available, switched via the top toolbar strip. <strong>The left sidebar is dynamic</strong> — its panels (Data, Layers, Nodes, Intralayer Links, Interlayer Links, Search, and others) change automatically to show controls relevant to the active mode.</p>
 
   <!-- Network Mode -->
   <h2 class="sec mode-network" id="network"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2" stroke-linejoin="round" style="flex-shrink:0"><polygon points="12,2 22,8.5 12,15 2,8.5"/><polyline points="2,12 12,18.5 22,12"/><polyline points="2,16 12,22.5 22,16"/></svg> Network Mode <span class="badge">Default</span></h2>
@@ -497,10 +647,20 @@ Ixodes_ricinus,0.003</code></pre>
     <li><span class="key">Color By</span> — Layer, Group, or Uniform. Bipartite networks show independent color pickers for Set A and Set B.</li>
     <li><span class="key">Size By</span> — uniform Base Size slider, or scale by Node Degree. Bipartite networks show independent Size By dropdowns for Set A and Set B.</li>
   </ul>
-  <h4>Links</h4>
+  <h4>Intralayer Links</h4>
   <ul>
-    <li><span class="key">Show Interlayer Links</span> — toggle cross-layer edges.</li>
-    <li><span class="key">Color By</span> — by type (Inter vs. Intra) or by originating layer color.</li>
+    <li><span class="key">Color By</span> — color intralayer links by any link attribute, or leave blank for the uniform color picker.</li>
+    <li><span class="key">Min Weight</span> — hide intralayer links whose weight falls below the threshold.</li>
+    <li><span class="key">Arrowhead Size</span> — visible only when the network has directed intralayer edges.</li>
+  </ul>
+  <h4>Interlayer Links <span class="pill pill-layer" style="font-size:9px;vertical-align:middle;">shown when dataset has interlayer links</span></h4>
+  <ul>
+    <li><span class="key">Show interlayer links</span> — toggle cross-layer edges on/off (off by default).</li>
+    <li><span class="key">Min Weight</span> — hide interlayer links whose weight falls below the threshold.</li>
+    <li><span class="key">Filter by layer pair</span> — opens a draggable floating panel with an amber heatmap of all layer pairs. Each cell shows the number of interlayer links between that pair of layers. Click a cell to show only that pair's links; <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+click to add further pairs to the selection. Click a selected cell alone to deselect it. <strong>✕ Show all pairs</strong> resets the filter.</li>
+    <li><span class="key">Color By</span> — color interlayer links independently of intralayer links, by any link attribute or uniform color.</li>
+    <li><span class="key">Curvature</span> — arc curvature of cross-layer edges.</li>
+    <li><span class="key">Arrowhead Size</span> — visible only when the network has directed interlayer edges.</li>
   </ul>
   <h4>Search</h4>
   <ul>
@@ -520,7 +680,7 @@ Ixodes_ricinus,0.003</code></pre>
   </ul>
 
   <h3 id="map-controls">Sidebar Controls</h3>
-  <p>Same as Network Mode (Layers, Nodes, Links sections). Map-specific controls appear in the <strong>bottom bar</strong>:</p>
+  <p>Same as Network Mode (Layers, Nodes, Intralayer Links, Interlayer Links sections). Map-specific controls appear in the <strong>bottom bar</strong>:</p>
   <ul>
     <li><span class="key">Map Opacity</span> — fade the base map tile layer.</li>
     <li><span class="key">Show Map</span> — toggle the Leaflet tile layer entirely.</li>
@@ -574,6 +734,34 @@ Ixodes_ricinus,0.003</code></pre>
     <li>Hover tooltips, bubble selection, and Cmd+click comparison all work normally.</li>
   </ul>
 
+  <!-- Grid View -->
+  <h2 class="sec mode-grid" id="gridview"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f73ce1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Grid View</h2>
+  <p>Each layer is rendered in its own mini panel arranged in a responsive grid (a small-multiples or matrix view). All cells share the same axes and node identities, making it easy to compare intralayer structure across layers side-by-side without the visual clutter of the 3D stack.</p>
+  <ul>
+    <li><span class="key">Always-on layer headers</span> — every cell shows the layer name in a header strip; no checkbox needed.</li>
+    <li><span class="key">No 3D perspective</span> — nodes are always plain circles; the Transform Nodes option does not apply.</li>
+    <li><span class="key">Intralayer only</span> — interlayer links are not rendered (use Network or Meta-Network Mode for cross-layer connections).</li>
+    <li><span class="key">Cross-mode selection</span> — clicking a node selects it across all cells and persists when you switch back to Network or Meta-Network Mode.</li>
+  </ul>
+
+  <h3 id="grid-interactions">Interactions</h3>
+  <ul>
+    <li><span class="key">Click node</span> — select that node; every instance of it across cells is highlighted with a yellow ring, and 1-hop neighbours stay opaque while non-neighbours fade out.</li>
+    <li><span class="key">Click empty space</span> — clear the selection.</li>
+    <li><span class="key">Search</span> — typing a node name in the sidebar Search box highlights it in every grid cell, identical to the Network Mode behaviour.</li>
+  </ul>
+
+  <h3 id="grid-controls">Sidebar Controls</h3>
+  <p>The sidebar mirrors Network Mode minus controls that don't apply to a 2D grid. The <strong>Layers</strong> panel hides Stacking, Layer Spacing, and Layer Color By; the <strong>Nodes</strong> panel hides Transform Nodes; the <strong>Intralayer Links</strong> panel hides the manual color picker; and the <strong>Interlayer Links</strong> panel is hidden entirely. The following grid-specific control is added:</p>
+  <ul>
+    <li><span class="key">Columns slider</span> (in the Layers panel, 1–8) — controls how many grid columns the cells are arranged into. Default is <code>ceil(√L)</code> for L layers, rounded up to the next square-ish layout.</li>
+    <li><span class="key">Layer Name Size slider</span> (in the Layers panel, 8–32 px) — adjusts the cell-header font size. The header strip auto-scales with the font so the layer name always fits.</li>
+    <li><span class="key">Node Labels</span> (in the Nodes panel) — same checkbox as Network Mode. When enabled, each node's name is drawn next to it. In bipartite cells the labels are rotated 45° and placed above the upper set or below the lower set, matching the Meta-Network convention.</li>
+  </ul>
+
+  <h3 id="grid-bipartite">Bipartite Layers</h3>
+  <p>When a layer is declared bipartite (<code>layer.bipartite = true</code> with a <code>node_type</code> attribute on its nodes), Grid View positions Set A nodes on the upper row and Set B on the lower row inside each cell, just like the bipartite layout in Network Mode. If the <strong>Set Names</strong> checkbox is on (Layers panel), each cell's left margin labels the two sets with their <code>setALabel</code> and <code>setBLabel</code> values, coloured in the canonical blue/pink set palette.</p>
+
   <!-- Meta-Network Mode -->
   <h2 class="sec mode-meta" id="metanetwork"><span style="font-size:18px;font-weight:700;color:#d97706;line-height:1;flex-shrink:0;">Σ</span> Meta-Network Mode</h2>
   <p>Aggregates all intralayer links across every layer into a single, flat 2D network of unique physical nodes. Use this mode to see the <strong>full interaction graph</strong> of your multilayer network, independent of which layer each interaction was observed in.</p>
@@ -591,8 +779,8 @@ Ixodes_ricinus,0.003</code></pre>
     <li><span class="key">Click a node</span> — selects it. The selected node and all its direct neighbours stay fully opaque; everything else fades. An <strong>Info panel</strong> appears showing Participation, Layers, Meta-degree, and Meta-strength.</li>
     <li><span class="key">Click the same node again</span> — deselects and restores all opacities.</li>
     <li><span class="key">Click empty space</span> — deselects.</li>
-    <li><span class="key">Drag a node</span> — pins it at the new position (force and two-row layouts). Click-and-release without moving never pins.</li>
   </ul>
+  <p style="font-size:12px;color:#6b7280;">Nodes are not draggable in Meta-Network mode — positions are fully governed by the chosen layout (Circular / Force / Two-row). Use <strong>Reset Layout</strong> to re-run the algorithm.</p>
   <h4>Edge selection</h4>
   <ul>
     <li><span class="key">Click an edge</span> — selects it. The edge is redrawn in blue; its two endpoint nodes get blue selection rings and stay fully opaque; all other nodes and edges fade. The <strong>Info panel</strong> shows how many layers the edge appears in and a per-layer bar chart of its weight.</li>
@@ -615,12 +803,12 @@ Ixodes_ricinus,0.003</code></pre>
 
   <h4>Layout</h4>
   <ul>
-    <li><span class="key">Circular</span> (default for unipartite) — nodes arranged on a circle, sorted by meta-degree. Layout is static; dragging nodes keeps them pinned at the new position until <strong>Reset Layout</strong> is clicked.</li>
-    <li><span class="key">Force layout</span> — d3-force simulation. Nodes repel each other; edges act as springs. The layout settles automatically; individual nodes can be dragged to pin them.</li>
+    <li><span class="key">Circular</span> (default for unipartite) — nodes arranged on a circle, sorted by meta-degree.</li>
+    <li><span class="key">Force layout</span> — d3-force simulation. Nodes repel each other; edges act as springs. The layout settles automatically.</li>
     <li><span class="key">Two-row</span> (default for bipartite) — Set A fixed on the top row, Set B on the bottom row. Nodes are sorted by meta-degree within each row; when rows are dense, circles overlap to fit within the canvas. The <em>Nested sort</em> checkbox (enabled by default) controls this sorting.</li>
   </ul>
   <ul>
-    <li><span class="key">Reset Layout</span> — re-runs the layout algorithm from scratch, clearing any manual node positions.</li>
+    <li><span class="key">Reset Layout</span> — re-runs the layout algorithm from scratch.</li>
   </ul>
 
   <h4>Appearance</h4>
@@ -815,13 +1003,104 @@ Ixodes_ricinus,0.003</code></pre>
         <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Toggle Legend</span> — show or hide the dynamic legend panel.</td>
       </tr>
       <tr>
-        <td style="padding:8px 10px;text-align:center;">
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
           <svg width="14" height="14" viewBox="0 0 512 512" fill="#374151"><path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 384c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z"/></svg>
         </td>
-        <td style="padding:8px 10px;"><span class="key">Snapshot</span> — high-resolution export. Choose PNG, JPG, or PDF; optionally include the backdrop grid.</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Snapshot</span> — high-resolution export. Choose PNG, JPG, or PDF; optionally include the backdrop grid.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;text-align:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"/><path d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002M11.9997 15.0002V3.00016"/></svg>
+        </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Save Session</span> — export the full visualization state to a <code>.json</code> file. See <a href="#session">Save / Load Session</a>.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;text-align:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.99994 17C2.99994 17.93 2.99994 18.395 3.10216 18.7765C3.37956 19.8117 4.18821 20.6204 5.22348 20.8978C5.60498 21 6.06997 21 6.99994 21L16.9999 21C17.9299 21 18.3949 21 18.7764 20.8978C19.8117 20.6204 20.6203 19.8117 20.8977 18.7765C20.9999 18.395 20.9999 17.93 20.9999 17"/><path d="M16.5 7.49993C16.5 7.49993 13.1858 2.99997 12 2.99996C10.8141 2.99995 7.50002 7.49996 7.50002 7.49996M12 3.99996V16"/></svg>
+        </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #f3f4f6;"><span class="key">Load Session</span> — restore a previously saved session file. See <a href="#session">Save / Load Session</a>.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;text-align:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </td>
+        <td style="padding:8px 10px;"><span class="key">Load Session from URL</span> — paste a public URL to a session JSON file and restore it directly. GitHub Gist URLs are resolved automatically. See <a href="#session-share">Sharing Online</a>.</td>
       </tr>
     </tbody>
   </table>
+
+  <hr>
+
+  <!-- ── SESSION SAVE / LOAD ───────────────────────────────────────── -->
+  <h2 class="sec mode-misc" id="session">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"/><path d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002M11.9997 15.0002V3.00016"/></svg>
+    Save / Load Session
+  </h2>
+
+  <p>Sessions let you save your entire visualization state to a portable <code>.json</code> file and restore it later — resuming exactly where you left off, or sharing a specific view with a collaborator.</p>
+
+  <h3>Saving a Session</h3>
+  <p>Click the <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"/><path d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002M11.9997 15.0002V3.00016"/></svg> <strong>Save Session</strong> button in the top toolbar strip. In Chrome and Edge a native Save dialog appears; in Firefox and Safari the file downloads automatically as <code>session.json</code>. Saving is available in any visualization mode as long as data is loaded.</p>
+
+  <h3>Loading a Session</h3>
+  <p>Click the <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M2.99994 17C2.99994 17.93 2.99994 18.395 3.10216 18.7765C3.37956 19.8117 4.18821 20.6204 5.22348 20.8978C5.60498 21 6.06997 21 6.99994 21L16.9999 21C17.9299 21 18.3949 21 18.7764 20.8978C19.8117 20.6204 20.6203 19.8117 20.8977 18.7765C20.9999 18.395 20.9999 17.93 20.9999 17"/><path d="M16.5 7.49993C16.5 7.49993 13.1858 2.99997 12 2.99996C10.8141 2.99995 7.50002 7.49996 7.50002 7.49996M12 3.99996V16"/></svg> <strong>Load Session</strong> button and select a previously saved <code>.json</code> session file. The app does not need to have data loaded first — loading a session imports everything from the file.</p>
+
+  <h3>What is Saved</h3>
+  <ul>
+    <li><span class="key">Network data</span> — the full dataset (nodes, layers, edges, state nodes), so the session file is completely self-contained.</li>
+    <li><span class="key">Visualization mode</span> — Network, Map, Layer, Dashboard, or Meta-Network.</li>
+    <li><span class="key">Camera & viewport</span> — 3D angles (skewX / skewY), zoom scale, pan offset, layer spacing, stack orientation, and any per-layer drag offsets.</li>
+    <li><span class="key">Node layout positions</span> — exact positions computed by the layout algorithm, so the arrangement is preserved even if re-running the same algorithm would produce a different result.</li>
+    <li><span class="key">Display options</span> — node size, labels on/off, label size, show layer names, show set names, show interlayer links, arrowhead size, interlayer curvature, intralayer and interlayer weight thresholds, interlayer layer-pair filter.</li>
+    <li><span class="key">Color &amp; size mappings</span> — selected attributes for node color, node size, intralayer link color, interlayer link color, and layer color; custom color pickers; scale type overrides (categorical vs. continuous); per-value color overrides set via the legend swatches.</li>
+    <li><span class="key">Data filter</span> — any active node, layer, or link subset applied in Data Mode. The filter banner will reappear on load if a filter was active.</li>
+    <li><span class="key">Layer View settings</span> — size metric, color metric, edge visibility, edge metric, label options, bubble spacing, zoom, and pan within the Layer View canvas.</li>
+    <li><span class="key">Meta-Network settings</span> — aggregation method, layout, color and size attributes, weight threshold.</li>
+    <li><span class="key">Map settings</span> — map opacity, satellite vs. street layer, active map layers.</li>
+    <li><span class="key">Legend state</span> — which legend panels are expanded.</li>
+  </ul>
+
+  <h3>What is Not Saved</h3>
+  <ul>
+    <li>Transient hover/selection state (hovered node, selected node/layer/link).</li>
+    <li>The current node search query.</li>
+    <li>Dashboard mode — it is data-driven and has no persistent settings of its own.</li>
+    <li>Leaflet map zoom/center — the map re-fits to the layer coordinates on load.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>Sharing sessions:</strong> Because the session file contains the raw data, you can send it to a collaborator who can open it directly — they do not need the original data file.
+  </div>
+
+  <h3 id="session-share">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    Sharing Online via GitHub Gist
+  </h3>
+  <p>You can share a session with anyone by hosting the JSON file on a public URL. <a href="https://gist.github.com" target="_blank">GitHub Gist</a> is a free and easy option — no repository required.</p>
+
+  <h4>Step 1 — Save your session</h4>
+  <p>Click the <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M2.99969 17.0002C2.99969 17.9302 2.99969 18.3952 3.10192 18.7767C3.37932 19.8119 4.18796 20.6206 5.22324 20.898C5.60474 21.0002 6.06972 21.0002 6.99969 21.0002L16.9997 21.0002C17.9297 21.0002 18.3947 21.0002 18.7762 20.898C19.8114 20.6206 20.6201 19.8119 20.8975 18.7767C20.9997 18.3952 20.9997 17.9302 20.9997 17.0002"/><path d="M16.4998 11.5002C16.4998 11.5002 13.1856 16.0002 11.9997 16.0002C10.8139 16.0002 7.49976 11.5002 7.49976 11.5002M11.9997 15.0002V3.00016"/></svg> <strong>Save Session</strong> button to download your session as <code>session.json</code>.</p>
+
+  <h4>Step 2 — Upload to GitHub Gist</h4>
+  <ol>
+    <li>Go to <a href="https://gist.github.com" target="_blank">gist.github.com</a> (sign in or use anonymous).</li>
+    <li>Set the filename to something descriptive, e.g. <code>my-network-session.json</code>.</li>
+    <li>Open your <code>session.json</code> file in a text editor, select all, and paste the contents into the Gist editor.</li>
+    <li>Click <strong>Create public gist</strong>. Copy the URL from your browser's address bar — it looks like:<br>
+      <code>https://gist.github.com/yourname/abc123def456</code></li>
+  </ol>
+
+  <h4>Step 3 — Share the link</h4>
+  <p>Send your collaborator the Gist URL. They can load it directly in MiRA:</p>
+  <ol>
+    <li>Click the <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> <strong>Load Session from URL</strong> button in the toolbar.</li>
+    <li>Paste the Gist URL (either the page URL or the raw file URL — both are accepted).</li>
+    <li>Click OK. The session is fetched and restored automatically.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>Tip:</strong> GitHub Gist URLs are resolved automatically — you do not need to find the "Raw" link. Any public URL pointing directly to a JSON file also works (Dropbox, GitHub raw files, etc.).
+  </div>
 
   <hr>
 
@@ -838,9 +1117,128 @@ Ixodes_ricinus,0.003</code></pre>
 
   <hr>
 
+  <!-- ── VISUALIZATION GUIDELINES ─────────────────────────────────────── -->
+  <h2 class="sec mode-misc" id="guidelines"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg> Visualization Guidelines</h2>
+  <p>Multilayer networks are inherently complex. Unlike monolayer networks visualized in 2D, the 3D representation adds visual depth and structure — but also visual complexity. The more layers and interlayer links present, the more entangled the canvas becomes. <strong>MiRA is designed to help you navigate this complexity</strong>: threshold links, apply different layouts, use summary visualizations (Layer Mode, Meta-Network Mode), and filter data in Data Mode. As a practical side effect, reducing what is drawn also speeds up interaction.</p>
+
+  <h3 id="guidelines-display">1. Screen and Display Recommendations</h3>
+  <p>MiRA runs in any modern browser and works on a laptop, but <strong>the best experience comes with a large display</strong>. The 3D canvas benefits directly from available screen real estate: more layers, nodes, and links are visible simultaneously without zooming, and the spatial relationships between layer planes are far easier to read on a wider canvas.</p>
+  <ul>
+    <li>A large external monitor (24″ or larger) is ideal for exploring complex multilayer networks.</li>
+    <li>On a laptop, maximizing the browser window gives you the most canvas area available.</li>
+    <li><strong>HiDPI / Retina displays</strong> are high-resolution but render at twice the physical pixel count, which can roughly halve canvas performance compared to a 1080p display of the same size. If you experience slow interaction on a Retina display, see section 5 (<em>Local Machine and Browser Effects</em>) for mitigation steps.</li>
+  </ul>
+
+  <h3 id="guidelines-complexity">2. Managing Visual Complexity</h3>
+
+  <h4>Tame the links first</h4>
+  <p>Links are the dominant source of both visual clutter and rendering slowness. Before exploring the 3D canvas, open <strong>Dashboard Mode</strong> to inspect the link weight distribution. Knowing whether weights span a narrow or wide range tells you immediately how aggressively to threshold — and whether thresholding will meaningfully reduce what is drawn on screen.</p>
+  <p>Interlayer links are hidden by default, and deliberately so: they cross between layer planes and can quickly obscure the intralayer structure if enabled globally. When you are ready to explore cross-layer connections, reveal them gradually — one pair of layers at a time — using the <strong>layer-pair filter</strong> in the Interlayer Links panel.</p>
+  <ul>
+    <li>Raise the <strong>Min Weight</strong> threshold (Intralayer Links panel) to show only the strongest interactions.</li>
+    <li>Keep <strong>interlayer links hidden</strong> until you are specifically studying cross-layer connections.</li>
+    <li>Use the <strong>interlayer layer-pair filter</strong> to reveal connections between specific layer pairs, one at a time.</li>
+  </ul>
+
+  <h4>Use layer count as a guide for mode selection</h4>
+  <p>Layer count matters more than node count for visual readability. A network with 20 layers becomes very difficult to interpret in Network Mode because the 3D planes stack and occlude each other. If you have many layers:</p>
+  <ul>
+    <li>Use <strong>Layer Mode</strong> to see inter-layer relationships as a meta-graph of bubbles.</li>
+    <li>Use <strong>Dashboard Mode</strong> to compare layers quantitatively without the 3D layout.</li>
+    <li>Use <strong>Data Mode</strong> to filter to a subset of layers before switching to Network Mode.</li>
+  </ul>
+
+  <h4>Subset the data for more comfortable exploration</h4>
+  <p>Use <strong>Data Mode</strong> to filter the network to the layers, nodes, or links relevant to your question before switching to Network Mode. A focused subset is almost always more readable — and faster to interact with. You can always clear the filter and return to the full dataset.</p>
+
+  <h4>Focus on individual nodes</h4>
+  <p>Clicking on any node — or searching by name in the search bar — highlights all of that node's connections simultaneously, both within its layer and across all other layers. Instead of trying to read the full network at once, start with the specific nodes your question is about and trace their connections outward from there.</p>
+
+  <h4>Color one thing at a time</h4>
+  <p>Choose one attribute to encode as node color, and optionally one for link color. Encoding both simultaneously makes it harder to extract either signal. For multiple attributes, use <strong>Dashboard Mode</strong>, which displays each in its own chart.</p>
+
+  <h4>Node labels</h4>
+  <p>Node labels are visually cluttering in large networks. Enable them on hover (not permanently) for exploratory work, and reserve permanent labels for small, publication-ready networks.</p>
+
+  <h3 id="guidelines-modes">3. Match the Mode to the Goal</h3>
+  <p>MiRA offers six modes. Using the right one for your question can give you very different — and complementary — perspectives on your network.</p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+    <thead><tr style="background:#f3f4f6">
+      <th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Goal</th>
+      <th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Recommended mode</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb">Full multilayer structure, specific node connections</td><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Network Mode</strong> (default)</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb">Geographic distribution of layers</td><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Map Mode</strong></td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb">How similar or connected are my layers?</td><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Layer Mode</strong></td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb">Full interaction graph, ignoring layer identity</td><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Meta-Network Mode</strong></td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb">Summary statistics, degree distributions, similarity matrices</td><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Dashboard Mode</strong></td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb">Inspect, filter, or subset the raw data</td><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Data Mode</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:8px">The Network Mode 3D canvas is best for getting an overall gestalt of the multilayer structure. It is not always the best tool for a specific analytical question — and for large networks it is the most demanding mode computationally.</p>
+
+  <h3 id="guidelines-workflow">4. Workflow for Large Networks</h3>
+  <ol>
+    <li><strong>Load the full dataset</strong> — MiRA can parse large files; loading is a one-time cost.</li>
+    <li><strong>Start in Dashboard Mode</strong> — get an immediate quantitative overview (node counts, link distributions, layer similarity) without rendering the 3D canvas.</li>
+    <li><strong>Use Layer Mode</strong> to understand inter-layer relationships before zooming in.</li>
+    <li><strong>Subset in Data Mode</strong> — filter to the layers or nodes of interest.</li>
+    <li><strong>Switch to Network Mode</strong> with the filtered subset — and raise the weight threshold as needed.</li>
+    <li><strong>Use Meta-Network Mode</strong> to see the aggregated interaction topology across your selected layers.</li>
+  </ol>
+
+  <h4>Quick reference — if the network feels slow</h4>
+  <p>When a network feels slow to drag or rotate, try these in order:</p>
+  <ol>
+    <li><strong>Raise the Intralayer Min Weight</strong> threshold — the single most impactful control.</li>
+    <li><strong>Hide interlayer links</strong> if they are currently shown.</li>
+    <li><strong>Disable permanent node labels</strong> — switch to hover-only.</li>
+    <li><strong>Filter layers</strong> using Data Mode to reduce the number of planes rendered.</li>
+    <li><strong>Switch to Layer Mode or Meta-Network Mode</strong> — both use simpler rendering pipelines than the 3D canvas.</li>
+  </ol>
+
+  <h3 id="guidelines-performance">5. Local Machine and Browser Effects</h3>
+  <p>MiRA renders using the browser's Canvas 2D API, which runs on the <strong>CPU</strong> — there is no GPU shader acceleration. Rendering performance is directly tied to processor speed.</p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+    <thead><tr style="background:#f3f4f6">
+      <th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Factor</th>
+      <th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Effect</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>CPU speed</strong></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Primary driver of drag smoothness and frame rate</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>HiDPI / Retina display</strong></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Doubles the pixel count rendered; can roughly halve canvas performance vs. a 1080p display</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Browser</strong></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Chrome and Edge have meaningfully faster Canvas 2D performance than Firefox and Safari</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>RAM</strong></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Affects loading and parsing of large datasets; less relevant during interactive rendering</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>Number of visible elements</strong></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Scales linearly — every additional link, node, or layer polygon adds to the per-frame cost</td></tr>
+    </tbody>
+  </table>
+  <ul style="margin-top:12px">
+    <li>On a Retina or HiDPI display, raising link thresholds has a larger-than-expected benefit — you are rendering twice as many pixels per element.</li>
+    <li><strong>Chrome is the recommended browser</strong> for large or complex networks.</li>
+  </ul>
+
+  <h3 id="guidelines-stress">6. Stress Test</h3>
+  <p>MiRA was stress-tested with a synthetic temporal network designed to push rendering limits:</p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+    <tbody>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb;font-weight:600">Layers</td><td style="padding:6px 10px;border:1px solid #e5e7eb">8 (T1–T8)</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb;font-weight:600">Physical nodes</td><td style="padding:6px 10px;border:1px solid #e5e7eb">100</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb;font-weight:600">State nodes</td><td style="padding:6px 10px;border:1px solid #e5e7eb">800</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb;font-weight:600">Intralayer links</td><td style="padding:6px 10px;border:1px solid #e5e7eb">8,000 (1,000 per layer, Poisson weights mean≈2, range 1–10)</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb;font-weight:600">Interlayer links</td><td style="padding:6px 10px;border:1px solid #e5e7eb">7,000 (1,000 per consecutive layer pair)</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb;font-weight:600">Total links</td><td style="padding:6px 10px;border:1px solid #e5e7eb"><strong>15,000</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:8px"><strong>Test machine:</strong> MacBook Pro M1, 32 GB RAM, Google Chrome.</p>
+  <p><strong>Result:</strong> The network loaded and rendered without issues. Navigation (drag, zoom, rotate) was smooth even with all 15,000 links shown at once. Dashboard Mode, Layer Mode, and Meta-Network Mode all performed well regardless of link count, as they use simpler rendering pipelines than the 3D canvas.</p>
+  <p>This network is available as a built-in example dataset (<em>Stress Test</em>) in MiRA's demo dialog.</p>
+
+  <hr>
+
   <!-- ── EMLN INTEGRATION ──────────────────────────────────────────────── -->
   <h2 class="sec mode-misc" id="emln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 22C11.1818 22 10.4002 21.6708 8.83693 21.0123C4.94564 19.3734 3 18.5539 3 17.1754V7.54234M12 22C12.8182 22 13.5998 21.6708 15.1631 21.0123C19.0544 19.3734 21 18.5539 21 17.1754V7.54234M12 22V12.0292M3 7.54234C3 8.15478 3.80157 8.54152 5.40472 9.315L8.32592 10.7244C10.1288 11.5943 11.0303 12.0292 12 12.0292M3 7.54234C3 6.9299 3.80157 6.54317 5.40472 5.76969L7 5M21 7.54234C21 8.15478 20.1984 8.54152 18.5953 9.315L15.6741 10.7244C13.8712 11.5943 12.9697 12.0292 12 12.0292M21 7.54234C21 6.9299 20.1984 6.54316 18.5953 5.76969L17.0446 5.02151M6 13.0263L8 14.0234"/><path d="M11.9963 9L11.9963 2.00005M11.9963 2.00005C11.7332 1.99649 11.4737 2.18028 11.2822 2.40466L10 3.93826M11.9963 2.00005C12.2501 2.00348 12.5071 2.18632 12.7103 2.40466L14 3.93826"/></svg> Integration with the emln R Package</h2>
-  <p>The <a href="https://ecological-complexity-lab.github.io/emln_package/" target="_blank">emln</a> R package provides three functions to load and export multilayer networks directly into MultilayerViz — no manual file preparation required.</p>
+  <p>The <a href="https://ecological-complexity-lab.github.io/emln_package/" target="_blank">emln</a> R package provides three functions to load and export multilayer networks directly into MiRA — no manual file preparation required.</p>
 
   <pre style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:14px;font-size:12px;line-height:1.7"><code style="background:none;border:none;padding:0;color:#1f2937">library(emln)
 net &lt;- load_emln(60)               # load a built-in dataset
@@ -854,7 +1252,7 @@ multilayer_to_json(net, file = "network.json", bipartite = TRUE)
 multilayer_to_csv(net, dir = "out/", prefix = "net60", bipartite = TRUE)</code></pre>
 
   <h3 id="emln-plot">plot_multilayer()</h3>
-  <p>Converts the multilayer object to JSON and opens MultilayerViz in the default browser, served over a local HTTP server. The network loads automatically — no file selection needed.</p>
+  <p>Converts the multilayer object to JSON and opens MiRA in the default browser, served over a local HTTP server. The network loads automatically — no file selection needed.</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
     <thead><tr style="background:#f3f4f6"><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Argument</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Default</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Description</th></tr></thead>
     <tbody>
@@ -862,14 +1260,14 @@ multilayer_to_csv(net, dir = "out/", prefix = "net60", bipartite = TRUE)</code><
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>bipartite</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>FALSE</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Set <code>TRUE</code> explicitly for bipartite networks. Requires a <code>node_type</code> (or legacy <code>node_group</code> / <code>type</code>) column with exactly two distinct values.</td></tr>
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>directed</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>NULL</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">If <code>NULL</code>, auto-detected from edge symmetry. Set explicitly if auto-detection is wrong (e.g. pollinator networks store edges one-way but are ecologically undirected).</td></tr>
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>port</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>8080</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Starting port for the local HTTP server. Next available port is tried automatically if busy. Actual port printed to console; retrieve with <code>srv$getPort()</code>.</td></tr>
-      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>viz_path</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>NULL</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Path to the MultilayerViz directory. If <code>NULL</code>, uses the copy bundled with the installed emln package. Pass explicitly to use a different version of the app.</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>viz_path</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>NULL</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Path to the MiRA directory. If <code>NULL</code>, uses the copy bundled with the installed emln package. Pass explicitly to use a different version of the app.</td></tr>
       <tr><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>browser</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb"><code>getOption("browser")</code></td><td style="padding:6px 10px;border:1px solid #e5e7eb">Browser command. On macOS, <code>"chrome"</code> is automatically expanded to <code>open -a 'Google Chrome'</code>.</td></tr>
     </tbody>
   </table>
   <p style="margin-top:8px"><strong>Returns:</strong> the httpuv server handle. Call <code>httpuv::stopServer(srv)</code> or close R to shut it down. To kill all app servers from the terminal: <code>lsof -ti TCP:8000-8200 | xargs kill -9</code></p>
 
   <h3 id="emln-json">multilayer_to_json()</h3>
-  <p>Exports the network to the <a href="#data-format">JSON format</a> expected by MultilayerViz. Returns the JSON string, or writes it to a file.</p>
+  <p>Exports the network to the <a href="#data-format">JSON format</a> expected by MiRA. Returns the JSON string, or writes it to a file.</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
     <thead><tr style="background:#f3f4f6"><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Argument</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Default</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Description</th></tr></thead>
     <tbody>
@@ -882,7 +1280,7 @@ multilayer_to_csv(net, dir = "out/", prefix = "net60", bipartite = TRUE)</code><
   <p style="margin-top:8px"><strong>Legacy column renaming:</strong> the nodes table column <code>node_group</code> or <code>type</code> is automatically renamed to <code>node_type</code> (the canonical name) in the output.</p>
 
   <h3 id="emln-csv">multilayer_to_csv()</h3>
-  <p>Exports the network as CSV files matching the <a href="#import-csv">CSV import</a> schema — ready to drag-and-drop into MultilayerViz. Three files are always written (<code>_edges</code>, <code>_layers</code>, <code>_nodes</code>); a fourth <code>_state_nodes</code> file is added automatically when the multilayer object contains per-layer node attributes (e.g. <code>abundance</code>, <code>module</code>).</p>
+  <p>Exports the network as CSV files matching the <a href="#import-csv">CSV import</a> schema — ready to drag-and-drop into MiRA. Three files are always written (<code>_edges</code>, <code>_layers</code>, <code>_nodes</code>); a fourth <code>_state_nodes</code> file is added automatically when the multilayer object contains per-layer node attributes (e.g. <code>abundance</code>, <code>module</code>).</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
     <thead><tr style="background:#f3f4f6"><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Argument</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Default</th><th style="padding:6px 10px;text-align:left;border:1px solid #e5e7eb">Description</th></tr></thead>
     <tbody>

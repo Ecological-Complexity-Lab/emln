@@ -305,6 +305,7 @@ body {
 .mode-btn.active[data-mode="meta"]      { color: #d97706; background: rgba(217, 119, 6, 0.08); }   /* amber */
 .mode-btn.active[data-mode="dashboard"] { color: #dc2626; background: rgba(220, 38, 38, 0.08); }   /* red */
 .mode-btn.active[data-mode="data"]      { color: #c51b7d; background: rgba(197, 27, 125, 0.08); }  /* magenta */
+.mode-btn.active[data-mode="grid"]      { color: #f73ce1; background: rgba(247, 60, 225, 0.08); }   /* pink */
 
 /* ── Alerts zone (elastic middle) ──────────────── */
 #toolbarAlerts {
@@ -343,6 +344,35 @@ body {
   background: #fff;
 }
 
+#selectedNodeBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 10px;
+  background: rgba(219, 234, 254, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1e3a8a;
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+#selectedNodeClear {
+  padding: 1px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 4px;
+  color: #1e3a8a;
+  cursor: pointer;
+}
+#selectedNodeClear:hover {
+  background: #fff;
+}
+
 /* ── Branding (right side of bar) ──────────────── */
 #brandingGroup {
   display: flex;
@@ -353,8 +383,8 @@ body {
 }
 
 .branding-favicon {
-  width: 20px;
-  height: 20px;
+  height: 32px;
+  width: auto;
   object-fit: contain;
 }
 
@@ -366,16 +396,16 @@ body {
 }
 
 .branding-beta {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   color: #b45309;
   margin-left: -4px;
 }
 
 .branding-version {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
-  color: #9ca3af;
+  color: #1a1a2e;
   margin-left: -4px;
 }
 
@@ -391,8 +421,8 @@ body {
 }
 
 .branding-icon {
-  width: 18px;
-  height: 18px;
+  height: 32px;
+  width: auto;
   border-radius: 3px;
   object-fit: contain;
 }
@@ -826,7 +856,13 @@ body {
   text-align: left;
 }
 
+#demoDialog .dialog-box {
+  width: 540px;
+}
+
 #demoDatasetList .btn {
+  flex-direction: column;
+  align-items: stretch;
   min-width: 0;
   white-space: normal;
   justify-content: flex-start;
@@ -834,6 +870,68 @@ body {
 
 #demoDatasetList .demo-info-btn {
   justify-content: center;
+}
+
+/* Domain-tinted load buttons */
+.btn-domain-ecology {
+  background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(16,185,129,0.12));
+  border-color: rgba(34,197,94,0.28);
+  color: #166534;
+}
+.btn-domain-ecology:hover {
+  background: linear-gradient(135deg, rgba(34,197,94,0.22), rgba(16,185,129,0.22));
+  border-color: rgba(34,197,94,0.4);
+  box-shadow: 0 4px 15px rgba(34,197,94,0.15);
+}
+.btn-domain-microbiology {
+  background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(14,165,233,0.12));
+  border-color: rgba(6,182,212,0.28);
+  color: #0e7490;
+}
+.btn-domain-microbiology:hover {
+  background: linear-gradient(135deg, rgba(6,182,212,0.22), rgba(14,165,233,0.22));
+  border-color: rgba(6,182,212,0.4);
+  box-shadow: 0 4px 15px rgba(6,182,212,0.15);
+}
+.btn-domain-biomedicine {
+  background: linear-gradient(135deg, rgba(244,63,94,0.10), rgba(251,113,133,0.10));
+  border-color: rgba(244,63,94,0.25);
+  color: #be123c;
+}
+.btn-domain-biomedicine:hover {
+  background: linear-gradient(135deg, rgba(244,63,94,0.20), rgba(251,113,133,0.20));
+  border-color: rgba(244,63,94,0.38);
+  box-shadow: 0 4px 15px rgba(244,63,94,0.15);
+}
+.btn-domain-neuroscience {
+  background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(167,139,250,0.12));
+  border-color: rgba(139,92,246,0.28);
+  color: #6d28d9;
+}
+.btn-domain-neuroscience:hover {
+  background: linear-gradient(135deg, rgba(139,92,246,0.22), rgba(167,139,250,0.22));
+  border-color: rgba(139,92,246,0.4);
+  box-shadow: 0 4px 15px rgba(139,92,246,0.15);
+}
+.btn-domain-population-genetics {
+  background: linear-gradient(135deg, rgba(245,158,11,0.11), rgba(251,191,36,0.11));
+  border-color: rgba(245,158,11,0.27);
+  color: #b45309;
+}
+.btn-domain-population-genetics:hover {
+  background: linear-gradient(135deg, rgba(245,158,11,0.21), rgba(251,191,36,0.21));
+  border-color: rgba(245,158,11,0.4);
+  box-shadow: 0 4px 15px rgba(245,158,11,0.15);
+}
+.btn-domain-molecular-biology {
+  background: linear-gradient(135deg, rgba(235,52,210,0.11), rgba(235,52,210,0.15));
+  border-color: rgba(235,52,210,0.27);
+  color: #9b1599;
+}
+.btn-domain-molecular-biology:hover {
+  background: linear-gradient(135deg, rgba(235,52,210,0.21), rgba(235,52,210,0.25));
+  border-color: rgba(235,52,210,0.4);
+  box-shadow: 0 4px 15px rgba(235,52,210,0.15);
 }
 
 .dialog-box h4 {
@@ -1429,3 +1527,131 @@ body {
 .legend-color-pick::-webkit-color-swatch-wrapper { padding: 0; }
 .legend-color-pick::-webkit-color-swatch { border: none; border-radius: 50%; }
 .legend-color-pick::-moz-color-swatch     { border: none; border-radius: 50%; }
+
+/* ---- Tour ---- */
+#tourBtn {
+  width: auto;
+  padding: 0 9px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #6366f1;
+  border: 1.5px solid rgba(99, 102, 241, 0.4);
+}
+#tourBtn:hover {
+  color: #4f46e5;
+  border-color: rgba(99, 102, 241, 0.65);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+@keyframes arrowBounceUp {
+  0%   { opacity: 0; transform: translateY(0); }
+  5%   { opacity: 1; transform: translateY(0); }
+  14%  { opacity: 1; transform: translateY(-9px); }
+  23%  { opacity: 1; transform: translateY(0); }
+  32%  { opacity: 1; transform: translateY(-9px); }
+  41%  { opacity: 1; transform: translateY(0); }
+  50%  { opacity: 1; transform: translateY(-9px); }
+  59%  { opacity: 1; transform: translateY(0); }
+  68%  { opacity: 1; transform: translateY(-9px); }
+  77%  { opacity: 1; transform: translateY(0); }
+  86%  { opacity: 1; transform: translateY(-9px); }
+  95%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+@keyframes arrowBounceLeft {
+  0%   { opacity: 0; transform: translateX(0); }
+  5%   { opacity: 1; transform: translateX(0); }
+  14%  { opacity: 1; transform: translateX(-9px); }
+  23%  { opacity: 1; transform: translateX(0); }
+  32%  { opacity: 1; transform: translateX(-9px); }
+  41%  { opacity: 1; transform: translateX(0); }
+  50%  { opacity: 1; transform: translateX(-9px); }
+  59%  { opacity: 1; transform: translateX(0); }
+  68%  { opacity: 1; transform: translateX(-9px); }
+  77%  { opacity: 1; transform: translateX(0); }
+  86%  { opacity: 1; transform: translateX(-9px); }
+  95%  { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(0); }
+}
+.bounce-arrow-fixed {
+  position: fixed;
+  pointer-events: none;
+  font-size: 28px;
+  line-height: 1;
+  z-index: 9999;
+  color: #6366f1;
+  animation: arrowBounceUp 3.5s ease-out forwards;
+}
+.bounce-arrow-inline {
+  display: inline-block;
+  margin-left: auto;
+  padding-left: 8px;
+  font-size: 22px;
+  color: #1e64dc;
+  animation: arrowBounceLeft 3.5s ease-out forwards;
+}
+
+#tourHighlight {
+  display: none;
+  position: fixed;
+  z-index: 9000;
+  border-radius: 10px;
+  pointer-events: none;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.48);
+  transition: top 0.25s ease, left 0.25s ease, width 0.25s ease, height 0.25s ease;
+}
+
+#tourPopover {
+  display: none;
+  position: fixed;
+  z-index: 9001;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 14px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  color: #1f2937;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tour-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+#tourTitle {
+  font-weight: 700;
+  font-size: 12px;
+  color: #6366f1;
+  line-height: 1.4;
+  flex: 1;
+}
+
+#tourBody {
+  margin: 0 0 12px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.tour-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#tourCounter {
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.tour-nav {
+  display: flex;
+  gap: 6px;
+}

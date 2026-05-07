@@ -7,6 +7,8 @@
  * Both views use d3-force (loaded globally via CDN) for simulation.
  */
 
+import { layerColors } from './dataMode.js';
+
 // Curated palette (same order as colorMapper.js CATEGORICAL_PALETTE)
 const PALETTE = [
     '#6ee7b7', '#fbbf24', '#f87171', '#60a5fa', '#a78bfa',
@@ -141,7 +143,10 @@ export class LayerView {
         const L      = layers.length;
 
         this._layerColorMap = new Map();
-        layers.forEach((l, i) => this._layerColorMap.set(l.layer_name, PALETTE[i % PALETTE.length]));
+        layers.forEach((l, i) => {
+            const custom = layerColors.get(l.layer_name);
+            this._layerColorMap.set(l.layer_name, custom || PALETTE[i % PALETTE.length]);
+        });
 
         const intraCounts = new Map();
         for (const layer of layers) {
@@ -464,6 +469,15 @@ export class LayerView {
             // Keep fx/fy set → bubble stays pinned where dropped (like old b.pinned)
             this._draggedBubble = null;
             if (this._sim) this._sim.alpha(Math.max(this._sim.alpha(), 0.05));
+        }
+    }
+
+    /** Cancel a drag that turned out to be a click — pin in place but skip the alpha bump. */
+    cancelDragBubble() {
+        if (this._draggedBubble) {
+            // Keep fx/fy so the bubble stays put while the sim is still hot.
+            // Do NOT bump alpha — avoids kicking other bubbles on a plain click.
+            this._draggedBubble = null;
         }
     }
 

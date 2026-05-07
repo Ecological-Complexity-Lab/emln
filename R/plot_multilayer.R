@@ -1,26 +1,43 @@
 #' Plot a multilayer network in the browser
 #'
-#' Converts an EMLN \code{multilayer} object to JSON and opens the Multilayer
-#' Network Visualizer in the default web browser.
+#' Converts an EMLN \code{multilayer} object to JSON and opens MiRA, the
+#' multilayer interactive R-network app, in the default web browser.
 #'
 #' @param multilayer A multilayer object (created by \code{create_multilayer_network}
 #'   or \code{load_emln}).
 #' @param bipartite Logical. Whether the network is bipartite. Defaults to
-#'   \code{FALSE}. Bipartite is not auto-detected. When \code{TRUE}, the nodes table must contain a
-#'   \code{node_type} (or legacy \code{node_group}) column with exactly two
-#'   distinct values across the network.
-#' @param directed Logical or NULL. Whether the network is directed. If NULL
-#'   (default), auto-detected by checking intralayer edge symmetry.
+#'   \code{FALSE}. Bipartite is not auto-detected. When \code{TRUE}, the nodes
+#'   table must contain a \code{node_type} (or legacy \code{node_group})
+#'   column with exactly two distinct values across the network.
+#' @param setA_type Optional character. The \code{node_type} value to render
+#'   as Set A (top row) in MiRA's bipartite layout. By ecological convention
+#'   this is the higher trophic level (e.g. \code{"pollinator"},
+#'   \code{"parasite"}, \code{"disperser"}). Only used when
+#'   \code{bipartite = TRUE}. Forwarded to \code{multilayer_to_json}.
+#' @param directed Logical or NULL. Whether intralayer links are directed.
+#'   If NULL (default), auto-detected by checking intralayer edge symmetry.
+#' @param directed_interlayer Logical or NULL. Whether interlayer links are
+#'   directed. If NULL (default), inherits from \code{directed}.
 #' @param port Integer. Port for the local HTTP server. Default is 8080.
-#' @param viz_path Character. Path to the multilayer_viz directory. If NULL
-#'   (default), uses the \code{viz} directory bundled with the package.
-#' @param browser Choose the specific browser to open the visualizer.
-#'  Defaults to the system default via \code{getOption("browser")}.
-#'  Can be a browser name (e.g. "chrome", "firefox") or a command (e.g. "open -a 'Google Chrome'").
+#' @param mira_path Character. Path to the MiRA web-app directory. If NULL
+#'   (default), uses the copy bundled with the package
+#'   (\code{system.file("MiRA", package = "emln")}).
+#' @param browser Choose the specific browser to open MiRA in. Defaults to
+#'   the system default via \code{getOption("browser")}. Can be a browser
+#'   name (e.g. "chrome", "firefox") or a command
+#'   (e.g. "open -a 'Google Chrome'").
 #'
-#' @note The Multilayer Network Visualizer that this function targets is
-#'   currently in beta. Feedback and bug reports are welcome at
-#'   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
+#' @note
+#' MiRA (Multilayer Interactive Rendering Application) is a browser-based
+#' interactive visualization tool for multilayer networks, available at
+#' \url{https://mira.ecomplab.com/}.
+#'
+#' If you use MiRA in published research, please cite:
+#' Nehorai S, Bloch Y and Pilosof S. Interactively visualizing biological
+#' multilayer networks using MiRA. (forthcoming)
+#'
+#' Feedback and bug reports:
+#' \url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
 #'
 #' @return Invisibly returns the server handle. Use
 #'   \code{httpuv::stopServer(handle)} to stop the server when done.
@@ -30,7 +47,7 @@
 #' \enumerate{
 #'   \item Converts the multilayer object to JSON via \code{multilayer_to_json}
 #'   \item Starts a local HTTP server (using \code{httpuv}) that serves the
-#'     visualizer app and the network JSON
+#'     MiRA app and the network JSON
 #'   \item Opens the browser with auto-load enabled
 #' }
 #'
@@ -44,23 +61,30 @@
 #' @examples
 #' if (interactive()){
 #' net <- load_emln(60)
-#' srv <- plot_multilayer(net, bipartite = TRUE)
+#' srv <- plot_multilayer(net, bipartite = TRUE, setA_type = "pollinator")
 #'
 #' # When done:
 #' httpuv::stopServer(srv)
 #' }
-plot_multilayer <- function(multilayer, bipartite = FALSE, directed = NULL,
-                            port = 8080, viz_path = NULL,
+plot_multilayer <- function(multilayer, bipartite = FALSE, setA_type = NULL,
+                            directed = NULL, directed_interlayer = NULL,
+                            port = 8080, mira_path = NULL,
                             browser = getOption("browser")) {
-  message("Note: The Multilayer Network Visualizer is currently in beta. ",
-          "Please report issues at https://github.com/Ecological-Complexity-Lab/emln/issues")
+  message("Please report issues at ",
+          "https://github.com/Ecological-Complexity-Lab/MiRA/issues")
 
   # Convert to JSON
-  json_str <- multilayer_to_json(multilayer, bipartite = bipartite, directed = directed)
+  json_str <- multilayer_to_json(
+    multilayer,
+    bipartite           = bipartite,
+    setA_type           = setA_type,
+    directed            = directed,
+    directed_interlayer = directed_interlayer
+  )
 
-  # Resolve visualizer path
-  viz_path <- .resolve_viz_path(viz_path)
-  message(sprintf("Serving visualizer from: %s", viz_path))
+  # Resolve MiRA path
+  mira_path <- .resolve_mira_path(mira_path)
+  message(sprintf("Serving MiRA from: %s", mira_path))
 
   # Create the httpuv app
   app <- list(
@@ -78,16 +102,16 @@ plot_multilayer <- function(multilayer, bipartite = FALSE, directed = NULL,
         ))
       }
 
-      # Serve static files from the visualizer directory
+      # Serve static files from the MiRA directory
       # Map URL path to file system
       url_path <- req$PATH_INFO
       if (url_path == "/" || url_path == "") url_path <- "/index.html"
 
-      file_path <- file.path(viz_path, gsub("^/", "", url_path))
+      file_path <- file.path(mira_path, gsub("^/", "", url_path))
       file_path <- normalizePath(file_path, mustWork = FALSE)
 
-      # Security: ensure the path is within viz_path
-      if (!startsWith(file_path, viz_path)) {
+      # Security: ensure the path is within mira_path
+      if (!startsWith(file_path, mira_path)) {
         return(list(status = 403L, headers = list(), body = "Forbidden"))
       }
 
@@ -175,24 +199,24 @@ plot_multilayer <- function(multilayer, bipartite = FALSE, directed = NULL,
 }
 
 
-#' Resolve path to the bundled multilayer_viz web app
+#' Resolve path to the bundled MiRA web app
 #'
 #' Looks first for an installed copy at
-#' \code{system.file("multilayer_viz", package = "emln")}, then falls back to
+#' \code{system.file("MiRA", package = "emln")}, then falls back to
 #' sibling/dev locations for in-source development.
 #' @keywords internal
-.resolve_viz_path <- function(viz_path = NULL) {
-  if (!is.null(viz_path)) {
-    if (!file.exists(file.path(viz_path, "index.html"))) {
+.resolve_mira_path <- function(mira_path = NULL) {
+  if (!is.null(mira_path)) {
+    if (!file.exists(file.path(mira_path, "index.html"))) {
       stop(sprintf(
-        "`viz_path` does not contain index.html: %s", viz_path
+        "`mira_path` does not contain index.html: %s", mira_path
       ))
     }
-    return(normalizePath(viz_path, mustWork = TRUE))
+    return(normalizePath(mira_path, mustWork = TRUE))
   }
 
-  # 1. Installed package: inst/multilayer_viz
-  installed <- system.file("multilayer_viz", package = "emln")
+  # 1. Installed package: inst/MiRA
+  installed <- system.file("MiRA", package = "emln")
   if (nzchar(installed) &&
       file.exists(file.path(installed, "index.html"))) {
     return(normalizePath(installed, mustWork = TRUE))
@@ -201,10 +225,10 @@ plot_multilayer <- function(multilayer, bipartite = FALSE, directed = NULL,
   # 2. Dev fallbacks (running from emln source tree or a sibling checkout)
   cwd <- getwd()
   candidates <- c(
-    file.path(cwd, "inst", "multilayer_viz"),
-    file.path(cwd, "..", "emln", "inst", "multilayer_viz"),
-    file.path(cwd, "..", "multilayer_viz"),
-    file.path(dirname(cwd), "multilayer_viz")
+    file.path(cwd, "inst", "MiRA"),
+    file.path(cwd, "..", "emln", "inst", "MiRA"),
+    file.path(cwd, "..", "MiRA"),
+    file.path(dirname(cwd), "MiRA")
   )
   for (cand in candidates) {
     if (file.exists(file.path(cand, "index.html"))) {
@@ -213,11 +237,11 @@ plot_multilayer <- function(multilayer, bipartite = FALSE, directed = NULL,
   }
 
   stop(
-    "Could not find the multilayer_viz web app.\n",
-    "Looked in: system.file('multilayer_viz', package = 'emln') and: ",
+    "Could not find the MiRA web app.\n",
+    "Looked in: system.file('MiRA', package = 'emln') and: ",
     paste(candidates, collapse = ", "), "\n",
-    "If you are developing from source, pass `viz_path = ",
-    "'path/to/multilayer_viz'` explicitly, or ensure ",
-    "inst/multilayer_viz/index.html exists in your emln checkout."
+    "If you are developing from source, pass `mira_path = ",
+    "'path/to/MiRA'` explicitly, or ensure ",
+    "inst/MiRA/index.html exists in your emln checkout."
   )
 }

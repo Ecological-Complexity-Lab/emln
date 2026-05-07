@@ -4,7 +4,14 @@
 \alias{multilayer_to_json}
 \title{Export a multilayer network to JSON}
 \usage{
-multilayer_to_json(multilayer, file = NULL, bipartite = FALSE, directed = NULL)
+multilayer_to_json(
+  multilayer,
+  file = NULL,
+  bipartite = FALSE,
+  setA_type = NULL,
+  directed = NULL,
+  directed_interlayer = NULL
+)
 }
 \arguments{
 \item{multilayer}{A multilayer object (created by \code{create_multilayer_network}
@@ -14,15 +21,27 @@ or \code{load_emln}).}
 string.}
 
 \item{bipartite}{Logical. Whether the network is bipartite. Defaults to
-\code{FALSE}. The visualizer no longer auto-detects bipartite structure —
-you must set this to \code{TRUE} explicitly. When \code{TRUE}, the nodes
-table must contain a \code{node_type} (or legacy \code{node_group}) column
+\code{FALSE}. MiRA does not auto-detect bipartite structure — you must
+set this to \code{TRUE} explicitly. When \code{TRUE}, the nodes table
+must contain a \code{node_type} (or legacy \code{node_group}) column
 with exactly two distinct values across the network. Any \code{node_group}
 column is renamed to \code{node_type} in the output regardless of the
-bipartite flag (canonical name for the visualizer).}
+bipartite flag (MiRA's canonical name).}
 
-\item{directed}{Logical or NULL. Whether the network is directed. If NULL
-(default), auto-detected by checking edge list symmetry.}
+\item{setA_type}{Optional character. The \code{node_type} value to render
+as Set A (top row) in MiRA's bipartite layout. By ecological convention
+this is the higher trophic level (e.g. \code{"pollinator"},
+\code{"parasite"}, \code{"disperser"}). Only used when
+\code{bipartite = TRUE}. If \code{NULL} (default), MiRA falls back to
+alphabetical ordering of the two types.}
+
+\item{directed}{Logical or NULL. Whether intralayer links are directed.
+If NULL (default), auto-detected by checking intralayer edge symmetry.}
+
+\item{directed_interlayer}{Logical or NULL. Whether interlayer links are
+directed. If NULL (default), inherits from \code{directed} (matching
+MiRA's parser behavior). Set explicitly when intra- and interlayer
+directionality differ.}
 }
 \value{
 If \code{file} is NULL, returns the JSON string invisibly.
@@ -30,36 +49,48 @@ If \code{file} is NULL, returns the JSON string invisibly.
   invisibly.
 }
 \description{
-Converts an EMLN \code{multilayer} object to JSON format compatible with the
-Multilayer Network Visualizer web app.
+Converts an EMLN \code{multilayer} object to JSON format compatible with
+MiRA, the multilayer interactive R-network app.
 }
 \details{
-The JSON output contains four arrays matching the visualizer's expected format:
+The JSON output contains four arrays matching MiRA's expected format:
 \itemize{
   \item \code{nodes}: Physical nodes with \code{node_id}, \code{node_name}, and
     any extra attributes. For bipartite networks, \code{node_group} is mapped to
     \code{node_type}.
   \item \code{layers}: Layer metadata with \code{layer_id}, \code{layer_name},
     and extra attributes. For bipartite networks, a \code{bipartite: true} flag
-    is added.
+    is added; if \code{setA_type} is given it is also written per layer.
   \item \code{extended}: The extended edge list with \code{layer_from},
     \code{node_from}, \code{layer_to}, \code{node_to}, \code{weight}, and any
-    link attributes. For directed networks, a \code{directed: true} flag is
-    added to each link.
+    link attributes.
   \item \code{state_nodes}: State node map with \code{layer_id}, \code{node_id},
-    \code{layer_name}, \code{node_name}.
+    \code{layer_name}, \code{node_name}, plus any extra per-(layer, node)
+    attributes (e.g. \code{abundance}, \code{module}).
 }
+Top-level flags \code{directed} and (when set) \code{directed_interlayer}
+indicate edge directionality globally; they are not repeated per link.
 }
 \note{
-The Multilayer Network Visualizer that this function targets is
-  currently in beta. Feedback and bug reports are welcome at
-  \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
+MiRA (Multilayer Interactive Rendering Application) is a browser-based
+interactive visualization tool for multilayer networks, available at
+\url{https://mira.ecomplab.com/}.
+
+If you use MiRA in published research, please cite:
+Nehorai S, Bloch Y and Pilosof S. Interactively visualizing biological
+multilayer networks using MiRA. (forthcoming)
+
+Feedback and bug reports:
+\url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
 }
 \examples{
 \donttest{
 # Export to file
 net <- load_emln(14)
 multilayer_to_json(net, file = "tests/my_network.json", bipartite = TRUE)
+
+# Bipartite with explicit Set A ordering
+multilayer_to_json(net, bipartite = TRUE, setA_type = "pollinator")
 
 # Get JSON string
 json_str <- multilayer_to_json(net)

@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Interactive multilayer network visualizer for EMLN ecological network data with 3D-layered perspective rendering.">
-  <title>Multilayer Network Visualizer</title>
-  <link rel="icon" type="image/png" href="assets/multiviz_favicon.png">
+  <title>MiRA — Multilayer Interactive Rendering Application</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
   <!-- PapaParse — CSV parser -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.2/papaparse.min.js"></script>
@@ -76,21 +76,25 @@
     <details class="control-section" id="sectionLayers">
       <summary>Layers</summary>
       <div class="section-body">
-        <div class="checkbox-row">
+        <div id="layerNamesRow" class="checkbox-row">
           <label class="checkbox-label">
             <input type="checkbox" id="showLayerNamesCheckbox">
             <span>Layer Names</span>
           </label>
         </div>
+        <div id="layerNameSizeRow" style="margin-top:6px;">
+          <label style="font-size:11px;color:#666;">Layer Name Size <span id="layerNameSizeLabel">14px</span></label>
+          <input type="range" id="layerNameSizeSlider" min="8" max="32" value="14" step="1" class="slider">
+        </div>
 
-        <div class="btn-row" style="margin-top:6px;">
+        <div id="stackingRow" class="btn-row" style="margin-top:6px;">
           <label style="font-size:11px;color:#666;margin-right:6px;">Stacking:</label>
           <div class="toggle-group">
             <button id="stackHorizontalBtn" class="btn toggle-btn active" data-mode="horizontal">Horizontal</button>
             <button id="stackVerticalBtn" class="btn toggle-btn" data-mode="vertical">Vertical</button>
           </div>
         </div>
-        <div style="margin-top:8px;">
+        <div id="layerSpacingRow" style="margin-top:8px;">
           <label style="font-size:11px;color:#666;">Layer Spacing</label>
           <input type="range" id="layerSpacingSlider" min="100" max="600" value="300" class="slider">
         </div>
@@ -104,7 +108,7 @@
             <span>Nested Sorting</span>
           </label>
         </div>
-        <div style="margin-top:6px;">
+        <div id="layerColorRow" style="margin-top:6px;">
           <label style="font-size:11px;color:#666;">Color By</label>
           <select id="layerColorSelect" class="styled-select" disabled>
             <option value="">Default</option>
@@ -119,12 +123,16 @@
           <label style="font-size:11px;color:#666;">Layout</label>
           <select id="layoutSelect" class="styled-select">
             <option value="fruchterman">Fruchterman-Reingold</option>
-            <option value="kamada_kawai">Kamada-Kawai</option>
+            <option value="kamada_kawai" selected>Kamada-Kawai</option>
             <option value="bipartite">Bipartite (two-row)</option>
             <option value="circle">Circle</option>
             <option value="grid">Grid</option>
             <option value="random">Random</option>
           </select>
+        </div>
+        <div id="gridColumnsRow" style="display:none; margin-top:8px;">
+          <label style="font-size:11px;color:#666;">Columns <span id="gridColumnsLabel">3</span></label>
+          <input type="range" id="gridColumnsSlider" min="1" max="8" step="1" value="3" class="slider">
         </div>
       </div>
     </details>
@@ -134,15 +142,17 @@
       <summary>Nodes</summary>
       <div class="section-body">
         <div class="checkbox-row">
-          <label class="checkbox-label">
-            <input type="checkbox" id="showLabelsCheckbox">
-            <span>Node Labels</span>
-          </label>
-          <div id="labelSizeRow" style="display:none; margin-top:6px;">
-            <label style="font-size:11px;color:#666;">Label Size <span id="labelSizeLabel">12px</span></label>
-            <input type="range" id="labelSizeSlider" min="8" max="24" value="12" step="1" class="slider">
+          <div id="nodeLabelsRow">
+            <label class="checkbox-label">
+              <input type="checkbox" id="showLabelsCheckbox">
+              <span>Node Labels</span>
+            </label>
+            <div id="labelSizeRow" style="display:none; margin-top:6px;">
+              <label style="font-size:11px;color:#666;">Label Size <span id="labelSizeLabel">12px</span></label>
+              <input type="range" id="labelSizeSlider" min="8" max="24" value="12" step="1" class="slider">
+            </div>
           </div>
-          <div class="checkbox-row" style="margin-top: 6px;">
+          <div id="transformNodesRow" class="checkbox-row" style="margin-top: 6px;">
             <label class="checkbox-label">
               <input type="checkbox" id="transformNodesCheckbox" checked
                 title="Shapes nodes to match 3D layer perspective (may impact performance on large networks)">
@@ -197,46 +207,65 @@
     </details>
 
     <!-- 4. Links -->
-    <details class="control-section" id="sectionLinks">
-      <summary>Links</summary>
+    <!-- Intralayer Links panel -->
+    <details class="control-section" id="sectionIntraLinks">
+      <summary>Intralayer Links</summary>
       <div class="section-body">
-        <div class="checkbox-row">
-          <label class="checkbox-label">
-            <input type="checkbox" id="showInterlayerCheckbox" checked>
-            <span>Interlayer Links</span>
-          </label>
-        </div>
-        <div style="margin-top:6px;">
+        <div style="margin-bottom:6px;">
           <label style="font-size:11px;color:#666;">Color By</label>
-          <select id="linkColorSelect" class="styled-select" disabled>
+          <select id="intraLinkColorSelect" class="styled-select" disabled>
             <option value="">Default</option>
           </select>
-          <div id="linkColorSwatches" style="display:none; flex-direction:column; gap:4px; margin-top:4px;">
-            <div style="display:flex; align-items:center; gap:6px;">
-              <input type="color" id="intraLinkColorPicker" value="#000000"
-                style="width:22px; height:22px; border:none; border-radius:4px; padding:1px; cursor:pointer; flex-shrink:0;">
-              <label style="font-size:11px;color:#666;">Intralayer</label>
-            </div>
-            <div id="interLinkColorControl" style="display:flex; align-items:center; gap:6px;">
-              <input type="color" id="interLinkColorPicker" value="#1e64dc"
-                style="width:22px; height:22px; border:none; border-radius:4px; padding:1px; cursor:pointer; flex-shrink:0;">
-              <label style="font-size:11px;color:#666;">Interlayer</label>
-            </div>
+          <div id="intraLinkColorSwatches" style="display:flex; align-items:center; gap:6px; margin-top:4px;">
+            <input type="color" id="intraLinkColorPicker" value="#000000"
+              style="width:22px; height:22px; border:none; border-radius:4px; padding:1px; cursor:pointer; flex-shrink:0;">
+            <label style="font-size:11px;color:#666;">Link color</label>
           </div>
         </div>
-        <div id="arrowheadSizeControl" style="display:none; margin-top:6px;">
+        <div style="margin-bottom:6px;">
+          <label style="font-size:11px;color:#666;">Min Weight &nbsp;<span id="intraLinkWeightLabel">0</span></label>
+          <input type="range" id="intraLinkWeightSlider" min="0" max="1" step="0.01" value="0" class="slider">
+        </div>
+        <div id="arrowheadSizeControl" style="display:none;">
           <label style="font-size:11px;color:#666;">Arrowhead Size</label>
           <input type="range" id="arrowheadSizeSlider" min="0" max="3" step="0.1" value="1" class="slider">
         </div>
-        <div id="interlayerControls" style="display:none;">
-          <div style="margin-top:6px;">
-            <label style="font-size:11px;color:#666;">Interlayer Curvature</label>
-            <input type="range" id="interlayerCurvatureSlider" min="0" max="1" step="0.05" value="0.35" class="slider">
+      </div>
+    </details>
+
+    <!-- Interlayer Links panel (hidden when no interlayer links) -->
+    <details class="control-section" id="sectionInterLinks" style="display:none;">
+      <summary>Interlayer Links</summary>
+      <div class="section-body">
+        <div class="checkbox-row" style="margin-bottom:6px;">
+          <label class="checkbox-label">
+            <input type="checkbox" id="showInterlayerCheckbox">
+            <span>Show interlayer links</span>
+          </label>
+        </div>
+        <div style="margin-bottom:6px;">
+          <label style="font-size:11px;color:#666;">Min Weight &nbsp;<span id="interlayerWeightLabel">0</span></label>
+          <input type="range" id="interlayerWeightSlider" min="0" max="1" step="0.01" value="0" class="slider">
+        </div>
+        <button id="filterInterPairsBtn" class="btn" style="width:100%; margin-bottom:8px; font-size:11px;">Filter by layer pair ▸</button>
+        <div style="margin-bottom:6px;">
+          <label style="font-size:11px;color:#666;">Color By</label>
+          <select id="interLinkColorSelect" class="styled-select" disabled>
+            <option value="">Default</option>
+          </select>
+          <div id="interLinkColorSwatches" style="display:flex; align-items:center; gap:6px; margin-top:4px;">
+            <input type="color" id="interLinkColorPicker" value="#1e64dc"
+              style="width:22px; height:22px; border:none; border-radius:4px; padding:1px; cursor:pointer; flex-shrink:0;">
+            <label style="font-size:11px;color:#666;">Link color</label>
           </div>
-          <div style="margin-top:6px;">
-            <label style="font-size:11px;color:#666;">Min Weight <span id="interlayerWeightLabel">0</span></label>
-            <input type="range" id="interlayerWeightSlider" min="0" max="1" step="0.01" value="0" class="slider">
-          </div>
+        </div>
+        <div style="margin-bottom:6px;">
+          <label style="font-size:11px;color:#666;">Curvature</label>
+          <input type="range" id="interlayerCurvatureSlider" min="0" max="1" step="0.05" value="0.35" class="slider">
+        </div>
+        <div id="interArrowheadSizeControl" style="display:none;">
+          <label style="font-size:11px;color:#666;">Arrowhead Size</label>
+          <input type="range" id="interArrowheadSizeSlider" min="0" max="3" step="0.1" value="1" class="slider">
         </div>
       </div>
     </details>
@@ -371,8 +400,14 @@
           <select id="mnColorBySelect" class="styled-select">
             <option value="participation">Participation</option>
             <option value="metaDegree">Meta-degree</option>
-            <option value="uniform">Uniform</option>
+            <option value="uniform" selected>Uniform</option>
           </select>
+        </div>
+        <div id="mnUniformColorRow" style="display:none; margin-bottom:8px; margin-top:-2px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <label style="font-size:11px;color:#666;flex:1;">Node color</label>
+            <input type="color" id="mnUniformColorPicker" value="#374151" style="width:32px;height:22px;padding:1px 2px;border:1px solid rgba(0,0,0,0.15);border-radius:4px;cursor:pointer;">
+          </div>
         </div>
         <div id="mnBpColorRow" style="display:none; margin-bottom:8px; margin-top:-2px;">
           <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
@@ -408,7 +443,7 @@
         </div>
         <div class="checkbox-row">
           <label class="checkbox-label">
-            <input type="checkbox" id="mnShowLabelsCheckbox" checked>
+            <input type="checkbox" id="mnShowLabelsCheckbox">
             <span>Show labels</span>
           </label>
         </div>
@@ -483,47 +518,58 @@
   <!-- Unified Bottom Bar -->
   <div id="bottomBar">
     <button id="helpBtn" class="btn zoom-btn" title="Help" style="font-size:13px;font-weight:700;">?</button>
+    <button id="tourBtn" class="btn zoom-btn" title="Quick tour of key features">Tour</button>
 
     <span class="toolbar-sep"></span>
 
-    <button id="networkModeBtn" class="btn zoom-btn mode-btn" data-mode="network" title="Network Mode">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
-        <polygon points="12,2 22,8.5 12,15 2,8.5"/>
-        <polyline points="2,12 12,18.5 22,12"/>
-        <polyline points="2,16 12,22.5 22,16"/>
-      </svg>
-    </button>
-    <button id="mapModeBtn" class="btn zoom-btn mode-btn" data-mode="map" title="Map Mode" style="display:none;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
-      </svg>
-    </button>
-    <button id="layerViewBtn" class="btn zoom-btn mode-btn" data-mode="layer" title="Layer Mode">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <circle cx="12" cy="5" r="2.5"/>
-        <circle cx="5" cy="19" r="2.5"/>
-        <circle cx="19" cy="19" r="2.5"/>
-        <line x1="12" y1="7.5" x2="5.9" y2="16.6"/>
-        <line x1="12" y1="7.5" x2="18.1" y2="16.6"/>
-        <line x1="7.5" y1="19" x2="16.5" y2="19"/>
-      </svg>
-    </button>
-    <button id="metaNetworkBtn" class="btn zoom-btn mode-btn" data-mode="meta" title="Meta-Network Mode" style="font-size:15px; font-weight:600; letter-spacing:-1px;">Σ</button>
-    <button id="dashboardBtn" class="btn zoom-btn mode-btn" data-mode="dashboard" title="Dashboard">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <rect x="3" y="12" width="5" height="9" rx="1"/>
-        <rect x="9.5" y="7" width="5" height="14" rx="1"/>
-        <rect x="16" y="3" width="5" height="18" rx="1"/>
-      </svg>
-    </button>
-    <button id="dataModeBtn" class="btn zoom-btn mode-btn" data-mode="data" title="Data Mode">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <line x1="3" y1="9" x2="21" y2="9"/>
-        <line x1="3" y1="15" x2="21" y2="15"/>
-        <line x1="9" y1="3" x2="9" y2="21"/>
-      </svg>
-    </button>
+    <div id="modeBtnsGroup" style="display:flex;align-items:center;gap:4px;">
+      <button id="networkModeBtn" class="btn zoom-btn mode-btn" data-mode="network" title="Network Mode">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+          <polygon points="12,2 22,8.5 12,15 2,8.5"/>
+          <polyline points="2,12 12,18.5 22,12"/>
+          <polyline points="2,16 12,22.5 22,16"/>
+        </svg>
+      </button>
+      <button id="mapModeBtn" class="btn zoom-btn mode-btn" data-mode="map" title="Map Mode" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+        </svg>
+      </button>
+      <button id="layerViewBtn" class="btn zoom-btn mode-btn" data-mode="layer" title="Layer Mode">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="5" r="2.5"/>
+          <circle cx="5" cy="19" r="2.5"/>
+          <circle cx="19" cy="19" r="2.5"/>
+          <line x1="12" y1="7.5" x2="5.9" y2="16.6"/>
+          <line x1="12" y1="7.5" x2="18.1" y2="16.6"/>
+          <line x1="7.5" y1="19" x2="16.5" y2="19"/>
+        </svg>
+      </button>
+      <button id="gridViewBtn" class="btn zoom-btn mode-btn" data-mode="grid" title="Grid View">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </button>
+      <button id="metaNetworkBtn" class="btn zoom-btn mode-btn" data-mode="meta" title="Meta-Network Mode" style="font-size:15px; font-weight:600; letter-spacing:-1px;">Σ</button>
+      <button id="dashboardBtn" class="btn zoom-btn mode-btn" data-mode="dashboard" title="Dashboard">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="3" y="12" width="5" height="9" rx="1"/>
+          <rect x="9.5" y="7" width="5" height="14" rx="1"/>
+          <rect x="16" y="3" width="5" height="18" rx="1"/>
+        </svg>
+      </button>
+      <button id="dataModeBtn" class="btn zoom-btn mode-btn" data-mode="data" title="Data Mode">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <line x1="3" y1="9" x2="21" y2="9"/>
+          <line x1="3" y1="15" x2="21" y2="15"/>
+          <line x1="9" y1="3" x2="9" y2="21"/>
+        </svg>
+      </button>
+    </div>
 
     <span class="toolbar-sep"></span>
 
@@ -547,6 +593,31 @@
         <path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 384c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z" />
       </svg>
     </button>
+    <span class="toolbar-sep"></span>
+    <div id="sessionBtnsGroup" style="display:flex;align-items:center;gap:4px;">
+      <button id="saveSessionBtn" class="btn zoom-btn" title="Save Session">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </button>
+      <button id="loadSessionBtn" class="btn zoom-btn" title="Load Session">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+      </button>
+      <button id="loadSessionUrlBtn" class="btn zoom-btn" title="Load Session from URL">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </button>
+    </div>
+    <input type="file" id="sessionFileInput" accept=".json" style="display:none">
 
     <!-- Alerts zone (elastic middle) -->
     <div id="toolbarAlerts">
@@ -554,21 +625,24 @@
         <span id="dataFilterText"></span>
         <button id="dataFilterClear">Clear</button>
       </div>
+      <div id="selectedNodeBanner" style="display:none;">
+        <span id="selectedNodeText"></span>
+        <button id="selectedNodeClear">Clear</button>
+      </div>
     </div>
 
     <span class="toolbar-sep"></span>
 
     <!-- Branding -->
     <div id="brandingGroup">
-      <a href="https://ecological-complexity-lab.github.io/multilayer_viz/" target="_blank" rel="noopener" title="Open MultilayerViz online" class="branding-home-link">
-        <img src="assets/multiviz_favicon.png" alt="MultilayerViz" class="branding-favicon">
-        <span class="branding-title">MultilayerViz</span>
+      <a href="https://mira.ecomplab.com/" target="_blank" rel="noopener" title="Open MiRA online" class="branding-home-link">
+        <img src="assets/favicon.svg" alt="MiRA" class="branding-favicon">
       </a>
-      <span class="branding-beta">(Beta)</span>
-      <span class="branding-version">v0.9.2</span>
-      <a href="https://github.com/Ecological-Complexity-Lab/multilayer_viz" target="_blank" rel="noopener"
+      <span class="branding-beta"></span>
+      <span class="branding-version">v1.0</span>
+      <a href="https://github.com/Ecological-Complexity-Lab/MiRA" target="_blank" rel="noopener"
         title="GitHub Repository" class="branding-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
         </svg>
       </a>
@@ -599,6 +673,17 @@
     <div id="infoContent"></div>
   </div>
 
+  <!-- Interlayer layer-pair filter floating panel -->
+  <div id="interPairPanel" style="display:none; position:absolute; top:50px; right:16px; z-index:20; background:rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.1); border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.08); font-family:Inter,system-ui,sans-serif; min-width:180px; max-width:440px; pointer-events:auto; cursor:grab; user-select:none; backdrop-filter:blur(8px);">
+    <div id="interPairPanelHeader" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid rgba(0,0,0,0.07);">
+      <span style="font-size:11px; font-weight:700; color:#1a1a2e; text-transform:uppercase; letter-spacing:0.5px;">Interlayer links picker</span>
+      <button id="interPairPanelClose" class="legend-no-drag" style="background:none; border:none; cursor:pointer; color:#6b7280; font-size:13px; padding:0 2px; line-height:1;" title="Close">✕</button>
+    </div>
+    <div id="interPairPanelBody" style="padding:8px 10px; max-height:60vh; overflow:auto;">
+      <!-- Heatmap SVG injected by JS -->
+    </div>
+  </div>
+
   <!-- Map Mode: Select Layers floating panel -->
   <div id="mapLayerPanel" style="display:none; position:absolute; top:50px; right:16px; z-index:20; background:rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.1); border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.08); font-family:Inter,system-ui,sans-serif; min-width:160px; max-width:220px; pointer-events:auto; cursor:grab; user-select:none; backdrop-filter:blur(8px);">
     <div id="mapLayerPanelHeader" style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid rgba(0,0,0,0.07);">
@@ -626,7 +711,7 @@
   </div>
 
   <!-- Layer Stats Panel (shown in Layer View mode) -->
-  <div id="layerDrillPanel" class="panel" style="top:16px; right:16px; width:300px; padding:0; transform:translateX(340px); opacity:0; pointer-events:none; transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease; max-height:calc(100vh - 32px); overflow-y:auto;">
+  <div id="layerDrillPanel" class="panel" style="top:54px; right:16px; width:300px; padding:0; transform:translateX(340px); opacity:0; pointer-events:none; transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease; max-height:calc(100vh - 70px); overflow-y:auto;">
     <div style="padding:12px 16px; border-bottom:1px solid rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); z-index:1;">
       <h3 id="layerDrillTitle" style="margin:0; font-size:14px; font-weight:600;">Layer</h3>
       <button id="layerDrillClose" class="close-btn">✕</button>
@@ -635,7 +720,7 @@
   </div>
 
   <!-- Layer Comparison Panel (cmd+click in Layer View) -->
-  <div id="layerComparePanel" class="panel" style="top:16px; right:16px; width:380px; padding:0; transform:translateX(420px); opacity:0; pointer-events:none; transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease; max-height:calc(100vh - 32px); overflow-y:auto; z-index:51;">
+  <div id="layerComparePanel" class="panel" style="top:54px; right:16px; width:380px; padding:0; transform:translateX(420px); opacity:0; pointer-events:none; transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),opacity 0.3s ease; max-height:calc(100vh - 70px); overflow-y:auto; z-index:51;">
     <div style="padding:12px 16px; border-bottom:1px solid rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); z-index:1;">
       <div id="layerCompareTitle" style="font-size:13px; font-weight:600; color:#1a1a2e; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"></div>
       <button id="layerCompareClose" class="close-btn" style="flex-shrink:0; margin-left:8px;">✕</button>
@@ -646,12 +731,24 @@
   <!-- Export format dialog -->
   <div id="exportDialog" class="dialog-overlay" style="display:none;">
     <div class="dialog-box">
-      <h4>Export Format</h4>
-      <p>Choose a format for the screenshot:</p>
+      <h4>Export</h4>
       <div class="dialog-options">
-        <label class="checkbox-label">
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;">
+          <label for="exportNameInput" style="color:#374151;white-space:nowrap;">File name</label>
+          <input type="text" id="exportNameInput" maxlength="10" placeholder="network"
+            style="flex:1;min-width:0;padding:4px 8px;border:1px solid #d1d5db;border-radius:6px;font-size:13px;font-family:inherit;">
+        </div>
+        <div style="margin-top:8px;display:flex;align-items:center;gap:8px;font-size:13px;">
+          <label for="exportResolutionSelect" style="color:#374151;white-space:nowrap;">Quality</label>
+          <select id="exportResolutionSelect" class="styled-select" style="flex:1;min-width:0;">
+            <option value="1">Screen (1×)</option>
+            <option value="2" selected>High (2×)</option>
+            <option value="4">Print (4×)</option>
+          </select>
+        </div>
+        <label class="checkbox-label" style="margin-top:8px;">
           <input type="checkbox" id="exportGridCheckbox" checked>
-          <span>Background grid</span>
+          <span>Background grid / map</span>
         </label>
         <label class="checkbox-label">
           <input type="checkbox" id="exportPanelsCheckbox" checked>
@@ -662,6 +759,7 @@
         <button class="btn btn-primary" data-format="png">PNG</button>
         <button class="btn btn-primary" data-format="jpg">JPG</button>
         <button class="btn btn-primary" data-format="pdf">PDF</button>
+        <button class="btn btn-primary" data-format="all" id="exportAllBtn">All</button>
         <button class="btn" id="exportCancelBtn">Cancel</button>
       </div>
     </div>
@@ -772,10 +870,10 @@
   <div id="dataLoadedNotice" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:4000; align-items:center; justify-content:center;">
     <div style="background:#fff; border-radius:12px; width:400px; box-shadow:0 20px 60px rgba(0,0,0,0.3); padding:24px;">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-        <h3 style="margin:0; font-size:15px; font-weight:700;">Data loaded</h3>
+        <h3 style="margin:0; font-size:15px; font-weight:700; color:#000000;">User data loaded</h3>
         <button id="dataLoadedClose" class="close-btn">✕</button>
       </div>
-      <p style="font-size:12px; color:#6b7280; margin:0 0 18px;">Results depend on the accuracy of your data. The app does not validate your data (e.g., consistency in layer names, node names, and edge references). If something looks wrong in the visualization, the source data is the first place to check.</p>
+      <p style="font-size:12px; color:#dc2626; margin:0 0 18px;">Results depend on the accuracy of your data. The app does not validate your data (e.g., consistency in layer names, node names, and edge references). If something looks wrong in the visualization, the source data is the first place to check.</p>
       <div style="display:flex; gap:8px; justify-content:flex-end;">
         <button id="dataLoadedDontShow" class="btn" style="background:#f3f4f6; color:#6b7280; font-size:12px;">Do not show again</button>
         <button id="dataLoadedOk" class="btn">OK</button>
@@ -792,6 +890,23 @@
     <div id="helpPopupBody" style="padding:12px 14px; line-height:1.6; color:#374151; max-height:60vh; overflow-y:auto;"></div>
     <div style="padding:10px 14px; border-top:1px solid #f3f4f6; text-align:right;">
       <button id="helpPopupFullManual" class="btn" style="font-size:12px;">Full Manual →</button>
+    </div>
+  </div>
+
+  <!-- Tour overlay -->
+  <div id="tourHighlight"></div>
+  <div id="tourPopover">
+    <div class="tour-header">
+      <span id="tourTitle"></span>
+      <button id="tourClose" class="close-btn" style="width:22px;height:22px;font-size:15px;">✕</button>
+    </div>
+    <p id="tourBody"></p>
+    <div class="tour-footer">
+      <span id="tourCounter"></span>
+      <div class="tour-nav">
+        <button id="tourPrev" class="btn">← Back</button>
+        <button id="tourNext" class="btn btn-primary">Next →</button>
+      </div>
     </div>
   </div>
 

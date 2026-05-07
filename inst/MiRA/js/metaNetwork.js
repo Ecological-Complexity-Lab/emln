@@ -4,11 +4,12 @@
  * Aggregates all intralayer links into a single 2D network of unique
  * physical nodes. Supports three aggregation modes (union, sumWeights,
  * sumOccurrence), bipartite two-row layout or force layout, directed
- * arrowheads, node dragging, pan/zoom, and per-node/edge fading based
- * on selection and layer filter.
+ * arrowheads, pan/zoom, and per-node/edge fading based on selection and
+ * layer filter. Nodes are not draggable — clicks select them.
  */
 
 import { BIPARTITE_SET_A_COLOR, BIPARTITE_SET_B_COLOR } from './colorMapper.js';
+import { aggregateMetaNetwork } from './calc/metaAggregation.js';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -20,7 +21,7 @@ const MN_EDGE_ALPHA    = 0.8;
 const MN_DIM_NODE      = 0.08;
 const MN_DIM_EDGE      = 0.06;
 const MN_BG_COLOR      = '#f8f8fc';
-const MN_UNIFORM_COLOR = '#6ee7b7';
+const MN_UNIFORM_COLOR = '#374151';
 const MN_ARROW_SIZE    = 8;     // px in sim coords
 const MN_HIT_THRESHOLD = 6;     // px in sim coords for edge hit
 
@@ -54,7 +55,6 @@ export class MetaNetwork {
         this._nodeMap     = new Map(); // nodeName → node object
         this._maxWeight   = 1;
         this._focusSet    = null;      // Set<nodeName> | null — ego network of selected node
-        this._draggedNode = null;
 
         this.viewScale   = 1;
         this.viewOffsetX = 0;
@@ -62,14 +62,15 @@ export class MetaNetwork {
 
         this.settings = {
             aggregation:   'sumOccurrence', // 'union' | 'sumWeights' | 'sumOccurrence'
-            colorBy:       'participation', // 'participation' | 'metaDegree' | 'uniform'
+            colorBy:       'uniform',       // 'participation' | 'metaDegree' | 'uniform'
             sizeBy:        'metaDegree',    // 'participation' | 'metaDegree' | 'uniform'
             layout:        'circular',      // 'circular' | 'force' | 'bipartite'
             minWeight:     0,
-            showLabels:    true,
+            showLabels:    false,
             labelFontSize: 12,
             nestedSort:    true,
             baseSize:      1.0,            // multiplier applied to all node radii
+            uniformColor:  MN_UNIFORM_COLOR,      // uniform color for unipartite
             uniformColorA: BIPARTITE_SET_A_COLOR, // uniform color for bipartite Set A
             uniformColorB: BIPARTITE_SET_B_COLOR, // uniform color for bipartite Set B
         };
@@ -125,84 +126,18 @@ export class MetaNetwork {
     // ── Aggregation ──────────────────────────────────────────────────────────
 
     _aggregate() {
-        const mode     = this.settings.aggregation;
-        const directed = this._model.directed;
-        const links    = this._model.intralayerLinks;
+        // Pure aggregation lives in js/calc/metaAggregation.js. This method
+        // wraps it with the rendering-specific node fields (x/y/vx/vy,
+        // color, radius, bipartite typing) the d3-force loop expects.
+        const { edges, nodes, maxWeight } = aggregateMetaNetwork(this._model, this.settings.aggregation);
+        this._mnEdges = edges;
+        this._maxWeight = maxWeight;
 
-        // edge accumulator: edgeKey → {src, tgt, layers, weightSum, perLayerMap}
-        const edgeMap     = new Map();
-        // nodeName → Set<layerName>
-        const nodeLayerMap = new Map();
-
-        for (const link of links) {
-            const a = link.node_from, b = link.node_to, layer = link.layer_from;
-            const w = link.weight ?? 1;
-            if (!a || !b) continue;
-
-            for (const n of [a, b]) {
-                if (!nodeLayerMap.has(n)) nodeLayerMap.set(n, new Set());
-                nodeLayerMap.get(n).add(layer);
-            }
-
-            // Canonical direction
-            const [src, tgt] = directed ? [a, b] : (a <= b ? [a, b] : [b, a]);
-            const key = `${src}\x00${tgt}`;
-
-            if (!edgeMap.has(key)) {
-                edgeMap.set(key, { src, tgt, layers: new Set(), weightSum: 0, perLayerMap: new Map() });
-            }
-            const e = edgeMap.get(key);
-            e.layers.add(layer);
-            e.weightSum += w;
-            e.perLayerMap.set(layer, (e.perLayerMap.get(layer) ?? 0) + w);
-        }
-
-        // Include nodes that appear in layers but have no intralayer links
-        for (const [layerName, nodeNames] of this._model.nodesPerLayer) {
-            for (const n of nodeNames) {
-                if (!nodeLayerMap.has(n)) nodeLayerMap.set(n, new Set());
-                nodeLayerMap.get(n).add(layerName);
-            }
-        }
-
-        // Build _mnEdges
-        let maxWeight = 0;
-        this._mnEdges = [];
-        for (const { src, tgt, layers, weightSum, perLayerMap } of edgeMap.values()) {
-            const weight =
-                mode === 'union'      ? 1 :
-                mode === 'sumWeights' ? weightSum :
-                                       layers.size; // sumOccurrence
-            const perLayer = [...perLayerMap.entries()]
-                .map(([layerName, w]) => ({ layerName, weight: w }))
-                .sort((a, b) => a.layerName.localeCompare(b.layerName));
-
-            this._mnEdges.push({ source: src, target: tgt, weight, perLayer, _layers: layers });
-            if (weight > maxWeight) maxWeight = weight;
-        }
-        this._maxWeight = maxWeight || 1;
-
-        // Bipartite typing (recomputed each time in case layout setting changed)
         const bpSets = this._useBipartiteLayout ? this._buildBipartiteSets() : null;
 
-        // Adjacency for metaDegree
-        const adjMap = new Map();
-        for (const e of this._mnEdges) {
-            if (!adjMap.has(e.source)) adjMap.set(e.source, new Set());
-            if (!adjMap.has(e.target)) adjMap.set(e.target, new Set());
-            adjMap.get(e.source).add(e.target);
-            adjMap.get(e.target).add(e.source);
-        }
-
-        // Build _mnNodes
         this._mnNodes = [];
         this._nodeMap = new Map();
-        for (const [name, layers] of nodeLayerMap) {
-            const metaDegree   = (adjMap.get(name) ?? new Set()).size;
-            const metaStrength = this._mnEdges
-                .filter(e => e.source === name || e.target === name)
-                .reduce((s, e) => s + e.weight, 0);
-
+        for (const { name, participation, metaDegree, metaStrength, layers } of nodes.values()) {
             let nodeType = null;
             if (bpSets) {
                 if      (bpSets.setA.has(name)) nodeType = 'A';
@@ -210,7 +145,7 @@ export class MetaNetwork {
             }
 
             const node = {
-                name, participation: layers.size, metaDegree, metaStrength, layers,
+                name, participation, metaDegree, metaStrength, layers,
                 nodeType, color: MN_UNIFORM_COLOR, r: MN_DEFAULT_R,
                 x: (Math.random() - 0.5) * 200,
                 y: (Math.random() - 0.5) * 200,
@@ -252,7 +187,7 @@ export class MetaNetwork {
             if (colorBy === 'uniform') {
                 if (n.nodeType === 'A')      n.color = this.settings.uniformColorA;
                 else if (n.nodeType === 'B') n.color = this.settings.uniformColorB;
-                else                         n.color = MN_UNIFORM_COLOR;
+                else                         n.color = this.settings.uniformColor;
             } else {
                 const [val, lo, hi] = colorBy === 'participation'
                     ? [n.participation, minPart, maxPart]
@@ -285,7 +220,7 @@ export class MetaNetwork {
         }
 
         if (bipartite && this.settings.nestedSort) this._applyNestedSort();
-        if (circular)  this._applyCircularLayout();
+        if (circular)  { this._applyCircularLayout(); this._fitView(); }
 
         // d3 replaces source/target strings with node object refs in-place
         this._d3Links = this._mnEdges.map(e => ({ source: e.source, target: e.target, _edge: e }));
@@ -313,6 +248,25 @@ export class MetaNetwork {
             // Brief gentle animation so the user sees the network is "live" (drag-able)
             this._sim.alpha(0.05).restart();
         }
+    }
+
+    // ── Fit view to content ──────────────────────────────────────────────────
+
+    _fitView(padding = 0.88) {
+        if (!this._mnNodes.length) return;
+        let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+        for (const n of this._mnNodes) {
+            minX = Math.min(minX, n.x - n.r);
+            maxX = Math.max(maxX, n.x + n.r);
+            minY = Math.min(minY, n.y - n.r);
+            maxY = Math.max(maxY, n.y + n.r);
+        }
+        const contentW = maxX - minX;
+        const contentH = maxY - minY;
+        if (contentW === 0 || contentH === 0) return;
+        this.viewScale   = Math.min(this._canvasW / contentW, this._canvasH / contentH) * padding;
+        this.viewOffsetX = -((minX + maxX) / 2) * this.viewScale;
+        this.viewOffsetY = -((minY + maxY) / 2) * this.viewScale;
     }
 
     // ── Circular layout ──────────────────────────────────────────────────────
@@ -603,50 +557,6 @@ export class MetaNetwork {
         return null;
     }
 
-    // ── Dragging ─────────────────────────────────────────────────────────────
-
-    startDragNode(mx, my, w, h) {
-        const name = this.hitTestNode(mx, my, w, h);
-        if (!name) return null;
-        const node = this._nodeMap.get(name);
-        this._draggedNode   = node;
-        this._didActualDrag = false;  // set to true only when mouse actually moves
-        // Snapshot position so we can unpin on a plain click
-        this._dragStartX = node.x;
-        this._dragStartY = node.y;
-        return name;
-    }
-
-    moveDragNode(mx, my, w, h) {
-        if (!this._draggedNode) return;
-        if (!this._didActualDrag) {
-            // First real movement — pin the node and heat the sim
-            this._draggedNode.fx = this._dragStartX;
-            if (!this._useBipartiteLayout || this._draggedNode.nodeType === null) {
-                this._draggedNode.fy = this._dragStartY;
-            }
-            this._didActualDrag = true;
-            this._sim?.alphaTarget(0.3).restart();
-        }
-        const { sx, sy } = this._screenToSim(mx, my, w, h);
-        this._draggedNode.fx = sx;
-        if (!this._useBipartiteLayout || this._draggedNode.nodeType === null) {
-            this._draggedNode.fy = sy;
-        }
-    }
-
-    endDragNode() {
-        if (!this._draggedNode) return;
-        if (!this._didActualDrag) {
-            // Plain click — do not pin the node at all
-            this._draggedNode.fx = undefined;
-            this._draggedNode.fy = undefined;
-        }
-        this._sim?.alphaTarget(0);
-        this._draggedNode   = null;
-        this._didActualDrag = false;
-    }
-
     // ── Settings ─────────────────────────────────────────────────────────────
 
     updateSetting(key, value) {
@@ -664,6 +574,7 @@ export class MetaNetwork {
             case 'colorBy':
             case 'sizeBy':
             case 'baseSize':
+            case 'uniformColor':
             case 'uniformColorA':
             case 'uniformColorB':
                 this._updateNodeStyles();

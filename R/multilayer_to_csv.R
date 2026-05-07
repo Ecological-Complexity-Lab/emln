@@ -1,7 +1,9 @@
 #' Export a multilayer network to CSV files
 #'
-#' Writes an EMLN \code{multilayer} object as the three-file CSV set consumed
-#' by the Multilayer Network Visualizer's CSV importer.
+#' Writes an EMLN \code{multilayer} object as a set of CSV files consumed
+#' by MiRA's CSV importer. Three files are always written; a fourth
+#' (\code{<prefix>_state_nodes.csv}) is added when per-(layer, node)
+#' attributes are present.
 #'
 #' @param multilayer A multilayer object (created by
 #'   \code{create_multilayer_network} or \code{load_emln}).
@@ -20,19 +22,34 @@
 #'   \code{node_type} (or legacy \code{node_group}) column with exactly two
 #'   distinct values across the network, and a \code{bipartite} column is
 #'   written to the layers CSV.
+#' @param setA_type Optional character. The \code{node_type} value to render
+#'   as Set A (top row) in MiRA's bipartite layout. By ecological convention
+#'   this is the higher trophic level (e.g. \code{"pollinator"},
+#'   \code{"parasite"}, \code{"disperser"}). Only used when
+#'   \code{bipartite = TRUE}; written as a \code{setA_type} column in the
+#'   layers CSV. If \code{NULL} (default), MiRA falls back to alphabetical
+#'   ordering of the two types.
 #' @param directed Logical or NULL. Whether the network is directed. If NULL
 #'   (default), auto-detected by checking intralayer edge symmetry.
 #'
-#' @note The Multilayer Network Visualizer that this function targets is
-#'   currently in beta. Feedback and bug reports are welcome at
-#'   \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
+#' @note
+#' MiRA (Multilayer Interactive Rendering Application) is a browser-based
+#' interactive visualization tool for multilayer networks, available at
+#' \url{https://mira.ecomplab.com/}.
+#'
+#' If you use MiRA in published research, please cite:
+#' Nehorai S, Bloch Y and Pilosof S. Interactively visualizing biological
+#' multilayer networks using MiRA. (forthcoming)
+#'
+#' Feedback and bug reports:
+#' \url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
 #'
 #' @return Invisibly returns a named character vector of file paths written
 #'   (\code{edges}, \code{layers}, \code{nodes}, and optionally
 #'   \code{state_nodes}).
 #'
 #' @details
-#' The CSV files follow the schema accepted by the visualizer's CSV importer:
+#' The CSV files follow the schema accepted by MiRA's CSV importer:
 #' \itemize{
 #'   \item \strong{edges}: \code{layer_from, node_from, layer_to, node_to,
 #'     weight} (+ any extra link attributes).
@@ -47,7 +64,7 @@
 #'     different layers (e.g. abundance, module membership).
 #' }
 #' The \code{directed} flag is not written to the CSV files; it is a property
-#' you specify in the visualizer's CSV import dialog at load time.
+#' you specify in MiRA's CSV import dialog at load time.
 #'
 #' @seealso \code{\link{multilayer_to_json}}, \code{\link{plot_multilayer}}
 #'
@@ -59,7 +76,8 @@
 #' multilayer_to_csv(net, dir = "tests/out/", prefix = "kefi", bipartite = TRUE)
 #' }
 multilayer_to_csv <- function(multilayer, dir, prefix = "network",
-                              bipartite = FALSE, directed = NULL) {
+                              bipartite = FALSE, setA_type = NULL,
+                              directed = NULL) {
 
   if (!inherits(multilayer, "multilayer")) {
     stop("Input must be a multilayer object (class 'multilayer').")
@@ -70,9 +88,18 @@ multilayer_to_csv <- function(multilayer, dir, prefix = "network",
   if (!is.character(dir) || length(dir) != 1) {
     stop("`dir` must be a single directory path.")
   }
+  if (!is.null(setA_type)) {
+    if (!is.character(setA_type) || length(setA_type) != 1 || is.na(setA_type)) {
+      stop("`setA_type` must be a single character string or NULL.")
+    }
+    if (!isTRUE(bipartite)) {
+      warning("`setA_type` is only used when bipartite = TRUE; ignoring.")
+      setA_type <- NULL
+    }
+  }
 
-  message("Note: The Multilayer Network Visualizer is currently in beta. ",
-          "Please report issues at https://github.com/Ecological-Complexity-Lab/emln/issues")
+  message("Please report issues at ",
+          "https://github.com/Ecological-Complexity-Lab/MiRA/issues")
 
   if (!dir.exists(dir)) {
     dir.create(dir, recursive = TRUE)
@@ -115,6 +142,18 @@ multilayer_to_csv <- function(multilayer, dir, prefix = "network",
   layers_df <- layers_df[, names(layers_df) != "name", drop = FALSE]
   if (isTRUE(bipartite)) {
     layers_df$bipartite <- TRUE
+    if (!is.null(setA_type)) {
+      type_values <- unique(nodes_df$node_type)
+      type_values <- type_values[!is.na(type_values)]
+      if (!(setA_type %in% type_values)) {
+        stop(sprintf(
+          paste0("`setA_type = \"%s\"` does not match any node_type in the ",
+                 "network (found: %s)."),
+          setA_type, paste(type_values, collapse = ", ")
+        ))
+      }
+      layers_df$setA_type <- setA_type
+    }
   }
 
   # ---- Edges (extended list) ----
@@ -163,9 +202,9 @@ multilayer_to_csv <- function(multilayer, dir, prefix = "network",
 
   if (!is.null(directed)) {
     message(sprintf(
-      "Note: directed=%s is not stored in the CSV files; set it in the ",
+      "Note: directed=%s is not stored in the CSV files; set it in ",
       directed
-    ), "visualizer's CSV import dialog at load time.")
+    ), "MiRA's CSV import dialog at load time.")
   }
 
   invisible(paths)

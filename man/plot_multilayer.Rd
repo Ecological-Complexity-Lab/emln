@@ -7,9 +7,11 @@
 plot_multilayer(
   multilayer,
   bipartite = FALSE,
+  setA_type = NULL,
   directed = NULL,
+  directed_interlayer = NULL,
   port = 8080,
-  viz_path = NULL,
+  mira_path = NULL,
   browser = getOption("browser")
 )
 }
@@ -18,36 +20,47 @@ plot_multilayer(
 or \code{load_emln}).}
 
 \item{bipartite}{Logical. Whether the network is bipartite. Defaults to
-\code{FALSE}. Bipartite is not auto-detected. When \code{TRUE}, the nodes table must contain a
-\code{node_type} (or legacy \code{node_group}) column with exactly two
-distinct values across the network.}
+\code{FALSE}. Bipartite is not auto-detected. When \code{TRUE}, the nodes
+table must contain a \code{node_type} (or legacy \code{node_group})
+column with exactly two distinct values across the network.}
 
-\item{directed}{Logical or NULL. Whether the network is directed. If NULL
-(default), auto-detected by checking intralayer edge symmetry.}
+\item{setA_type}{Optional character. The \code{node_type} value to render
+as Set A (top row) in MiRA's bipartite layout. By ecological convention
+this is the higher trophic level (e.g. \code{"pollinator"},
+\code{"parasite"}, \code{"disperser"}). Only used when
+\code{bipartite = TRUE}. Forwarded to \code{multilayer_to_json}.}
+
+\item{directed}{Logical or NULL. Whether intralayer links are directed.
+If NULL (default), auto-detected by checking intralayer edge symmetry.}
+
+\item{directed_interlayer}{Logical or NULL. Whether interlayer links are
+directed. If NULL (default), inherits from \code{directed}.}
 
 \item{port}{Integer. Port for the local HTTP server. Default is 8080.}
 
-\item{viz_path}{Character. Path to the multilayer_viz directory. If NULL
-(default), uses the \code{viz} directory bundled with the package.}
+\item{mira_path}{Character. Path to the MiRA web-app directory. If NULL
+(default), uses the copy bundled with the package
+(\code{system.file("MiRA", package = "emln")}).}
 
-\item{browser}{Choose the specific browser to open the visualizer.
-Defaults to the system default via \code{getOption("browser")}.
-Can be a browser name (e.g. "chrome", "firefox") or a command (e.g. "open -a 'Google Chrome'").}
+\item{browser}{Choose the specific browser to open MiRA in. Defaults to
+the system default via \code{getOption("browser")}. Can be a browser
+name (e.g. "chrome", "firefox") or a command
+(e.g. "open -a 'Google Chrome'").}
 }
 \value{
 Invisibly returns the server handle. Use
   \code{httpuv::stopServer(handle)} to stop the server when done.
 }
 \description{
-Converts an EMLN \code{multilayer} object to JSON and opens the Multilayer
-Network Visualizer in the default web browser.
+Converts an EMLN \code{multilayer} object to JSON and opens MiRA, the
+multilayer interactive R-network app, in the default web browser.
 }
 \details{
 The function:
 \enumerate{
   \item Converts the multilayer object to JSON via \code{multilayer_to_json}
   \item Starts a local HTTP server (using \code{httpuv}) that serves the
-    visualizer app and the network JSON
+    MiRA app and the network JSON
   \item Opens the browser with auto-load enabled
 }
 
@@ -55,14 +68,21 @@ The server runs in the background. Call \code{httpuv::stopServer(handle)} or
 close R to stop it. The JSON data is kept in memory and never written to disk.
 }
 \note{
-The Multilayer Network Visualizer that this function targets is
-  currently in beta. Feedback and bug reports are welcome at
-  \url{https://github.com/Ecological-Complexity-Lab/emln/issues}.
+MiRA (Multilayer Interactive Rendering Application) is a browser-based
+interactive visualization tool for multilayer networks, available at
+\url{https://mira.ecomplab.com/}.
+
+If you use MiRA in published research, please cite:
+Nehorai S, Bloch Y and Pilosof S. Interactively visualizing biological
+multilayer networks using MiRA. (forthcoming)
+
+Feedback and bug reports:
+\url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
 }
 \examples{
 if (interactive()){
 net <- load_emln(60)
-srv <- plot_multilayer(net, bipartite = TRUE)
+srv <- plot_multilayer(net, bipartite = TRUE, setA_type = "pollinator")
 
 # When done:
 httpuv::stopServer(srv)

@@ -12,6 +12,11 @@ import { csvToJson } from './csvImporter.js';
 import { Dashboard, svgBar } from './dashboard.js';
 import { MetaNetwork } from './metaNetwork.js';
 import { DataMode, dataMode, layerColors, initLayerColors } from './dataMode.js';
+import { saveSession, loadSession, loadSessionFromUrl } from './sessionManager.js';
+import { startTour } from './tourManager.js';
+import { initDemoDatasets } from './demoDatasets.js';
+import { initExportManager } from './exportManager.js';
+import { GridView } from './gridView.js';
 
 // ---- State ----
 let model = null;
@@ -29,8 +34,10 @@ let activeNodeColorScaleB = null;
 let activeNodeSizeScale = null;
 let activeNodeSizeScaleA = null;
 let activeNodeSizeScaleB = null;
-let activeLinkColorScale = null;
+let activeIntraLinkColorScale = null;
+let activeInterLinkColorScale = null;
 let activeLayerColorScale = null;
+let _interPairFilter = new Set(); // empty = show all; Set<"from::to"> = selected pairs
 const colorScaleOverrides = new Map(); // attrName -> 'categorical' | 'continuous'
 const categoryColorOverrides = new Map(); // attrName -> Map<value, hex color>
 
@@ -63,11 +70,13 @@ function applyBipartiteUIVisibility() {
 // ---- EMLN mode detection ----
 const IS_EMLN = new URLSearchParams(window.location.search).get('autoload') === 'true';
 
+// CSS-pixel canvas dimensions — updated in resizeCanvas(). Use these everywhere
+// instead of canvas.width/canvas.height (which are physical pixels after DPR scaling).
+let cssW = window.innerWidth;
+let cssH = window.innerHeight;
+
 // ---- DOM Elements ----
 const canvas = document.getElementById('networkCanvas');
-const openDemoDialogBtn = document.getElementById('openDemoDialogBtn');
-const demoDialog = document.getElementById('demoDialog');
-const demoCancelBtn = document.getElementById('demoCancelBtn');
 const fileInput       = document.getElementById('fileInput');
 const csvUploadBtn    = document.getElementById('csvUploadBtn');
 const csvImportModal  = document.getElementById('csvImportModal');
@@ -104,13 +113,13 @@ const bipartiteSizeLabelA = document.getElementById('bipartiteSizeLabelA');
 const bipartiteSizeLabelB = document.getElementById('bipartiteSizeLabelB');
 const nodeSizeSelectSetA = document.getElementById('nodeSizeSelectSetA');
 const nodeSizeSelectSetB = document.getElementById('nodeSizeSelectSetB');
-const linkColorSelect = document.getElementById('linkColorSelect');
 const layerColorSelect = document.getElementById('layerColorSelect');
 const layerColorSwatches = document.getElementById('layerColorSwatches');
 const nodeColorSwatches  = document.getElementById('nodeColorSwatches');
-const linkColorSwatches      = document.getElementById('linkColorSwatches');
-const arrowheadSizeControl   = document.getElementById('arrowheadSizeControl');
-const arrowheadSizeSlider    = document.getElementById('arrowheadSizeSlider');
+const arrowheadSizeControl      = document.getElementById('arrowheadSizeControl');
+const arrowheadSizeSlider       = document.getElementById('arrowheadSizeSlider');
+const interArrowheadSizeControl = document.getElementById('interArrowheadSizeControl');
+const interArrowheadSizeSlider  = document.getElementById('interArrowheadSizeSlider');
 
 const LAYER_DEFAULT_HEX = '#8b5cf6';
 const NODE_DEFAULT_HEX  = '#a78bfa';
@@ -174,9 +183,16 @@ window.addEventListener('mouseup', () => {
 const showLabelsCheckbox = document.getElementById('showLabelsCheckbox');
 const transformNodesCheckbox = document.getElementById('transformNodesCheckbox');
 const showLayerNamesCheckbox = document.getElementById('showLayerNamesCheckbox');
+const layerNameSizeSlider    = document.getElementById('layerNameSizeSlider');
+const layerNameSizeLabel     = document.getElementById('layerNameSizeLabel');
 const networkModeBtn  = document.getElementById('networkModeBtn');
 const mapModeBtn      = document.getElementById('mapModeBtn');
 const layerViewBtn    = document.getElementById('layerViewBtn');
+const gridViewBtn     = document.getElementById('gridViewBtn');
+const gridColumnsRow  = document.getElementById('gridColumnsRow');
+const gridColumnsSlider = document.getElementById('gridColumnsSlider');
+const gridColumnsLabel  = document.getElementById('gridColumnsLabel');
+const transformNodesRow = document.getElementById('transformNodesRow');
 const layerDrillPanel   = document.getElementById('layerDrillPanel');
 const layerDrillClose   = document.getElementById('layerDrillClose');
 const layerDrillTitle   = document.getElementById('layerDrillTitle');
@@ -219,6 +235,8 @@ const mnShowLabelsCheckbox = document.getElementById('mnShowLabelsCheckbox');
 const mnLabelSizeSlider    = document.getElementById('mnLabelSizeSlider');
 const mnLabelSizeLabel     = document.getElementById('mnLabelSizeLabel');
 const mnLabelSizeRow       = document.getElementById('mnLabelSizeRow');
+const mnUniformColorRow    = document.getElementById('mnUniformColorRow');
+const mnUniformColorPicker = document.getElementById('mnUniformColorPicker');
 const mnBpColorRow         = document.getElementById('mnBpColorRow');
 const mnColorSetA          = document.getElementById('mnColorSetA');
 const mnColorSetALabel     = document.getElementById('mnColorSetALabel');
@@ -245,6 +263,7 @@ const lvShowMapImageCheckbox = document.getElementById('lvShowMapImageCheckbox')
 const lvStreetMapCheckbox = document.getElementById('lvStreetMapCheckbox');
 const showSetNamesCheckbox = document.getElementById('showSetNamesCheckbox');
 const bipartiteNestedCheckbox = document.getElementById('bipartiteNestedCheckbox');
+const sectionInterLinks      = document.getElementById('sectionInterLinks');
 const showInterlayerCheckbox = document.getElementById('showInterlayerCheckbox');
 const layoutSelect = document.getElementById('layoutSelect');
 const nodeSizeSlider = document.getElementById('nodeSizeSlider');
@@ -262,7 +281,8 @@ const collapseInfoBtn = document.getElementById('collapseInfoBtn');
 const tooltip = document.getElementById('tooltip');
 
 // ---- Application State ----
-let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', 'metanetwork', or 'data'
+let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', 'metanetwork', 'data', or 'grid'
+let gridView = null;
 let layerViewHandlers = null;
 let lvRAF  = null; // requestAnimationFrame id for layer-view animation
 let metaNetwork = null;       // MetaNetwork instance
@@ -274,6 +294,12 @@ const dataModeBtn   = document.getElementById('dataModeBtn');
 const dataFilterBanner = document.getElementById('dataFilterBanner');
 const dataFilterText   = document.getElementById('dataFilterText');
 const dataFilterClear  = document.getElementById('dataFilterClear');
+const selectedNodeBanner = document.getElementById('selectedNodeBanner');
+const selectedNodeText   = document.getElementById('selectedNodeText');
+const selectedNodeClear  = document.getElementById('selectedNodeClear');
+// Cross-mode persistent node selection — survives transitions between
+// network/map/metanetwork. Holds just the node name (not the layer).
+let crossModeSelectedNode = null;
 let activeMapLayers = new Set();
 const mapMarkersOverlay = document.getElementById('mapMarkersOverlay');
 const layerCloseButtonsContainer = document.getElementById('layerCloseButtons');
@@ -287,6 +313,21 @@ const mnLayerPanelHeader  = document.getElementById('mnLayerPanelHeader');
 const mnLayerPanelBody    = document.getElementById('mnLayerPanelBody');
 const mnLayerPanelToggle  = document.getElementById('mnLayerPanelToggle');
 const mnLayerList         = document.getElementById('mnLayerList');
+
+// ── Sidebar accordion: opening one section collapses other visible ones ──────
+{
+    const sections = document.querySelectorAll('.control-section');
+    sections.forEach(details => {
+        details.addEventListener('toggle', () => {
+            if (!details.open) return;
+            sections.forEach(other => {
+                if (other !== details && other.open && other.style.display !== 'none') {
+                    other.open = false;
+                }
+            });
+        });
+    });
+}
 
 // ── Select Layers panel drag + collapse ──────────────────────────────────
 let _mlpDragging = false, _mlpHasDragged = false;
@@ -422,10 +463,16 @@ const lvStreetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y
 
 // ---- Canvas Resize ----
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
+    cssW = window.innerWidth;
+    cssH = window.innerHeight;
+    canvas.width  = Math.round(cssW * dpr);
+    canvas.height = Math.round(cssH * dpr);
+    canvas.style.width  = cssW + 'px';
+    canvas.style.height = cssH + 'px';
     if (renderer) {
-        renderer.resizeKonvaOverlay(canvas.width, canvas.height);
+        renderer.dpr = dpr;
+        renderer.resizeKonvaOverlay(cssW, cssH);
         renderer.render();
     }
 }
@@ -454,14 +501,37 @@ bgMap.on('move', () => {
     }
 });
 
+// Splash screen links — "Ecological Complexity Lab" and "visualization guidelines"
+canvas.addEventListener('click', (e) => {
+    if (model) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const inBounds = b => b && mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h;
+    if (inBounds(renderer._ecoLabBounds))    window.open('https://ecomplab.com/', '_blank', 'noopener');
+    if (inBounds(renderer._guidelinesBounds)) window.open('docs/manual.html#guidelines', '_blank', 'noopener');
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    if (model) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const inBounds = b => b && mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h;
+    canvas.style.cursor = (inBounds(renderer._ecoLabBounds) || inBounds(renderer._guidelinesBounds))
+        ? 'pointer' : 'default';
+});
+
 // ---- Interaction ----
 const interaction = new InteractionHandler(canvas, renderer, {
     onNodeSelect: (hit) => {
+        crossModeSelectedNode = hit ? hit.nodeName : null;
         if (hit) {
             showNodeInfo(hit);
         } else {
             hideNodeInfo();
         }
+        _updateFilterBanner();
     },
     onNodeHover: (hit) => {
         if (hit) {
@@ -482,6 +552,27 @@ const interaction = new InteractionHandler(canvas, renderer, {
     }
 });
 
+// Grid View click — node selection
+canvas.addEventListener('click', (e) => {
+    if (appMode !== 'grid' || !gridView || !model) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const hit = gridView.hitTest(mx, my);
+    crossModeSelectedNode = hit ? hit.nodeName : null;
+    renderer.searchedNodeName = hit ? hit.nodeName : null;
+    // Drop any stale (layerName, nodeName) selection from a prior mode so it
+    // doesn't leak through when the user returns to Network mode.
+    renderer.selectedNode = hit ? { layerName: hit.layerName, nodeName: hit.nodeName } : null;
+    if (hit) {
+        showNodeInfo(hit);
+    } else {
+        hideNodeInfo();
+    }
+    _updateFilterBanner();
+    renderer.render();
+});
+
 // ---- Reset all visualization options to defaults ----
 function resetVisualizationOptions() {
     // Checkboxes
@@ -497,6 +588,9 @@ function resetVisualizationOptions() {
 
     showLayerNamesCheckbox.checked = false;
     renderer.showLayerNames = false;
+    layerNameSizeSlider.value = 14;
+    layerNameSizeLabel.textContent = '14px';
+    renderer.layerNameFontSize = 14;
 
     showSetNamesCheckbox.checked = false;
     renderer.showSetNames = false;
@@ -504,8 +598,9 @@ function resetVisualizationOptions() {
     bipartiteNestedCheckbox.checked = false;
     layout.bipartiteNested = false;
 
-    showInterlayerCheckbox.checked = true;
-    renderer.showInterlayerLinks = true;
+    showInterlayerCheckbox.checked = false;
+    renderer.showInterlayerLinks = false;
+    interPairPanel.style.display = 'none';
 
     // Stacking mode
     setStackMode('horizontal');
@@ -524,25 +619,33 @@ function resetVisualizationOptions() {
     nodeSizeSelect.value = '';
     nodeSizeSelectSetA.value = '';
     nodeSizeSelectSetB.value = '';
-    linkColorSelect.value = '';
+    intraLinkColorSelect.value = '';
+    interLinkColorSelect.value = '';
     layerColorSelect.value = '';
     layerColorPicker.value = LAYER_DEFAULT_HEX;
     nodeColorSelect.value = '';
     nodeColorPicker.value = NODE_DEFAULT_HEX;
-    linkColorSelect.value = '';
     intraLinkColorPicker.value = '#000000';
     interLinkColorPicker.value = '#1e64dc';
     arrowheadSizeSlider.value = 1;
+    interArrowheadSizeSlider.value = 1;
     renderer.arrowheadSize = 1;
     interlayerCurvatureSlider.value = 0.35;
     renderer.interlayerCurvature = 0.35;
+    intraLinkWeightSlider.value = 0;
+    intraLinkWeightLabel.textContent = '0';
+    renderer.intraMinWeight = 0;
     interlayerWeightSlider.value = 0;
     interlayerWeightLabel.textContent = '0';
     renderer.interlayerMinWeight = 0;
+    _interPairFilter = new Set();
+    renderer.interlayerLayerPairs = null;
 
     // Color functions
     renderer.nodeColorFn = null;
     renderer.nodeSizeFn = null;
+    renderer.intraLinkColorFn = null;
+    renderer.interLinkColorFn = null;
     renderer.linkColorFn = null;
     renderer.layerColorFn = null;
     activeNodeColorScale = null;
@@ -551,7 +654,8 @@ function resetVisualizationOptions() {
     activeNodeSizeScale = null;
     activeNodeSizeScaleA = null;
     activeNodeSizeScaleB = null;
-    activeLinkColorScale = null;
+    activeIntraLinkColorScale = null;
+    activeInterLinkColorScale = null;
     activeLayerColorScale = null;
     colorScaleOverrides.clear();
     categoryColorOverrides.clear();
@@ -567,6 +671,7 @@ function resetVisualizationOptions() {
     renderer.hoveredNode = null;
     renderer.hoveredLink = null;
     renderer.searchedNodeName = null;
+    crossModeSelectedNode = null;
     committedSearchName = null;
     _nodeSelectedBySearch = false;
     if (nodeSearchInput) nodeSearchInput.value = '';
@@ -582,6 +687,10 @@ function resetVisualizationOptions() {
 function loadData(json) {
     try {
         model = parseMultilayerData(json);
+
+        if (model.warnings && model.warnings.length) {
+            alert('Data warnings:\n\n• ' + model.warnings.join('\n• '));
+        }
 
         // Center Leaflet Map if geographic data is present
         const lats = [];
@@ -605,18 +714,25 @@ function loadData(json) {
             mapModeBtn.style.display = 'none';
         }
 
-        arrowheadSizeControl.style.display = (model.directed || model.directedInterlayer) ? 'block' : 'none';
+        arrowheadSizeControl.style.display      = model.directed         ? 'block' : 'none';
+        interArrowheadSizeControl.style.display = model.directedInterlayer ? 'block' : 'none';
         const hasInterlayer = model.interlayerLinks.length > 0;
-        interLinkColorControl.style.display = hasInterlayer ? 'flex' : 'none';
-        interlayerControls.style.display    = hasInterlayer ? 'block' : 'none';
+        sectionInterLinks.style.display = hasInterlayer ? '' : 'none';
         if (hasInterlayer) {
-            const weights = model.interlayerLinks.map(l => l.weight || 0).filter(w => w > 0);
-            const maxW = weights.length ? Math.max(...weights) : 1;
-            interlayerWeightSlider.max = maxW.toFixed(4);
-            interlayerWeightSlider.step = (maxW / 100).toFixed(4);
+            setTimeout(() => showBounceArrow(sectionInterLinks.querySelector('summary'), 'left'), 800);
+            const iWeights = model.interlayerLinks.map(l => l.weight || 0).filter(w => w > 0);
+            const maxIW = iWeights.length ? Math.max(...iWeights) : 1;
+            interlayerWeightSlider.max  = maxIW.toFixed(4);
+            interlayerWeightSlider.step = (maxIW / 100).toFixed(4);
             interlayerWeightSlider.value = 0;
             interlayerWeightLabel.textContent = '0';
         }
+        const intraWeights = model.intralayerLinks.map(l => l.weight || 0).filter(w => w > 0);
+        const maxIntraW = intraWeights.length ? Math.max(...intraWeights) : 1;
+        intraLinkWeightSlider.max  = maxIntraW.toFixed(4);
+        intraLinkWeightSlider.step = (maxIntraW / 100).toFixed(4);
+        intraLinkWeightSlider.value = 0;
+        intraLinkWeightLabel.textContent = '0';
 
         // Reset out of any non-network mode when loading new data
         if (appMode === 'map')         { toggleMapMode(); }
@@ -624,6 +740,7 @@ function loadData(json) {
         if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
         if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
         if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
+        if (appMode === 'grid')        { _exitGridView();    appMode = 'network'; }
         dataMode.clear();
         _updateFilterBanner();
         _updateModeButtons();
@@ -653,9 +770,9 @@ function loadData(json) {
             layout.layoutType = 'bipartite';
             layoutSelect.value = 'bipartite';
         } else {
-            // If they had bipartite selected from a previous network, but this one isn't, default to circle
+            // If they had bipartite selected from a previous network, but this one isn't, default to Kamada-Kawai
             if (layoutSelect.value === 'bipartite' && !hasAnyBipartite) {
-                layoutSelect.value = 'circle';
+                layoutSelect.value = 'kamada_kawai';
             }
             layout.layoutType = layoutSelect.value;
         }
@@ -682,7 +799,8 @@ function loadData(json) {
         resetVisualizationOptions();
         updateLayerColors();
         updateNodeColors();
-        updateLinkColors();
+        updateIntraLinkColors();
+        updateInterLinkColors();
 
         renderer.setData(model, positions);
         renderer.skewX = 0.7;
@@ -698,182 +816,23 @@ function loadData(json) {
         nodeSizeSelect.disabled = false;
         nodeSizeSelectSetA.disabled = nodeSizeSelectSetA.options.length <= 1;
         nodeSizeSelectSetB.disabled = nodeSizeSelectSetB.options.length <= 1;
-        linkColorSelect.disabled = false;
+        intraLinkColorSelect.disabled = false;
+        if (hasInterlayer) interLinkColorSelect.disabled = false;
     } catch (err) {
         console.error('Failed to load data:', err);
         alert('Error loading data: ' + err.message);
     }
 }
 
-// ---- Load Demo ----
-openDemoDialogBtn.addEventListener('click', () => {
-    demoDialog.style.display = 'flex';
-});
+// ---- Demo datasets dialog ----
+initDemoDatasets(loadData);
 
-demoCancelBtn.addEventListener('click', () => {
-    demoDialog.style.display = 'none';
-});
-
-demoDialog.addEventListener('click', (e) => {
-    if (e.target === demoDialog) demoDialog.style.display = 'none';
-});
-
-// ---- Example dataset metadata ----
-const DATASET_INFO = {
-    vitali2024: {
-        name: 'Canary Islands pollination network',
-        citation: 'Vitali et al. 2024',
-        doi: 'https://doi.org/10.1111/1365-2656.14174',
-        dataDoi: 'https://doi.org/10.5061/dryad.76173',
-        layers: '5 layers — Fuerteventura, Gran Canaria, Tenerife, Gomera, Hierro',
-        nodes: '235 species (34 plants · 201 pollinators)',
-        links: '651 intralayer + 154 interlayer (Jaccard similarity of partner sets)',
-        network: 'Undirected · bipartite per layer · GPS coordinates (map mode)',
-        nodeAttrs: ['node_type (plant / pollinator)', 'module (1–33, Infomap)'],
-        linkAttrs: ['weight'],
-    },
-    kefi2016: {
-        name: 'Chilean intertidal food web',
-        citation: 'Kéfi et al. 2016',
-        doi: 'https://doi.org/10.1371/journal.pbio.1002527',
-        dataDoi: 'https://doi.org/10.5061/dryad.b4vg0',
-        layers: '3 layers — Trophic, NTI positive, NTI negative',
-        nodes: '106 species',
-        links: '4,623 directed interactions',
-        network: 'Directed',
-        nodeAttrs: ['body_mass', 'mobility (sessile / mobile)', 'functional_role',
-                    'phylum', 'cluster (1–14)', 'functional_group (5 groups)', 'shore_height'],
-        linkAttrs: ['weight', 'type (trophic / non-trophic+ / non-trophic−)'],
-    },
-    pilosof2017: {
-        name: 'Siberian host–parasite network',
-        citation: 'Pilosof et al. 2017',
-        doi: 'https://doi.org/10.1038/s41559-017-0101',
-        dataDoi: 'https://doi.org/10.1111/j.1600-0706.2009.17902.x',
-        dataLabel: 'Original data (Krasnov et al. 2009):',
-        layers: '6 temporal layers — 1982–1987',
-        nodes: '78 species (22 hosts · 56 parasites)',
-        links: '1,817 intralayer + 284 interlayer',
-        network: 'Undirected intralayer · directed interlayer · bipartite per layer',
-        nodeAttrs: ['node_type (host / parasite)', 'abundance', 'module (1–7, Infomap)'],
-        linkAttrs: ['weight'],
-    },
-    magrach2020: {
-        name: 'Basque Country spatial pollination network',
-        citation: 'Magrach et al. (EuPPollNet)',
-        doi: 'https://doi.org/10.1111/geb.70000',
-        dataDoi: 'https://github.com/JoseBSL/EuPPollNet',
-        layers: '5 layers — grassland sites, Orozko, Basque Country (Spain)',
-        nodes: '137 species (45 plants · 92 pollinators)',
-        links: '376 intralayer (interaction frequency) + 142 interlayer (Jaccard)',
-        network: 'Undirected · bipartite per layer · GPS coordinates (map mode)',
-        nodeAttrs: ['node_type (plant / pollinator)'],
-        linkAttrs: ['weight'],
-    },
-    costa2020: {
-        name: 'Portuguese temporal seed dispersal network',
-        citation: 'Costa et al. 2020',
-        doi: 'https://doi.org/10.1111/1365-2745.13391',
-        dataDoi: 'https://doi.org/10.6084/m9.figshare.11985912',
-        layers: '5 layers — 2012–2016 (annual)',
-        nodes: '29 species (17 plants · 12 birds)',
-        links: '170 intralayer (seed counts) + 43 directed interlayer (t → t+1)',
-        network: 'Undirected intralayer · directed interlayer · bipartite per layer',
-        nodeAttrs: ['node_type (plant / bird)', 'group (resident / partial-migratory)', 'versatility', 'degree', 'strength', 'd_specialisation', 'n_years'],
-        linkAttrs: ['weight (seed count)'],
-    },
-};
-
-function buildDatasetRow(file) {
-    const info = DATASET_INFO[file];
-    const row = document.createElement('div');
-    row.style.cssText = 'display:flex; align-items:center; gap:6px;';
-
-    const loadBtn = document.createElement('button');
-    loadBtn.className = 'btn btn-primary';
-    loadBtn.style.cssText = 'flex:1; text-align:left; padding:7px 10px; line-height:1.3;';
-    loadBtn.innerHTML = `<span style="display:block; font-size:12px; font-weight:600;">${info.name}</span>
-                         <span style="display:block; font-size:10px; opacity:0.7; font-weight:400;">${info.citation}</span>`;
-    loadBtn.addEventListener('click', () => loadDemoFile(file));
-
-    const infoBtn = document.createElement('button');
-    infoBtn.className = 'btn demo-info-btn';
-    infoBtn.style.cssText = 'flex-shrink:0; width:28px; height:28px; padding:0; font-size:13px;';
-    infoBtn.textContent = 'ⓘ';
-    infoBtn.title = 'More info';
-    infoBtn.addEventListener('click', () => showDemoInfo(file));
-
-    row.appendChild(loadBtn);
-    row.appendChild(infoBtn);
-    return row;
-}
-
-function showDemoInfo(file) {
-    const info = DATASET_INFO[file];
-    document.getElementById('demoInfoName').textContent = info.name;
-    document.getElementById('demoInfoCitation').textContent = info.citation;
-
-    const nodeAttrList = info.nodeAttrs.map(a => `<li>${a}</li>`).join('');
-    const linkAttrList = info.linkAttrs.map(a => `<li>${a}</li>`).join('');
-    const doiLink = `<a href="${info.doi}" target="_blank" rel="noopener" style="color:#5b6af0;">${info.doi}</a>`;
-    const dataLabel = info.dataLabel || 'Data:';
-    const dataDoiLine = info.dataDoi
-        ? `<div><strong>${dataLabel}</strong> <a href="${info.dataDoi}" target="_blank" rel="noopener" style="color:#5b6af0;">${info.dataDoi}</a></div>`
-        : `<div style="color:#aaa;"><strong>Data source:</strong> see paper</div>`;
-
-    document.getElementById('demoInfoContent').innerHTML = `
-        <div style="margin-bottom:8px;"><strong>Layers:</strong> ${info.layers}</div>
-        <div style="margin-bottom:8px;"><strong>Nodes:</strong> ${info.nodes}</div>
-        <div style="margin-bottom:8px;"><strong>Links:</strong> ${info.links}</div>
-        <div style="margin-bottom:12px;"><strong>Network type:</strong> ${info.network}</div>
-        <div style="margin-bottom:4px;"><strong>Node attributes:</strong></div>
-        <ul style="margin:0 0 8px; padding-left:16px;">${nodeAttrList}</ul>
-        <div style="margin-bottom:4px;"><strong>Link attributes:</strong></div>
-        <ul style="margin:0 0 12px; padding-left:16px;">${linkAttrList}</ul>
-        <div><strong>Paper:</strong> ${doiLink}</div>
-        ${dataDoiLine}
-    `;
-
-    document.getElementById('demoInfoLoadBtn').dataset.file = file;
-    document.getElementById('demoListView').style.display = 'none';
-    document.getElementById('demoInfoView').style.display = '';
-}
-
-document.getElementById('demoBackBtn').addEventListener('click', () => {
-    document.getElementById('demoInfoView').style.display = 'none';
-    document.getElementById('demoListView').style.display = '';
-});
-
-document.getElementById('demoInfoLoadBtn').addEventListener('click', () => {
-    const file = document.getElementById('demoInfoLoadBtn').dataset.file;
-    loadDemoFile(file);
-});
-
-async function loadDemoFile(file) {
-    demoDialog.style.display = 'none';
-    document.getElementById('demoInfoView').style.display = 'none';
-    document.getElementById('demoListView').style.display = '';
-    try {
-        const resp = await fetch(`data/${file}.json`);
-        if (!resp.ok) throw new Error('Failed to fetch demo data');
-        const json = await resp.json();
-        loadData(json);
-    } catch (err) {
-        console.error(err);
-        alert('Failed to load demo data. Make sure to serve using a local server.');
-    }
-}
-
-// Build dataset rows on load
-Object.keys(DATASET_INFO).forEach(file => {
-    document.getElementById('demoDatasetList').appendChild(buildDatasetRow(file));
-});
 
 // ---- Mode Button Highlighting ----
 const MODE_BTNS = document.querySelectorAll('.mode-btn');
 function _updateModeButtons() {
     const modeMap = { network: 'network', map: 'map', layer: 'layer',
-                      metanetwork: 'meta', dashboard: 'dashboard', data: 'data' };
+                      metanetwork: 'meta', dashboard: 'dashboard', data: 'data', grid: 'grid' };
     const activeMode = modeMap[appMode] || 'network';
     MODE_BTNS.forEach(btn => {
         btn.classList.toggle('active', btn.dataset.mode === activeMode);
@@ -886,6 +845,7 @@ function toggleMapMode() {
     if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; renderer.render(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
     if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
+    if (appMode === 'grid')        { _exitGridView();    appMode = 'network'; }
     appMode = appMode === 'network' ? 'map' : 'network';
 
     _updateModeButtons();
@@ -945,6 +905,7 @@ function toggleLayerView() {
     if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
     if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
+    if (appMode === 'grid')        { _exitGridView();    appMode = 'network'; }
     appMode = 'layer';
     _updateFilterBanner();
     _updateModeButtons();
@@ -962,7 +923,7 @@ function toggleLayerView() {
         _deactivateLvGeoMode();
         // Auto-fit initial viewScale so all bubbles are visible
         const layoutR = lv.layoutRadius();
-        const fitScale = Math.min(canvas.width, canvas.height) * 0.42 / Math.max(layoutR, 1);
+        const fitScale = Math.min(cssW, cssH) * 0.42 / Math.max(layoutR, 1);
         lv.viewScale = Math.min(Math.max(fitScale, 0.05), 0.85);
     }
 
@@ -975,8 +936,8 @@ function toggleLayerView() {
     const canvasCoords = (e) => {
         const rect = canvas.getBoundingClientRect();
         return {
-            mx: (e.clientX - rect.left) * (canvas.width  / rect.width),
-            my: (e.clientY - rect.top)  * (canvas.height / rect.height),
+            mx: e.clientX - rect.left,
+            my: e.clientY - rect.top,
         };
     };
 
@@ -986,7 +947,7 @@ function toggleLayerView() {
         const { mx, my } = canvasCoords(e);
         const lv = renderer.layerView;
         // In geo mode bubbles are pinned to map coordinates — dragging is disabled
-        const hitName = lv.geoMode ? null : lv.startDragBubble(mx, my, canvas.width, canvas.height);
+        const hitName = lv.geoMode ? null : lv.startDragBubble(mx, my, cssW, cssH);
         if (hitName) {
             isBubbleDrag = true;
             isDragging   = true;
@@ -1005,7 +966,7 @@ function toggleLayerView() {
         if (isDragging) {
             if (isBubbleDrag) {
                 const { mx, my } = canvasCoords(e);
-                renderer.layerView.moveDragBubble(mx, my, canvas.width, canvas.height);
+                renderer.layerView.moveDragBubble(mx, my, cssW, cssH);
                 _ensureLayerViewLoop();
             } else {
                 renderer.layerView.viewOffsetX = offsetStartX + (e.clientX - dragStartX);
@@ -1017,7 +978,7 @@ function toggleLayerView() {
         }
         const { mx, my } = canvasCoords(e);
         const lv = renderer.layerView;
-        const hitBubble = lv.hitTestBubble(mx, my, canvas.width, canvas.height);
+        const hitBubble = lv.hitTestBubble(mx, my, cssW, cssH);
         if (hitBubble) {
             const info = lv.getBubbleInfo(hitBubble);
             tooltip.textContent = `${hitBubble} — ${info.nodeCount} nodes, ${info.edgeCount} edges, density ${info.density.toFixed(3)}, avg deg ${info.avgDegree.toFixed(1)}`;
@@ -1027,7 +988,7 @@ function toggleLayerView() {
             canvas.style.cursor = 'pointer';
             return;
         }
-        const hitEdge = lv.hitTestEdge(mx, my, canvas.width, canvas.height);
+        const hitEdge = lv.hitTestEdge(mx, my, cssW, cssH);
         if (hitEdge) {
             const parts = [];
             if (hitEdge.interlayerCount > 0) parts.push(`${hitEdge.interlayerCount} interlayer links`);
@@ -1046,15 +1007,19 @@ function toggleLayerView() {
     const onMouseUp = (e) => {
         const didDrag = Math.hypot(e.clientX - mouseDownX, e.clientY - mouseDownY) > 5;
         if (isBubbleDrag) {
-            renderer.layerView.endDragBubble();
-            _ensureLayerViewLoop();
+            if (didDrag) {
+                renderer.layerView.endDragBubble();
+                _ensureLayerViewLoop();
+            } else {
+                renderer.layerView.cancelDragBubble();
+            }
         }
         isDragging   = false;
         isBubbleDrag = false;
         canvas.style.cursor = 'grab';
         if (!didDrag) {
             const { mx, my } = canvasCoords(e);
-            const hit = renderer.layerView.hitTestBubble(mx, my, canvas.width, canvas.height);
+            const hit = renderer.layerView.hitTestBubble(mx, my, cssW, cssH);
             const prevSel = renderer.layerView._selectedLayer;
             if ((e.metaKey || e.ctrlKey) && hit && prevSel && hit !== prevSel) {
                 // Cmd+click on a different bubble → comparison mode
@@ -1078,10 +1043,10 @@ function toggleLayerView() {
         const factor   = e.deltaY > 0 ? 0.9 : 1.1;
         const newScale = Math.min(Math.max(lv.viewScale * factor, 0.15), 20);
         const { mx, my } = canvasCoords(e);
-        const fracX = (mx - canvas.width  / 2 - lv.viewOffsetX) / lv.viewScale;
-        const fracY = (my - canvas.height / 2 - lv.viewOffsetY) / lv.viewScale;
-        lv.viewOffsetX = mx - canvas.width  / 2 - fracX * newScale;
-        lv.viewOffsetY = my - canvas.height / 2 - fracY * newScale;
+        const fracX = (mx - cssW  / 2 - lv.viewOffsetX) / lv.viewScale;
+        const fracY = (my - cssH / 2 - lv.viewOffsetY) / lv.viewScale;
+        lv.viewOffsetX = mx - cssW  / 2 - fracX * newScale;
+        lv.viewOffsetY = my - cssH / 2 - fracY * newScale;
         lv.viewScale   = newScale;
         renderer.render();
     };
@@ -1095,7 +1060,7 @@ function toggleLayerView() {
     _startLayerViewLoop();
 }
 
-const NETWORK_SECTIONS = ['sectionLayers','sectionNodes','sectionLinks','sectionSearch'];
+const NETWORK_SECTIONS = ['sectionLayers','sectionNodes','sectionLinks','sectionSearch','sectionIntraLinks','sectionInterLinks'];
 
 function _showLayerViewSidebar() {
     NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
@@ -1106,8 +1071,87 @@ function _showLayerViewSidebar() {
 function _hideLayerViewSidebar() {
     NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
     LV_SECTIONS.forEach(id => { document.getElementById(id).style.display = 'none'; });
+    sectionInterLinks.style.display = model && model.interlayerLinks.length > 0 ? '' : 'none';
     renderLegends(); // restore network legends
 }
+
+// ---- Grid View Mode ----
+const GRID_HIDDEN_IDS = [
+    'layerNamesRow', 'stackingRow', 'layerSpacingRow',
+    'layerColorRow', 'layerColorSwatches',
+    'intraLinkColorSwatches',
+];
+
+function _showGridViewSidebar() {
+    NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+    LV_SECTIONS.forEach(id => { document.getElementById(id).style.display = 'none'; });
+    META_SECTIONS.forEach(id => { document.getElementById(id).style.display = 'none'; });
+    sectionInterLinks.style.display = 'none';
+    if (transformNodesRow) transformNodesRow.style.display = 'none';
+    GRID_HIDDEN_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.dataset.gridSavedDisplay = el.style.display;
+        el.style.display = 'none';
+    });
+    gridColumnsRow.style.display = '';
+    const L = model ? model.layers.length : 4;
+    const defCols = Math.min(Math.ceil(Math.sqrt(L)), 8);
+    gridColumnsSlider.value = defCols;
+    gridColumnsLabel.textContent = defCols;
+    renderer._gridColumns = defCols;
+}
+
+function _exitGridView() {
+    renderer.gridViewMode = false;
+    canvas.style.cursor = 'grab';
+    if (transformNodesRow) transformNodesRow.style.display = '';
+    gridColumnsRow.style.display = 'none';
+    GRID_HIDDEN_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.display = el.dataset.gridSavedDisplay ?? '';
+        delete el.dataset.gridSavedDisplay;
+    });
+    NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+    LV_SECTIONS.forEach(id => { document.getElementById(id).style.display = 'none'; });
+    sectionInterLinks.style.display = model && model.interlayerLinks.length > 0 ? '' : 'none';
+    renderLegends();
+}
+
+function toggleGridView() {
+    if (appMode === 'grid') {
+        _exitGridView();
+        appMode = 'network';
+        renderer.render();
+        _updateFilterBanner();
+        _updateModeButtons();
+        return;
+    }
+    if (appMode === 'map')         toggleMapMode();
+    if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
+    if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
+    if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
+
+    appMode = 'grid';
+    if (!gridView) gridView = new GridView();
+    renderer.gridViewMode = true;
+    renderer._gridView = gridView;
+    canvas.style.cursor = 'default';
+    _showGridViewSidebar();
+    _updateFilterBanner();
+    _updateModeButtons();
+    renderer.render();
+}
+
+gridViewBtn.addEventListener('click', toggleGridView);
+
+gridColumnsSlider.addEventListener('input', () => {
+    gridColumnsLabel.textContent = gridColumnsSlider.value;
+    renderer._gridColumns = parseInt(gridColumnsSlider.value);
+    if (appMode === 'grid') renderer.render();
+});
 
 // ---- Dashboard Mode ----
 function _showDashboardSidebar() {
@@ -1122,6 +1166,7 @@ function _hideDashboardSidebar() {
     DB_SECTIONS.forEach(id => { document.getElementById(id).style.display = 'none'; });
     dbBipartiteRow.style.display = 'none';
     NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+    sectionInterLinks.style.display = model && model.interlayerLinks.length > 0 ? '' : 'none';
     renderLegends();
 }
 
@@ -1148,6 +1193,7 @@ function toggleDashboard() {
     if (appMode === 'map')         { toggleMapMode(); }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
     if (appMode === 'data')        { _exitDataMode();    appMode = 'network'; }
+    if (appMode === 'grid')        { _exitGridView();    appMode = 'network'; }
 
     appMode = 'dashboard';
     _updateFilterBanner();
@@ -1179,14 +1225,57 @@ function _updateFilterBanner() {
     const show = dataMode.isSubsetActive() && (appMode === 'network' || appMode === 'map');
     if (!show) {
         dataFilterBanner.style.display = 'none';
+    } else {
+        const parts = [];
+        if (dataMode.filteredNodeNames) parts.push(`${dataMode.filteredNodeNames.size} nodes`);
+        if (dataMode.filteredLayerNames) parts.push(`${dataMode.filteredLayerNames.size} layers`);
+        if (dataMode.filteredLinkKeys) parts.push(`${dataMode.filteredLinkKeys.size} links`);
+        dataFilterText.textContent = `\u26A1 Data filter active \u2014 ${parts.join(', ')} visible`;
+        dataFilterBanner.style.display = 'flex';
+    }
+    _updateSelectedNodeBanner();
+}
+
+function _updateSelectedNodeBanner() {
+    const show = crossModeSelectedNode
+        && (appMode === 'network' || appMode === 'map' || appMode === 'metanetwork' || appMode === 'grid');
+    if (!show) {
+        selectedNodeBanner.style.display = 'none';
         return;
     }
-    const parts = [];
-    if (dataMode.filteredNodeNames) parts.push(`${dataMode.filteredNodeNames.size} nodes`);
-    if (dataMode.filteredLayerNames) parts.push(`${dataMode.filteredLayerNames.size} layers`);
-    if (dataMode.filteredLinkKeys) parts.push(`${dataMode.filteredLinkKeys.size} links`);
-    dataFilterText.textContent = `\u26A1 Data filter active \u2014 ${parts.join(', ')} visible`;
-    dataFilterBanner.style.display = 'flex';
+    selectedNodeText.textContent = `\u29BF Selected node: ${crossModeSelectedNode}`;
+    selectedNodeBanner.style.display = 'flex';
+}
+
+function _clearCrossModeSelection() {
+    crossModeSelectedNode = null;
+    if (renderer) {
+        renderer.selectedNode = null;
+        renderer.searchedNodeName = null;
+    }
+    if (metaNetwork) {
+        metaNetwork.state.selectedNode = null;
+        metaNetwork._focusSet = null;
+    }
+    hideNodeInfo();
+}
+
+// Push crossModeSelectedNode into renderer.selectedNode/searchedNodeName so
+// the network/map view highlights every state-node instance of that name.
+function _applyCrossModeSelectionToRenderer() {
+    if (!renderer || !model) return;
+    if (!crossModeSelectedNode) return;
+    let firstLayer = null;
+    for (const [layerName, nodeSet] of model.nodesPerLayer) {
+        if (nodeSet.has(crossModeSelectedNode)) { firstLayer = layerName; break; }
+    }
+    if (firstLayer) {
+        renderer.selectedNode = { layerName: firstLayer, nodeName: crossModeSelectedNode };
+        renderer.searchedNodeName = crossModeSelectedNode;
+    } else {
+        // Node not found in current model — drop stale selection
+        crossModeSelectedNode = null;
+    }
 }
 
 function toggleDataMode() {
@@ -1203,6 +1292,7 @@ function toggleDataMode() {
     if (appMode === 'layer')       { _exitLayerView();   appMode = 'network'; }
     if (appMode === 'dashboard')   { _exitDashboard();   appMode = 'network'; }
     if (appMode === 'metanetwork') { _exitMetaNetwork(); appMode = 'network'; }
+    if (appMode === 'grid')        { _exitGridView();    appMode = 'network'; }
 
     appMode = 'data';
     _updateFilterBanner();
@@ -1245,6 +1335,16 @@ dataFilterClear.addEventListener('click', () => {
     if (appMode !== 'data') renderer.render();
 });
 
+selectedNodeClear.addEventListener('click', () => {
+    _clearCrossModeSelection();
+    _updateFilterBanner();
+    if (appMode === 'metanetwork' && metaNetwork) {
+        _mnRenderSync();
+    } else if (renderer) {
+        renderer.render();
+    }
+});
+
 // ── Meta-network layer palette (same as LayerView PALETTE) ────────────────
 const MN_LAYER_PALETTE = [
     '#6ee7b7','#fbbf24','#f87171','#60a5fa','#a78bfa',
@@ -1267,13 +1367,17 @@ function _hideMetaNetworkSidebar() {
     META_SECTIONS.forEach(id => document.getElementById(id).style.display = 'none');
     mnLayerPanel.style.display = 'none';
     NETWORK_SECTIONS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+    sectionInterLinks.style.display = model && model.interlayerLinks.length > 0 ? '' : 'none';
     renderLegends();
 }
 
 function _updateMnBpColorPickerVisibility() {
-    const show = metaNetwork && metaNetwork.hasBipartite && metaNetwork.settings.colorBy === 'uniform';
-    mnBpColorRow.style.display = show ? '' : 'none';
-    if (show) {
+    if (!metaNetwork) { mnUniformColorRow.style.display = 'none'; mnBpColorRow.style.display = 'none'; return; }
+    const isUniform   = metaNetwork.settings.colorBy === 'uniform';
+    const isBipartite = metaNetwork.hasBipartite;
+    mnUniformColorRow.style.display = isUniform && !isBipartite ? '' : 'none';
+    mnBpColorRow.style.display      = isUniform &&  isBipartite ? '' : 'none';
+    if (isUniform && isBipartite) {
         const { labelA, labelB } = metaNetwork.bipartiteSetLabels;
         mnColorSetALabel.textContent = labelA + ' color';
         mnColorSetBLabel.textContent = labelB + ' color';
@@ -1294,6 +1398,7 @@ function _syncMetaNetworkControls() {
     mnLabelSizeSlider.value        = s.labelFontSize;
     mnLabelSizeLabel.textContent   = s.labelFontSize + 'px';
     mnLabelSizeRow.style.display   = s.showLabels ? '' : 'none';
+    mnUniformColorPicker.value     = s.uniformColor;
     mnColorSetA.value              = s.uniformColorA;
     mnColorSetB.value              = s.uniformColorB;
     _updateMnBpColorPickerVisibility();
@@ -1333,7 +1438,8 @@ function _startMetaNetworkLoop() {
     function loop() {
         if (appMode !== 'metanetwork' || !metaNetwork) { mnRAF = null; return; }
         const stillHot = metaNetwork.tick();
-        metaNetwork.render(renderer.ctx, canvas.width, canvas.height);
+        renderer.ctx.setTransform(renderer.dpr || 1, 0, 0, renderer.dpr || 1, 0, 0);
+        metaNetwork.render(renderer.ctx, cssW, cssH);
         mnRAF = stillHot ? requestAnimationFrame(loop) : null;
     }
     mnRAF = requestAnimationFrame(loop);
@@ -1348,7 +1454,8 @@ function _ensureMetaNetworkLoop() {
 function _mnRenderSync() {
     if (!metaNetwork || appMode !== 'metanetwork') return;
     if (mnRAF) { cancelAnimationFrame(mnRAF); mnRAF = null; }
-    metaNetwork.render(renderer.ctx, canvas.width, canvas.height);
+    renderer.ctx.setTransform(renderer.dpr || 1, 0, 0, renderer.dpr || 1, 0, 0);
+    metaNetwork.render(renderer.ctx, cssW, cssH);
     if (metaNetwork.tick()) _startMetaNetworkLoop();
 }
 
@@ -1357,6 +1464,7 @@ function toggleMetaNetwork() {
     if (appMode === 'metanetwork') {
         _exitMetaNetwork();
         appMode = 'network';
+        _applyCrossModeSelectionToRenderer();
         _updateFilterBanner();
         _updateModeButtons();
         renderer.render();
@@ -1366,6 +1474,7 @@ function toggleMetaNetwork() {
     if (appMode === 'layer')     { _exitLayerView(); appMode = 'network'; }
     if (appMode === 'dashboard') { _exitDashboard(); appMode = 'network'; }
     if (appMode === 'data')      { _exitDataMode();  appMode = 'network'; }
+    if (appMode === 'grid')      { _exitGridView();  appMode = 'network'; }
 
     appMode = 'metanetwork';
     _updateFilterBanner();
@@ -1374,14 +1483,25 @@ function toggleMetaNetwork() {
     canvas.style.display = '';
     canvas.style.cursor  = 'grab';
 
-    metaNetwork = new MetaNetwork(model, canvas.width, canvas.height);
+    metaNetwork = new MetaNetwork(model, cssW, cssH);
     _showMetaNetworkSidebar();
     _syncMetaNetworkControls();
     _buildMnLayerPanel();
 
-    // Mouse handlers
-    let _isDragging    = false;
-    let _isNodeDrag    = false;
+    // Restore cross-mode selection if a node was selected in another mode
+    if (crossModeSelectedNode && metaNetwork._nodeMap.has(crossModeSelectedNode)) {
+        metaNetwork.state.selectedNode = crossModeSelectedNode;
+        metaNetwork._computeFocusSet(crossModeSelectedNode);
+        _showMnNodeInfo(crossModeSelectedNode);
+    } else if (crossModeSelectedNode) {
+        // Selected node not present in metanetwork — drop the cross-mode selection.
+        crossModeSelectedNode = null;
+    }
+    _updateFilterBanner();
+
+    // Mouse handlers — nodes are NOT draggable in meta-network mode; only
+    // the background can be panned. Clicks on nodes select them.
+    let _isDragging    = false;       // true while panning the background
     let _mouseDownX    = 0, _mouseDownY = 0;
     let _dragStartX    = 0, _dragStartY = 0;
     let _offsetStartX  = 0, _offsetStartY = 0;
@@ -1390,8 +1510,8 @@ function toggleMetaNetwork() {
     const canvasCoords = (e) => {
         const rect = canvas.getBoundingClientRect();
         return {
-            mx: (e.clientX - rect.left) * (canvas.width  / rect.width),
-            my: (e.clientY - rect.top)  * (canvas.height / rect.height),
+            mx: e.clientX - rect.left,
+            my: e.clientY - rect.top,
         };
     };
 
@@ -1400,15 +1520,15 @@ function toggleMetaNetwork() {
         _mouseDownOnCanvas = true;
         _mouseDownX = e.clientX; _mouseDownY = e.clientY;
         const { mx, my } = canvasCoords(e);
-        const hitName = metaNetwork.startDragNode(mx, my, canvas.width, canvas.height);
+        const hitName = metaNetwork.hitTestNode(mx, my, cssW, cssH);
         if (hitName) {
-            _isNodeDrag = true;
-            _isDragging = true;
-            _ensureMetaNetworkLoop();
+            // Mousedown on a node: don't enter pan mode and don't drag the node.
+            // mouseup will treat this as a click (selection) if movement stayed
+            // within the click threshold.
+            _isDragging = false;
         } else {
-            _isNodeDrag  = false;
-            _isDragging  = true;
-            _dragStartX  = e.clientX; _dragStartY  = e.clientY;
+            _isDragging   = true;
+            _dragStartX   = e.clientX; _dragStartY  = e.clientY;
             _offsetStartX = metaNetwork.viewOffsetX;
             _offsetStartY = metaNetwork.viewOffsetY;
             canvas.style.cursor = 'grabbing';
@@ -1417,20 +1537,15 @@ function toggleMetaNetwork() {
 
     const onMouseMove = (e) => {
         if (_isDragging) {
-            if (_isNodeDrag) {
-                const { mx, my } = canvasCoords(e);
-                metaNetwork.moveDragNode(mx, my, canvas.width, canvas.height);
-                _ensureMetaNetworkLoop();
-            } else {
-                metaNetwork.viewOffsetX = _offsetStartX + (e.clientX - _dragStartX);
-                metaNetwork.viewOffsetY = _offsetStartY + (e.clientY - _dragStartY);
-                _ensureMetaNetworkLoop();
-            }
+            // Pan only — node dragging has been removed.
+            metaNetwork.viewOffsetX = _offsetStartX + (e.clientX - _dragStartX);
+            metaNetwork.viewOffsetY = _offsetStartY + (e.clientY - _dragStartY);
+            _ensureMetaNetworkLoop();
             tooltip.classList.remove('visible');
             return;
         }
         const { mx, my } = canvasCoords(e);
-        const hitName = metaNetwork.hitTestNode(mx, my, canvas.width, canvas.height);
+        const hitName = metaNetwork.hitTestNode(mx, my, cssW, cssH);
         if (hitName) {
             const n = metaNetwork._nodeMap.get(hitName);
             tooltip.textContent = `${hitName} — participation ${n.participation}, meta-degree ${n.metaDegree}`;
@@ -1440,7 +1555,7 @@ function toggleMetaNetwork() {
             canvas.style.cursor = 'pointer';
             return;
         }
-        const hitEdge = metaNetwork.hitTestEdge(mx, my, canvas.width, canvas.height);
+        const hitEdge = metaNetwork.hitTestEdge(mx, my, cssW, cssH);
         if (hitEdge) {
             tooltip.textContent = `${hitEdge.source} — ${hitEdge.target}  (weight ${hitEdge.weight.toFixed(2)})`;
             tooltip.classList.add('visible');
@@ -1457,36 +1572,34 @@ function toggleMetaNetwork() {
         if (!_mouseDownOnCanvas) return; // mousedown was on another element (e.g. search dropdown)
         _mouseDownOnCanvas = false;
         const wasDragging = _isDragging;
-        const wasNodeDrag = _isNodeDrag;
         _isDragging = false;
-        if (wasNodeDrag) {
-            metaNetwork.endDragNode();
-        } else {
-            canvas.style.cursor = 'grab';
-        }
+        canvas.style.cursor = 'grab';
         // Click if minimal movement
         const moved = Math.abs(e.clientX - _mouseDownX) > 3 || Math.abs(e.clientY - _mouseDownY) > 3;
         if (wasDragging && moved) return;
 
         const { mx, my } = canvasCoords(e);
-        const hitName = metaNetwork.hitTestNode(mx, my, canvas.width, canvas.height);
+        const hitName = metaNetwork.hitTestNode(mx, my, cssW, cssH);
         if (hitName) {
             // Toggle node selection (deselect if already selected)
             if (metaNetwork.state.selectedNode === hitName) {
                 metaNetwork.state.selectedNode = null;
                 metaNetwork.state.selectedEdge = null;
                 metaNetwork._focusSet = null;
+                crossModeSelectedNode = null;
                 infoPanel.classList.remove('visible');
             } else {
                 metaNetwork.state.selectedNode = hitName;
                 metaNetwork.state.selectedEdge = null;
                 metaNetwork._computeFocusSet(hitName);
+                crossModeSelectedNode = hitName;
                 _showMnNodeInfo(hitName);
             }
+            _updateFilterBanner();
             _mnRenderSync();
             return;
         }
-        const hitEdge = metaNetwork.hitTestEdge(mx, my, canvas.width, canvas.height);
+        const hitEdge = metaNetwork.hitTestEdge(mx, my, cssW, cssH);
         if (hitEdge) {
             // Toggle edge selection
             if (metaNetwork.state.selectedEdge === hitEdge) {
@@ -1500,6 +1613,8 @@ function toggleMetaNetwork() {
                 metaNetwork._focusSet = null;
                 _showMnEdgeInfo(hitEdge);
             }
+            crossModeSelectedNode = null;
+            _updateFilterBanner();
             _mnRenderSync();
             return;
         }
@@ -1508,7 +1623,9 @@ function toggleMetaNetwork() {
             metaNetwork.state.selectedNode = null;
             metaNetwork.state.selectedEdge = null;
             metaNetwork._focusSet = null;
+            crossModeSelectedNode = null;
             infoPanel.classList.remove('visible');
+            _updateFilterBanner();
             _mnRenderSync();
         }
     };
@@ -1517,13 +1634,13 @@ function toggleMetaNetwork() {
         e.preventDefault();
         const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
         const rect = canvas.getBoundingClientRect();
-        const mx = (e.clientX - rect.left) * (canvas.width  / rect.width);
-        const my = (e.clientY - rect.top)  * (canvas.height / rect.height);
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
         const prevScale = metaNetwork.viewScale;
         metaNetwork.viewScale = Math.min(Math.max(prevScale * zoomFactor, 0.05), 10);
         const scaleDelta = metaNetwork.viewScale / prevScale;
-        metaNetwork.viewOffsetX = mx - scaleDelta * (mx - metaNetwork.viewOffsetX - canvas.width  / 2) - canvas.width  / 2;
-        metaNetwork.viewOffsetY = my - scaleDelta * (my - metaNetwork.viewOffsetY - canvas.height / 2) - canvas.height / 2;
+        metaNetwork.viewOffsetX = mx - scaleDelta * (mx - metaNetwork.viewOffsetX - cssW  / 2) - cssW  / 2;
+        metaNetwork.viewOffsetY = my - scaleDelta * (my - metaNetwork.viewOffsetY - cssH / 2) - cssH / 2;
         _ensureMetaNetworkLoop();
     };
 
@@ -1648,6 +1765,12 @@ mnLabelSizeSlider.addEventListener('input', () => {
     _ensureMetaNetworkLoop();
 });
 
+mnUniformColorPicker.addEventListener('input', () => {
+    if (!metaNetwork) return;
+    metaNetwork.updateSetting('uniformColor', mnUniformColorPicker.value);
+    _ensureMetaNetworkLoop();
+});
+
 mnColorSetA.addEventListener('input', () => {
     if (!metaNetwork) return;
     metaNetwork.updateSetting('uniformColorA', mnColorSetA.value);
@@ -1689,7 +1812,9 @@ function _mnSelectNode(name) {
     metaNetwork.state.selectedNode = name;
     metaNetwork.state.selectedEdge = null;
     metaNetwork._computeFocusSet(name);
+    crossModeSelectedNode = name;
     _showMnNodeInfo(name);
+    _updateFilterBanner();
     _mnRenderSync();
 }
 
@@ -1757,7 +1882,9 @@ mnSearchClearBtn.addEventListener('click', () => {
     metaNetwork.state.selectedNode = null;
     metaNetwork.state.selectedEdge = null;
     metaNetwork._focusSet = null;
+    crossModeSelectedNode = null;
     infoPanel.classList.remove('visible');
+    _updateFilterBanner();
     _mnRenderSync();
 });
 
@@ -1780,8 +1907,9 @@ function goToNetworkMode() {
     if (appMode === 'map')         toggleMapMode();
     if (appMode === 'layer')       { _exitLayerView();     appMode = 'network'; renderer.render(); }
     if (appMode === 'dashboard')   { _exitDashboard();     appMode = 'network'; renderer.render(); }
-    if (appMode === 'metanetwork') { _exitMetaNetwork();   appMode = 'network'; renderer.render(); }
+    if (appMode === 'metanetwork') { _exitMetaNetwork();   appMode = 'network'; _applyCrossModeSelectionToRenderer(); renderer.render(); }
     if (appMode === 'data')        { _exitDataMode();      appMode = 'network'; renderer.render(); }
+    if (appMode === 'grid')        { _exitGridView();      appMode = 'network'; _applyCrossModeSelectionToRenderer(); renderer.render(); }
     _updateFilterBanner();
     _updateModeButtons();
 }
@@ -1865,7 +1993,7 @@ function _activateLvGeoMode() {
     // Re-project bubbles on every map move/zoom (fitBounds triggers move events during animation)
     _lvMapMoveHandler = () => {
         if (renderer.layerView?.geoMode) {
-            renderer.layerView.setGeoPositions(lvMap, canvas.width, canvas.height);
+            renderer.layerView.setGeoPositions(lvMap, cssW, cssH);
             renderer.render();
         }
     };
@@ -1874,7 +2002,7 @@ function _activateLvGeoMode() {
     // Initial projection — defer one frame so the map container has laid out
     requestAnimationFrame(() => {
         if (renderer.layerView?.geoMode) {
-            renderer.layerView.setGeoPositions(lvMap, canvas.width, canvas.height);
+            renderer.layerView.setGeoPositions(lvMap, cssW, cssH);
             renderer.render();
         }
     });
@@ -1885,9 +2013,9 @@ function _activateLvGeoMode() {
         const lv = renderer.layerView;
         if (!lv?.geoMode) return;
         const rect = canvas.getBoundingClientRect();
-        const mx = (e.clientX - rect.left) * (canvas.width  / rect.width);
-        const my = (e.clientY - rect.top)  * (canvas.height / rect.height);
-        const hitBubble = lv.hitTestBubble(mx, my, canvas.width, canvas.height);
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const hitBubble = lv.hitTestBubble(mx, my, cssW, cssH);
         if (hitBubble) {
             const info = lv.getBubbleInfo(hitBubble);
             tooltip.textContent = `${hitBubble} — ${info.nodeCount} nodes, ${info.edgeCount} edges, density ${info.density.toFixed(3)}, avg deg ${info.avgDegree.toFixed(1)}`;
@@ -1905,9 +2033,9 @@ function _activateLvGeoMode() {
         const lv = renderer.layerView;
         if (!lv?.geoMode) return;
         const rect = canvas.getBoundingClientRect();
-        const mx = (e.clientX - rect.left) * (canvas.width  / rect.width);
-        const my = (e.clientY - rect.top)  * (canvas.height / rect.height);
-        const hit = lv.hitTestBubble(mx, my, canvas.width, canvas.height);
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const hit = lv.hitTestBubble(mx, my, cssW, cssH);
         const prevSel = lv._selectedLayer;
         if ((e.metaKey || e.ctrlKey) && hit && prevSel && hit !== prevSel) {
             lv.selectForComparison(prevSel, hit);
@@ -1961,7 +2089,7 @@ document.getElementById('lvGeoToggleBtn').addEventListener('click', () => {
         document.getElementById('lvGeoToggleBtn').textContent = 'Geographic Layout';
         // Re-fit force layout
         const layoutR = lv.layoutRadius();
-        const fitScale = Math.min(canvas.width, canvas.height) * 0.42 / Math.max(layoutR, 1);
+        const fitScale = Math.min(cssW, cssH) * 0.42 / Math.max(layoutR, 1);
         lv.viewScale = Math.min(Math.max(fitScale, 0.05), 0.85);
         lv.viewOffsetX = 0; lv.viewOffsetY = 0;
         lv._initLayout();
@@ -2085,11 +2213,6 @@ function openLayerComparison(nameA, nameB) {
     const ilAtoB = model.interlayerLinks.filter(l => l.layer_from === nameA && l.layer_to === nameB).length;
     const ilBtoA = model.interlayerLinks.filter(l => l.layer_from === nameB && l.layer_to === nameA).length;
 
-    const commonHubs = sharedNodes
-        .map(n => ({ name: n, dA: sA.degMap.get(n) ?? 0, dB: sB.degMap.get(n) ?? 0 }))
-        .sort((a, b) => (b.dA + b.dB) - (a.dA + a.dB))
-        .slice(0, 5);
-
     // ── HTML helpers ──
     const fmt  = (v, d = 0) => typeof v === 'number' ? v.toLocaleString(undefined, { maximumFractionDigits: d }) : v;
     const pct  = (v, tot)   => tot > 0 ? `${((v / tot) * 100).toFixed(1)}%` : '—';
@@ -2121,11 +2244,6 @@ function openLayerComparison(nameA, nameB) {
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#9ca3af;margin-bottom:6px;">${title}</div>
             ${content}
         </div>`;
-
-    // Common hubs list
-    const hubsVal = commonHubs.length
-        ? commonHubs.map(h => `${trunc(h.name)} <span style="color:#9ca3af;">(${h.dA}/${h.dB})</span>`).join(', ')
-        : '—';
 
     // Bipartite: shared types between both layers
     const biTypes = sA.isBipartite && sB.isBipartite
@@ -2163,8 +2281,7 @@ function openLayerComparison(nameA, nameB) {
             sRow('Node Jaccard', nodeJacc.toFixed(3)) +
             sRow('Edge Jaccard', edgeJacc.toFixed(3)) +
             sRow('Interlayer A→B', fmt(ilAtoB)) +
-            sRow('Interlayer B→A', fmt(ilBtoA)) +
-            sRow('Common hubs', hubsVal)
+            sRow('Interlayer B→A', fmt(ilBtoA))
         ) +
         section('Divergence',
             colHdr +
@@ -2209,7 +2326,7 @@ function openLayerComparison(nameA, nameB) {
 
 function _drawComparisonHistogram(canvas, degsA, degsB, colorA, colorB) {
     const ctx = canvas.getContext('2d');
-    const W = canvas.width, H = canvas.height;
+    const W = cssW, H = cssH;
     const PAD = { top: 6, right: 8, bottom: 22, left: 28 };
     ctx.clearRect(0, 0, W, H);
     if (!degsA.length && !degsB.length) return;
@@ -2415,7 +2532,7 @@ function openLayerDrillDown(layerName) {
 
 function _drawDegreeHistogram(canvas, degByType, allDegrees) {
     const ctx  = canvas.getContext('2d');
-    const W    = canvas.width, H = canvas.height;
+    const W    = cssW, H = cssH;
     const PAD  = { top: 8, right: 8, bottom: 28, left: 32 };
     ctx.clearRect(0, 0, W, H);
 
@@ -2831,6 +2948,14 @@ showLayerNamesCheckbox.addEventListener('change', () => {
     renderer.render();
 });
 
+// ---- Layer Name Size ----
+layerNameSizeSlider.addEventListener('input', () => {
+    const px = parseInt(layerNameSizeSlider.value);
+    layerNameSizeLabel.textContent = px + 'px';
+    renderer.layerNameFontSize = px;
+    renderer.render();
+});
+
 // ---- Toggle Set Names ----
 showSetNamesCheckbox.addEventListener('change', () => {
     renderer.showSetNames = showSetNamesCheckbox.checked;
@@ -2847,7 +2972,7 @@ bipartiteNestedCheckbox.addEventListener('change', () => {
     }
 });
 
-// ---- Toggle Interlayer Links ----
+// ---- Show / Hide Interlayer Links ----
 showInterlayerCheckbox.addEventListener('change', () => {
     renderer.showInterlayerLinks = showInterlayerCheckbox.checked;
     renderer.render();
@@ -2958,6 +3083,11 @@ function _closeCsvModal() {
 
 csvUploadBtn.addEventListener('click', () => {
     _csvEdgeText = _csvLayersText = _csvNodesText = _csvStateNodesText = null;
+    // Reset native file inputs so re-selecting the same file fires `change` again
+    csvEdgeFile.value = '';
+    csvLayersFile.value = '';
+    csvNodesFile.value = '';
+    csvStateNodesFile.value = '';
     csvEdgeLabel.textContent = 'Choose file…';
     csvLayersLabel.textContent = 'Choose file…';
     csvNodesLabel.textContent = 'Choose file…';
@@ -3045,23 +3175,64 @@ csvImportLoad.addEventListener('click', () => {
     }
 });
 
+// Append an <optgroup> with one <option> per item. Items is a list of
+// {value, text} objects. Skipped silently when items is empty.
+function appendOptgroup(select, label, items) {
+    if (!items.length) return;
+    const og = document.createElement('optgroup');
+    og.label = label;
+    for (const { value, text } of items) {
+        const opt = document.createElement('option');
+        opt.value = value;
+        opt.textContent = text;
+        og.appendChild(opt);
+    }
+    select.appendChild(og);
+}
+
+// Split MiRA-computed attribute names by side (intra / inter) so the
+// dropdown can show separate optgroups and users don't have to scan
+// one long alphabetical list.
+function splitMiraAttrs(attrs, computedSet) {
+    const fromData = [], intra = [], inter = [];
+    for (const a of attrs) {
+        if (!computedSet.has(a)) { fromData.push(a); continue; }
+        if (a.startsWith('inter_')) inter.push(a);
+        else if (a.startsWith('intra_')) intra.push(a);
+        else fromData.push(a); // fallback for any future computed attr that isn't intra/inter-prefixed
+    }
+    return { fromData, intra, inter };
+}
+
 // ---- Dropdowns ----
 function populateDropdowns() {
     if (!model) return;
 
-    // Node color options
+    const computedNode  = new Set(model.computedNodeAttributes || []);
+    const computedState = new Set(model.computedStateNodeAttributes || []);
+
+    // Node color options — grouped to help users navigate. Optgroups:
+    //   "From data"            (raw attributes from the input file)
+    //   "MiRA — intralayer"    (intra_* fields)
+    //   "MiRA — interlayer"    (inter_* fields, only emitted when inter
+    //                           links exist)
     nodeColorSelect.innerHTML = '<option value="">Default</option>';
-    for (const attr of model.nodeAttributeNames) {
-        const opt = document.createElement('option');
-        opt.value = `node:${attr}`;
-        opt.textContent = `Node: ${attr}`;
-        nodeColorSelect.appendChild(opt);
-    }
-    for (const attr of model.stateNodeAttributeNames) {
-        const opt = document.createElement('option');
-        opt.value = `state:${attr}`;
-        opt.textContent = `State: ${attr}`;
-        nodeColorSelect.appendChild(opt);
+    {
+        const node  = splitMiraAttrs(model.nodeAttributeNames, computedNode);
+        const state = splitMiraAttrs(model.stateNodeAttributeNames, computedState);
+        const toItem = (prefix, src) => a => ({ value: `${src}:${a}`, text: `${prefix}: ${a}` });
+        appendOptgroup(nodeColorSelect, 'From data', [
+            ...node.fromData.map(toItem('Node', 'node')),
+            ...state.fromData.map(toItem('State', 'state')),
+        ]);
+        appendOptgroup(nodeColorSelect, 'MiRA — intralayer', [
+            ...node.intra.map(toItem('Node', 'node')),
+            ...state.intra.map(toItem('State', 'state')),
+        ]);
+        appendOptgroup(nodeColorSelect, 'MiRA — interlayer', [
+            ...node.inter.map(toItem('Node', 'node')),
+            ...state.inter.map(toItem('State', 'state')),
+        ]);
     }
 
     // Bipartite node color options
@@ -3075,6 +3246,13 @@ function populateDropdowns() {
     let hasBipartite = false;
     let labelA = "Set A", labelB = "Set B";
 
+    // Per-set walks collect every attribute exposed on a node belonging to
+    // that set, except (a) structural keys, and (b) MiRA-computed state-node
+    // fields — those are network-wide so we add them to both sets explicitly.
+    const STRUCTURAL_NODE_KEYS = new Set(['node_id', 'node_name']);
+    const STRUCTURAL_STATE_KEYS = new Set(['layer_id', 'node_id', 'layer_name', 'node_name']);
+    const computedStateSet = new Set(model.computedStateNodeAttributes || []);
+
     for (const [layerName, info] of model.bipartiteInfo) {
         if (!info.isBipartite) continue;
         hasBipartite = true;
@@ -3082,32 +3260,42 @@ function populateDropdowns() {
         labelB = info.setBLabel || labelB;
         for (const nodeName of info.setA) {
             const pn = model.nodesByName.get(nodeName);
-            if (pn) Object.keys(pn).forEach(k => { if (k !== 'node_id' && k !== 'node_name') setA_nodeAttrs.add(k); });
+            if (pn) Object.keys(pn).forEach(k => { if (!STRUCTURAL_NODE_KEYS.has(k)) setA_nodeAttrs.add(k); });
             const sn = model.stateNodeMap.get(`${layerName}::${nodeName}`);
-            if (sn) Object.keys(sn).forEach(k => { if (!['layer_id', 'node_id', 'layer_name', 'node_name', 'degree', 'strength', 'in_degree', 'out_degree', 'in_strength', 'out_strength'].includes(k)) setA_stateAttrs.add(k); });
+            if (sn) Object.keys(sn).forEach(k => { if (!STRUCTURAL_STATE_KEYS.has(k) && !computedStateSet.has(k)) setA_stateAttrs.add(k); });
         }
         for (const nodeName of info.setB) {
             const pn = model.nodesByName.get(nodeName);
-            if (pn) Object.keys(pn).forEach(k => { if (k !== 'node_id' && k !== 'node_name') setB_nodeAttrs.add(k); });
+            if (pn) Object.keys(pn).forEach(k => { if (!STRUCTURAL_NODE_KEYS.has(k)) setB_nodeAttrs.add(k); });
             const sn = model.stateNodeMap.get(`${layerName}::${nodeName}`);
-            if (sn) Object.keys(sn).forEach(k => { if (!['layer_id', 'node_id', 'layer_name', 'node_name', 'degree', 'strength', 'in_degree', 'out_degree', 'in_strength', 'out_strength'].includes(k)) setB_stateAttrs.add(k); });
+            if (sn) Object.keys(sn).forEach(k => { if (!STRUCTURAL_STATE_KEYS.has(k) && !computedStateSet.has(k)) setB_stateAttrs.add(k); });
         }
     }
-
-    ['degree', 'strength', 'in_degree', 'out_degree', 'in_strength', 'out_strength'].forEach(attr => {
-        if (model.stateNodeAttributeNames.includes(attr)) {
-            setA_stateAttrs.add(attr);
-            setB_stateAttrs.add(attr);
-        }
-    });
 
     if (hasBipartite) {
         bipartiteColorLabelA.textContent = `Color by ${labelA}`;
         bipartiteColorLabelB.textContent = `Color by ${labelB}`;
-        setA_nodeAttrs.forEach(attr => { const opt = document.createElement('option'); opt.value = `node:${attr}`; opt.textContent = `Node: ${attr}`; nodeColorSelectSetA.appendChild(opt); });
-        setA_stateAttrs.forEach(attr => { const opt = document.createElement('option'); opt.value = `state:${attr}`; opt.textContent = `State: ${attr}`; nodeColorSelectSetA.appendChild(opt); });
-        setB_nodeAttrs.forEach(attr => { const opt = document.createElement('option'); opt.value = `node:${attr}`; opt.textContent = `Node: ${attr}`; nodeColorSelectSetB.appendChild(opt); });
-        setB_stateAttrs.forEach(attr => { const opt = document.createElement('option'); opt.value = `state:${attr}`; opt.textContent = `State: ${attr}`; nodeColorSelectSetB.appendChild(opt); });
+
+        const toItem = (prefix, src) => a => ({ value: `${src}:${a}`, text: `${prefix}: ${a}` });
+        const stateMira = splitMiraAttrs(model.computedStateNodeAttributes || [], computedState);
+
+        const populateSet = (select, nodeAttrSet, stateAttrSet) => {
+            const node = splitMiraAttrs([...nodeAttrSet], computedNode);
+            appendOptgroup(select, 'From data', [
+                ...node.fromData.map(toItem('Node', 'node')),
+                ...[...stateAttrSet].map(toItem('State', 'state')),
+            ]);
+            appendOptgroup(select, 'MiRA — intralayer', [
+                ...node.intra.map(toItem('Node', 'node')),
+                ...stateMira.intra.map(toItem('State', 'state')),
+            ]);
+            appendOptgroup(select, 'MiRA — interlayer', [
+                ...node.inter.map(toItem('Node', 'node')),
+                ...stateMira.inter.map(toItem('State', 'state')),
+            ]);
+        };
+        populateSet(nodeColorSelectSetA, setA_nodeAttrs, setA_stateAttrs);
+        populateSet(nodeColorSelectSetB, setB_nodeAttrs, setB_stateAttrs);
     }
 
     // Node size options
@@ -3125,20 +3313,28 @@ function populateDropdowns() {
         return false;
     };
 
-    const addSizeOpt = (select, source, attr) => {
-        const opt = document.createElement('option');
-        opt.value = `${source}:${attr}`;
-        opt.textContent = `${source === 'node' ? 'Node' : 'State'}: ${attr}`;
-        select.appendChild(opt);
-    };
+    const sizeItem = (prefix, src) => a => ({ value: `${src}:${a}`, text: `${prefix}: ${a}` });
 
-    for (const attr of model.nodeAttributeNames) {
-        if (isNumericAttr(attr, model.nodes)) addSizeOpt(nodeSizeSelect, 'node', attr);
-    }
-    for (const attr of Object.keys(model.stateNodes[0] || {})) {
-        if (!['layer_name', 'node_name', 'layer_id', 'node_id'].includes(attr)) {
-            if (isNumericAttr(attr, model.stateNodes)) addSizeOpt(nodeSizeSelect, 'state', attr);
-        }
+    {
+        const numericNodeAttrs  = model.nodeAttributeNames.filter(a => isNumericAttr(a, model.nodes));
+        const stateAttrCandidates = Object.keys(model.stateNodes[0] || {})
+            .filter(a => !STRUCTURAL_STATE_KEYS.has(a));
+        const numericStateAttrs = stateAttrCandidates.filter(a => isNumericAttr(a, model.stateNodes));
+
+        const node  = splitMiraAttrs(numericNodeAttrs, computedNode);
+        const state = splitMiraAttrs(numericStateAttrs, computedState);
+        appendOptgroup(nodeSizeSelect, 'From data', [
+            ...node.fromData.map(sizeItem('Node', 'node')),
+            ...state.fromData.map(sizeItem('State', 'state')),
+        ]);
+        appendOptgroup(nodeSizeSelect, 'MiRA — intralayer', [
+            ...node.intra.map(sizeItem('Node', 'node')),
+            ...state.intra.map(sizeItem('State', 'state')),
+        ]);
+        appendOptgroup(nodeSizeSelect, 'MiRA — interlayer', [
+            ...node.inter.map(sizeItem('Node', 'node')),
+            ...state.inter.map(sizeItem('State', 'state')),
+        ]);
     }
 
     // Bipartite size selects — only numeric attrs per set
@@ -3146,26 +3342,41 @@ function populateDropdowns() {
         bipartiteSizeLabelA.textContent = `Size by ${labelA}`;
         bipartiteSizeLabelB.textContent = `Size by ${labelB}`;
 
-        const addSetSizeOpts = (select, nodeAttrs, stateAttrs) => {
-            nodeAttrs.forEach(attr => { if (isNumericAttr(attr, model.nodes)) addSizeOpt(select, 'node', attr); });
-            stateAttrs.forEach(attr => { if (isNumericAttr(attr, model.stateNodes)) addSizeOpt(select, 'state', attr); });
+        const stateMira = splitMiraAttrs(
+            (model.computedStateNodeAttributes || []).filter(a => isNumericAttr(a, model.stateNodes)),
+            computedState,
+        );
+
+        const populateSetSize = (select, nodeAttrSet, stateAttrSet) => {
+            const numericNode = [...nodeAttrSet].filter(a => isNumericAttr(a, model.nodes));
+            const numericState = [...stateAttrSet].filter(a => isNumericAttr(a, model.stateNodes));
+            const node = splitMiraAttrs(numericNode, computedNode);
+            appendOptgroup(select, 'From data', [
+                ...node.fromData.map(sizeItem('Node', 'node')),
+                ...numericState.map(sizeItem('State', 'state')),
+            ]);
+            appendOptgroup(select, 'MiRA — intralayer', [
+                ...node.intra.map(sizeItem('Node', 'node')),
+                ...stateMira.intra.map(sizeItem('State', 'state')),
+            ]);
+            appendOptgroup(select, 'MiRA — interlayer', [
+                ...node.inter.map(sizeItem('Node', 'node')),
+                ...stateMira.inter.map(sizeItem('State', 'state')),
+            ]);
         };
-        addSetSizeOpts(nodeSizeSelectSetA, setA_nodeAttrs, setA_stateAttrs);
-        addSetSizeOpts(nodeSizeSelectSetB, setB_nodeAttrs, setB_stateAttrs);
+        populateSetSize(nodeSizeSelectSetA, setA_nodeAttrs, setA_stateAttrs);
+        populateSetSize(nodeSizeSelectSetB, setB_nodeAttrs, setB_stateAttrs);
 
         nodeSizeSelectSetA.disabled = nodeSizeSelectSetA.options.length <= 1;
         nodeSizeSelectSetB.disabled = nodeSizeSelectSetB.options.length <= 1;
     }
 
 
-    // Link color options
-    linkColorSelect.innerHTML = '<option value="">Default</option>';
-    for (const attr of model.linkAttributeNames) {
-        const opt = document.createElement('option');
-        opt.value = attr;
-        opt.textContent = attr;
-        linkColorSelect.appendChild(opt);
-    }
+    // Link color options (both panels share the same attribute list)
+    const linkOptHTML = '<option value="">Default</option>' +
+        model.linkAttributeNames.map(a => `<option value="${a}">${a}</option>`).join('');
+    intraLinkColorSelect.innerHTML = linkOptHTML;
+    interLinkColorSelect.innerHTML = linkOptHTML;
 
     // Layer color options
     layerColorSelect.innerHTML = '<option value="">Default</option><option value="__individual__">Individual</option>';
@@ -3189,16 +3400,32 @@ nodeColorPicker.addEventListener('input', () => {
     if (!nodeColorSelect.value) updateNodeColors();
 });
 
+const intraLinkColorSelect  = document.getElementById('intraLinkColorSelect');
+const intraLinkColorSwatches= document.getElementById('intraLinkColorSwatches');
 const intraLinkColorPicker  = document.getElementById('intraLinkColorPicker');
+const intraLinkWeightSlider = document.getElementById('intraLinkWeightSlider');
+const intraLinkWeightLabel  = document.getElementById('intraLinkWeightLabel');
+const interLinkColorSelect  = document.getElementById('interLinkColorSelect');
+const interLinkColorSwatches= document.getElementById('interLinkColorSwatches');
 const interLinkColorPicker  = document.getElementById('interLinkColorPicker');
-const interLinkColorControl      = document.getElementById('interLinkColorControl');
-const interlayerControls         = document.getElementById('interlayerControls');
-const interlayerCurvatureSlider  = document.getElementById('interlayerCurvatureSlider');
-const interlayerWeightSlider     = document.getElementById('interlayerWeightSlider');
-const interlayerWeightLabel      = document.getElementById('interlayerWeightLabel');
+const interlayerCurvatureSlider = document.getElementById('interlayerCurvatureSlider');
+const interlayerWeightSlider    = document.getElementById('interlayerWeightSlider');
+const interlayerWeightLabel     = document.getElementById('interlayerWeightLabel');
+const filterInterPairsBtn   = document.getElementById('filterInterPairsBtn');
+const interPairPanel        = document.getElementById('interPairPanel');
+const interPairPanelHeader  = document.getElementById('interPairPanelHeader');
+const interPairPanelBody    = document.getElementById('interPairPanelBody');
+const interPairPanelClose   = document.getElementById('interPairPanelClose');
 
-intraLinkColorPicker.addEventListener('input', () => { if (!linkColorSelect.value) updateLinkColors(); });
-interLinkColorPicker.addEventListener('input', () => { if (!linkColorSelect.value) updateLinkColors(); });
+intraLinkColorPicker.addEventListener('input', () => { if (!intraLinkColorSelect.value) updateIntraLinkColors(); });
+interLinkColorPicker.addEventListener('input', () => { if (!interLinkColorSelect.value) updateInterLinkColors(); });
+
+intraLinkWeightSlider.addEventListener('input', () => {
+    const val = parseFloat(intraLinkWeightSlider.value);
+    renderer.intraMinWeight = val;
+    intraLinkWeightLabel.textContent = val.toFixed(2);
+    renderer.render();
+});
 
 interlayerCurvatureSlider.addEventListener('input', () => {
     renderer.interlayerCurvature = parseFloat(interlayerCurvatureSlider.value);
@@ -3214,6 +3441,13 @@ interlayerWeightSlider.addEventListener('input', () => {
 
 arrowheadSizeSlider.addEventListener('input', () => {
     renderer.arrowheadSize = parseFloat(arrowheadSizeSlider.value);
+    interArrowheadSizeSlider.value = arrowheadSizeSlider.value;
+    renderer.render();
+});
+
+interArrowheadSizeSlider.addEventListener('input', () => {
+    renderer.arrowheadSize = parseFloat(interArrowheadSizeSlider.value);
+    arrowheadSizeSlider.value = interArrowheadSizeSlider.value;
     renderer.render();
 });
 
@@ -3236,10 +3470,182 @@ nodeSizeSelect.addEventListener('change', () => { updateNodeSizes(); renderer.re
 nodeSizeSelectSetA.addEventListener('change', () => { updateNodeSizes(); renderer.render(); });
 nodeSizeSelectSetB.addEventListener('change', () => { updateNodeSizes(); renderer.render(); });
 
-linkColorSelect.addEventListener('change', () => {
-    updateLinkColors();
+intraLinkColorSelect.addEventListener('change', () => { updateIntraLinkColors(); renderer.render(); });
+interLinkColorSelect.addEventListener('change', () => { updateInterLinkColors(); renderer.render(); });
+
+// ── Interlayer layer-pair filter panel ───────────────────────────────────────
+
+function _lerpHexToAmber(t) {
+    // white (#fff) → amber (#f59e0b)
+    const tr = Math.round(255 + (245 - 255) * t);
+    const tg = Math.round(255 + (158 - 255) * t);
+    const tb = Math.round(255 + (11  - 255) * t);
+    return `rgb(${tr},${tg},${tb})`;
+}
+
+function _applyInterPairFilter() {
+    if (_interPairFilter.size === 0) {
+        renderer.interlayerLayerPairs = null;
+    } else {
+        const pairs = new Set();
+        for (const key of _interPairFilter) {
+            const [f, t] = key.split('::');
+            pairs.add(`${f}::${t}`);
+            pairs.add(`${t}::${f}`);
+        }
+        renderer.interlayerLayerPairs = pairs;
+    }
     renderer.render();
+}
+
+function _renderInterPairHeatmap() {
+    if (!model || !interPairPanelBody) return;
+    const layerNames = model.layers.map(l => l.layer_name);
+    const n = layerNames.length;
+    const idx = Object.fromEntries(layerNames.map((ln, i) => [ln, i]));
+    const dirInter = model.directedInterlayer ?? model.directed ?? false;
+
+    const countMat = Array.from({ length: n }, () => new Array(n).fill(0));
+    for (const lk of model.interlayerLinks) {
+        const i = idx[lk.layer_from], j = idx[lk.layer_to];
+        if (i !== undefined && j !== undefined) {
+            countMat[i][j]++;
+            if (!dirInter) countMat[j][i]++;
+        }
+    }
+    const maxCount = Math.max(...countMat.flat(), 1);
+
+    const cellSize = n <= 8 ? 28 : n <= 14 ? 20 : n <= 22 ? 14 : 10;
+    const maxLen   = Math.max(...layerNames.map(l => l.length));
+    const LABEL_W  = Math.min(maxLen * 6.2 + 10, 130);
+    const HDR_H    = Math.min(maxLen * 6.2 + 10, 120);
+    const TEXT     = '#374151';
+    const GRID     = '#e5e7eb';
+
+    const SEL_COLOR = 'rgba(30,100,220,0.9)';
+    const SEL_SW    = 3;
+
+    let colLabels = '', rowLabels = '', cells = '', selOverlays = '';
+    layerNames.forEach((ln, j) => {
+        const x   = LABEL_W + j * cellSize + cellSize / 2;
+        const lbl = ln.length > 18 ? ln.slice(0, 17) + '…' : ln;
+        colLabels += `<text transform="translate(${x},${HDR_H - 4}) rotate(-45)" text-anchor="start" font-size="10" fill="${TEXT}">${lbl}</text>`;
+    });
+    layerNames.forEach((rowLn, i) => {
+        const y   = HDR_H + i * cellSize;
+        const lbl = rowLn.length > 18 ? rowLn.slice(0, 17) + '…' : rowLn;
+        rowLabels += `<text x="${LABEL_W - 5}" y="${y + cellSize / 2 + 3}" text-anchor="end" font-size="10" fill="${TEXT}">${lbl}</text>`;
+        layerNames.forEach((colLn, j) => {
+            const cnt  = countMat[i][j];
+            const t    = cnt / maxCount;
+            const fill = _lerpHexToAmber(t);
+            const x    = LABEL_W + j * cellSize;
+            const isSel = _interPairFilter.has(`${rowLn}::${colLn}`) || _interPairFilter.has(`${colLn}::${rowLn}`);
+            const fs     = Math.min(10, cellSize * 0.27);
+            const textFill = (1 - 0.7 * t) < 0.52 ? '#fff' : TEXT;
+            cells += `<rect x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" fill="${fill}" stroke="${GRID}" stroke-width="0.5" style="cursor:${cnt > 0 ? 'pointer' : 'default'}" data-from="${rowLn}" data-to="${colLn}"/>`;
+            if (cellSize >= 14 && cnt > 0) {
+                cells += `<text x="${x + cellSize / 2}" y="${y + cellSize / 2 + fs * 0.4}" text-anchor="middle" font-size="${fs}" fill="${textFill}" pointer-events="none">${cnt}</text>`;
+            }
+            if (isSel) {
+                const half = SEL_SW / 2;
+                selOverlays += `<rect x="${x + half}" y="${y + half}" width="${cellSize - SEL_SW}" height="${cellSize - SEL_SW}" fill="none" stroke="${SEL_COLOR}" stroke-width="${SEL_SW}" pointer-events="none"/>`;
+            }
+        });
+    });
+
+    const hmW = LABEL_W + n * cellSize;
+    const hmH = HDR_H + n * cellSize;
+    const hint = `<div style="font-size:10px;color:#9ca3af;margin-bottom:6px;">Click to select · Cmd/Ctrl+click to multi-select</div>`;
+    const clearBtn = _interPairFilter.size > 0
+        ? `<button id="interPairClearBtn" style="font-size:11px;padding:3px 8px;border:1px solid #d1d5db;border-radius:6px;background:#fff;cursor:pointer;margin-bottom:6px;">✕ Show all pairs</button>`
+        : '';
+    const svg = `<svg width="${hmW}" height="${hmH}" style="overflow:visible;display:block;">${colLabels}${rowLabels}${cells}${selOverlays}</svg>`;
+
+    interPairPanelBody.innerHTML = clearBtn + hint + `<div style="overflow:auto;">${svg}</div>`;
+
+    // Wire cell clicks
+    interPairPanelBody.querySelectorAll('rect[data-from]').forEach(rect => {
+        rect.addEventListener('click', (e) => {
+            const from = rect.dataset.from, to = rect.dataset.to;
+            const hasLinks = model.interlayerLinks.some(lk => {
+                const fwd = lk.layer_from === from && lk.layer_to === to;
+                const rev = !dirInter && lk.layer_from === to && lk.layer_to === from;
+                return fwd || rev;
+            });
+            if (!hasLinks) return;
+
+            const key  = `${from}::${to}`;
+            const isSel = _interPairFilter.has(key) || _interPairFilter.has(`${to}::${from}`);
+
+            if (e.metaKey || e.ctrlKey) {
+                // Toggle this pair in/out of the multi-selection
+                if (isSel) {
+                    _interPairFilter.delete(key);
+                    _interPairFilter.delete(`${to}::${from}`);
+                } else {
+                    _interPairFilter.add(key);
+                }
+            } else {
+                // Regular click: replace selection, or deselect if sole pair
+                _interPairFilter = (isSel && _interPairFilter.size === 1)
+                    ? new Set()
+                    : new Set([key]);
+            }
+
+            _applyInterPairFilter();
+            _renderInterPairHeatmap();
+        });
+    });
+
+    const clearBtnEl = interPairPanelBody.querySelector('#interPairClearBtn');
+    if (clearBtnEl) {
+        clearBtnEl.addEventListener('click', () => {
+            _interPairFilter = new Set();
+            _applyInterPairFilter();
+            _renderInterPairHeatmap();
+        });
+    }
+}
+
+// Open / close floating panel
+filterInterPairsBtn.addEventListener('click', () => {
+    const open = interPairPanel.style.display !== 'none';
+    if (open) {
+        interPairPanel.style.display = 'none';
+    } else {
+        interPairPanel.style.display = '';
+        _renderInterPairHeatmap();
+    }
 });
+interPairPanelClose.addEventListener('click', () => { interPairPanel.style.display = 'none'; });
+
+// Drag for interPairPanel — same pattern as mapLayerPanel
+{
+    let _ipDragging = false, _ipHasDragged = false;
+    let _ipStartX, _ipStartY, _ipStartLeft, _ipStartTop;
+
+    interPairPanelHeader.addEventListener('mousedown', (e) => {
+        if (e.target.closest('button')) return;
+        _ipDragging = true; _ipHasDragged = false;
+        _ipStartX = e.clientX; _ipStartY = e.clientY;
+        const r = interPairPanel.getBoundingClientRect();
+        _ipStartLeft = r.left; _ipStartTop = r.top;
+        interPairPanel.style.cursor = 'grabbing';
+        e.preventDefault();
+    });
+    document.addEventListener('mousemove', (e) => {
+        if (!_ipDragging) return;
+        const dx = e.clientX - _ipStartX, dy = e.clientY - _ipStartY;
+        if (Math.abs(dx) > 3 || Math.abs(dy) > 3) _ipHasDragged = true;
+        interPairPanel.style.left   = (_ipStartLeft + dx) + 'px';
+        interPairPanel.style.top    = (_ipStartTop  + dy) + 'px';
+        interPairPanel.style.right  = 'auto';
+    });
+    document.addEventListener('mouseup', () => {
+        if (_ipDragging) { _ipDragging = false; interPairPanel.style.cursor = ''; }
+    });
+}
 
 
 
@@ -3365,8 +3771,8 @@ function updateNodeColors() {
 
         renderer.nodeColorFn = (layerName, nodeName) => {
             const info = model.bipartiteInfo.get(layerName);
-            const isSetA = info && info.setA.has(nodeName);
-            const isSetB = info && info.setB.has(nodeName);
+            const isSetA = info?.isBipartite && info.setA.has(nodeName);
+            const isSetB = info?.isBipartite && info.setB.has(nodeName);
 
             if (isSetA) {
                 if (scA) {
@@ -3429,24 +3835,41 @@ function updateNodeColors() {
     renderLegends();
 }
 
-function updateLinkColors() {
-    activeLinkColorScale = null;
-    const attrName = linkColorSelect.value;
-    linkColorSwatches.style.display = attrName ? 'none' : 'flex';
+function updateIntraLinkColors() {
+    activeIntraLinkColorScale = null;
+    const attrName = intraLinkColorSelect.value;
+    intraLinkColorSwatches.style.display = attrName ? 'none' : 'flex';
     if (!attrName || !model) {
-        renderer.linkColorFn = null;
+        renderer.intraLinkColorFn = null;
         renderer.defaultIntraColor = intraLinkColorPicker.value;
-        renderer.defaultInterColor = interLinkColorPicker.value;
-        renderer.render();
         renderLegends();
         return;
     }
-
     const override = colorScaleOverrides.get(attrName);
-    const sc = colorMapper.buildColorScale(model.extended, attrName, override);
-    activeLinkColorScale = sc;
-    renderer.linkColorFn = (link) => applyCategoryOverride(attrName, link[attrName], sc.scaleFn(link[attrName]));
-    if (activeLinkColorScale) expandedLegends.add('linkColor');
+    const sc = colorMapper.buildColorScale(
+        model.intralayerLinks.length ? model.intralayerLinks : model.extended, attrName, override);
+    activeIntraLinkColorScale = sc;
+    renderer.intraLinkColorFn = (link) => applyCategoryOverride(attrName, link[attrName], sc.scaleFn(link[attrName]));
+    if (activeIntraLinkColorScale) expandedLegends.add('intraLinkColor');
+    renderLegends();
+}
+
+function updateInterLinkColors() {
+    activeInterLinkColorScale = null;
+    const attrName = interLinkColorSelect.value;
+    interLinkColorSwatches.style.display = attrName ? 'none' : 'flex';
+    if (!attrName || !model) {
+        renderer.interLinkColorFn = null;
+        renderer.defaultInterColor = interLinkColorPicker.value;
+        renderLegends();
+        return;
+    }
+    const override = colorScaleOverrides.get(attrName);
+    const sc = colorMapper.buildColorScale(
+        model.interlayerLinks.length ? model.interlayerLinks : model.extended, attrName, override);
+    activeInterLinkColorScale = sc;
+    renderer.interLinkColorFn = (link) => applyCategoryOverride(attrName, link[attrName], sc.scaleFn(link[attrName]));
+    if (activeInterLinkColorScale) expandedLegends.add('interLinkColor');
     renderLegends();
 }
 
@@ -3511,8 +3934,8 @@ zoomInBtn.addEventListener('click', () => {
         _ensureMetaNetworkLoop();
         return;
     }
-    const cx = canvas.width / 2;
-    const cy = canvas.height / 2;
+    const cx = cssW / 2;
+    const cy = cssH / 2;
     const factor = 1.2;
     renderer.offsetX = cx - (cx - renderer.offsetX) * factor;
     renderer.offsetY = cy - (cy - renderer.offsetY) * factor;
@@ -3533,8 +3956,8 @@ zoomOutBtn.addEventListener('click', () => {
         _ensureMetaNetworkLoop();
         return;
     }
-    const cx = canvas.width / 2;
-    const cy = canvas.height / 2;
+    const cx = cssW / 2;
+    const cy = cssH / 2;
     const factor = 1 / 1.2;
     renderer.offsetX = cx - (cx - renderer.offsetX) * factor;
     renderer.offsetY = cy - (cy - renderer.offsetY) * factor;
@@ -3562,7 +3985,7 @@ zoomResetBtn.addEventListener('click', () => {
         renderer.layerView.resetLayout();
         const lr = renderer.layerView.layoutRadius();
         const margin = 60;
-        const fitScale = Math.min(canvas.width, canvas.height) / (2 * (lr + margin));
+        const fitScale = Math.min(cssW, cssH) / (2 * (lr + margin));
         renderer.layerView.viewScale   = fitScale;
         renderer.layerView.viewOffsetX = 0;
         renderer.layerView.viewOffsetY = 0;
@@ -3575,6 +3998,8 @@ zoomResetBtn.addEventListener('click', () => {
         metaNetwork.state.selectedNode = null;
         metaNetwork.state.selectedEdge = null;
         metaNetwork._focusSet = null;
+        crossModeSelectedNode = null;
+        _updateFilterBanner();
         hideNodeInfo();
         // Fit viewport to current node positions
         const nodes = metaNetwork._mnNodes;
@@ -3590,8 +4015,8 @@ zoomResetBtn.addEventListener('click', () => {
             const rawW = (maxX - minX) || 1;
             const rawH = (maxY - minY) || 1;
             const scale = Math.min(
-                (canvas.width  - 2 * pad) / rawW,
-                (canvas.height - 2 * pad) / rawH,
+                (cssW  - 2 * pad) / rawW,
+                (cssH - 2 * pad) / rawH,
                 10
             );
             metaNetwork.viewScale   = scale;
@@ -3610,7 +4035,7 @@ zoomResetBtn.addEventListener('click', () => {
     resetVisualizationOptions();
     updateLayerColors();
     updateNodeColors();
-    updateLinkColors();
+    updateIntraLinkColors(); updateInterLinkColors();
     renderer.skewX = 0.7;
     renderer.skewY = 0.55;
     renderer.resetLayerOffsets();
@@ -3621,82 +4046,137 @@ zoomResetBtn.addEventListener('click', () => {
 });
 
 // ---- Node Info Panel ----
+// Format any node/link/layer attribute value for display in the info panel.
+// Maps render as small per-layer breakdowns; arrays as comma-joined values;
+// numbers get a sensible decimal cap. Everything else stringifies normally.
+function formatInfoValue(value) {
+    if (value === null || value === undefined || value === '') return 'N/A';
+    if (value instanceof Map) {
+        if (value.size === 0) return '—';
+        const parts = [];
+        for (const [k, v] of value) {
+            const fv = typeof v === 'number' && !Number.isInteger(v) ? v.toFixed(3) : v;
+            parts.push(`${k}: ${fv}`);
+        }
+        return parts.join(', ');
+    }
+    if (Array.isArray(value)) return value.length ? value.join(', ') : '—';
+    if (typeof value === 'number' && !Number.isInteger(value)) return value.toFixed(3);
+    return String(value);
+}
+
+// Render an info-section with rows. Optional `collapsedByDefault` wraps the
+// rows behind a click-to-expand header so the panel doesn't dominate the
+// viewport when computed properties or long connection lists are present.
+function renderInfoSection(title, rows, { collapsedByDefault = false } = {}) {
+    if (!rows.length) return '';
+    const id = `infosec-${Math.random().toString(36).slice(2, 9)}`;
+    const body = rows.map(({ key, value }) =>
+        `<div class="info-row"><span class="info-key">${key}</span><span class="info-value">${formatInfoValue(value)}</span></div>`
+    ).join('');
+    if (!collapsedByDefault) {
+        return `<div class="info-section"><h4>${title}</h4>${body}</div>`;
+    }
+    return `<div class="info-section">
+        <h4 class="info-toggle" data-target="${id}" style="cursor:pointer;user-select:none;"><span class="info-chevron">▸</span> ${title} <span style="font-weight:normal;color:#9ca3af;font-size:11px;">(click to expand)</span></h4>
+        <div id="${id}" style="display:none;">${body}</div>
+    </div>`;
+}
+
 function showNodeInfo(hit) {
     if (!model) return;
 
     const { layerName, nodeName } = hit;
 
-    // Physical node attributes
     const physicalNode = model.nodesByName.get(nodeName);
-    // State node attributes
     const stateNode = model.stateNodeMap.get(`${layerName}::${nodeName}`);
-    // Connected links
     const connectedLinks = model.extended.filter(
         l => (l.layer_from === layerName && l.node_from === nodeName) ||
             (l.layer_to === layerName && l.node_to === nodeName)
     );
 
+    const computedNode  = new Set(model.computedNodeAttributes || []);
+    const computedState = new Set(model.computedStateNodeAttributes || []);
+    // `_by_layer` Maps and `layers_present` are MiRA-computed metadata too —
+    // pin them to the computed bucket even though they aren't in the
+    // dropdown-attribute marker arrays (those expose only scalar attributes).
+    const COMPUTED_NODE_EXTRAS = new Set(['layers_present']);
+    const isByLayerKey = k => k.endsWith('_by_layer');
+
+    const STRUCTURAL_NODE = new Set(['node_id', 'node_name', 'layer_name']);
+    const STRUCTURAL_STATE = new Set(['layer_id', 'node_id', 'layer_name', 'node_name']);
+
     infoTitle.textContent = nodeName;
 
-    let html = '';
-
-    // Physical node attributes
+    const dataNodeRows = [], computedNodeRows = [];
     if (physicalNode) {
-        html += '<div class="info-section"><h4>Node Attributes</h4>';
         for (const [key, value] of Object.entries(physicalNode)) {
-            if (key === 'node_id') continue;
-            html += `<div class="info-row"><span class="info-key">${key}</span><span class="info-value">${value ?? 'N/A'}</span></div>`;
+            if (STRUCTURAL_NODE.has(key)) continue;
+            const isComputed = computedNode.has(key) || COMPUTED_NODE_EXTRAS.has(key) || isByLayerKey(key);
+            (isComputed ? computedNodeRows : dataNodeRows).push({ key, value });
         }
-        html += '</div>';
     }
 
-    // State node attributes
+    const dataStateRows = [], computedStateRows = [];
     if (stateNode) {
-        html += '<div class="info-section"><h4>State Node (in ' + layerName + ')</h4>';
         for (const [key, value] of Object.entries(stateNode)) {
-            if (['layer_id', 'node_id', 'layer_name', 'node_name'].includes(key)) continue;
-            html += `<div class="info-row"><span class="info-key">${key}</span><span class="info-value">${value ?? 'N/A'}</span></div>`;
+            if (STRUCTURAL_STATE.has(key)) continue;
+            (computedState.has(key) ? computedStateRows : dataStateRows).push({ key, value });
         }
-        html += '</div>';
     }
 
-    // Layer info
     const layerObj = model.layersByName.get(layerName);
-    if (layerObj) {
-        html += '<div class="info-section"><h4>Layer</h4>';
-        for (const [key, value] of Object.entries(layerObj)) {
-            if (key === 'layer_id') continue;
-            html += `<div class="info-row"><span class="info-key">${key}</span><span class="info-value">${value ?? 'N/A'}</span></div>`;
-        }
-        html += '</div>';
-    }
+    const layerRows = layerObj
+        ? Object.entries(layerObj)
+            .filter(([k]) => k !== 'layer_id')
+            .map(([key, value]) => ({ key, value }))
+        : [];
 
-    // Connections
+    let html = '';
+    html += renderInfoSection('Node attributes', dataNodeRows);
+    html += renderInfoSection('State node (in ' + layerName + ')', dataStateRows);
+    html += renderInfoSection('Layer', layerRows);
+    html += renderInfoSection('MiRA-computed', [...computedNodeRows, ...computedStateRows], { collapsedByDefault: true });
+
     if (connectedLinks.length > 0) {
-        html += '<div class="info-section"><h4>Connections (' + connectedLinks.length + ')</h4><ul class="info-connections">';
-        for (const link of connectedLinks) {
+        const items = connectedLinks.map(link => {
             const isFrom = link.node_from === nodeName && link.layer_from === layerName;
             const otherNode = isFrom ? link.node_to : link.node_from;
             const otherLayer = isFrom ? link.layer_to : link.layer_from;
             const isInter = link.layer_from !== link.layer_to;
-            const label = isInter
-                ? `${otherNode} (${otherLayer})`
-                : otherNode;
+            const label = isInter ? `${otherNode} (${otherLayer})` : otherNode;
             const extraAttrs = Object.entries(link)
-                .filter(([k]) => !['layer_from', 'node_from', 'layer_to', 'node_to', 'weight'].includes(k))
+                .filter(([k]) => !['layer_from', 'node_from', 'layer_to', 'node_to', 'weight', 'directed'].includes(k))
                 .filter(([, v]) => v !== null && v !== undefined)
-                .map(([k, v]) => `${k}: ${v}`)
+                .map(([k, v]) => `${k}: ${formatInfoValue(v)}`)
                 .join(', ');
             const suffix = extraAttrs ? ` [${extraAttrs}]` : '';
-            html += `<li>${label}${link.weight !== 1 ? ` (w=${link.weight})` : ''}${suffix}</li>`;
-        }
-        html += '</ul></div>';
+            const wTxt = link.weight !== undefined && link.weight !== 1 ? ` (w=${link.weight})` : '';
+            return `<li>${label}${wTxt}${suffix}</li>`;
+        }).join('');
+        const id = `infosec-conn-${Math.random().toString(36).slice(2, 9)}`;
+        html += `<div class="info-section">
+            <h4 class="info-toggle" data-target="${id}" style="cursor:pointer;user-select:none;"><span class="info-chevron">▸</span> Connections (${connectedLinks.length}) <span style="font-weight:normal;color:#9ca3af;font-size:11px;">(click to expand)</span></h4>
+            <ul class="info-connections" id="${id}" style="display:none;">${items}</ul>
+        </div>`;
     }
 
     infoContent.innerHTML = html;
     infoPanel.classList.add('visible');
     infoPanel.classList.remove('collapsed');
     collapseInfoBtn.textContent = '›';
+
+    // Wire up the toggle headers
+    infoContent.querySelectorAll('.info-toggle').forEach(h => {
+        h.addEventListener('click', () => {
+            const tgt = document.getElementById(h.dataset.target);
+            if (!tgt) return;
+            const open = tgt.style.display !== 'none';
+            tgt.style.display = open ? 'none' : '';
+            const chevron = h.querySelector('.info-chevron');
+            if (chevron) chevron.textContent = open ? '▸' : '▾';
+        });
+    });
 }
 
 function showLinkInfo(link) {
@@ -3758,8 +4238,16 @@ function showLayerInfo(layerIndex) {
 closeInfoBtn.addEventListener('click', () => {
     renderer.selectedNode = null;
     renderer.selectedLayer = null;
+    renderer.searchedNodeName = null;
+    crossModeSelectedNode = null;
+    if (metaNetwork) {
+        metaNetwork.state.selectedNode = null;
+        metaNetwork._focusSet = null;
+    }
     hideNodeInfo();
-    renderer.render();
+    _updateFilterBanner();
+    if (appMode === 'metanetwork' && metaNetwork) _mnRenderSync();
+    else renderer.render();
 });
 
 collapseInfoBtn.addEventListener('click', () => {
@@ -3809,7 +4297,7 @@ function hideTooltip() {
 
 // ---- EMLN mode UI setup ----
 if (IS_EMLN) {
-    const ONLINE_URL = 'https://ecological-complexity-lab.github.io/multilayer_viz/';
+    const ONLINE_URL = 'https://mira.ecomplab.com/';
 
     // Replace data import buttons with message
     const btnRow = document.querySelector('#sectionData .btn-row');
@@ -3874,7 +4362,8 @@ function renderLegends() {
         const sizeTitleB = stripPrefix(bipartiteSizeLabelB.textContent, 'Size By');
         renderScaleLegend(activeNodeSizeScaleB, 'nodeSizeB', 'Node Size (' + sizeTitleB + ')');
     }
-    renderScaleLegend(activeLinkColorScale, 'linkColor', 'Link Color');
+    renderScaleLegend(activeIntraLinkColorScale, 'intraLinkColor', 'Intralayer Link Color');
+    renderScaleLegend(activeInterLinkColorScale, 'interLinkColor', 'Interlayer Link Color');
     renderScaleLegend(activeLayerColorScale, 'layerColor', 'Layer Color');
 }
 
@@ -3906,7 +4395,7 @@ function createLegendDOM(titleText, scale, id) {
             const newType = scale.type === 'continuous' ? 'categorical' : 'continuous';
             colorScaleOverrides.set(scale.attrName, newType);
             updateNodeColors();
-            updateLinkColors();
+            updateIntraLinkColors(); updateInterLinkColors();
             updateLayerColors();
             renderer.render();
         };
@@ -3953,7 +4442,7 @@ function createLegendDOM(titleText, scale, id) {
             swatch.addEventListener('change', () => {
                 // Picker closed/committed — rebuild legend so the swatch reflects the new color.
                 updateNodeColors();
-                updateLinkColors();
+                updateIntraLinkColors(); updateInterLinkColors();
                 updateLayerColors();
                 renderer.render();
             });
@@ -4166,6 +4655,30 @@ function _createLVLegendBtn(scale) {
     return btn;
 }
 
+// ---- Tour ----
+const tourBtn = document.getElementById('tourBtn');
+tourBtn.addEventListener('click', startTour);
+setTimeout(() => showBounceArrow(tourBtn, 'up'), 1200);
+
+function showBounceArrow(el, dir) {
+    if (dir === 'up') {
+        const rect = el.getBoundingClientRect();
+        const span = document.createElement('span');
+        span.className = 'bounce-arrow-fixed';
+        span.textContent = '⬆';
+        span.style.left = `${rect.left + rect.width / 2 - 10}px`;
+        span.style.top  = `${rect.bottom + 4}px`;
+        document.body.appendChild(span);
+        span.addEventListener('animationend', () => span.remove(), { once: true });
+    } else {
+        const span = document.createElement('span');
+        span.className = 'bounce-arrow-inline';
+        span.textContent = '⬅';
+        el.appendChild(span);
+        span.addEventListener('animationend', () => span.remove(), { once: true });
+    }
+}
+
 // ---- Help Popup ----
 const helpBtn            = document.getElementById('helpBtn');
 const helpPopup          = document.getElementById('helpPopup');
@@ -4191,10 +4704,11 @@ const HELP_CONTENT = {
         title: '🗺️ Map Mode',
         body: `<p>Layers are placed on a geographic map using their <code>latitude</code>/<code>longitude</code>.</p>
 <ul style="padding-left:16px;margin:8px 0;">
-  <li><b>Click a marker</b> to pop that layer into 3D space</li>
-  <li><b>Click ✕</b> on a popped layer to return it to the map</li>
-  <li><b>Pan the map</b> — <kbd>Shift</kbd> + drag (carries 3D layers with it)</li>
-  <li>Use the <b>Map</b> sidebar section to control opacity</li>
+  <li><b>Click a marker</b> to pop that layer into 3D space.</li>
+  <li><b>Click ✕</b> on a popped layer to return it to the map.</li>
+    <li><b>Scroll or click + / -</b> to zoom the map.</li>
+  <li><b>Click+drag</b> to pan the map (carries 3D layers with it)</li>
+  <li>Use the <b>Map</b> control strip below to adjust map settings.</li>
 </ul>`,
     },
     layer: {
@@ -4204,7 +4718,8 @@ const HELP_CONTENT = {
   <li><b>Click</b> a bubble — layer statistics panel</li>
   <li><b>Cmd/Ctrl + click</b> a second bubble — side-by-side comparison</li>
   <li><b>Drag</b> a bubble to pin it; <b>Reset</b> to unpin all</li>
-  <li><b>Scroll</b> to zoom; drag background to pan</li>
+  <li><b>Scroll or click + / -</b> to zoom the map.</li>
+  <li><b>Click+drag</b> to pan the map.</li>
 </ul>
 <p><b>Blue lines</b> = interlayer links &nbsp;·&nbsp; <b>Gray lines</b> = shared nodes</p>`,
     },
@@ -4214,8 +4729,8 @@ const HELP_CONTENT = {
 <ul style="padding-left:16px;margin:8px 0;">
   <li><b>Click</b> a node — ego-network highlight + info panel</li>
   <li><b>Click</b> an edge — per-layer weight bar chart</li>
-  <li><b>Drag</b> a node to pin it; <b>Reset layout</b> to unpin all</li>
-  <li><b>Scroll</b> to zoom; drag background to pan</li>
+  <li><b>Scroll or click +/-</b> to zoom; drag background to pan</li>
+  <li><b>Click+drag</b>to pan</li>
   <li>Use <b>Filter Layers</b> panel to show only links from selected layers</li>
 </ul>
 <p>Use the left panel to change aggregation, layout, color, and size.</p>`,
@@ -4243,7 +4758,7 @@ const HELP_CONTENT = {
   <li><b>Degree Distributions</b> — histograms for full network and per layer</li>
   <li><b>Node Participation</b> — how many layers each node appears in</li>
 </ul>
-<p>Use the left panel to change sort order and highlight metric.</p>`,
+<p></p>`,
     },
 };
 
@@ -4263,7 +4778,7 @@ document.addEventListener('click', e => {
     }
 });
 
-// ---- Screenshot Export ----
+// ---- Legend Visibility Toggle ----
 const toggleLegendBtn = document.getElementById('toggleLegendBtn');
 let legendVisible = true;
 toggleLegendBtn.addEventListener('click', () => {
@@ -4272,317 +4787,12 @@ toggleLegendBtn.addEventListener('click', () => {
     toggleLegendBtn.classList.toggle('active', !legendVisible);
 });
 
-const captureBtn = document.getElementById('captureBtn');
-const exportDialog = document.getElementById('exportDialog');
-const exportCancelBtn = document.getElementById('exportCancelBtn');
-
-captureBtn.addEventListener('click', () => {
-    const hasMap = appMode === 'map' || (appMode === 'layer' && renderer.layerView?.geoMode);
-    const gridLabel = exportDialog.querySelector('#exportGridCheckbox + span');
-    if (gridLabel) gridLabel.textContent = hasMap ? 'Background map' : 'Background grid';
-    exportDialog.style.display = 'flex';
+// ---- Export dialog (PNG / JPG / PDF) ----
+initExportManager({
+    getRenderer: () => renderer,
+    getAppMode:  () => appMode,
 });
 
-exportCancelBtn.addEventListener('click', () => {
-    exportDialog.style.display = 'none';
-});
-
-// Close on overlay click
-exportDialog.addEventListener('click', (e) => {
-    if (e.target === exportDialog) exportDialog.style.display = 'none';
-});
-
-// Format buttons
-exportDialog.querySelectorAll('[data-format]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-        if (btn.disabled) return;
-        const format = btn.dataset.format;
-        exportDialog.style.display = 'none';
-        await exportScreenshot(format);
-    });
-});
-
-// ── Dynamic script loader ──────────────────────────────────────────────────
-async function _loadScript(src) {
-    const existing = document.querySelector(`script[src="${src}"]`);
-    if (existing) {
-        // Already loaded successfully — nothing to do
-        if (existing.dataset.loaded) return;
-        // Still in flight — wait for it
-        return new Promise((resolve, reject) => {
-            existing.addEventListener('load',  resolve, { once: true });
-            existing.addEventListener('error', reject,  { once: true });
-        });
-    }
-    return new Promise((resolve, reject) => {
-        const s = document.createElement('script');
-        s.src = src;
-        s.onload  = () => { s.dataset.loaded = '1'; resolve(); };
-        s.onerror = reject;
-        document.head.appendChild(s);
-    });
-}
-
-// ── Composite visible overlay panels onto offscreen canvas ────────────────
-// Captures legend + drill/compare panels (if open) and draws them at their
-// screen positions, scaled to match the export resolution.
-async function _compositeOverlays(ctx, scale) {
-    await _loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
-
-    const panels = [];
-
-    // Legend
-    const lp = document.getElementById('legendPanel');
-    if (lp && lp.children.length > 0) panels.push(lp);
-
-    // Layer stats / compare panels (only meaningful in layer view)
-    const drill = document.getElementById('layerDrillPanel');
-    if (drill && drill.style.opacity === '1') panels.push(drill);
-
-    const compare = document.getElementById('layerComparePanel');
-    if (compare && compare.style.opacity === '1') panels.push(compare);
-
-    for (const el of panels) {
-        const rect = el.getBoundingClientRect();
-        try {
-            const panelCanvas = await html2canvas(el, {
-                scale,
-                useCORS: true,
-                allowTaint: true,
-                backgroundColor: null,
-                logging: false,
-            });
-            ctx.drawImage(panelCanvas, rect.left * scale, rect.top * scale,
-                rect.width * scale, rect.height * scale);
-        } catch (e) {
-            console.warn('Panel capture failed for', el.id, e);
-        }
-    }
-}
-
-async function exportScreenshot(format) {
-    if (format === 'pdf') { await _exportPDF(); return; }
-
-    // Raster export (PNG / JPG)
-    const srcCanvas = document.getElementById('networkCanvas');
-    const scale = 2;
-
-    const includeGrid   = document.getElementById('exportGridCheckbox').checked;
-    const includePanels = document.getElementById('exportPanelsCheckbox').checked;
-    const prevShowGrid  = renderer.showGrid;
-    renderer.showGrid = includeGrid;
-    renderer.render();
-
-    const w = srcCanvas.width, h = srcCanvas.height;
-    const offscreen = document.createElement('canvas');
-    offscreen.width  = w * scale;
-    offscreen.height = h * scale;
-    const ctx = offscreen.getContext('2d');
-
-    // White background
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, offscreen.width, offscreen.height);
-
-    // In map mode or layer view geo mode: composite the Leaflet map underneath the canvas
-    const isLvGeo = appMode === 'layer' && renderer.layerView?.geoMode;
-    if ((appMode === 'map' || isLvGeo) && includeGrid) {
-        try {
-            await _loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
-            const mapEl = document.getElementById(appMode === 'map' ? 'backgroundMap' : 'lvBackgroundMap');
-            const mapCanvas = await html2canvas(mapEl, {
-                scale, useCORS: true, allowTaint: true,
-                backgroundColor: '#ffffff', logging: false,
-                width: w, height: h, x: 0, y: 0,
-            });
-            ctx.drawImage(mapCanvas, 0, 0, offscreen.width, offscreen.height);
-        } catch (e) { console.warn('Map capture failed:', e); }
-    }
-
-    // Network canvas (nodes, edges, layer planes)
-    ctx.drawImage(srcCanvas, 0, 0, offscreen.width, offscreen.height);
-
-    // In map mode: composite the map markers overlay on top of the network
-    if (appMode === 'map') {
-        try {
-            const markersCanvas = await html2canvas(mapMarkersOverlay, {
-                scale, useCORS: true, allowTaint: true,
-                backgroundColor: null, logging: false,
-                width: w, height: h, x: 0, y: 0,
-            });
-            ctx.drawImage(markersCanvas, 0, 0, offscreen.width, offscreen.height);
-        } catch (e) { console.warn('Map markers capture failed:', e); }
-    }
-
-    // Restore grid
-    renderer.showGrid = prevShowGrid;
-    renderer.render();
-
-    // Panels & legend
-    if (includePanels) await _compositeOverlays(ctx, scale);
-
-    // Branding
-    _drawBranding(ctx, offscreen.width, offscreen.height, scale);
-
-    const mimeType = format === 'jpg' ? 'image/jpeg' : 'image/png';
-    const quality  = format === 'jpg' ? 0.92 : undefined;
-    await _saveCanvas(offscreen, `multilayer_network.${format}`, mimeType, quality);
-}
-
-async function _saveCanvas(offscreen, filename, mimeType, quality) {
-    if (window.showSaveFilePicker) {
-        try {
-            const ext = filename.split('.').pop();
-            const handle = await window.showSaveFilePicker({
-                suggestedName: filename,
-                types: [{ description: `${ext.toUpperCase()} file`, accept: { [mimeType]: [`.${ext}`] } }],
-            });
-            const writable = await handle.createWritable();
-            const blob = await new Promise(resolve => offscreen.toBlob(resolve, mimeType, quality));
-            await writable.write(blob); await writable.close();
-        } catch (err) { if (err.name !== 'AbortError') console.error('Save failed:', err); }
-    } else {
-        const dataUrl = offscreen.toDataURL(mimeType, quality);
-        const link = document.createElement('a');
-        link.download = filename; link.href = dataUrl; link.click();
-    }
-}
-
-
-function _drawBranding(ctx, canvasW, canvasH, scale) {
-    const padding = 12 * scale;
-    const boxH = 28 * scale;
-    const fontSize = 13 * scale;
-    const text = 'Multilayer Viz';
-
-    ctx.font = `600 ${fontSize}px Inter, system-ui, sans-serif`;
-    const textW = ctx.measureText(text).width;
-    const boxW = textW + 24 * scale;
-
-    const x = canvasW - boxW - padding;
-    const y = canvasH - boxH - padding;
-
-    // Background
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
-    ctx.lineWidth = 1 * scale;
-
-    ctx.beginPath();
-    if (ctx.roundRect) {
-        ctx.roundRect(x, y, boxW, boxH, 8 * scale);
-    } else {
-        // Plain rectangle fallback (for jsPDF context2d which lacks roundRect and arcTo)
-        ctx.rect(x, y, boxW, boxH);
-    }
-    ctx.fill();
-    ctx.stroke();
-
-    // Text
-    ctx.fillStyle = '#1a1a2e';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(text, x + 12 * scale, y + boxH / 2);
-}
-
-async function _exportPDF() {
-    try {
-        await _loadScript('https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js');
-    } catch (err) {
-        alert('Could not load PDF library. Please check your internet connection and try again.');
-        return;
-    }
-
-    try {
-        const { jsPDF } = window.jspdf;
-
-        const srcCanvas = document.getElementById('networkCanvas');
-        const scale = 4; // ~300 DPI
-        const includeGrid   = document.getElementById('exportGridCheckbox').checked;
-        const includePanels = document.getElementById('exportPanelsCheckbox').checked;
-        const prevShowGrid  = renderer.showGrid;
-        renderer.showGrid = includeGrid;
-        renderer.render();
-
-        const w = srcCanvas.width, h = srcCanvas.height;
-        const offscreen = document.createElement('canvas');
-        offscreen.width = w * scale; offscreen.height = h * scale;
-        const ctx = offscreen.getContext('2d');
-
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, offscreen.width, offscreen.height);
-
-        // Map background (if in map mode or layer view geo mode)
-        const isLvGeoPdf = appMode === 'layer' && renderer.layerView?.geoMode;
-        if ((appMode === 'map' || isLvGeoPdf) && includeGrid) {
-            try {
-                await _loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
-                const mapEl = document.getElementById(appMode === 'map' ? 'backgroundMap' : 'lvBackgroundMap');
-                const mapCanvas = await html2canvas(mapEl, {
-                    scale, useCORS: true, allowTaint: true,
-                    backgroundColor: '#ffffff', logging: false,
-                    width: w, height: h, x: 0, y: 0,
-                });
-                ctx.drawImage(mapCanvas, 0, 0, offscreen.width, offscreen.height);
-            } catch (e) { console.warn('Map capture failed (PDF):', e); }
-        }
-
-        ctx.drawImage(srcCanvas, 0, 0, offscreen.width, offscreen.height);
-
-        // In map mode: composite the map markers overlay on top of the network
-        if (appMode === 'map') {
-            try {
-                const markersCanvas = await html2canvas(mapMarkersOverlay, {
-                    scale, useCORS: true, allowTaint: true,
-                    backgroundColor: null, logging: false,
-                    width: w, height: h, x: 0, y: 0,
-                });
-                ctx.drawImage(markersCanvas, 0, 0, offscreen.width, offscreen.height);
-            } catch (e) { console.warn('Map markers capture failed (PDF):', e); }
-        }
-
-        renderer.showGrid = prevShowGrid;
-        renderer.render();
-
-        if (includePanels) await _compositeOverlays(ctx, scale);
-
-        _drawBranding(ctx, offscreen.width, offscreen.height, scale);
-
-        // Create PDF at the original CSS-pixel page size
-        const isLandscape = w > h;
-        const pdf = new jsPDF({
-            orientation: isLandscape ? 'landscape' : 'portrait',
-            unit: 'px',
-            format: [w, h],
-            hotfixes: ['px_scaling']
-        });
-
-        // Embed the high-res image — fills the page, but is 4x resolution
-        const imgData = offscreen.toDataURL('image/png');
-        pdf.addImage(imgData, 'PNG', 0, 0, w, h, undefined, 'FAST');
-
-        // Save
-        if (window.showSaveFilePicker) {
-            try {
-                const handle = await window.showSaveFilePicker({
-                    suggestedName: 'multilayer_network.pdf',
-                    types: [{
-                        description: 'PDF Document',
-                        accept: { 'application/pdf': ['.pdf'] },
-                    }],
-                });
-                const writable = await handle.createWritable();
-                const blob = pdf.output('blob');
-                await writable.write(blob);
-                await writable.close();
-            } catch (err) {
-                if (err.name !== 'AbortError') console.error('Save failed:', err);
-            }
-        } else {
-            pdf.save('multilayer_network.pdf');
-        }
-    } catch (err) {
-        alert('PDF export failed: ' + err.message);
-        console.error(err);
-    }
-}
 
 // ---- Node Search ----
 const nodeSearchInput = document.getElementById('nodeSearchInput');
@@ -4604,8 +4814,10 @@ function clearNodeSearch() {
         renderer.searchedNodeName = null;
         if (_nodeSelectedBySearch) {
             renderer.selectedNode = null;
+            crossModeSelectedNode = null;
             hideNodeInfo();
         }
+        _updateFilterBanner();
         renderer.render();
     }
     _nodeSelectedBySearch = false;
@@ -4623,8 +4835,10 @@ function selectSearchNode(name) {
     }
     renderer.searchedNodeName = null;
     renderer.selectedNode = firstLayer ? { layerName: firstLayer, nodeName: name } : null;
+    crossModeSelectedNode = firstLayer ? name : null;
     _nodeSelectedBySearch = true;
     if (firstLayer) showNodeInfo({ layerName: firstLayer, nodeName: name });
+    _updateFilterBanner();
     renderer.render();
 }
 
@@ -4679,3 +4893,410 @@ nodeSearchInput.addEventListener('blur', () => {
 
 nodeSearchClearBtn.addEventListener('click', clearNodeSearch);
 
+// ---- Session Save / Load ----
+
+function getSessionState() {
+    const rawData = model ? {
+        directed: model.directed,
+        directedInterlayer: model.directedInterlayer,
+        layers: model.layers,
+        nodes: model.nodes,
+        extended: model.extended,
+        state_nodes: model.stateNodes,
+    } : null;
+
+    const positionsArray = positions
+        ? [...positions.entries()].map(([layerName, nodeMap]) => [layerName, [...nodeMap.entries()]])
+        : null;
+
+    return {
+        version: 1,
+        appMode,
+        selectedNode: crossModeSelectedNode,
+        rawData,
+        positions: positionsArray,
+        renderer: {
+            skewX: renderer.skewX,
+            skewY: renderer.skewY,
+            scale: renderer.scale,
+            offsetX: renderer.offsetX,
+            offsetY: renderer.offsetY,
+            layerSpacing: renderer.layerSpacing,
+            stackMode: renderer.stackMode,
+            nodeRadius: renderer.nodeRadius,
+            showLabels: renderer.showLabels,
+            transformNodes: renderer.transformNodes,
+            labelSizePx: parseInt(labelSizeSlider.value),
+            showLayerNames: renderer.showLayerNames,
+            layerNameFontSize: renderer.layerNameFontSize,
+            showSetNames: renderer.showSetNames,
+            showInterlayerLinks: renderer.showInterlayerLinks,
+            arrowheadSize: renderer.arrowheadSize,
+            interlayerCurvature: renderer.interlayerCurvature,
+            interlayerMinWeight: renderer.interlayerMinWeight,
+            intraMinWeight: renderer.intraMinWeight,
+            defaultIntraColor: renderer.defaultIntraColor,
+            defaultInterColor: renderer.defaultInterColor,
+            layerOffsets: [...renderer.layerOffsets.entries()],
+            gridColumns: parseInt(gridColumnsSlider.value),
+        },
+        ui: {
+            nodeColorSelect: nodeColorSelect.value,
+            nodeColorSelectSetA: nodeColorSelectSetA.value,
+            nodeColorSelectSetB: nodeColorSelectSetB.value,
+            nodeSizeSelect: nodeSizeSelect.value,
+            nodeSizeSelectSetA: nodeSizeSelectSetA.value,
+            nodeSizeSelectSetB: nodeSizeSelectSetB.value,
+            intraLinkColorSelect: intraLinkColorSelect.value,
+            interLinkColorSelect: interLinkColorSelect.value,
+            layerColorSelect: layerColorSelect.value,
+            layerColorPicker: layerColorPicker.value,
+            nodeColorPicker: nodeColorPicker.value,
+            intraLinkColorPicker: intraLinkColorPicker.value,
+            interLinkColorPicker: interLinkColorPicker.value,
+            nodeSizeSlider: parseInt(nodeSizeSlider.value),
+            layoutSelect: layoutSelect.value,
+            bipartiteNestedCheckbox: bipartiteNestedCheckbox.checked,
+            colorScaleOverrides: [...colorScaleOverrides.entries()],
+            categoryColorOverrides: [...categoryColorOverrides.entries()].map(
+                ([k, m]) => [k, [...m.entries()]]
+            ),
+            layerColors: [...layerColors.entries()],
+        },
+        layerView: renderer.layerView ? {
+            settings: { ...renderer.layerView.settings },
+            viewScale: renderer.layerView.viewScale,
+            viewOffsetX: renderer.layerView.viewOffsetX,
+            viewOffsetY: renderer.layerView.viewOffsetY,
+            geoMode: renderer.layerView.geoMode,
+        } : null,
+        meta: {
+            aggregation: mnAggregationSelect.value,
+            layout: mnLayoutSelect.value,
+            colorBy: mnColorBySelect.value,
+            sizeBy: mnSizeBySelect.value,
+            baseSize: parseFloat(mnBaseSizeSlider.value),
+            minWeight: parseFloat(mnMinWeightSlider.value),
+            nestedSort: mnNestedSortCheckbox.checked,
+            showLabels: mnShowLabelsCheckbox.checked,
+            labelSize: parseInt(mnLabelSizeSlider.value),
+            uniformColor: mnUniformColorPicker.value,
+            colorSetA: mnColorSetA.value,
+            colorSetB: mnColorSetB.value,
+            viewScale: metaNetwork ? metaNetwork.viewScale : 1,
+            viewOffsetX: metaNetwork ? metaNetwork.viewOffsetX : 0,
+            viewOffsetY: metaNetwork ? metaNetwork.viewOffsetY : 0,
+        },
+        map: {
+            activeMapLayers: [...activeMapLayers],
+            mapOpacity: parseFloat(mapOpacitySlider.value),
+            showMapImage: showMapImageCheckbox.checked,
+            showLocations: showLocationsCheckbox.checked,
+            streetMap: streetMapCheckbox.checked,
+            mapCenter: bgMap.getCenter(),
+            mapZoom: bgMap.getZoom(),
+            lvMapOpacity: parseFloat(lvMapOpacitySlider.value),
+            lvShowMapImage: lvShowMapImageCheckbox.checked,
+            lvStreetMap: lvStreetMapCheckbox.checked,
+            lvMapCenter: lvMap.getCenter(),
+            lvMapZoom: lvMap.getZoom(),
+        },
+        legend: {
+            expandedLegends: [...expandedLegends],
+            lvExpandedLegends: [...lvExpandedLegends],
+        },
+        filter: {
+            nodeNames: dataMode.filteredNodeNames ? [...dataMode.filteredNodeNames] : null,
+            layerNames: dataMode.filteredLayerNames ? [...dataMode.filteredLayerNames] : null,
+            linkKeys: dataMode.filteredLinkKeys ? [...dataMode.filteredLinkKeys] : null,
+            interPairFilter: [..._interPairFilter],
+        },
+    };
+}
+
+function _restoreLayerViewDOM(s) {
+    lvSizeBy.value = s.sizeBy;
+    lvColorBy.value = s.colorBy;
+    lvUniformColor.value = s.uniformColor;
+    lvUniformColorContainer.style.display = s.colorBy === 'uniform' ? '' : 'none';
+    lvShowEdges.checked = s.showEdges;
+    lvEdgeOptionsContainer.style.display = s.showEdges ? '' : 'none';
+    lvEdgeMetric.value = s.edgeMetric;
+    lvMinEdgeWeight.value = s.minEdgeWeight;
+    lvMinEdgeWeightLabel.textContent = s.minEdgeWeight;
+    lvEdgeLabels.checked = s.showEdgeLabels;
+    lvShowLabels.checked = s.showLabels;
+    lvFontSize.value = s.labelFontSize;
+    lvSizeMult.value = s.sizeMultiplier;
+    lvSizeMultLabel.textContent = s.sizeMultiplier.toFixed(1) + '×';
+    lvSpacing.value = s.bubbleSpacing;
+    lvSpacingLabel.textContent = s.bubbleSpacing.toFixed(1) + '×';
+}
+
+function restoreSessionState(state) {
+    if (!state.rawData) return;
+
+    // 1. Load data — resets mode, visual options, computes fresh positions
+    loadData(state.rawData);
+
+    // 2. Override positions with saved ones to restore exact layout
+    if (state.positions) {
+        positions = new Map(
+            state.positions.map(([layerName, entries]) => [layerName, new Map(entries)])
+        );
+        renderer.setData(model, positions);
+    }
+
+    // 3. Renderer properties
+    const rv = state.renderer;
+    renderer.skewX = rv.skewX;
+    renderer.skewY = rv.skewY;
+    renderer.layerSpacing = rv.layerSpacing;
+    setStackMode(rv.stackMode); // calls centerView() internally — restore scale/offset after
+    renderer.scale = rv.scale;
+    renderer.offsetX = rv.offsetX;
+    renderer.offsetY = rv.offsetY;
+    renderer.nodeRadius = rv.nodeRadius;
+    renderer.showLabels = rv.showLabels;
+    renderer.transformNodes = rv.transformNodes;
+    renderer.labelFont = `${rv.labelSizePx}px Inter, system-ui, sans-serif`;
+    renderer.showLayerNames = rv.showLayerNames;
+    renderer.layerNameFontSize = rv.layerNameFontSize ?? 14;
+    renderer.showSetNames = rv.showSetNames;
+    renderer.showInterlayerLinks = rv.showInterlayerLinks;
+    renderer.arrowheadSize = rv.arrowheadSize;
+    renderer.interlayerCurvature = rv.interlayerCurvature;
+    renderer.interlayerMinWeight = rv.interlayerMinWeight;
+    renderer.intraMinWeight = rv.intraMinWeight ?? 0;
+    renderer.defaultIntraColor = rv.defaultIntraColor;
+    renderer.defaultInterColor = rv.defaultInterColor;
+    renderer.layerOffsets = new Map(rv.layerOffsets);
+
+    // 4. DOM — checkboxes and sliders
+    showLabelsCheckbox.checked = rv.showLabels;
+    labelSizeRow.style.display = rv.showLabels ? '' : 'none';
+    labelSizeSlider.value = rv.labelSizePx;
+    labelSizeLabel.textContent = rv.labelSizePx + 'px';
+    transformNodesCheckbox.checked = rv.transformNodes;
+    showLayerNamesCheckbox.checked = rv.showLayerNames;
+    layerNameSizeSlider.value = rv.layerNameFontSize ?? 14;
+    layerNameSizeLabel.textContent = (rv.layerNameFontSize ?? 14) + 'px';
+    showSetNamesCheckbox.checked = rv.showSetNames;
+    renderer.showInterlayerLinks = rv.showInterlayerLinks ?? false;
+    showInterlayerCheckbox.checked = renderer.showInterlayerLinks;
+    layerSpacingSlider.value = rv.layerSpacing;
+    nodeSizeSlider.value = rv.nodeRadius;
+    arrowheadSizeSlider.value = rv.arrowheadSize;
+    interlayerCurvatureSlider.value = rv.interlayerCurvature;
+    interlayerWeightSlider.value = rv.interlayerMinWeight;
+    interlayerWeightLabel.textContent = rv.interlayerMinWeight.toFixed(2);
+    intraLinkWeightSlider.value = rv.intraMinWeight ?? 0;
+    intraLinkWeightLabel.textContent = (rv.intraMinWeight ?? 0).toFixed(2);
+
+    // 5. DOM — color pickers
+    const ui = state.ui;
+    layerColorPicker.value = ui.layerColorPicker;
+    nodeColorPicker.value = ui.nodeColorPicker;
+    intraLinkColorPicker.value = ui.intraLinkColorPicker;
+    interLinkColorPicker.value = ui.interLinkColorPicker;
+
+    // 6. Layout
+    layoutSelect.value = ui.layoutSelect;
+    layout.layoutType = ui.layoutSelect;
+    bipartiteNestedCheckbox.checked = ui.bipartiteNestedCheckbox;
+    layout.bipartiteNested = ui.bipartiteNestedCheckbox;
+
+    // 7. Color scale overrides
+    colorScaleOverrides.clear();
+    for (const [k, v] of ui.colorScaleOverrides) colorScaleOverrides.set(k, v);
+    categoryColorOverrides.clear();
+    for (const [k, entries] of ui.categoryColorOverrides) categoryColorOverrides.set(k, new Map(entries));
+    // Per-layer color overrides set via Data Mode (defaults already populated by initLayerColors on load)
+    if (ui.layerColors) {
+        for (const [name, hex] of ui.layerColors) layerColors.set(name, hex);
+    }
+
+    // 8. Color/size dropdowns → rebuild render functions
+    nodeColorSelect.value = ui.nodeColorSelect;
+    nodeColorSelectSetA.value = ui.nodeColorSelectSetA;
+    nodeColorSelectSetB.value = ui.nodeColorSelectSetB;
+    nodeSizeSelect.value = ui.nodeSizeSelect;
+    nodeSizeSelectSetA.value = ui.nodeSizeSelectSetA;
+    nodeSizeSelectSetB.value = ui.nodeSizeSelectSetB;
+    intraLinkColorSelect.value = ui.intraLinkColorSelect ?? '';
+    interLinkColorSelect.value = ui.interLinkColorSelect ?? '';
+    layerColorSelect.value = ui.layerColorSelect;
+    updateNodeColors();
+    updateNodeSizes();
+    updateIntraLinkColors(); updateInterLinkColors();
+    updateLayerColors();
+
+    // 9. Restore cross-mode selected node
+    crossModeSelectedNode = state.selectedNode ?? null;
+
+    // 10. Legend
+    expandedLegends.clear();
+    for (const k of state.legend.expandedLegends) expandedLegends.add(k);
+    lvExpandedLegends.clear();
+    for (const k of state.legend.lvExpandedLegends) lvExpandedLegends.add(k);
+    renderLegends();
+
+    // 11. Meta-network DOM (takes effect next time it's opened)
+    const mn = state.meta;
+    mnAggregationSelect.value = mn.aggregation;
+    mnLayoutSelect.value = mn.layout;
+    mnColorBySelect.value = mn.colorBy;
+    mnSizeBySelect.value = mn.sizeBy;
+    mnBaseSizeSlider.value = mn.baseSize;
+    mnBaseSizeLabel.textContent = mn.baseSize.toFixed(1) + '×';
+    mnMinWeightSlider.value = mn.minWeight;
+    mnMinWeightLabel.textContent = mn.minWeight.toFixed(2);
+    mnNestedSortCheckbox.checked = mn.nestedSort;
+    mnShowLabelsCheckbox.checked = mn.showLabels;
+    mnLabelSizeSlider.value = mn.labelSize;
+    mnLabelSizeLabel.textContent = mn.labelSize + 'px';
+    if (mn.uniformColor) mnUniformColorPicker.value = mn.uniformColor;
+    mnColorSetA.value = mn.colorSetA;
+    mnColorSetB.value = mn.colorSetB;
+
+    // 12. Map DOM
+    const mp = state.map;
+    mapOpacitySlider.value = mp.mapOpacity;
+    showMapImageCheckbox.checked = mp.showMapImage;
+    showLocationsCheckbox.checked = mp.showLocations;
+    streetMapCheckbox.checked = mp.streetMap;
+    lvMapOpacitySlider.value = mp.lvMapOpacity;
+    lvShowMapImageCheckbox.checked = mp.lvShowMapImage;
+    lvStreetMapCheckbox.checked = mp.lvStreetMap;
+
+    // 13. Restore visualization mode
+    if (state.appMode === 'map' && mapModeBtn.style.display !== 'none') {
+        toggleMapMode();
+        activeMapLayers.clear();
+        for (const l of mp.activeMapLayers) activeMapLayers.add(l);
+        updateMapModeViews();
+        if (mp.mapZoom != null) bgMap.setView([mp.mapCenter.lat, mp.mapCenter.lng], mp.mapZoom, { animate: false });
+    } else if (state.appMode === 'layer') {
+        toggleLayerView();
+        if (renderer.layerView && state.layerView) {
+            const lv = renderer.layerView;
+            Object.assign(lv.settings, state.layerView.settings);
+            lv.viewScale = state.layerView.viewScale;
+            lv.viewOffsetX = state.layerView.viewOffsetX;
+            lv.viewOffsetY = state.layerView.viewOffsetY;
+            _restoreLayerViewDOM(state.layerView.settings);
+            if (state.layerView.geoMode) {
+                _activateLvGeoMode();
+                if (mp.lvMapZoom != null) lvMap.setView([mp.lvMapCenter.lat, mp.lvMapCenter.lng], mp.lvMapZoom, { animate: false });
+            }
+        }
+    } else if (state.appMode === 'dashboard') {
+        dashboardBtn.click();
+    } else if (state.appMode === 'metanetwork') {
+        metaNetworkBtn.click();
+        if (metaNetwork) {
+            // _syncMetaNetworkControls() inside toggleMetaNetwork() overwrites the DOM
+            // with MetaNetwork defaults — apply saved settings directly to the object.
+            metaNetwork.updateSetting('aggregation', mn.aggregation);
+            metaNetwork.updateSetting('layout', mn.layout);
+            metaNetwork.updateSetting('colorBy', mn.colorBy);
+            metaNetwork.updateSetting('sizeBy', mn.sizeBy);
+            metaNetwork.updateSetting('baseSize', mn.baseSize);
+            metaNetwork.updateSetting('uniformColor', mn.uniformColor ?? metaNetwork.settings.uniformColor);
+            metaNetwork.updateSetting('uniformColorA', mn.colorSetA);
+            metaNetwork.updateSetting('uniformColorB', mn.colorSetB);
+            metaNetwork.updateSetting('nestedSort', mn.nestedSort);
+            metaNetwork.settings.minWeight = mn.minWeight;
+            metaNetwork.settings.showLabels = mn.showLabels;
+            metaNetwork.settings.labelFontSize = mn.labelSize;
+            // Re-sync the DOM to reflect the restored settings
+            _syncMetaNetworkControls();
+            // _syncMetaNetworkControls resets minWeight slider to 0 — restore it
+            mnMinWeightSlider.value = mn.minWeight;
+            mnMinWeightLabel.textContent = mn.minWeight.toFixed(2);
+            // Restore view transform (must be last — layout calls may call _fitView)
+            if (mn.viewScale != null) {
+                metaNetwork.viewScale = mn.viewScale;
+                metaNetwork.viewOffsetX = mn.viewOffsetX;
+                metaNetwork.viewOffsetY = mn.viewOffsetY;
+            }
+        }
+    } else if (state.appMode === 'grid') {
+        gridViewBtn.click();
+        const cols = rv.gridColumns;
+        if (cols && cols >= 1 && cols <= 8) {
+            gridColumnsSlider.value = cols;
+            gridColumnsLabel.textContent = cols;
+            renderer._gridColumns = cols;
+            renderer.render();
+        }
+    }
+
+    // 14. Restore data filter
+    if (state.filter) {
+        dataMode.filteredNodeNames  = state.filter.nodeNames  ? new Set(state.filter.nodeNames)  : null;
+        dataMode.filteredLayerNames = state.filter.layerNames ? new Set(state.filter.layerNames) : null;
+        dataMode.filteredLinkKeys   = state.filter.linkKeys   ? new Set(state.filter.linkKeys)   : null;
+        _updateFilterBanner();
+        if (state.filter.interPairFilter?.length) {
+            _interPairFilter = new Set(state.filter.interPairFilter);
+            _applyInterPairFilter();
+        }
+    }
+
+    _applyCrossModeSelectionToRenderer();
+    _updateSelectedNodeBanner();
+    renderer.render();
+}
+
+// ---- Session button wiring ----
+const saveSessionBtn = document.getElementById('saveSessionBtn');
+const loadSessionBtn = document.getElementById('loadSessionBtn');
+const sessionFileInput = document.getElementById('sessionFileInput');
+
+saveSessionBtn.addEventListener('click', () => {
+    if (!model) { alert('No data loaded to save.'); return; }
+    saveSession(getSessionState());
+});
+
+loadSessionBtn.addEventListener('click', () => sessionFileInput.click());
+
+sessionFileInput.addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+        const state = await loadSession(file);
+        if (!state.version || !state.rawData) throw new Error('Invalid session file.');
+        restoreSessionState(state);
+    } catch (err) {
+        alert('Failed to load session: ' + err.message);
+    }
+    e.target.value = '';
+});
+
+const loadSessionUrlBtn = document.getElementById('loadSessionUrlBtn');
+loadSessionUrlBtn.addEventListener('click', async () => {
+    const url = prompt('Paste session URL:');
+    if (!url) return;
+    try {
+        const state = await loadSessionFromUrl(url.trim());
+        if (!state.version || !state.rawData) throw new Error('Invalid session file.');
+        restoreSessionState(state);
+    } catch (err) {
+        alert('Failed to load session from URL: ' + err.message);
+    }
+});
+
+// ---- Auto-load session from ?session=<url> URL parameter ----
+(async () => {
+    const sessionUrl = new URLSearchParams(window.location.search).get('session');
+    if (!sessionUrl) return;
+    try {
+        const state = await loadSessionFromUrl(sessionUrl);
+        if (!state.version || !state.rawData) throw new Error('Invalid session file.');
+        restoreSessionState(state);
+    } catch (err) {
+        console.error('Failed to load session from URL:', err);
+        alert('Failed to load session from URL: ' + err.message);
+    }
+})();

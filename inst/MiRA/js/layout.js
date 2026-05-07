@@ -12,6 +12,18 @@
  *   - random        (uniform random)
  */
 
+/**
+ * Look up a state node's intralayer degree, transparently summing in/out
+ * when the network is directed. Falls back to 0 when the node is missing
+ * or the field hasn't been computed yet.
+ */
+function intralayerDegreeOf(model, layerName, nodeName) {
+    const sn = model.stateNodeMap.get(`${layerName}::${nodeName}`);
+    if (!sn) return 0;
+    if (sn.intra_degree !== undefined) return sn.intra_degree;
+    return (sn.intra_in_degree ?? 0) + (sn.intra_out_degree ?? 0);
+}
+
 export class ForceLayout {
     constructor(options = {}) {
         this.iterations = options.iterations || 150;
@@ -447,14 +459,12 @@ export class ForceLayout {
         let aNodes = nodeArray.filter(n => setA.has(n));
         let bNodes = nodeArray.filter(n => setB.has(n));
 
-        // Nested sorting: Sort descending by degree so hubs pull to the left
+        // Nested sorting: Sort descending by within-layer degree so hubs
+        // pull to the left. Uses intralayer degree only — interlayer
+        // connectivity shouldn't reorder nodes within a layer's row.
         if (this.bipartiteNested && model && model.stateNodeMap) {
             const sortByDegree = (a, b) => {
-                const snA = model.stateNodeMap.get(`${layerName}::${a}`);
-                const snB = model.stateNodeMap.get(`${layerName}::${b}`);
-                const degA = snA ? (snA.degree || 0) : 0;
-                const degB = snB ? (snB.degree || 0) : 0;
-                return degB - degA;
+                return intralayerDegreeOf(model, layerName, b) - intralayerDegreeOf(model, layerName, a);
             };
             aNodes.sort(sortByDegree);
             bNodes.sort(sortByDegree);

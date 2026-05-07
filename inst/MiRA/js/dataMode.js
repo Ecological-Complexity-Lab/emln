@@ -1,5 +1,5 @@
 /**
- * dataMode.js — Data Mode: tabular inspection and subsetting for MultilayerViz
+ * dataMode.js — Data Mode: tabular inspection and subsetting for MiRA
  */
 
 export const LAYER_PALETTE = [
@@ -121,26 +121,57 @@ export class DataMode {
         for (const sn of m.stateNodes) {
             nodeLayerCount.set(sn.node_name, (nodeLayerCount.get(sn.node_name) || 0) + 1);
         }
-        this._tables.nodes = m.nodes.map(n => {
+
+        // Group m.nodes entries by node_name to classify attributes as physical vs. state-level.
+        // Attributes that are constant across all layers of a physical node → physical node table.
+        // Attributes that vary across layers → state nodes table.
+        const nodeEntriesByName = new Map();
+        for (const n of m.nodes) {
+            if (!nodeEntriesByName.has(n.node_name)) nodeEntriesByName.set(n.node_name, []);
+            nodeEntriesByName.get(n.node_name).push(n);
+        }
+        const physicalNodeAttrs = [], varyingNodeAttrs = [];
+        for (const attr of (m.nodeAttributeNames || [])) {
+            if (attr === 'layer_name') continue; // structural dimension, not an attribute
+            let consistent = true;
+            for (const entries of nodeEntriesByName.values()) {
+                const vals = new Set(entries.map(e => e[attr]));
+                if (vals.size > 1) { consistent = false; break; }
+            }
+            (consistent ? physicalNodeAttrs : varyingNodeAttrs).push(attr);
+        }
+
+        // One row per physical node (deduplicated by node_name)
+        const seenNodeNames = new Set();
+        const physicalNodes = [];
+        for (const n of m.nodes) {
+            if (!seenNodeNames.has(n.node_name)) {
+                seenNodeNames.add(n.node_name);
+                physicalNodes.push(n);
+            }
+        }
+        this._tables.nodes = physicalNodes.map(n => {
             const row = { node_name: n.node_name };
-            for (const attr of (m.nodeAttributeNames || [])) row[attr] = n[attr];
+            for (const attr of physicalNodeAttrs) row[attr] = n[attr];
             row.layer_count = nodeLayerCount.get(n.node_name) || 0;
             return row;
         });
         this._columns.nodes = this._deriveColumns(this._tables.nodes, ['node_name']);
 
-        // State Nodes
-        const degreesMap = new Map();
-        for (const link of m.intralayerLinks) {
-            const kFrom = `${link.layer_from}::${link.node_from}`;
-            const kTo = `${link.layer_from}::${link.node_to}`;
-            degreesMap.set(kFrom, (degreesMap.get(kFrom) || 0) + 1);
-            degreesMap.set(kTo, (degreesMap.get(kTo) || 0) + 1);
-        }
+        // State Nodes — merge in any varying node-level attributes from m.nodes
+        const nodeByStateKey = new Map();
+        for (const n of m.nodes) nodeByStateKey.set(`${n.layer_name}::${n.node_name}`, n);
+
+        // intra_*/inter_* fields are populated by js/calc/nodeMetrics.js and
+        // carried through m.stateNodeAttributeNames, so they flow into the
+        // table via the loop below. No duplicate degree computation needed.
         this._tables.stateNodes = m.stateNodes.map(sn => {
             const row = { node_name: sn.node_name, layer_name: sn.layer_name };
             for (const attr of (m.stateNodeAttributeNames || [])) row[attr] = sn[attr];
-            row.degree = degreesMap.get(`${sn.layer_name}::${sn.node_name}`) || 0;
+            const nodeEntry = nodeByStateKey.get(`${sn.layer_name}::${sn.node_name}`);
+            if (nodeEntry) {
+                for (const attr of varyingNodeAttrs) row[attr] = nodeEntry[attr];
+            }
             return row;
         });
         this._columns.stateNodes = this._deriveColumns(this._tables.stateNodes, ['node_name', 'layer_name']);
