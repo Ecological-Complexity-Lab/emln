@@ -1,0 +1,10 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Spatial
+description,"The objective was to describe the plant-flower visitor interaction matrix of this area and compare it with the characteristics of other subarctic alpine systems and with pollination systems of lower latitudes, especially in relation to the role of flies as flower visitors at high latitudes."
+source,Web_of_Life
+source,Interaction_Web_DataBase
+data_url,http://www.web-of-life.es/map.php?type=6
+data_url,http://www.ecologia.ib.usp.br/iwdb/
+ecological_network_type,Pollination
+state_nodes,TRUE

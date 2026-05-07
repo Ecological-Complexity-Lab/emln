@@ -1,0 +1,29 @@
+layer,attribute,value
+1,type,space
+1,description,food web structure of a protected rocky shore community
+1,location,"Grindstone Neck, New England"
+1,latitude,44.372152311431
+1,longitude,-68.090121248152
+1,date,11/03/1973
+1,directed,TRUE
+2,type,space
+2,description,food web structure of a protected rocky shore community
+2,location,"San Juan Island, Washington"
+2,latitude,48.5377
+2,longitude,-123.084
+2,date,11/03/1973
+2,directed,TRUE
+3,type,space
+3,description,food web structure of a protected rocky shore community
+3,location,"Makah Bay, Washington"
+3,latitude,48.328556969062
+3,longitude,-124.671648484922
+3,date,11/03/1973
+3,directed,TRUE
+4,type,space
+4,description,food web structure of a protected rocky shore community
+4,location,"Pemaquid point, New England"
+4,latitude,43.8406
+4,longitude,-69.5098
+4,date,11/03/1973
+4,directed,TRUE

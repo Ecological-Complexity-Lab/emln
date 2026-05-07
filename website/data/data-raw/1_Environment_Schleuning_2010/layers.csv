@@ -1,0 +1,26 @@
+layer,attribute,value
+1,name,canopy
+1,type,environment
+1,locality of study,"Kakamega Forest, western Kenya"
+1,latitude,0.250512
+1,longitude,34.871005
+2,name,midstory
+2,type,environment
+2,locality of study,"Kakamega Forest, western Kenya"
+2,latitude,0.250512
+2,longitude,34.871005
+3,name,understory
+3,type,environment
+3,locality of study,"Kakamega Forest, western Kenya"
+3,latitude,0.250512
+3,longitude,34.871005
+4,name,primary
+4,type,environment
+4,locality of study,"Kakamega Forest, western Kenya"
+4,latitude,0.250512
+4,longitude,34.871005
+5,name,secondary
+5,type,environment
+5,locality of study,"Kakamega Forest, western Kenya"
+5,latitude,0.250512
+5,longitude,34.871005

@@ -1,0 +1,31 @@
+layer,attribute,value
+1,type,space
+1,name,The food web structure of N. albomarginata
+1,location,West Malaysia
+1,latitude,2.974709
+1,longitude,103.122705
+1,directed,TRUE
+2,type,space
+2,name,The food web structure of N. distillatoria
+2,location,Sri Lanka
+2,latitude,7.862065
+2,longitude,80.812428
+2,directed,TRUE
+3,type,space
+3,name,The food web structure of N. madagascarensis
+3,location,Madagascar
+3,latitude,-19
+3,longitude,46.37211
+3,directed,TRUE
+4,type,space
+4,name,The food web structure of N. pervillei
+4,location,Seychelles
+4,latitude,-4.677263
+4,longitude,55.461923
+4,directed,TRUE
+5,type,space
+5,name,The food web structure of N. ampullaria
+5,location,West Malaysia
+5,latitude,2.974709
+5,longitude,103.122705
+5,directed,TRUE

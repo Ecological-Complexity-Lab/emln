@@ -1,0 +1,1730 @@
+interaction_id,attribute,value
+1,node_from,Lysiphlebus_thelaxis
+1,layer_from,1
+1,node_to,Tuberculoides_annulatus
+1,layer_to,1
+1,weight,0
+1,type,host-parasite
+1,method,field/laboratory observations
+2,node_from,Trioxys_pallidus
+2,layer_from,1
+2,node_to,Thelaxes_dryophila
+2,layer_to,1
+2,weight,0
+2,type,host-parasite
+2,method,field/laboratory observations
+3,node_from,Trioxys_pallidus
+3,layer_from,1
+3,node_to,Myzocallis_castanicola
+3,layer_to,1
+3,weight,0
+3,type,host-parasite
+3,method,field/laboratory observations
+4,node_from,Lysiphlebus_thelaxis
+4,layer_from,1
+4,node_to,Stomaphis_quercus
+4,layer_to,1
+4,weight,0
+4,type,host-parasite
+4,method,field/laboratory observations
+5,node_from,Lysiphlebus_thelaxis
+5,layer_from,1
+5,node_to,Myzocallis_castanicola
+5,layer_to,1
+5,weight,0
+5,type,host-parasite
+5,method,field/laboratory observations
+6,node_from,Trioxys_pallidus
+6,layer_from,1
+6,node_to,Stomaphis_quercus
+6,layer_to,1
+6,weight,0
+6,type,host-parasite
+6,method,field/laboratory observations
+7,node_from,T._curvicaudus
+7,layer_from,1
+7,node_to,Thelaxes_dryophila
+7,layer_to,1
+7,weight,0
+7,type,host-parasite
+7,method,field/laboratory observations
+8,node_from,T._curvicaudus
+8,layer_from,1
+8,node_to,Myzocallis_castanicola
+8,layer_to,1
+8,weight,0
+8,type,host-parasite
+8,method,field/laboratory observations
+9,node_from,T._tenvicaudus
+9,layer_from,1
+9,node_to,Stomaphis_quercus
+9,layer_to,1
+9,weight,0
+9,type,host-parasite
+9,method,field/laboratory observations
+10,node_from,Aphidencyrtus_aphidivorus
+10,layer_from,1
+10,node_to,Thelaxes_dryophila
+10,layer_to,1
+10,weight,0
+10,type,host-parasite
+10,method,field/laboratory observations
+11,node_from,Aphidencyrtus_aphidivorus
+11,layer_from,1
+11,node_to,Myzocallis_castanicola
+11,layer_to,1
+11,weight,0
+11,type,host-parasite
+11,method,field/laboratory observations
+12,node_from,A._quercicola
+12,layer_from,1
+12,node_to,Stomaphis_quercus
+12,layer_to,1
+12,weight,0
+12,type,host-parasite
+12,method,field/laboratory observations
+13,node_from,Praon_flavinode
+13,layer_from,1
+13,node_to,Thelaxes_dryophila
+13,layer_to,1
+13,weight,0
+13,type,host-parasite
+13,method,field/laboratory observations
+14,node_from,Lysiphlebus_thelaxis
+14,layer_from,1
+14,node_to,Thelaxes_dryophila
+14,layer_to,1
+14,weight,1
+14,type,host-parasite
+14,method,field/laboratory observations
+15,node_from,Trioxys_pallidus
+15,layer_from,1
+15,node_to,Tuberculoides_annulatus
+15,layer_to,1
+15,weight,1
+15,type,host-parasite
+15,method,field/laboratory observations
+16,node_from,T._tenvicaudus
+16,layer_from,1
+16,node_to,Tuberculoides_annulatus
+16,layer_to,1
+16,weight,1
+16,type,host-parasite
+16,method,field/laboratory observations
+17,node_from,A._quercicola
+17,layer_from,1
+17,node_to,Tuberculoides_annulatus
+17,layer_to,1
+17,weight,1
+17,type,host-parasite
+17,method,field/laboratory observations
+18,node_from,Praon_flavinode
+18,layer_from,1
+18,node_to,Myzocallis_castanicola
+18,layer_to,1
+18,weight,1
+18,type,host-parasite
+18,method,field/laboratory observations
+19,node_from,Stomaphis_quercus
+19,layer_from,1
+19,node_to,Quercus_robur
+19,layer_to,1
+19,weight,1
+19,type,host-parasite
+19,method,field/laboratory observations
+20,node_from,Myzocallis_castanicola
+20,layer_from,1
+20,node_to,Quercus_robur
+20,layer_to,1
+20,weight,1
+20,type,host-parasite
+20,method,field/laboratory observations
+21,node_from,T._curvicaudus
+21,layer_from,1
+21,node_to,Stomaphis_quercus
+21,layer_to,1
+21,weight,0
+21,type,host-parasite
+21,method,field/laboratory observations
+22,node_from,T._tenvicaudus
+22,layer_from,1
+22,node_to,Thelaxes_dryophila
+22,layer_to,1
+22,weight,0
+22,type,host-parasite
+22,method,field/laboratory observations
+23,node_from,T._tenvicaudus
+23,layer_from,1
+23,node_to,Myzocallis_castanicola
+23,layer_to,1
+23,weight,0
+23,type,host-parasite
+23,method,field/laboratory observations
+24,node_from,Aphidencyrtus_aphidivorus
+24,layer_from,1
+24,node_to,Stomaphis_quercus
+24,layer_to,1
+24,weight,0
+24,type,host-parasite
+24,method,field/laboratory observations
+25,node_from,A._quercicola
+25,layer_from,1
+25,node_to,Thelaxes_dryophila
+25,layer_to,1
+25,weight,0
+25,type,host-parasite
+25,method,field/laboratory observations
+26,node_from,A._quercicola
+26,layer_from,1
+26,node_to,Myzocallis_castanicola
+26,layer_to,1
+26,weight,0
+26,type,host-parasite
+26,method,field/laboratory observations
+27,node_from,Praon_flavinode
+27,layer_from,1
+27,node_to,Stomaphis_quercus
+27,layer_to,1
+27,weight,0
+27,type,host-parasite
+27,method,field/laboratory observations
+28,node_from,Protophidius_wissmanii
+28,layer_from,1
+28,node_to,Stomaphis_quercus
+28,layer_to,1
+28,weight,1
+28,type,host-parasite
+28,method,field/laboratory observations
+29,node_from,T._curvicaudus
+29,layer_from,1
+29,node_to,Tuberculoides_annulatus
+29,layer_to,1
+29,weight,1
+29,type,host-parasite
+29,method,field/laboratory observations
+30,node_from,Aphidencyrtus_aphidivorus
+30,layer_from,1
+30,node_to,Tuberculoides_annulatus
+30,layer_to,1
+30,weight,1
+30,type,host-parasite
+30,method,field/laboratory observations
+31,node_from,Praon_flavinode
+31,layer_from,1
+31,node_to,Tuberculoides_annulatus
+31,layer_to,1
+31,weight,1
+31,type,host-parasite
+31,method,field/laboratory observations
+32,node_from,Thelaxes_dryophila
+32,layer_from,1
+32,node_to,Quercus_robur
+32,layer_to,1
+32,weight,1
+32,type,host-parasite
+32,method,field/laboratory observations
+33,node_from,Tuberculoides_annulatus
+33,layer_from,1
+33,node_to,Quercus_robur
+33,layer_to,1
+33,weight,1
+33,type,host-parasite
+33,method,field/laboratory observations
+34,node_from,Aphelinus_chaonia
+34,layer_from,2
+34,node_to,Euceraphis_betulae
+34,layer_to,2
+34,weight,0
+34,type,host-parasite
+34,method,field/laboratory observations
+35,node_from,Aphelinus_chaonia
+35,layer_from,2
+35,node_to,Betulaphis_quadrituberculata
+35,layer_to,2
+35,weight,0
+35,type,host-parasite
+35,method,field/laboratory observations
+36,node_from,Aphelinus_chaonia
+36,layer_from,2
+36,node_to,Calaphis_betulicola
+36,layer_to,2
+36,weight,0
+36,type,host-parasite
+36,method,field/laboratory observations
+37,node_from,Aphelinus_chaonia
+37,layer_from,2
+37,node_to,Betulaphis_brevipilosa
+37,layer_to,2
+37,weight,0
+37,type,host-parasite
+37,method,field/laboratory observations
+38,node_from,Aphelinus_chaonia
+38,layer_from,2
+38,node_to,Hamamelistes_betulinus
+38,layer_to,2
+38,weight,0
+38,type,host-parasite
+38,method,field/laboratory observations
+39,node_from,Trioxys_betulae
+39,layer_from,2
+39,node_to,Euceraphis_betulae
+39,layer_to,2
+39,weight,0
+39,type,host-parasite
+39,method,field/laboratory observations
+40,node_from,Trioxys_betulae
+40,layer_from,2
+40,node_to,Betulaphis_quadrituberculata
+40,layer_to,2
+40,weight,0
+40,type,host-parasite
+40,method,field/laboratory observations
+41,node_from,Trioxys_betulae
+41,layer_from,2
+41,node_to,Calaphis_betulicola
+41,layer_to,2
+41,weight,0
+41,type,host-parasite
+41,method,field/laboratory observations
+42,node_from,Trioxys_betulae
+42,layer_from,2
+42,node_to,Betulaphis_brevipilosa
+42,layer_to,2
+42,weight,0
+42,type,host-parasite
+42,method,field/laboratory observations
+43,node_from,Trioxys_betulae
+43,layer_from,2
+43,node_to,Hamamelistes_betulinus
+43,layer_to,2
+43,weight,0
+43,type,host-parasite
+43,method,field/laboratory observations
+44,node_from,T._compressicornis
+44,layer_from,2
+44,node_to,Symydobius_oblongus
+44,layer_to,2
+44,weight,0
+44,type,host-parasite
+44,method,field/laboratory observations
+45,node_from,T._compressicornis
+45,layer_from,2
+45,node_to,Betulaphis_quadrituberculata
+45,layer_to,2
+45,weight,0
+45,type,host-parasite
+45,method,field/laboratory observations
+46,node_from,T._compressicornis
+46,layer_from,2
+46,node_to,Calaphis_betulicola
+46,layer_to,2
+46,weight,0
+46,type,host-parasite
+46,method,field/laboratory observations
+47,node_from,T._compressicornis
+47,layer_from,2
+47,node_to,Betulaphis_brevipilosa
+47,layer_to,2
+47,weight,0
+47,type,host-parasite
+47,method,field/laboratory observations
+48,node_from,T._compressicornis
+48,layer_from,2
+48,node_to,Hamamelistes_betulinus
+48,layer_to,2
+48,weight,0
+48,type,host-parasite
+48,method,field/laboratory observations
+49,node_from,Praon_flavinode
+49,layer_from,2
+49,node_to,Symydobius_oblongus
+49,layer_to,2
+49,weight,0
+49,type,host-parasite
+49,method,field/laboratory observations
+50,node_from,Praon_flavinode
+50,layer_from,2
+50,node_to,Calaphis_betulicola
+50,layer_to,2
+50,weight,0
+50,type,host-parasite
+50,method,field/laboratory observations
+51,node_from,Praon_flavinode
+51,layer_from,2
+51,node_to,Betulaphis_brevipilosa
+51,layer_to,2
+51,weight,0
+51,type,host-parasite
+51,method,field/laboratory observations
+52,node_from,Praon_flavinode
+52,layer_from,2
+52,node_to,Hamamelistes_betulinus
+52,layer_to,2
+52,weight,0
+52,type,host-parasite
+52,method,field/laboratory observations
+53,node_from,Aphidius_aquilus
+53,layer_from,2
+53,node_to,Symydobius_oblongus
+53,layer_to,2
+53,weight,0
+53,type,host-parasite
+53,method,field/laboratory observations
+54,node_from,Aphidius_aquilus
+54,layer_from,2
+54,node_to,Euceraphis_betulae
+54,layer_to,2
+54,weight,0
+54,type,host-parasite
+54,method,field/laboratory observations
+55,node_from,Aphidius_aquilus
+55,layer_from,2
+55,node_to,Hamamelistes_betulinus
+55,layer_to,2
+55,weight,0
+55,type,host-parasite
+55,method,field/laboratory observations
+56,node_from,Calaphidius_elegans
+56,layer_from,2
+56,node_to,Symydobius_oblongus
+56,layer_to,2
+56,weight,0
+56,type,host-parasite
+56,method,field/laboratory observations
+57,node_from,Calaphidius_elegans
+57,layer_from,2
+57,node_to,Euceraphis_betulae
+57,layer_to,2
+57,weight,0
+57,type,host-parasite
+57,method,field/laboratory observations
+58,node_from,Calaphidius_elegans
+58,layer_from,2
+58,node_to,Betulaphis_quadrituberculata
+58,layer_to,2
+58,weight,0
+58,type,host-parasite
+58,method,field/laboratory observations
+59,node_from,Calaphidius_elegans
+59,layer_from,2
+59,node_to,Calaphis_betulicola
+59,layer_to,2
+59,weight,0
+59,type,host-parasite
+59,method,field/laboratory observations
+60,node_from,Calaphidius_elegans
+60,layer_from,2
+60,node_to,Betulaphis_brevipilosa
+60,layer_to,2
+60,weight,0
+60,type,host-parasite
+60,method,field/laboratory observations
+61,node_from,Aphelinus_chaonia
+61,layer_from,2
+61,node_to,Symydobius_oblongus
+61,layer_to,2
+61,weight,1
+61,type,host-parasite
+61,method,field/laboratory observations
+62,node_from,Trioxys_betulae
+62,layer_from,2
+62,node_to,Symydobius_oblongus
+62,layer_to,2
+62,weight,1
+62,type,host-parasite
+62,method,field/laboratory observations
+63,node_from,T._compressicornis
+63,layer_from,2
+63,node_to,Euceraphis_betulae
+63,layer_to,2
+63,weight,1
+63,type,host-parasite
+63,method,field/laboratory observations
+64,node_from,Praon_flavinode
+64,layer_from,2
+64,node_to,Euceraphis_betulae
+64,layer_to,2
+64,weight,1
+64,type,host-parasite
+64,method,field/laboratory observations
+65,node_from,Praon_flavinode
+65,layer_from,2
+65,node_to,Betulaphis_quadrituberculata
+65,layer_to,2
+65,weight,1
+65,type,host-parasite
+65,method,field/laboratory observations
+66,node_from,Aphidius_aquilus
+66,layer_from,2
+66,node_to,Betulaphis_quadrituberculata
+66,layer_to,2
+66,weight,1
+66,type,host-parasite
+66,method,field/laboratory observations
+67,node_from,Aphidius_aquilus
+67,layer_from,2
+67,node_to,Calaphis_betulicola
+67,layer_to,2
+67,weight,1
+67,type,host-parasite
+67,method,field/laboratory observations
+68,node_from,Aphidius_aquilus
+68,layer_from,2
+68,node_to,Betulaphis_brevipilosa
+68,layer_to,2
+68,weight,1
+68,type,host-parasite
+68,method,field/laboratory observations
+69,node_from,Calaphidius_elegans
+69,layer_from,2
+69,node_to,Hamamelistes_betulinus
+69,layer_to,2
+69,weight,1
+69,type,host-parasite
+69,method,field/laboratory observations
+70,node_from,Symydobius_oblongus
+70,layer_from,2
+70,node_to,Betula_pendula
+70,layer_to,2
+70,weight,1
+70,type,host-parasite
+70,method,field/laboratory observations
+71,node_from,Euceraphis_betulae
+71,layer_from,2
+71,node_to,Betula_pendula
+71,layer_to,2
+71,weight,1
+71,type,host-parasite
+71,method,field/laboratory observations
+72,node_from,Betulaphis_quadrituberculata
+72,layer_from,2
+72,node_to,Betula_pendula
+72,layer_to,2
+72,weight,1
+72,type,host-parasite
+72,method,field/laboratory observations
+73,node_from,Calaphis_betulicola
+73,layer_from,2
+73,node_to,Betula_pendula
+73,layer_to,2
+73,weight,1
+73,type,host-parasite
+73,method,field/laboratory observations
+74,node_from,Betulaphis_brevipilosa
+74,layer_from,2
+74,node_to,Betula_pendula
+74,layer_to,2
+74,weight,1
+74,type,host-parasite
+74,method,field/laboratory observations
+75,node_from,Hamamelistes_betulinus
+75,layer_from,2
+75,node_to,Betula_pendula
+75,layer_to,2
+75,weight,1
+75,type,host-parasite
+75,method,field/laboratory observations
+76,node_from,Pauesia_picta
+76,layer_from,3
+76,node_to,Eulachnus_agilis
+76,layer_to,3
+76,weight,0
+76,type,host-parasite
+76,method,field/laboratory observations
+77,node_from,P._laricia
+77,layer_from,3
+77,node_to,Cinara_pini
+77,layer_to,3
+77,weight,0
+77,type,host-parasite
+77,method,field/laboratory observations
+78,node_from,P._laricia
+78,layer_from,3
+78,node_to,Schizolachnus_pineti
+78,layer_to,3
+78,weight,0
+78,type,host-parasite
+78,method,field/laboratory observations
+79,node_from,P._jezoensis
+79,layer_from,3
+79,node_to,Eulachnus_agilis
+79,layer_to,3
+79,weight,0
+79,type,host-parasite
+79,method,field/laboratory observations
+80,node_from,P._pini
+80,layer_from,3
+80,node_to,Cinara_pini
+80,layer_to,3
+80,weight,0
+80,type,host-parasite
+80,method,field/laboratory observations
+81,node_from,P._pini
+81,layer_from,3
+81,node_to,Schizolachnus_pineti
+81,layer_to,3
+81,weight,0
+81,type,host-parasite
+81,method,field/laboratory observations
+82,node_from,Praon_bicolor
+82,layer_from,3
+82,node_to,C._pinea
+82,layer_to,3
+82,weight,0
+82,type,host-parasite
+82,method,field/laboratory observations
+83,node_from,Diaeretus_leucopterus
+83,layer_from,3
+83,node_to,Cinara_pini
+83,layer_to,3
+83,weight,0
+83,type,host-parasite
+83,method,field/laboratory observations
+84,node_from,Diaeretus_leucopterus
+84,layer_from,3
+84,node_to,Schizolachnus_pineti
+84,layer_to,3
+84,weight,0
+84,type,host-parasite
+84,method,field/laboratory observations
+85,node_from,Pauesia_unilachni
+85,layer_from,3
+85,node_to,C._pinea
+85,layer_to,3
+85,weight,0
+85,type,host-parasite
+85,method,field/laboratory observations
+86,node_from,Pauesia_picta
+86,layer_from,3
+86,node_to,Cinara_pini
+86,layer_to,3
+86,weight,1
+86,type,host-parasite
+86,method,field/laboratory observations
+87,node_from,P._jezoensis
+87,layer_from,3
+87,node_to,C._pinea
+87,layer_to,3
+87,weight,1
+87,type,host-parasite
+87,method,field/laboratory observations
+88,node_from,Praon_bicolor
+88,layer_from,3
+88,node_to,Eulachnus_agilis
+88,layer_to,3
+88,weight,1
+88,type,host-parasite
+88,method,field/laboratory observations
+89,node_from,Pauesia_unilachni
+89,layer_from,3
+89,node_to,Schizolachnus_pineti
+89,layer_to,3
+89,weight,1
+89,type,host-parasite
+89,method,field/laboratory observations
+90,node_from,C._pinea
+90,layer_from,3
+90,node_to,Pinus_silvestris
+90,layer_to,3
+90,weight,1
+90,type,host-parasite
+90,method,field/laboratory observations
+91,node_from,Schizolachnus_pineti
+91,layer_from,3
+91,node_to,Pinus_silvestris
+91,layer_to,3
+91,weight,1
+91,type,host-parasite
+91,method,field/laboratory observations
+92,node_from,Pauesia_picta
+92,layer_from,3
+92,node_to,C._pinea
+92,layer_to,3
+92,weight,0
+92,type,host-parasite
+92,method,field/laboratory observations
+93,node_from,Pauesia_picta
+93,layer_from,3
+93,node_to,Schizolachnus_pineti
+93,layer_to,3
+93,weight,0
+93,type,host-parasite
+93,method,field/laboratory observations
+94,node_from,P._laricia
+94,layer_from,3
+94,node_to,Eulachnus_agilis
+94,layer_to,3
+94,weight,0
+94,type,host-parasite
+94,method,field/laboratory observations
+95,node_from,P._jezoensis
+95,layer_from,3
+95,node_to,Cinara_pini
+95,layer_to,3
+95,weight,0
+95,type,host-parasite
+95,method,field/laboratory observations
+96,node_from,P._jezoensis
+96,layer_from,3
+96,node_to,Schizolachnus_pineti
+96,layer_to,3
+96,weight,0
+96,type,host-parasite
+96,method,field/laboratory observations
+97,node_from,P._pini
+97,layer_from,3
+97,node_to,Eulachnus_agilis
+97,layer_to,3
+97,weight,0
+97,type,host-parasite
+97,method,field/laboratory observations
+98,node_from,Praon_bicolor
+98,layer_from,3
+98,node_to,Cinara_pini
+98,layer_to,3
+98,weight,0
+98,type,host-parasite
+98,method,field/laboratory observations
+99,node_from,Praon_bicolor
+99,layer_from,3
+99,node_to,Schizolachnus_pineti
+99,layer_to,3
+99,weight,0
+99,type,host-parasite
+99,method,field/laboratory observations
+100,node_from,Diaeretus_leucopterus
+100,layer_from,3
+100,node_to,C._pinea
+100,layer_to,3
+100,weight,0
+100,type,host-parasite
+100,method,field/laboratory observations
+101,node_from,Pauesia_unilachni
+101,layer_from,3
+101,node_to,Cinara_pini
+101,layer_to,3
+101,weight,0
+101,type,host-parasite
+101,method,field/laboratory observations
+102,node_from,Pauesia_unilachni
+102,layer_from,3
+102,node_to,Eulachnus_agilis
+102,layer_to,3
+102,weight,0
+102,type,host-parasite
+102,method,field/laboratory observations
+103,node_from,P._laricia
+103,layer_from,3
+103,node_to,C._pinea
+103,layer_to,3
+103,weight,1
+103,type,host-parasite
+103,method,field/laboratory observations
+104,node_from,P._pini
+104,layer_from,3
+104,node_to,C._pinea
+104,layer_to,3
+104,weight,1
+104,type,host-parasite
+104,method,field/laboratory observations
+105,node_from,Diaeretus_leucopterus
+105,layer_from,3
+105,node_to,Eulachnus_agilis
+105,layer_to,3
+105,weight,1
+105,type,host-parasite
+105,method,field/laboratory observations
+106,node_from,Cinara_pini
+106,layer_from,3
+106,node_to,Pinus_silvestris
+106,layer_to,3
+106,weight,1
+106,type,host-parasite
+106,method,field/laboratory observations
+107,node_from,Eulachnus_agilis
+107,layer_from,3
+107,node_to,Pinus_silvestris
+107,layer_to,3
+107,weight,1
+107,type,host-parasite
+107,method,field/laboratory observations
+108,node_from,Lysiphlebus_thelaxis
+108,layer_from,4
+108,node_to,Stomaphis_quercus
+108,layer_to,4
+108,weight,0
+108,type,host-parasite
+108,method,field/laboratory observations
+109,node_from,Lysiphlebus_thelaxis
+109,layer_from,4
+109,node_to,Myzocallis_castanicola
+109,layer_to,4
+109,weight,0
+109,type,host-parasite
+109,method,field/laboratory observations
+110,node_from,Lysiphlebus_thelaxis
+110,layer_from,4
+110,node_to,Euceraphis_betulae
+110,layer_to,4
+110,weight,0
+110,type,host-parasite
+110,method,field/laboratory observations
+111,node_from,Lysiphlebus_thelaxis
+111,layer_from,4
+111,node_to,Calaphis_betulicola
+111,layer_to,4
+111,weight,0
+111,type,host-parasite
+111,method,field/laboratory observations
+112,node_from,Lysiphlebus_thelaxis
+112,layer_from,4
+112,node_to,Hamamelistes_betulinus
+112,layer_to,4
+112,weight,0
+112,type,host-parasite
+112,method,field/laboratory observations
+113,node_from,Protaphidius_wissmanii
+113,layer_from,4
+113,node_to,Tuberculoides_annulatus
+113,layer_to,4
+113,weight,0
+113,type,host-parasite
+113,method,field/laboratory observations
+114,node_from,Protaphidius_wissmanii
+114,layer_from,4
+114,node_to,Symydobius_oblongus
+114,layer_to,4
+114,weight,0
+114,type,host-parasite
+114,method,field/laboratory observations
+115,node_from,Protaphidius_wissmanii
+115,layer_from,4
+115,node_to,Betulaphis_quadrituberculata
+115,layer_to,4
+115,weight,0
+115,type,host-parasite
+115,method,field/laboratory observations
+116,node_from,Protaphidius_wissmanii
+116,layer_from,4
+116,node_to,Betulaphis_brevipilosa
+116,layer_to,4
+116,weight,0
+116,type,host-parasite
+116,method,field/laboratory observations
+117,node_from,Trioxys_pallidus
+117,layer_from,4
+117,node_to,Thelaxes_dryophila
+117,layer_to,4
+117,weight,0
+117,type,host-parasite
+117,method,field/laboratory observations
+118,node_from,Trioxys_pallidus
+118,layer_from,4
+118,node_to,Myzocallis_castanicola
+118,layer_to,4
+118,weight,0
+118,type,host-parasite
+118,method,field/laboratory observations
+119,node_from,Trioxys_pallidus
+119,layer_from,4
+119,node_to,Euceraphis_betulae
+119,layer_to,4
+119,weight,0
+119,type,host-parasite
+119,method,field/laboratory observations
+120,node_from,Trioxys_pallidus
+120,layer_from,4
+120,node_to,Calaphis_betulicola
+120,layer_to,4
+120,weight,0
+120,type,host-parasite
+120,method,field/laboratory observations
+121,node_from,Trioxys_pallidus
+121,layer_from,4
+121,node_to,Hamamelistes_betulinus
+121,layer_to,4
+121,weight,0
+121,type,host-parasite
+121,method,field/laboratory observations
+122,node_from,T._curvicaudus
+122,layer_from,4
+122,node_to,Stomaphis_quercus
+122,layer_to,4
+122,weight,0
+122,type,host-parasite
+122,method,field/laboratory observations
+123,node_from,T._curvicaudus
+123,layer_from,4
+123,node_to,Symydobius_oblongus
+123,layer_to,4
+123,weight,0
+123,type,host-parasite
+123,method,field/laboratory observations
+124,node_from,T._curvicaudus
+124,layer_from,4
+124,node_to,Betulaphis_quadrituberculata
+124,layer_to,4
+124,weight,0
+124,type,host-parasite
+124,method,field/laboratory observations
+125,node_from,T._curvicaudus
+125,layer_from,4
+125,node_to,Betulaphis_brevipilosa
+125,layer_to,4
+125,weight,0
+125,type,host-parasite
+125,method,field/laboratory observations
+126,node_from,T._tenuicaudus
+126,layer_from,4
+126,node_to,Thelaxes_dryophila
+126,layer_to,4
+126,weight,0
+126,type,host-parasite
+126,method,field/laboratory observations
+127,node_from,T._tenuicaudus
+127,layer_from,4
+127,node_to,Myzocallis_castanicola
+127,layer_to,4
+127,weight,0
+127,type,host-parasite
+127,method,field/laboratory observations
+128,node_from,T._tenuicaudus
+128,layer_from,4
+128,node_to,Euceraphis_betulae
+128,layer_to,4
+128,weight,0
+128,type,host-parasite
+128,method,field/laboratory observations
+129,node_from,T._tenuicaudus
+129,layer_from,4
+129,node_to,Calaphis_betulicola
+129,layer_to,4
+129,weight,0
+129,type,host-parasite
+129,method,field/laboratory observations
+130,node_from,T._tenuicaudus
+130,layer_from,4
+130,node_to,Hamamelistes_betulinus
+130,layer_to,4
+130,weight,0
+130,type,host-parasite
+130,method,field/laboratory observations
+131,node_from,Aphidencyrtus_aphidivorus
+131,layer_from,4
+131,node_to,Stomaphis_quercus
+131,layer_to,4
+131,weight,0
+131,type,host-parasite
+131,method,field/laboratory observations
+132,node_from,Aphidencyrtus_aphidivorus
+132,layer_from,4
+132,node_to,Symydobius_oblongus
+132,layer_to,4
+132,weight,0
+132,type,host-parasite
+132,method,field/laboratory observations
+133,node_from,Aphidencyrtus_aphidivorus
+133,layer_from,4
+133,node_to,Betulaphis_quadrituberculata
+133,layer_to,4
+133,weight,0
+133,type,host-parasite
+133,method,field/laboratory observations
+134,node_from,Aphidencyrtus_aphidivorus
+134,layer_from,4
+134,node_to,Betulaphis_brevipilosa
+134,layer_to,4
+134,weight,0
+134,type,host-parasite
+134,method,field/laboratory observations
+135,node_from,A._quercicola
+135,layer_from,4
+135,node_to,Thelaxes_dryophila
+135,layer_to,4
+135,weight,0
+135,type,host-parasite
+135,method,field/laboratory observations
+136,node_from,A._quercicola
+136,layer_from,4
+136,node_to,Myzocallis_castanicola
+136,layer_to,4
+136,weight,0
+136,type,host-parasite
+136,method,field/laboratory observations
+137,node_from,A._quercicola
+137,layer_from,4
+137,node_to,Euceraphis_betulae
+137,layer_to,4
+137,weight,0
+137,type,host-parasite
+137,method,field/laboratory observations
+138,node_from,A._quercicola
+138,layer_from,4
+138,node_to,Calaphis_betulicola
+138,layer_to,4
+138,weight,0
+138,type,host-parasite
+138,method,field/laboratory observations
+139,node_from,A._quercicola
+139,layer_from,4
+139,node_to,Hamamelistes_betulinus
+139,layer_to,4
+139,weight,0
+139,type,host-parasite
+139,method,field/laboratory observations
+140,node_from,Praon_flavinode
+140,layer_from,4
+140,node_to,Stomaphis_quercus
+140,layer_to,4
+140,weight,0
+140,type,host-parasite
+140,method,field/laboratory observations
+141,node_from,Praon_flavinode
+141,layer_from,4
+141,node_to,Calaphis_betulicola
+141,layer_to,4
+141,weight,0
+141,type,host-parasite
+141,method,field/laboratory observations
+142,node_from,Praon_flavinode
+142,layer_from,4
+142,node_to,Hamamelistes_betulinus
+142,layer_to,4
+142,weight,0
+142,type,host-parasite
+142,method,field/laboratory observations
+143,node_from,Aphelinus_chaonia
+143,layer_from,4
+143,node_to,Stomaphis_quercus
+143,layer_to,4
+143,weight,0
+143,type,host-parasite
+143,method,field/laboratory observations
+144,node_from,Aphelinus_chaonia
+144,layer_from,4
+144,node_to,Myzocallis_castanicola
+144,layer_to,4
+144,weight,0
+144,type,host-parasite
+144,method,field/laboratory observations
+145,node_from,Aphelinus_chaonia
+145,layer_from,4
+145,node_to,Betulaphis_quadrituberculata
+145,layer_to,4
+145,weight,0
+145,type,host-parasite
+145,method,field/laboratory observations
+146,node_from,Aphelinus_chaonia
+146,layer_from,4
+146,node_to,Betulaphis_brevipilosa
+146,layer_to,4
+146,weight,0
+146,type,host-parasite
+146,method,field/laboratory observations
+147,node_from,Trioxys_betulae
+147,layer_from,4
+147,node_to,Thelaxes_dryophila
+147,layer_to,4
+147,weight,0
+147,type,host-parasite
+147,method,field/laboratory observations
+148,node_from,Trioxys_betulae
+148,layer_from,4
+148,node_to,Tuberculoides_annulatus
+148,layer_to,4
+148,weight,0
+148,type,host-parasite
+148,method,field/laboratory observations
+149,node_from,Trioxys_betulae
+149,layer_from,4
+149,node_to,Euceraphis_betulae
+149,layer_to,4
+149,weight,0
+149,type,host-parasite
+149,method,field/laboratory observations
+150,node_from,Trioxys_betulae
+150,layer_from,4
+150,node_to,Calaphis_betulicola
+150,layer_to,4
+150,weight,0
+150,type,host-parasite
+150,method,field/laboratory observations
+151,node_from,Trioxys_betulae
+151,layer_from,4
+151,node_to,Hamamelistes_betulinus
+151,layer_to,4
+151,weight,0
+151,type,host-parasite
+151,method,field/laboratory observations
+152,node_from,T._compressicornis
+152,layer_from,4
+152,node_to,Stomaphis_quercus
+152,layer_to,4
+152,weight,0
+152,type,host-parasite
+152,method,field/laboratory observations
+153,node_from,Trioxys_betulae
+153,layer_from,4
+153,node_to,Betulaphis_quadrituberculata
+153,layer_to,4
+153,weight,0
+153,type,host-parasite
+153,method,field/laboratory observations
+154,node_from,Trioxys_betulae
+154,layer_from,4
+154,node_to,Betulaphis_brevipilosa
+154,layer_to,4
+154,weight,0
+154,type,host-parasite
+154,method,field/laboratory observations
+155,node_from,T._compressicornis
+155,layer_from,4
+155,node_to,Thelaxes_dryophila
+155,layer_to,4
+155,weight,0
+155,type,host-parasite
+155,method,field/laboratory observations
+156,node_from,T._compressicornis
+156,layer_from,4
+156,node_to,Tuberculoides_annulatus
+156,layer_to,4
+156,weight,0
+156,type,host-parasite
+156,method,field/laboratory observations
+157,node_from,T._compressicornis
+157,layer_from,4
+157,node_to,Symydobius_oblongus
+157,layer_to,4
+157,weight,0
+157,type,host-parasite
+157,method,field/laboratory observations
+158,node_from,T._compressicornis
+158,layer_from,4
+158,node_to,Calaphis_betulicola
+158,layer_to,4
+158,weight,0
+158,type,host-parasite
+158,method,field/laboratory observations
+159,node_from,T._compressicornis
+159,layer_from,4
+159,node_to,Hamamelistes_betulinus
+159,layer_to,4
+159,weight,0
+159,type,host-parasite
+159,method,field/laboratory observations
+160,node_from,Aphidius_aquilus
+160,layer_from,4
+160,node_to,Stomaphis_quercus
+160,layer_to,4
+160,weight,0
+160,type,host-parasite
+160,method,field/laboratory observations
+161,node_from,Aphidius_aquilus
+161,layer_from,4
+161,node_to,Myzocallis_castanicola
+161,layer_to,4
+161,weight,0
+161,type,host-parasite
+161,method,field/laboratory observations
+162,node_from,Aphidius_aquilus
+162,layer_from,4
+162,node_to,Euceraphis_betulae
+162,layer_to,4
+162,weight,0
+162,type,host-parasite
+162,method,field/laboratory observations
+163,node_from,Calaphidius_elegans
+163,layer_from,4
+163,node_to,Thelaxes_dryophila
+163,layer_to,4
+163,weight,0
+163,type,host-parasite
+163,method,field/laboratory observations
+164,node_from,Calaphidius_elegans
+164,layer_from,4
+164,node_to,Tuberculoides_annulatus
+164,layer_to,4
+164,weight,0
+164,type,host-parasite
+164,method,field/laboratory observations
+165,node_from,Calaphidius_elegans
+165,layer_from,4
+165,node_to,Symydobius_oblongus
+165,layer_to,4
+165,weight,0
+165,type,host-parasite
+165,method,field/laboratory observations
+166,node_from,Calaphidius_elegans
+166,layer_from,4
+166,node_to,Betulaphis_quadrituberculata
+166,layer_to,4
+166,weight,0
+166,type,host-parasite
+166,method,field/laboratory observations
+167,node_from,Calaphidius_elegans
+167,layer_from,4
+167,node_to,Betulaphis_brevipilosa
+167,layer_to,4
+167,weight,0
+167,type,host-parasite
+167,method,field/laboratory observations
+168,node_from,Protaphidius_wissmanii
+168,layer_from,4
+168,node_to,Stomaphis_quercus
+168,layer_to,4
+168,weight,1
+168,type,host-parasite
+168,method,field/laboratory observations
+169,node_from,T._curvicaudus
+169,layer_from,4
+169,node_to,Tuberculoides_annulatus
+169,layer_to,4
+169,weight,1
+169,type,host-parasite
+169,method,field/laboratory observations
+170,node_from,Aphidencyrtus_aphidivorus
+170,layer_from,4
+170,node_to,Tuberculoides_annulatus
+170,layer_to,4
+170,weight,1
+170,type,host-parasite
+170,method,field/laboratory observations
+171,node_from,Praon_flavinode
+171,layer_from,4
+171,node_to,Tuberculoides_annulatus
+171,layer_to,4
+171,weight,1
+171,type,host-parasite
+171,method,field/laboratory observations
+172,node_from,Praon_flavinode
+172,layer_from,4
+172,node_to,Euceraphis_betulae
+172,layer_to,4
+172,weight,1
+172,type,host-parasite
+172,method,field/laboratory observations
+173,node_from,Aphelinus_chaonia
+173,layer_from,4
+173,node_to,Symydobius_oblongus
+173,layer_to,4
+173,weight,1
+173,type,host-parasite
+173,method,field/laboratory observations
+174,node_from,T._compressicornis
+174,layer_from,4
+174,node_to,Euceraphis_betulae
+174,layer_to,4
+174,weight,1
+174,type,host-parasite
+174,method,field/laboratory observations
+175,node_from,Aphidius_aquilus
+175,layer_from,4
+175,node_to,Calaphis_betulicola
+175,layer_to,4
+175,weight,1
+175,type,host-parasite
+175,method,field/laboratory observations
+176,node_from,Calaphidius_elegans
+176,layer_from,4
+176,node_to,Hamamelistes_betulinus
+176,layer_to,4
+176,weight,1
+176,type,host-parasite
+176,method,field/laboratory observations
+177,node_from,Stomaphis_quercus
+177,layer_from,4
+177,node_to,Quercus_robur
+177,layer_to,4
+177,weight,1
+177,type,host-parasite
+177,method,field/laboratory observations
+178,node_from,Myzocallis_castanicola
+178,layer_from,4
+178,node_to,Quercus_robur
+178,layer_to,4
+178,weight,1
+178,type,host-parasite
+178,method,field/laboratory observations
+179,node_from,Euceraphis_betulae
+179,layer_from,4
+179,node_to,Betula_pendula
+179,layer_to,4
+179,weight,1
+179,type,host-parasite
+179,method,field/laboratory observations
+180,node_from,Calaphis_betulicola
+180,layer_from,4
+180,node_to,Betula_pendula
+180,layer_to,4
+180,weight,1
+180,type,host-parasite
+180,method,field/laboratory observations
+181,node_from,Hamamelistes_betulinus
+181,layer_from,4
+181,node_to,Betula_pendula
+181,layer_to,4
+181,weight,1
+181,type,host-parasite
+181,method,field/laboratory observations
+182,node_from,T._compressicornis
+182,layer_from,4
+182,node_to,Betulaphis_quadrituberculata
+182,layer_to,4
+182,weight,0
+182,type,host-parasite
+182,method,field/laboratory observations
+183,node_from,T._compressicornis
+183,layer_from,4
+183,node_to,Betulaphis_brevipilosa
+183,layer_to,4
+183,weight,0
+183,type,host-parasite
+183,method,field/laboratory observations
+184,node_from,Aphidius_aquilus
+184,layer_from,4
+184,node_to,Thelaxes_dryophila
+184,layer_to,4
+184,weight,0
+184,type,host-parasite
+184,method,field/laboratory observations
+185,node_from,Aphidius_aquilus
+185,layer_from,4
+185,node_to,Tuberculoides_annulatus
+185,layer_to,4
+185,weight,0
+185,type,host-parasite
+185,method,field/laboratory observations
+186,node_from,Aphidius_aquilus
+186,layer_from,4
+186,node_to,Symydobius_oblongus
+186,layer_to,4
+186,weight,0
+186,type,host-parasite
+186,method,field/laboratory observations
+187,node_from,Aphidius_aquilus
+187,layer_from,4
+187,node_to,Hamamelistes_betulinus
+187,layer_to,4
+187,weight,0
+187,type,host-parasite
+187,method,field/laboratory observations
+188,node_from,Calaphidius_elegans
+188,layer_from,4
+188,node_to,Stomaphis_quercus
+188,layer_to,4
+188,weight,0
+188,type,host-parasite
+188,method,field/laboratory observations
+189,node_from,Calaphidius_elegans
+189,layer_from,4
+189,node_to,Myzocallis_castanicola
+189,layer_to,4
+189,weight,0
+189,type,host-parasite
+189,method,field/laboratory observations
+190,node_from,Calaphidius_elegans
+190,layer_from,4
+190,node_to,Euceraphis_betulae
+190,layer_to,4
+190,weight,0
+190,type,host-parasite
+190,method,field/laboratory observations
+191,node_from,Calaphidius_elegans
+191,layer_from,4
+191,node_to,Calaphis_betulicola
+191,layer_to,4
+191,weight,0
+191,type,host-parasite
+191,method,field/laboratory observations
+192,node_from,Lysiphlebus_thelaxis
+192,layer_from,4
+192,node_to,Thelaxes_dryophila
+192,layer_to,4
+192,weight,1
+192,type,host-parasite
+192,method,field/laboratory observations
+193,node_from,Trioxys_pallidus
+193,layer_from,4
+193,node_to,Tuberculoides_annulatus
+193,layer_to,4
+193,weight,1
+193,type,host-parasite
+193,method,field/laboratory observations
+194,node_from,T._tenuicaudus
+194,layer_from,4
+194,node_to,Tuberculoides_annulatus
+194,layer_to,4
+194,weight,1
+194,type,host-parasite
+194,method,field/laboratory observations
+195,node_from,A._quercicola
+195,layer_from,4
+195,node_to,Tuberculoides_annulatus
+195,layer_to,4
+195,weight,1
+195,type,host-parasite
+195,method,field/laboratory observations
+196,node_from,Praon_flavinode
+196,layer_from,4
+196,node_to,Myzocallis_castanicola
+196,layer_to,4
+196,weight,1
+196,type,host-parasite
+196,method,field/laboratory observations
+197,node_from,Praon_flavinode
+197,layer_from,4
+197,node_to,Betulaphis_quadrituberculata
+197,layer_to,4
+197,weight,1
+197,type,host-parasite
+197,method,field/laboratory observations
+198,node_from,Trioxys_betulae
+198,layer_from,4
+198,node_to,Symydobius_oblongus
+198,layer_to,4
+198,weight,1
+198,type,host-parasite
+198,method,field/laboratory observations
+199,node_from,Aphidius_aquilus
+199,layer_from,4
+199,node_to,Betulaphis_quadrituberculata
+199,layer_to,4
+199,weight,1
+199,type,host-parasite
+199,method,field/laboratory observations
+200,node_from,Aphidius_aquilus
+200,layer_from,4
+200,node_to,Betulaphis_brevipilosa
+200,layer_to,4
+200,weight,1
+200,type,host-parasite
+200,method,field/laboratory observations
+201,node_from,Thelaxes_dryophila
+201,layer_from,4
+201,node_to,Quercus_robur
+201,layer_to,4
+201,weight,1
+201,type,host-parasite
+201,method,field/laboratory observations
+202,node_from,Tuberculoides_annulatus
+202,layer_from,4
+202,node_to,Quercus_robur
+202,layer_to,4
+202,weight,1
+202,type,host-parasite
+202,method,field/laboratory observations
+203,node_from,Symydobius_oblongus
+203,layer_from,4
+203,node_to,Betula_pendula
+203,layer_to,4
+203,weight,1
+203,type,host-parasite
+203,method,field/laboratory observations
+204,node_from,Betulaphis_quadrituberculata
+204,layer_from,4
+204,node_to,Betula_pendula
+204,layer_to,4
+204,weight,1
+204,type,host-parasite
+204,method,field/laboratory observations
+205,node_from,Betulaphis_brevipilosa
+205,layer_from,4
+205,node_to,Betula_pendula
+205,layer_to,4
+205,weight,1
+205,type,host-parasite
+205,method,field/laboratory observations
+206,node_from,T._compressicornis
+206,layer_from,4
+206,node_to,Myzocallis_castanicola
+206,layer_to,4
+206,weight,0
+206,type,host-parasite
+206,method,field/laboratory observations
+207,node_from,Lysiphlebus_thelaxis
+207,layer_from,4
+207,node_to,Tuberculoides_annulatus
+207,layer_to,4
+207,weight,0
+207,type,host-parasite
+207,method,field/laboratory observations
+208,node_from,Calaphidius_elegans
+208,layer_from,4
+208,node_to,Betulaphis_brevipilosa
+208,layer_to,4
+208,weight,0
+208,type,host-parasite
+208,method,field/laboratory observations
+209,node_from,Protaphidius_wissmanii
+209,layer_from,4
+209,node_to,Stomaphis_quercus
+209,layer_to,4
+209,weight,1
+209,type,host-parasite
+209,method,field/laboratory observations
+210,node_from,T._curvicaudus
+210,layer_from,4
+210,node_to,Tuberculoides_annulatus
+210,layer_to,4
+210,weight,1
+210,type,host-parasite
+210,method,field/laboratory observations
+211,node_from,Aphidencyrtus_aphidivorus
+211,layer_from,4
+211,node_to,Tuberculoides_annulatus
+211,layer_to,4
+211,weight,1
+211,type,host-parasite
+211,method,field/laboratory observations
+212,node_from,Praon_flavinode
+212,layer_from,4
+212,node_to,Tuberculoides_annulatus
+212,layer_to,4
+212,weight,1
+212,type,host-parasite
+212,method,field/laboratory observations
+213,node_from,Praon_flavinode
+213,layer_from,4
+213,node_to,Euceraphis_betulae
+213,layer_to,4
+213,weight,1
+213,type,host-parasite
+213,method,field/laboratory observations
+214,node_from,Aphelinus_chaonia
+214,layer_from,4
+214,node_to,Symydobius_oblongus
+214,layer_to,4
+214,weight,1
+214,type,host-parasite
+214,method,field/laboratory observations
+215,node_from,T._compressicornis
+215,layer_from,4
+215,node_to,Euceraphis_betulae
+215,layer_to,4
+215,weight,1
+215,type,host-parasite
+215,method,field/laboratory observations
+216,node_from,Aphidius_aquilus
+216,layer_from,4
+216,node_to,Calaphis_betulicola
+216,layer_to,4
+216,weight,1
+216,type,host-parasite
+216,method,field/laboratory observations
+217,node_from,Calaphidius_elegans
+217,layer_from,4
+217,node_to,Hamamelistes_betulinus
+217,layer_to,4
+217,weight,1
+217,type,host-parasite
+217,method,field/laboratory observations
+218,node_from,Stomaphis_quercus
+218,layer_from,4
+218,node_to,Quercus_robur
+218,layer_to,4
+218,weight,1
+218,type,host-parasite
+218,method,field/laboratory observations
+219,node_from,Myzocallis_castanicola
+219,layer_from,4
+219,node_to,Quercus_robur
+219,layer_to,4
+219,weight,1
+219,type,host-parasite
+219,method,field/laboratory observations
+220,node_from,Euceraphis_betulae
+220,layer_from,4
+220,node_to,Betula_pendula
+220,layer_to,4
+220,weight,1
+220,type,host-parasite
+220,method,field/laboratory observations
+221,node_from,Calaphis_betulicola
+221,layer_from,4
+221,node_to,Betula_pendula
+221,layer_to,4
+221,weight,1
+221,type,host-parasite
+221,method,field/laboratory observations
+222,node_from,Hamamelistes_betulinus
+222,layer_from,4
+222,node_to,Betula_pendula
+222,layer_to,4
+222,weight,1
+222,type,host-parasite
+222,method,field/laboratory observations
+223,node_from,T._compressicornis
+223,layer_from,4
+223,node_to,Betulaphis_quadrituberculata
+223,layer_to,4
+223,weight,0
+223,type,host-parasite
+223,method,field/laboratory observations
+224,node_from,T._compressicornis
+224,layer_from,4
+224,node_to,Betulaphis_brevipilosa
+224,layer_to,4
+224,weight,0
+224,type,host-parasite
+224,method,field/laboratory observations
+225,node_from,Aphidius_aquilus
+225,layer_from,4
+225,node_to,Thelaxes_dryophila
+225,layer_to,4
+225,weight,0
+225,type,host-parasite
+225,method,field/laboratory observations
+226,node_from,Aphidius_aquilus
+226,layer_from,4
+226,node_to,Tuberculoides_annulatus
+226,layer_to,4
+226,weight,0
+226,type,host-parasite
+226,method,field/laboratory observations
+227,node_from,Aphidius_aquilus
+227,layer_from,4
+227,node_to,Symydobius_oblongus
+227,layer_to,4
+227,weight,0
+227,type,host-parasite
+227,method,field/laboratory observations
+228,node_from,Aphidius_aquilus
+228,layer_from,4
+228,node_to,Hamamelistes_betulinus
+228,layer_to,4
+228,weight,0
+228,type,host-parasite
+228,method,field/laboratory observations
+229,node_from,Calaphidius_elegans
+229,layer_from,4
+229,node_to,Stomaphis_quercus
+229,layer_to,4
+229,weight,0
+229,type,host-parasite
+229,method,field/laboratory observations
+230,node_from,Calaphidius_elegans
+230,layer_from,4
+230,node_to,Myzocallis_castanicola
+230,layer_to,4
+230,weight,0
+230,type,host-parasite
+230,method,field/laboratory observations
+231,node_from,Calaphidius_elegans
+231,layer_from,4
+231,node_to,Euceraphis_betulae
+231,layer_to,4
+231,weight,0
+231,type,host-parasite
+231,method,field/laboratory observations
+232,node_from,Calaphidius_elegans
+232,layer_from,4
+232,node_to,Calaphis_betulicola
+232,layer_to,4
+232,weight,0
+232,type,host-parasite
+232,method,field/laboratory observations
+233,node_from,Lysiphlebus_thelaxis
+233,layer_from,4
+233,node_to,Thelaxes_dryophila
+233,layer_to,4
+233,weight,1
+233,type,host-parasite
+233,method,field/laboratory observations
+234,node_from,Trioxys_pallidus
+234,layer_from,4
+234,node_to,Tuberculoides_annulatus
+234,layer_to,4
+234,weight,1
+234,type,host-parasite
+234,method,field/laboratory observations
+235,node_from,T._tenuicaudus
+235,layer_from,4
+235,node_to,Tuberculoides_annulatus
+235,layer_to,4
+235,weight,1
+235,type,host-parasite
+235,method,field/laboratory observations
+236,node_from,A._quercicola
+236,layer_from,4
+236,node_to,Tuberculoides_annulatus
+236,layer_to,4
+236,weight,1
+236,type,host-parasite
+236,method,field/laboratory observations
+237,node_from,Praon_flavinode
+237,layer_from,4
+237,node_to,Myzocallis_castanicola
+237,layer_to,4
+237,weight,1
+237,type,host-parasite
+237,method,field/laboratory observations
+238,node_from,Praon_flavinode
+238,layer_from,4
+238,node_to,Betulaphis_quadrituberculata
+238,layer_to,4
+238,weight,1
+238,type,host-parasite
+238,method,field/laboratory observations
+239,node_from,Trioxys_betulae
+239,layer_from,4
+239,node_to,Symydobius_oblongus
+239,layer_to,4
+239,weight,1
+239,type,host-parasite
+239,method,field/laboratory observations
+240,node_from,Aphidius_aquilus
+240,layer_from,4
+240,node_to,Betulaphis_quadrituberculata
+240,layer_to,4
+240,weight,1
+240,type,host-parasite
+240,method,field/laboratory observations
+241,node_from,Aphidius_aquilus
+241,layer_from,4
+241,node_to,Betulaphis_brevipilosa
+241,layer_to,4
+241,weight,1
+241,type,host-parasite
+241,method,field/laboratory observations
+242,node_from,Thelaxes_dryophila
+242,layer_from,4
+242,node_to,Quercus_robur
+242,layer_to,4
+242,weight,1
+242,type,host-parasite
+242,method,field/laboratory observations
+243,node_from,Tuberculoides_annulatus
+243,layer_from,4
+243,node_to,Quercus_robur
+243,layer_to,4
+243,weight,1
+243,type,host-parasite
+243,method,field/laboratory observations
+244,node_from,Symydobius_oblongus
+244,layer_from,4
+244,node_to,Betula_pendula
+244,layer_to,4
+244,weight,1
+244,type,host-parasite
+244,method,field/laboratory observations
+245,node_from,Betulaphis_quadrituberculata
+245,layer_from,4
+245,node_to,Betula_pendula
+245,layer_to,4
+245,weight,1
+245,type,host-parasite
+245,method,field/laboratory observations
+246,node_from,Betulaphis_brevipilosa
+246,layer_from,4
+246,node_to,Betula_pendula
+246,layer_to,4
+246,weight,1
+246,type,host-parasite
+246,method,field/laboratory observations
+247,node_from,T._compressicornis
+247,layer_from,4
+247,node_to,Myzocallis_castanicola
+247,layer_to,4
+247,weight,0
+247,type,host-parasite
+247,method,field/laboratory observations

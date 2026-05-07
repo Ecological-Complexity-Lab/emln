@@ -1,0 +1,29 @@
+layer,attribute,value
+1,type,space
+1,location,"Caguana, Puerto Rico"
+1,latitude,18.296944
+1,longitude,-66.781944
+1,num_of_species,41
+1,num_of_interactions,68
+1,connectance,0.17
+2,type,space
+2,location,"Cialitos, Puerto Rico"
+2,latitude,18.258333
+2,longitude,-66.535556
+2,num_of_species,54
+2,num_of_interactions,95
+2,connectance,0.14
+3,type,space
+3,location,"Cordillera, Puerto Rico"
+3,latitude,18.1725
+3,longitude,-66.591944
+3,num_of_species,38
+3,num_of_interactions,49
+3,connectance,0.151
+4,type,space
+4,location,"Fronton, Puerto Rico"
+4,latitude,18.308333
+4,longitude,-66.558611
+4,num_of_species,36
+4,num_of_interactions,51
+4,connectance,0.162

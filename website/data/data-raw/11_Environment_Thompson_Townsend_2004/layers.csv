@@ -1,0 +1,97 @@
+layer,attribute,value
+1,type,environment
+1,habitat,Venlaw stream (2 years post harvest)
+1,years_post_harvest,2
+1,location,New Zealand
+1,latitude,NA
+1,longitude,NA
+1,date,01/11/1995
+1,directed,TRUE
+2,type,environment
+2,habitat,Control pine stream (1 year post harvest)
+2,years_post_harvest,1
+2,location,New Zealand
+2,latitude,NA
+2,longitude,NA
+2,date,01/11/1995
+2,directed,TRUE
+3,type,environment
+3,habitat,Control pine stream (2 years post harvest)
+3,years_post_harvest,2
+3,location,New Zealand
+3,latitude,NA
+3,longitude,NA
+3,date,01/11/1995
+3,directed,TRUE
+4,type,environment
+4,habitat,Berwick stream (1 year post harvest)
+4,years_post_harvest,1
+4,location,New Zealand
+4,latitude,NA
+4,longitude,NA
+4,date,01/11/1995
+4,directed,TRUE
+5,type,environment
+5,habitat,Berwick stream (2 years post harvest)
+5,years_post_harvest,2
+5,location,New Zealand
+5,latitude,NA
+5,longitude,NA
+5,date,01/11/1995
+5,directed,TRUE
+6,type,environment
+6,habitat,Venlaw stream (1 year post harvest)
+6,years_post_harvest,1
+6,location,New Zealand
+6,latitude,NA
+6,longitude,NA
+6,date,01/11/1995
+6,directed,TRUE
+7,type,environment
+7,habitat,Catlins stream (1 year post harvest)
+7,years_post_harvest,1
+7,location,New Zealand
+7,latitude,-46.478501070785
+7,longitude,169.578691694533
+7,date,01/11/1995
+7,directed,TRUE
+8,type,environment
+8,habitat,Akatore A Creek (1 year post harvest)
+8,years_post_harvest,1
+8,location,New Zealand
+8,latitude,-46.106795290865
+8,longitude,170.171577060479
+8,date,01/11/1995
+8,directed,TRUE
+9,type,environment
+9,habitat,Akatore B Creek (1 year post harvest)
+9,years_post_harvest,1
+9,location,New Zealand
+9,latitude,-46.106795290865
+9,longitude,170.171577060479
+9,date,01/11/1995
+9,directed,TRUE
+10,type,environment
+10,habitat,Catlins stream (2 years post harvest)
+10,years_post_harvest,2
+10,location,New Zealand
+10,latitude,-46.478501070785
+10,longitude,169.578691694533
+10,date,01/11/1995
+10,directed,TRUE
+11,type,environment
+11,habitat,Akatore A Creek (2 years post harvest)
+11,years_post_harvest,2
+11,location,New Zealand
+11,latitude,-46.106795290865
+11,longitude,170.171577060479
+11,date,01/11/1995
+11,directed,TRUE
+12,type,environment
+12,habitat,Akatore B Creek (2 years post harvest)
+12,years_post_harvest,2
+12,location,New Zealand
+12,latitude,-46.106795290865
+12,longitude,170.171577060479
+12,date,01/11/1995
+12,directed,TRUE

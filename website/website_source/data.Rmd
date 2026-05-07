@@ -1,0 +1,308 @@
+---
+title: "Working with included data sets"
+output:
+  html_document: 
+    fig_height: 6
+    fig_width: 10
+    theme: cerulean
+    code_folding: show
+    toc: true
+    toc_float:
+      collapsed: false
+      number_sections: true
+---
+
+```{r klippy, echo=FALSE, include=TRUE}
+# Use this to add a copy-code buttong
+klippy::klippy(position = c('top', 'right'), color = 'darkred')
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, message=FALSE, warning=FALSE, cache=FALSE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(emln)
+library(igraph)
+library(bipartite)
+library(magrittr)
+library(ggplot2)
+library(readr)
+library(tibble)
+library(dplyr)
+library(readr)
+library(stringr)
+library(ggsci)
+library(ggbreak)
+library(ggpubr)
+```
+
+# About the data sets
+
+```{r include=FALSE, echo=FALSE}
+paper_figs_theme <- 
+  theme_bw()+
+  theme(panel.grid = element_blank(),
+        panel.border = element_rect(color = "black",fill = NA,size = 1),
+        panel.spacing = unit(0.5, "cm", data = NULL),
+        axis.text = element_text(size=14, color='black'),
+        axis.title = element_text(size=14, color='black'),
+        axis.line = element_blank())
+paper_figs_theme_no_legend <- 
+  paper_figs_theme +
+  theme(legend.position = 'none')
+
+## creation of the lists
+#read the file path
+parent.folder <- "../data/data-raw"
+getwd()
+
+sub.folders.short <- list.dirs(path = parent.folder, recursive = F, full.names = F)
+sub.folders.long <- list.dirs(path = parent.folder, recursive = F, full.names = T)
+
+#order the sub folders according to the id, using the short sub folders so I can use the id, but I eventually need the long to read the csvs
+sub.folders.long <- sub.folders.long[str_order(sub.folders.short, numeric = T)]
+
+## the number of multilayer networks in the database
+number_of_networks <- length(sub.folders.long)
+
+id_readout <- data.frame(id = 1:number_of_networks, 
+                         network_name = sub.folders.short[str_order(sub.folders.short, numeric = T)], 
+                         network_path = sub.folders.long)
+
+#create big lists that each contain the nodes/layers/description/references csv
+#NOTE! not all networks have a references csv
+all_layers<-list()
+all_interactions<-list()
+all_nodes<-list()
+all_references<-list()
+all_descriptions<-list()
+all_state_nodes <- list()
+
+##read the relevant csv's in each netowrk to retrieve the information
+for(i in 1:number_of_networks) {
+    all_layers[[i]]<-read.csv(paste0(sub.folders.long[i],"/layers.csv"))
+    all_interactions[[i]]<-read.csv(paste0(sub.folders.long[i],"/interactions.csv"))
+    all_nodes[[i]]<-read.csv(paste0(sub.folders.long[i],"/nodes.csv"))
+    all_descriptions[[i]]<-read.csv(paste0(sub.folders.long[i],"/description.csv"))
+  if (file.exists(paste0(sub.folders.long[i],"/references.csv"))) {
+    all_references[[i]]<-read.csv(paste0(sub.folders.long[i],"/references.csv"))
+  } else {
+    all_references[[i]] <- NA #if the network doesn't have a reference csv (it was not published)
+  }
+  if (file.exists(paste0(sub.folders.long[i],"/state_nodes.csv"))) {
+    all_state_nodes[[i]] <- read.csv(paste0(sub.folders.long[i],"/state_nodes.csv"))
+  } else {
+    all_state_nodes[[i]] <- NA
+  }
+}
+
+
+## lists that contain the type of interactions, nodes, networks and layers
+layer_type<-NULL 
+node_type<-NULL
+interaction_type<-NULL
+multilayer_type<-NULL
+
+## lists that contain the number of interactions, nodes, and layers per network
+num_of_layers<-c()
+num_of_nodes<-c()
+num_of_interactions<-c()
+
+## lists that contain the unique attributes of interactions, nodes and layers
+layer_attribute<-NULL
+attributes_interactions<-NULL
+attributes_nodes<-NULL
+
+##create the lists using the files that contain the types, number, ettributes etc...##
+# Issue 85 - Network 39 does not have an appropriate $description format #
+# Issue 50 - Network 39 does not have an appropriate $description format #
+for(i in 1:number_of_networks){ 
+    layer_type<-rbind(layer_type,tibble(network_id=i,filter(all_layers[[i]],attribute=="type")))
+    node_type<-rbind(node_type,tibble(network_id=i,filter(all_nodes[[i]],attribute =="type")))
+    interaction_type<-rbind(interaction_type,tibble(network_id=i,filter(all_interactions[[i]],attribute=="type")))
+    num_of_layers<-append(num_of_layers,max(all_layers[[i]]$layer))
+    num_of_nodes<-append(num_of_nodes,max(all_nodes[[i]]$node_id))
+    num_of_interactions<-append(num_of_interactions,max(all_interactions[[i]]$interaction_id))
+    layer_attribute<-rbind(layer_attribute,tibble(network_id=i,att=all_layers[[i]][["attribute"]]))
+    attributes_interactions<-rbind(attributes_interactions,tibble(network_id=i,att=all_interactions[[i]][["attribute"]]))
+    attributes_nodes<-rbind(attributes_nodes,tibble(network_id=i,att=all_nodes[[i]][["attribute"]]))
+    #multilayer_type<-rbind(network_type,tibble(network_id=i,filter(all_descriptions[[i]],attribute=="type")))
+    
+  }
+```
+
+```{r network_information, echo=FALSE}
+###multilayer network types###
+multi <- data.frame()
+for (i in 1:length(all_descriptions)) {
+  # Issue 85 - Network 39 does not have an appropriate $description format #
+  #multi <- rbind(multi, data.frame(network_id = i,
+  #               multi_type = all_descriptions[[i]][all_descriptions[[i]]$attribute == 'multilayer_network_type',]$value))
+  subset_df <- all_descriptions[[i]][all_descriptions[[i]]$attribute == 'multilayer_network_type', ]
+  
+  if (nrow(subset_df) == 0) {
+    row <- data.frame(network_id = i, multi_type = "Missed")
+  } else {
+    row <- data.frame(network_id = i, multi_type = subset_df$value)
+  }
+  
+  multi <- rbind(multi, row)
+}
+
+
+#count the number of types present in all the networks
+counted_multi_types<-count(x = multi,multi_type)
+colnames(counted_multi_types) = c('multi_type','count')
+
+##create a dataframe that contains the proportion of each multi type for visualization
+counted_multi_types <- counted_multi_types %>% 
+  arrange(desc(multi_type)) %>%
+  mutate(prop = count / sum(counted_multi_types$count) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop )
+
+
+###ecological layer types###
+eco <- data.frame()
+for (i in 1:length(all_descriptions)) {
+  #eco <- rbind(eco, data.frame(network_id = i,
+  #               eco_type = all_descriptions[[i]][all_descriptions[[i]]$attribute == 'ecological_network_type',]$value))
+   subset_df <- all_descriptions[[i]][all_descriptions[[i]]$attribute == 'ecological_network_type', ]
+  
+  if (nrow(subset_df) == 0) {
+    row <- data.frame(network_id = i, eco_type = "Missed")
+  } else {
+    row <- data.frame(network_id = i, eco_type = subset_df$value)
+  }
+  
+  eco <- rbind(eco, row)
+}
+
+
+#count the number of types present in all the networks
+counted_eco_types<-count(x = eco,eco_type)
+colnames(counted_eco_types) = c('eco_type','count')
+
+##create a dataframe that contains the proportion of each multi type for visualization
+counted_eco_types <- counted_eco_types %>% 
+  arrange(desc(eco_type)) %>%
+  mutate(prop = count / sum(counted_eco_types$count) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop )
+
+
+#combination of layer type and network type
+multi_eco <- merge(multi,eco,by = 'network_id')
+
+multi_eco <- count(multi_eco, multi_type, eco_type)
+
+multi_eco$multi_type <- factor(multi_eco$multi_type , levels=c("Spatial","Temporal","Environment", "Multiplex","Perturbation"))
+```
+
+The package includes `r number_of_networks` data sets of multilayer networks, collected from different sources. This collection of data is highly useful for comparative analysis and for practicing workflows. How data were collected and organized is described in the paper.
+
+The data includes `r nrow(counted_multi_types)` types of multilayer networks:
+
+```{r, echo=FALSE}
+counted_multi_types %>% arrange(desc(count)) %>% select(multi_type, count)
+```
+
+These are divided into `r nrow(counted_eco_types)` types of ecological interaction networks:. 
+
+```{r, echo=FALSE}
+counted_eco_types %>% arrange(desc(count)) %>% select(eco_type, count)
+```
+
+Here is a visual summary:
+
+```{r, echo=FALSE, fig.height=8}
+ggplot(multi_eco, aes(x=multi_type,y=n, fill=eco_type)) + 
+  geom_bar(stat = 'identity', color='black') + xlab('Multilayer Network Type') + paper_figs_theme +
+  theme(axis.text.x = element_text(angle = 75, vjust = 0.5, size = 12), legend.position = 'bottom') + 
+  ylab('Count')  + scale_fill_nejm(name = 'Ecological Network Type')
+```
+
+The data is distributed globally:
+
+```{r Map Visualization, echo=FALSE}
+latitudes<-NULL
+longitudes<-NULL
+coord <- NULL
+
+for(i in 1:number_of_networks){
+  if ('latitude' %in% all_layers[[i]]$attribute) {
+    coord <- rbind(coord, data.frame(network_id = i,
+                                     latitude = as.numeric(unlist(strsplit(filter(all_layers[[i]],
+                                                                       attribute == 'latitude')$value,split = ','))),
+                                     longitude = as.numeric(unlist(strsplit(filter(all_layers[[i]],
+                                                                        attribute == 'longitude')$value, split =',')))
+    ))
+    latitudes<-c(latitudes,all_layers[[i]] %>% filter(attribute=="latitude") %>% unique)
+    longitudes<-c(longitudes,all_layers[[i]] %>% filter(attribute=="longitude") %>% unique) 
+  }
+}
+
+coord <- coord %>%
+  group_by(latitude, longitude) %>%
+  distinct() %>% 
+  na.omit()
+
+
+#there is a problem with the coordinates of network 39
+coord <- coord[!coord$network_id==39,]
+
+#add attributes to the map
+coord <- merge(coord,multi[,c('network_id','multi_type')], by = 'network_id')
+
+worldmap <- map_data("world")
+ggplot(worldmap) +
+  geom_map(
+    data = worldmap, map = worldmap,
+    aes(long, lat, map_id = region),
+    color = "white", fill = "lightgray", size = 0.1
+  ) +
+  geom_point(
+    data = coord,
+    aes(longitude, latitude, color = multi_type),
+    alpha = 0.6) + expand_limits(x = worldmap$long, y = worldmap$lat) +
+  theme_void() + theme(title = NULL, legend.position = 'bottom')  + scale_color_nejm() +labs(color='Multilayer type')
+```
+
+# Browsing the data
+
+You can browse through the data sets using `view_emln()` in RStudio. The function will open a user interface in the viewer panel. To search for a network with a certain set of parameters, you can use `search_emln()`. Here are a few examples.
+
+```{r}
+search_1 <- search_emln(ecological_network_type = 'Host-parasite')
+names(search_1)
+# Show some of the columns
+search_1 %>% select("network_id","network_name","ecological_network_type","multilayer_network_type","layer_num")
+
+search_2 <- search_emln(ecological_network_type = 'Pollination', layer_number_minimum = 15)
+search_2 %>% select("network_id","network_name","ecological_network_type","multilayer_network_type","layer_num")
+
+# Networks with state node attributes
+search_emln(state_nodes = TRUE)
+
+# Networks with interlayer links
+search_emln(interlayer = TRUE)
+```
+
+# Loading a network
+
+We load the spatial multilayer network (network_id = 38) that comes with the package. This is a spatial seed-Dispersal network (collected from Web of Life). The network has five layers and 22 physical nodes, with a total of 84 interactions that are all intralayer, undirected, and weighted. There are no interlayer interactions recorded for this network.
+
+```{r}
+d38 <- load_emln(38)
+names(d38)
+d38$layers
+head(d38$extended)
+```
+
+<!-- Here is another example: -->
+
+<!-- ```{r} -->
+<!-- search_emln(ecological_network_type = 'Pollination', directed = TRUE) -->
+<!-- d47 <- load_emln(47) -->
+<!-- d47 -->
+<!-- ``` -->
+

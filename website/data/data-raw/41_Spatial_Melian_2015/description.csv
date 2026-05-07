@@ -1,0 +1,8 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Spatial
+description,NA
+source,Dryad
+data_url,https://datadryad.org/stash/dataset/doi:10.5061/dryad.06bb5
+ecological_network_type,Food-Web
+state_nodes,FALSE

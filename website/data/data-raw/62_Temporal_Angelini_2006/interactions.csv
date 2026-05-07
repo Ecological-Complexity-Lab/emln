@@ -1,0 +1,2241 @@
+interaction_id,attribute,value
+1,node_from,Leporinus_obtusidens
+1,layer_from,1
+1,node_to,Other_omnivores
+1,layer_to,1
+1,weight,0.1
+1,type,predation
+1,method,"field observation, literature and model"
+1,weight calculation,Proportions of the consumer diet
+2,node_from,Astyanax_altiparanae
+2,layer_from,1
+2,node_to,Macrophytes
+2,layer_to,1
+2,weight,0.2
+2,type,herbivory
+2,method,"field observation, literature and model"
+2,weight calculation,Proportions of the consumer diet
+3,node_from,Acestrorhybcus_nuchalis
+3,layer_from,1
+3,node_to,Other_detritivores
+3,layer_to,1
+3,weight,0.1
+3,type,predation
+3,method,"field observation, literature and model"
+3,weight calculation,Proportions of the consumer diet
+4,node_from,Acestrorhyncus_lacustris
+4,layer_from,1
+4,node_to,Acestrorhybcus_nuchalis
+4,layer_to,1
+4,weight,0.1
+4,type,predation
+4,method,"field observation, literature and model"
+4,weight calculation,Proportions of the consumer diet
+5,node_from,Group_2
+5,layer_from,1
+5,node_to,Insects
+5,layer_to,1
+5,weight,0.02
+5,type,predation
+5,method,"field observation, literature and model"
+5,weight calculation,Proportions of the consumer diet
+6,node_from,Group_2
+6,layer_from,1
+6,node_to,Parauchenipterus_galeatus
+6,layer_to,1
+6,weight,0.05
+6,type,predation
+6,method,"field observation, literature and model"
+6,weight calculation,Proportions of the consumer diet
+7,node_from,Group_2
+7,layer_from,1
+7,node_to,Other_omnivores
+7,layer_to,1
+7,weight,0.1
+7,type,predation
+7,method,"field observation, literature and model"
+7,weight calculation,Proportions of the consumer diet
+8,node_from,Group_1
+8,layer_from,1
+8,node_to,Prochilodus_lineatus
+8,layer_to,1
+8,weight,0.1
+8,type,predation
+8,method,"field observation, literature and model"
+8,weight calculation,Proportions of the consumer diet
+9,node_from,Group_1
+9,layer_from,1
+9,node_to,Group_2
+9,layer_to,1
+9,weight,0.1
+9,type,predation
+9,method,"field observation, literature and model"
+9,weight calculation,Proportions of the consumer diet
+10,node_from,Group_1
+10,layer_from,1
+10,node_to,Other_omnivores
+10,layer_to,1
+10,weight,0.05
+10,type,predation
+10,method,"field observation, literature and model"
+10,weight calculation,Proportions of the consumer diet
+11,node_from,Hoplias_malabaricus
+11,layer_from,1
+11,node_to,Acestrorhyncus_lacustris
+11,layer_to,1
+11,weight,0.1
+11,type,predation
+11,method,"field observation, literature and model"
+11,weight calculation,Proportions of the consumer diet
+12,node_from,Pinirampus_pirinampu
+12,layer_from,1
+12,node_to,Hypostomus_spp
+12,layer_to,1
+12,weight,0.1
+12,type,predation
+12,method,"field observation, literature and model"
+12,weight calculation,Proportions of the consumer diet
+13,node_from,Pinirampus_pirinampu
+13,layer_from,1
+13,node_to,Astyanax_altiparanae
+13,layer_to,1
+13,weight,0.1
+13,type,predation
+13,method,"field observation, literature and model"
+13,weight calculation,Proportions of the consumer diet
+14,node_from,Rhaphiodon_vulpinis
+14,layer_from,1
+14,node_to,Rhaphiodon_vulpinis
+14,layer_to,1
+14,weight,0.1
+14,type,predation
+14,method,"field observation, literature and model"
+14,weight calculation,Proportions of the consumer diet
+15,node_from,Pterodoras_granulosus
+15,layer_from,1
+15,node_to,Benthos
+15,layer_to,1
+15,weight,0.1
+15,type,trophic
+15,method,"field observation, literature and model"
+15,weight calculation,Proportions of the consumer diet
+16,node_from,Rhaphiodon_vulpinis
+16,layer_from,1
+16,node_to,Parauchenipterus_galeatus
+16,layer_to,1
+16,weight,0.2
+16,type,predation
+16,method,"field observation, literature and model"
+16,weight calculation,Proportions of the consumer diet
+17,node_from,Rhaphiodon_vulpinis
+17,layer_from,1
+17,node_to,Other_insectivores
+17,layer_to,1
+17,weight,0.1
+17,type,predation
+17,method,"field observation, literature and model"
+17,weight calculation,Proportions of the consumer diet
+18,node_from,Megaloancistrus_parananus
+18,layer_from,1
+18,node_to,Macrophytes
+18,layer_to,1
+18,weight,0.2
+18,type,herbivory
+18,method,"field observation, literature and model"
+18,weight calculation,Proportions of the consumer diet
+19,node_from,Megaloancistrus_parananus
+19,layer_from,1
+19,node_to,Zooplankton
+19,layer_to,1
+19,weight,0.1
+19,type,predation
+19,method,"field observation, literature and model"
+19,weight calculation,Proportions of the consumer diet
+20,node_from,Rhinelepis_aspera
+20,layer_from,1
+20,node_to,Macrophytes
+20,layer_to,1
+20,weight,0.2
+20,type,herbivory
+20,method,"field observation, literature and model"
+20,weight calculation,Proportions of the consumer diet
+21,node_from,Schizodon_borelii
+21,layer_from,1
+21,node_to,Phytoplankton
+21,layer_to,1
+21,weight,0.3
+21,type,herbivory
+21,method,"field observation, literature and model"
+21,weight calculation,Proportions of the consumer diet
+22,node_from,Moenkhausia_intermedia
+22,layer_from,1
+22,node_to,Benthos
+22,layer_to,1
+22,weight,0.1
+22,type,trophic
+22,method,"field observation, literature and model"
+22,weight calculation,Proportions of the consumer diet
+23,node_from,Iheringichthys_labrosus
+23,layer_from,1
+23,node_to,Zooplankton
+23,layer_to,1
+23,weight,0.1
+23,type,predation
+23,method,"field observation, literature and model"
+23,weight calculation,Proportions of the consumer diet
+24,node_from,Trachydoras_paraguayensis
+24,layer_from,1
+24,node_to,Zooplankton
+24,layer_to,1
+24,weight,0.3
+24,type,predation
+24,method,"field observation, literature and model"
+24,weight calculation,Proportions of the consumer diet
+25,node_from,Leporinus_friderici
+25,layer_from,1
+25,node_to,Insects
+25,layer_to,1
+25,weight,0.2
+25,type,predation
+25,method,"field observation, literature and model"
+25,weight calculation,Proportions of the consumer diet
+26,node_from,Loricaria_sp
+26,layer_from,1
+26,node_to,Phytoplankton
+26,layer_to,1
+26,weight,0.1
+26,type,herbivory
+26,method,"field observation, literature and model"
+26,weight calculation,Proportions of the consumer diet
+27,node_from,Schizodon_borelii
+27,layer_from,1
+27,node_to,Macrophytes
+27,layer_to,1
+27,weight,0.7
+27,type,herbivory
+27,method,"field observation, literature and model"
+27,weight calculation,Proportions of the consumer diet
+28,node_from,Leporinus_friderici
+28,layer_from,1
+28,node_to,Astyanax_altiparanae
+28,layer_to,1
+28,weight,0.1
+28,type,predation
+28,method,"field observation, literature and model"
+28,weight calculation,Proportions of the consumer diet
+29,node_from,Prochilodus_lineatus
+29,layer_from,1
+29,node_to,Benthos
+29,layer_to,1
+29,weight,0.15
+29,type,trophic
+29,method,"field observation, literature and model"
+29,weight calculation,Proportions of the consumer diet
+30,node_from,Insects
+30,layer_from,1
+30,node_to,Macrophytes
+30,layer_to,1
+30,weight,0.2
+30,type,herbivory
+30,method,"field observation, literature and model"
+30,weight calculation,Proportions of the consumer diet
+31,node_from,Hypostomus_spp
+31,layer_from,1
+31,node_to,Phytoplankton
+31,layer_to,1
+31,weight,0.2
+31,type,herbivory
+31,method,"field observation, literature and model"
+31,weight calculation,Proportions of the consumer diet
+32,node_from,Hypophthalmus_edentatus
+32,layer_from,1
+32,node_to,Phytoplankton
+32,layer_to,1
+32,weight,0.3
+32,type,herbivory
+32,method,"field observation, literature and model"
+32,weight calculation,Proportions of the consumer diet
+33,node_from,Leporinus_friderici
+33,layer_from,1
+33,node_to,Phytoplankton
+33,layer_to,1
+33,weight,0.05
+33,type,herbivory
+33,method,"field observation, literature and model"
+33,weight calculation,Proportions of the consumer diet
+34,node_from,Leporinus_friderici
+34,layer_from,1
+34,node_to,Other_omnivores
+34,layer_to,1
+34,weight,0.1
+34,type,predation
+34,method,"field observation, literature and model"
+34,weight calculation,Proportions of the consumer diet
+35,node_from,Loricaria_sp
+35,layer_from,1
+35,node_to,Insects
+35,layer_to,1
+35,weight,0.2
+35,type,predation
+35,method,"field observation, literature and model"
+35,weight calculation,Proportions of the consumer diet
+36,node_from,Hypophthalmus_edentatus
+36,layer_from,1
+36,node_to,Zooplankton
+36,layer_to,1
+36,weight,0.7
+36,type,predation
+36,method,"field observation, literature and model"
+36,weight calculation,Proportions of the consumer diet
+37,node_from,Leporinus_friderici
+37,layer_from,1
+37,node_to,Macrophytes
+37,layer_to,1
+37,weight,0.3
+37,type,herbivory
+37,method,"field observation, literature and model"
+37,weight calculation,Proportions of the consumer diet
+38,node_from,Leporinus_obtusidens
+38,layer_from,1
+38,node_to,Phytoplankton
+38,layer_to,1
+38,weight,0.05
+38,type,herbivory
+38,method,"field observation, literature and model"
+38,weight calculation,Proportions of the consumer diet
+39,node_from,Zooplankton
+39,layer_from,1
+39,node_to,Phytoplankton
+39,layer_to,1
+39,weight,0.5
+39,type,herbivory
+39,method,"field observation, literature and model"
+39,weight calculation,Proportions of the consumer diet
+40,node_from,Prochilodus_lineatus
+40,layer_from,1
+40,node_to,Phytoplankton
+40,layer_to,1
+40,weight,0.15
+40,type,herbivory
+40,method,"field observation, literature and model"
+40,weight calculation,Proportions of the consumer diet
+41,node_from,Iheringichthys_labrosus
+41,layer_from,1
+41,node_to,Insects
+41,layer_to,1
+41,weight,0.2
+41,type,predation
+41,method,"field observation, literature and model"
+41,weight calculation,Proportions of the consumer diet
+42,node_from,Trachydoras_paraguayensis
+42,layer_from,1
+42,node_to,Insects
+42,layer_to,1
+42,weight,0.15
+42,type,predation
+42,method,"field observation, literature and model"
+42,weight calculation,Proportions of the consumer diet
+43,node_from,Leporinus_obtusidens
+43,layer_from,1
+43,node_to,Macrophytes
+43,layer_to,1
+43,weight,0.3
+43,type,herbivory
+43,method,"field observation, literature and model"
+43,weight calculation,Proportions of the consumer diet
+44,node_from,Parauchenipterus_galeatus
+44,layer_from,1
+44,node_to,Macrophytes
+44,layer_to,1
+44,weight,0.4
+44,type,herbivory
+44,method,"field observation, literature and model"
+44,weight calculation,Proportions of the consumer diet
+45,node_from,Pterodoras_granulosus
+45,layer_from,1
+45,node_to,Insects
+45,layer_to,1
+45,weight,0.1
+45,type,predation
+45,method,"field observation, literature and model"
+45,weight calculation,Proportions of the consumer diet
+46,node_from,Astyanax_altiparanae
+46,layer_from,1
+46,node_to,Insects
+46,layer_to,1
+46,weight,0.3
+46,type,predation
+46,method,"field observation, literature and model"
+46,weight calculation,Proportions of the consumer diet
+47,node_from,Acestrorhybcus_nuchalis
+47,layer_from,1
+47,node_to,Insects
+47,layer_to,1
+47,weight,0.7
+47,type,predation
+47,method,"field observation, literature and model"
+47,weight calculation,Proportions of the consumer diet
+48,node_from,Acestrorhyncus_lacustris
+48,layer_from,1
+48,node_to,Loricaria_sp
+48,layer_to,1
+48,weight,0.1
+48,type,predation
+48,method,"field observation, literature and model"
+48,weight calculation,Proportions of the consumer diet
+49,node_from,Acestrorhyncus_lacustris
+49,layer_from,1
+49,node_to,Other_detritivores
+49,layer_to,1
+49,weight,0.1
+49,type,predation
+49,method,"field observation, literature and model"
+49,weight calculation,Proportions of the consumer diet
+50,node_from,Group_2
+50,layer_from,1
+50,node_to,Zooplankton
+50,layer_to,1
+50,weight,0.03
+50,type,predation
+50,method,"field observation, literature and model"
+50,weight calculation,Proportions of the consumer diet
+51,node_from,Group_2
+51,layer_from,1
+51,node_to,Pterodoras_granulosus
+51,layer_to,1
+51,weight,0.05
+51,type,predation
+51,method,"field observation, literature and model"
+51,weight calculation,Proportions of the consumer diet
+52,node_from,Group_2
+52,layer_from,1
+52,node_to,Other_insectivores
+52,layer_to,1
+52,weight,0.05
+52,type,predation
+52,method,"field observation, literature and model"
+52,weight calculation,Proportions of the consumer diet
+53,node_from,Group_1
+53,layer_from,1
+53,node_to,Hypophthalmus_edentatus
+53,layer_to,1
+53,weight,0.15
+53,type,predation
+53,method,"field observation, literature and model"
+53,weight calculation,Proportions of the consumer diet
+54,node_from,Group_1
+54,layer_from,1
+54,node_to,Group_1
+54,layer_to,1
+54,weight,0.1
+54,type,predation
+54,method,"field observation, literature and model"
+54,weight calculation,Proportions of the consumer diet
+55,node_from,Group_1
+55,layer_from,1
+55,node_to,Other_insectivores
+55,layer_to,1
+55,weight,0.05
+55,type,predation
+55,method,"field observation, literature and model"
+55,weight calculation,Proportions of the consumer diet
+56,node_from,Hoplias_malabaricus
+56,layer_from,1
+56,node_to,Hoplias_malabaricus
+56,layer_to,1
+56,weight,0.2
+56,type,predation
+56,method,"field observation, literature and model"
+56,weight calculation,Proportions of the consumer diet
+57,node_from,Pinirampus_pirinampu
+57,layer_from,1
+57,node_to,Trachydoras_paraguayensis
+57,layer_to,1
+57,weight,0.2
+57,type,predation
+57,method,"field observation, literature and model"
+57,weight calculation,Proportions of the consumer diet
+58,node_from,Rhaphiodon_vulpinis
+58,layer_from,1
+58,node_to,Prochilodus_lineatus
+58,layer_to,1
+58,weight,0.2
+58,type,predation
+58,method,"field observation, literature and model"
+58,weight calculation,Proportions of the consumer diet
+59,node_from,Rhaphiodon_vulpinis
+59,layer_from,1
+59,node_to,Astyanax_altiparanae
+59,layer_to,1
+59,weight,0.2
+59,type,predation
+59,method,"field observation, literature and model"
+59,weight calculation,Proportions of the consumer diet
+60,node_from,Rhaphiodon_vulpinis
+60,layer_from,1
+60,node_to,Other_detritivores
+60,layer_to,1
+60,weight,0.1
+60,type,predation
+60,method,"field observation, literature and model"
+60,weight calculation,Proportions of the consumer diet
+61,node_from,Moenkhausia_intermedia
+61,layer_from,1
+61,node_to,Phytoplankton
+61,layer_to,1
+61,weight,0.1
+61,type,herbivory
+61,method,"field observation, literature and model"
+61,weight calculation,Proportions of the consumer diet
+62,node_from,Moenkhausia_intermedia
+62,layer_from,1
+62,node_to,Insects
+62,layer_to,1
+62,weight,0.1
+62,type,predation
+62,method,"field observation, literature and model"
+62,weight calculation,Proportions of the consumer diet
+63,node_from,Megaloancistrus_parananus
+63,layer_from,1
+63,node_to,Insects
+63,layer_to,1
+63,weight,0.6
+63,type,predation
+63,method,"field observation, literature and model"
+63,weight calculation,Proportions of the consumer diet
+64,node_from,Rhinelepis_aspera
+64,layer_from,1
+64,node_to,Phytoplankton
+64,layer_to,1
+64,weight,0.1
+64,type,herbivory
+64,method,"field observation, literature and model"
+64,weight calculation,Proportions of the consumer diet
+65,node_from,Rhinelepis_aspera
+65,layer_from,1
+65,node_to,Insects
+65,layer_to,1
+65,weight,0.3
+65,type,predation
+65,method,"field observation, literature and model"
+65,weight calculation,Proportions of the consumer diet
+66,node_from,Rhinelepis_aspera
+66,layer_from,1
+66,node_to,Zooplankton
+66,layer_to,1
+66,weight,0.1
+66,type,predation
+66,method,"field observation, literature and model"
+66,weight calculation,Proportions of the consumer diet
+67,node_from,Iheringichthys_labrosus
+67,layer_from,1
+67,node_to,Benthos
+67,layer_to,1
+67,weight,0.35
+67,type,trophic
+67,method,"field observation, literature and model"
+67,weight calculation,Proportions of the consumer diet
+68,node_from,Leporinus_friderici
+68,layer_from,1
+68,node_to,Benthos
+68,layer_to,1
+68,weight,0.05
+68,type,trophic
+68,method,"field observation, literature and model"
+68,weight calculation,Proportions of the consumer diet
+69,node_from,Rhinelepis_aspera
+69,layer_from,1
+69,node_to,Periphyton
+69,layer_to,1
+69,weight,0.05
+69,type,trophic
+69,method,"field observation, literature and model"
+69,weight calculation,Proportions of the consumer diet
+70,node_from,Rhinelepis_aspera
+70,layer_from,1
+70,node_to,Benthos
+70,layer_to,1
+70,weight,0.15
+70,type,trophic
+70,method,"field observation, literature and model"
+70,weight calculation,Proportions of the consumer diet
+71,node_from,Other_detritivores
+71,layer_from,1
+71,node_to,Benthos
+71,layer_to,1
+71,weight,0.1
+71,type,trophic
+71,method,"field observation, literature and model"
+71,weight calculation,Proportions of the consumer diet
+72,node_from,Other_detritivores
+72,layer_from,1
+72,node_to,Insects
+72,layer_to,1
+72,weight,0.2
+72,type,predation
+72,method,"field observation, literature and model"
+72,weight calculation,Proportions of the consumer diet
+73,node_from,Other_detritivores
+73,layer_from,1
+73,node_to,Zooplankton
+73,layer_to,1
+73,weight,0.7
+73,type,predation
+73,method,"field observation, literature and model"
+73,weight calculation,Proportions of the consumer diet
+74,node_from,Parauchenipterus_galeatus
+74,layer_from,1
+74,node_to,Insects
+74,layer_to,1
+74,weight,0.6
+74,type,predation
+74,method,"field observation, literature and model"
+74,weight calculation,Proportions of the consumer diet
+75,node_from,Pterodoras_granulosus
+75,layer_from,1
+75,node_to,Zooplankton
+75,layer_to,1
+75,weight,0.1
+75,type,predation
+75,method,"field observation, literature and model"
+75,weight calculation,Proportions of the consumer diet
+76,node_from,Astyanax_altiparanae
+76,layer_from,1
+76,node_to,Zooplankton
+76,layer_to,1
+76,weight,0.1
+76,type,predation
+76,method,"field observation, literature and model"
+76,weight calculation,Proportions of the consumer diet
+77,node_from,Acestrorhybcus_nuchalis
+77,layer_from,1
+77,node_to,Zooplankton
+77,layer_to,1
+77,weight,0.2
+77,type,predation
+77,method,"field observation, literature and model"
+77,weight calculation,Proportions of the consumer diet
+78,node_from,Acestrorhyncus_lacustris
+78,layer_from,1
+78,node_to,Schizodon_borelii
+78,layer_to,1
+78,weight,0.1
+78,type,predation
+78,method,"field observation, literature and model"
+78,weight calculation,Proportions of the consumer diet
+79,node_from,Acestrorhyncus_lacustris
+79,layer_from,1
+79,node_to,Other_omnivores
+79,layer_to,1
+79,weight,0.1
+79,type,predation
+79,method,"field observation, literature and model"
+79,weight calculation,Proportions of the consumer diet
+80,node_from,Group_2
+80,layer_from,1
+80,node_to,Hypostomus_spp
+80,layer_to,1
+80,weight,0.05
+80,type,predation
+80,method,"field observation, literature and model"
+80,weight calculation,Proportions of the consumer diet
+81,node_from,Group_2
+81,layer_from,1
+81,node_to,Astyanax_altiparanae
+81,layer_to,1
+81,weight,0.1
+81,type,predation
+81,method,"field observation, literature and model"
+81,weight calculation,Proportions of the consumer diet
+82,node_from,Group_1
+82,layer_from,1
+82,node_to,Astyanax_altiparanae
+82,layer_to,1
+82,weight,0.1
+82,type,predation
+82,method,"field observation, literature and model"
+82,weight calculation,Proportions of the consumer diet
+83,node_from,Group_1
+83,layer_from,1
+83,node_to,Pinirampus_pirinampu
+83,layer_to,1
+83,weight,0.05
+83,type,predation
+83,method,"field observation, literature and model"
+83,weight calculation,Proportions of the consumer diet
+84,node_from,Hoplias_malabaricus
+84,layer_from,1
+84,node_to,Prochilodus_lineatus
+84,layer_to,1
+84,weight,0.2
+84,type,predation
+84,method,"field observation, literature and model"
+84,weight calculation,Proportions of the consumer diet
+85,node_from,Hoplias_malabaricus
+85,layer_from,1
+85,node_to,Other_insectivores
+85,layer_to,1
+85,weight,0.1
+85,type,predation
+85,method,"field observation, literature and model"
+85,weight calculation,Proportions of the consumer diet
+86,node_from,Pinirampus_pirinampu
+86,layer_from,1
+86,node_to,Leporinus_friderici
+86,layer_to,1
+86,weight,0.15
+86,type,predation
+86,method,"field observation, literature and model"
+86,weight calculation,Proportions of the consumer diet
+87,node_from,Other_omnivores
+87,layer_from,1
+87,node_to,Periphyton
+87,layer_to,1
+87,weight,0.1
+87,type,trophic
+87,method,"field observation, literature and model"
+87,weight calculation,Proportions of the consumer diet
+88,node_from,Other_insectivores
+88,layer_from,1
+88,node_to,Periphyton
+88,layer_to,1
+88,weight,0.1
+88,type,trophic
+88,method,"field observation, literature and model"
+88,weight calculation,Proportions of the consumer diet
+89,node_from,Other_insectivores
+89,layer_from,1
+89,node_to,Benthos
+89,layer_to,1
+89,weight,0.1
+89,type,trophic
+89,method,"field observation, literature and model"
+89,weight calculation,Proportions of the consumer diet
+90,node_from,Leporinus_obtusidens
+90,layer_from,1
+90,node_to,Benthos
+90,layer_to,1
+90,weight,0.05
+90,type,trophic
+90,method,"field observation, literature and model"
+90,weight calculation,Proportions of the consumer diet
+91,node_from,Pterodoras_granulosus
+91,layer_from,1
+91,node_to,Detritus
+91,layer_to,1
+91,weight,0.1
+91,type,detritivore
+91,method,"field observation, literature and model"
+91,weight calculation,Proportions of the consumer diet
+92,node_from,Astyanax_altiparanae
+92,layer_from,1
+92,node_to,Detritus
+92,layer_to,1
+92,weight,0.1
+92,type,detritivore
+92,method,"field observation, literature and model"
+92,weight calculation,Proportions of the consumer diet
+93,node_from,Zooplankton
+93,layer_from,1
+93,node_to,Detritus
+93,layer_to,1
+93,weight,0.5
+93,type,detritivore
+93,method,"field observation, literature and model"
+93,weight calculation,Proportions of the consumer diet
+94,node_from,Benthos
+94,layer_from,1
+94,node_to,Detritus
+94,layer_to,1
+94,weight,0.5
+94,type,detritivore
+94,method,"field observation, literature and model"
+94,weight calculation,Proportions of the consumer diet
+95,node_from,Prochilodus_lineatus
+95,layer_from,1
+95,node_to,Detritus
+95,layer_to,1
+95,weight,0.7
+95,type,detritivore
+95,method,"field observation, literature and model"
+95,weight calculation,Proportions of the consumer diet
+96,node_from,Iheringichthys_labrosus
+96,layer_from,1
+96,node_to,Detritus
+96,layer_to,1
+96,weight,0.25
+96,type,detritivore
+96,method,"field observation, literature and model"
+96,weight calculation,Proportions of the consumer diet
+97,node_from,Trachydoras_paraguayensis
+97,layer_from,1
+97,node_to,Detritus
+97,layer_to,1
+97,weight,0.55
+97,type,detritivore
+97,method,"field observation, literature and model"
+97,weight calculation,Proportions of the consumer diet
+98,node_from,Insects
+98,layer_from,1
+98,node_to,Detritus
+98,layer_to,1
+98,weight,0.8
+98,type,detritivore
+98,method,"field observation, literature and model"
+98,weight calculation,Proportions of the consumer diet
+99,node_from,Hypostomus_spp
+99,layer_from,1
+99,node_to,Detritus
+99,layer_to,1
+99,weight,0.8
+99,type,detritivore
+99,method,"field observation, literature and model"
+99,weight calculation,Proportions of the consumer diet
+100,node_from,Loricaria_sp
+100,layer_from,1
+100,node_to,Detritus
+100,layer_to,1
+100,weight,0.6
+100,type,detritivore
+100,method,"field observation, literature and model"
+100,weight calculation,Proportions of the consumer diet
+101,node_from,Group_2
+101,layer_from,1
+101,node_to,Other_insectivores
+101,layer_to,1
+101,weight,0.05
+101,type,predation
+101,method,"field observation, literature and model"
+101,weight calculation,Proportions of the consumer diet
+102,node_from,Group_1
+102,layer_from,1
+102,node_to,Hypophthalmus_edentatus
+102,layer_to,1
+102,weight,0.15
+102,type,predation
+102,method,"field observation, literature and model"
+102,weight calculation,Proportions of the consumer diet
+103,node_from,Group_1
+103,layer_from,1
+103,node_to,Group_1
+103,layer_to,1
+103,weight,0.1
+103,type,predation
+103,method,"field observation, literature and model"
+103,weight calculation,Proportions of the consumer diet
+104,node_from,Group_1
+104,layer_from,1
+104,node_to,Other_insectivores
+104,layer_to,1
+104,weight,0.05
+104,type,predation
+104,method,"field observation, literature and model"
+104,weight calculation,Proportions of the consumer diet
+105,node_from,Hoplias_malabaricus
+105,layer_from,1
+105,node_to,Hoplias_malabaricus
+105,layer_to,1
+105,weight,0.2
+105,type,predation
+105,method,"field observation, literature and model"
+105,weight calculation,Proportions of the consumer diet
+106,node_from,Pinirampus_pirinampu
+106,layer_from,1
+106,node_to,Trachydoras_paraguayensis
+106,layer_to,1
+106,weight,0.2
+106,type,predation
+106,method,"field observation, literature and model"
+106,weight calculation,Proportions of the consumer diet
+107,node_from,Rhaphiodon_vulpinis
+107,layer_from,1
+107,node_to,Prochilodus_lineatus
+107,layer_to,1
+107,weight,0.2
+107,type,predation
+107,method,"field observation, literature and model"
+107,weight calculation,Proportions of the consumer diet
+108,node_from,Rhaphiodon_vulpinis
+108,layer_from,1
+108,node_to,Astyanax_altiparanae
+108,layer_to,1
+108,weight,0.2
+108,type,predation
+108,method,"field observation, literature and model"
+108,weight calculation,Proportions of the consumer diet
+109,node_from,Rhaphiodon_vulpinis
+109,layer_from,1
+109,node_to,Other_detritivores
+109,layer_to,1
+109,weight,0.1
+109,type,predation
+109,method,"field observation, literature and model"
+109,weight calculation,Proportions of the consumer diet
+110,node_from,Moenkhausia_intermedia
+110,layer_from,1
+110,node_to,Phytoplankton
+110,layer_to,1
+110,weight,0.1
+110,type,herbivory
+110,method,"field observation, literature and model"
+110,weight calculation,Proportions of the consumer diet
+111,node_from,Moenkhausia_intermedia
+111,layer_from,1
+111,node_to,Insects
+111,layer_to,1
+111,weight,0.1
+111,type,predation
+111,method,"field observation, literature and model"
+111,weight calculation,Proportions of the consumer diet
+112,node_from,Megaloancistrus_parananus
+112,layer_from,1
+112,node_to,Insects
+112,layer_to,1
+112,weight,0.6
+112,type,predation
+112,method,"field observation, literature and model"
+112,weight calculation,Proportions of the consumer diet
+113,node_from,Rhinelepis_aspera
+113,layer_from,1
+113,node_to,Phytoplankton
+113,layer_to,1
+113,weight,0.1
+113,type,herbivory
+113,method,"field observation, literature and model"
+113,weight calculation,Proportions of the consumer diet
+114,node_from,Rhinelepis_aspera
+114,layer_from,1
+114,node_to,Insects
+114,layer_to,1
+114,weight,0.3
+114,type,predation
+114,method,"field observation, literature and model"
+114,weight calculation,Proportions of the consumer diet
+115,node_from,Rhinelepis_aspera
+115,layer_from,1
+115,node_to,Zooplankton
+115,layer_to,1
+115,weight,0.1
+115,type,predation
+115,method,"field observation, literature and model"
+115,weight calculation,Proportions of the consumer diet
+116,node_from,Iheringichthys_labrosus
+116,layer_from,1
+116,node_to,Benthos
+116,layer_to,1
+116,weight,0.35
+116,type,trophic
+116,method,"field observation, literature and model"
+116,weight calculation,Proportions of the consumer diet
+117,node_from,Leporinus_friderici
+117,layer_from,1
+117,node_to,Benthos
+117,layer_to,1
+117,weight,0.05
+117,type,trophic
+117,method,"field observation, literature and model"
+117,weight calculation,Proportions of the consumer diet
+118,node_from,Rhinelepis_aspera
+118,layer_from,1
+118,node_to,Periphyton
+118,layer_to,1
+118,weight,0.05
+118,type,trophic
+118,method,"field observation, literature and model"
+118,weight calculation,Proportions of the consumer diet
+119,node_from,Rhinelepis_aspera
+119,layer_from,1
+119,node_to,Benthos
+119,layer_to,1
+119,weight,0.15
+119,type,trophic
+119,method,"field observation, literature and model"
+119,weight calculation,Proportions of the consumer diet
+120,node_from,Other_detritivores
+120,layer_from,1
+120,node_to,Benthos
+120,layer_to,1
+120,weight,0.1
+120,type,trophic
+120,method,"field observation, literature and model"
+120,weight calculation,Proportions of the consumer diet
+121,node_from,Other_detritivores
+121,layer_from,1
+121,node_to,Insects
+121,layer_to,1
+121,weight,0.2
+121,type,predation
+121,method,"field observation, literature and model"
+121,weight calculation,Proportions of the consumer diet
+122,node_from,Other_detritivores
+122,layer_from,1
+122,node_to,Zooplankton
+122,layer_to,1
+122,weight,0.7
+122,type,predation
+122,method,"field observation, literature and model"
+122,weight calculation,Proportions of the consumer diet
+123,node_from,Parauchenipterus_galeatus
+123,layer_from,1
+123,node_to,Insects
+123,layer_to,1
+123,weight,0.6
+123,type,predation
+123,method,"field observation, literature and model"
+123,weight calculation,Proportions of the consumer diet
+124,node_from,Pterodoras_granulosus
+124,layer_from,1
+124,node_to,Zooplankton
+124,layer_to,1
+124,weight,0.1
+124,type,predation
+124,method,"field observation, literature and model"
+124,weight calculation,Proportions of the consumer diet
+125,node_from,Astyanax_altiparanae
+125,layer_from,1
+125,node_to,Zooplankton
+125,layer_to,1
+125,weight,0.1
+125,type,predation
+125,method,"field observation, literature and model"
+125,weight calculation,Proportions of the consumer diet
+126,node_from,Acestrorhybcus_nuchalis
+126,layer_from,1
+126,node_to,Zooplankton
+126,layer_to,1
+126,weight,0.2
+126,type,predation
+126,method,"field observation, literature and model"
+126,weight calculation,Proportions of the consumer diet
+127,node_from,Acestrorhyncus_lacustris
+127,layer_from,1
+127,node_to,Schizodon_borelii
+127,layer_to,1
+127,weight,0.1
+127,type,predation
+127,method,"field observation, literature and model"
+127,weight calculation,Proportions of the consumer diet
+128,node_from,Acestrorhyncus_lacustris
+128,layer_from,1
+128,node_to,Other_omnivores
+128,layer_to,1
+128,weight,0.1
+128,type,predation
+128,method,"field observation, literature and model"
+128,weight calculation,Proportions of the consumer diet
+129,node_from,Group_2
+129,layer_from,1
+129,node_to,Hypostomus_spp
+129,layer_to,1
+129,weight,0.05
+129,type,predation
+129,method,"field observation, literature and model"
+129,weight calculation,Proportions of the consumer diet
+130,node_from,Group_2
+130,layer_from,1
+130,node_to,Astyanax_altiparanae
+130,layer_to,1
+130,weight,0.1
+130,type,predation
+130,method,"field observation, literature and model"
+130,weight calculation,Proportions of the consumer diet
+131,node_from,Group_1
+131,layer_from,1
+131,node_to,Astyanax_altiparanae
+131,layer_to,1
+131,weight,0.1
+131,type,predation
+131,method,"field observation, literature and model"
+131,weight calculation,Proportions of the consumer diet
+132,node_from,Group_1
+132,layer_from,1
+132,node_to,Pinirampus_pirinampu
+132,layer_to,1
+132,weight,0.05
+132,type,predation
+132,method,"field observation, literature and model"
+132,weight calculation,Proportions of the consumer diet
+133,node_from,Hoplias_malabaricus
+133,layer_from,1
+133,node_to,Prochilodus_lineatus
+133,layer_to,1
+133,weight,0.2
+133,type,predation
+133,method,"field observation, literature and model"
+133,weight calculation,Proportions of the consumer diet
+134,node_from,Hoplias_malabaricus
+134,layer_from,1
+134,node_to,Other_insectivores
+134,layer_to,1
+134,weight,0.1
+134,type,predation
+134,method,"field observation, literature and model"
+134,weight calculation,Proportions of the consumer diet
+135,node_from,Pinirampus_pirinampu
+135,layer_from,1
+135,node_to,Leporinus_friderici
+135,layer_to,1
+135,weight,0.15
+135,type,predation
+135,method,"field observation, literature and model"
+135,weight calculation,Proportions of the consumer diet
+136,node_from,Other_omnivores
+136,layer_from,1
+136,node_to,Periphyton
+136,layer_to,1
+136,weight,0.1
+136,type,trophic
+136,method,"field observation, literature and model"
+136,weight calculation,Proportions of the consumer diet
+137,node_from,Other_insectivores
+137,layer_from,1
+137,node_to,Periphyton
+137,layer_to,1
+137,weight,0.1
+137,type,trophic
+137,method,"field observation, literature and model"
+137,weight calculation,Proportions of the consumer diet
+138,node_from,Other_insectivores
+138,layer_from,1
+138,node_to,Benthos
+138,layer_to,1
+138,weight,0.1
+138,type,trophic
+138,method,"field observation, literature and model"
+138,weight calculation,Proportions of the consumer diet
+139,node_from,Leporinus_obtusidens
+139,layer_from,1
+139,node_to,Benthos
+139,layer_to,1
+139,weight,0.05
+139,type,trophic
+139,method,"field observation, literature and model"
+139,weight calculation,Proportions of the consumer diet
+140,node_from,Leporinus_friderici
+140,layer_from,2
+140,node_to,Macrophytes
+140,layer_to,2
+140,weight,0.3
+140,type,herbivory
+140,method,"field observation, literature and model"
+140,weight calculation,Proportions of the consumer diet
+141,node_from,Leporinus_friderici
+141,layer_from,2
+141,node_to,Import
+141,layer_to,2
+141,weight,0.2
+141,type,predation
+141,method,"field observation, literature and model"
+141,weight calculation,Proportions of the consumer diet
+142,node_from,Leporinus_obtusidens
+142,layer_from,2
+142,node_to,Astyanax_altiparanae
+142,layer_to,2
+142,weight,0.1
+142,type,predation
+142,method,"field observation, literature and model"
+142,weight calculation,Proportions of the consumer diet
+143,node_from,Pterodoras_granulosus
+143,layer_from,2
+143,node_to,Phytoplankton
+143,layer_to,2
+143,weight,0.1
+143,type,herbivory
+143,method,"field observation, literature and model"
+143,weight calculation,Proportions of the consumer diet
+144,node_from,Astyanax_altiparanae
+144,layer_from,2
+144,node_to,Leporinus_obtusidens
+144,layer_to,2
+144,weight,0.1
+144,type,predation
+144,method,"field observation, literature and model"
+144,weight calculation,Proportions of the consumer diet
+145,node_from,Acestrorhybcus_nuchalis
+145,layer_from,2
+145,node_to,Megaloancistrus_parananus
+145,layer_to,2
+145,weight,0.045
+145,type,predation
+145,method,"field observation, literature and model"
+145,weight calculation,Proportions of the consumer diet
+146,node_from,Acestrorhyncus_lacustris
+146,layer_from,2
+146,node_to,Iheringichthys_labrosus
+146,layer_to,2
+146,weight,0.2
+146,type,predation
+146,method,"field observation, literature and model"
+146,weight calculation,Proportions of the consumer diet
+147,node_from,Acestrorhyncus_lacustris
+147,layer_from,2
+147,node_to,Other_insectivores
+147,layer_to,2
+147,weight,0.1
+147,type,predation
+147,method,"field observation, literature and model"
+147,weight calculation,Proportions of the consumer diet
+148,node_from,Group_2
+148,layer_from,2
+148,node_to,Iheringichthys_labrosus
+148,layer_to,2
+148,weight,0.15
+148,type,predation
+148,method,"field observation, literature and model"
+148,weight calculation,Proportions of the consumer diet
+149,node_from,Group_2
+149,layer_from,2
+149,node_to,Group_2
+149,layer_to,2
+149,weight,0.1
+149,type,predation
+149,method,"field observation, literature and model"
+149,weight calculation,Proportions of the consumer diet
+150,node_from,Group_1
+150,layer_from,2
+150,node_to,Loricaria_sp
+150,layer_to,2
+150,weight,0.05
+150,type,predation
+150,method,"field observation, literature and model"
+150,weight calculation,Proportions of the consumer diet
+151,node_from,Group_1
+151,layer_from,2
+151,node_to,Acestrorhybcus_nuchalis
+151,layer_to,2
+151,weight,0.05
+151,type,predation
+151,method,"field observation, literature and model"
+151,weight calculation,Proportions of the consumer diet
+152,node_from,Group_1
+152,layer_from,2
+152,node_to,Rhaphiodon_vulpinis
+152,layer_to,2
+152,weight,0.05
+152,type,predation
+152,method,"field observation, literature and model"
+152,weight calculation,Proportions of the consumer diet
+153,node_from,Hoplias_malabaricus
+153,layer_from,2
+153,node_to,Leporinus_obtusidens
+153,layer_to,2
+153,weight,0.2
+153,type,predation
+153,method,"field observation, literature and model"
+153,weight calculation,Proportions of the consumer diet
+154,node_from,Pinirampus_pirinampu
+154,layer_from,2
+154,node_to,Loricaria_sp
+154,layer_to,2
+154,weight,0.1
+154,type,predation
+154,method,"field observation, literature and model"
+154,weight calculation,Proportions of the consumer diet
+155,node_from,Rhaphiodon_vulpinis
+155,layer_from,2
+155,node_to,Astyanax_altiparanae
+155,layer_to,2
+155,weight,0.2
+155,type,predation
+155,method,"field observation, literature and model"
+155,weight calculation,Proportions of the consumer diet
+156,node_from,Moenkhausia_intermedia
+156,layer_from,2
+156,node_to,Phytoplankton
+156,layer_to,2
+156,weight,0.1
+156,type,herbivory
+156,method,"field observation, literature and model"
+156,weight calculation,Proportions of the consumer diet
+157,node_from,Megaloancistrus_parananus
+157,layer_from,2
+157,node_to,Insects
+157,layer_to,2
+157,weight,0.6
+157,type,predation
+157,method,"field observation, literature and model"
+157,weight calculation,Proportions of the consumer diet
+158,node_from,Iheringichthys_labrosus
+158,layer_from,2
+158,node_to,Benthos
+158,layer_to,2
+158,weight,0.35
+158,type,trophic
+158,method,"field observation, literature and model"
+158,weight calculation,Proportions of the consumer diet
+159,node_from,Rhinelepis_aspera
+159,layer_from,2
+159,node_to,Periphyton
+159,layer_to,2
+159,weight,0.05
+159,type,trophic
+159,method,"field observation, literature and model"
+159,weight calculation,Proportions of the consumer diet
+160,node_from,Other_detritivores
+160,layer_from,2
+160,node_to,Benthos
+160,layer_to,2
+160,weight,0.1
+160,type,trophic
+160,method,"field observation, literature and model"
+160,weight calculation,Proportions of the consumer diet
+161,node_from,Hoplias_malabaricus
+161,layer_from,2
+161,node_to,Other_insectivores
+161,layer_to,2
+161,weight,0.1
+161,type,predation
+161,method,"field observation, literature and model"
+161,weight calculation,Proportions of the consumer diet
+162,node_from,Pinirampus_pirinampu
+162,layer_from,2
+162,node_to,Leporinus_friderici
+162,layer_to,2
+162,weight,0.15
+162,type,predation
+162,method,"field observation, literature and model"
+162,weight calculation,Proportions of the consumer diet
+163,node_from,Rhaphiodon_vulpinis
+163,layer_from,2
+163,node_to,Parauchenipterus_galeatus
+163,layer_to,2
+163,weight,0.2
+163,type,predation
+163,method,"field observation, literature and model"
+163,weight calculation,Proportions of the consumer diet
+164,node_from,Rhaphiodon_vulpinis
+164,layer_from,2
+164,node_to,Other_insectivores
+164,layer_to,2
+164,weight,0.1
+164,type,predation
+164,method,"field observation, literature and model"
+164,weight calculation,Proportions of the consumer diet
+165,node_from,Megaloancistrus_parananus
+165,layer_from,2
+165,node_to,Macrophytes
+165,layer_to,2
+165,weight,0.2
+165,type,herbivory
+165,method,"field observation, literature and model"
+165,weight calculation,Proportions of the consumer diet
+166,node_from,Rhinelepis_aspera
+166,layer_from,2
+166,node_to,Macrophytes
+166,layer_to,2
+166,weight,0.2
+166,type,herbivory
+166,method,"field observation, literature and model"
+166,weight calculation,Proportions of the consumer diet
+167,node_from,Other_insectivores
+167,layer_from,2
+167,node_to,Periphyton
+167,layer_to,2
+167,weight,0.1
+167,type,trophic
+167,method,"field observation, literature and model"
+167,weight calculation,Proportions of the consumer diet
+168,node_from,Schizodon_borelii
+168,layer_from,2
+168,node_to,Phytoplankton
+168,layer_to,2
+168,weight,0.3
+168,type,herbivory
+168,method,"field observation, literature and model"
+168,weight calculation,Proportions of the consumer diet
+169,node_from,Iheringichthys_labrosus
+169,layer_from,2
+169,node_to,Zooplankton
+169,layer_to,2
+169,weight,0.1
+169,type,predation
+169,method,"field observation, literature and model"
+169,weight calculation,Proportions of the consumer diet
+170,node_from,Trachydoras_paraguayensis
+170,layer_from,2
+170,node_to,Zooplankton
+170,layer_to,2
+170,weight,0.3
+170,type,predation
+170,method,"field observation, literature and model"
+170,weight calculation,Proportions of the consumer diet
+171,node_from,Leporinus_friderici
+171,layer_from,2
+171,node_to,Insects
+171,layer_to,2
+171,weight,0.2
+171,type,predation
+171,method,"field observation, literature and model"
+171,weight calculation,Proportions of the consumer diet
+172,node_from,Leporinus_obtusidens
+172,layer_from,2
+172,node_to,Macrophytes
+172,layer_to,2
+172,weight,0.3
+172,type,herbivory
+172,method,"field observation, literature and model"
+172,weight calculation,Proportions of the consumer diet
+173,node_from,Leporinus_obtusidens
+173,layer_from,2
+173,node_to,Import
+173,layer_to,2
+173,weight,0.2
+173,type,predation
+173,method,"field observation, literature and model"
+173,weight calculation,Proportions of the consumer diet
+174,node_from,Astyanax_altiparanae
+174,layer_from,2
+174,node_to,Macrophytes
+174,layer_to,2
+174,weight,0.2
+174,type,herbivory
+174,method,"field observation, literature and model"
+174,weight calculation,Proportions of the consumer diet
+175,node_from,Acestrorhybcus_nuchalis
+175,layer_from,2
+175,node_to,Other_detritivores
+175,layer_to,2
+175,weight,0.091
+175,type,predation
+175,method,"field observation, literature and model"
+175,weight calculation,Proportions of the consumer diet
+176,node_from,Acestrorhyncus_lacustris
+176,layer_from,2
+176,node_to,Acestrorhybcus_nuchalis
+176,layer_to,2
+176,weight,0.1
+176,type,predation
+176,method,"field observation, literature and model"
+176,weight calculation,Proportions of the consumer diet
+177,node_from,Group_2
+177,layer_from,2
+177,node_to,Insects
+177,layer_to,2
+177,weight,0.02
+177,type,predation
+177,method,"field observation, literature and model"
+177,weight calculation,Proportions of the consumer diet
+178,node_from,Group_2
+178,layer_from,2
+178,node_to,Parauchenipterus_galeatus
+178,layer_to,2
+178,weight,0.05
+178,type,predation
+178,method,"field observation, literature and model"
+178,weight calculation,Proportions of the consumer diet
+179,node_from,Group_2
+179,layer_from,2
+179,node_to,Other_omnivores
+179,layer_to,2
+179,weight,0.1
+179,type,predation
+179,method,"field observation, literature and model"
+179,weight calculation,Proportions of the consumer diet
+180,node_from,Group_1
+180,layer_from,2
+180,node_to,Prochilodus_lineatus
+180,layer_to,2
+180,weight,0.1
+180,type,predation
+180,method,"field observation, literature and model"
+180,weight calculation,Proportions of the consumer diet
+181,node_from,Group_1
+181,layer_from,2
+181,node_to,Group_2
+181,layer_to,2
+181,weight,0.1
+181,type,predation
+181,method,"field observation, literature and model"
+181,weight calculation,Proportions of the consumer diet
+182,node_from,Group_1
+182,layer_from,2
+182,node_to,Other_omnivores
+182,layer_to,2
+182,weight,0.05
+182,type,predation
+182,method,"field observation, literature and model"
+182,weight calculation,Proportions of the consumer diet
+183,node_from,Hoplias_malabaricus
+183,layer_from,2
+183,node_to,Acestrorhyncus_lacustris
+183,layer_to,2
+183,weight,0.1
+183,type,predation
+183,method,"field observation, literature and model"
+183,weight calculation,Proportions of the consumer diet
+184,node_from,Pinirampus_pirinampu
+184,layer_from,2
+184,node_to,Hypostomus_spp
+184,layer_to,2
+184,weight,0.1
+184,type,predation
+184,method,"field observation, literature and model"
+184,weight calculation,Proportions of the consumer diet
+185,node_from,Pinirampus_pirinampu
+185,layer_from,2
+185,node_to,Astyanax_altiparanae
+185,layer_to,2
+185,weight,0.1
+185,type,predation
+185,method,"field observation, literature and model"
+185,weight calculation,Proportions of the consumer diet
+186,node_from,Moenkhausia_intermedia
+186,layer_from,2
+186,node_to,Insects
+186,layer_to,2
+186,weight,0.1
+186,type,predation
+186,method,"field observation, literature and model"
+186,weight calculation,Proportions of the consumer diet
+187,node_from,Rhinelepis_aspera
+187,layer_from,2
+187,node_to,Insects
+187,layer_to,2
+187,weight,0.3
+187,type,predation
+187,method,"field observation, literature and model"
+187,weight calculation,Proportions of the consumer diet
+188,node_from,Other_detritivores
+188,layer_from,2
+188,node_to,Zooplankton
+188,layer_to,2
+188,weight,0.7
+188,type,predation
+188,method,"field observation, literature and model"
+188,weight calculation,Proportions of the consumer diet
+189,node_from,Benthos
+189,layer_from,2
+189,node_to,Periphyton
+189,layer_to,2
+189,weight,0.5
+189,type,trophic
+189,method,"field observation, literature and model"
+189,weight calculation,Proportions of the consumer diet
+190,node_from,Prochilodus_lineatus
+190,layer_from,2
+190,node_to,Benthos
+190,layer_to,2
+190,weight,0.15
+190,type,trophic
+190,method,"field observation, literature and model"
+190,weight calculation,Proportions of the consumer diet
+191,node_from,Pterodoras_granulosus
+191,layer_from,2
+191,node_to,Benthos
+191,layer_to,2
+191,weight,0.1
+191,type,trophic
+191,method,"field observation, literature and model"
+191,weight calculation,Proportions of the consumer diet
+192,node_from,Insects
+192,layer_from,2
+192,node_to,Macrophytes
+192,layer_to,2
+192,weight,0.2
+192,type,herbivory
+192,method,"field observation, literature and model"
+192,weight calculation,Proportions of the consumer diet
+193,node_from,Insects
+193,layer_from,2
+193,node_to,Detritus
+193,layer_to,2
+193,weight,0.8
+193,type,detritivore
+193,method,"field observation, literature and model"
+193,weight calculation,Proportions of the consumer diet
+194,node_from,Loricaria_sp
+194,layer_from,2
+194,node_to,Detritus
+194,layer_to,2
+194,weight,0.6
+194,type,detritivore
+194,method,"field observation, literature and model"
+194,weight calculation,Proportions of the consumer diet
+195,node_from,Prochilodus_lineatus
+195,layer_from,2
+195,node_to,Detritus
+195,layer_to,2
+195,weight,0.7
+195,type,detritivore
+195,method,"field observation, literature and model"
+195,weight calculation,Proportions of the consumer diet
+196,node_from,Iheringichthys_labrosus
+196,layer_from,2
+196,node_to,Detritus
+196,layer_to,2
+196,weight,0.25
+196,type,detritivore
+196,method,"field observation, literature and model"
+196,weight calculation,Proportions of the consumer diet
+197,node_from,Trachydoras_paraguayensis
+197,layer_from,2
+197,node_to,Detritus
+197,layer_to,2
+197,weight,0.55
+197,type,detritivore
+197,method,"field observation, literature and model"
+197,weight calculation,Proportions of the consumer diet
+198,node_from,Moenkhausia_intermedia
+198,layer_from,2
+198,node_to,Detritus
+198,layer_to,2
+198,weight,0.7
+198,type,detritivore
+198,method,"field observation, literature and model"
+198,weight calculation,Proportions of the consumer diet
+199,node_from,Group_2
+199,layer_from,2
+199,node_to,Detritus
+199,layer_to,2
+199,weight,0.15
+199,type,detritivore
+199,method,"field observation, literature and model"
+199,weight calculation,Proportions of the consumer diet
+200,node_from,Hypostomus_spp
+200,layer_from,2
+200,node_to,Detritus
+200,layer_to,2
+200,weight,0.8
+200,type,detritivore
+200,method,"field observation, literature and model"
+200,weight calculation,Proportions of the consumer diet
+201,node_from,Pterodoras_granulosus
+201,layer_from,2
+201,node_to,Detritus
+201,layer_to,2
+201,weight,0.1
+201,type,detritivore
+201,method,"field observation, literature and model"
+201,weight calculation,Proportions of the consumer diet
+202,node_from,Rhinelepis_aspera
+202,layer_from,2
+202,node_to,Detritus
+202,layer_to,2
+202,weight,0.1
+202,type,detritivore
+202,method,"field observation, literature and model"
+202,weight calculation,Proportions of the consumer diet
+203,node_from,Other_omnivores
+203,layer_from,2
+203,node_to,Detritus
+203,layer_to,2
+203,weight,0.9
+203,type,detritivore
+203,method,"field observation, literature and model"
+203,weight calculation,Proportions of the consumer diet
+204,node_from,Zooplankton
+204,layer_from,2
+204,node_to,Detritus
+204,layer_to,2
+204,weight,0.5
+204,type,detritivore
+204,method,"field observation, literature and model"
+204,weight calculation,Proportions of the consumer diet
+205,node_from,Astyanax_altiparanae
+205,layer_from,2
+205,node_to,Detritus
+205,layer_to,2
+205,weight,0.1
+205,type,detritivore
+205,method,"field observation, literature and model"
+205,weight calculation,Proportions of the consumer diet
+206,node_from,Megaloancistrus_parananus
+206,layer_from,2
+206,node_to,Detritus
+206,layer_to,2
+206,weight,0.1
+206,type,detritivore
+206,method,"field observation, literature and model"
+206,weight calculation,Proportions of the consumer diet
+207,node_from,Other_insectivores
+207,layer_from,2
+207,node_to,Detritus
+207,layer_to,2
+207,weight,0.8
+207,type,detritivore
+207,method,"field observation, literature and model"
+207,weight calculation,Proportions of the consumer diet
+208,node_from,Benthos
+208,layer_from,2
+208,node_to,Detritus
+208,layer_to,2
+208,weight,0.5
+208,type,detritivore
+208,method,"field observation, literature and model"
+208,weight calculation,Proportions of the consumer diet
+209,node_from,Leporinus_obtusidens
+209,layer_from,2
+209,node_to,Benthos
+209,layer_to,2
+209,weight,0.05
+209,type,trophic
+209,method,"field observation, literature and model"
+209,weight calculation,Proportions of the consumer diet
+210,node_from,Astyanax_altiparanae
+210,layer_from,2
+210,node_to,Phytoplankton
+210,layer_to,2
+210,weight,0.1
+210,type,herbivory
+210,method,"field observation, literature and model"
+210,weight calculation,Proportions of the consumer diet
+211,node_from,Pinirampus_pirinampu
+211,layer_from,2
+211,node_to,Parauchenipterus_galeatus
+211,layer_to,2
+211,weight,0.15
+211,type,predation
+211,method,"field observation, literature and model"
+211,weight calculation,Proportions of the consumer diet
+212,node_from,Rhaphiodon_vulpinis
+212,layer_from,2
+212,node_to,Rhaphiodon_vulpinis
+212,layer_to,2
+212,weight,0.1
+212,type,predation
+212,method,"field observation, literature and model"
+212,weight calculation,Proportions of the consumer diet
+213,node_from,Zooplankton
+213,layer_from,2
+213,node_to,Phytoplankton
+213,layer_to,2
+213,weight,0.5
+213,type,herbivory
+213,method,"field observation, literature and model"
+213,weight calculation,Proportions of the consumer diet
+214,node_from,Prochilodus_lineatus
+214,layer_from,2
+214,node_to,Phytoplankton
+214,layer_to,2
+214,weight,0.15
+214,type,herbivory
+214,method,"field observation, literature and model"
+214,weight calculation,Proportions of the consumer diet
+215,node_from,Iheringichthys_labrosus
+215,layer_from,2
+215,node_to,Insects
+215,layer_to,2
+215,weight,0.2
+215,type,predation
+215,method,"field observation, literature and model"
+215,weight calculation,Proportions of the consumer diet
+216,node_from,Trachydoras_paraguayensis
+216,layer_from,2
+216,node_to,Insects
+216,layer_to,2
+216,weight,0.15
+216,type,predation
+216,method,"field observation, literature and model"
+216,weight calculation,Proportions of the consumer diet
+217,node_from,Leporinus_obtusidens
+217,layer_from,2
+217,node_to,Phytoplankton
+217,layer_to,2
+217,weight,0.05
+217,type,herbivory
+217,method,"field observation, literature and model"
+217,weight calculation,Proportions of the consumer diet
+218,node_from,Leporinus_obtusidens
+218,layer_from,2
+218,node_to,Other_omnivores
+218,layer_to,2
+218,weight,0.1
+218,type,predation
+218,method,"field observation, literature and model"
+218,weight calculation,Proportions of the consumer diet
+219,node_from,Pterodoras_granulosus
+219,layer_from,2
+219,node_to,Macrophytes
+219,layer_to,2
+219,weight,0.5
+219,type,herbivory
+219,method,"field observation, literature and model"
+219,weight calculation,Proportions of the consumer diet
+220,node_from,Astyanax_altiparanae
+220,layer_from,2
+220,node_to,Other_omnivores
+220,layer_to,2
+220,weight,0.1
+220,type,predation
+220,method,"field observation, literature and model"
+220,weight calculation,Proportions of the consumer diet
+221,node_from,Acestrorhybcus_nuchalis
+221,layer_from,2
+221,node_to,Rhinelepis_aspera
+221,layer_to,2
+221,weight,0.045
+221,type,predation
+221,method,"field observation, literature and model"
+221,weight calculation,Proportions of the consumer diet
+222,node_from,Acestrorhyncus_lacustris
+222,layer_from,2
+222,node_to,Astyanax_altiparanae
+222,layer_to,2
+222,weight,0.2
+222,type,predation
+222,method,"field observation, literature and model"
+222,weight calculation,Proportions of the consumer diet
+223,node_from,Group_2
+223,layer_from,2
+223,node_to,Leporinus_friderici
+223,layer_to,2
+223,weight,0.05
+223,type,predation
+223,method,"field observation, literature and model"
+223,weight calculation,Proportions of the consumer diet
+224,node_from,Group_2
+224,layer_from,2
+224,node_to,Group_1
+224,layer_to,2
+224,weight,0.05
+224,type,predation
+224,method,"field observation, literature and model"
+224,weight calculation,Proportions of the consumer diet
+225,node_from,Group_1
+225,layer_from,2
+225,node_to,Schizodon_borelii
+225,layer_to,2
+225,weight,0.05
+225,type,predation
+225,method,"field observation, literature and model"
+225,weight calculation,Proportions of the consumer diet
+226,node_from,Group_1
+226,layer_from,2
+226,node_to,Acestrorhyncus_lacustris
+226,layer_to,2
+226,weight,0.05
+226,type,predation
+226,method,"field observation, literature and model"
+226,weight calculation,Proportions of the consumer diet
+227,node_from,Group_1
+227,layer_from,2
+227,node_to,Megaloancistrus_parananus
+227,layer_to,2
+227,weight,0.05
+227,type,predation
+227,method,"field observation, literature and model"
+227,weight calculation,Proportions of the consumer diet
+228,node_from,Hoplias_malabaricus
+228,layer_from,2
+228,node_to,Pterodoras_granulosus
+228,layer_to,2
+228,weight,0.2
+228,type,predation
+228,method,"field observation, literature and model"
+228,weight calculation,Proportions of the consumer diet
+229,node_from,Pinirampus_pirinampu
+229,layer_from,2
+229,node_to,Schizodon_borelii
+229,layer_to,2
+229,weight,0.1
+229,type,predation
+229,method,"field observation, literature and model"
+229,weight calculation,Proportions of the consumer diet
+230,node_from,Pinirampus_pirinampu
+230,layer_from,2
+230,node_to,Pterodoras_granulosus
+230,layer_to,2
+230,weight,0.1
+230,type,predation
+230,method,"field observation, literature and model"
+230,weight calculation,Proportions of the consumer diet
+231,node_from,Rhaphiodon_vulpinis
+231,layer_from,2
+231,node_to,Acestrorhyncus_lacustris
+231,layer_to,2
+231,weight,0.1
+231,type,predation
+231,method,"field observation, literature and model"
+231,weight calculation,Proportions of the consumer diet
+232,node_from,Megaloancistrus_parananus
+232,layer_from,2
+232,node_to,Zooplankton
+232,layer_to,2
+232,weight,0.1
+232,type,predation
+232,method,"field observation, literature and model"
+232,weight calculation,Proportions of the consumer diet
+233,node_from,Other_detritivores
+233,layer_from,2
+233,node_to,Insects
+233,layer_to,2
+233,weight,0.2
+233,type,predation
+233,method,"field observation, literature and model"
+233,weight calculation,Proportions of the consumer diet
+234,node_from,Loricaria_sp
+234,layer_from,2
+234,node_to,Phytoplankton
+234,layer_to,2
+234,weight,0.1
+234,type,herbivory
+234,method,"field observation, literature and model"
+234,weight calculation,Proportions of the consumer diet
+235,node_from,Schizodon_borelii
+235,layer_from,2
+235,node_to,Macrophytes
+235,layer_to,2
+235,weight,0.7
+235,type,herbivory
+235,method,"field observation, literature and model"
+235,weight calculation,Proportions of the consumer diet
+236,node_from,Leporinus_friderici
+236,layer_from,2
+236,node_to,Astyanax_altiparanae
+236,layer_to,2
+236,weight,0.1
+236,type,predation
+236,method,"field observation, literature and model"
+236,weight calculation,Proportions of the consumer diet
+237,node_from,Parauchenipterus_galeatus
+237,layer_from,2
+237,node_to,Macrophytes
+237,layer_to,2
+237,weight,0.4
+237,type,herbivory
+237,method,"field observation, literature and model"
+237,weight calculation,Proportions of the consumer diet
+238,node_from,Pterodoras_granulosus
+238,layer_from,2
+238,node_to,Insects
+238,layer_to,2
+238,weight,0.1
+238,type,predation
+238,method,"field observation, literature and model"
+238,weight calculation,Proportions of the consumer diet
+239,node_from,Astyanax_altiparanae
+239,layer_from,2
+239,node_to,Insects
+239,layer_to,2
+239,weight,0.3
+239,type,predation
+239,method,"field observation, literature and model"
+239,weight calculation,Proportions of the consumer diet
+240,node_from,Leporinus_obtusidens
+240,layer_from,2
+240,node_to,Macrophytes
+240,layer_to,2
+240,weight,0.3
+240,type,herbivory
+240,method,"field observation, literature and model"
+240,weight calculation,Proportions of the consumer diet
+241,node_from,Leporinus_obtusidens
+241,layer_from,2
+241,node_to,Import
+241,layer_to,2
+241,weight,0.2
+241,type,predation
+241,method,"field observation, literature and model"
+241,weight calculation,Proportions of the consumer diet
+242,node_from,Astyanax_altiparanae
+242,layer_from,2
+242,node_to,Macrophytes
+242,layer_to,2
+242,weight,0.2
+242,type,herbivory
+242,method,"field observation, literature and model"
+242,weight calculation,Proportions of the consumer diet
+243,node_from,Acestrorhybcus_nuchalis
+243,layer_from,2
+243,node_to,Other_detritivores
+243,layer_to,2
+243,weight,0.091
+243,type,predation
+243,method,"field observation, literature and model"
+243,weight calculation,Proportions of the consumer diet
+244,node_from,Acestrorhyncus_lacustris
+244,layer_from,2
+244,node_to,Acestrorhybcus_nuchalis
+244,layer_to,2
+244,weight,0.1
+244,type,predation
+244,method,"field observation, literature and model"
+244,weight calculation,Proportions of the consumer diet
+245,node_from,Group_2
+245,layer_from,2
+245,node_to,Insects
+245,layer_to,2
+245,weight,0.02
+245,type,predation
+245,method,"field observation, literature and model"
+245,weight calculation,Proportions of the consumer diet
+246,node_from,Group_2
+246,layer_from,2
+246,node_to,Parauchenipterus_galeatus
+246,layer_to,2
+246,weight,0.05
+246,type,predation
+246,method,"field observation, literature and model"
+246,weight calculation,Proportions of the consumer diet
+247,node_from,Group_2
+247,layer_from,2
+247,node_to,Other_omnivores
+247,layer_to,2
+247,weight,0.1
+247,type,predation
+247,method,"field observation, literature and model"
+247,weight calculation,Proportions of the consumer diet
+248,node_from,Group_1
+248,layer_from,2
+248,node_to,Prochilodus_lineatus
+248,layer_to,2
+248,weight,0.1
+248,type,predation
+248,method,"field observation, literature and model"
+248,weight calculation,Proportions of the consumer diet
+249,node_from,Group_1
+249,layer_from,2
+249,node_to,Group_2
+249,layer_to,2
+249,weight,0.1
+249,type,predation
+249,method,"field observation, literature and model"
+249,weight calculation,Proportions of the consumer diet
+250,node_from,Group_1
+250,layer_from,2
+250,node_to,Other_omnivores
+250,layer_to,2
+250,weight,0.05
+250,type,predation
+250,method,"field observation, literature and model"
+250,weight calculation,Proportions of the consumer diet
+251,node_from,Hoplias_malabaricus
+251,layer_from,2
+251,node_to,Acestrorhyncus_lacustris
+251,layer_to,2
+251,weight,0.1
+251,type,predation
+251,method,"field observation, literature and model"
+251,weight calculation,Proportions of the consumer diet
+252,node_from,Pinirampus_pirinampu
+252,layer_from,2
+252,node_to,Hypostomus_spp
+252,layer_to,2
+252,weight,0.1
+252,type,predation
+252,method,"field observation, literature and model"
+252,weight calculation,Proportions of the consumer diet
+253,node_from,Pinirampus_pirinampu
+253,layer_from,2
+253,node_to,Astyanax_altiparanae
+253,layer_to,2
+253,weight,0.1
+253,type,predation
+253,method,"field observation, literature and model"
+253,weight calculation,Proportions of the consumer diet
+254,node_from,Moenkhausia_intermedia
+254,layer_from,2
+254,node_to,Insects
+254,layer_to,2
+254,weight,0.1
+254,type,predation
+254,method,"field observation, literature and model"
+254,weight calculation,Proportions of the consumer diet
+255,node_from,Rhinelepis_aspera
+255,layer_from,2
+255,node_to,Insects
+255,layer_to,2
+255,weight,0.3
+255,type,predation
+255,method,"field observation, literature and model"
+255,weight calculation,Proportions of the consumer diet
+256,node_from,Other_detritivores
+256,layer_from,2
+256,node_to,Zooplankton
+256,layer_to,2
+256,weight,0.7
+256,type,predation
+256,method,"field observation, literature and model"
+256,weight calculation,Proportions of the consumer diet
+257,node_from,Benthos
+257,layer_from,2
+257,node_to,Periphyton
+257,layer_to,2
+257,weight,0.5
+257,type,trophic
+257,method,"field observation, literature and model"
+257,weight calculation,Proportions of the consumer diet
+258,node_from,Prochilodus_lineatus
+258,layer_from,2
+258,node_to,Benthos
+258,layer_to,2
+258,weight,0.15
+258,type,trophic
+258,method,"field observation, literature and model"
+258,weight calculation,Proportions of the consumer diet
+259,node_from,Pterodoras_granulosus
+259,layer_from,2
+259,node_to,Benthos
+259,layer_to,2
+259,weight,0.1
+259,type,trophic
+259,method,"field observation, literature and model"
+259,weight calculation,Proportions of the consumer diet
+260,node_from,Insects
+260,layer_from,2
+260,node_to,Macrophytes
+260,layer_to,2
+260,weight,0.2
+260,type,herbivory
+260,method,"field observation, literature and model"
+260,weight calculation,Proportions of the consumer diet
+261,node_from,Insects
+261,layer_from,2
+261,node_to,Detritus
+261,layer_to,2
+261,weight,0.8
+261,type,detritivore
+261,method,"field observation, literature and model"
+261,weight calculation,Proportions of the consumer diet
+262,node_from,Loricaria_sp
+262,layer_from,2
+262,node_to,Detritus
+262,layer_to,2
+262,weight,0.6
+262,type,detritivore
+262,method,"field observation, literature and model"
+262,weight calculation,Proportions of the consumer diet
+263,node_from,Prochilodus_lineatus
+263,layer_from,2
+263,node_to,Detritus
+263,layer_to,2
+263,weight,0.7
+263,type,detritivore
+263,method,"field observation, literature and model"
+263,weight calculation,Proportions of the consumer diet
+264,node_from,Iheringichthys_labrosus
+264,layer_from,2
+264,node_to,Detritus
+264,layer_to,2
+264,weight,0.25
+264,type,detritivore
+264,method,"field observation, literature and model"
+264,weight calculation,Proportions of the consumer diet
+265,node_from,Trachydoras_paraguayensis
+265,layer_from,2
+265,node_to,Detritus
+265,layer_to,2
+265,weight,0.55
+265,type,detritivore
+265,method,"field observation, literature and model"
+265,weight calculation,Proportions of the consumer diet
+266,node_from,Moenkhausia_intermedia
+266,layer_from,2
+266,node_to,Detritus
+266,layer_to,2
+266,weight,0.7
+266,type,detritivore
+266,method,"field observation, literature and model"
+266,weight calculation,Proportions of the consumer diet
+267,node_from,Group_2
+267,layer_from,2
+267,node_to,Detritus
+267,layer_to,2
+267,weight,0.15
+267,type,detritivore
+267,method,"field observation, literature and model"
+267,weight calculation,Proportions of the consumer diet
+268,node_from,Hypostomus_spp
+268,layer_from,2
+268,node_to,Detritus
+268,layer_to,2
+268,weight,0.8
+268,type,detritivore
+268,method,"field observation, literature and model"
+268,weight calculation,Proportions of the consumer diet
+269,node_from,Pterodoras_granulosus
+269,layer_from,2
+269,node_to,Detritus
+269,layer_to,2
+269,weight,0.1
+269,type,detritivore
+269,method,"field observation, literature and model"
+269,weight calculation,Proportions of the consumer diet
+270,node_from,Rhinelepis_aspera
+270,layer_from,2
+270,node_to,Detritus
+270,layer_to,2
+270,weight,0.1
+270,type,detritivore
+270,method,"field observation, literature and model"
+270,weight calculation,Proportions of the consumer diet
+271,node_from,Other_omnivores
+271,layer_from,2
+271,node_to,Detritus
+271,layer_to,2
+271,weight,0.9
+271,type,detritivore
+271,method,"field observation, literature and model"
+271,weight calculation,Proportions of the consumer diet
+272,node_from,Zooplankton
+272,layer_from,2
+272,node_to,Detritus
+272,layer_to,2
+272,weight,0.5
+272,type,detritivore
+272,method,"field observation, literature and model"
+272,weight calculation,Proportions of the consumer diet
+273,node_from,Astyanax_altiparanae
+273,layer_from,2
+273,node_to,Detritus
+273,layer_to,2
+273,weight,0.1
+273,type,detritivore
+273,method,"field observation, literature and model"
+273,weight calculation,Proportions of the consumer diet
+274,node_from,Megaloancistrus_parananus
+274,layer_from,2
+274,node_to,Detritus
+274,layer_to,2
+274,weight,0.1
+274,type,detritivore
+274,method,"field observation, literature and model"
+274,weight calculation,Proportions of the consumer diet
+275,node_from,Other_insectivores
+275,layer_from,2
+275,node_to,Detritus
+275,layer_to,2
+275,weight,0.8
+275,type,detritivore
+275,method,"field observation, literature and model"
+275,weight calculation,Proportions of the consumer diet
+276,node_from,Benthos
+276,layer_from,2
+276,node_to,Detritus
+276,layer_to,2
+276,weight,0.5
+276,type,detritivore
+276,method,"field observation, literature and model"
+276,weight calculation,Proportions of the consumer diet
+277,node_from,Leporinus_obtusidens
+277,layer_from,2
+277,node_to,Benthos
+277,layer_to,2
+277,weight,0.05
+277,type,trophic
+277,method,"field observation, literature and model"
+277,weight calculation,Proportions of the consumer diet
+278,node_from,Astyanax_altiparanae
+278,layer_from,2
+278,node_to,Phytoplankton
+278,layer_to,2
+278,weight,0.1
+278,type,herbivory
+278,method,"field observation, literature and model"
+278,weight calculation,Proportions of the consumer diet
+279,node_from,Pinirampus_pirinampu
+279,layer_from,2
+279,node_to,Parauchenipterus_galeatus
+279,layer_to,2
+279,weight,0.15
+279,type,predation
+279,method,"field observation, literature and model"
+279,weight calculation,Proportions of the consumer diet
+280,node_from,Rhaphiodon_vulpinis
+280,layer_from,2
+280,node_to,Rhaphiodon_vulpinis
+280,layer_to,2
+280,weight,0.1
+280,type,predation
+280,method,"field observation, literature and model"
+280,weight calculation,Proportions of the consumer diet

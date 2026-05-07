@@ -1,0 +1,251 @@
+layer,attribute,value
+1,type,space
+1,location,Twin Lake West
+1,latitude,43.6202777777778
+1,longitude,-74.6355555555556
+1,date,01/06/1984
+2,type,space
+2,location,Twin Lake East
+2,latitude,44.3416666666667
+2,longitude,-74.3416666666667
+2,date,01/06/1984
+3,type,space
+3,location,Beaver Lake
+3,latitude,44.5119444444444
+3,longitude,-74.125
+3,date,01/06/1984
+4,type,space
+4,location,Gull Lake
+4,latitude,43.5513888888889
+4,longitude,-75.0680555555556
+4,date,01/06/1984
+5,type,space
+5,location,Burntbridge Lake
+5,latitude,43.6511111111111
+5,longitude,-74.7522222222222
+5,date,01/06/1984
+6,type,space
+6,location,Goose Lake
+6,latitude,43.7802777777778
+6,longitude,-74.9052777777778
+6,date,01/06/1984
+7,type,space
+7,location,Grass Lake
+7,latitude,44.3769444444444
+7,longitude,-74.3472222222222
+7,date,01/06/1984
+8,type,space
+8,location,Brandy Lake
+8,latitude,44.1625
+8,longitude,-74.5697222222222
+8,date,01/06/1984
+9,type,space
+9,location,Owl Lake
+9,latitude,44.2683333333333
+9,longitude,-74.1530555555556
+9,date,01/06/1984
+10,type,space
+10,location,Rat Lake
+10,latitude,44.3527777777778
+10,longitude,-74.3116666666667
+10,date,01/06/1984
+11,type,space
+11,location,Razorback Lake
+11,latitude,43.8486111111111
+11,longitude,-74.9230555555555
+11,date,01/06/1984
+12,type,space
+12,location,OswegoLake
+12,latitude,43.8502777777778
+12,longitude,-74.9
+12,date,01/06/1984
+13,type,space
+13,location,Balsom Lake
+13,latitude,43.6283333333333
+13,longitude,-74.7972222222222
+13,date,01/06/1984
+14,type,space
+14,location,Safford Lake
+14,latitude,43.7841666666667
+14,longitude,-74.9152777777778
+14,date,01/06/1984
+15,type,space
+15,location,Sand Lake
+15,latitude,44.0105555555556
+15,longitude,-75.0108333333333
+15,date,01/06/1984
+16,type,space
+16,location,BigHope Lake
+16,latitude,44.2847222222222
+16,longitude,-74.3594444444444
+16,date,01/06/1984
+17,type,space
+17,location,Fawn Lake
+17,latitude,43.7133333333333
+17,longitude,-74.7794444444445
+17,date,01/06/1984
+18,type,space
+18,location,Federation Lake
+18,latitude,44.3397222222222
+18,longitude,-74.4122222222222
+18,date,01/06/1984
+19,type,space
+19,location,Squaw Lake
+19,latitude,45.6361111111111
+19,longitude,-74.7388888888889
+19,date,01/06/1984
+20,type,space
+20,location,Little Rainbow Lake
+20,latitude,43.6877777777778
+20,longitude,-74.6661111111111
+20,date,01/06/1984
+21,type,space
+21,location,Stink Lake
+21,latitude,43.6308333333333
+21,longitude,-74.8102777777778
+21,date,01/06/1984
+22,type,space
+22,location,Cascade Lake
+22,latitude,43.7891666666667
+22,longitude,-74.8127777777778
+22,date,01/06/1984
+23,type,space
+23,location,Whipple Lake
+23,latitude,44.3938888888889
+23,longitude,-74.3027777777778
+23,date,01/06/1984
+24,type,space
+24,location,Wolf Lake
+24,latitude,43.6272222222222
+24,longitude,-74.6563888888889
+24,date,01/06/1984
+25,type,space
+25,location,Rock Lake
+25,latitude,44.0105555555556
+25,longitude,-75.0183333333333
+25,date,01/06/1984
+26,type,space
+26,location,Russian Lake
+26,latitude,43.8413888888889
+26,longitude,-74.8069444444444
+26,date,01/06/1984
+27,type,space
+27,location,Horseshoe Lake
+27,latitude,44.3172222222222
+27,longitude,-74.3605555555555
+27,date,01/06/1984
+28,type,space
+28,location,Indian Lake
+28,latitude,43.6233333333333
+28,longitude,-74.7622222222222
+28,date,01/06/1984
+29,type,space
+29,location,Emerald Lake
+29,latitude,44.0227777777778
+29,longitude,-75.0211111111111
+29,date,01/06/1984
+30,type,space
+30,location,Falls Lake
+30,latitude,43.6325
+30,longitude,-74.6833333333333
+30,date,01/06/1984
+31,type,space
+31,location,Lost Lake
+31,latitude,44.4875
+31,longitude,-74.1672222222222
+31,date,01/06/1984
+32,type,space
+32,location,NA
+32,latitude,44.4619444444444
+32,longitude,-74.2838888888889
+32,date,01/06/1984
+33,type,space
+33,location,Chub Pond
+33,latitude,43.5277777777778
+33,longitude,-75.0555555555556
+33,date,01/06/1984
+34,type,space
+34,location,Lower Sister Lake
+34,latitude,43.8716666666667
+34,longitude,-74.7777777777778
+34,date,01/06/1984
+35,type,space
+35,location,Twelfth Tee Lake
+35,latitude,43.6175
+35,longitude,-74.6416666666667
+35,date,01/06/1984
+36,type,space
+36,location,Gull Lake North
+36,latitude,43.8625
+36,longitude,-74.8197222222222
+36,date,01/06/1984
+37,type,space
+37,location,Helldiver Pond
+37,latitude,43.6694444444444
+37,longitude,-74.7
+37,date,01/06/1984
+38,type,space
+38,location,Deep Lake
+38,latitude,43.6161111111111
+38,longitude,-74.6644444444444
+38,date,01/06/1984
+39,type,space
+39,location,Loon Lake
+39,latitude,44.3163888888889
+39,longitude,-73.9291666666667
+39,date,01/06/1984
+40,type,space
+40,location,Bridge Brook Lake
+40,latitude,43.6
+40,longitude,-74.6625
+40,date,01/06/1984
+41,type,space
+41,location,Constable Lake
+41,latitude,43.8305555555556
+41,longitude,-74.8075
+41,date,01/06/1984
+42,type,space
+42,location,Long Lake
+42,latitude,44.3591666666667
+42,longitude,-74.3291666666667
+42,date,01/06/1984
+43,type,space
+43,location,Buck Pond
+43,latitude,44.2122222222222
+43,longitude,-74.7094444444444
+43,date,01/06/1984
+44,type,space
+44,location,Connery Lake
+44,latitude,44.3063888888889
+44,longitude,-73.935
+44,date,01/06/1984
+45,type,space
+45,location,South Lake
+45,latitude,43.8438888888889
+45,longitude,-74.8813888888889
+45,date,01/06/1984
+46,type,space
+46,location,NA
+46,latitude,43.8325
+46,longitude,-74.7872222222222
+46,date,01/06/1984
+47,type,space
+47,location,High Pond
+47,latitude,44.0852777777778
+47,longitude,-74.6594444444444
+47,date,01/06/1984
+48,type,space
+48,location,Brook Trout Lake
+48,latitude,45.53
+48,longitude,-75.0633333333333
+48,date,01/06/1984
+49,type,space
+49,location,Alford Lake
+49,latitude,44.26
+49,longitude,-74.0386111111111
+49,date,01/06/1984
+50,type,space
+50,location,Hoel Lake
+50,latitude,44.3580555555556
+50,longitude,-74.3619444444444
+50,date,01/06/1984

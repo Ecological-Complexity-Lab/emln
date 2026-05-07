@@ -1,0 +1,28 @@
+layer,attribute,value
+1,layerID,M_PL_037
+1,type,space
+1,location,"Hestehaven, Denmark"
+1,type_of_interaction,Pollination
+1,latitude,56.248737
+1,longitude,9.973652
+1,num_of_species,50
+1,num_of_interactions,72
+1,connectance,0.18
+2,layerID,M_PL_038
+2,type,space
+2,location,"Hestehaven, Denmark"
+2,type_of_interaction,Pollination
+2,latitude,56.238737
+2,longitude,9.993652
+2,num_of_species,50
+2,num_of_interactions,79
+2,connectance,0.235
+3,layerID,M_PL_043
+3,type,space
+3,location,"Hestehaven, Denmark"
+3,type_of_interaction,Pollination
+3,latitude,56.238737
+3,longitude,9.953652
+3,num_of_species,110
+3,num_of_interactions,250
+3,connectance,0.109

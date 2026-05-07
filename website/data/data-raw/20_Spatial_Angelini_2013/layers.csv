@@ -1,0 +1,17 @@
+layer,attribute,value
+1,type,space
+1,location,"South Pantanal Plain, River Basin, Baía da Onça, Brazil"
+1,latitude,-16.35
+1,longitude,-56.666668
+1,num_of_species,40
+1,num_of_interactions,241
+1,connectance,0.309
+1,directed,TRUE
+2,type,space
+2,location,"South Pantanal Plain, River Basin, Braco Morto, Brazil"
+2,latitude,-16.35
+2,longitude,-56.666668
+2,num_of_species,39
+2,num_of_interactions,248
+2,connectance,0.335
+2,directed,TRUE

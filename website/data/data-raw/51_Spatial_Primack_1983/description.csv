@@ -1,0 +1,8 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Spatial
+description,specialisation of plants and insects
+source,Web_of_Life
+data_url,http://www.web-of-life.es
+ecological_network_type,Pollination
+state_nodes,TRUE

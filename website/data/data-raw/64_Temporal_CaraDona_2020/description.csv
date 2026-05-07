@@ -1,0 +1,8 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Temporal
+description,NA
+source,EDI_data_portal
+data_url,https://portal.edirepository.org/nis/mapbrowse?packageid=edi.512.1
+ecological_network_type,Pollination
+state_nodes,FALSE

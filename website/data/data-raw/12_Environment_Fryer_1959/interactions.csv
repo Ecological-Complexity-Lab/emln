@@ -1,0 +1,2003 @@
+interaction_id,attribute,value
+1,node_from,Haplochromis_moori
+1,layer_from,1
+1,node_to,algae
+1,layer_to,1
+1,weight,1
+1,type,herbivory
+1,method,field observation and gut content
+2,node_from,Lanistes_procerus
+2,layer_from,1
+2,node_to,Vallisneria
+2,layer_to,1
+2,weight,1
+2,type,herbivory
+2,method,field observation and gut content
+3,node_from,Malanoides_tuberculata
+3,layer_from,1
+3,node_to,Aufwuchs_on_Vallisneria
+3,layer_to,1
+3,weight,1
+3,type,herbivory
+3,method,field observation and gut content
+4,node_from,other_gastropods
+4,layer_from,1
+4,node_to,Aufwuchs_on_Vallisneria
+4,layer_to,1
+4,weight,1
+4,type,herbivory
+4,method,field observation and gut content
+5,node_from,Tilapia_melanopleura
+5,layer_from,1
+5,node_to,Vallisneria
+5,layer_to,1
+5,weight,1
+5,type,herbivory
+5,method,field observation and gut content
+6,node_from,Tilapia_shirana
+6,layer_from,1
+6,node_to,algae
+6,layer_to,1
+6,weight,1
+6,type,herbivory
+6,method,field observation and gut content
+7,node_from,Labeo_mesops
+7,layer_from,1
+7,node_to,algae
+7,layer_to,1
+7,weight,1
+7,type,herbivory
+7,method,field observation and gut content
+8,node_from,Haplochromis_chrysonotus
+8,layer_from,1
+8,node_to,Ostracods
+8,layer_to,1
+8,weight,1
+8,type,predation
+8,method,field observation and gut content
+9,node_from,Haplochromis_chrysonotus
+9,layer_from,1
+9,node_to,Chironomid_larvae
+9,layer_to,1
+9,weight,1
+9,type,predation
+9,method,field observation and gut content
+10,node_from,Haplochromis_chrysonotus
+10,layer_from,1
+10,node_to,Vallisneria
+10,layer_to,1
+10,weight,1
+10,type,herbivory
+10,method,field observation and gut content
+11,node_from,Haplochromis_chrysonotus
+11,layer_from,1
+11,node_to,algae
+11,layer_to,1
+11,weight,1
+11,type,herbivory
+11,method,field observation and gut content
+12,node_from,Cyclopoid_copepods
+12,layer_from,1
+12,node_to,algae
+12,layer_to,1
+12,weight,1
+12,type,herbivory
+12,method,field observation and gut content
+13,node_from,Barbus_johnstoni
+13,layer_from,1
+13,node_to,Baetid_nymphs
+13,layer_to,1
+13,weight,1
+13,type,predation
+13,method,field observation and gut content
+14,node_from,Haplochromis_johnstoni
+14,layer_from,1
+14,node_to,bottom_detritus
+14,layer_to,1
+14,weight,1
+14,type,detritivore
+14,method,field observation and gut content
+15,node_from,Tilapia_saka
+15,layer_from,1
+15,node_to,bottom_detritus
+15,layer_to,1
+15,weight,1
+15,type,detritivore
+15,method,field observation and gut content
+16,node_from,T._squamipinnis
+16,layer_from,1
+16,node_to,bottom_detritus
+16,layer_to,1
+16,weight,1
+16,type,detritivore
+16,method,field observation and gut content
+17,node_from,Barbus_johnstoni
+17,layer_from,1
+17,node_to,bottom_detritus
+17,layer_to,1
+17,weight,1
+17,type,detritivore
+17,method,field observation and gut content
+18,node_from,Ostracods
+18,layer_from,1
+18,node_to,bottom_detritus
+18,layer_to,1
+18,weight,1
+18,type,detritivore
+18,method,field observation and gut content
+19,node_from,Chironomid_larvae
+19,layer_from,1
+19,node_to,bottom_detritus
+19,layer_to,1
+19,weight,1
+19,type,detritivore
+19,method,field observation and gut content
+20,node_from,Caridina_nilotica
+20,layer_from,1
+20,node_to,bottom_detritus
+20,layer_to,1
+20,weight,1
+20,type,detritivore
+20,method,field observation and gut content
+21,node_from,Corbicula_africana
+21,layer_from,1
+21,node_to,bottom_detritus
+21,layer_to,1
+21,weight,1
+21,type,detritivore
+21,method,field observation and gut content
+22,node_from,Barbus_innocens
+22,layer_from,1
+22,node_to,bottom_detritus
+22,layer_to,1
+22,weight,1
+22,type,detritivore
+22,method,field observation and gut content
+23,node_from,Haplochromis_similis
+23,layer_from,1
+23,node_to,bottom_detritus
+23,layer_to,1
+23,weight,1
+23,type,detritivore
+23,method,field observation and gut content
+24,node_from,Haplochromis_moori
+24,layer_from,1
+24,node_to,bottom_detritus
+24,layer_to,1
+24,weight,1
+24,type,detritivore
+24,method,field observation and gut content
+25,node_from,Tilapia_shirana
+25,layer_from,1
+25,node_to,bottom_detritus
+25,layer_to,1
+25,weight,1
+25,type,detritivore
+25,method,field observation and gut content
+26,node_from,Labeo_mesops
+26,layer_from,1
+26,node_to,bottom_detritus
+26,layer_to,1
+26,weight,1
+26,type,detritivore
+26,method,field observation and gut content
+27,node_from,Haplochromis_chrysonotus
+27,layer_from,1
+27,node_to,bottom_detritus
+27,layer_to,1
+27,weight,1
+27,type,detritivore
+27,method,field observation and gut content
+28,node_from,Cyclopoid_copepods
+28,layer_from,1
+28,node_to,bottom_detritus
+28,layer_to,1
+28,weight,1
+28,type,detritivore
+28,method,field observation and gut content
+29,node_from,Haplochromis_johnstoni
+29,layer_from,1
+29,node_to,Baetid_nymphs
+29,layer_to,1
+29,weight,1
+29,type,predation
+29,method,field observation and gut content
+30,node_from,Haplochromis_johnstoni
+30,layer_from,1
+30,node_to,Ostracods
+30,layer_to,1
+30,weight,1
+30,type,predation
+30,method,field observation and gut content
+31,node_from,Haplochromis_johnstoni
+31,layer_from,1
+31,node_to,Chironomid_larvae
+31,layer_to,1
+31,weight,1
+31,type,predation
+31,method,field observation and gut content
+32,node_from,Haplochromis_johnstoni
+32,layer_from,1
+32,node_to,Caridina_nilotica
+32,layer_to,1
+32,weight,1
+32,type,predation
+32,method,field observation and gut content
+33,node_from,Haplochromis_johnstoni
+33,layer_from,1
+33,node_to,Corbicula_africana
+33,layer_to,1
+33,weight,1
+33,type,predation
+33,method,field observation and gut content
+34,node_from,Haplochromis_johnstoni
+34,layer_from,1
+34,node_to,Malanoides_tuberculata
+34,layer_to,1
+34,weight,1
+34,type,predation
+34,method,field observation and gut content
+35,node_from,Haplochromis_johnstoni
+35,layer_from,1
+35,node_to,other_gastropods
+35,layer_to,1
+35,weight,1
+35,type,predation
+35,method,field observation and gut content
+36,node_from,Haplochromis_johnstoni
+36,layer_from,1
+36,node_to,terrestrial_insects
+36,layer_to,1
+36,weight,1
+36,type,predation
+36,method,field observation and gut content
+37,node_from,Haplochromis_johnstoni
+37,layer_from,1
+37,node_to,Vallisneria
+37,layer_to,1
+37,weight,1
+37,type,herbivory
+37,method,field observation and gut content
+38,node_from,Haplochromis_johnstoni
+38,layer_from,1
+38,node_to,algae
+38,layer_to,1
+38,weight,1
+38,type,herbivory
+38,method,field observation and gut content
+39,node_from,Haplochromis_johnstoni
+39,layer_from,1
+39,node_to,Cyclopoid_copepods
+39,layer_to,1
+39,weight,1
+39,type,predation
+39,method,field observation and gut content
+40,node_from,Barbus_rhoadesii
+40,layer_from,1
+40,node_to,various_immature_fishes
+40,layer_to,1
+40,weight,1
+40,type,predation
+40,method,field observation and gut content
+41,node_from,Barbus_rhoadesii
+41,layer_from,1
+41,node_to,Tilapia_saka
+41,layer_to,1
+41,weight,1
+41,type,predation
+41,method,field observation and gut content
+42,node_from,Barbus_rhoadesii
+42,layer_from,1
+42,node_to,T._squamipinnis
+42,layer_to,1
+42,weight,1
+42,type,predation
+42,method,field observation and gut content
+43,node_from,Haplochromis_dimidiatus
+43,layer_from,1
+43,node_to,Engraulicypris_sardella
+43,layer_to,1
+43,weight,1
+43,type,predation
+43,method,field observation and gut content
+44,node_from,Haplochromis_dimidiatus
+44,layer_from,1
+44,node_to,various_immature_fishes
+44,layer_to,1
+44,weight,1
+44,type,predation
+44,method,field observation and gut content
+45,node_from,Haplochromis_dimidiatus
+45,layer_from,1
+45,node_to,Baetid_nymphs
+45,layer_to,1
+45,weight,1
+45,type,predation
+45,method,field observation and gut content
+46,node_from,Haplochromis_dimidiatus
+46,layer_from,1
+46,node_to,Ostracods
+46,layer_to,1
+46,weight,1
+46,type,predation
+46,method,field observation and gut content
+47,node_from,Haplochromis_dimidiatus
+47,layer_from,1
+47,node_to,Chironomid_larvae
+47,layer_to,1
+47,weight,1
+47,type,predation
+47,method,field observation and gut content
+48,node_from,Haplochromis_dimidiatus
+48,layer_from,1
+48,node_to,terrestrial_insects
+48,layer_to,1
+48,weight,1
+48,type,predation
+48,method,field observation and gut content
+49,node_from,Haplochromis_dimidiatus
+49,layer_from,1
+49,node_to,Vallisneria
+49,layer_to,1
+49,weight,1
+49,type,herbivory
+49,method,field observation and gut content
+50,node_from,Haplochromis_dimidiatus
+50,layer_from,1
+50,node_to,Cyclopoid_copepods
+50,layer_to,1
+50,weight,1
+50,type,predation
+50,method,field observation and gut content
+51,node_from,Haplochromis_rostratus
+51,layer_from,1
+51,node_to,various_immature_fishes
+51,layer_to,1
+51,weight,1
+51,type,predation
+51,method,field observation and gut content
+52,node_from,Haplochromis_sp.
+52,layer_from,1
+52,node_to,various_immature_fishes
+52,layer_to,1
+52,weight,1
+52,type,predation
+52,method,field observation and gut content
+53,node_from,Rhamphochromis_spp.
+53,layer_from,1
+53,node_to,various_immature_fishes
+53,layer_to,1
+53,weight,1
+53,type,predation
+53,method,field observation and gut content
+54,node_from,Engraulicypris_sardella
+54,layer_from,1
+54,node_to,Ostracods
+54,layer_to,1
+54,weight,1
+54,type,predation
+54,method,field observation and gut content
+55,node_from,various_immature_fishes
+55,layer_from,1
+55,node_to,Microcyclops_nyasae
+55,layer_to,1
+55,weight,1
+55,type,predation
+55,method,field observation and gut content
+56,node_from,various_immature_fishes
+56,layer_from,1
+56,node_to,Ostracods
+56,layer_to,1
+56,weight,1
+56,type,predation
+56,method,field observation and gut content
+57,node_from,Lethrinops_brevis
+57,layer_from,1
+57,node_to,Ostracods
+57,layer_to,1
+57,weight,1
+57,type,predation
+57,method,field observation and gut content
+58,node_from,Lethrinops_brevis
+58,layer_from,1
+58,node_to,Chironomid_larvae
+58,layer_to,1
+58,weight,1
+58,type,predation
+58,method,field observation and gut content
+59,node_from,Tilapia_saka
+59,layer_from,1
+59,node_to,Vallisneria
+59,layer_to,1
+59,weight,1
+59,type,herbivory
+59,method,field observation and gut content
+60,node_from,T._squamipinnis
+60,layer_from,1
+60,node_to,Vallisneria
+60,layer_to,1
+60,weight,1
+60,type,herbivory
+60,method,field observation and gut content
+61,node_from,Tilapia_saka
+61,layer_from,1
+61,node_to,algae
+61,layer_to,1
+61,weight,1
+61,type,herbivory
+61,method,field observation and gut content
+62,node_from,T._squamipinnis
+62,layer_from,1
+62,node_to,algae
+62,layer_to,1
+62,weight,1
+62,type,herbivory
+62,method,field observation and gut content
+63,node_from,Synodontis_zambesensis
+63,layer_from,1
+63,node_to,Baetid_nymphs
+63,layer_to,1
+63,weight,1
+63,type,predation
+63,method,field observation and gut content
+64,node_from,Synodontis_zambesensis
+64,layer_from,1
+64,node_to,Ostracods
+64,layer_to,1
+64,weight,1
+64,type,predation
+64,method,field observation and gut content
+65,node_from,Synodontis_zambesensis
+65,layer_from,1
+65,node_to,Chironomid_larvae
+65,layer_to,1
+65,weight,1
+65,type,predation
+65,method,field observation and gut content
+66,node_from,Synodontis_zambesensis
+66,layer_from,1
+66,node_to,terrestrial_insects
+66,layer_to,1
+66,weight,1
+66,type,predation
+66,method,field observation and gut content
+67,node_from,Lethrinops
+67,layer_from,1
+67,node_to,Ostracods
+67,layer_to,1
+67,weight,1
+67,type,predation
+67,method,field observation and gut content
+68,node_from,Engraulicypris_sardella
+68,layer_from,1
+68,node_to,plankton
+68,layer_to,1
+68,weight,1
+68,type,trophic
+68,method,field observation and gut content
+69,node_from,Lethrinops
+69,layer_from,1
+69,node_to,Chironomid_larvae
+69,layer_to,1
+69,weight,1
+69,type,predation
+69,method,field observation and gut content
+70,node_from,Alestes_imberi
+70,layer_from,1
+70,node_to,Baetid_nymphs
+70,layer_to,1
+70,weight,1
+70,type,predation
+70,method,field observation and gut content
+71,node_from,Alestes_imberi
+71,layer_from,1
+71,node_to,terrestrial_insects
+71,layer_to,1
+71,weight,1
+71,type,predation
+71,method,field observation and gut content
+72,node_from,Microcyclops_nyasae
+72,layer_from,1
+72,node_to,Aufwuchs_on_Vallisneria
+72,layer_to,1
+72,weight,1
+72,type,herbivory
+72,method,field observation and gut content
+73,node_from,Lethriops_furcifer
+73,layer_from,1
+73,node_to,Chironomid_larvae
+73,layer_to,1
+73,weight,1
+73,type,predation
+73,method,field observation and gut content
+74,node_from,Barbus_eurystomus
+74,layer_from,1
+74,node_to,Corbicula_africana
+74,layer_to,1
+74,weight,1
+74,type,predation
+74,method,field observation and gut content
+75,node_from,Barbus_eurystomus
+75,layer_from,1
+75,node_to,Malanoides_tuberculata
+75,layer_to,1
+75,weight,1
+75,type,predation
+75,method,field observation and gut content
+76,node_from,Barbus_eurystomus
+76,layer_from,1
+76,node_to,other_gastropods
+76,layer_to,1
+76,weight,1
+76,type,predation
+76,method,field observation and gut content
+77,node_from,Haplocrhomis_mola
+77,layer_from,1
+77,node_to,Baetid_nymphs
+77,layer_to,1
+77,weight,1
+77,type,predation
+77,method,field observation and gut content
+78,node_from,Haplocrhomis_mola
+78,layer_from,1
+78,node_to,Chironomid_larvae
+78,layer_to,1
+78,weight,1
+78,type,predation
+78,method,field observation and gut content
+79,node_from,Haplocrhomis_mola
+79,layer_from,1
+79,node_to,Caridina_nilotica
+79,layer_to,1
+79,weight,1
+79,type,predation
+79,method,field observation and gut content
+80,node_from,Haplocrhomis_mola
+80,layer_from,1
+80,node_to,Corbicula_africana
+80,layer_to,1
+80,weight,1
+80,type,predation
+80,method,field observation and gut content
+81,node_from,Haplocrhomis_mola
+81,layer_from,1
+81,node_to,Lanistes_procerus
+81,layer_to,1
+81,weight,1
+81,type,predation
+81,method,field observation and gut content
+82,node_from,Haplocrhomis_mola
+82,layer_from,1
+82,node_to,Malanoides_tuberculata
+82,layer_to,1
+82,weight,1
+82,type,predation
+82,method,field observation and gut content
+83,node_from,Haplocrhomis_mola
+83,layer_from,1
+83,node_to,other_gastropods
+83,layer_to,1
+83,weight,1
+83,type,predation
+83,method,field observation and gut content
+84,node_from,Barilius_microcephalus
+84,layer_from,1
+84,node_to,terrestrial_insects
+84,layer_to,1
+84,weight,1
+84,type,predation
+84,method,field observation and gut content
+85,node_from,Barbus_johnstoni
+85,layer_from,1
+85,node_to,Chironomid_larvae
+85,layer_to,1
+85,weight,1
+85,type,predation
+85,method,field observation and gut content
+86,node_from,Barbus_johnstoni
+86,layer_from,1
+86,node_to,Aufwuchs_on_Vallisneria
+86,layer_to,1
+86,weight,1
+86,type,herbivory
+86,method,field observation and gut content
+87,node_from,Barbus_johnstoni
+87,layer_from,1
+87,node_to,Vallisneria
+87,layer_to,1
+87,weight,1
+87,type,herbivory
+87,method,field observation and gut content
+88,node_from,Barbus_johnstoni
+88,layer_from,1
+88,node_to,algae
+88,layer_to,1
+88,weight,1
+88,type,herbivory
+88,method,field observation and gut content
+89,node_from,Barbus_johnstoni
+89,layer_from,1
+89,node_to,Cyclopoid_copepods
+89,layer_to,1
+89,weight,1
+89,type,predation
+89,method,field observation and gut content
+90,node_from,Baetid_nymphs
+90,layer_from,1
+90,node_to,Aufwuchs_on_Vallisneria
+90,layer_to,1
+90,weight,1
+90,type,herbivory
+90,method,field observation and gut content
+91,node_from,Ostracods
+91,layer_from,1
+91,node_to,algae
+91,layer_to,1
+91,weight,1
+91,type,herbivory
+91,method,field observation and gut content
+92,node_from,Chironomid_larvae
+92,layer_from,1
+92,node_to,algae
+92,layer_to,1
+92,weight,1
+92,type,herbivory
+92,method,field observation and gut content
+93,node_from,Caridina_nilotica
+93,layer_from,1
+93,node_to,algae
+93,layer_to,1
+93,weight,1
+93,type,herbivory
+93,method,field observation and gut content
+94,node_from,Corbicula_africana
+94,layer_from,1
+94,node_to,algae
+94,layer_to,1
+94,weight,1
+94,type,herbivory
+94,method,field observation and gut content
+95,node_from,Barbus_innocens
+95,layer_from,1
+95,node_to,Aufwuchs_on_Vallisneria
+95,layer_to,1
+95,weight,1
+95,type,herbivory
+95,method,field observation and gut content
+96,node_from,Haplochromis_similis
+96,layer_from,1
+96,node_to,Aufwuchs_on_Vallisneria
+96,layer_to,1
+96,weight,1
+96,type,herbivory
+96,method,field observation and gut content
+97,node_from,Haplochromis_moori
+97,layer_from,1
+97,node_to,Aufwuchs_on_Vallisneria
+97,layer_to,1
+97,weight,1
+97,type,herbivory
+97,method,field observation and gut content
+98,node_from,Barbus_innocens
+98,layer_from,1
+98,node_to,Vallisneria
+98,layer_to,1
+98,weight,1
+98,type,herbivory
+98,method,field observation and gut content
+99,node_from,Haplochromis_similis
+99,layer_from,1
+99,node_to,Vallisneria
+99,layer_to,1
+99,weight,1
+99,type,herbivory
+99,method,field observation and gut content
+100,node_from,Haplochromis_moori
+100,layer_from,1
+100,node_to,Vallisneria
+100,layer_to,1
+100,weight,1
+100,type,herbivory
+100,method,field observation and gut content
+101,node_from,Labeo_mesops
+101,layer_from,1
+101,node_to,bottom_detritus
+101,layer_to,1
+101,weight,1
+101,type,detritivore
+101,method,field observation and gut content
+102,node_from,Haplochromis_chrysonotus
+102,layer_from,1
+102,node_to,bottom_detritus
+102,layer_to,1
+102,weight,1
+102,type,detritivore
+102,method,field observation and gut content
+103,node_from,Cyclopoid_copepods
+103,layer_from,1
+103,node_to,bottom_detritus
+103,layer_to,1
+103,weight,1
+103,type,detritivore
+103,method,field observation and gut content
+104,node_from,Mastacembelus_shiranus
+104,layer_from,2
+104,node_to,Chironomid_larvae
+104,layer_to,2
+104,weight,1
+104,type,predation
+104,method,field observation and gut content
+105,node_from,Bathyclarias_worthingtoni
+105,layer_from,2
+105,node_to,Hydropsychid_larvae
+105,layer_to,2
+105,weight,1
+105,type,predation
+105,method,field observation and gut content
+106,node_from,Bathyclarias_worthingtoni
+106,layer_from,2
+106,node_to,Neoperla_spio_nymphs
+106,layer_to,2
+106,weight,1
+106,type,predation
+106,method,field observation and gut content
+107,node_from,Bathyclarias_worthingtoni
+107,layer_from,2
+107,node_to,Potamonautes_lirrangensis
+107,layer_to,2
+107,weight,1
+107,type,predation
+107,method,field observation and gut content
+108,node_from,Bathyclarias_worthingtoni
+108,layer_from,2
+108,node_to,ostracods
+108,layer_to,2
+108,weight,1
+108,type,predation
+108,method,field observation and gut content
+109,node_from,Bathyclarias_worthingtoni
+109,layer_from,2
+109,node_to,Chironomid_larvae
+109,layer_to,2
+109,weight,1
+109,type,predation
+109,method,field observation and gut content
+110,node_from,Bathyclarias_worthingtoni
+110,layer_from,2
+110,node_to,Afronurus_nymphs
+110,layer_to,2
+110,weight,1
+110,type,predation
+110,method,field observation and gut content
+111,node_from,Bathyclarias_worthingtoni
+111,layer_from,2
+111,node_to,terrestrial_insects
+111,layer_to,2
+111,weight,1
+111,type,predation
+111,method,field observation and gut content
+112,node_from,Labidochromis_vellicans
+112,layer_from,2
+112,node_to,Hydropsychid_larvae
+112,layer_to,2
+112,weight,1
+112,type,predation
+112,method,field observation and gut content
+113,node_from,Labidochromis_vellicans
+113,layer_from,2
+113,node_to,Schizopera_consimilis
+113,layer_to,2
+113,weight,1
+113,type,predation
+113,method,field observation and gut content
+114,node_from,Labidochromis_vellicans
+114,layer_from,2
+114,node_to,ostracods
+114,layer_to,2
+114,weight,1
+114,type,predation
+114,method,field observation and gut content
+115,node_from,Labidochromis_vellicans
+115,layer_from,2
+115,node_to,Eubrianax_larvae
+115,layer_to,2
+115,weight,1
+115,type,predation
+115,method,field observation and gut content
+116,node_from,Labidochromis_vellicans
+116,layer_from,2
+116,node_to,Chironomid_larvae
+116,layer_to,2
+116,weight,1
+116,type,predation
+116,method,field observation and gut content
+117,node_from,Labidochromis_vellicans
+117,layer_from,2
+117,node_to,Afronurus_nymphs
+117,layer_to,2
+117,weight,1
+117,type,predation
+117,method,field observation and gut content
+118,node_from,Labidochromis_vellicans
+118,layer_from,2
+118,node_to,Aufwuchs
+118,layer_to,2
+118,weight,1
+118,type,herbivory
+118,method,field observation and gut content
+119,node_from,Labidochromis_caeruleus
+119,layer_from,2
+119,node_to,Hydropsychid_larvae
+119,layer_to,2
+119,weight,1
+119,type,predation
+119,method,field observation and gut content
+120,node_from,Labidochromis_caeruleus
+120,layer_from,2
+120,node_to,ostracods
+120,layer_to,2
+120,weight,1
+120,type,predation
+120,method,field observation and gut content
+121,node_from,Labidochromis_caeruleus
+121,layer_from,2
+121,node_to,Eubrianax_larvae
+121,layer_to,2
+121,weight,1
+121,type,predation
+121,method,field observation and gut content
+122,node_from,Labidochromis_caeruleus
+122,layer_from,2
+122,node_to,Chironomid_larvae
+122,layer_to,2
+122,weight,1
+122,type,predation
+122,method,field observation and gut content
+123,node_from,Labidochromis_caeruleus
+123,layer_from,2
+123,node_to,Afronurus_nymphs
+123,layer_to,2
+123,weight,1
+123,type,predation
+123,method,field observation and gut content
+124,node_from,Haplochromis_euchilus
+124,layer_from,2
+124,node_to,Hydropsychid_larvae
+124,layer_to,2
+124,weight,1
+124,type,predation
+124,method,field observation and gut content
+125,node_from,Haplochromis_euchilus
+125,layer_from,2
+125,node_to,Neoperla_spio_nymphs
+125,layer_to,2
+125,weight,1
+125,type,predation
+125,method,field observation and gut content
+126,node_from,Haplochromis_euchilus
+126,layer_from,2
+126,node_to,Schizopera_consimilis
+126,layer_to,2
+126,weight,1
+126,type,predation
+126,method,field observation and gut content
+127,node_from,Haplochromis_euchilus
+127,layer_from,2
+127,node_to,ostracods
+127,layer_to,2
+127,weight,1
+127,type,predation
+127,method,field observation and gut content
+128,node_from,Haplochromis_euchilus
+128,layer_from,2
+128,node_to,Eubrianax_larvae
+128,layer_to,2
+128,weight,1
+128,type,predation
+128,method,field observation and gut content
+129,node_from,Haplochromis_euchilus
+129,layer_from,2
+129,node_to,Chironomid_larvae
+129,layer_to,2
+129,weight,1
+129,type,predation
+129,method,field observation and gut content
+130,node_from,Haplochromis_euchilus
+130,layer_from,2
+130,node_to,Afronurus_nymphs
+130,layer_to,2
+130,weight,1
+130,type,predation
+130,method,field observation and gut content
+131,node_from,Haplochromis_euchilus
+131,layer_from,2
+131,node_to,terrestrial_insects
+131,layer_to,2
+131,weight,1
+131,type,predation
+131,method,field observation and gut content
+132,node_from,Haplochromis_ornatus
+132,layer_from,2
+132,node_to,Hydropsychid_larvae
+132,layer_to,2
+132,weight,1
+132,type,predation
+132,method,field observation and gut content
+133,node_from,Haplochromis_ornatus
+133,layer_from,2
+133,node_to,Neoperla_spio_nymphs
+133,layer_to,2
+133,weight,1
+133,type,predation
+133,method,field observation and gut content
+134,node_from,Haplochromis_ornatus
+134,layer_from,2
+134,node_to,Schizopera_consimilis
+134,layer_to,2
+134,weight,1
+134,type,predation
+134,method,field observation and gut content
+135,node_from,Haplochromis_ornatus
+135,layer_from,2
+135,node_to,ostracods
+135,layer_to,2
+135,weight,1
+135,type,predation
+135,method,field observation and gut content
+136,node_from,Haplochromis_ornatus
+136,layer_from,2
+136,node_to,Eubrianax_larvae
+136,layer_to,2
+136,weight,1
+136,type,predation
+136,method,field observation and gut content
+137,node_from,leech
+137,layer_from,2
+137,node_to,Chironomid_larvae
+137,layer_to,2
+137,weight,1
+137,type,predation
+137,method,field observation and gut content
+138,node_from,ostracods
+138,layer_from,2
+138,node_to,Aufwuchs
+138,layer_to,2
+138,weight,1
+138,type,herbivory
+138,method,field observation and gut content
+139,node_from,Haplochromis_kiwinge
+139,layer_from,2
+139,node_to,plankton
+139,layer_to,2
+139,weight,1
+139,type,trophic
+139,method,field observation and gut content
+140,node_from,Labidochromis_vellicans
+140,layer_from,2
+140,node_to,plankton
+140,layer_to,2
+140,weight,1
+140,type,trophic
+140,method,field observation and gut content
+141,node_from,Haplochromis_kiwinge
+141,layer_from,2
+141,node_to,Aufwuchs
+141,layer_to,2
+141,weight,1
+141,type,herbivory
+141,method,field observation and gut content
+142,node_from,Haplochromis_kiwinge
+142,layer_from,2
+142,node_to,terrestrial_insects
+142,layer_to,2
+142,weight,1
+142,type,predation
+142,method,field observation and gut content
+143,node_from,juvenile_cichlids
+143,layer_from,2
+143,node_to,Aufwuchs
+143,layer_to,2
+143,weight,1
+143,type,herbivory
+143,method,field observation and gut content
+144,node_from,Pseudotropheus_zebra
+144,layer_from,2
+144,node_to,Aufwuchs
+144,layer_to,2
+144,weight,1
+144,type,herbivory
+144,method,field observation and gut content
+145,node_from,Pseudotropheus_elongatus
+145,layer_from,2
+145,node_to,Aufwuchs
+145,layer_to,2
+145,weight,1
+145,type,herbivory
+145,method,field observation and gut content
+146,node_from,P._tropheops
+146,layer_from,2
+146,node_to,Aufwuchs
+146,layer_to,2
+146,weight,1
+146,type,herbivory
+146,method,field observation and gut content
+147,node_from,P._minutus
+147,layer_from,2
+147,node_to,Aufwuchs
+147,layer_to,2
+147,weight,1
+147,type,herbivory
+147,method,field observation and gut content
+148,node_from,P._auratus
+148,layer_from,2
+148,node_to,Aufwuchs
+148,layer_to,2
+148,weight,1
+148,type,herbivory
+148,method,field observation and gut content
+149,node_from,P._fuscus
+149,layer_from,2
+149,node_to,Aufwuchs
+149,layer_to,2
+149,weight,1
+149,type,herbivory
+149,method,field observation and gut content
+150,node_from,Labeotropheus_fuelleborni
+150,layer_from,2
+150,node_to,Aufwuchs
+150,layer_to,2
+150,weight,1
+150,type,herbivory
+150,method,field observation and gut content
+151,node_from,L._trewavasae
+151,layer_from,2
+151,node_to,Aufwuchs
+151,layer_to,2
+151,weight,1
+151,type,herbivory
+151,method,field observation and gut content
+152,node_from,Haplochromis_guentheri
+152,layer_from,2
+152,node_to,Schizopera_consimilis
+152,layer_to,2
+152,weight,1
+152,type,predation
+152,method,field observation and gut content
+153,node_from,H._fenestratus
+153,layer_from,2
+153,node_to,Schizopera_consimilis
+153,layer_to,2
+153,weight,1
+153,type,predation
+153,method,field observation and gut content
+154,node_from,Haplochromis_guentheri
+154,layer_from,2
+154,node_to,ostracods
+154,layer_to,2
+154,weight,1
+154,type,predation
+154,method,field observation and gut content
+155,node_from,H._fenestratus
+155,layer_from,2
+155,node_to,ostracods
+155,layer_to,2
+155,weight,1
+155,type,predation
+155,method,field observation and gut content
+156,node_from,Haplochromis_guentheri
+156,layer_from,2
+156,node_to,Chironomid_larvae
+156,layer_to,2
+156,weight,1
+156,type,predation
+156,method,field observation and gut content
+157,node_from,H._fenestratus
+157,layer_from,2
+157,node_to,Chironomid_larvae
+157,layer_to,2
+157,weight,1
+157,type,predation
+157,method,field observation and gut content
+158,node_from,Haplochromis_guentheri
+158,layer_from,2
+158,node_to,Aufwuchs
+158,layer_to,2
+158,weight,1
+158,type,herbivory
+158,method,field observation and gut content
+159,node_from,Haplochromis_ornatus
+159,layer_from,2
+159,node_to,Elmid_larvae
+159,layer_to,2
+159,weight,1
+159,type,predation
+159,method,field observation and gut content
+160,node_from,Haplochromis_ornatus
+160,layer_from,2
+160,node_to,Chironomid_larvae
+160,layer_to,2
+160,weight,1
+160,type,predation
+160,method,field observation and gut content
+161,node_from,Haplochromis_ornatus
+161,layer_from,2
+161,node_to,Afronurus_nymphs
+161,layer_to,2
+161,weight,1
+161,type,predation
+161,method,field observation and gut content
+162,node_from,Haplochromis_ornatus
+162,layer_from,2
+162,node_to,Aufwuchs
+162,layer_to,2
+162,weight,1
+162,type,herbivory
+162,method,field observation and gut content
+163,node_from,Pseudotropheus_fuscoides
+163,layer_from,2
+163,node_to,Hydropsychid_larvae
+163,layer_to,2
+163,weight,1
+163,type,predation
+163,method,field observation and gut content
+164,node_from,Pseudotropheus_fuscoides
+164,layer_from,2
+164,node_to,Chironomid_larvae
+164,layer_to,2
+164,weight,1
+164,type,predation
+164,method,field observation and gut content
+165,node_from,Pseudotropheus_fuscoides
+165,layer_from,2
+165,node_to,Afronurus_nymphs
+165,layer_to,2
+165,weight,1
+165,type,predation
+165,method,field observation and gut content
+166,node_from,Pseudotropheus_fuscoides
+166,layer_from,2
+166,node_to,Aufwuchs
+166,layer_to,2
+166,weight,1
+166,type,herbivory
+166,method,field observation and gut content
+167,node_from,Pseudotropheus_fuscoides
+167,layer_from,2
+167,node_to,terrestrial_insects
+167,layer_to,2
+167,weight,-1
+167,type,predation
+167,method,field observation and gut content
+168,node_from,Hydropsychid_larvae
+168,layer_from,2
+168,node_to,ostracods
+168,layer_to,2
+168,weight,1
+168,type,predation
+168,method,field observation and gut content
+169,node_from,Hydropsychid_larvae
+169,layer_from,2
+169,node_to,Chironomid_larvae
+169,layer_to,2
+169,weight,1
+169,type,predation
+169,method,field observation and gut content
+170,node_from,Hydropsychid_larvae
+170,layer_from,2
+170,node_to,Aufwuchs
+170,layer_to,2
+170,weight,1
+170,type,herbivory
+170,method,field observation and gut content
+171,node_from,Neoperla_spio_nymphs
+171,layer_from,2
+171,node_to,Schizopera_consimilis
+171,layer_to,2
+171,weight,1
+171,type,predation
+171,method,field observation and gut content
+172,node_from,Neoperla_spio_nymphs
+172,layer_from,2
+172,node_to,ostracods
+172,layer_to,2
+172,weight,1
+172,type,predation
+172,method,field observation and gut content
+173,node_from,Neoperla_spio_nymphs
+173,layer_from,2
+173,node_to,Chironomid_larvae
+173,layer_to,2
+173,weight,1
+173,type,predation
+173,method,field observation and gut content
+174,node_from,Neoperla_spio_nymphs
+174,layer_from,2
+174,node_to,Afronurus_nymphs
+174,layer_to,2
+174,weight,1
+174,type,predation
+174,method,field observation and gut content
+175,node_from,Cynotilapia_afra
+175,layer_from,2
+175,node_to,Chironomid_larvae
+175,layer_to,2
+175,weight,1
+175,type,predation
+175,method,field observation and gut content
+176,node_from,Cynotilapia_afra
+176,layer_from,2
+176,node_to,Aufwuchs
+176,layer_to,2
+176,weight,1
+176,type,herbivory
+176,method,field observation and gut content
+177,node_from,Potamonautes_lirrangensis
+177,layer_from,2
+177,node_to,Aufwuchs
+177,layer_to,2
+177,weight,1
+177,type,herbivory
+177,method,field observation and gut content
+178,node_from,Schizopera_consimilis
+178,layer_from,2
+178,node_to,Aufwuchs
+178,layer_to,2
+178,weight,1
+178,type,herbivory
+178,method,field observation and gut content
+179,node_from,Barilius_microcephalus
+179,layer_from,2
+179,node_to,ostracods
+179,layer_to,2
+179,weight,1
+179,type,predation
+179,method,field observation and gut content
+180,node_from,Barilius_microcephalus
+180,layer_from,2
+180,node_to,Chironomid_larvae
+180,layer_to,2
+180,weight,1
+180,type,predation
+180,method,field observation and gut content
+181,node_from,Cynotilapia_afra
+181,layer_from,2
+181,node_to,plankton
+181,layer_to,2
+181,weight,1
+181,type,trophic
+181,method,field observation and gut content
+182,node_from,Barilius_microcephalus
+182,layer_from,2
+182,node_to,terrestrial_insects
+182,layer_to,2
+182,weight,1
+182,type,predation
+182,method,field observation and gut content
+183,node_from,Eubrianax_larvae
+183,layer_from,2
+183,node_to,Aufwuchs
+183,layer_to,2
+183,weight,1
+183,type,herbivory
+183,method,field observation and gut content
+184,node_from,Elmid_larvae
+184,layer_from,2
+184,node_to,Aufwuchs
+184,layer_to,2
+184,weight,1
+184,type,herbivory
+184,method,field observation and gut content
+185,node_from,Chironomid_larvae
+185,layer_from,2
+185,node_to,Aufwuchs
+185,layer_to,2
+185,weight,1
+185,type,herbivory
+185,method,field observation and gut content
+186,node_from,Afronurus_nymphs
+186,layer_from,2
+186,node_to,Aufwuchs
+186,layer_to,2
+186,weight,1
+186,type,herbivory
+186,method,field observation and gut content
+187,node_from,Melanochromis_melanopterus
+187,layer_from,2
+187,node_to,Hydropsychid_larvae
+187,layer_to,2
+187,weight,1
+187,type,predation
+187,method,field observation and gut content
+188,node_from,Melanochromis_melanopterus
+188,layer_from,2
+188,node_to,ostracods
+188,layer_to,2
+188,weight,1
+188,type,predation
+188,method,field observation and gut content
+189,node_from,Melanochromis_melanopterus
+189,layer_from,2
+189,node_to,Chironomid_larvae
+189,layer_to,2
+189,weight,1
+189,type,predation
+189,method,field observation and gut content
+190,node_from,Melanochromis_melanopterus
+190,layer_from,2
+190,node_to,Afronurus_nymphs
+190,layer_to,2
+190,weight,1
+190,type,predation
+190,method,field observation and gut content
+191,node_from,Melanochromis_melanopterus
+191,layer_from,2
+191,node_to,Aufwuchs
+191,layer_to,2
+191,weight,1
+191,type,herbivory
+191,method,field observation and gut content
+192,node_from,Varicorhinus_nyasensis
+192,layer_from,2
+192,node_to,ostracods
+192,layer_to,2
+192,weight,1
+192,type,predation
+192,method,field observation and gut content
+193,node_from,Varicorhinus_nyasensis
+193,layer_from,2
+193,node_to,Aufwuchs
+193,layer_to,2
+193,weight,1
+193,type,herbivory
+193,method,field observation and gut content
+194,node_from,Varicorhinus_nyasensis
+194,layer_from,2
+194,node_to,terrestrial_insects
+194,layer_to,2
+194,weight,1
+194,type,predation
+194,method,field observation and gut content
+195,node_from,Barilius_microcephalus
+195,layer_from,2
+195,node_to,plankton
+195,layer_to,2
+195,weight,1
+195,type,trophic
+195,method,field observation and gut content
+196,node_from,Varicorhinus_nyasensis
+196,layer_from,2
+196,node_to,plankton
+196,layer_to,2
+196,weight,1
+196,type,trophic
+196,method,field observation and gut content
+197,node_from,Mastacembelus_shiranus
+197,layer_from,2
+197,node_to,Afronurus_nymphs
+197,layer_to,2
+197,weight,1
+197,type,predation
+197,method,field observation and gut content
+198,node_from,Haplochromis_pardalis
+198,layer_from,2
+198,node_to,juvenile_cichlids
+198,layer_to,2
+198,weight,1
+198,type,predation
+198,method,field observation and gut content
+199,node_from,other_predatory_fishes
+199,layer_from,2
+199,node_to,juvenile_cichlids
+199,layer_to,2
+199,weight,1
+199,type,predation
+199,method,field observation and gut content
+200,node_from,Haplochromis_polyodon
+200,layer_from,2
+200,node_to,juvenile_cichlids
+200,layer_to,2
+200,weight,1
+200,type,predation
+200,method,field observation and gut content
+201,node_from,Haplochromis_polyodon
+201,layer_from,2
+201,node_to,Pseudotropheus_zebra
+201,layer_to,2
+201,weight,1
+201,type,predation
+201,method,field observation and gut content
+202,node_from,Haplochromis_kiwinge
+202,layer_from,2
+202,node_to,juvenile_cichlids
+202,layer_to,2
+202,weight,1
+202,type,predation
+202,method,field observation and gut content
+203,node_from,Haplochromis_kiwinge
+203,layer_from,2
+203,node_to,Hydropsychid_larvae
+203,layer_to,2
+203,weight,1
+203,type,predation
+203,method,field observation and gut content
+204,node_from,Varicorhinus_nyasensis
+204,layer_from,2
+204,node_to,ostracods
+204,layer_to,2
+204,weight,1
+204,type,predation
+204,method,field observation and gut content
+205,node_from,Varicorhinus_nyasensis
+205,layer_from,2
+205,node_to,Aufwuchs
+205,layer_to,2
+205,weight,1
+205,type,herbivory
+205,method,field observation and gut content
+206,node_from,Varicorhinus_nyasensis
+206,layer_from,2
+206,node_to,terrestrial_insects
+206,layer_to,2
+206,weight,1
+206,type,predation
+206,method,field observation and gut content
+207,node_from,Barilius_microcephalus
+207,layer_from,2
+207,node_to,plankton
+207,layer_to,2
+207,weight,1
+207,type,trophic
+207,method,field observation and gut content
+208,node_from,Varicorhinus_nyasensis
+208,layer_from,2
+208,node_to,plankton
+208,layer_to,2
+208,weight,1
+208,type,trophic
+208,method,field observation and gut content
+209,node_from,Mastacembelus_shiranus
+209,layer_from,2
+209,node_to,Afronurus_nymphs
+209,layer_to,2
+209,weight,1
+209,type,predation
+209,method,field observation and gut content
+210,node_from,Serranochromis_robustus
+210,layer_from,3
+210,node_to,Baetid_nymphs
+210,layer_to,3
+210,weight,1
+210,type,predation
+210,method,field observation and gut content
+211,node_from,Naucoris_sp.
+211,layer_from,3
+211,node_to,Anisopterid_larvae
+211,layer_to,3
+211,weight,1
+211,type,predation
+211,method,field observation and gut content
+212,node_from,Naucoris_sp.
+212,layer_from,3
+212,node_to,Gyraulus_costulatus\
+212,layer_to,3
+212,weight,1
+212,type,predation
+212,method,field observation and gut content
+213,node_from,Clarias_mellandi
+213,layer_from,3
+213,node_to,Anisopterid_larvae
+213,layer_to,3
+213,weight,1
+213,type,predation
+213,method,field observation and gut content
+214,node_from,Anisopterid_larvae
+214,layer_from,3
+214,node_to,Cyclopoid_copepods
+214,layer_to,3
+214,weight,1
+214,type,predation
+214,method,field observation and gut content
+215,node_from,Anisopterid_larvae
+215,layer_from,3
+215,node_to,Chironomid_larvae
+215,layer_to,3
+215,weight,1
+215,type,predation
+215,method,field observation and gut content
+216,node_from,Barbus_paludinosus
+216,layer_from,3
+216,node_to,caddis_larvae
+216,layer_to,3
+216,weight,1
+216,type,predation
+216,method,field observation and gut content
+217,node_from,Barbus_paludinosus
+217,layer_from,3
+217,node_to,bottom_algae
+217,layer_to,3
+217,weight,1
+217,type,herbivory
+217,method,field observation and gut content
+218,node_from,Barbus_paludinosus
+218,layer_from,3
+218,node_to,higher_plants
+218,layer_to,3
+218,weight,1
+218,type,herbivory
+218,method,field observation and gut content
+219,node_from,Alestes_imberi
+219,layer_from,3
+219,node_to,terrestrial_insects
+219,layer_to,3
+219,weight,1
+219,type,predation
+219,method,field observation and gut content
+220,node_from,mosquito_larvae
+220,layer_from,3
+220,node_to,bottom_algae
+220,layer_to,3
+220,weight,1
+220,type,herbivory
+220,method,field observation and gut content
+221,node_from,Cyclopoid_copepods
+221,layer_from,3
+221,node_to,Cladocera
+221,layer_to,3
+221,weight,1
+221,type,predation
+221,method,field observation and gut content
+222,node_from,Cyclopoid_copepods
+222,layer_from,3
+222,node_to,bottom_algae
+222,layer_to,3
+222,weight,1
+222,type,herbivory
+222,method,field observation and gut content
+223,node_from,Zygopterid_larvae
+223,layer_from,3
+223,node_to,Chironomid_larvae
+223,layer_to,3
+223,weight,1
+223,type,predation
+223,method,field observation and gut content
+224,node_from,Zygopterid_larvae
+224,layer_from,3
+224,node_to,Baetid_nymphs
+224,layer_to,3
+224,weight,1
+224,type,predation
+224,method,field observation and gut content
+225,node_from,Caridina_nilotica
+225,layer_from,3
+225,node_to,bottom_algae
+225,layer_to,3
+225,weight,1
+225,type,herbivory
+225,method,field observation and gut content
+226,node_from,Barilius_microcephalus
+226,layer_from,3
+226,node_to,Baetid_nymphs
+226,layer_to,3
+226,weight,1
+226,type,predation
+226,method,field observation and gut content
+227,node_from,T._saka
+227,layer_from,3
+227,node_to,bottom_algae
+227,layer_to,3
+227,weight,1
+227,type,herbivory
+227,method,field observation and gut content
+228,node_from,T._squamipinnis
+228,layer_from,3
+228,node_to,bottom_algae
+228,layer_to,3
+228,weight,1
+228,type,herbivory
+228,method,field observation and gut content
+229,node_from,Gyraulus_costulatus
+229,layer_from,3
+229,node_to,bottom_algae
+229,layer_to,3
+229,weight,1
+229,type,herbivory
+229,method,field observation and gut content
+230,node_from,Cladocera
+230,layer_from,3
+230,node_to,bottom_algae
+230,layer_to,3
+230,weight,1
+230,type,herbivory
+230,method,field observation and gut content
+231,node_from,Chironomid_larvae
+231,layer_from,3
+231,node_to,bottom_algae
+231,layer_to,3
+231,weight,1
+231,type,herbivory
+231,method,field observation and gut content
+232,node_from,caddis_larvae
+232,layer_from,3
+232,node_to,bottom_algae
+232,layer_to,3
+232,weight,1
+232,type,herbivory
+232,method,field observation and gut content
+233,node_from,Baetid_nymphs
+233,layer_from,3
+233,node_to,bottom_algae
+233,layer_to,3
+233,weight,1
+233,type,herbivory
+233,method,field observation and gut content
+234,node_from,Micronecta
+234,layer_from,3
+234,node_to,bottom_algae
+234,layer_to,3
+234,weight,1
+234,type,herbivory
+234,method,field observation and gut content
+235,node_from,Segmentorbis_angustus
+235,layer_from,3
+235,node_to,bottom_algae
+235,layer_to,3
+235,weight,1
+235,type,herbivory
+235,method,field observation and gut content
+236,node_from,Limnaea_sp.
+236,layer_from,3
+236,node_to,bottom_algae
+236,layer_to,3
+236,weight,1
+236,type,herbivory
+236,method,field observation and gut content
+237,node_from,Haplochromis_similis
+237,layer_from,3
+237,node_to,bottom_algae
+237,layer_to,3
+237,weight,1
+237,type,herbivory
+237,method,field observation and gut content
+238,node_from,juvenile_Cichlidae
+238,layer_from,3
+238,node_to,detritus
+238,layer_to,3
+238,weight,1
+238,type,detritivore
+238,method,field observation and gut content
+239,node_from,Barbus_innocens
+239,layer_from,3
+239,node_to,detritus
+239,layer_to,3
+239,weight,1
+239,type,detritivore
+239,method,field observation and gut content
+240,node_from,frogs
+240,layer_from,3
+240,node_to,detritus
+240,layer_to,3
+240,weight,1
+240,type,detritivore
+240,method,field observation and gut content
+241,node_from,Barbus_paludinosus
+241,layer_from,3
+241,node_to,detritus
+241,layer_to,3
+241,weight,1
+241,type,detritivore
+241,method,field observation and gut content
+242,node_from,mosquito_larvae
+242,layer_from,3
+242,node_to,detritus
+242,layer_to,3
+242,weight,1
+242,type,detritivore
+242,method,field observation and gut content
+243,node_from,Cyclopoid_copepods
+243,layer_from,3
+243,node_to,detritus
+243,layer_to,3
+243,weight,1
+243,type,detritivore
+243,method,field observation and gut content
+244,node_from,Caridina_nilotica
+244,layer_from,3
+244,node_to,detritus
+244,layer_to,3
+244,weight,1
+244,type,detritivore
+244,method,field observation and gut content
+245,node_from,Tilapia_shirana
+245,layer_from,3
+245,node_to,detritus
+245,layer_to,3
+245,weight,1
+245,type,detritivore
+245,method,field observation and gut content
+246,node_from,T._saka
+246,layer_from,3
+246,node_to,detritus
+246,layer_to,3
+246,weight,1
+246,type,detritivore
+246,method,field observation and gut content
+247,node_from,T._squamipinnis
+247,layer_from,3
+247,node_to,detritus
+247,layer_to,3
+247,weight,1
+247,type,detritivore
+247,method,field observation and gut content
+248,node_from,Gyraulus_costulatus
+248,layer_from,3
+248,node_to,detritus
+248,layer_to,3
+248,weight,1
+248,type,detritivore
+248,method,field observation and gut content
+249,node_from,Cladocera
+249,layer_from,3
+249,node_to,detritus
+249,layer_to,3
+249,weight,1
+249,type,detritivore
+249,method,field observation and gut content
+250,node_from,Chironomid_larvae
+250,layer_from,3
+250,node_to,detritus
+250,layer_to,3
+250,weight,1
+250,type,detritivore
+250,method,field observation and gut content
+251,node_from,caddis_larvae
+251,layer_from,3
+251,node_to,detritus
+251,layer_to,3
+251,weight,1
+251,type,detritivore
+251,method,field observation and gut content
+252,node_from,Baetid_nymphs
+252,layer_from,3
+252,node_to,detritus
+252,layer_to,3
+252,weight,1
+252,type,detritivore
+252,method,field observation and gut content
+253,node_from,Micronecta
+253,layer_from,3
+253,node_to,detritus
+253,layer_to,3
+253,weight,1
+253,type,detritivore
+253,method,field observation and gut content
+254,node_from,Segmentorbis_angustus
+254,layer_from,3
+254,node_to,detritus
+254,layer_to,3
+254,weight,1
+254,type,detritivore
+254,method,field observation and gut content
+255,node_from,Limnaea_sp.
+255,layer_from,3
+255,node_to,detritus
+255,layer_to,3
+255,weight,1
+255,type,detritivore
+255,method,field observation and gut content
+256,node_from,Haplochromis_similis
+256,layer_from,3
+256,node_to,detritus
+256,layer_to,3
+256,weight,1
+256,type,detritivore
+256,method,field observation and gut content
+257,node_from,Crocodilus_niloticus
+257,layer_from,3
+257,node_to,frogs
+257,layer_to,3
+257,weight,1
+257,type,predation
+257,method,field observation and gut content
+258,node_from,Crocodilus_niloticus
+258,layer_from,3
+258,node_to,Dytiscid_beetles
+258,layer_to,3
+258,weight,1
+258,type,predation
+258,method,field observation and gut content
+259,node_from,juvenile_Cichlidae
+259,layer_from,3
+259,node_to,Caridina_nilotica
+259,layer_to,3
+259,weight,1
+259,type,predation
+259,method,field observation and gut content
+260,node_from,juvenile_Cichlidae
+260,layer_from,3
+260,node_to,Cladocera
+260,layer_to,3
+260,weight,1
+260,type,predation
+260,method,field observation and gut content
+261,node_from,juvenile_Cichlidae
+261,layer_from,3
+261,node_to,Chironomid_larvae
+261,layer_to,3
+261,weight,1
+261,type,predation
+261,method,field observation and gut content
+262,node_from,juvenile_Cichlidae
+262,layer_from,3
+262,node_to,bottom_algae
+262,layer_to,3
+262,weight,1
+262,type,herbivory
+262,method,field observation and gut content
+263,node_from,Barbus_innocens
+263,layer_from,3
+263,node_to,Cyclopoid_copepods
+263,layer_to,3
+263,weight,1
+263,type,predation
+263,method,field observation and gut content
+264,node_from,Barbus_innocens
+264,layer_from,3
+264,node_to,Cladocera
+264,layer_to,3
+264,weight,1
+264,type,predation
+264,method,field observation and gut content
+265,node_from,Barbus_innocens
+265,layer_from,3
+265,node_to,Chironomid_larvae
+265,layer_to,3
+265,weight,1
+265,type,predation
+265,method,field observation and gut content
+266,node_from,Barbus_innocens
+266,layer_from,3
+266,node_to,bottom_algae
+266,layer_to,3
+266,weight,1
+266,type,herbivory
+266,method,field observation and gut content
+267,node_from,Serranochromis_robustus
+267,layer_from,3
+267,node_to,mosquito_larvae
+267,layer_to,3
+267,weight,1
+267,type,predation
+267,method,field observation and gut content
+268,node_from,Serranochromis_robustus
+268,layer_from,3
+268,node_to,Cyclopoid_copepods
+268,layer_to,3
+268,weight,1
+268,type,predation
+268,method,field observation and gut content
+269,node_from,Serranochromis_robustus
+269,layer_from,3
+269,node_to,Cladocera
+269,layer_to,3
+269,weight,1
+269,type,predation
+269,method,field observation and gut content
+270,node_from,Serranochromis_robustus
+270,layer_from,3
+270,node_to,Chironomid_larvae
+270,layer_to,3
+270,weight,1
+270,type,predation
+270,method,field observation and gut content
+271,node_from,Serranochromis_robustus
+271,layer_from,3
+271,node_to,caddis_larvae
+271,layer_to,3
+271,weight,1
+271,type,predation
+271,method,field observation and gut content
+272,node_from,Barilius_microcephalus
+272,layer_from,3
+272,node_to,terrestrial_insects
+272,layer_to,3
+272,weight,1
+272,type,predation
+272,method,field observation and gut content
+273,node_from,Tilapia_shirana
+273,layer_from,3
+273,node_to,Cyclopoid_copepods
+273,layer_to,3
+273,weight,1
+273,type,predation
+273,method,field observation and gut content
+274,node_from,T._saka
+274,layer_from,3
+274,node_to,Cyclopoid_copepods
+274,layer_to,3
+274,weight,1
+274,type,predation
+274,method,field observation and gut content
+275,node_from,T._squamipinnis
+275,layer_from,3
+275,node_to,Cyclopoid_copepods
+275,layer_to,3
+275,weight,1
+275,type,predation
+275,method,field observation and gut content
+276,node_from,Tilapia_shirana
+276,layer_from,3
+276,node_to,Chironomid_larvae
+276,layer_to,3
+276,weight,1
+276,type,predation
+276,method,field observation and gut content
+277,node_from,T._saka
+277,layer_from,3
+277,node_to,Chironomid_larvae
+277,layer_to,3
+277,weight,1
+277,type,predation
+277,method,field observation and gut content
+278,node_from,T._squamipinnis
+278,layer_from,3
+278,node_to,Chironomid_larvae
+278,layer_to,3
+278,weight,1
+278,type,predation
+278,method,field observation and gut content
+279,node_from,Tilapia_shirana
+279,layer_from,3
+279,node_to,bottom_algae
+279,layer_to,3
+279,weight,1
+279,type,herbivory
+279,method,field observation and gut content
+280,node_from,Haplochromis_similis
+280,layer_from,3
+280,node_to,higher_plants
+280,layer_to,3
+280,weight,1
+280,type,herbivory
+280,method,field observation and gut content
+281,node_from,Clarias_mossambicus
+281,layer_from,3
+281,node_to,higher_plants
+281,layer_to,3
+281,weight,1
+281,type,herbivory
+281,method,field observation and gut content
+282,node_from,Clarias_mossambicus
+282,layer_from,3
+282,node_to,indet._Fishes
+282,layer_to,3
+282,weight,1
+282,type,predation
+282,method,field observation and gut content
+283,node_from,Clarias_mossambicus
+283,layer_from,3
+283,node_to,terrestrial_insects
+283,layer_to,3
+283,weight,1
+283,type,predation
+283,method,field observation and gut content
+284,node_from,Gerrids
+284,layer_from,3
+284,node_to,terrestrial_insects
+284,layer_to,3
+284,weight,1
+284,type,predation
+284,method,field observation and gut content
+285,node_from,frogs
+285,layer_from,3
+285,node_to,bottom_algae
+285,layer_to,3
+285,weight,1
+285,type,herbivory
+285,method,field observation and gut content
+286,node_from,Barbus_sp.
+286,layer_from,3
+286,node_to,terrestrial_insects
+286,layer_to,3
+286,weight,1
+286,type,predation
+286,method,field observation and gut content

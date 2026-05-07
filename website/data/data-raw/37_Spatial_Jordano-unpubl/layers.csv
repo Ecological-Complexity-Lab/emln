@@ -1,0 +1,36 @@
+layer,attribute,value
+1,type,space
+1,location,"Campos de Otero, Sierra Nevada"
+1,latitude,37.107992
+1,longitude,-3.385732
+1,num_of_species,6
+1,num_of_interactions,6
+1,connectance,0.667
+2,type,space
+2,location,"Cañada de las Sabinas, Nava de las Correhuelas, Sierra de Cazorla"
+2,latitude,37.927466
+2,longitude,-2.866349
+2,num_of_species,16
+2,num_of_interactions,31
+2,connectance,0.646
+3,type,space
+3,location,"Cañada Travina, Sierra de Cazorla"
+3,latitude,38.083333
+3,longitude,-2.75
+3,num_of_species,13
+3,num_of_interactions,26
+3,connectance,0.65
+4,type,space
+4,location,"Sabinar del Marqués, Reserva de la Estación Biológica de Doñana"
+4,latitude,37.022627
+4,longitude,-6.545233
+4,num_of_species,9
+4,num_of_interactions,10
+4,connectance,0.5
+5,type,space
+5,location,"Santa Bárbara, Sierra de Baza"
+5,latitude,37.380506
+5,longitude,-2.841994
+5,num_of_species,9
+5,num_of_interactions,11
+5,connectance,0.55

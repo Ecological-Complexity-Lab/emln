@@ -1,0 +1,25 @@
+layer,attribute,value
+1,date,2007
+1,latitude,38.897942
+1,location,"Shangri-La Alpine Botanical Garden, Yunnan Province, China"
+1,longitude,-104.872269
+1,name,2007
+1,type,time
+2,date,2008
+2,latitude,38.897942
+2,location,"Shangri-La Alpine Botanical Garden, Yunnan Province, China"
+2,longitude,-104.872269
+2,name,2008
+2,type,time
+3,date,2009
+3,latitude,38.897942
+3,location,"Shangri-La Alpine Botanical Garden, Yunnan Province, China"
+3,longitude,-104.872269
+3,name,2009
+3,type,time
+4,date,2010
+4,latitude,38.897942
+4,location,"Shangri-La Alpine Botanical Garden, Yunnan Province, China"
+4,longitude,-104.872269
+4,name,2010
+4,type,time

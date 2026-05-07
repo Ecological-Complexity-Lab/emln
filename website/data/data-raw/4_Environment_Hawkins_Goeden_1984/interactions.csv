@@ -1,0 +1,2542 @@
+interaction_id,attribute,value
+1,node_from,Eupelmid_gen._n.
+1,layer_from,1
+1,node_to,Torymus_c._capillaceus
+1,layer_to,1
+1,weight,1
+1,type,trophic
+1,method,field and laboratory observations
+2,node_from,Eupelmid_gen._n.
+2,layer_from,1
+2,node_to,Pseudocatolaccus_guizoti
+2,layer_to,1
+2,weight,1
+2,type,trophic
+2,method,field and laboratory observations
+3,node_from,Eupelmid_gen._n.
+3,layer_from,1
+3,node_to,Rileya_tegularis
+3,layer_to,1
+3,weight,1
+3,type,trophic
+3,method,field and laboratory observations
+4,node_from,Eupelmid_gen._n.
+4,layer_from,1
+4,node_to,Tenuipetiolus_medicaginus
+4,layer_to,1
+4,weight,1
+4,type,trophic
+4,method,field and laboratory observations
+5,node_from,Eupelmid_gen._n.
+5,layer_from,1
+5,node_to,Torymus_atriplicis
+5,layer_to,1
+5,weight,1
+5,type,trophic
+5,method,field and laboratory observations
+6,node_from,Eupelmid_gen._n.
+6,layer_from,1
+6,node_to,Tetrastichus_sp._A
+6,layer_to,1
+6,weight,1
+6,type,trophic
+6,method,field and laboratory observations
+7,node_from,Eupelmid_gen._n.
+7,layer_from,1
+7,node_to,Torymus_umbilicatus
+7,layer_to,1
+7,weight,1
+7,type,trophic
+7,method,field and laboratory observations
+8,node_from,Eupelmid_gen._n.
+8,layer_from,1
+8,node_to,Eurytoma_sp.
+8,layer_to,1
+8,weight,1
+8,type,trophic
+8,method,field and laboratory observations
+9,node_from,Eupelmid_gen._n.
+9,layer_from,1
+9,node_to,Tetrastichus_sp._C
+9,layer_to,1
+9,weight,1
+9,type,trophic
+9,method,field and laboratory observations
+10,node_from,Eupelmid_gen._n.
+10,layer_from,1
+10,node_to,Platygaster_sp._B
+10,layer_to,1
+10,weight,1
+10,type,trophic
+10,method,field and laboratory observations
+11,node_from,Goniozus_sp._A
+11,layer_from,1
+11,node_to,Gelechiid_sp._B
+11,layer_to,1
+11,weight,1
+11,type,trophic
+11,method,field and laboratory observations
+12,node_from,Goniozus_sp._B
+12,layer_from,1
+12,node_to,Gelechiid_sp._B
+12,layer_to,1
+12,weight,1
+12,type,trophic
+12,method,field and laboratory observations
+13,node_from,Chelonus_sp.
+13,layer_from,1
+13,node_to,Gelechiid_sp._B
+13,layer_to,1
+13,weight,1
+13,type,trophic
+13,method,field and laboratory observations
+14,node_from,Arthrocnodax_sp.
+14,layer_from,1
+14,node_to,Acarid_sp.
+14,layer_to,1
+14,weight,1
+14,type,trophic
+14,method,field and laboratory observations
+15,node_from,Anystid_sp.
+15,layer_from,1
+15,node_to,Acarid_sp.
+15,layer_to,1
+15,weight,1
+15,type,trophic
+15,method,field and laboratory observations
+16,node_from,Phyllobaenus_atriplexus
+16,layer_from,1
+16,node_to,Eupelmid_gen._n.
+16,layer_to,1
+16,weight,1
+16,type,predation
+16,method,field and laboratory observations
+17,node_from,Phyllobaenus_atriplexus
+17,layer_from,1
+17,node_to,Torymus_c._capillaceus
+17,layer_to,1
+17,weight,1
+17,type,predation
+17,method,field and laboratory observations
+18,node_from,Phyllobaenus_atriplexus
+18,layer_from,1
+18,node_to,Pseudocatolaccus_guizoti
+18,layer_to,1
+18,weight,1
+18,type,predation
+18,method,field and laboratory observations
+19,node_from,Phyllobaenus_atriplexus
+19,layer_from,1
+19,node_to,Rileya_tegularis
+19,layer_to,1
+19,weight,1
+19,type,predation
+19,method,field and laboratory observations
+20,node_from,Phyllobaenus_atriplexus
+20,layer_from,1
+20,node_to,Tenuipetiolus_medicaginus
+20,layer_to,1
+20,weight,1
+20,type,predation
+20,method,field and laboratory observations
+21,node_from,Phyllobaenus_atriplexus
+21,layer_from,1
+21,node_to,Torymus_atriplicis
+21,layer_to,1
+21,weight,1
+21,type,predation
+21,method,field and laboratory observations
+22,node_from,Phyllobaenus_atriplexus
+22,layer_from,1
+22,node_to,Tetrastichus_sp._A
+22,layer_to,1
+22,weight,1
+22,type,predation
+22,method,field and laboratory observations
+23,node_from,Phyllobaenus_atriplexus
+23,layer_from,1
+23,node_to,Torymus_umbilicatus
+23,layer_to,1
+23,weight,1
+23,type,predation
+23,method,field and laboratory observations
+24,node_from,Phyllobaenus_atriplexus
+24,layer_from,1
+24,node_to,Tetrastichus_sp._B
+24,layer_to,1
+24,weight,1
+24,type,predation
+24,method,field and laboratory observations
+25,node_from,Phyllobaenus_atriplexus
+25,layer_from,1
+25,node_to,Galeopsomyia_sp._B
+25,layer_to,1
+25,weight,1
+25,type,predation
+25,method,field and laboratory observations
+26,node_from,Phyllobaenus_atriplexus
+26,layer_from,1
+26,node_to,Asphondylia_sp._E_(tumor_stem_maker)
+26,layer_to,1
+26,weight,1
+26,type,predation
+26,method,field and laboratory observations
+27,node_from,Phyllobaenus_atriplexus
+27,layer_from,1
+27,node_to,Asphondylia_sp._F_(oval_twig_maker)
+27,layer_to,1
+27,weight,1
+27,type,predation
+27,method,field and laboratory observations
+28,node_from,Torymus_c._capillaceus
+28,layer_from,1
+28,node_to,Rileya_tegularis
+28,layer_to,1
+28,weight,1
+28,type,host-parasite
+28,method,field and laboratory observations
+29,node_from,Torymus_c._capillaceus
+29,layer_from,1
+29,node_to,Tetrastichus_sp._A
+29,layer_to,1
+29,weight,1
+29,type,host-parasite
+29,method,field and laboratory observations
+30,node_from,Torymus_c._capillaceus
+30,layer_from,1
+30,node_to,Asphondylia_sp._E_(tumor_stem_maker)
+30,layer_to,1
+30,weight,1
+30,type,host-parasite
+30,method,field and laboratory observations
+31,node_from,Torymus_c._capillaceus
+31,layer_from,1
+31,node_to,Asphondylia_sp._F_(oval_twig_maker)
+31,layer_to,1
+31,weight,1
+31,type,host-parasite
+31,method,field and laboratory observations
+32,node_from,Torymus_c._capillaceus
+32,layer_from,1
+32,node_to,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+32,layer_to,1
+32,weight,1
+32,type,host-parasite
+32,method,field and laboratory observations
+33,node_from,Torymus_c._capillaceus
+33,layer_from,1
+33,node_to,Asphondylia_sp._H_(fuzzy_bud/flower_gall_maker)
+33,layer_to,1
+33,weight,1
+33,type,host-parasite
+33,method,field and laboratory observations
+34,node_from,Torymus_c._capillaceus
+34,layer_from,1
+34,node_to,gall_tissue_(Atriplex_canescens)
+34,layer_to,1
+34,weight,1
+34,type,herbivory
+34,method,field and laboratory observations
+35,node_from,Pseudocatolaccus_guizoti
+35,layer_from,1
+35,node_to,Asphondylia_sp._D_(blister_leaf_and_nipple_bud_gall_maker)
+35,layer_to,1
+35,weight,1
+35,type,host-parasite
+35,method,field and laboratory observations
+36,node_from,Rileya_tegularis
+36,layer_from,1
+36,node_to,Asphondylia_sp._E_(tumor_stem_maker)
+36,layer_to,1
+36,weight,1
+36,type,host-parasite
+36,method,field and laboratory observations
+37,node_from,Rileya_tegularis
+37,layer_from,1
+37,node_to,Asphondylia_sp._F_(oval_twig_maker)
+37,layer_to,1
+37,weight,1
+37,type,host-parasite
+37,method,field and laboratory observations
+38,node_from,Rileya_tegularis
+38,layer_from,1
+38,node_to,Asphondylia_sp._H_(fuzzy_bud/flower_gall_maker)
+38,layer_to,1
+38,weight,1
+38,type,host-parasite
+38,method,field and laboratory observations
+39,node_from,Rileya_tegularis
+39,layer_from,1
+39,node_to,gall_tissue_(Atriplex_canescens)
+39,layer_to,1
+39,weight,1
+39,type,herbivory
+39,method,field and laboratory observations
+40,node_from,Tenuipetiolus_medicaginus
+40,layer_from,1
+40,node_to,Asphondylia_sp._D_(blister_leaf_and_nipple_bud_gall_maker)
+40,layer_to,1
+40,weight,1
+40,type,host-parasite
+40,method,field and laboratory observations
+41,node_from,Tenuipetiolus_medicaginus
+41,layer_from,1
+41,node_to,Asphondylia_sp._E_(tumor_stem_maker)
+41,layer_to,1
+41,weight,1
+41,type,host-parasite
+41,method,field and laboratory observations
+42,node_from,Tenuipetiolus_medicaginus
+42,layer_from,1
+42,node_to,Asphondylia_sp._F_(oval_twig_maker)
+42,layer_to,1
+42,weight,1
+42,type,host-parasite
+42,method,field and laboratory observations
+43,node_from,Tenuipetiolus_medicaginus
+43,layer_from,1
+43,node_to,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+43,layer_to,1
+43,weight,1
+43,type,host-parasite
+43,method,field and laboratory observations
+44,node_from,Tenuipetiolus_medicaginus
+44,layer_from,1
+44,node_to,Asphondylia_sp._H_(fuzzy_bud/flower_gall_maker)
+44,layer_to,1
+44,weight,1
+44,type,host-parasite
+44,method,field and laboratory observations
+45,node_from,Torymus_atriplicis
+45,layer_from,1
+45,node_to,Asphondylia_sp._E_(tumor_stem_maker)
+45,layer_to,1
+45,weight,1
+45,type,host-parasite
+45,method,field and laboratory observations
+46,node_from,Torymus_atriplicis
+46,layer_from,1
+46,node_to,Asphondylia_sp._F_(oval_twig_maker)
+46,layer_to,1
+46,weight,1
+46,type,host-parasite
+46,method,field and laboratory observations
+47,node_from,Tetrastichus_sp._A
+47,layer_from,1
+47,node_to,Asphondylia_sp._D_(blister_leaf_and_nipple_bud_gall_maker)
+47,layer_to,1
+47,weight,1
+47,type,host-parasite
+47,method,field and laboratory observations
+48,node_from,Tetrastichus_sp._A
+48,layer_from,1
+48,node_to,Asphondylia_sp._F_(oval_twig_maker)
+48,layer_to,1
+48,weight,1
+48,type,host-parasite
+48,method,field and laboratory observations
+49,node_from,Tetrastichus_sp._A
+49,layer_from,1
+49,node_to,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+49,layer_to,1
+49,weight,1
+49,type,host-parasite
+49,method,field and laboratory observations
+50,node_from,Torymus_umbilicatus
+50,layer_from,1
+50,node_to,Asphondylia_sp._F_(oval_twig_maker)
+50,layer_to,1
+50,weight,1
+50,type,host-parasite
+50,method,field and laboratory observations
+51,node_from,Tetrastichus_sp._B
+51,layer_from,1
+51,node_to,Asphondylia_sp._D_(blister_leaf_and_nipple_bud_gall_maker)
+51,layer_to,1
+51,weight,1
+51,type,host-parasite
+51,method,field and laboratory observations
+52,node_from,Tetrastichus_sp._B
+52,layer_from,1
+52,node_to,Asphondylia_sp._E_(tumor_stem_maker)
+52,layer_to,1
+52,weight,1
+52,type,host-parasite
+52,method,field and laboratory observations
+53,node_from,Tetrastichus_sp._B
+53,layer_from,1
+53,node_to,Asphondylia_sp._F_(oval_twig_maker)
+53,layer_to,1
+53,weight,1
+53,type,host-parasite
+53,method,field and laboratory observations
+54,node_from,Rileya_piercei
+54,layer_from,1
+54,node_to,Asphondylia_sp._D_(blister_leaf_and_nipple_bud_gall_maker)
+54,layer_to,1
+54,weight,1
+54,type,host-parasite
+54,method,field and laboratory observations
+55,node_from,Rileya_piercei
+55,layer_from,1
+55,node_to,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+55,layer_to,1
+55,weight,1
+55,type,host-parasite
+55,method,field and laboratory observations
+56,node_from,Galeopsomyia_sp._B
+56,layer_from,1
+56,node_to,Asphondylia_sp._D_(blister_leaf_and_nipple_bud_gall_maker)
+56,layer_to,1
+56,weight,1
+56,type,host-parasite
+56,method,field and laboratory observations
+57,node_from,Galeopsomyia_sp._B
+57,layer_from,1
+57,node_to,Asphondylia_sp._F_(oval_twig_maker)
+57,layer_to,1
+57,weight,1
+57,type,host-parasite
+57,method,field and laboratory observations
+58,node_from,Galeopsomyia_sp._B
+58,layer_from,1
+58,node_to,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+58,layer_to,1
+58,weight,1
+58,type,host-parasite
+58,method,field and laboratory observations
+59,node_from,Galeopsomyia_sp._D
+59,layer_from,1
+59,node_to,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+59,layer_to,1
+59,weight,1
+59,type,host-parasite
+59,method,field and laboratory observations
+60,node_from,Galeopsomyia_sp._E
+60,layer_from,1
+60,node_to,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+60,layer_to,1
+60,weight,1
+60,type,host-parasite
+60,method,field and laboratory observations
+61,node_from,Torymus_n._sp.
+61,layer_from,1
+61,node_to,Asphondylia_sp._H_(fuzzy_bud/flower_gall_maker)
+61,layer_to,1
+61,weight,1
+61,type,host-parasite
+61,method,field and laboratory observations
+62,node_from,Eurytoma_sp.
+62,layer_from,1
+62,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+62,layer_to,1
+62,weight,1
+62,type,host-parasite
+62,method,field and laboratory observations
+63,node_from,Tetrastichus_sp._C
+63,layer_from,1
+63,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+63,layer_to,1
+63,weight,1
+63,type,host-parasite
+63,method,field and laboratory observations
+64,node_from,Platygaster_sp._B
+64,layer_from,1
+64,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+64,layer_to,1
+64,weight,1
+64,type,host-parasite
+64,method,field and laboratory observations
+65,node_from,Lestodiplosis_sp.
+65,layer_from,1
+65,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+65,layer_to,1
+65,weight,1
+65,type,host-parasite
+65,method,field and laboratory observations
+66,node_from,Galeopsomyia_sp._A
+66,layer_from,1
+66,node_to,gall_tissue_(Atriplex_canescens)
+66,layer_to,1
+66,weight,1
+66,type,herbivory
+66,method,field and laboratory observations
+67,node_from,Tetrastichus_cecidobroter
+67,layer_from,1
+67,node_to,gall_tissue_(Atriplex_canescens)
+67,layer_to,1
+67,weight,1
+67,type,herbivory
+67,method,field and laboratory observations
+68,node_from,Acarid_sp.
+68,layer_from,1
+68,node_to,gall_tissue_(Atriplex_canescens)
+68,layer_to,1
+68,weight,1
+68,type,herbivory
+68,method,field and laboratory observations
+69,node_from,Gelechiid_sp._B
+69,layer_from,1
+69,node_to,gall_tissue_(Atriplex_canescens)
+69,layer_to,1
+69,weight,1
+69,type,herbivory
+69,method,field and laboratory observations
+70,node_from,Gracilariid_sp.
+70,layer_from,1
+70,node_to,gall_tissue_(Atriplex_canescens)
+70,layer_to,1
+70,weight,1
+70,type,herbivory
+70,method,field and laboratory observations
+71,node_from,Asphondylia_sp._D_(blister_leaf_and_nipple_bud_gall_maker)
+71,layer_from,1
+71,node_to,gall_tissue_(Atriplex_canescens)
+71,layer_to,1
+71,weight,1
+71,type,host-parasite
+71,method,field and laboratory observations
+72,node_from,Asphondylia_sp._E_(tumor_stem_maker)
+72,layer_from,1
+72,node_to,gall_tissue_(Atriplex_canescens)
+72,layer_to,1
+72,weight,1
+72,type,host-parasite
+72,method,field and laboratory observations
+73,node_from,Asphondylia_sp._F_(oval_twig_maker)
+73,layer_from,1
+73,node_to,gall_tissue_(Atriplex_canescens)
+73,layer_to,1
+73,weight,1
+73,type,host-parasite
+73,method,field and laboratory observations
+74,node_from,Asphondylia_sp._G_(oval_bud/flower_gall_maker)
+74,layer_from,1
+74,node_to,gall_tissue_(Atriplex_canescens)
+74,layer_to,1
+74,weight,1
+74,type,host-parasite
+74,method,field and laboratory observations
+75,node_from,Asphondylia_sp._H_(fuzzy_bud/flower_gall_maker)
+75,layer_from,1
+75,node_to,gall_tissue_(Atriplex_canescens)
+75,layer_to,1
+75,weight,1
+75,type,host-parasite
+75,method,field and laboratory observations
+76,node_from,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+76,layer_from,1
+76,node_to,gall_tissue_(Atriplex_canescens)
+76,layer_to,1
+76,weight,1
+76,type,host-parasite
+76,method,field and laboratory observations
+77,node_from,Torymus_umbilicatus
+77,layer_from,1
+77,node_to,Asphondylia_sp._E_(tumor_stem_maker)
+77,layer_to,1
+77,weight,1
+77,type,host-parasite
+77,method,field and laboratory observations
+78,node_from,Eupelmid_gen._n.
+78,layer_from,2
+78,node_to,Torymus_c._capillaceus
+78,layer_to,2
+78,weight,1
+78,type,trophic
+78,method,field and laboratory observations
+79,node_from,Eupelmid_gen._n.
+79,layer_from,2
+79,node_to,Spilochalcis_sp.
+79,layer_to,2
+79,weight,1
+79,type,trophic
+79,method,field and laboratory observations
+80,node_from,Eupelmid_gen._n.
+80,layer_from,2
+80,node_to,Galeopsomyia_sp._C
+80,layer_to,2
+80,weight,1
+80,type,trophic
+80,method,field and laboratory observations
+81,node_from,Eupelmid_gen._n.
+81,layer_from,2
+81,node_to,Pseudocatolaccus_guizoti
+81,layer_to,2
+81,weight,1
+81,type,trophic
+81,method,field and laboratory observations
+82,node_from,Eupelmid_gen._n.
+82,layer_from,2
+82,node_to,Platygaster_sp._A
+82,layer_to,2
+82,weight,1
+82,type,trophic
+82,method,field and laboratory observations
+83,node_from,Eupelmid_gen._n.
+83,layer_from,2
+83,node_to,Rileya_tegularis
+83,layer_to,2
+83,weight,1
+83,type,trophic
+83,method,field and laboratory observations
+84,node_from,Eupelmid_gen._n.
+84,layer_from,2
+84,node_to,Tenuipetiolus_medicaginus
+84,layer_to,2
+84,weight,1
+84,type,trophic
+84,method,field and laboratory observations
+85,node_from,Eupelmid_gen._n.
+85,layer_from,2
+85,node_to,Torymus_atriplicis
+85,layer_to,2
+85,weight,1
+85,type,trophic
+85,method,field and laboratory observations
+86,node_from,Eupelmid_gen._n.
+86,layer_from,2
+86,node_to,Tetrastichus_sp._A
+86,layer_to,2
+86,weight,1
+86,type,trophic
+86,method,field and laboratory observations
+87,node_from,Eupelmid_gen._n.
+87,layer_from,2
+87,node_to,Torymus_umbilicatus
+87,layer_to,2
+87,weight,1
+87,type,trophic
+87,method,field and laboratory observations
+88,node_from,Eupelmid_gen._n.
+88,layer_from,2
+88,node_to,Eurytoma_sp.
+88,layer_to,2
+88,weight,1
+88,type,trophic
+88,method,field and laboratory observations
+89,node_from,Eupelmid_gen._n.
+89,layer_from,2
+89,node_to,Tetrastichus_sp._C
+89,layer_to,2
+89,weight,1
+89,type,trophic
+89,method,field and laboratory observations
+90,node_from,Eupelmid_gen._n.
+90,layer_from,2
+90,node_to,Platygaster_sp._B
+90,layer_to,2
+90,weight,1
+90,type,trophic
+90,method,field and laboratory observations
+91,node_from,Eupelmid_gen._n.
+91,layer_from,2
+91,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+91,layer_to,2
+91,weight,1
+91,type,trophic
+91,method,field and laboratory observations
+92,node_from,Eupelmid_gen._n.
+92,layer_from,2
+92,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+92,layer_to,2
+92,weight,1
+92,type,trophic
+92,method,field and laboratory observations
+93,node_from,Agathis_sp.
+93,layer_from,2
+93,node_to,Gelechiid_sp._A
+93,layer_to,2
+93,weight,1
+93,type,trophic
+93,method,field and laboratory observations
+94,node_from,Plastanoxus_incompletus
+94,layer_from,2
+94,node_to,Tricorynus_sp.
+94,layer_to,2
+94,weight,1
+94,type,trophic
+94,method,field and laboratory observations
+95,node_from,Goniozus_sp._A
+95,layer_from,2
+95,node_to,Gelechiid_sp._B
+95,layer_to,2
+95,weight,1
+95,type,trophic
+95,method,field and laboratory observations
+96,node_from,Goniozus_sp._B
+96,layer_from,2
+96,node_to,Gelechiid_sp._B
+96,layer_to,2
+96,weight,1
+96,type,trophic
+96,method,field and laboratory observations
+97,node_from,Chelonus_sp.
+97,layer_from,2
+97,node_to,Gelechiid_sp._B
+97,layer_to,2
+97,weight,1
+97,type,trophic
+97,method,field and laboratory observations
+98,node_from,Arthrocnodax_sp.
+98,layer_from,2
+98,node_to,Acarid_sp.
+98,layer_to,2
+98,weight,1
+98,type,trophic
+98,method,field and laboratory observations
+99,node_from,Anystid_sp.
+99,layer_from,2
+99,node_to,Acarid_sp.
+99,layer_to,2
+99,weight,1
+99,type,trophic
+99,method,field and laboratory observations
+100,node_from,Phyllobaenus_atriplexus
+100,layer_from,2
+100,node_to,Eupelmid_gen._n.
+100,layer_to,2
+100,weight,1
+100,type,predation
+100,method,field and laboratory observations
+101,node_from,Phyllobaenus_atriplexus
+101,layer_from,2
+101,node_to,Torymus_c._capillaceus
+101,layer_to,2
+101,weight,1
+101,type,predation
+101,method,field and laboratory observations
+102,node_from,Phyllobaenus_atriplexus
+102,layer_from,2
+102,node_to,Spilochalcis_sp.
+102,layer_to,2
+102,weight,1
+102,type,predation
+102,method,field and laboratory observations
+103,node_from,Phyllobaenus_atriplexus
+103,layer_from,2
+103,node_to,Galeopsomyia_sp._C
+103,layer_to,2
+103,weight,1
+103,type,predation
+103,method,field and laboratory observations
+104,node_from,Phyllobaenus_atriplexus
+104,layer_from,2
+104,node_to,Pseudocatolaccus_guizoti
+104,layer_to,2
+104,weight,1
+104,type,predation
+104,method,field and laboratory observations
+105,node_from,Phyllobaenus_atriplexus
+105,layer_from,2
+105,node_to,Platygaster_sp._A
+105,layer_to,2
+105,weight,1
+105,type,predation
+105,method,field and laboratory observations
+106,node_from,Phyllobaenus_atriplexus
+106,layer_from,2
+106,node_to,Rileya_tegularis
+106,layer_to,2
+106,weight,1
+106,type,predation
+106,method,field and laboratory observations
+107,node_from,Phyllobaenus_atriplexus
+107,layer_from,2
+107,node_to,Tenuipetiolus_medicaginus
+107,layer_to,2
+107,weight,1
+107,type,predation
+107,method,field and laboratory observations
+108,node_from,Phyllobaenus_atriplexus
+108,layer_from,2
+108,node_to,Torymus_atriplicis
+108,layer_to,2
+108,weight,1
+108,type,predation
+108,method,field and laboratory observations
+109,node_from,Phyllobaenus_atriplexus
+109,layer_from,2
+109,node_to,Tetrastichus_sp._A
+109,layer_to,2
+109,weight,1
+109,type,predation
+109,method,field and laboratory observations
+110,node_from,Phyllobaenus_atriplexus
+110,layer_from,2
+110,node_to,Torymus_umbilicatus
+110,layer_to,2
+110,weight,1
+110,type,predation
+110,method,field and laboratory observations
+111,node_from,Phyllobaenus_atriplexus
+111,layer_from,2
+111,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+111,layer_to,2
+111,weight,1
+111,type,predation
+111,method,field and laboratory observations
+112,node_from,Phyllobaenus_atriplexus
+112,layer_from,2
+112,node_to,Asphondylia_sp._C_(woody_stem_maker)
+112,layer_to,2
+112,weight,1
+112,type,predation
+112,method,field and laboratory observations
+113,node_from,Torymus_c._capillaceus
+113,layer_from,2
+113,node_to,Spilochalcis_sp.
+113,layer_to,2
+113,weight,1
+113,type,host-parasite
+113,method,field and laboratory observations
+114,node_from,Torymus_c._capillaceus
+114,layer_from,2
+114,node_to,Rileya_tegularis
+114,layer_to,2
+114,weight,1
+114,type,host-parasite
+114,method,field and laboratory observations
+115,node_from,Torymus_c._capillaceus
+115,layer_from,2
+115,node_to,Tetrastichus_sp._A
+115,layer_to,2
+115,weight,1
+115,type,host-parasite
+115,method,field and laboratory observations
+116,node_from,Torymus_c._capillaceus
+116,layer_from,2
+116,node_to,Asphondylia_sp._A_(club_stem_maker)
+116,layer_to,2
+116,weight,1
+116,type,host-parasite
+116,method,field and laboratory observations
+117,node_from,Torymus_c._capillaceus
+117,layer_from,2
+117,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+117,layer_to,2
+117,weight,1
+117,type,host-parasite
+117,method,field and laboratory observations
+118,node_from,Torymus_c._capillaceus
+118,layer_from,2
+118,node_to,Asphondylia_sp._C_(woody_stem_maker)
+118,layer_to,2
+118,weight,1
+118,type,host-parasite
+118,method,field and laboratory observations
+119,node_from,Torymus_c._capillaceus
+119,layer_from,2
+119,node_to,gall_tissue_(Atriplex_polycarpa)
+119,layer_to,2
+119,weight,1
+119,type,herbivory
+119,method,field and laboratory observations
+120,node_from,Opius_sp.
+120,layer_from,2
+120,node_to,Ophiomyia_atriplicis_(leaf_cluster_bud_gall_maker)
+120,layer_to,2
+120,weight,1
+120,type,host-parasite
+120,method,field and laboratory observations
+121,node_from,Spilochalcis_sp.
+121,layer_from,2
+121,node_to,Asphondylia_sp._C_(woody_stem_maker)
+121,layer_to,2
+121,weight,1
+121,type,host-parasite
+121,method,field and laboratory observations
+122,node_from,Galeopsomyia_sp._C
+122,layer_from,2
+122,node_to,Asphondylia_sp._C_(woody_stem_maker)
+122,layer_to,2
+122,weight,1
+122,type,host-parasite
+122,method,field and laboratory observations
+123,node_from,Pseudocatolaccus_guizoti
+123,layer_from,2
+123,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+123,layer_to,2
+123,weight,1
+123,type,host-parasite
+123,method,field and laboratory observations
+124,node_from,Pseudocatolaccus_guizoti
+124,layer_from,2
+124,node_to,Asphondylia_sp._C_(woody_stem_maker)
+124,layer_to,2
+124,weight,1
+124,type,host-parasite
+124,method,field and laboratory observations
+125,node_from,Platygaster_sp._A
+125,layer_from,2
+125,node_to,Asphondylia_sp._C_(woody_stem_maker)
+125,layer_to,2
+125,weight,1
+125,type,host-parasite
+125,method,field and laboratory observations
+126,node_from,Rileya_tegularis
+126,layer_from,2
+126,node_to,Asphondylia_sp._A_(club_stem_maker)
+126,layer_to,2
+126,weight,1
+126,type,host-parasite
+126,method,field and laboratory observations
+127,node_from,Rileya_tegularis
+127,layer_from,2
+127,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+127,layer_to,2
+127,weight,1
+127,type,host-parasite
+127,method,field and laboratory observations
+128,node_from,Rileya_tegularis
+128,layer_from,2
+128,node_to,Asphondylia_sp._C_(woody_stem_maker)
+128,layer_to,2
+128,weight,1
+128,type,host-parasite
+128,method,field and laboratory observations
+129,node_from,Tenuipetiolus_medicaginus
+129,layer_from,2
+129,node_to,Asphondylia_sp._A_(club_stem_maker)
+129,layer_to,2
+129,weight,1
+129,type,host-parasite
+129,method,field and laboratory observations
+130,node_from,Tenuipetiolus_medicaginus
+130,layer_from,2
+130,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+130,layer_to,2
+130,weight,1
+130,type,host-parasite
+130,method,field and laboratory observations
+131,node_from,Torymus_atriplicis
+131,layer_from,2
+131,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+131,layer_to,2
+131,weight,1
+131,type,host-parasite
+131,method,field and laboratory observations
+132,node_from,Torymus_atriplicis
+132,layer_from,2
+132,node_to,Asphondylia_sp._C_(woody_stem_maker)
+132,layer_to,2
+132,weight,1
+132,type,host-parasite
+132,method,field and laboratory observations
+133,node_from,Tetrastichus_sp._A
+133,layer_from,2
+133,node_to,Asphondylia_sp._B_(nodular_stem_gallmaker)
+133,layer_to,2
+133,weight,1
+133,type,host-parasite
+133,method,field and laboratory observations
+134,node_from,Torymus_umbilicatus
+134,layer_from,2
+134,node_to,Asphondylia_sp._C_(woody_stem_maker)
+134,layer_to,2
+134,weight,1
+134,type,host-parasite
+134,method,field and laboratory observations
+135,node_from,Eurytoma_sp.
+135,layer_from,2
+135,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+135,layer_to,2
+135,weight,1
+135,type,host-parasite
+135,method,field and laboratory observations
+136,node_from,Tetrastichus_sp._C
+136,layer_from,2
+136,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+136,layer_to,2
+136,weight,1
+136,type,host-parasite
+136,method,field and laboratory observations
+137,node_from,Platygaster_sp._B
+137,layer_from,2
+137,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+137,layer_to,2
+137,weight,1
+137,type,host-parasite
+137,method,field and laboratory observations
+138,node_from,Lestodiplosis_sp.
+138,layer_from,2
+138,node_to,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+138,layer_to,2
+138,weight,1
+138,type,host-parasite
+138,method,field and laboratory observations
+139,node_from,Galeopsomyia_sp._A
+139,layer_from,2
+139,node_to,gall_tissue_(Atriplex_polycarpa)
+139,layer_to,2
+139,weight,1
+139,type,herbivory
+139,method,field and laboratory observations
+140,node_from,Tetrastichus_cecidobroter
+140,layer_from,2
+140,node_to,gall_tissue_(Atriplex_polycarpa)
+140,layer_to,2
+140,weight,1
+140,type,herbivory
+140,method,field and laboratory observations
+141,node_from,Gelechiid_sp._A
+141,layer_from,2
+141,node_to,gall_tissue_(Atriplex_polycarpa)
+141,layer_to,2
+141,weight,1
+141,type,herbivory
+141,method,field and laboratory observations
+142,node_from,Tricorynus_sp.
+142,layer_from,2
+142,node_to,gall_tissue_(Atriplex_polycarpa)
+142,layer_to,2
+142,weight,1
+142,type,herbivory
+142,method,field and laboratory observations
+143,node_from,Acarid_sp.
+143,layer_from,2
+143,node_to,gall_tissue_(Atriplex_polycarpa)
+143,layer_to,2
+143,weight,1
+143,type,herbivory
+143,method,field and laboratory observations
+144,node_from,Gelechiid_sp._B
+144,layer_from,2
+144,node_to,gall_tissue_(Atriplex_polycarpa)
+144,layer_to,2
+144,weight,1
+144,type,herbivory
+144,method,field and laboratory observations
+145,node_from,Gracilariid_sp.
+145,layer_from,2
+145,node_to,gall_tissue_(Atriplex_polycarpa)
+145,layer_to,2
+145,weight,1
+145,type,herbivory
+145,method,field and laboratory observations
+146,node_from,Ophiomyia_atriplicis_(leaf_cluster_bud_gall_maker)
+146,layer_from,2
+146,node_to,gall_tissue_(Atriplex_polycarpa)
+146,layer_to,2
+146,weight,1
+146,type,herbivory
+146,method,field and laboratory observations
+147,node_from,Asphondylia_sp._A_(club_stem_maker)
+147,layer_from,2
+147,node_to,gall_tissue_(Atriplex_polycarpa)
+147,layer_to,2
+147,weight,1
+147,type,herbivory
+147,method,field and laboratory observations
+148,node_from,Asphondylia_sp._B_(nodular_stem_gallmaker)
+148,layer_from,2
+148,node_to,gall_tissue_(Atriplex_polycarpa)
+148,layer_to,2
+148,weight,1
+148,type,herbivory
+148,method,field and laboratory observations
+149,node_from,Asphondylia_sp._C_(woody_stem_maker)
+149,layer_from,2
+149,node_to,gall_tissue_(Atriplex_polycarpa)
+149,layer_to,2
+149,weight,1
+149,type,herbivory
+149,method,field and laboratory observations
+150,node_from,Nesolasioptera_willistoni_(woody/smooth_stem_maker)
+150,layer_from,2
+150,node_to,gall_tissue_(Atriplex_polycarpa)
+150,layer_to,2
+150,weight,1
+150,type,herbivory
+150,method,field and laboratory observations
+151,node_from,Rileya_tegularis
+151,layer_from,2
+151,node_to,gall_tissue_(Atriplex_polycarpa)
+151,layer_to,2
+151,weight,1
+151,type,herbivory
+151,method,field and laboratory observations
+152,node_from,Eupelmid_n._genus
+152,layer_from,3
+152,node_to,Torymus_c._capillaceus
+152,layer_to,3
+152,weight,1
+152,type,trophic
+152,method,field and laboratory observations
+153,node_from,Eupelmid_n._genus
+153,layer_from,3
+153,node_to,Pseudocatolaccus_guizoti
+153,layer_to,3
+153,weight,1
+153,type,trophic
+153,method,field and laboratory observations
+154,node_from,Eupelmid_n._genus
+154,layer_from,3
+154,node_to,Tenuipetiolus_medicaginus
+154,layer_to,3
+154,weight,1
+154,type,trophic
+154,method,field and laboratory observations
+155,node_from,Eupelmid_n._genus
+155,layer_from,3
+155,node_to,Tetrastichus_sp._A
+155,layer_to,3
+155,weight,1
+155,type,trophic
+155,method,field and laboratory observations
+156,node_from,Phyllobaenus_atriplexus
+156,layer_from,3
+156,node_to,Eupelmid_n._genus
+156,layer_to,3
+156,weight,1
+156,type,predation
+156,method,field and laboratory observations
+157,node_from,Phyllobaenus_atriplexus
+157,layer_from,3
+157,node_to,Torymus_c._capillaceus
+157,layer_to,3
+157,weight,1
+157,type,predation
+157,method,field and laboratory observations
+158,node_from,Phyllobaenus_atriplexus
+158,layer_from,3
+158,node_to,Pseudocatolaccus_guizoti
+158,layer_to,3
+158,weight,1
+158,type,predation
+158,method,field and laboratory observations
+159,node_from,Phyllobaenus_atriplexus
+159,layer_from,3
+159,node_to,Tenuipetiolus_medicaginus
+159,layer_to,3
+159,weight,1
+159,type,predation
+159,method,field and laboratory observations
+160,node_from,Phyllobaenus_atriplexus
+160,layer_from,3
+160,node_to,Tetrastichus_sp._A
+160,layer_to,3
+160,weight,1
+160,type,predation
+160,method,field and laboratory observations
+161,node_from,Phyllobaenus_atriplexus
+161,layer_from,3
+161,node_to,Tetrastichus_sp._B
+161,layer_to,3
+161,weight,1
+161,type,predation
+161,method,field and laboratory observations
+162,node_from,Phyllobaenus_atriplexus
+162,layer_from,3
+162,node_to,Galeopsomyia_sp._B
+162,layer_to,3
+162,weight,1
+162,type,predation
+162,method,field and laboratory observations
+163,node_from,Torymus_c._capillaceus
+163,layer_from,3
+163,node_to,Tetrastichus_sp._A
+163,layer_to,3
+163,weight,1
+163,type,host-parasite
+163,method,field and laboratory observations
+164,node_from,Torymus_c._capillaceus
+164,layer_from,3
+164,node_to,gall_tissue_(Atriplex_canescens)
+164,layer_to,3
+164,weight,1
+164,type,herbivory
+164,method,field and laboratory observations
+165,node_from,Pseudocatolaccus_guizoti
+165,layer_from,3
+165,node_to,Asphondylia_sp._D
+165,layer_to,3
+165,weight,1
+165,type,host-parasite
+165,method,field and laboratory observations
+166,node_from,Tenuipetiolus_medicaginus
+166,layer_from,3
+166,node_to,Asphondylia_sp._D
+166,layer_to,3
+166,weight,1
+166,type,host-parasite
+166,method,field and laboratory observations
+167,node_from,Tetrastichus_sp._A
+167,layer_from,3
+167,node_to,Asphondylia_sp._D
+167,layer_to,3
+167,weight,1
+167,type,host-parasite
+167,method,field and laboratory observations
+168,node_from,Tetrastichus_sp._B
+168,layer_from,3
+168,node_to,Asphondylia_sp._D
+168,layer_to,3
+168,weight,1
+168,type,host-parasite
+168,method,field and laboratory observations
+169,node_from,Rileya_piercei
+169,layer_from,3
+169,node_to,Asphondylia_sp._D
+169,layer_to,3
+169,weight,1
+169,type,host-parasite
+169,method,field and laboratory observations
+170,node_from,Galeopsomyia_sp._B
+170,layer_from,3
+170,node_to,Asphondylia_sp._D
+170,layer_to,3
+170,weight,1
+170,type,host-parasite
+170,method,field and laboratory observations
+171,node_from,Galeopsomyia_sp._A
+171,layer_from,3
+171,node_to,gall_tissue_(Atriplex_canescens)
+171,layer_to,3
+171,weight,1
+171,type,herbivory
+171,method,field and laboratory observations
+172,node_from,Tetrastichus_cecidobroter
+172,layer_from,3
+172,node_to,gall_tissue_(Atriplex_canescens)
+172,layer_to,3
+172,weight,1
+172,type,herbivory
+172,method,field and laboratory observations
+173,node_from,Asphondylia_sp._D
+173,layer_from,3
+173,node_to,gall_tissue_(Atriplex_canescens)
+173,layer_to,3
+173,weight,1
+173,type,herbivory
+173,method,field and laboratory observations
+174,node_from,Eupelmid_n._genus
+174,layer_from,4
+174,node_to,Torymus_c._capillaceus
+174,layer_to,4
+174,weight,1
+174,type,trophic
+174,method,field and laboratory observations
+175,node_from,Eupelmid_n._genus
+175,layer_from,4
+175,node_to,Rileya_tegularis
+175,layer_to,4
+175,weight,1
+175,type,trophic
+175,method,field and laboratory observations
+176,node_from,Eupelmid_n._genus
+176,layer_from,4
+176,node_to,Tenuipetiolus_medicaginus
+176,layer_to,4
+176,weight,1
+176,type,trophic
+176,method,field and laboratory observations
+177,node_from,Eupelmid_n._genus
+177,layer_from,4
+177,node_to,Tetrastichus_sp._A
+177,layer_to,4
+177,weight,1
+177,type,trophic
+177,method,field and laboratory observations
+178,node_from,Phyllobaenus_atriplexus
+178,layer_from,4
+178,node_to,Eupelmid_n._genus
+178,layer_to,4
+178,weight,1
+178,type,predation
+178,method,field and laboratory observations
+179,node_from,Phyllobaenus_atriplexus
+179,layer_from,4
+179,node_to,Torymus_c._capillaceus
+179,layer_to,4
+179,weight,1
+179,type,predation
+179,method,field and laboratory observations
+180,node_from,Phyllobaenus_atriplexus
+180,layer_from,4
+180,node_to,Rileya_tegularis
+180,layer_to,4
+180,weight,1
+180,type,predation
+180,method,field and laboratory observations
+181,node_from,Phyllobaenus_atriplexus
+181,layer_from,4
+181,node_to,Tenuipetiolus_medicaginus
+181,layer_to,4
+181,weight,1
+181,type,predation
+181,method,field and laboratory observations
+182,node_from,Phyllobaenus_atriplexus
+182,layer_from,4
+182,node_to,Tetrastichus_sp._A
+182,layer_to,4
+182,weight,1
+182,type,predation
+182,method,field and laboratory observations
+183,node_from,Torymus_c._capillaceus
+183,layer_from,4
+183,node_to,Rileya_tegularis
+183,layer_to,4
+183,weight,1
+183,type,host-parasite
+183,method,field and laboratory observations
+184,node_from,Torymus_c._capillaceus
+184,layer_from,4
+184,node_to,Tetrastichus_sp._A
+184,layer_to,4
+184,weight,1
+184,type,host-parasite
+184,method,field and laboratory observations
+185,node_from,Torymus_c._capillaceus
+185,layer_from,4
+185,node_to,gall_tissue_(Atriplex_polycarpa)
+185,layer_to,4
+185,weight,1
+185,type,herbivory
+185,method,field and laboratory observations
+186,node_from,Rileya_tegularis
+186,layer_from,4
+186,node_to,Asphondylia_sp._A
+186,layer_to,4
+186,weight,1
+186,type,host-parasite
+186,method,field and laboratory observations
+187,node_from,Tenuipetiolus_medicaginus
+187,layer_from,4
+187,node_to,Asphondylia_sp._A
+187,layer_to,4
+187,weight,1
+187,type,host-parasite
+187,method,field and laboratory observations
+188,node_from,Tetrastichus_sp._A
+188,layer_from,4
+188,node_to,Asphondylia_sp._A
+188,layer_to,4
+188,weight,1
+188,type,host-parasite
+188,method,field and laboratory observations
+189,node_from,Tetrastichus_cecidobroter
+189,layer_from,4
+189,node_to,gall_tissue_(Atriplex_polycarpa)
+189,layer_to,4
+189,weight,1
+189,type,herbivory
+189,method,field and laboratory observations
+190,node_from,Asphondylia_sp._A
+190,layer_from,4
+190,node_to,gall_tissue_(Atriplex_polycarpa)
+190,layer_to,4
+190,weight,1
+190,type,herbivory
+190,method,field and laboratory observations
+191,node_from,Eupelmid_n._genus
+191,layer_from,5
+191,node_to,Torymus_c._capillaceus
+191,layer_to,5
+191,weight,1
+191,type,trophic
+191,method,field and laboratory observations
+192,node_from,Eupelmid_n._genus
+192,layer_from,5
+192,node_to,Rileya_tegularis
+192,layer_to,5
+192,weight,1
+192,type,trophic
+192,method,field and laboratory observations
+193,node_from,Eupelmid_n._genus
+193,layer_from,5
+193,node_to,Tenuipetiolus_medicaginus
+193,layer_to,5
+193,weight,1
+193,type,trophic
+193,method,field and laboratory observations
+194,node_from,Goniozus_sp._A
+194,layer_from,5
+194,node_to,Gelechiid_sp._B
+194,layer_to,5
+194,weight,1
+194,type,trophic
+194,method,field and laboratory observations
+195,node_from,Goniozus_sp._B
+195,layer_from,5
+195,node_to,Gelechiid_sp._B
+195,layer_to,5
+195,weight,1
+195,type,trophic
+195,method,field and laboratory observations
+196,node_from,Chelonus_sp.
+196,layer_from,5
+196,node_to,Gelechiid_sp._B
+196,layer_to,5
+196,weight,1
+196,type,trophic
+196,method,field and laboratory observations
+197,node_from,Phyllobaenus_atriplexus
+197,layer_from,5
+197,node_to,Eupelmid_n._genus
+197,layer_to,5
+197,weight,1
+197,type,predation
+197,method,field and laboratory observations
+198,node_from,Phyllobaenus_atriplexus
+198,layer_from,5
+198,node_to,Torymus_c._capillaceus
+198,layer_to,5
+198,weight,1
+198,type,predation
+198,method,field and laboratory observations
+199,node_from,Phyllobaenus_atriplexus
+199,layer_from,5
+199,node_to,Rileya_tegularis
+199,layer_to,5
+199,weight,1
+199,type,predation
+199,method,field and laboratory observations
+200,node_from,Torymus_c._capillaceus
+200,layer_from,5
+200,node_to,Rileya_tegularis
+200,layer_to,5
+200,weight,1
+200,type,host-parasite
+200,method,field and laboratory observations
+201,node_from,Torymus_c._capillaceus
+201,layer_from,5
+201,node_to,Asphondylia_sp._H
+201,layer_to,5
+201,weight,1
+201,type,host-parasite
+201,method,field and laboratory observations
+202,node_from,Torymus_c._capillaceus
+202,layer_from,5
+202,node_to,gall_tissue_(Atriplex_canescens)
+202,layer_to,5
+202,weight,1
+202,type,herbivory
+202,method,field and laboratory observations
+203,node_from,Rileya_tegularis
+203,layer_from,5
+203,node_to,Asphondylia_sp._H
+203,layer_to,5
+203,weight,1
+203,type,host-parasite
+203,method,field and laboratory observations
+204,node_from,Rileya_tegularis
+204,layer_from,5
+204,node_to,gall_tissue_(Atriplex_canescens)
+204,layer_to,5
+204,weight,1
+204,type,herbivory
+204,method,field and laboratory observations
+205,node_from,Tenuipetiolus_medicaginus
+205,layer_from,5
+205,node_to,Asphondylia_sp._H
+205,layer_to,5
+205,weight,1
+205,type,host-parasite
+205,method,field and laboratory observations
+206,node_from,Torymus_n._sp.
+206,layer_from,5
+206,node_to,Asphondylia_sp._H
+206,layer_to,5
+206,weight,1
+206,type,host-parasite
+206,method,field and laboratory observations
+207,node_from,Gelechiid_sp._B
+207,layer_from,5
+207,node_to,gall_tissue_(Atriplex_canescens)
+207,layer_to,5
+207,weight,1
+207,type,herbivory
+207,method,field and laboratory observations
+208,node_from,Asphondylia_sp._H
+208,layer_from,5
+208,node_to,gall_tissue_(Atriplex_canescens)
+208,layer_to,5
+208,weight,1
+208,type,herbivory
+208,method,field and laboratory observations
+209,node_from,Phyllobaenus_atriplexus
+209,layer_from,5
+209,node_to,Tenuipetiolus_medicaginus
+209,layer_to,5
+209,weight,1
+209,type,predation
+209,method,field and laboratory observations
+210,node_from,Eupelmid_n._genus
+210,layer_from,6
+210,node_to,Torymus_c._capillaceus
+210,layer_to,6
+210,weight,1
+210,type,trophic
+210,method,field and laboratory observations
+211,node_from,Eupelmid_n._genus
+211,layer_from,6
+211,node_to,Pseudocatolaccus_guizoti
+211,layer_to,6
+211,weight,1
+211,type,trophic
+211,method,field and laboratory observations
+212,node_from,Eupelmid_n._genus
+212,layer_from,6
+212,node_to,Rileya_tegularis
+212,layer_to,6
+212,weight,1
+212,type,trophic
+212,method,field and laboratory observations
+213,node_from,Eupelmid_n._genus
+213,layer_from,6
+213,node_to,Tenuipetiolus_medicaginus
+213,layer_to,6
+213,weight,1
+213,type,trophic
+213,method,field and laboratory observations
+214,node_from,Eupelmid_n._genus
+214,layer_from,6
+214,node_to,Torymus_atriplicis
+214,layer_to,6
+214,weight,1
+214,type,trophic
+214,method,field and laboratory observations
+215,node_from,Phyllobaenus_atriplexus
+215,layer_from,6
+215,node_to,Eupelmid_n._genus
+215,layer_to,6
+215,weight,1
+215,type,predation
+215,method,field and laboratory observations
+216,node_from,Phyllobaenus_atriplexus
+216,layer_from,6
+216,node_to,Torymus_c._capillaceus
+216,layer_to,6
+216,weight,1
+216,type,predation
+216,method,field and laboratory observations
+217,node_from,Phyllobaenus_atriplexus
+217,layer_from,6
+217,node_to,Pseudocatolaccus_guizoti
+217,layer_to,6
+217,weight,1
+217,type,predation
+217,method,field and laboratory observations
+218,node_from,Phyllobaenus_atriplexus
+218,layer_from,6
+218,node_to,Rileya_tegularis
+218,layer_to,6
+218,weight,1
+218,type,predation
+218,method,field and laboratory observations
+219,node_from,Phyllobaenus_atriplexus
+219,layer_from,6
+219,node_to,Tenuipetiolus_medicaginus
+219,layer_to,6
+219,weight,1
+219,type,predation
+219,method,field and laboratory observations
+220,node_from,Phyllobaenus_atriplexus
+220,layer_from,6
+220,node_to,Torymus_atriplicis
+220,layer_to,6
+220,weight,1
+220,type,predation
+220,method,field and laboratory observations
+221,node_from,Phyllobaenus_atriplexus
+221,layer_from,6
+221,node_to,Asphondylia_sp._B
+221,layer_to,6
+221,weight,1
+221,type,predation
+221,method,field and laboratory observations
+222,node_from,Eupelmid_n._genus
+222,layer_from,6
+222,node_to,Asphondylia_sp._B
+222,layer_to,6
+222,weight,1
+222,type,host-parasite
+222,method,field and laboratory observations
+223,node_from,Torymus_c._capillaceus
+223,layer_from,6
+223,node_to,Rileya_tegularis
+223,layer_to,6
+223,weight,1
+223,type,host-parasite
+223,method,field and laboratory observations
+224,node_from,Torymus_c._capillaceus
+224,layer_from,6
+224,node_to,Asphondylia_sp._B
+224,layer_to,6
+224,weight,1
+224,type,host-parasite
+224,method,field and laboratory observations
+225,node_from,Torymus_c._capillaceus
+225,layer_from,6
+225,node_to,gall_tissue_(Atriplex_polycarpa)
+225,layer_to,6
+225,weight,1
+225,type,herbivory
+225,method,field and laboratory observations
+226,node_from,Pseudocatolaccus_guizoti
+226,layer_from,6
+226,node_to,Asphondylia_sp._B
+226,layer_to,6
+226,weight,1
+226,type,host-parasite
+226,method,field and laboratory observations
+227,node_from,Rileya_tegularis
+227,layer_from,6
+227,node_to,Asphondylia_sp._B
+227,layer_to,6
+227,weight,1
+227,type,host-parasite
+227,method,field and laboratory observations
+228,node_from,Tenuipetiolus_medicaginus
+228,layer_from,6
+228,node_to,Asphondylia_sp._B
+228,layer_to,6
+228,weight,1
+228,type,host-parasite
+228,method,field and laboratory observations
+229,node_from,Torymus_atriplicis
+229,layer_from,6
+229,node_to,Asphondylia_sp._B
+229,layer_to,6
+229,weight,1
+229,type,host-parasite
+229,method,field and laboratory observations
+230,node_from,Asphondylia_sp._B
+230,layer_from,6
+230,node_to,gall_tissue_(Atriplex_polycarpa)
+230,layer_to,6
+230,weight,1
+230,type,herbivory
+230,method,field and laboratory observations
+231,node_from,Eupelmid_n._genus
+231,layer_from,7
+231,node_to,Torymus_c._capillaceus
+231,layer_to,7
+231,weight,1
+231,type,trophic
+231,method,field and laboratory observations
+232,node_from,Eupelmid_n._genus
+232,layer_from,7
+232,node_to,Tenuipetiolus_medicaginus
+232,layer_to,7
+232,weight,1
+232,type,trophic
+232,method,field and laboratory observations
+233,node_from,Eupelmid_n._genus
+233,layer_from,7
+233,node_to,Tetrastichus_sp._A
+233,layer_to,7
+233,weight,1
+233,type,trophic
+233,method,field and laboratory observations
+234,node_from,Phyllobaenus_atriplexus
+234,layer_from,7
+234,node_to,Eupelmid_n._genus
+234,layer_to,7
+234,weight,1
+234,type,predation
+234,method,field and laboratory observations
+235,node_from,Phyllobaenus_atriplexus
+235,layer_from,7
+235,node_to,Torymus_c._capillaceus
+235,layer_to,7
+235,weight,1
+235,type,predation
+235,method,field and laboratory observations
+236,node_from,Phyllobaenus_atriplexus
+236,layer_from,7
+236,node_to,Tenuipetiolus_medicaginus
+236,layer_to,7
+236,weight,1
+236,type,predation
+236,method,field and laboratory observations
+237,node_from,Phyllobaenus_atriplexus
+237,layer_from,7
+237,node_to,Tetrastichus_sp._A
+237,layer_to,7
+237,weight,1
+237,type,predation
+237,method,field and laboratory observations
+238,node_from,Phyllobaenus_atriplexus
+238,layer_from,7
+238,node_to,Galeopsomyia_sp._B
+238,layer_to,7
+238,weight,1
+238,type,predation
+238,method,field and laboratory observations
+239,node_from,Torymus_c._capillaceus
+239,layer_from,7
+239,node_to,Tetrastichus_sp._A
+239,layer_to,7
+239,weight,1
+239,type,host-parasite
+239,method,field and laboratory observations
+240,node_from,Torymus_c._capillaceus
+240,layer_from,7
+240,node_to,Asphondylia_sp._G
+240,layer_to,7
+240,weight,1
+240,type,host-parasite
+240,method,field and laboratory observations
+241,node_from,Torymus_c._capillaceus
+241,layer_from,7
+241,node_to,gall_tissue_(Atriplex_canescens)
+241,layer_to,7
+241,weight,1
+241,type,herbivory
+241,method,field and laboratory observations
+242,node_from,Tenuipetiolus_medicaginus
+242,layer_from,7
+242,node_to,Asphondylia_sp._G
+242,layer_to,7
+242,weight,1
+242,type,host-parasite
+242,method,field and laboratory observations
+243,node_from,Tetrastichus_sp._A
+243,layer_from,7
+243,node_to,Asphondylia_sp._G
+243,layer_to,7
+243,weight,1
+243,type,host-parasite
+243,method,field and laboratory observations
+244,node_from,Rileyi_piercei
+244,layer_from,7
+244,node_to,Asphondylia_sp._G
+244,layer_to,7
+244,weight,1
+244,type,host-parasite
+244,method,field and laboratory observations
+245,node_from,Galeopsomyia_sp._B
+245,layer_from,7
+245,node_to,Asphondylia_sp._G
+245,layer_to,7
+245,weight,1
+245,type,host-parasite
+245,method,field and laboratory observations
+246,node_from,Galeopsomyia_sp._D
+246,layer_from,7
+246,node_to,Asphondylia_sp._G
+246,layer_to,7
+246,weight,1
+246,type,host-parasite
+246,method,field and laboratory observations
+247,node_from,Galeopsomyia_sp._E
+247,layer_from,7
+247,node_to,Asphondylia_sp._G
+247,layer_to,7
+247,weight,1
+247,type,host-parasite
+247,method,field and laboratory observations
+248,node_from,Tetrastichus_cecidobroter
+248,layer_from,7
+248,node_to,gall_tissue_(Atriplex_canescens)
+248,layer_to,7
+248,weight,1
+248,type,herbivory
+248,method,field and laboratory observations
+249,node_from,Asphondylia_sp._G
+249,layer_from,7
+249,node_to,gall_tissue_(Atriplex_canescens)
+249,layer_to,7
+249,weight,1
+249,type,herbivory
+249,method,field and laboratory observations
+250,node_from,Eupelmid_n._genus
+250,layer_from,8
+250,node_to,Torymus_c._capillaceus
+250,layer_to,8
+250,weight,1
+250,type,trophic
+250,method,field and laboratory observations
+251,node_from,Eupelmid_n._genus
+251,layer_from,8
+251,node_to,Rileya_tegularis
+251,layer_to,8
+251,weight,1
+251,type,trophic
+251,method,field and laboratory observations
+252,node_from,Eupelmid_n._genus
+252,layer_from,8
+252,node_to,Tenuipetiolus_medicaginus
+252,layer_to,8
+252,weight,1
+252,type,trophic
+252,method,field and laboratory observations
+253,node_from,Eupelmid_n._genus
+253,layer_from,8
+253,node_to,Tetrastichus_sp._A
+253,layer_to,8
+253,weight,1
+253,type,trophic
+253,method,field and laboratory observations
+254,node_from,Eupelmid_n._genus
+254,layer_from,8
+254,node_to,Torymus_atriplicis
+254,layer_to,8
+254,weight,1
+254,type,trophic
+254,method,field and laboratory observations
+255,node_from,Eupelmid_n._genus
+255,layer_from,8
+255,node_to,torymus_umbilicatus
+255,layer_to,8
+255,weight,1
+255,type,trophic
+255,method,field and laboratory observations
+256,node_from,Phyllobaenus_atriplexus
+256,layer_from,8
+256,node_to,Eupelmid_n._genus
+256,layer_to,8
+256,weight,1
+256,type,predation
+256,method,field and laboratory observations
+257,node_from,Phyllobaenus_atriplexus
+257,layer_from,8
+257,node_to,Torymus_c._capillaceus
+257,layer_to,8
+257,weight,1
+257,type,predation
+257,method,field and laboratory observations
+258,node_from,Phyllobaenus_atriplexus
+258,layer_from,8
+258,node_to,Rileya_tegularis
+258,layer_to,8
+258,weight,1
+258,type,predation
+258,method,field and laboratory observations
+259,node_from,Phyllobaenus_atriplexus
+259,layer_from,8
+259,node_to,Tenuipetiolus_medicaginus
+259,layer_to,8
+259,weight,1
+259,type,predation
+259,method,field and laboratory observations
+260,node_from,Phyllobaenus_atriplexus
+260,layer_from,8
+260,node_to,Tetrastichus_sp._A
+260,layer_to,8
+260,weight,1
+260,type,predation
+260,method,field and laboratory observations
+261,node_from,Phyllobaenus_atriplexus
+261,layer_from,8
+261,node_to,Torymus_atriplicis
+261,layer_to,8
+261,weight,1
+261,type,predation
+261,method,field and laboratory observations
+262,node_from,Phyllobaenus_atriplexus
+262,layer_from,8
+262,node_to,torymus_umbilicatus
+262,layer_to,8
+262,weight,1
+262,type,predation
+262,method,field and laboratory observations
+263,node_from,Phyllobaenus_atriplexus
+263,layer_from,8
+263,node_to,Tetrastichus_sp._B
+263,layer_to,8
+263,weight,1
+263,type,predation
+263,method,field and laboratory observations
+264,node_from,Phyllobaenus_atriplexus
+264,layer_from,8
+264,node_to,Galeopsomyia_sp._B
+264,layer_to,8
+264,weight,1
+264,type,predation
+264,method,field and laboratory observations
+265,node_from,Phyllobaenus_atriplexus
+265,layer_from,8
+265,node_to,Asphondylia_sp._F
+265,layer_to,8
+265,weight,1
+265,type,predation
+265,method,field and laboratory observations
+266,node_from,Torymus_c._capillaceus
+266,layer_from,8
+266,node_to,Rileya_tegularis
+266,layer_to,8
+266,weight,1
+266,type,host-parasite
+266,method,field and laboratory observations
+267,node_from,Torymus_c._capillaceus
+267,layer_from,8
+267,node_to,Torymus_atriplicis
+267,layer_to,8
+267,weight,1
+267,type,host-parasite
+267,method,field and laboratory observations
+268,node_from,Torymus_c._capillaceus
+268,layer_from,8
+268,node_to,Asphondylia_sp._F
+268,layer_to,8
+268,weight,1
+268,type,host-parasite
+268,method,field and laboratory observations
+269,node_from,Torymus_c._capillaceus
+269,layer_from,8
+269,node_to,gall_tissue_(Atriplex_canescens)
+269,layer_to,8
+269,weight,1
+269,type,herbivory
+269,method,field and laboratory observations
+270,node_from,Rileya_tegularis
+270,layer_from,8
+270,node_to,Asphondylia_sp._F
+270,layer_to,8
+270,weight,1
+270,type,host-parasite
+270,method,field and laboratory observations
+271,node_from,Tenuipetiolus_medicaginus
+271,layer_from,8
+271,node_to,Asphondylia_sp._F
+271,layer_to,8
+271,weight,1
+271,type,host-parasite
+271,method,field and laboratory observations
+272,node_from,Tetrastichus_sp._A
+272,layer_from,8
+272,node_to,Asphondylia_sp._F
+272,layer_to,8
+272,weight,1
+272,type,host-parasite
+272,method,field and laboratory observations
+273,node_from,Torymus_atriplicis
+273,layer_from,8
+273,node_to,Asphondylia_sp._F
+273,layer_to,8
+273,weight,1
+273,type,host-parasite
+273,method,field and laboratory observations
+274,node_from,torymus_umbilicatus
+274,layer_from,8
+274,node_to,Asphondylia_sp._F
+274,layer_to,8
+274,weight,1
+274,type,host-parasite
+274,method,field and laboratory observations
+275,node_from,Tetrastichus_sp._B
+275,layer_from,8
+275,node_to,Asphondylia_sp._F
+275,layer_to,8
+275,weight,1
+275,type,host-parasite
+275,method,field and laboratory observations
+276,node_from,Galeopsomyia_sp._B
+276,layer_from,8
+276,node_to,Asphondylia_sp._F
+276,layer_to,8
+276,weight,1
+276,type,host-parasite
+276,method,field and laboratory observations
+277,node_from,Asphondylia_sp._F
+277,layer_from,8
+277,node_to,gall_tissue_(Atriplex_canescens)
+277,layer_to,8
+277,weight,1
+277,type,herbivory
+277,method,field and laboratory observations
+278,node_from,Rileya_tegularis
+278,layer_from,8
+278,node_to,gall_tissue_(Atriplex_canescens)
+278,layer_to,8
+278,weight,1
+278,type,herbivory
+278,method,field and laboratory observations
+279,node_from,Eupelmid_n._genus
+279,layer_from,9
+279,node_to,Torymus_c._capillaceus
+279,layer_to,9
+279,weight,1
+279,type,trophic
+279,method,field and laboratory observations
+280,node_from,Eupelmid_n._genus
+280,layer_from,9
+280,node_to,Rileya_tegularis
+280,layer_to,9
+280,weight,1
+280,type,trophic
+280,method,field and laboratory observations
+281,node_from,Eupelmid_n._genus
+281,layer_from,9
+281,node_to,Tenuipetiolus_medicaginus
+281,layer_to,9
+281,weight,1
+281,type,trophic
+281,method,field and laboratory observations
+282,node_from,Eupelmid_n._genus
+282,layer_from,9
+282,node_to,Torymus_atriplicis
+282,layer_to,9
+282,weight,1
+282,type,trophic
+282,method,field and laboratory observations
+283,node_from,Eupelmid_n._genus
+283,layer_from,9
+283,node_to,Torymus_umbilicatus
+283,layer_to,9
+283,weight,1
+283,type,trophic
+283,method,field and laboratory observations
+284,node_from,Arthrocnodax_sp.
+284,layer_from,9
+284,node_to,Acarid_sp.
+284,layer_to,9
+284,weight,1
+284,type,trophic
+284,method,field and laboratory observations
+285,node_from,Anystid_sp.
+285,layer_from,9
+285,node_to,Acarid_sp.
+285,layer_to,9
+285,weight,1
+285,type,trophic
+285,method,field and laboratory observations
+286,node_from,Goniozus_sp._A
+286,layer_from,9
+286,node_to,Gelechiid_sp._B
+286,layer_to,9
+286,weight,1
+286,type,trophic
+286,method,field and laboratory observations
+287,node_from,Goniozus_sp._B
+287,layer_from,9
+287,node_to,Gelechiid_sp._B
+287,layer_to,9
+287,weight,1
+287,type,trophic
+287,method,field and laboratory observations
+288,node_from,Chelonus_sp.
+288,layer_from,9
+288,node_to,Gelechiid_sp._B
+288,layer_to,9
+288,weight,1
+288,type,trophic
+288,method,field and laboratory observations
+289,node_from,Phyllobaenus_atriplexus
+289,layer_from,9
+289,node_to,Eupelmid_n._genus
+289,layer_to,9
+289,weight,1
+289,type,predation
+289,method,field and laboratory observations
+290,node_from,Phyllobaenus_atriplexus
+290,layer_from,9
+290,node_to,Torymus_c._capillaceus
+290,layer_to,9
+290,weight,1
+290,type,predation
+290,method,field and laboratory observations
+291,node_from,Phyllobaenus_atriplexus
+291,layer_from,9
+291,node_to,Rileya_tegularis
+291,layer_to,9
+291,weight,1
+291,type,predation
+291,method,field and laboratory observations
+292,node_from,Phyllobaenus_atriplexus
+292,layer_from,9
+292,node_to,Tenuipetiolus_medicaginus
+292,layer_to,9
+292,weight,1
+292,type,predation
+292,method,field and laboratory observations
+293,node_from,Phyllobaenus_atriplexus
+293,layer_from,9
+293,node_to,Torymus_atriplicis
+293,layer_to,9
+293,weight,1
+293,type,predation
+293,method,field and laboratory observations
+294,node_from,Phyllobaenus_atriplexus
+294,layer_from,9
+294,node_to,Torymus_umbilicatus
+294,layer_to,9
+294,weight,1
+294,type,predation
+294,method,field and laboratory observations
+295,node_from,Phyllobaenus_atriplexus
+295,layer_from,9
+295,node_to,Tetrastichus_sp._B
+295,layer_to,9
+295,weight,1
+295,type,predation
+295,method,field and laboratory observations
+296,node_from,Phyllobaenus_atriplexus
+296,layer_from,9
+296,node_to,Asphondylia_sp._E
+296,layer_to,9
+296,weight,1
+296,type,predation
+296,method,field and laboratory observations
+297,node_from,Torymus_c._capillaceus
+297,layer_from,9
+297,node_to,Rileya_tegularis
+297,layer_to,9
+297,weight,1
+297,type,host-parasite
+297,method,field and laboratory observations
+298,node_from,Torymus_c._capillaceus
+298,layer_from,9
+298,node_to,Asphondylia_sp._E
+298,layer_to,9
+298,weight,1
+298,type,host-parasite
+298,method,field and laboratory observations
+299,node_from,Torymus_c._capillaceus
+299,layer_from,9
+299,node_to,gall_tissue_(Atriplex_canescens)
+299,layer_to,9
+299,weight,1
+299,type,herbivory
+299,method,field and laboratory observations
+300,node_from,Rileya_tegularis
+300,layer_from,9
+300,node_to,Asphondylia_sp._E
+300,layer_to,9
+300,weight,1
+300,type,host-parasite
+300,method,field and laboratory observations
+301,node_from,Rileya_tegularis
+301,layer_from,9
+301,node_to,gall_tissue_(Atriplex_canescens)
+301,layer_to,9
+301,weight,1
+301,type,herbivory
+301,method,field and laboratory observations
+302,node_from,Tenuipetiolus_medicaginus
+302,layer_from,9
+302,node_to,Asphondylia_sp._E
+302,layer_to,9
+302,weight,1
+302,type,host-parasite
+302,method,field and laboratory observations
+303,node_from,Torymus_atriplicis
+303,layer_from,9
+303,node_to,Asphondylia_sp._E
+303,layer_to,9
+303,weight,1
+303,type,host-parasite
+303,method,field and laboratory observations
+304,node_from,Torymus_umbilicatus
+304,layer_from,9
+304,node_to,Asphondylia_sp._E
+304,layer_to,9
+304,weight,1
+304,type,host-parasite
+304,method,field and laboratory observations
+305,node_from,Tetrastichus_sp._B
+305,layer_from,9
+305,node_to,Asphondylia_sp._E
+305,layer_to,9
+305,weight,1
+305,type,host-parasite
+305,method,field and laboratory observations
+306,node_from,Galeopsomyia_sp._A
+306,layer_from,9
+306,node_to,gall_tissue_(Atriplex_canescens)
+306,layer_to,9
+306,weight,1
+306,type,herbivory
+306,method,field and laboratory observations
+307,node_from,Tetrastichus_cecidobroter
+307,layer_from,9
+307,node_to,gall_tissue_(Atriplex_canescens)
+307,layer_to,9
+307,weight,1
+307,type,herbivory
+307,method,field and laboratory observations
+308,node_from,Acarid_sp.
+308,layer_from,9
+308,node_to,gall_tissue_(Atriplex_canescens)
+308,layer_to,9
+308,weight,1
+308,type,herbivory
+308,method,field and laboratory observations
+309,node_from,Gelechiid_sp._B
+309,layer_from,9
+309,node_to,gall_tissue_(Atriplex_canescens)
+309,layer_to,9
+309,weight,1
+309,type,herbivory
+309,method,field and laboratory observations
+310,node_from,Asphondylia_sp._E
+310,layer_from,9
+310,node_to,gall_tissue_(Atriplex_canescens)
+310,layer_to,9
+310,weight,1
+310,type,herbivory
+310,method,field and laboratory observations
+311,node_from,Eupelmid_n._genus
+311,layer_from,10
+311,node_to,Torymus_c._capillaceus
+311,layer_to,10
+311,weight,1
+311,type,trophic
+311,method,field and laboratory observations
+312,node_from,Eupelmid_n._genus
+312,layer_from,10
+312,node_to,Spilochalcis_sp.
+312,layer_to,10
+312,weight,1
+312,type,trophic
+312,method,field and laboratory observations
+313,node_from,Eupelmid_n._genus
+313,layer_from,10
+313,node_to,Galeopsomyia_sp._C
+313,layer_to,10
+313,weight,1
+313,type,trophic
+313,method,field and laboratory observations
+314,node_from,Eupelmid_n._genus
+314,layer_from,10
+314,node_to,Pseudocatolaccus_guizoti
+314,layer_to,10
+314,weight,1
+314,type,trophic
+314,method,field and laboratory observations
+315,node_from,Eupelmid_n._genus
+315,layer_from,10
+315,node_to,Platygaster_sp._A
+315,layer_to,10
+315,weight,1
+315,type,trophic
+315,method,field and laboratory observations
+316,node_from,Eupelmid_n._genus
+316,layer_from,10
+316,node_to,Rileya_tegularis
+316,layer_to,10
+316,weight,1
+316,type,trophic
+316,method,field and laboratory observations
+317,node_from,Eupelmid_n._genus
+317,layer_from,10
+317,node_to,Torymus_atriplicis
+317,layer_to,10
+317,weight,1
+317,type,trophic
+317,method,field and laboratory observations
+318,node_from,Eupelmid_n._genus
+318,layer_from,10
+318,node_to,Torymus_umbilicatus
+318,layer_to,10
+318,weight,1
+318,type,trophic
+318,method,field and laboratory observations
+319,node_from,Agathis_sp.
+319,layer_from,10
+319,node_to,Gelechiid_sp._A
+319,layer_to,10
+319,weight,1
+319,type,trophic
+319,method,field and laboratory observations
+320,node_from,Plastonoxus_incompletus
+320,layer_from,10
+320,node_to,Tricorynus_sp.
+320,layer_to,10
+320,weight,1
+320,type,trophic
+320,method,field and laboratory observations
+321,node_from,Goniozus_sp._A
+321,layer_from,10
+321,node_to,Gelechiid_sp._B
+321,layer_to,10
+321,weight,1
+321,type,trophic
+321,method,field and laboratory observations
+322,node_from,Goniozus_sp._B
+322,layer_from,10
+322,node_to,Gelechiid_sp._B
+322,layer_to,10
+322,weight,1
+322,type,trophic
+322,method,field and laboratory observations
+323,node_from,Chelonus_sp.
+323,layer_from,10
+323,node_to,Gelechiid_sp._B
+323,layer_to,10
+323,weight,1
+323,type,trophic
+323,method,field and laboratory observations
+324,node_from,Arthrocnodax_sp.
+324,layer_from,10
+324,node_to,Acarid_sp.
+324,layer_to,10
+324,weight,1
+324,type,trophic
+324,method,field and laboratory observations
+325,node_from,Anystid_sp.
+325,layer_from,10
+325,node_to,Acarid_sp.
+325,layer_to,10
+325,weight,1
+325,type,trophic
+325,method,field and laboratory observations
+326,node_from,Phyllobaenus_atriplexus
+326,layer_from,10
+326,node_to,Eupelmid_n._genus
+326,layer_to,10
+326,weight,1
+326,type,predation
+326,method,field and laboratory observations
+327,node_from,Phyllobaenus_atriplexus
+327,layer_from,10
+327,node_to,Torymus_c._capillaceus
+327,layer_to,10
+327,weight,1
+327,type,predation
+327,method,field and laboratory observations
+328,node_from,Phyllobaenus_atriplexus
+328,layer_from,10
+328,node_to,Spilochalcis_sp.
+328,layer_to,10
+328,weight,1
+328,type,predation
+328,method,field and laboratory observations
+329,node_from,Phyllobaenus_atriplexus
+329,layer_from,10
+329,node_to,Galeopsomyia_sp._C
+329,layer_to,10
+329,weight,1
+329,type,predation
+329,method,field and laboratory observations
+330,node_from,Phyllobaenus_atriplexus
+330,layer_from,10
+330,node_to,Pseudocatolaccus_guizoti
+330,layer_to,10
+330,weight,1
+330,type,predation
+330,method,field and laboratory observations
+331,node_from,Phyllobaenus_atriplexus
+331,layer_from,10
+331,node_to,Platygaster_sp._A
+331,layer_to,10
+331,weight,1
+331,type,predation
+331,method,field and laboratory observations
+332,node_from,Phyllobaenus_atriplexus
+332,layer_from,10
+332,node_to,Rileya_tegularis
+332,layer_to,10
+332,weight,1
+332,type,predation
+332,method,field and laboratory observations
+333,node_from,Phyllobaenus_atriplexus
+333,layer_from,10
+333,node_to,Torymus_atriplicis
+333,layer_to,10
+333,weight,1
+333,type,predation
+333,method,field and laboratory observations
+334,node_from,Phyllobaenus_atriplexus
+334,layer_from,10
+334,node_to,Torymus_umbilicatus
+334,layer_to,10
+334,weight,1
+334,type,predation
+334,method,field and laboratory observations
+335,node_from,Phyllobaenus_atriplexus
+335,layer_from,10
+335,node_to,Asphondylia_sp._C
+335,layer_to,10
+335,weight,1
+335,type,predation
+335,method,field and laboratory observations
+336,node_from,Torymus_c._capillaceus
+336,layer_from,10
+336,node_to,Galeopsomyia_sp._C
+336,layer_to,10
+336,weight,1
+336,type,host-parasite
+336,method,field and laboratory observations
+337,node_from,Torymus_c._capillaceus
+337,layer_from,10
+337,node_to,Rileya_tegularis
+337,layer_to,10
+337,weight,1
+337,type,host-parasite
+337,method,field and laboratory observations
+338,node_from,Torymus_c._capillaceus
+338,layer_from,10
+338,node_to,Asphondylia_sp._C
+338,layer_to,10
+338,weight,1
+338,type,host-parasite
+338,method,field and laboratory observations
+339,node_from,Torymus_c._capillaceus
+339,layer_from,10
+339,node_to,gall_tissue_(Atriplex_polycarpa)
+339,layer_to,10
+339,weight,1
+339,type,herbivory
+339,method,field and laboratory observations
+340,node_from,Spilochalcis_sp.
+340,layer_from,10
+340,node_to,Asphondylia_sp._C
+340,layer_to,10
+340,weight,1
+340,type,host-parasite
+340,method,field and laboratory observations
+341,node_from,Galeopsomyia_sp._C
+341,layer_from,10
+341,node_to,Asphondylia_sp._C
+341,layer_to,10
+341,weight,1
+341,type,host-parasite
+341,method,field and laboratory observations
+342,node_from,Pseudocatolaccus_guizoti
+342,layer_from,10
+342,node_to,Asphondylia_sp._C
+342,layer_to,10
+342,weight,1
+342,type,host-parasite
+342,method,field and laboratory observations
+343,node_from,Platygaster_sp._A
+343,layer_from,10
+343,node_to,Asphondylia_sp._C
+343,layer_to,10
+343,weight,1
+343,type,host-parasite
+343,method,field and laboratory observations
+344,node_from,Rileya_tegularis
+344,layer_from,10
+344,node_to,Asphondylia_sp._C
+344,layer_to,10
+344,weight,1
+344,type,host-parasite
+344,method,field and laboratory observations
+345,node_from,Torymus_atriplicis
+345,layer_from,10
+345,node_to,Asphondylia_sp._C
+345,layer_to,10
+345,weight,1
+345,type,host-parasite
+345,method,field and laboratory observations
+346,node_from,Torymus_umbilicatus
+346,layer_from,10
+346,node_to,Asphondylia_sp._C
+346,layer_to,10
+346,weight,1
+346,type,host-parasite
+346,method,field and laboratory observations
+347,node_from,Galeopsomyia_sp._A
+347,layer_from,10
+347,node_to,gall_tissue_(Atriplex_polycarpa)
+347,layer_to,10
+347,weight,1
+347,type,herbivory
+347,method,field and laboratory observations
+348,node_from,Gelechiid_sp._A
+348,layer_from,10
+348,node_to,gall_tissue_(Atriplex_polycarpa)
+348,layer_to,10
+348,weight,1
+348,type,herbivory
+348,method,field and laboratory observations
+349,node_from,Tricorynus_sp.
+349,layer_from,10
+349,node_to,gall_tissue_(Atriplex_polycarpa)
+349,layer_to,10
+349,weight,1
+349,type,herbivory
+349,method,field and laboratory observations
+350,node_from,Acarid_sp.
+350,layer_from,10
+350,node_to,gall_tissue_(Atriplex_polycarpa)
+350,layer_to,10
+350,weight,1
+350,type,herbivory
+350,method,field and laboratory observations
+351,node_from,Gelechiid_sp._B
+351,layer_from,10
+351,node_to,gall_tissue_(Atriplex_polycarpa)
+351,layer_to,10
+351,weight,1
+351,type,herbivory
+351,method,field and laboratory observations
+352,node_from,Asphondylia_sp._C
+352,layer_from,10
+352,node_to,gall_tissue_(Atriplex_polycarpa)
+352,layer_to,10
+352,weight,1
+352,type,herbivory
+352,method,field and laboratory observations
+353,node_from,Eurytoma_sp.
+353,layer_from,11
+353,node_to,Neolasioptera_willistoni
+353,layer_to,11
+353,weight,1
+353,type,host-parasite
+353,method,field and laboratory observations
+354,node_from,Tetrastichus_sp._C
+354,layer_from,11
+354,node_to,Neolasioptera_willistoni
+354,layer_to,11
+354,weight,1
+354,type,host-parasite
+354,method,field and laboratory observations
+355,node_from,Platygaster_sp._B
+355,layer_from,11
+355,node_to,Neolasioptera_willistoni
+355,layer_to,11
+355,weight,1
+355,type,host-parasite
+355,method,field and laboratory observations
+356,node_from,Lestodiplosis_sp.
+356,layer_from,11
+356,node_to,Neolasioptera_willistoni
+356,layer_to,11
+356,weight,1
+356,type,host-parasite
+356,method,field and laboratory observations
+357,node_from,Gracilariid_sp.
+357,layer_from,11
+357,node_to,gall_tissue_(Atriplex_canescens)
+357,layer_to,11
+357,weight,1
+357,type,herbivory
+357,method,field and laboratory observations
+358,node_from,Neolasioptera_willistoni
+358,layer_from,11
+358,node_to,gall_tissue_(Atriplex_canescens)
+358,layer_to,11
+358,weight,1
+358,type,host-parasite
+358,method,field and laboratory observations
+359,node_from,Eupelmid_n._genus
+359,layer_from,11
+359,node_to,Eurytoma_sp.
+359,layer_to,11
+359,weight,1
+359,type,trophic
+359,method,field and laboratory observations
+360,node_from,Eupelmid_n._genus
+360,layer_from,11
+360,node_to,Tetrastichus_sp._C
+360,layer_to,11
+360,weight,1
+360,type,trophic
+360,method,field and laboratory observations
+361,node_from,Eupelmid_n._genus
+361,layer_from,11
+361,node_to,Platygaster_sp._B
+361,layer_to,11
+361,weight,1
+361,type,trophic
+361,method,field and laboratory observations
+362,node_from,Eupelmid_n._genus
+362,layer_from,11
+362,node_to,Neolasioptera_willistoni
+362,layer_to,11
+362,weight,1
+362,type,trophic
+362,method,field and laboratory observations
+363,node_from,Phyllobaenus_atriplexus
+363,layer_from,11
+363,node_to,Eupelmid_n._genus
+363,layer_to,11
+363,weight,1
+363,type,predation
+363,method,field and laboratory observations

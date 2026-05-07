@@ -1,0 +1,1309 @@
+"node_id","attribute","value"
+1,"node_name","Apodemus_agrarius"
+1,"type","mammal"
+1,"short_name","AAGR"
+1,"determinator","Pallas, 1771"
+1,"groupIR","R"
+1,"host_type","Field mouse"
+1,"exclude","FALSE"
+1,"taxa_verified","TRUE"
+1,"verification_level","species"
+2,"node_name","Apodemus_flavicollis"
+2,"type","mammal"
+2,"short_name","AFLA"
+2,"determinator","(Melchior, 1834)"
+2,"groupIR","R"
+2,"host_type","Field mouse"
+2,"exclude","FALSE"
+2,"taxa_verified","TRUE"
+2,"verification_level","species"
+3,"node_name","Apodemus_uralensis"
+3,"type","mammal"
+3,"short_name","AMIC"
+3,"determinator","Pallas, 1811"
+3,"groupIR","R"
+3,"host_type","Field mouse"
+3,"exclude","FALSE"
+3,"taxa_verified","TRUE"
+3,"verification_level","species"
+4,"node_name","Apodemus_sylvaticus"
+4,"type","mammal"
+4,"short_name","ASYL"
+4,"determinator","(Linnaeus, 1758)"
+4,"groupIR","R"
+4,"host_type","Field mouse"
+4,"exclude","FALSE"
+4,"taxa_verified","TRUE"
+4,"verification_level","species"
+5,"node_name","Arvicola_terrestris"
+5,"type","mammal"
+5,"short_name","ATER"
+5,"determinator","(Linnaeus, 1758)"
+5,"groupIR","R"
+5,"host_type","Water vole"
+5,"exclude","FALSE"
+5,"taxa_verified","FALSE"
+6,"node_name","Spermophilus_citellus"
+6,"type","mammal"
+6,"short_name","CCIT"
+6,"determinator","(Linnaeus, 1766)"
+6,"groupIR","R"
+6,"host_type","Ground squirrel"
+6,"exclude","FALSE"
+6,"taxa_verified","TRUE"
+6,"verification_level","species"
+7,"node_name","Cricetus_cricetus"
+7,"type","mammal"
+7,"short_name","CCRI"
+7,"determinator","(Linnaeus, 1758)"
+7,"groupIR","R"
+7,"host_type","Hamster"
+7,"exclude","FALSE"
+7,"taxa_verified","TRUE"
+7,"verification_level","species"
+8,"node_name","Clethrionomys_glareolus"
+8,"type","mammal"
+8,"short_name","CGLA"
+8,"determinator","(Schreber, 1780)"
+8,"groupIR","R"
+8,"host_type","Vole"
+8,"exclude","FALSE"
+8,"taxa_verified","TRUE"
+8,"verification_level","species"
+9,"node_name","Crocidura_leucodon"
+9,"type","mammal"
+9,"short_name","CLEU"
+9,"determinator","(Hermann, 1780)"
+9,"groupIR","I"
+9,"host_type","Shrew"
+9,"exclude","FALSE"
+9,"taxa_verified","TRUE"
+9,"verification_level","species"
+10,"node_name","Crocidura_suaveolens"
+10,"type","mammal"
+10,"short_name","CSUA"
+10,"determinator","(Pallas, 1811)"
+10,"groupIR","I"
+10,"host_type","Shrew"
+10,"exclude","FALSE"
+10,"taxa_verified","TRUE"
+10,"verification_level","species"
+11,"node_name","Myoxus_glis"
+11,"type","mammal"
+11,"short_name","GGLI"
+11,"determinator","(Linnaeus, 1766)"
+11,"groupIR","R"
+11,"host_type","Edible dormouse"
+11,"exclude","TRUE"
+11,"taxa_verified","TRUE"
+11,"verification_level","species"
+12,"node_name","Microtus_agrestis"
+12,"type","mammal"
+12,"short_name","MAGR"
+12,"determinator","(Linnaeus, 1761)"
+12,"groupIR","R"
+12,"host_type","Vole"
+12,"exclude","FALSE"
+12,"taxa_verified","TRUE"
+12,"verification_level","species"
+13,"node_name","Microtus_arvalis"
+13,"type","mammal"
+13,"short_name","MARV"
+13,"determinator","(Pallas, 1779)"
+13,"groupIR","R"
+13,"host_type","Vole"
+13,"exclude","FALSE"
+13,"taxa_verified","TRUE"
+13,"verification_level","species"
+14,"node_name","Muscardinus_avellanarius"
+14,"type","mammal"
+14,"short_name","MAVE"
+14,"determinator","Linnaeus, 1766"
+14,"groupIR","R"
+14,"host_type","Common Dormouse"
+14,"exclude","TRUE"
+14,"taxa_verified","TRUE"
+14,"verification_level","species"
+15,"node_name","Micromys_minutus"
+15,"type","mammal"
+15,"short_name","MMIN"
+15,"determinator","Pallas, 1778"
+15,"groupIR","R"
+15,"host_type","mouse"
+15,"exclude","FALSE"
+15,"taxa_verified","TRUE"
+15,"verification_level","species"
+16,"node_name","Mus_musculus"
+16,"type","mammal"
+16,"short_name","MMUS"
+16,"determinator","Linnaeus, 1758"
+16,"groupIR","R"
+16,"host_type","mouse"
+16,"exclude","FALSE"
+16,"taxa_verified","TRUE"
+16,"verification_level","species"
+17,"node_name","Neomys_anomalus"
+17,"type","mammal"
+17,"short_name","NANO"
+17,"determinator","Cabrera, 1907"
+17,"groupIR","I"
+17,"host_type","Shrew"
+17,"exclude","FALSE"
+17,"taxa_verified","TRUE"
+17,"verification_level","species"
+18,"node_name","Neomys_fodiens"
+18,"type","mammal"
+18,"short_name","NFOD"
+18,"determinator","(Pennant, 1771)"
+18,"groupIR","I"
+18,"host_type","Shrew"
+18,"exclude","FALSE"
+18,"taxa_verified","TRUE"
+18,"verification_level","species"
+19,"node_name","Ondatra_zibethicus"
+19,"type","mammal"
+19,"short_name","OZIB"
+19,"determinator","(Linnaeus, 1766)"
+19,"groupIR","R"
+19,"host_type","Muskrat"
+19,"exclude","FALSE"
+19,"taxa_verified","TRUE"
+19,"verification_level","species"
+20,"node_name","Microtus_subterraneus"
+20,"type","mammal"
+20,"short_name","PSUB"
+20,"determinator","(de Sélys-Longhchamps, 1836)"
+20,"groupIR","R"
+20,"host_type","Vole"
+20,"exclude","FALSE"
+20,"taxa_verified","TRUE"
+20,"verification_level","species"
+21,"node_name","Rattus_norvegicus"
+21,"type","mammal"
+21,"short_name","RNOR"
+21,"determinator","(Berkenhout, 1769)"
+21,"groupIR","R"
+21,"host_type","Rat"
+21,"exclude","FALSE"
+21,"taxa_verified","TRUE"
+21,"verification_level","species"
+22,"node_name","Sorex_alpinus"
+22,"type","mammal"
+22,"short_name","SALP"
+22,"determinator","Schinz, 1837"
+22,"groupIR","I"
+22,"host_type","Shrew"
+22,"exclude","FALSE"
+22,"taxa_verified","TRUE"
+22,"verification_level","species"
+23,"node_name","Sorex_araneus"
+23,"type","mammal"
+23,"short_name","SARA"
+23,"determinator","Linnaeus, 1758"
+23,"groupIR","I"
+23,"host_type","Shrew"
+23,"exclude","FALSE"
+23,"taxa_verified","TRUE"
+23,"verification_level","species"
+24,"node_name","Sicista_betulina"
+24,"type","mammal"
+24,"short_name","SBET"
+24,"determinator","Pallas, 1779"
+24,"groupIR","R"
+24,"host_type","Northern Birch Mouse"
+24,"exclude","FALSE"
+24,"taxa_verified","TRUE"
+24,"verification_level","species"
+25,"node_name","Sorex_minutus"
+25,"type","mammal"
+25,"short_name","SMIN"
+25,"determinator","Linnaeus, 1766"
+25,"groupIR","I"
+25,"host_type","Shrew"
+25,"exclude","FALSE"
+25,"taxa_verified","TRUE"
+25,"verification_level","species"
+26,"node_name","Talpa_europaea"
+26,"type","mammal"
+26,"short_name","TEUR"
+26,"determinator","Linnaeus, 1758"
+26,"groupIR","I"
+26,"host_type","European Mole"
+26,"exclude","FALSE"
+26,"taxa_verified","TRUE"
+26,"verification_level","species"
+27,"node_name","Amalaraeus_arvicolae"
+27,"type","flea"
+27,"short_name","AARV"
+27,"determinator","(Ioff, 1950)"
+27,"groupIR",NA
+27,"host_type",NA
+27,"exclude",NA
+27,"taxa_verified","FALSE"
+28,"node_name","Atyphloceras_nuperus"
+28,"type","flea"
+28,"short_name","ANUP"
+28,"determinator","(Jordan, 1931)"
+28,"groupIR",NA
+28,"host_type",NA
+28,"exclude",NA
+28,"taxa_verified","FALSE"
+29,"node_name","Amalaraeus_penicilliger"
+29,"type","flea"
+29,"short_name","APEN"
+29,"determinator","(Grube), 1852"
+29,"groupIR",NA
+29,"host_type",NA
+29,"exclude",NA
+29,"taxa_verified","TRUE"
+29,"verification_level","species"
+30,"node_name","Amphipsylla_rossica"
+30,"type","flea"
+30,"short_name","AROS"
+30,"determinator","Wagner, 1912"
+30,"groupIR",NA
+30,"host_type",NA
+30,"exclude",NA
+30,"taxa_verified","TRUE"
+30,"verification_level","species"
+31,"node_name","Ctenophthalmus_agyrtes"
+31,"type","flea"
+31,"short_name","CAGY"
+31,"determinator","Heller, 1896"
+31,"groupIR",NA
+31,"host_type",NA
+31,"exclude",NA
+31,"taxa_verified","TRUE"
+31,"verification_level","species"
+32,"node_name","Ctenophthalmus_assimilis"
+32,"type","flea"
+32,"short_name","CASS"
+32,"determinator","(Taschenberg, 1880)"
+32,"groupIR",NA
+32,"host_type",NA
+32,"exclude",NA
+32,"taxa_verified","FALSE"
+33,"node_name","Ctenophthalmus_bisoctodentatus"
+33,"type","flea"
+33,"short_name","CBIS"
+33,"determinator","Kolenati, 1863"
+33,"groupIR",NA
+33,"host_type",NA
+33,"exclude",NA
+33,"taxa_verified","FALSE"
+34,"node_name","Ctenocephalides_felis"
+34,"type","flea"
+34,"short_name","CFEL"
+34,"determinator","(Bouche, 1835)"
+34,"groupIR",NA
+34,"host_type",NA
+34,"exclude",NA
+34,"taxa_verified","TRUE"
+34,"verification_level","species"
+35,"node_name","Ctenophthalmus_obtusus"
+35,"type","flea"
+35,"short_name","COBT"
+35,"determinator","Jordan et Rothschild, 1912"
+35,"groupIR",NA
+35,"host_type",NA
+35,"exclude",NA
+35,"taxa_verified","TRUE"
+35,"verification_level","species"
+36,"node_name","Ctenophthalmus_orientalis"
+36,"type","flea"
+36,"short_name","CORI"
+36,"determinator","(Wagner, 1898)"
+36,"groupIR",NA
+36,"host_type",NA
+36,"exclude",NA
+36,"taxa_verified","FALSE"
+37,"node_name","Citellophilus_simplex"
+37,"type","flea"
+37,"short_name","CSIM"
+37,"determinator","(Wagner, 1902)"
+37,"groupIR",NA
+37,"host_type",NA
+37,"exclude",NA
+37,"taxa_verified","FALSE"
+38,"node_name","Ctenophthalmus_solutus"
+38,"type","flea"
+38,"short_name","CSOL"
+38,"determinator","Jordan et Rothschild, 1920"
+38,"groupIR",NA
+38,"host_type",NA
+38,"exclude",NA
+38,"taxa_verified","FALSE"
+39,"node_name","Ctenophthalmus_uncinatus"
+39,"type","flea"
+39,"short_name","CUNC"
+39,"determinator","(Wagner, 1898)"
+39,"groupIR",NA
+39,"host_type",NA
+39,"exclude",NA
+39,"taxa_verified","TRUE"
+39,"verification_level","species"
+40,"node_name","Doratopsylla_dasycnema"
+40,"type","flea"
+40,"short_name","DDAS"
+40,"determinator","Rothschild, 1897"
+40,"groupIR",NA
+40,"host_type",NA
+40,"exclude",NA
+40,"taxa_verified","TRUE"
+40,"verification_level","species"
+41,"node_name","Dasypsyllus_gallinulae"
+41,"type","flea"
+41,"short_name","DGAL"
+41,"determinator","(Dale, 1878)"
+41,"groupIR",NA
+41,"host_type",NA
+41,"exclude",NA
+41,"taxa_verified","TRUE"
+41,"verification_level","species"
+42,"node_name","Hystrichopsylla_orientalis"
+42,"type","flea"
+42,"short_name","HORI"
+42,"determinator","Smit, 1956"
+42,"groupIR",NA
+42,"host_type",NA
+42,"exclude",NA
+42,"taxa_verified","TRUE"
+42,"verification_level","species"
+43,"node_name","Hystrichopsylla_talpae"
+43,"type","flea"
+43,"short_name","HTAL"
+43,"determinator","(Curtis, 1826)"
+43,"groupIR",NA
+43,"host_type",NA
+43,"exclude",NA
+43,"taxa_verified","TRUE"
+43,"verification_level","species"
+44,"node_name","Leptopsylla_segnis"
+44,"type","flea"
+44,"short_name","LSEG"
+44,"determinator","(Schönherr, 1916)"
+44,"groupIR",NA
+44,"host_type",NA
+44,"exclude",NA
+44,"taxa_verified","TRUE"
+44,"verification_level","species"
+45,"node_name","Ceratophyllus_sciurorum"
+45,"type","flea"
+45,"short_name","MSCI"
+45,"determinator","(Schrank, 1781)"
+45,"groupIR",NA
+45,"host_type",NA
+45,"exclude",NA
+45,"taxa_verified","TRUE"
+45,"verification_level","species"
+46,"node_name","Megabothris_turbidus"
+46,"type","flea"
+46,"short_name","MTUR"
+46,"determinator","(Rothschild, 1909)"
+46,"groupIR",NA
+46,"host_type",NA
+46,"exclude",NA
+46,"taxa_verified","TRUE"
+46,"verification_level","species"
+47,"node_name","Nosopsyllus_fasciatus"
+47,"type","flea"
+47,"short_name","NFAS"
+47,"determinator","(Bosc, 1801)"
+47,"groupIR",NA
+47,"host_type",NA
+47,"exclude",NA
+47,"taxa_verified","TRUE"
+47,"verification_level","species"
+48,"node_name","Peromyscopsylla_bidentata"
+48,"type","flea"
+48,"short_name","PBID"
+48,"determinator","(Kolenati, 1860)"
+48,"groupIR",NA
+48,"host_type",NA
+48,"exclude",NA
+48,"taxa_verified","TRUE"
+48,"verification_level","species"
+49,"node_name","Peromyscopsylla_fallax"
+49,"type","flea"
+49,"short_name","PFAL"
+49,"determinator","(Rothschild, 1909)"
+49,"groupIR",NA
+49,"host_type",NA
+49,"exclude",NA
+49,"taxa_verified","TRUE"
+49,"verification_level","species"
+50,"node_name","Peromyscopsylla_silvatica"
+50,"type","flea"
+50,"short_name","PSIL"
+50,"determinator","(Meinert, 1896)"
+50,"groupIR",NA
+50,"host_type",NA
+50,"exclude",NA
+50,"taxa_verified","TRUE"
+50,"verification_level","species"
+51,"node_name","Palaeopsylla_similis"
+51,"type","flea"
+51,"short_name","PSIM"
+51,"determinator","similis Dampf, 1910"
+51,"groupIR",NA
+51,"host_type",NA
+51,"exclude",NA
+51,"taxa_verified","FALSE"
+52,"node_name","Palaeopsylla_soricis"
+52,"type","flea"
+52,"short_name","PSOR"
+52,"determinator","(Dale, 1878)"
+52,"groupIR",NA
+52,"host_type",NA
+52,"exclude",NA
+52,"taxa_verified","FALSE"
+53,"node_name","Palaeopsylla_kohauti_steini"
+53,"type","flea"
+53,"short_name","PSTE"
+53,"determinator","(Jordan, 1932)"
+53,"groupIR",NA
+53,"host_type",NA
+53,"exclude",NA
+53,"taxa_verified","FALSE"
+54,"node_name","Rhadinopsylla_integella"
+54,"type","flea"
+54,"short_name","RINT"
+54,"determinator","Jordan et Rothschild, 1921"
+54,"groupIR",NA
+54,"host_type",NA
+54,"exclude",NA
+54,"taxa_verified","FALSE"
+55,"node_name","Rhadinopsylla_isacantha"
+55,"type","flea"
+55,"short_name","RISA"
+55,"determinator","(Rothschild, 1907)"
+55,"groupIR",NA
+55,"host_type",NA
+55,"exclude",NA
+55,"taxa_verified","FALSE"
+56,"node_name","Rhadinopsylla_mesoides"
+56,"type","flea"
+56,"short_name","RMES"
+56,"determinator","Smit, 1957"
+56,"groupIR",NA
+56,"host_type",NA
+56,"exclude",NA
+56,"taxa_verified","FALSE"
+57,"node_name","Rhadinopsylla_pentacantha"
+57,"type","flea"
+57,"short_name","RPEN"
+57,"determinator","(Rothschild, 1897)"
+57,"groupIR",NA
+57,"host_type",NA
+57,"exclude",NA
+57,"taxa_verified","FALSE"
+58,"node_name","Androlaelaps_casalis"
+58,"type","mite"
+58,"short_name","ACAS"
+58,"determinator","(Berlese, 1887)"
+58,"groupIR",NA
+58,"host_type",NA
+58,"exclude",NA
+58,"taxa_verified","TRUE"
+58,"verification_level","species"
+59,"node_name","Androlaelaps_fahrenholzi"
+59,"type","mite"
+59,"short_name","AFAH"
+59,"determinator","(Berlese, 1911)"
+59,"groupIR",NA
+59,"host_type",NA
+59,"exclude",NA
+59,"taxa_verified","FALSE"
+60,"node_name","Androlaelaps_fenilis"
+60,"type","mite"
+60,"short_name","AFEN"
+60,"determinator",NA
+60,"groupIR",NA
+60,"host_type",NA
+60,"exclude",NA
+60,"taxa_verified","FALSE"
+61,"node_name","Ambyseius_sp."
+61,"type","mite"
+61,"short_name","AMBL"
+61,"determinator",NA
+61,"groupIR",NA
+61,"host_type",NA
+61,"exclude",NA
+61,"taxa_verified","FALSE"
+62,"node_name","Ameroseius_sp."
+62,"type","mite"
+62,"short_name","AMER"
+62,"determinator",NA
+62,"groupIR",NA
+62,"host_type",NA
+62,"exclude",NA
+62,"taxa_verified","TRUE"
+62,"verification_level","genus"
+63,"node_name","Aceoseius_muricatus"
+63,"type","mite"
+63,"short_name","AMUR"
+63,"determinator","(C.L. Koch, 1839)"
+63,"groupIR",NA
+63,"host_type",NA
+63,"exclude",NA
+63,"taxa_verified","TRUE"
+63,"verification_level","species"
+64,"node_name","Ameroseius_plumigerus"
+64,"type","mite"
+64,"short_name","APLU"
+64,"determinator","(Oudemans, 1930)"
+64,"groupIR",NA
+64,"host_type",NA
+64,"exclude",NA
+64,"taxa_verified","FALSE"
+65,"node_name","Hypoaspis_sardoa"
+65,"type","mite"
+65,"short_name","ASAR"
+65,"determinator","(Berlese, 1911)"
+65,"groupIR",NA
+65,"host_type",NA
+65,"exclude",NA
+65,"taxa_verified","FALSE"
+66,"node_name","Cyrtolaelaps_minor"
+66,"type","mite"
+66,"short_name","CMIN"
+66,"determinator","Willmann, 1952"
+66,"groupIR",NA
+66,"host_type",NA
+66,"exclude",NA
+66,"taxa_verified","FALSE"
+67,"node_name","Cyrtolaelaps_mucronatus"
+67,"type","mite"
+67,"short_name","CMUC"
+67,"determinator","(R. et G. Canestrini, 1881)"
+67,"groupIR",NA
+67,"host_type",NA
+67,"exclude",NA
+67,"taxa_verified","FALSE"
+68,"node_name","Euryparasitus_emarginatus"
+68,"type","mite"
+68,"short_name","EEMA"
+68,"determinator","(C. L. Koch, 1939)"
+68,"groupIR",NA
+68,"host_type",NA
+68,"exclude",NA
+68,"taxa_verified","FALSE"
+69,"node_name","Eviphis_ostrinus"
+69,"type","mite"
+69,"short_name","EOST"
+69,"determinator","(C. L. Koch, 1836)"
+69,"groupIR",NA
+69,"host_type",NA
+69,"exclude",NA
+69,"taxa_verified","TRUE"
+69,"verification_level","species"
+70,"node_name","Eulaelaps_oudemansi"
+70,"type","mite"
+70,"short_name","EOUD"
+70,"determinator","Turk, 1945"
+70,"groupIR",NA
+70,"host_type",NA
+70,"exclude",NA
+70,"taxa_verified","FALSE"
+71,"node_name","Eulaelaps_stabularis"
+71,"type","mite"
+71,"short_name","ESTA"
+71,"determinator","(C.L.Koch, 1836)"
+71,"groupIR",NA
+71,"host_type",NA
+71,"exclude",NA
+71,"taxa_verified","TRUE"
+71,"verification_level","species"
+72,"node_name","Geholaspis_longispinosus"
+72,"type","mite"
+72,"short_name","GLON"
+72,"determinator","(Kramer, 1876)"
+72,"groupIR",NA
+72,"host_type",NA
+72,"exclude",NA
+72,"taxa_verified","FALSE"
+73,"node_name","Hypoaspis_acuta"
+73,"type","mite"
+73,"short_name","HACT"
+73,"determinator","(Michael, 1891)"
+73,"groupIR",NA
+73,"host_type",NA
+73,"exclude",NA
+73,"taxa_verified","FALSE"
+74,"node_name","Hypoaspis_aculeifer"
+74,"type","mite"
+74,"short_name","HACU"
+74,"determinator","(Canestrini, 1883)"
+74,"groupIR",NA
+74,"host_type",NA
+74,"exclude",NA
+74,"taxa_verified","TRUE"
+74,"verification_level","species"
+75,"node_name","Hyperlaelaps_amphibius"
+75,"type","mite"
+75,"short_name","HAMP"
+75,"determinator","(Zachvatkin, 1948)"
+75,"groupIR",NA
+75,"host_type",NA
+75,"exclude",NA
+75,"taxa_verified","FALSE"
+76,"node_name","Hirstionyssus_apodemi"
+76,"type","mite"
+76,"short_name","HAPO"
+76,"determinator","Zujevskij, 1970"
+76,"groupIR",NA
+76,"host_type",NA
+76,"exclude",NA
+76,"taxa_verified","FALSE"
+77,"node_name","Hypoaspis_austriaca"
+77,"type","mite"
+77,"short_name","HAUS"
+77,"determinator","(Sellnick, 1935)"
+77,"groupIR",NA
+77,"host_type",NA
+77,"exclude",NA
+77,"taxa_verified","FALSE"
+78,"node_name","Hirstionyssus_carnifex"
+78,"type","mite"
+78,"short_name","HCAR"
+78,"determinator","(C. L. Koch, 1839)"
+78,"groupIR",NA
+78,"host_type",NA
+78,"exclude",NA
+78,"taxa_verified","FALSE"
+79,"node_name","Holoparasitus_coronarius"
+79,"type","mite"
+79,"short_name","HCOR"
+79,"determinator","Karg, 1971"
+79,"groupIR",NA
+79,"host_type",NA
+79,"exclude",NA
+79,"taxa_verified","FALSE"
+80,"node_name","Holoparasitus_excipuliger"
+80,"type","mite"
+80,"short_name","HEXC"
+80,"determinator","(Berlese, 1905)"
+80,"groupIR",NA
+80,"host_type",NA
+80,"exclude",NA
+80,"taxa_verified","FALSE"
+81,"node_name","Hypoaspis_heselhausi"
+81,"type","mite"
+81,"short_name","HHES"
+81,"determinator","Oudemans, 1912"
+81,"groupIR",NA
+81,"host_type",NA
+81,"exclude",NA
+81,"taxa_verified","FALSE"
+82,"node_name","Haemogamasus_hirsutosimilis"
+82,"type","mite"
+82,"short_name","HHIM"
+82,"determinator","Willmann, 1952"
+82,"groupIR",NA
+82,"host_type",NA
+82,"exclude",NA
+82,"taxa_verified","FALSE"
+83,"node_name","Haemogamasus_hirsutus"
+83,"type","mite"
+83,"short_name","HHIR"
+83,"determinator","Berlese, 1889"
+83,"groupIR",NA
+83,"host_type",NA
+83,"exclude",NA
+83,"taxa_verified","FALSE"
+84,"node_name","Haemogamasus_horridus"
+84,"type","mite"
+84,"short_name","HHOR"
+84,"determinator","Michael, 1892"
+84,"groupIR",NA
+84,"host_type",NA
+84,"exclude",NA
+84,"taxa_verified","FALSE"
+85,"node_name","Hypoaspis_hyatti"
+85,"type","mite"
+85,"short_name","HHYA"
+85,"determinator","Evans et Till, 1966"
+85,"groupIR",NA
+85,"host_type",NA
+85,"exclude",NA
+85,"taxa_verified","FALSE"
+86,"node_name","Hirstionyssus_isabellinus"
+86,"type","mite"
+86,"short_name","HISA"
+86,"determinator","(Oudemans, 1913)"
+86,"groupIR",NA
+86,"host_type",NA
+86,"exclude",NA
+86,"taxa_verified","FALSE"
+87,"node_name","Hypoaspis_lubrica"
+87,"type","mite"
+87,"short_name","HLUB"
+87,"determinator","Voights et Oudemans, 1904"
+87,"groupIR",NA
+87,"host_type",NA
+87,"exclude",NA
+87,"taxa_verified","FALSE"
+88,"node_name","Hyperlaelaps_microti"
+88,"type","mite"
+88,"short_name","HMIC"
+88,"determinator","Ewing,1933"
+88,"groupIR",NA
+88,"host_type",NA
+88,"exclude",NA
+88,"taxa_verified","TRUE"
+88,"verification_level","species"
+89,"node_name","Hypoaspis_miles"
+89,"type","mite"
+89,"short_name","HMIL"
+89,"determinator","(Berlese, 1882)"
+89,"groupIR",NA
+89,"host_type",NA
+89,"exclude",NA
+89,"taxa_verified","TRUE"
+89,"verification_level","species"
+90,"node_name","Haemogamasus_nidi"
+90,"type","mite"
+90,"short_name","HNID"
+90,"determinator","Michael, 1892"
+90,"groupIR",NA
+90,"host_type",NA
+90,"exclude",NA
+90,"taxa_verified","TRUE"
+90,"verification_level","species"
+91,"node_name","Hypoaspis_oblonga"
+91,"type","mite"
+91,"short_name","HOBL"
+91,"determinator","Halbert, 1915"
+91,"groupIR",NA
+91,"host_type",NA
+91,"exclude",NA
+91,"taxa_verified","FALSE"
+92,"node_name","Holoparasitus_sp."
+92,"type","mite"
+92,"short_name","HOLO"
+92,"determinator",NA
+92,"groupIR",NA
+92,"host_type",NA
+92,"exclude",NA
+92,"taxa_verified","TRUE"
+92,"verification_level","genus"
+93,"node_name","Haemogamasus_pontiger"
+93,"type","mite"
+93,"short_name","HPON"
+93,"determinator","Berlese, 1903"
+93,"groupIR",NA
+93,"host_type",NA
+93,"exclude",NA
+93,"taxa_verified","FALSE"
+94,"node_name","Holoparasitus_pseudoperforatus"
+94,"type","mite"
+94,"short_name","HPSE"
+94,"determinator","Berlese, 1905"
+94,"groupIR",NA
+94,"host_type",NA
+94,"exclude",NA
+94,"taxa_verified","FALSE"
+95,"node_name","Hirstionyssus_soricis"
+95,"type","mite"
+95,"short_name","HSOR"
+95,"determinator","Turk, 1945"
+95,"groupIR",NA
+95,"host_type",NA
+95,"exclude",NA
+95,"taxa_verified","FALSE"
+96,"node_name","Hirstionyssus_talpae"
+96,"type","mite"
+96,"short_name","HTLP"
+96,"determinator","Zemskaya, 1955"
+96,"groupIR",NA
+96,"host_type",NA
+96,"exclude",NA
+96,"taxa_verified","FALSE"
+97,"node_name","Hypoaspis_vacua"
+97,"type","mite"
+97,"short_name","HVAC"
+97,"determinator","(Michael, 1891)"
+97,"groupIR",NA
+97,"host_type",NA
+97,"exclude",NA
+97,"taxa_verified","FALSE"
+98,"node_name","Hypoaspis_sp."
+98,"type","mite"
+98,"short_name","HYPO"
+98,"determinator",NA
+98,"groupIR",NA
+98,"host_type",NA
+98,"exclude",NA
+98,"taxa_verified","TRUE"
+98,"verification_level","genus"
+99,"node_name","Iphidosoma_fimetarium"
+99,"type","mite"
+99,"short_name","IFIM"
+99,"determinator","(Müller, 1859)"
+99,"groupIR",NA
+99,"host_type",NA
+99,"exclude",NA
+99,"taxa_verified","FALSE"
+100,"node_name","Laelaps_agilis"
+100,"type","mite"
+100,"short_name","LAGI"
+100,"determinator","C.L. Koch, 1836"
+100,"groupIR",NA
+100,"host_type",NA
+100,"exclude",NA
+100,"taxa_verified","TRUE"
+100,"verification_level","species"
+101,"node_name","Lasioseius_sp."
+101,"type","mite"
+101,"short_name","LASI"
+101,"determinator",NA
+101,"groupIR",NA
+101,"host_type",NA
+101,"exclude",NA
+101,"taxa_verified","TRUE"
+101,"verification_level","genus"
+102,"node_name","Laelaspis_astronomica"
+102,"type","mite"
+102,"short_name","LAST"
+102,"determinator","(C.L. Koch, 1839)"
+102,"groupIR",NA
+102,"host_type",NA
+102,"exclude",NA
+102,"taxa_verified","FALSE"
+103,"node_name","Lasioseius_berlesei"
+103,"type","mite"
+103,"short_name","LBER"
+103,"determinator","(Oudemans, 1938)"
+103,"groupIR",NA
+103,"host_type",NA
+103,"exclude",NA
+103,"taxa_verified","FALSE"
+104,"node_name","Laelaps_clethrionomydis"
+104,"type","mite"
+104,"short_name","LCLE"
+104,"determinator","Lange, 1955"
+104,"groupIR",NA
+104,"host_type",NA
+104,"exclude",NA
+104,"taxa_verified","TRUE"
+104,"verification_level","species"
+105,"node_name","Laelaps_hilaris"
+105,"type","mite"
+105,"short_name","LHIL"
+105,"determinator","C.L. Koch, 1836"
+105,"groupIR",NA
+105,"host_type",NA
+105,"exclude",NA
+105,"taxa_verified","TRUE"
+105,"verification_level","species"
+106,"node_name","Laelaps_jettmari"
+106,"type","mite"
+106,"short_name","LJET"
+106,"determinator","Vitzthum, 1930"
+106,"groupIR",NA
+106,"host_type",NA
+106,"exclude",NA
+106,"taxa_verified","TRUE"
+106,"verification_level","species"
+107,"node_name","Laelaps_micromydis"
+107,"type","mite"
+107,"short_name","LMIC"
+107,"determinator","Zachvatkin, 1948"
+107,"groupIR",NA
+107,"host_type",NA
+107,"exclude",NA
+107,"taxa_verified","FALSE"
+108,"node_name","Laelaps_multispinosus"
+108,"type","mite"
+108,"short_name","LMUL"
+108,"determinator","Banks, 1909"
+108,"groupIR",NA
+108,"host_type",NA
+108,"exclude",NA
+108,"taxa_verified","TRUE"
+108,"verification_level","species"
+109,"node_name","Laelaps_muris"
+109,"type","mite"
+109,"short_name","LMUR"
+109,"determinator","(Ljungh, 1799)"
+109,"groupIR",NA
+109,"host_type",NA
+109,"exclude",NA
+109,"taxa_verified","TRUE"
+109,"verification_level","species"
+110,"node_name","Lasioseius_ometes"
+110,"type","mite"
+110,"short_name","LOME"
+110,"determinator","Oudemans, 1903"
+110,"groupIR",NA
+110,"host_type",NA
+110,"exclude",NA
+110,"taxa_verified","FALSE"
+111,"node_name","Lasioseius_youcefi"
+111,"type","mite"
+111,"short_name","LYOU"
+111,"determinator","Athias-Henriot, 1959"
+111,"groupIR",NA
+111,"host_type",NA
+111,"exclude",NA
+111,"taxa_verified","FALSE"
+112,"node_name","Macrocheles_sp."
+112,"type","mite"
+112,"short_name","MACR"
+112,"determinator",NA
+112,"groupIR",NA
+112,"host_type",NA
+112,"exclude",NA
+112,"taxa_verified","TRUE"
+112,"verification_level","genus"
+113,"node_name","Macrocheles_carinatus"
+113,"type","mite"
+113,"short_name","MCAR"
+113,"determinator","(C.L. Koch, 1839)"
+113,"groupIR",NA
+113,"host_type",NA
+113,"exclude",NA
+113,"taxa_verified","FALSE"
+114,"node_name","Macrocheles_glaber"
+114,"type","mite"
+114,"short_name","MGLA"
+114,"determinator","(Müller, 1860)"
+114,"groupIR",NA
+114,"host_type",NA
+114,"exclude",NA
+114,"taxa_verified","TRUE"
+114,"verification_level","species"
+115,"node_name","Myonyssus_ingricus"
+115,"type","mite"
+115,"short_name","MING"
+115,"determinator","Bregetova, 1956"
+115,"groupIR",NA
+115,"host_type",NA
+115,"exclude",NA
+115,"taxa_verified","FALSE"
+116,"node_name","Macrocheles_matrius"
+116,"type","mite"
+116,"short_name","MMAT"
+116,"determinator","(Hull, 1925)"
+116,"groupIR",NA
+116,"host_type",NA
+116,"exclude",NA
+116,"taxa_verified","TRUE"
+116,"verification_level","species"
+117,"node_name","Macrocheles_montanus"
+117,"type","mite"
+117,"short_name","MMON"
+117,"determinator","(Willmann, 1951)"
+117,"groupIR",NA
+117,"host_type",NA
+117,"exclude",NA
+117,"taxa_verified","FALSE"
+118,"node_name","Macrocheles_penicilliger"
+118,"type","mite"
+118,"short_name","MPEN"
+118,"determinator","(Berlese, 1903)"
+118,"groupIR",NA
+118,"host_type",NA
+118,"exclude",NA
+118,"taxa_verified","TRUE"
+118,"verification_level","species"
+119,"node_name","Macrocheles_punctoscutatus"
+119,"type","mite"
+119,"short_name","MPUN"
+119,"determinator","Evans et Browning, 1956"
+119,"groupIR",NA
+119,"host_type",NA
+119,"exclude",NA
+119,"taxa_verified","FALSE"
+120,"node_name","Myonyssus_rossicus"
+120,"type","mite"
+120,"short_name","MROS"
+120,"determinator","Bregetova, 1956"
+120,"groupIR",NA
+120,"host_type",NA
+120,"exclude",NA
+120,"taxa_verified","FALSE"
+121,"node_name","Macrocheles_rotundiscutis"
+121,"type","mite"
+121,"short_name","MROT"
+121,"determinator","Bregetova et Koroleva, 1960"
+121,"groupIR",NA
+121,"host_type",NA
+121,"exclude",NA
+121,"taxa_verified","FALSE"
+122,"node_name","Macrocheles_tridentitus"
+122,"type","mite"
+122,"short_name","MTRI"
+122,"determinator","G. et R. Canestrini, 1882"
+122,"groupIR",NA
+122,"host_type",NA
+122,"exclude",NA
+122,"taxa_verified","FALSE"
+123,"node_name","Neojordensia_levis"
+123,"type","mite"
+123,"short_name","NLEV"
+123,"determinator",NA
+123,"groupIR",NA
+123,"host_type",NA
+123,"exclude",NA
+123,"taxa_verified","FALSE"
+124,"node_name","Neopodocinum_mrciaki"
+124,"type","mite"
+124,"short_name","NMRC"
+124,"determinator","Sellnick, 1968"
+124,"groupIR",NA
+124,"host_type",NA
+124,"exclude",NA
+124,"taxa_verified","FALSE"
+125,"node_name","Ololaelaps_placentulus"
+125,"type","mite"
+125,"short_name","OPLA"
+125,"determinator","(Berlese, 1887)"
+125,"groupIR",NA
+125,"host_type",NA
+125,"exclude",NA
+125,"taxa_verified","FALSE"
+126,"node_name","Olopachys_suecicus"
+126,"type","mite"
+126,"short_name","OSUE"
+126,"determinator","Sellnick, 1950"
+126,"groupIR",NA
+126,"host_type",NA
+126,"exclude",NA
+126,"taxa_verified","FALSE"
+127,"node_name","Pachyseius_sp."
+127,"type","mite"
+127,"short_name","PACH"
+127,"determinator",NA
+127,"groupIR",NA
+127,"host_type",NA
+127,"exclude",NA
+127,"taxa_verified","FALSE"
+128,"node_name","Parasitidae_non_det."
+128,"type","mite"
+128,"short_name","PARD"
+128,"determinator",NA
+128,"groupIR",NA
+128,"host_type",NA
+128,"exclude",NA
+128,"taxa_verified","FALSE"
+129,"node_name","Parasitus_sp."
+129,"type","mite"
+129,"short_name","PARS"
+129,"determinator",NA
+129,"groupIR",NA
+129,"host_type",NA
+129,"exclude",NA
+129,"taxa_verified","TRUE"
+129,"verification_level","genus"
+130,"node_name","Pergamasus_brevicornis"
+130,"type","mite"
+130,"short_name","PBRE"
+130,"determinator","(Oudemans, 1903)"
+130,"groupIR",NA
+130,"host_type",NA
+130,"exclude",NA
+130,"taxa_verified","TRUE"
+130,"verification_level","species"
+131,"node_name","Pergamasus_crassipes"
+131,"type","mite"
+131,"short_name","PCRA"
+131,"determinator","(Linnaeus,1758)"
+131,"groupIR",NA
+131,"host_type",NA
+131,"exclude",NA
+131,"taxa_verified","TRUE"
+131,"verification_level","species"
+132,"node_name","Paragarmania_dentritica"
+132,"type","mite"
+132,"short_name","PDEN"
+132,"determinator","(Berlese, 1918)"
+132,"groupIR",NA
+132,"host_type",NA
+132,"exclude",NA
+132,"taxa_verified","FALSE"
+133,"node_name","Pergamasus_sp."
+133,"type","mite"
+133,"short_name","PERG"
+133,"determinator",NA
+133,"groupIR",NA
+133,"host_type",NA
+133,"exclude",NA
+133,"taxa_verified","TRUE"
+133,"verification_level","genus"
+134,"node_name","Pachylaelaps_furcifer"
+134,"type","mite"
+134,"short_name","PFUR"
+134,"determinator","Oudemans, 1902"
+134,"groupIR",NA
+134,"host_type",NA
+134,"exclude",NA
+134,"taxa_verified","FALSE"
+135,"node_name","Pachyseius_humeralis"
+135,"type","mite"
+135,"short_name","PHUM"
+135,"determinator","Berlese, 1910"
+135,"groupIR",NA
+135,"host_type",NA
+135,"exclude",NA
+135,"taxa_verified","FALSE"
+136,"node_name","Pachylaelaps_ineptus"
+136,"type","mite"
+136,"short_name","PINE"
+136,"determinator","Hirschmann et Krauss, 1965"
+136,"groupIR",NA
+136,"host_type",NA
+136,"exclude",NA
+136,"taxa_verified","FALSE"
+137,"node_name","Platyseius_italicus"
+137,"type","mite"
+137,"short_name","PITA"
+137,"determinator","(Berlese, 1905)"
+137,"groupIR",NA
+137,"host_type",NA
+137,"exclude",NA
+137,"taxa_verified","FALSE"
+138,"node_name","Vulgarogamasus_kraepelini"
+138,"type","mite"
+138,"short_name","PKRA"
+138,"determinator","(Berlese, 1906)"
+138,"groupIR",NA
+138,"host_type",NA
+138,"exclude",NA
+138,"taxa_verified","FALSE"
+139,"node_name","Platyseius_sp."
+139,"type","mite"
+139,"short_name","PLAT"
+139,"determinator",NA
+139,"groupIR",NA
+139,"host_type",NA
+139,"exclude",NA
+139,"taxa_verified","TRUE"
+139,"verification_level","genus"
+140,"node_name","Pachylaelaps_longisetis"
+140,"type","mite"
+140,"short_name","PLON"
+140,"determinator","Halbert, 1915"
+140,"groupIR",NA
+140,"host_type",NA
+140,"exclude",NA
+140,"taxa_verified","FALSE"
+141,"node_name","Parasitus_lunulatus"
+141,"type","mite"
+141,"short_name","PLUN"
+141,"determinator","(Müller, 1859)"
+141,"groupIR",NA
+141,"host_type",NA
+141,"exclude",NA
+141,"taxa_verified","FALSE"
+142,"node_name","Eugamasus_magnus"
+142,"type","mite"
+142,"short_name","PMAG"
+142,"determinator","Kramer, 1876"
+142,"groupIR",NA
+142,"host_type",NA
+142,"exclude",NA
+142,"taxa_verified","FALSE"
+143,"node_name","Poecilochirus_necrophori"
+143,"type","mite"
+143,"short_name","PNEC"
+143,"determinator","Vitzthum, 1930"
+143,"groupIR",NA
+143,"host_type",NA
+143,"exclude",NA
+143,"taxa_verified","TRUE"
+143,"verification_level","species"
+144,"node_name","Pachylaelaps_pectinifer"
+144,"type","mite"
+144,"short_name","PPEC"
+144,"determinator","(G. et R. Canestrini, 1882)"
+144,"groupIR",NA
+144,"host_type",NA
+144,"exclude",NA
+144,"taxa_verified","FALSE"
+145,"node_name","Proctolaelaps_pygmaeus"
+145,"type","mite"
+145,"short_name","PPYG"
+145,"determinator","(Müller, 1860)"
+145,"groupIR",NA
+145,"host_type",NA
+145,"exclude",NA
+145,"taxa_verified","TRUE"
+145,"verification_level","species"
+146,"node_name","Pergamasus_septentrionalis"
+146,"type","mite"
+146,"short_name","PSEP"
+146,"determinator","(Oudemans, 1902)"
+146,"groupIR",NA
+146,"host_type",NA
+146,"exclude",NA
+146,"taxa_verified","TRUE"
+146,"verification_level","species"
+147,"node_name","Platyseius_subglaber"
+147,"type","mite"
+147,"short_name","PSUB"
+147,"determinator","(Oudemans, 1902)"
+147,"groupIR",NA
+147,"host_type",NA
+147,"exclude",NA
+147,"taxa_verified","FALSE"
+148,"node_name","Veigaia_cerva"
+148,"type","mite"
+148,"short_name","VCER"
+148,"determinator","(Kramer, 1876)"
+148,"groupIR",NA
+148,"host_type",NA
+148,"exclude",NA
+148,"taxa_verified","FALSE"
+149,"node_name","Veigaia_sp."
+149,"type","mite"
+149,"short_name","VEIG"
+149,"determinator",NA
+149,"groupIR",NA
+149,"host_type",NA
+149,"exclude",NA
+149,"taxa_verified","TRUE"
+149,"verification_level","genus"
+150,"node_name","Veigaia_kochi"
+150,"type","mite"
+150,"short_name","VKOC"
+150,"determinator","(Trägardh, 1901)"
+150,"groupIR",NA
+150,"host_type",NA
+150,"exclude",NA
+150,"taxa_verified","TRUE"
+150,"verification_level","species"
+151,"node_name","Veigaia_nemorensis"
+151,"type","mite"
+151,"short_name","VNEM"
+151,"determinator","(C.L. Koch, 1839)"
+151,"groupIR",NA
+151,"host_type",NA
+151,"exclude",NA
+151,"taxa_verified","TRUE"
+151,"verification_level","species"
+152,"node_name","Veigaia_planicola"
+152,"type","mite"
+152,"short_name","VPLA"
+152,"determinator","(Berlese, 1892)"
+152,"groupIR",NA
+152,"host_type",NA
+152,"exclude",NA
+152,"taxa_verified","FALSE"
+153,"node_name","Veigaia_transisale"
+153,"type","mite"
+153,"short_name","VTRA"
+153,"determinator","(Oudemans, 1902)"
+153,"groupIR",NA
+153,"host_type",NA
+153,"exclude",NA
+153,"taxa_verified","FALSE"
+154,"node_name","Zercon_sp."
+154,"type","mite"
+154,"short_name","ZERC"
+154,"determinator",NA
+154,"groupIR",NA
+154,"host_type",NA
+154,"exclude",NA
+154,"taxa_verified","TRUE"
+154,"verification_level","genus"

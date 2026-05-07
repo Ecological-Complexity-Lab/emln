@@ -1,0 +1,246 @@
+interaction_id,attribute,value
+1,node_from,predatory_mite
+1,layer_from,1
+1,node_to,Sericothrips_variabilis
+1,layer_to,1
+1,weight,1
+1,type,predation
+1,method,field observation
+2,node_from,predatory_mite
+2,layer_from,1
+2,node_to,other_herbivorous_thrips
+2,layer_to,1
+2,weight,1
+2,type,predation
+2,method,field observation
+3,node_from,spiders_(unspecified)
+3,layer_from,1
+3,node_to,Empoasca_fabae
+3,layer_to,1
+3,weight,1
+3,type,predation
+3,method,field observation
+4,node_from,spiders_(unspecified)
+4,layer_from,1
+4,node_to,black_alate_aphid
+4,layer_to,1
+4,weight,1
+4,type,predation
+4,method,field observation
+5,node_from,Empoasca_fabae
+5,layer_from,1
+5,node_to,soybean_plant
+5,layer_to,1
+5,weight,1
+5,type,herbivory
+5,method,field observation
+6,node_from,Sericothrips_variabilis
+6,layer_from,1
+6,node_to,soybean_plant
+6,layer_to,1
+6,weight,1
+6,type,herbivory
+6,method,field observation
+7,node_from,other_herbivorous_thrips
+7,layer_from,1
+7,node_to,soybean_plant
+7,layer_to,1
+7,weight,1
+7,type,herbivory
+7,method,field observation
+8,node_from,black_alate_aphid
+8,layer_from,1
+8,node_to,soybean_plant
+8,layer_to,1
+8,weight,1
+8,type,herbivory
+8,method,field observation
+9,node_from,predatory_mite
+9,layer_from,2
+9,node_to,Aeolothrips_sp.
+9,layer_to,2
+9,weight,1
+9,type,predation
+9,method,field observation
+10,node_from,predatory_mite
+10,layer_from,2
+10,node_to,Sericothrips_variabilis
+10,layer_to,2
+10,weight,1
+10,type,predation
+10,method,field observation
+11,node_from,predatory_mite
+11,layer_from,2
+11,node_to,other_herbivorous_thrips
+11,layer_to,2
+11,weight,1
+11,type,predation
+11,method,field observation
+12,node_from,Orius_insidiosus
+12,layer_from,2
+12,node_to,other_herbivorous_thrips
+12,layer_to,2
+12,weight,1
+12,type,predation
+12,method,field observation
+13,node_from,Orius_insidiosus
+13,layer_from,2
+13,node_to,Platypena_scabra
+13,layer_to,2
+13,weight,1
+13,type,predation
+13,method,field observation
+14,node_from,Orius_insidiosus
+14,layer_from,2
+14,node_to,Colias_eurytheme
+14,layer_to,2
+14,weight,1
+14,type,predation
+14,method,field observation
+15,node_from,Orius_insidiosus
+15,layer_from,2
+15,node_to,soybean_plant
+15,layer_to,2
+15,weight,1
+15,type,herbivory
+15,method,field observation
+16,node_from,Nabis_spp.
+16,layer_from,2
+16,node_to,Orius_insidiosus
+16,layer_to,2
+16,weight,1
+16,type,predation
+16,method,field observation
+17,node_from,Nabis_spp.
+17,layer_from,2
+17,node_to,Empoasca_fabae
+17,layer_to,2
+17,weight,1
+17,type,predation
+17,method,field observation
+18,node_from,Nabis_spp.
+18,layer_from,2
+18,node_to,Acrosternum_hilare
+18,layer_to,2
+18,weight,1
+18,type,predation
+18,method,field observation
+19,node_from,Nabis_spp.
+19,layer_from,2
+19,node_to,soybean_plant
+19,layer_to,2
+19,weight,1
+19,type,herbivory
+19,method,field observation
+20,node_from,spiders_(unspecified)
+20,layer_from,2
+20,node_to,Empoasca_fabae
+20,layer_to,2
+20,weight,1
+20,type,predation
+20,method,field observation
+21,node_from,spiders_(unspecified)
+21,layer_from,2
+21,node_to,black_alate_aphid
+21,layer_to,2
+21,weight,1
+21,type,predation
+21,method,field observation
+22,node_from,Aeolothrips_sp.
+22,layer_from,2
+22,node_to,Sericothrips_variabilis
+22,layer_to,2
+22,weight,1
+22,type,predation
+22,method,field observation
+23,node_from,Aeolothrips_sp.
+23,layer_from,2
+23,node_to,other_herbivorous_thrips
+23,layer_to,2
+23,weight,1
+23,type,predation
+23,method,field observation
+24,node_from,syrphid_larvae
+24,layer_from,2
+24,node_to,Sericothrips_variabilis
+24,layer_to,2
+24,weight,1
+24,type,predation
+24,method,field observation
+25,node_from,parasitic_Hymenoptera
+25,layer_from,2
+25,node_to,black_alate_aphid
+25,layer_to,2
+25,weight,1
+25,type,host-parasite
+25,method,field observation
+26,node_from,parasitic_Hymenoptera
+26,layer_from,2
+26,node_to,Platypena_scabra
+26,layer_to,2
+26,weight,1
+26,type,host-parasite
+26,method,field observation
+27,node_from,parasitic_Hymenoptera
+27,layer_from,2
+27,node_to,Acrosternum_hilare
+27,layer_to,2
+27,weight,1
+27,type,host-parasite
+27,method,field observation
+28,node_from,Empoasca_fabae
+28,layer_from,2
+28,node_to,soybean_plant
+28,layer_to,2
+28,weight,1
+28,type,herbivory
+28,method,field observation
+29,node_from,Sericothrips_variabilis
+29,layer_from,2
+29,node_to,soybean_plant
+29,layer_to,2
+29,weight,1
+29,type,herbivory
+29,method,field observation
+30,node_from,other_herbivorous_thrips
+30,layer_from,2
+30,node_to,soybean_plant
+30,layer_to,2
+30,weight,1
+30,type,herbivory
+30,method,field observation
+31,node_from,black_alate_aphid
+31,layer_from,2
+31,node_to,soybean_plant
+31,layer_to,2
+31,weight,1
+31,type,herbivory
+31,method,field observation
+32,node_from,Platypena_scabra
+32,layer_from,2
+32,node_to,soybean_plant
+32,layer_to,2
+32,weight,1
+32,type,herbivory
+32,method,field observation
+33,node_from,Colias_eurytheme
+33,layer_from,2
+33,node_to,soybean_plant
+33,layer_to,2
+33,weight,1
+33,type,herbivory
+33,method,field observation
+34,node_from,Acrosternum_hilare
+34,layer_from,2
+34,node_to,soybean_plant
+34,layer_to,2
+34,weight,1
+34,type,herbivory
+34,method,field observation
+35,node_from,Orius_insidiosus
+35,layer_from,2
+35,node_to,Sericothrips_variabilis
+35,layer_to,2
+35,weight,1
+35,type,predation
+35,method,field observation

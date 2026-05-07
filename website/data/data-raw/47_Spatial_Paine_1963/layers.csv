@@ -1,0 +1,13 @@
+layer,attribute,value
+1,type,space
+1,location,"rocky intertidal in Torch Bay, Alaska"
+1,latitude,58.3211111
+1,longitude,-136.795
+1,date,01/06/1963
+1,directed,TRUE
+2,type,space
+2,location,"rocky intertidal in Cape Flattery, Washington"
+2,latitude,48.385277
+2,longitude,-124.728734
+2,date,01/06/1963
+2,directed,TRUE

@@ -1,0 +1,22 @@
+layer,attribute,value
+1,type,environment
+1,habitat,sandy shore
+1,location,"Lake Nyasa (Lake Malawi), Malawi"
+1,latitude,-11.612087
+1,longitude,34.301249
+1,date,01/01/1955
+1,directed,TRUE
+2,type,environment
+2,habitat,rocky shore
+2,location,"Lake Nyasa (Lake Malawi), Malawi"
+2,latitude,-11.612087
+2,longitude,34.301249
+2,date,01/01/1955
+2,directed,TRUE
+3,type,environment
+3,habitat,Crocodile Creek
+3,location,"Lake Nyasa (Lake Malawi), Malawi"
+3,latitude,-11.612087
+3,longitude,34.301249
+3,date,01/01/1955
+3,directed,TRUE

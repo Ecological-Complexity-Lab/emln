@@ -1,0 +1,19 @@
+layer,attribute,value
+1,date,21/04/2005
+1,directed,TRUE
+1,latitude,37.216667
+1,longitude,-76.383333
+1,name,Food web of the Chesapeake's Bay Eelgrass Bed in April 2005
+1,type,time
+2,date,19/05/2006
+2,directed,TRUE
+2,latitude,37.216667
+2,longitude,-76.383333
+2,name,Food web of the Chesapeake's Bay Eelgrass Bed in May 2006
+2,type,time
+3,date,21/08/2006
+3,directed,TRUE
+3,latitude,37.216667
+3,longitude,-76.383333
+3,name,Food web of the Chesapeake's Bay Eelgrass Bed in August 2006
+3,type,time

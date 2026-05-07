@@ -1,0 +1,57 @@
+layer,attribute,value
+1,type,space
+1,location,"North Carolina, USA"
+1,latitude,36.075391
+1,longitude,-79.001843
+1,num_of_species,58
+1,num_of_interactions,126
+1,connectance,0.076
+1,directed,TRUE
+2,type,space
+2,location,"North Carolina, USA"
+2,latitude,36.075391
+2,longitude,-79.001843
+2,num_of_species,71
+2,num_of_interactions,148
+2,connectance,0.06
+2,directed,TRUE
+3,type,space
+3,location,"Otago, New Zealand"
+3,latitude,-45.1299859
+3,longitude,169.5248818
+3,num_of_species,66
+3,num_of_interactions,187
+3,connectance,0.087
+3,directed,TRUE
+4,type,space
+4,location,"Otago, New Zealand"
+4,latitude,-45.1299859
+4,longitude,169.5248818
+4,num_of_species,77
+4,num_of_interactions,240
+4,connectance,0.082
+4,directed,TRUE
+5,type,space
+5,location,"Otago, New Zealand"
+5,latitude,-45.1299859
+5,longitude,169.5248818
+5,num_of_species,78
+5,num_of_interactions,241
+5,connectance,0.08
+5,directed,TRUE
+6,type,space
+6,location,"Otago, New Zealand"
+6,latitude,-45.1299859
+6,longitude,169.5248818
+6,num_of_species,78
+6,num_of_interactions,268
+6,connectance,0.089
+6,directed,TRUE
+7,type,space
+7,location,"Otago, New Zealand"
+7,latitude,-45.1299859
+7,longitude,169.5248818
+7,num_of_species,98
+7,num_of_interactions,629
+7,connectance,0.132
+7,directed,TRUE

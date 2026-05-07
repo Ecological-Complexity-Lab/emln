@@ -1,0 +1,10 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Spatial
+description,NA
+source,Web_of_Life
+source,Dryad
+data_url,http://www.web-of-life.es/map.php
+data_url,https://datadryad.org/stash/dataset/doi:10.5061/dryad.jf3tj
+ecological_network_type,Host-Parasite
+state_nodes,TRUE

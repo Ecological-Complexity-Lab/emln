@@ -1,0 +1,28 @@
+layer,attribute,value
+1,name,M_PL_027
+1,type,space
+1,species,78
+1,location,"Arthur's Pass, New Zealand"
+1,interactions,120
+1,connectance,0.111
+1,latitude,-42.95
+1,longitude,171.566667
+1,type_of_interactions,pollination
+2,name,M_PL_028
+2,type,space
+2,species,180
+2,location,"Cass, New Zealand"
+2,interactions,374
+2,connectance,0.066
+2,latitude,-43.02823
+2,longitude,171.78466
+2,type_of_interactions,pollination
+3,name,M_PL_029
+3,type,space
+3,species,167
+3,location,"Craigieburn, New Zealand"
+3,interactions,346
+3,connectance,0.06
+3,latitude,-43.099531
+3,longitude,171.720224
+3,type_of_interactions,pollination

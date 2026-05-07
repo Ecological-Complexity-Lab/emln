@@ -1,0 +1,33 @@
+layer,attribute,value
+1,type,environment
+1,description,food web structure of rotting logs
+1,habitat,oak logs (1 year)
+1,location,"Duke Forest, North Carolina"
+1,latitude,36.016379
+1,longitude,-78.979442
+1,date,01/09/1936
+1,directed,TRUE
+2,type,environment
+2,description,food web structure of rotting logs
+2,habitat,oak logs (> 3 years)
+2,location,"Duke Forest, North Carolina"
+2,latitude,36.016379
+2,longitude,-78.979442
+2,date,01/09/1936
+2,directed,TRUE
+3,type,environment
+3,description,food web structure of rotting logs
+3,habitat,pine logs (1 year)
+3,location,"Duke Forest, North Carolina"
+3,latitude,36.016379
+3,longitude,-78.979442
+3,date,01/09/1936
+3,directed,TRUE
+4,type,environment
+4,description,food web structure of rotting logs
+4,habitat,pine logs (> 3 years)
+4,location,"Duke Forest, North Carolina"
+4,latitude,36.016379
+4,longitude,-78.979442
+4,date,01/09/1936
+4,directed,TRUE

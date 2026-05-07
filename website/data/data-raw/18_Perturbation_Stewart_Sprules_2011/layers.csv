@@ -1,0 +1,17 @@
+layer,attribute,value
+1,type,perturbation
+1,description,Food web structure of the offshore community
+1,term,before invasion-induced disruption
+1,location,"Lake Ontario, Ontario, Canada"
+1,latitude,43.7
+1,longitude,-77
+1,year,1987-1991
+1,directed,TRUE
+2,type,perturbation
+2,description,Food web structure of the offshore community
+2,term,after invasion-induced disruption
+2,location,"Lake Ontario, Ontario, Canada"
+2,latitude,43.7
+2,longitude,-77
+2,year,2001-2005
+2,directed,TRUE

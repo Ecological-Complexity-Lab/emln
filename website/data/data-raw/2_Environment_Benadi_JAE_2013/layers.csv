@@ -1,0 +1,477 @@
+layer,attribute,value
+1,type,environment
+1,location,"National Park Berchtesgaden, Germany"
+1,plot,1
+1,altitude_m,950
+1,latitude,47.552571
+1,longitude,12.925284
+1,observation_time,07:32:00
+2,type,environment
+2,location,"National Park Berchtesgaden, Germany"
+2,plot,2
+2,altitude_m,1170
+2,latitude,47.552571
+2,longitude,12.925284
+2,observation_time,06:47:00
+3,type,environment
+3,location,"National Park Berchtesgaden, Germany"
+3,plot,1
+3,altitude_m,950
+3,latitude,47.552571
+3,longitude,12.925284
+3,observation_time,05:08:00
+4,type,environment
+4,location,"National Park Berchtesgaden, Germany"
+4,plot,2
+4,altitude_m,1170
+4,latitude,47.552571
+4,longitude,12.925284
+4,observation_time,06:19:00
+5,type,environment
+5,location,"National Park Berchtesgaden, Germany"
+5,plot,3
+5,altitude_m,1340
+5,latitude,47.552571
+5,longitude,12.925284
+5,observation_time,05:17:00
+6,type,environment
+6,location,"National Park Berchtesgaden, Germany"
+6,plot,1
+6,altitude_m,950
+6,latitude,47.552571
+6,longitude,12.925284
+6,observation_time,07:20:00
+7,type,environment
+7,location,"National Park Berchtesgaden, Germany"
+7,plot,2
+7,altitude_m,1170
+7,latitude,47.552571
+7,longitude,12.925284
+7,observation_time,06:38:00
+8,type,environment
+8,location,"National Park Berchtesgaden, Germany"
+8,plot,4
+8,altitude_m,1700
+8,latitude,47.552571
+8,longitude,12.925284
+8,observation_time,05:59:00
+9,type,environment
+9,location,"National Park Berchtesgaden, Germany"
+9,plot,5
+9,altitude_m,1800
+9,latitude,47.552571
+9,longitude,12.925284
+9,observation_time,06:02:00
+10,type,environment
+10,location,"National Park Berchtesgaden, Germany"
+10,plot,3
+10,altitude_m,1340
+10,latitude,47.552571
+10,longitude,12.925284
+10,observation_time,05:43:00
+11,type,environment
+11,location,"National Park Berchtesgaden, Germany"
+11,plot,5
+11,altitude_m,1800
+11,latitude,47.552571
+11,longitude,12.925284
+11,observation_time,07:06:00
+12,type,environment
+12,location,"National Park Berchtesgaden, Germany"
+12,plot,6
+12,altitude_m,2020
+12,latitude,47.552571
+12,longitude,12.925284
+12,observation_time,05:05:00
+13,type,environment
+13,location,"National Park Berchtesgaden, Germany"
+13,plot,3
+13,altitude_m,1340
+13,latitude,47.552571
+13,longitude,12.925284
+13,observation_time,06:00:00
+14,type,environment
+14,location,"National Park Berchtesgaden, Germany"
+14,plot,4
+14,altitude_m,1700
+14,latitude,47.552571
+14,longitude,12.925284
+14,observation_time,06:03:00
+16,type,environment
+16,location,"National Park Berchtesgaden, Germany"
+16,plot,1
+16,altitude_m,950
+16,latitude,47.552571
+16,longitude,12.925284
+16,observation_time,06:33:00
+17,type,environment
+17,location,"National Park Berchtesgaden, Germany"
+17,plot,2
+17,altitude_m,1170
+17,latitude,47.552571
+17,longitude,12.925284
+17,observation_time,06:11:00
+18,type,environment
+18,location,"National Park Berchtesgaden, Germany"
+18,plot,4
+18,altitude_m,1700
+18,latitude,47.552571
+18,longitude,12.925284
+18,observation_time,06:05:00
+19,type,environment
+19,location,"National Park Berchtesgaden, Germany"
+19,plot,5
+19,altitude_m,1800
+19,latitude,47.552571
+19,longitude,12.925284
+19,observation_time,05:53:00
+20,type,environment
+20,location,"National Park Berchtesgaden, Germany"
+20,plot,2
+20,altitude_m,1170
+20,latitude,47.552571
+20,longitude,12.925284
+20,observation_time,06:01:00
+21,type,environment
+21,location,"National Park Berchtesgaden, Germany"
+21,plot,3
+21,altitude_m,1340
+21,latitude,47.552571
+21,longitude,12.925284
+21,observation_time,07:07:00
+22,type,environment
+22,location,"National Park Berchtesgaden, Germany"
+22,plot,1
+22,altitude_m,950
+22,latitude,47.552571
+22,longitude,12.925284
+22,observation_time,06:26:00
+23,type,environment
+23,location,"National Park Berchtesgaden, Germany"
+23,plot,6
+23,altitude_m,2020
+23,latitude,47.552571
+23,longitude,12.925284
+23,observation_time,06:48:00
+24,type,environment
+24,location,"National Park Berchtesgaden, Germany"
+24,plot,5
+24,altitude_m,1800
+24,latitude,47.552571
+24,longitude,12.925284
+24,observation_time,07:19:00
+25,type,environment
+25,location,"National Park Berchtesgaden, Germany"
+25,plot,4
+25,altitude_m,1700
+25,latitude,47.552571
+25,longitude,12.925284
+25,observation_time,06:05:00
+26,type,environment
+26,location,"National Park Berchtesgaden, Germany"
+26,plot,3
+26,altitude_m,1340
+26,latitude,47.552571
+26,longitude,12.925284
+26,observation_time,06:28:00
+27,type,environment
+27,location,"National Park Berchtesgaden, Germany"
+27,plot,2
+27,altitude_m,1170
+27,latitude,47.552571
+27,longitude,12.925284
+27,observation_time,06:23:00
+28,type,environment
+28,location,"National Park Berchtesgaden, Germany"
+28,plot,1
+28,altitude_m,950
+28,latitude,47.552571
+28,longitude,12.925284
+28,observation_time,06:20:00
+29,type,environment
+29,location,"National Park Berchtesgaden, Germany"
+29,plot,6
+29,altitude_m,2020
+29,latitude,47.552571
+29,longitude,12.925284
+29,observation_time,06:02:00
+30,type,environment
+30,location,"National Park Berchtesgaden, Germany"
+30,plot,5
+30,altitude_m,1800
+30,latitude,47.552571
+30,longitude,12.925284
+30,observation_time,06:46:00
+31,type,environment
+31,location,"National Park Berchtesgaden, Germany"
+31,plot,4
+31,altitude_m,1700
+31,latitude,47.552571
+31,longitude,12.925284
+31,observation_time,06:53:00
+32,type,environment
+32,location,"National Park Berchtesgaden, Germany"
+32,plot,3
+32,altitude_m,1340
+32,latitude,47.552571
+32,longitude,12.925284
+32,observation_time,06:10:00
+33,type,environment
+33,location,"National Park Berchtesgaden, Germany"
+33,plot,2
+33,altitude_m,1170
+33,latitude,47.552571
+33,longitude,12.925284
+33,observation_time,06:02:00
+34,type,environment
+34,location,"National Park Berchtesgaden, Germany"
+34,plot,1
+34,altitude_m,950
+34,latitude,47.552571
+34,longitude,12.925284
+34,observation_time,06:18:00
+35,type,environment
+35,location,"National Park Berchtesgaden, Germany"
+35,plot,6
+35,altitude_m,2020
+35,latitude,47.552571
+35,longitude,12.925284
+35,observation_time,04:45:00
+36,type,environment
+36,location,"National Park Berchtesgaden, Germany"
+36,plot,5
+36,altitude_m,1800
+36,latitude,47.552571
+36,longitude,12.925284
+36,observation_time,05:51:00
+37,type,environment
+37,location,"National Park Berchtesgaden, Germany"
+37,plot,6
+37,altitude_m,2020
+37,latitude,47.552571
+37,longitude,12.925284
+37,observation_time,06:39:00
+38,type,environment
+38,location,"National Park Berchtesgaden, Germany"
+38,plot,5
+38,altitude_m,1800
+38,latitude,47.552571
+38,longitude,12.925284
+38,observation_time,05:38:00
+39,type,environment
+39,location,"National Park Berchtesgaden, Germany"
+39,plot,2
+39,altitude_m,1170
+39,latitude,47.552571
+39,longitude,12.925284
+39,observation_time,05:23:00
+40,type,environment
+40,location,"National Park Berchtesgaden, Germany"
+40,plot,1
+40,altitude_m,950
+40,latitude,47.552571
+40,longitude,12.925284
+40,observation_time,07:09:00
+41,type,environment
+41,location,"National Park Berchtesgaden, Germany"
+41,plot,4
+41,altitude_m,1700
+41,latitude,47.552571
+41,longitude,12.925284
+41,observation_time,05:54:00
+42,type,environment
+42,location,"National Park Berchtesgaden, Germany"
+42,plot,3
+42,altitude_m,1340
+42,latitude,47.552571
+42,longitude,12.925284
+42,observation_time,05:46:00
+43,type,environment
+43,location,"National Park Berchtesgaden, Germany"
+43,plot,6
+43,altitude_m,2020
+43,latitude,47.552571
+43,longitude,12.925284
+43,observation_time,06:00:00
+44,type,environment
+44,location,"National Park Berchtesgaden, Germany"
+44,plot,5
+44,altitude_m,1800
+44,latitude,47.552571
+44,longitude,12.925284
+44,observation_time,06:06:00
+45,type,environment
+45,location,"National Park Berchtesgaden, Germany"
+45,plot,4
+45,altitude_m,1700
+45,latitude,47.552571
+45,longitude,12.925284
+45,observation_time,06:11:00
+46,type,environment
+46,location,"National Park Berchtesgaden, Germany"
+46,plot,3
+46,altitude_m,1340
+46,latitude,47.552571
+46,longitude,12.925284
+46,observation_time,05:58:00
+47,type,environment
+47,location,"National Park Berchtesgaden, Germany"
+47,plot,2
+47,altitude_m,1170
+47,latitude,47.552571
+47,longitude,12.925284
+47,observation_time,05:56:00
+48,type,environment
+48,location,"National Park Berchtesgaden, Germany"
+48,plot,1
+48,altitude_m,950
+48,latitude,47.552571
+48,longitude,12.925284
+48,observation_time,06:13:00
+49,type,environment
+49,location,"National Park Berchtesgaden, Germany"
+49,plot,6
+49,altitude_m,2020
+49,latitude,47.552571
+49,longitude,12.925284
+49,observation_time,06:18:00
+50,type,environment
+50,location,"National Park Berchtesgaden, Germany"
+50,plot,5
+50,altitude_m,1800
+50,latitude,47.552571
+50,longitude,12.925284
+50,observation_time,06:06:00
+51,type,environment
+51,location,"National Park Berchtesgaden, Germany"
+51,plot,4
+51,altitude_m,1700
+51,latitude,47.552571
+51,longitude,12.925284
+51,observation_time,06:08:00
+52,type,environment
+52,location,"National Park Berchtesgaden, Germany"
+52,plot,3
+52,altitude_m,1340
+52,latitude,47.552571
+52,longitude,12.925284
+52,observation_time,05:55:00
+53,type,environment
+53,location,"National Park Berchtesgaden, Germany"
+53,plot,2
+53,altitude_m,1170
+53,latitude,47.552571
+53,longitude,12.925284
+53,observation_time,06:23:00
+54,type,environment
+54,location,"National Park Berchtesgaden, Germany"
+54,plot,1
+54,altitude_m,950
+54,latitude,47.552571
+54,longitude,12.925284
+54,observation_time,06:07:00
+55,type,environment
+55,location,"National Park Berchtesgaden, Germany"
+55,plot,6
+55,altitude_m,2020
+55,latitude,47.552571
+55,longitude,12.925284
+55,observation_time,06:55:00
+56,type,environment
+56,location,"National Park Berchtesgaden, Germany"
+56,plot,5
+56,altitude_m,1800
+56,latitude,47.552571
+56,longitude,12.925284
+56,observation_time,06:12:00
+57,type,environment
+57,location,"National Park Berchtesgaden, Germany"
+57,plot,4
+57,altitude_m,1700
+57,latitude,47.552571
+57,longitude,12.925284
+57,observation_time,06:09:00
+58,type,environment
+58,location,"National Park Berchtesgaden, Germany"
+58,plot,3
+58,altitude_m,1340
+58,latitude,47.552571
+58,longitude,12.925284
+58,observation_time,06:16:00
+59,type,environment
+59,location,"National Park Berchtesgaden, Germany"
+59,plot,2
+59,altitude_m,1170
+59,latitude,47.552571
+59,longitude,12.925284
+59,observation_time,06:07:00
+60,type,environment
+60,location,"National Park Berchtesgaden, Germany"
+60,plot,1
+60,altitude_m,950
+60,latitude,47.552571
+60,longitude,12.925284
+60,observation_time,05:45:00
+61,type,environment
+61,location,"National Park Berchtesgaden, Germany"
+61,plot,6
+61,altitude_m,2020
+61,latitude,47.552571
+61,longitude,12.925284
+61,observation_time,06:23:00
+62,type,environment
+62,location,"National Park Berchtesgaden, Germany"
+62,plot,5
+62,altitude_m,1800
+62,latitude,47.552571
+62,longitude,12.925284
+62,observation_time,06:26:00
+63,type,environment
+63,location,"National Park Berchtesgaden, Germany"
+63,plot,4
+63,altitude_m,1700
+63,latitude,47.552571
+63,longitude,12.925284
+63,observation_time,06:07:00
+64,type,environment
+64,location,"National Park Berchtesgaden, Germany"
+64,plot,3
+64,altitude_m,1340
+64,latitude,47.552571
+64,longitude,12.925284
+64,observation_time,06:14:00
+65,type,environment
+65,location,"National Park Berchtesgaden, Germany"
+65,plot,2
+65,altitude_m,1170
+65,latitude,47.552571
+65,longitude,12.925284
+65,observation_time,06:13:00
+66,type,environment
+66,location,"National Park Berchtesgaden, Germany"
+66,plot,1
+66,altitude_m,950
+66,latitude,47.552571
+66,longitude,12.925284
+66,observation_time,05:54:00
+67,type,environment
+67,location,"National Park Berchtesgaden, Germany"
+67,plot,3
+67,altitude_m,1340
+67,latitude,47.552571
+67,longitude,12.925284
+67,observation_time,06:27:00
+68,type,environment
+68,location,"National Park Berchtesgaden, Germany"
+68,plot,2
+68,altitude_m,1170
+68,latitude,47.552571
+68,longitude,12.925284
+68,observation_time,06:11:00
+69,type,environment
+69,location,"National Park Berchtesgaden, Germany"
+69,plot,1
+69,altitude_m,950
+69,latitude,47.552571
+69,longitude,12.925284
+69,observation_time,05:15:00

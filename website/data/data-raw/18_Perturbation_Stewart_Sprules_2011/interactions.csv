@@ -1,0 +1,1611 @@
+interaction_id,attribute,value
+1,node_from,Nanoflagellates
+1,layer_from,1
+1,node_to,Phytoplankton
+1,layer_to,1
+1,weight,1
+1,type,herbivory
+1,method,"field and laboratory observation, literature"
+2,node_from,Ciliates
+2,layer_from,1
+2,node_to,Phytoplankton
+2,layer_to,1
+2,weight,1
+2,type,herbivory
+2,method,"field and laboratory observation, literature"
+3,node_from,Nanoflagellates
+3,layer_from,1
+3,node_to,Heterotrophic_bacteria
+3,layer_to,1
+3,weight,1
+3,type,predation
+3,method,"field and laboratory observation, literature"
+4,node_from,Ciliates
+4,layer_from,1
+4,node_to,Heterotrophic_bacteria
+4,layer_to,1
+4,weight,1
+4,type,predation
+4,method,"field and laboratory observation, literature"
+5,node_from,Nanoflagellates
+5,layer_from,1
+5,node_to,Nanoflagellates
+5,layer_to,1
+5,weight,1
+5,type,predation
+5,method,"field and laboratory observation, literature"
+6,node_from,Ciliates
+6,layer_from,1
+6,node_to,Nanoflagellates
+6,layer_to,1
+6,weight,1
+6,type,predation
+6,method,"field and laboratory observation, literature"
+7,node_from,Nanoflagellates
+7,layer_from,1
+7,node_to,Ciliates
+7,layer_to,1
+7,weight,1
+7,type,predation
+7,method,"field and laboratory observation, literature"
+8,node_from,Ciliates
+8,layer_from,1
+8,node_to,Ciliates
+8,layer_to,1
+8,weight,1
+8,type,predation
+8,method,"field and laboratory observation, literature"
+9,node_from,Rotifers
+9,layer_from,1
+9,node_to,Phytoplankton
+9,layer_to,1
+9,weight,1
+9,type,herbivory
+9,method,"field and laboratory observation, literature"
+10,node_from,Veligers
+10,layer_from,1
+10,node_to,Phytoplankton
+10,layer_to,1
+10,weight,1
+10,type,herbivory
+10,method,"field and laboratory observation, literature"
+11,node_from,Veligers
+11,layer_from,1
+11,node_to,Heterotrophic_bacteria
+11,layer_to,1
+11,weight,1
+11,type,predation
+11,method,"field and laboratory observation, literature"
+12,node_from,Rotifers
+12,layer_from,1
+12,node_to,Nanoflagellates
+12,layer_to,1
+12,weight,1
+12,type,predation
+12,method,"field and laboratory observation, literature"
+13,node_from,Veligers
+13,layer_from,1
+13,node_to,Nanoflagellates
+13,layer_to,1
+13,weight,1
+13,type,predation
+13,method,"field and laboratory observation, literature"
+14,node_from,Rotifers
+14,layer_from,1
+14,node_to,Ciliates
+14,layer_to,1
+14,weight,1
+14,type,predation
+14,method,"field and laboratory observation, literature"
+15,node_from,Veligers
+15,layer_from,1
+15,node_to,Ciliates
+15,layer_to,1
+15,weight,1
+15,type,predation
+15,method,"field and laboratory observation, literature"
+16,node_from,Large_cladocerans
+16,layer_from,1
+16,node_to,Phytoplankton
+16,layer_to,1
+16,weight,1
+16,type,herbivory
+16,method,"field and laboratory observation, literature"
+17,node_from,Large_cladocerans
+17,layer_from,1
+17,node_to,Heterotrophic_bacteria
+17,layer_to,1
+17,weight,1
+17,type,predation
+17,method,"field and laboratory observation, literature"
+18,node_from,Large_cladocerans
+18,layer_from,1
+18,node_to,Nanoflagellates
+18,layer_to,1
+18,weight,1
+18,type,predation
+18,method,"field and laboratory observation, literature"
+19,node_from,Large_cladocerans
+19,layer_from,1
+19,node_to,Ciliates
+19,layer_to,1
+19,weight,1
+19,type,predation
+19,method,"field and laboratory observation, literature"
+20,node_from,Large_cladocerans
+20,layer_from,1
+20,node_to,Rotifers
+20,layer_to,1
+20,weight,1
+20,type,predation
+20,method,"field and laboratory observation, literature"
+21,node_from,Large_cladocerans
+21,layer_from,1
+21,node_to,Veligers
+21,layer_to,1
+21,weight,1
+21,type,predation
+21,method,"field and laboratory observation, literature"
+22,node_from,Large_cladocerans
+22,layer_from,1
+22,node_to,Small_cladocerans
+22,layer_to,1
+22,weight,1
+22,type,predation
+22,method,"field and laboratory observation, literature"
+23,node_from,Large_cladocerans
+23,layer_from,1
+23,node_to,Copepods
+23,layer_to,1
+23,weight,1
+23,type,predation
+23,method,"field and laboratory observation, literature"
+24,node_from,Small_cladocerans
+24,layer_from,1
+24,node_to,Phytoplankton
+24,layer_to,1
+24,weight,1
+24,type,herbivory
+24,method,"field and laboratory observation, literature"
+25,node_from,Small_cladocerans
+25,layer_from,1
+25,node_to,Heterotrophic_bacteria
+25,layer_to,1
+25,weight,1
+25,type,predation
+25,method,"field and laboratory observation, literature"
+26,node_from,Small_cladocerans
+26,layer_from,1
+26,node_to,Nanoflagellates
+26,layer_to,1
+26,weight,1
+26,type,predation
+26,method,"field and laboratory observation, literature"
+27,node_from,Small_cladocerans
+27,layer_from,1
+27,node_to,Ciliates
+27,layer_to,1
+27,weight,1
+27,type,predation
+27,method,"field and laboratory observation, literature"
+28,node_from,Small_cladocerans
+28,layer_from,1
+28,node_to,Rotifers
+28,layer_to,1
+28,weight,1
+28,type,predation
+28,method,"field and laboratory observation, literature"
+29,node_from,Small_cladocerans
+29,layer_from,1
+29,node_to,Veligers
+29,layer_to,1
+29,weight,1
+29,type,predation
+29,method,"field and laboratory observation, literature"
+30,node_from,Copepods
+30,layer_from,1
+30,node_to,Phytoplankton
+30,layer_to,1
+30,weight,1
+30,type,herbivory
+30,method,"field and laboratory observation, literature"
+31,node_from,Copepods
+31,layer_from,1
+31,node_to,Heterotrophic_bacteria
+31,layer_to,1
+31,weight,1
+31,type,predation
+31,method,"field and laboratory observation, literature"
+32,node_from,Copepods
+32,layer_from,1
+32,node_to,Nanoflagellates
+32,layer_to,1
+32,weight,1
+32,type,predation
+32,method,"field and laboratory observation, literature"
+33,node_from,Copepods
+33,layer_from,1
+33,node_to,Ciliates
+33,layer_to,1
+33,weight,1
+33,type,predation
+33,method,"field and laboratory observation, literature"
+34,node_from,Copepods
+34,layer_from,1
+34,node_to,Rotifers
+34,layer_to,1
+34,weight,1
+34,type,predation
+34,method,"field and laboratory observation, literature"
+35,node_from,Copepods
+35,layer_from,1
+35,node_to,Veligers
+35,layer_to,1
+35,weight,1
+35,type,predation
+35,method,"field and laboratory observation, literature"
+36,node_from,Copepods
+36,layer_from,1
+36,node_to,Small_cladocerans
+36,layer_to,1
+36,weight,1
+36,type,predation
+36,method,"field and laboratory observation, literature"
+37,node_from,Copepods
+37,layer_from,1
+37,node_to,Copepods
+37,layer_to,1
+37,weight,1
+37,type,predation
+37,method,"field and laboratory observation, literature"
+38,node_from,Dreissenid_mussels
+38,layer_from,1
+38,node_to,Phytoplankton
+38,layer_to,1
+38,weight,1
+38,type,herbivory
+38,method,"field and laboratory observation, literature"
+39,node_from,Dreissenid_mussels
+39,layer_from,1
+39,node_to,Heterotrophic_bacteria
+39,layer_to,1
+39,weight,1
+39,type,predation
+39,method,"field and laboratory observation, literature"
+40,node_from,Dreissenid_mussels
+40,layer_from,1
+40,node_to,Nanoflagellates
+40,layer_to,1
+40,weight,1
+40,type,predation
+40,method,"field and laboratory observation, literature"
+41,node_from,Dreissenid_mussels
+41,layer_from,1
+41,node_to,Ciliates
+41,layer_to,1
+41,weight,1
+41,type,predation
+41,method,"field and laboratory observation, literature"
+42,node_from,Dreissenid_mussels
+42,layer_from,1
+42,node_to,Rotifers
+42,layer_to,1
+42,weight,1
+42,type,predation
+42,method,"field and laboratory observation, literature"
+43,node_from,Dreissenid_mussels
+43,layer_from,1
+43,node_to,Veligers
+43,layer_to,1
+43,weight,1
+43,type,predation
+43,method,"field and laboratory observation, literature"
+44,node_from,Mysis
+44,layer_from,1
+44,node_to,Phytoplankton
+44,layer_to,1
+44,weight,1
+44,type,herbivory
+44,method,"field and laboratory observation, literature"
+45,node_from,Mysis
+45,layer_from,1
+45,node_to,Large_cladocerans
+45,layer_to,1
+45,weight,1
+45,type,predation
+45,method,"field and laboratory observation, literature"
+46,node_from,Mysis
+46,layer_from,1
+46,node_to,Small_cladocerans
+46,layer_to,1
+46,weight,1
+46,type,predation
+46,method,"field and laboratory observation, literature"
+47,node_from,Mysis
+47,layer_from,1
+47,node_to,Copepods
+47,layer_to,1
+47,weight,1
+47,type,predation
+47,method,"field and laboratory observation, literature"
+48,node_from,Mysis
+48,layer_from,1
+48,node_to,Diporeia
+48,layer_to,1
+48,weight,1
+48,type,predation
+48,method,"field and laboratory observation, literature"
+49,node_from,Smelt_algae_1_and_older
+49,layer_from,1
+49,node_to,Large_cladocerans
+49,layer_to,1
+49,weight,1
+49,type,predation
+49,method,"field and laboratory observation, literature"
+50,node_from,Smelt_algae_1_and_older
+50,layer_from,1
+50,node_to,Small_cladocerans
+50,layer_to,1
+50,weight,1
+50,type,predation
+50,method,"field and laboratory observation, literature"
+51,node_from,Smelt_algae_1_and_older
+51,layer_from,1
+51,node_to,Copepods
+51,layer_to,1
+51,weight,1
+51,type,predation
+51,method,"field and laboratory observation, literature"
+52,node_from,Smelt_algae_1_and_older
+52,layer_from,1
+52,node_to,Diporeia
+52,layer_to,1
+52,weight,1
+52,type,predation
+52,method,"field and laboratory observation, literature"
+53,node_from,Smelt_algae_1_and_older
+53,layer_from,1
+53,node_to,Other_benthos
+53,layer_to,1
+53,weight,1
+53,type,predation
+53,method,"field and laboratory observation, literature"
+54,node_from,Smelt_algae_1_and_older
+54,layer_from,1
+54,node_to,Mysis
+54,layer_to,1
+54,weight,1
+54,type,predation
+54,method,"field and laboratory observation, literature"
+55,node_from,Smelt_algae_1_and_older
+55,layer_from,1
+55,node_to,Smelt_YOY
+55,layer_to,1
+55,weight,1
+55,type,predation
+55,method,"field and laboratory observation, literature"
+56,node_from,Smelt_algae_1_and_older
+56,layer_from,1
+56,node_to,Juvenile_sculpin
+56,layer_to,1
+56,weight,1
+56,type,predation
+56,method,"field and laboratory observation, literature"
+57,node_from,Smelt_algae_1_and_older
+57,layer_from,1
+57,node_to,Early_YOY_alewife
+57,layer_to,1
+57,weight,1
+57,type,predation
+57,method,"field and laboratory observation, literature"
+58,node_from,Smelt_YOY
+58,layer_from,1
+58,node_to,Large_cladocerans
+58,layer_to,1
+58,weight,1
+58,type,predation
+58,method,"field and laboratory observation, literature"
+59,node_from,Smelt_YOY
+59,layer_from,1
+59,node_to,Small_cladocerans
+59,layer_to,1
+59,weight,1
+59,type,predation
+59,method,"field and laboratory observation, literature"
+60,node_from,Smelt_YOY
+60,layer_from,1
+60,node_to,Copepods
+60,layer_to,1
+60,weight,1
+60,type,predation
+60,method,"field and laboratory observation, literature"
+61,node_from,Smelt_YOY
+61,layer_from,1
+61,node_to,Diporeia
+61,layer_to,1
+61,weight,1
+61,type,predation
+61,method,"field and laboratory observation, literature"
+62,node_from,Smelt_YOY
+62,layer_from,1
+62,node_to,Other_benthos
+62,layer_to,1
+62,weight,1
+62,type,predation
+62,method,"field and laboratory observation, literature"
+63,node_from,Smelt_YOY
+63,layer_from,1
+63,node_to,Mysis
+63,layer_to,1
+63,weight,1
+63,type,predation
+63,method,"field and laboratory observation, literature"
+64,node_from,Smelt_YOY
+64,layer_from,1
+64,node_to,Juvenile_sculpin
+64,layer_to,1
+64,weight,1
+64,type,predation
+64,method,"field and laboratory observation, literature"
+65,node_from,Smelt_YOY
+65,layer_from,1
+65,node_to,Early_YOY_alewife
+65,layer_to,1
+65,weight,1
+65,type,predation
+65,method,"field and laboratory observation, literature"
+66,node_from,Adult_sculpin
+66,layer_from,1
+66,node_to,Diporeia
+66,layer_to,1
+66,weight,1
+66,type,predation
+66,method,"field and laboratory observation, literature"
+67,node_from,Adult_sculpin
+67,layer_from,1
+67,node_to,Other_benthos
+67,layer_to,1
+67,weight,1
+67,type,predation
+67,method,"field and laboratory observation, literature"
+68,node_from,Adult_sculpin
+68,layer_from,1
+68,node_to,Mysis
+68,layer_to,1
+68,weight,1
+68,type,predation
+68,method,"field and laboratory observation, literature"
+69,node_from,Juvenile_sculpin
+69,layer_from,1
+69,node_to,Diporeia
+69,layer_to,1
+69,weight,1
+69,type,predation
+69,method,"field and laboratory observation, literature"
+70,node_from,Juvenile_sculpin
+70,layer_from,1
+70,node_to,Other_benthos
+70,layer_to,1
+70,weight,1
+70,type,predation
+70,method,"field and laboratory observation, literature"
+71,node_from,Late_YOY_and_older_alewife
+71,layer_from,1
+71,node_to,Large_cladocerans
+71,layer_to,1
+71,weight,1
+71,type,predation
+71,method,"field and laboratory observation, literature"
+72,node_from,Late_YOY_and_older_alewife
+72,layer_from,1
+72,node_to,Small_cladocerans
+72,layer_to,1
+72,weight,1
+72,type,predation
+72,method,"field and laboratory observation, literature"
+73,node_from,Late_YOY_and_older_alewife
+73,layer_from,1
+73,node_to,Copepods
+73,layer_to,1
+73,weight,1
+73,type,predation
+73,method,"field and laboratory observation, literature"
+74,node_from,Late_YOY_and_older_alewife
+74,layer_from,1
+74,node_to,Diporeia
+74,layer_to,1
+74,weight,1
+74,type,predation
+74,method,"field and laboratory observation, literature"
+75,node_from,Late_YOY_and_older_alewife
+75,layer_from,1
+75,node_to,Other_benthos
+75,layer_to,1
+75,weight,1
+75,type,predation
+75,method,"field and laboratory observation, literature"
+76,node_from,Late_YOY_and_older_alewife
+76,layer_from,1
+76,node_to,Mysis
+76,layer_to,1
+76,weight,1
+76,type,predation
+76,method,"field and laboratory observation, literature"
+77,node_from,Early_YOY_alewife
+77,layer_from,1
+77,node_to,Rotifers
+77,layer_to,1
+77,weight,1
+77,type,predation
+77,method,"field and laboratory observation, literature"
+78,node_from,Early_YOY_alewife
+78,layer_from,1
+78,node_to,Veligers
+78,layer_to,1
+78,weight,1
+78,type,predation
+78,method,"field and laboratory observation, literature"
+79,node_from,Early_YOY_alewife
+79,layer_from,1
+79,node_to,Small_cladocerans
+79,layer_to,1
+79,weight,1
+79,type,predation
+79,method,"field and laboratory observation, literature"
+80,node_from,Early_YOY_alewife
+80,layer_from,1
+80,node_to,Copepods
+80,layer_to,1
+80,weight,1
+80,type,predation
+80,method,"field and laboratory observation, literature"
+81,node_from,Chinook_salmon
+81,layer_from,1
+81,node_to,Smelt_algae_1_and_older
+81,layer_to,1
+81,weight,1
+81,type,predation
+81,method,"field and laboratory observation, literature"
+82,node_from,Chinook_salmon
+82,layer_from,1
+82,node_to,Late_YOY_and_older_alewife
+82,layer_to,1
+82,weight,1
+82,type,predation
+82,method,"field and laboratory observation, literature"
+83,node_from,Oncorhynchus_mykiss
+83,layer_from,1
+83,node_to,Diporeia
+83,layer_to,1
+83,weight,1
+83,type,predation
+83,method,"field and laboratory observation, literature"
+84,node_from,Oncorhynchus_mykiss
+84,layer_from,1
+84,node_to,Other_benthos
+84,layer_to,1
+84,weight,1
+84,type,predation
+84,method,"field and laboratory observation, literature"
+85,node_from,Oncorhynchus_mykiss
+85,layer_from,1
+85,node_to,Mysis
+85,layer_to,1
+85,weight,1
+85,type,predation
+85,method,"field and laboratory observation, literature"
+86,node_from,Oncorhynchus_mykiss
+86,layer_from,1
+86,node_to,Smelt_algae_1_and_older
+86,layer_to,1
+86,weight,1
+86,type,predation
+86,method,"field and laboratory observation, literature"
+87,node_from,Oncorhynchus_mykiss
+87,layer_from,1
+87,node_to,Adult_sculpin
+87,layer_to,1
+87,weight,1
+87,type,predation
+87,method,"field and laboratory observation, literature"
+88,node_from,Oncorhynchus_mykiss
+88,layer_from,1
+88,node_to,Late_YOY_and_older_alewife
+88,layer_to,1
+88,weight,1
+88,type,predation
+88,method,"field and laboratory observation, literature"
+89,node_from,Salvelinus_namaycush
+89,layer_from,1
+89,node_to,Diporeia
+89,layer_to,1
+89,weight,1
+89,type,predation
+89,method,"field and laboratory observation, literature"
+90,node_from,Salvelinus_namaycush
+90,layer_from,1
+90,node_to,Other_benthos
+90,layer_to,1
+90,weight,1
+90,type,predation
+90,method,"field and laboratory observation, literature"
+91,node_from,Salvelinus_namaycush
+91,layer_from,1
+91,node_to,Mysis
+91,layer_to,1
+91,weight,1
+91,type,predation
+91,method,"field and laboratory observation, literature"
+92,node_from,Salvelinus_namaycush
+92,layer_from,1
+92,node_to,Smelt_algae_1_and_older
+92,layer_to,1
+92,weight,1
+92,type,predation
+92,method,"field and laboratory observation, literature"
+93,node_from,Salvelinus_namaycush
+93,layer_from,1
+93,node_to,Adult_sculpin
+93,layer_to,1
+93,weight,1
+93,type,predation
+93,method,"field and laboratory observation, literature"
+94,node_from,Salvelinus_namaycush
+94,layer_from,1
+94,node_to,Late_YOY_and_older_alewife
+94,layer_to,1
+94,weight,1
+94,type,predation
+94,method,"field and laboratory observation, literature"
+95,node_from,Oncorhynchus_kisutch
+95,layer_from,1
+95,node_to,Diporeia
+95,layer_to,1
+95,weight,1
+95,type,predation
+95,method,"field and laboratory observation, literature"
+96,node_from,Oncorhynchus_kisutch
+96,layer_from,1
+96,node_to,Other_benthos
+96,layer_to,1
+96,weight,1
+96,type,predation
+96,method,"field and laboratory observation, literature"
+97,node_from,Oncorhynchus_kisutch
+97,layer_from,1
+97,node_to,Mysis
+97,layer_to,1
+97,weight,1
+97,type,predation
+97,method,"field and laboratory observation, literature"
+98,node_from,Oncorhynchus_kisutch
+98,layer_from,1
+98,node_to,Smelt_algae_1_and_older
+98,layer_to,1
+98,weight,1
+98,type,predation
+98,method,"field and laboratory observation, literature"
+99,node_from,Oncorhynchus_kisutch
+99,layer_from,1
+99,node_to,Adult_sculpin
+99,layer_to,1
+99,weight,1
+99,type,predation
+99,method,"field and laboratory observation, literature"
+100,node_from,Oncorhynchus_kisutch
+100,layer_from,1
+100,node_to,Late_YOY_and_older_alewife
+100,layer_to,1
+100,weight,1
+100,type,predation
+100,method,"field and laboratory observation, literature"
+101,node_from,Salmo_trutta
+101,layer_from,1
+101,node_to,Diporeia
+101,layer_to,1
+101,weight,1
+101,type,predation
+101,method,"field and laboratory observation, literature"
+102,node_from,Salmo_trutta
+102,layer_from,1
+102,node_to,Other_benthos
+102,layer_to,1
+102,weight,1
+102,type,predation
+102,method,"field and laboratory observation, literature"
+103,node_from,Salmo_trutta
+103,layer_from,1
+103,node_to,Mysis
+103,layer_to,1
+103,weight,1
+103,type,predation
+103,method,"field and laboratory observation, literature"
+104,node_from,Salmo_trutta
+104,layer_from,1
+104,node_to,Smelt_algae_1_and_older
+104,layer_to,1
+104,weight,1
+104,type,predation
+104,method,"field and laboratory observation, literature"
+105,node_from,Salmo_trutta
+105,layer_from,1
+105,node_to,Adult_sculpin
+105,layer_to,1
+105,weight,1
+105,type,predation
+105,method,"field and laboratory observation, literature"
+106,node_from,Salmo_trutta
+106,layer_from,1
+106,node_to,Late_YOY_and_older_alewife
+106,layer_to,1
+106,weight,1
+106,type,predation
+106,method,"field and laboratory observation, literature"
+107,node_from,Rotifers
+107,layer_from,1
+107,node_to,Heterotrophic_bacteria
+107,layer_to,1
+107,weight,1
+107,type,predation
+107,method,"field and laboratory observation, literature"
+108,node_from,Smelt_YOY
+108,layer_from,1
+108,node_to,Smelt_YOY
+108,layer_to,1
+108,weight,1
+108,type,predation
+108,method,"field and laboratory observation, literature"
+109,node_from,Heterotrophic_bacteria
+109,layer_from,1
+109,node_to,Dissolved_organic_carbon
+109,layer_to,1
+109,weight,1
+109,type,detritivore
+109,method,"field and laboratory observation, literature"
+110,node_from,Heterotrophic_bacteria
+110,layer_from,1
+110,node_to,Particulate_organic_carbon
+110,layer_to,1
+110,weight,1
+110,type,detritivore
+110,method,"field and laboratory observation, literature"
+111,node_from,Dreissenid_mussels
+111,layer_from,1
+111,node_to,Particulate_organic_carbon
+111,layer_to,1
+111,weight,1
+111,type,detritivore
+111,method,"field and laboratory observation, literature"
+112,node_from,Diporeia
+112,layer_from,1
+112,node_to,Particulate_organic_carbon
+112,layer_to,1
+112,weight,1
+112,type,detritivore
+112,method,"field and laboratory observation, literature"
+113,node_from,Diporeia
+113,layer_from,1
+113,node_to,Sediment
+113,layer_to,1
+113,weight,1
+113,type,detritivore
+113,method,"field and laboratory observation, literature"
+114,node_from,Other_benthos
+114,layer_from,1
+114,node_to,Particulate_organic_carbon
+114,layer_to,1
+114,weight,1
+114,type,detritivore
+114,method,"field and laboratory observation, literature"
+115,node_from,Other_benthos
+115,layer_from,1
+115,node_to,Sediment
+115,layer_to,1
+115,weight,1
+115,type,detritivore
+115,method,"field and laboratory observation, literature"
+116,node_from,Mysis
+116,layer_from,1
+116,node_to,Sediment
+116,layer_to,1
+116,weight,1
+116,type,detritivore
+116,method,"field and laboratory observation, literature"
+117,node_from,Nanoflagellates
+117,layer_from,2
+117,node_to,Phytoplankton
+117,layer_to,2
+117,weight,1
+117,type,herbivory
+117,method,"field and laboratory observation, literature"
+118,node_from,Ciliates
+118,layer_from,2
+118,node_to,Phytoplankton
+118,layer_to,2
+118,weight,1
+118,type,herbivory
+118,method,"field and laboratory observation, literature"
+119,node_from,Nanoflagellates
+119,layer_from,2
+119,node_to,Heterotrophic_bacteria
+119,layer_to,2
+119,weight,1
+119,type,predation
+119,method,"field and laboratory observation, literature"
+120,node_from,Ciliates
+120,layer_from,2
+120,node_to,Heterotrophic_bacteria
+120,layer_to,2
+120,weight,1
+120,type,predation
+120,method,"field and laboratory observation, literature"
+121,node_from,Nanoflagellates
+121,layer_from,2
+121,node_to,Nanoflagellates
+121,layer_to,2
+121,weight,1
+121,type,predation
+121,method,"field and laboratory observation, literature"
+122,node_from,Ciliates
+122,layer_from,2
+122,node_to,Nanoflagellates
+122,layer_to,2
+122,weight,1
+122,type,predation
+122,method,"field and laboratory observation, literature"
+123,node_from,Nanoflagellates
+123,layer_from,2
+123,node_to,Ciliates
+123,layer_to,2
+123,weight,1
+123,type,predation
+123,method,"field and laboratory observation, literature"
+124,node_from,Ciliates
+124,layer_from,2
+124,node_to,Ciliates
+124,layer_to,2
+124,weight,1
+124,type,predation
+124,method,"field and laboratory observation, literature"
+125,node_from,Rotifers
+125,layer_from,2
+125,node_to,Phytoplankton
+125,layer_to,2
+125,weight,1
+125,type,herbivory
+125,method,"field and laboratory observation, literature"
+126,node_from,Veligers
+126,layer_from,2
+126,node_to,Phytoplankton
+126,layer_to,2
+126,weight,1
+126,type,herbivory
+126,method,"field and laboratory observation, literature"
+127,node_from,Veligers
+127,layer_from,2
+127,node_to,Heterotrophic_bacteria
+127,layer_to,2
+127,weight,1
+127,type,predation
+127,method,"field and laboratory observation, literature"
+128,node_from,Rotifers
+128,layer_from,2
+128,node_to,Nanoflagellates
+128,layer_to,2
+128,weight,1
+128,type,predation
+128,method,"field and laboratory observation, literature"
+129,node_from,Veligers
+129,layer_from,2
+129,node_to,Nanoflagellates
+129,layer_to,2
+129,weight,1
+129,type,predation
+129,method,"field and laboratory observation, literature"
+130,node_from,Rotifers
+130,layer_from,2
+130,node_to,Ciliates
+130,layer_to,2
+130,weight,1
+130,type,predation
+130,method,"field and laboratory observation, literature"
+131,node_from,Veligers
+131,layer_from,2
+131,node_to,Ciliates
+131,layer_to,2
+131,weight,1
+131,type,predation
+131,method,"field and laboratory observation, literature"
+132,node_from,Large_cladocerans
+132,layer_from,2
+132,node_to,Phytoplankton
+132,layer_to,2
+132,weight,1
+132,type,herbivory
+132,method,"field and laboratory observation, literature"
+133,node_from,Large_cladocerans
+133,layer_from,2
+133,node_to,Heterotrophic_bacteria
+133,layer_to,2
+133,weight,1
+133,type,predation
+133,method,"field and laboratory observation, literature"
+134,node_from,Large_cladocerans
+134,layer_from,2
+134,node_to,Nanoflagellates
+134,layer_to,2
+134,weight,1
+134,type,predation
+134,method,"field and laboratory observation, literature"
+135,node_from,Large_cladocerans
+135,layer_from,2
+135,node_to,Ciliates
+135,layer_to,2
+135,weight,1
+135,type,predation
+135,method,"field and laboratory observation, literature"
+136,node_from,Large_cladocerans
+136,layer_from,2
+136,node_to,Rotifers
+136,layer_to,2
+136,weight,1
+136,type,predation
+136,method,"field and laboratory observation, literature"
+137,node_from,Large_cladocerans
+137,layer_from,2
+137,node_to,Veligers
+137,layer_to,2
+137,weight,1
+137,type,predation
+137,method,"field and laboratory observation, literature"
+138,node_from,Large_cladocerans
+138,layer_from,2
+138,node_to,Small_cladocerans
+138,layer_to,2
+138,weight,1
+138,type,predation
+138,method,"field and laboratory observation, literature"
+139,node_from,Large_cladocerans
+139,layer_from,2
+139,node_to,Copepods
+139,layer_to,2
+139,weight,1
+139,type,predation
+139,method,"field and laboratory observation, literature"
+140,node_from,Small_cladocerans
+140,layer_from,2
+140,node_to,Phytoplankton
+140,layer_to,2
+140,weight,1
+140,type,herbivory
+140,method,"field and laboratory observation, literature"
+141,node_from,Small_cladocerans
+141,layer_from,2
+141,node_to,Heterotrophic_bacteria
+141,layer_to,2
+141,weight,1
+141,type,predation
+141,method,"field and laboratory observation, literature"
+142,node_from,Small_cladocerans
+142,layer_from,2
+142,node_to,Nanoflagellates
+142,layer_to,2
+142,weight,1
+142,type,predation
+142,method,"field and laboratory observation, literature"
+143,node_from,Small_cladocerans
+143,layer_from,2
+143,node_to,Ciliates
+143,layer_to,2
+143,weight,1
+143,type,predation
+143,method,"field and laboratory observation, literature"
+144,node_from,Small_cladocerans
+144,layer_from,2
+144,node_to,Rotifers
+144,layer_to,2
+144,weight,1
+144,type,predation
+144,method,"field and laboratory observation, literature"
+145,node_from,Small_cladocerans
+145,layer_from,2
+145,node_to,Veligers
+145,layer_to,2
+145,weight,1
+145,type,predation
+145,method,"field and laboratory observation, literature"
+146,node_from,Copepods
+146,layer_from,2
+146,node_to,Phytoplankton
+146,layer_to,2
+146,weight,1
+146,type,herbivory
+146,method,"field and laboratory observation, literature"
+147,node_from,Copepods
+147,layer_from,2
+147,node_to,Heterotrophic_bacteria
+147,layer_to,2
+147,weight,1
+147,type,predation
+147,method,"field and laboratory observation, literature"
+148,node_from,Copepods
+148,layer_from,2
+148,node_to,Nanoflagellates
+148,layer_to,2
+148,weight,1
+148,type,predation
+148,method,"field and laboratory observation, literature"
+149,node_from,Copepods
+149,layer_from,2
+149,node_to,Ciliates
+149,layer_to,2
+149,weight,1
+149,type,predation
+149,method,"field and laboratory observation, literature"
+150,node_from,Copepods
+150,layer_from,2
+150,node_to,Rotifers
+150,layer_to,2
+150,weight,1
+150,type,predation
+150,method,"field and laboratory observation, literature"
+151,node_from,Copepods
+151,layer_from,2
+151,node_to,Veligers
+151,layer_to,2
+151,weight,1
+151,type,predation
+151,method,"field and laboratory observation, literature"
+152,node_from,Copepods
+152,layer_from,2
+152,node_to,Small_cladocerans
+152,layer_to,2
+152,weight,1
+152,type,predation
+152,method,"field and laboratory observation, literature"
+153,node_from,Copepods
+153,layer_from,2
+153,node_to,Copepods
+153,layer_to,2
+153,weight,1
+153,type,predation
+153,method,"field and laboratory observation, literature"
+154,node_from,Dreissenid_mussels
+154,layer_from,2
+154,node_to,Phytoplankton
+154,layer_to,2
+154,weight,1
+154,type,herbivory
+154,method,"field and laboratory observation, literature"
+155,node_from,Dreissenid_mussels
+155,layer_from,2
+155,node_to,Heterotrophic_bacteria
+155,layer_to,2
+155,weight,1
+155,type,predation
+155,method,"field and laboratory observation, literature"
+156,node_from,Dreissenid_mussels
+156,layer_from,2
+156,node_to,Nanoflagellates
+156,layer_to,2
+156,weight,1
+156,type,predation
+156,method,"field and laboratory observation, literature"
+157,node_from,Dreissenid_mussels
+157,layer_from,2
+157,node_to,Ciliates
+157,layer_to,2
+157,weight,1
+157,type,predation
+157,method,"field and laboratory observation, literature"
+158,node_from,Dreissenid_mussels
+158,layer_from,2
+158,node_to,Rotifers
+158,layer_to,2
+158,weight,1
+158,type,predation
+158,method,"field and laboratory observation, literature"
+159,node_from,Dreissenid_mussels
+159,layer_from,2
+159,node_to,Veligers
+159,layer_to,2
+159,weight,1
+159,type,predation
+159,method,"field and laboratory observation, literature"
+160,node_from,Mysis
+160,layer_from,2
+160,node_to,Phytoplankton
+160,layer_to,2
+160,weight,1
+160,type,herbivory
+160,method,"field and laboratory observation, literature"
+161,node_from,Mysis
+161,layer_from,2
+161,node_to,Large_cladocerans
+161,layer_to,2
+161,weight,1
+161,type,predation
+161,method,"field and laboratory observation, literature"
+162,node_from,Mysis
+162,layer_from,2
+162,node_to,Small_cladocerans
+162,layer_to,2
+162,weight,1
+162,type,predation
+162,method,"field and laboratory observation, literature"
+163,node_from,Mysis
+163,layer_from,2
+163,node_to,Copepods
+163,layer_to,2
+163,weight,1
+163,type,predation
+163,method,"field and laboratory observation, literature"
+164,node_from,Mysis
+164,layer_from,2
+164,node_to,Diporeia
+164,layer_to,2
+164,weight,1
+164,type,predation
+164,method,"field and laboratory observation, literature"
+165,node_from,Smelt_algae_1_and_older
+165,layer_from,2
+165,node_to,Large_cladocerans
+165,layer_to,2
+165,weight,1
+165,type,predation
+165,method,"field and laboratory observation, literature"
+166,node_from,Smelt_algae_1_and_older
+166,layer_from,2
+166,node_to,Small_cladocerans
+166,layer_to,2
+166,weight,1
+166,type,predation
+166,method,"field and laboratory observation, literature"
+167,node_from,Smelt_algae_1_and_older
+167,layer_from,2
+167,node_to,Copepods
+167,layer_to,2
+167,weight,1
+167,type,predation
+167,method,"field and laboratory observation, literature"
+168,node_from,Smelt_algae_1_and_older
+168,layer_from,2
+168,node_to,Diporeia
+168,layer_to,2
+168,weight,1
+168,type,predation
+168,method,"field and laboratory observation, literature"
+169,node_from,Smelt_algae_1_and_older
+169,layer_from,2
+169,node_to,Other_benthos
+169,layer_to,2
+169,weight,1
+169,type,predation
+169,method,"field and laboratory observation, literature"
+170,node_from,Smelt_algae_1_and_older
+170,layer_from,2
+170,node_to,Mysis
+170,layer_to,2
+170,weight,1
+170,type,predation
+170,method,"field and laboratory observation, literature"
+171,node_from,Smelt_YOY
+171,layer_from,2
+171,node_to,Large_cladocerans
+171,layer_to,2
+171,weight,1
+171,type,predation
+171,method,"field and laboratory observation, literature"
+172,node_from,Smelt_YOY
+172,layer_from,2
+172,node_to,Small_cladocerans
+172,layer_to,2
+172,weight,1
+172,type,predation
+172,method,"field and laboratory observation, literature"
+173,node_from,Smelt_YOY
+173,layer_from,2
+173,node_to,Copepods
+173,layer_to,2
+173,weight,1
+173,type,predation
+173,method,"field and laboratory observation, literature"
+174,node_from,Smelt_YOY
+174,layer_from,2
+174,node_to,Diporeia
+174,layer_to,2
+174,weight,1
+174,type,predation
+174,method,"field and laboratory observation, literature"
+175,node_from,Smelt_YOY
+175,layer_from,2
+175,node_to,Other_benthos
+175,layer_to,2
+175,weight,1
+175,type,predation
+175,method,"field and laboratory observation, literature"
+176,node_from,Smelt_YOY
+176,layer_from,2
+176,node_to,Mysis
+176,layer_to,2
+176,weight,1
+176,type,predation
+176,method,"field and laboratory observation, literature"
+177,node_from,Smelt_YOY
+177,layer_from,2
+177,node_to,Smelt_YOY
+177,layer_to,2
+177,weight,1
+177,type,predation
+177,method,"field and laboratory observation, literature"
+178,node_from,Smelt_YOY
+178,layer_from,2
+178,node_to,Juvenile_sculpin
+178,layer_to,2
+178,weight,1
+178,type,predation
+178,method,"field and laboratory observation, literature"
+179,node_from,Smelt_YOY
+179,layer_from,2
+179,node_to,Early_YOY_alewife
+179,layer_to,2
+179,weight,1
+179,type,predation
+179,method,"field and laboratory observation, literature"
+180,node_from,Adult_sculpin
+180,layer_from,2
+180,node_to,Diporeia
+180,layer_to,2
+180,weight,1
+180,type,predation
+180,method,"field and laboratory observation, literature"
+181,node_from,Adult_sculpin
+181,layer_from,2
+181,node_to,Other_benthos
+181,layer_to,2
+181,weight,1
+181,type,predation
+181,method,"field and laboratory observation, literature"
+182,node_from,Adult_sculpin
+182,layer_from,2
+182,node_to,Mysis
+182,layer_to,2
+182,weight,1
+182,type,predation
+182,method,"field and laboratory observation, literature"
+183,node_from,Juvenile_sculpin
+183,layer_from,2
+183,node_to,Diporeia
+183,layer_to,2
+183,weight,1
+183,type,predation
+183,method,"field and laboratory observation, literature"
+184,node_from,Juvenile_sculpin
+184,layer_from,2
+184,node_to,Other_benthos
+184,layer_to,2
+184,weight,1
+184,type,predation
+184,method,"field and laboratory observation, literature"
+185,node_from,Late_YOY_and_older_alewife
+185,layer_from,2
+185,node_to,Large_cladocerans
+185,layer_to,2
+185,weight,1
+185,type,predation
+185,method,"field and laboratory observation, literature"
+186,node_from,Late_YOY_and_older_alewife
+186,layer_from,2
+186,node_to,Small_cladocerans
+186,layer_to,2
+186,weight,1
+186,type,predation
+186,method,"field and laboratory observation, literature"
+187,node_from,Late_YOY_and_older_alewife
+187,layer_from,2
+187,node_to,Copepods
+187,layer_to,2
+187,weight,1
+187,type,predation
+187,method,"field and laboratory observation, literature"
+188,node_from,Late_YOY_and_older_alewife
+188,layer_from,2
+188,node_to,Diporeia
+188,layer_to,2
+188,weight,1
+188,type,predation
+188,method,"field and laboratory observation, literature"
+189,node_from,Late_YOY_and_older_alewife
+189,layer_from,2
+189,node_to,Other_benthos
+189,layer_to,2
+189,weight,1
+189,type,predation
+189,method,"field and laboratory observation, literature"
+190,node_from,Late_YOY_and_older_alewife
+190,layer_from,2
+190,node_to,Mysis
+190,layer_to,2
+190,weight,1
+190,type,predation
+190,method,"field and laboratory observation, literature"
+191,node_from,Early_YOY_alewife
+191,layer_from,2
+191,node_to,Rotifers
+191,layer_to,2
+191,weight,1
+191,type,predation
+191,method,"field and laboratory observation, literature"
+192,node_from,Early_YOY_alewife
+192,layer_from,2
+192,node_to,Veligers
+192,layer_to,2
+192,weight,1
+192,type,predation
+192,method,"field and laboratory observation, literature"
+193,node_from,Early_YOY_alewife
+193,layer_from,2
+193,node_to,Small_cladocerans
+193,layer_to,2
+193,weight,1
+193,type,predation
+193,method,"field and laboratory observation, literature"
+194,node_from,Early_YOY_alewife
+194,layer_from,2
+194,node_to,Copepods
+194,layer_to,2
+194,weight,1
+194,type,predation
+194,method,"field and laboratory observation, literature"
+195,node_from,Chinook_salmon
+195,layer_from,2
+195,node_to,Smelt_algae_1_and_older
+195,layer_to,2
+195,weight,1
+195,type,predation
+195,method,"field and laboratory observation, literature"
+196,node_from,Chinook_salmon
+196,layer_from,2
+196,node_to,Late_YOY_and_older_alewife
+196,layer_to,2
+196,weight,1
+196,type,predation
+196,method,"field and laboratory observation, literature"
+197,node_from,Oncorhynchus_mykiss
+197,layer_from,2
+197,node_to,Diporeia
+197,layer_to,2
+197,weight,1
+197,type,predation
+197,method,"field and laboratory observation, literature"
+198,node_from,Oncorhynchus_mykiss
+198,layer_from,2
+198,node_to,Other_benthos
+198,layer_to,2
+198,weight,1
+198,type,predation
+198,method,"field and laboratory observation, literature"
+199,node_from,Oncorhynchus_mykiss
+199,layer_from,2
+199,node_to,Mysis
+199,layer_to,2
+199,weight,1
+199,type,predation
+199,method,"field and laboratory observation, literature"
+200,node_from,Oncorhynchus_mykiss
+200,layer_from,2
+200,node_to,Smelt_algae_1_and_older
+200,layer_to,2
+200,weight,1
+200,type,predation
+200,method,"field and laboratory observation, literature"
+201,node_from,Oncorhynchus_mykiss
+201,layer_from,2
+201,node_to,Adult_sculpin
+201,layer_to,2
+201,weight,1
+201,type,predation
+201,method,"field and laboratory observation, literature"
+202,node_from,Oncorhynchus_mykiss
+202,layer_from,2
+202,node_to,Late_YOY_and_older_alewife
+202,layer_to,2
+202,weight,1
+202,type,predation
+202,method,"field and laboratory observation, literature"
+203,node_from,Salvelinus_namaycush
+203,layer_from,2
+203,node_to,Diporeia
+203,layer_to,2
+203,weight,1
+203,type,predation
+203,method,"field and laboratory observation, literature"
+204,node_from,Salvelinus_namaycush
+204,layer_from,2
+204,node_to,Other_benthos
+204,layer_to,2
+204,weight,1
+204,type,predation
+204,method,"field and laboratory observation, literature"
+205,node_from,Salvelinus_namaycush
+205,layer_from,2
+205,node_to,Mysis
+205,layer_to,2
+205,weight,1
+205,type,predation
+205,method,"field and laboratory observation, literature"
+206,node_from,Salvelinus_namaycush
+206,layer_from,2
+206,node_to,Smelt_algae_1_and_older
+206,layer_to,2
+206,weight,1
+206,type,predation
+206,method,"field and laboratory observation, literature"
+207,node_from,Salvelinus_namaycush
+207,layer_from,2
+207,node_to,Adult_sculpin
+207,layer_to,2
+207,weight,1
+207,type,predation
+207,method,"field and laboratory observation, literature"
+208,node_from,Salvelinus_namaycush
+208,layer_from,2
+208,node_to,Late_YOY_and_older_alewife
+208,layer_to,2
+208,weight,1
+208,type,predation
+208,method,"field and laboratory observation, literature"
+209,node_from,Oncorhynchus_kisutch
+209,layer_from,2
+209,node_to,Diporeia
+209,layer_to,2
+209,weight,1
+209,type,predation
+209,method,"field and laboratory observation, literature"
+210,node_from,Oncorhynchus_kisutch
+210,layer_from,2
+210,node_to,Other_benthos
+210,layer_to,2
+210,weight,1
+210,type,predation
+210,method,"field and laboratory observation, literature"
+211,node_from,Oncorhynchus_kisutch
+211,layer_from,2
+211,node_to,Mysis
+211,layer_to,2
+211,weight,1
+211,type,predation
+211,method,"field and laboratory observation, literature"
+212,node_from,Oncorhynchus_kisutch
+212,layer_from,2
+212,node_to,Smelt_algae_1_and_older
+212,layer_to,2
+212,weight,1
+212,type,predation
+212,method,"field and laboratory observation, literature"
+213,node_from,Oncorhynchus_kisutch
+213,layer_from,2
+213,node_to,Adult_sculpin
+213,layer_to,2
+213,weight,1
+213,type,predation
+213,method,"field and laboratory observation, literature"
+214,node_from,Oncorhynchus_kisutch
+214,layer_from,2
+214,node_to,Late_YOY_and_older_alewife
+214,layer_to,2
+214,weight,1
+214,type,predation
+214,method,"field and laboratory observation, literature"
+215,node_from,Salmo_trutta
+215,layer_from,2
+215,node_to,Diporeia
+215,layer_to,2
+215,weight,1
+215,type,predation
+215,method,"field and laboratory observation, literature"
+216,node_from,Salmo_trutta
+216,layer_from,2
+216,node_to,Other_benthos
+216,layer_to,2
+216,weight,1
+216,type,predation
+216,method,"field and laboratory observation, literature"
+217,node_from,Salmo_trutta
+217,layer_from,2
+217,node_to,Mysis
+217,layer_to,2
+217,weight,1
+217,type,predation
+217,method,"field and laboratory observation, literature"
+218,node_from,Salmo_trutta
+218,layer_from,2
+218,node_to,Smelt_algae_1_and_older
+218,layer_to,2
+218,weight,1
+218,type,predation
+218,method,"field and laboratory observation, literature"
+219,node_from,Salmo_trutta
+219,layer_from,2
+219,node_to,Adult_sculpin
+219,layer_to,2
+219,weight,1
+219,type,predation
+219,method,"field and laboratory observation, literature"
+220,node_from,Salmo_trutta
+220,layer_from,2
+220,node_to,Late_YOY_and_older_alewife
+220,layer_to,2
+220,weight,1
+220,type,predation
+220,method,"field and laboratory observation, literature"
+221,node_from,Rotifers
+221,layer_from,2
+221,node_to,Heterotrophic_bacteria
+221,layer_to,2
+221,weight,1
+221,type,predation
+221,method,"field and laboratory observation, literature"
+222,node_from,Adult_sculpin
+222,layer_from,2
+222,node_to,Large_cladocerans
+222,layer_to,2
+222,weight,1
+222,type,predation
+222,method,"field and laboratory observation, literature"
+223,node_from,Heterotrophic_bacteria
+223,layer_from,2
+223,node_to,Dissolved_organic_carbon
+223,layer_to,2
+223,weight,1
+223,type,detritivore
+223,method,"field and laboratory observation, literature"
+224,node_from,Heterotrophic_bacteria
+224,layer_from,2
+224,node_to,Particulate_organic_carbon
+224,layer_to,2
+224,weight,1
+224,type,detritivore
+224,method,"field and laboratory observation, literature"
+225,node_from,Dreissenid_mussels
+225,layer_from,2
+225,node_to,Particulate_organic_carbon
+225,layer_to,2
+225,weight,1
+225,type,detritivore
+225,method,"field and laboratory observation, literature"
+226,node_from,Diporeia
+226,layer_from,2
+226,node_to,Particulate_organic_carbon
+226,layer_to,2
+226,weight,1
+226,type,detritivore
+226,method,"field and laboratory observation, literature"
+227,node_from,Diporeia
+227,layer_from,2
+227,node_to,Sediment
+227,layer_to,2
+227,weight,1
+227,type,detritivore
+227,method,"field and laboratory observation, literature"
+228,node_from,Other_benthos
+228,layer_from,2
+228,node_to,Particulate_organic_carbon
+228,layer_to,2
+228,weight,1
+228,type,detritivore
+228,method,"field and laboratory observation, literature"
+229,node_from,Other_benthos
+229,layer_from,2
+229,node_to,Sediment
+229,layer_to,2
+229,weight,1
+229,type,detritivore
+229,method,"field and laboratory observation, literature"
+230,node_from,Mysis
+230,layer_from,2
+230,node_to,Sediment
+230,layer_to,2
+230,weight,1
+230,type,detritivore
+230,method,"field and laboratory observation, literature"

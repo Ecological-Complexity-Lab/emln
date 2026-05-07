@@ -1,0 +1,33 @@
+layer,attribute,value
+1,type,environment
+1,description,system of Ahpid/parasitoid
+1,habitat,Quercus robur
+1,location,Central Europe
+1,latitude,46.54
+1,longitude,6.23
+1,date,26/07/1979
+1,directed,TRUE
+2,type,environment
+2,description,system of Ahpid/parasitoid
+2,habitat,Betula pendula
+2,location,Central Europe
+2,latitude,46.54
+2,longitude,6.23
+2,date,26/07/1979
+2,directed,TRUE
+3,type,environment
+3,description,system of Ahpid/parasitoid
+3,habitat,NA
+3,location,Central Europe
+3,latitude,46.54
+3,longitude,6.23
+3,date,26/07/1979
+3,directed,TRUE
+4,type,environment
+4,description,system of Ahpid/parasitoid
+4,habitat,Quercus and Betula
+4,location,Central Europe
+4,latitude,46.54
+4,longitude,6.23
+4,date,26/07/1979
+4,directed,TRUE

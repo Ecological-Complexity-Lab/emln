@@ -1,0 +1,3494 @@
+interaction_id,attribute,value
+1,node_from,red-tailed_hawk
+1,layer_from,1
+1,node_to,vole_(microtus)
+1,layer_to,1
+1,weight,1
+1,type,predation
+1,method,field observation and gut content
+2,node_from,weasel
+2,layer_from,1
+2,node_to,vole_(microtus)
+2,layer_to,1
+2,weight,1
+2,type,predation
+2,method,field observation and gut content
+3,node_from,marsh_hawk
+3,layer_from,1
+3,node_to,13-striped_spermophile_(ground_squirrel)
+3,layer_to,1
+3,weight,1
+3,type,predation
+3,method,field observation and gut content
+4,node_from,coyote
+4,layer_from,1
+4,node_to,13-striped_spermophile_(ground_squirrel)
+4,layer_to,1
+4,weight,1
+4,type,predation
+4,method,field observation and gut content
+5,node_from,red-tailed_hawk
+5,layer_from,1
+5,node_to,13-striped_spermophile_(ground_squirrel)
+5,layer_to,1
+5,weight,1
+5,type,predation
+5,method,field observation and gut content
+6,node_from,weasel
+6,layer_from,1
+6,node_to,13-striped_spermophile_(ground_squirrel)
+6,layer_to,1
+6,weight,1
+6,type,predation
+6,method,field observation and gut content
+7,node_from,marsh_hawk
+7,layer_from,1
+7,node_to,pocket_gopher_(thomomys)
+7,layer_to,1
+7,weight,1
+7,type,predation
+7,method,field observation and gut content
+8,node_from,coyote
+8,layer_from,1
+8,node_to,pocket_gopher_(thomomys)
+8,layer_to,1
+8,weight,1
+8,type,predation
+8,method,field observation and gut content
+9,node_from,red-tailed_hawk
+9,layer_from,1
+9,node_to,pocket_gopher_(thomomys)
+9,layer_to,1
+9,weight,1
+9,type,predation
+9,method,field observation and gut content
+10,node_from,weasel
+10,layer_from,1
+10,node_to,pocket_gopher_(thomomys)
+10,layer_to,1
+10,weight,1
+10,type,predation
+10,method,field observation and gut content
+11,node_from,badger
+11,layer_from,1
+11,node_to,richardson_spermophile_(ground_squirrel)
+11,layer_to,1
+11,weight,1
+11,type,predation
+11,method,field observation and gut content
+12,node_from,badger
+12,layer_from,1
+12,node_to,13-striped_spermophile_(ground_squirrel)
+12,layer_to,1
+12,weight,1
+12,type,predation
+12,method,field observation and gut content
+13,node_from,vole_(microtus)
+13,layer_from,1
+13,node_to,agropyron
+13,layer_to,1
+13,weight,1
+13,type,herbivory
+13,method,field observation and gut content
+14,node_from,vole_(microtus)
+14,layer_from,1
+14,node_to,stipa
+14,layer_to,1
+14,weight,1
+14,type,herbivory
+14,method,field observation and gut content
+15,node_from,vole_(microtus)
+15,layer_from,1
+15,node_to,helianthus
+15,layer_to,1
+15,weight,1
+15,type,herbivory
+15,method,field observation and gut content
+16,node_from,13-striped_spermophile_(ground_squirrel)
+16,layer_from,1
+16,node_to,vole_(microtus)
+16,layer_to,1
+16,weight,1
+16,type,predation
+16,method,field observation and gut content
+17,node_from,13-striped_spermophile_(ground_squirrel)
+17,layer_from,1
+17,node_to,agropyron
+17,layer_to,1
+17,weight,1
+17,type,herbivory
+17,method,field observation and gut content
+18,node_from,13-striped_spermophile_(ground_squirrel)
+18,layer_from,1
+18,node_to,stipa
+18,layer_to,1
+18,weight,1
+18,type,herbivory
+18,method,field observation and gut content
+19,node_from,13-striped_spermophile_(ground_squirrel)
+19,layer_from,1
+19,node_to,helianthus
+19,layer_to,1
+19,weight,1
+19,type,herbivory
+19,method,field observation and gut content
+20,node_from,13-striped_spermophile_(ground_squirrel)
+20,layer_from,1
+20,node_to,insects_in_herb_and_surface_stratum
+20,layer_to,1
+20,weight,1
+20,type,predation
+20,method,field observation and gut content
+21,node_from,13-striped_spermophile_(ground_squirrel)
+21,layer_from,1
+21,node_to,diptera
+21,layer_to,1
+21,weight,1
+21,type,predation
+21,method,field observation and gut content
+22,node_from,13-striped_spermophile_(ground_squirrel)
+22,layer_from,1
+22,node_to,hemiptera
+22,layer_to,1
+22,weight,1
+22,type,predation
+22,method,field observation and gut content
+23,node_from,13-striped_spermophile_(ground_squirrel)
+23,layer_from,1
+23,node_to,grasshoppers
+23,layer_to,1
+23,weight,1
+23,type,predation
+23,method,field observation and gut content
+24,node_from,pocket_gopher_(thomomys)
+24,layer_from,1
+24,node_to,agropyron
+24,layer_to,1
+24,weight,1
+24,type,herbivory
+24,method,field observation and gut content
+25,node_from,pocket_gopher_(thomomys)
+25,layer_from,1
+25,node_to,stipa
+25,layer_to,1
+25,weight,1
+25,type,herbivory
+25,method,field observation and gut content
+26,node_from,pocket_gopher_(thomomys)
+26,layer_from,1
+26,node_to,helianthus
+26,layer_to,1
+26,weight,1
+26,type,herbivory
+26,method,field observation and gut content
+27,node_from,great_horned_owl
+27,layer_from,1
+27,node_to,vole_(microtus)
+27,layer_to,1
+27,weight,1
+27,type,predation
+27,method,field observation and gut content
+28,node_from,great_horned_owl
+28,layer_from,1
+28,node_to,crow
+28,layer_to,1
+28,weight,1
+28,type,predation
+28,method,field observation and gut content
+29,node_from,insects_in_herb_and_surface_stratum
+29,layer_from,1
+29,node_to,agropyron
+29,layer_to,1
+29,weight,1
+29,type,herbivory
+29,method,field observation and gut content
+30,node_from,hemiptera
+30,layer_from,1
+30,node_to,agropyron
+30,layer_to,1
+30,weight,1
+30,type,herbivory
+30,method,field observation and gut content
+31,node_from,grasshoppers
+31,layer_from,1
+31,node_to,agropyron
+31,layer_to,1
+31,weight,1
+31,type,herbivory
+31,method,field observation and gut content
+32,node_from,insects_in_herb_and_surface_stratum
+32,layer_from,1
+32,node_to,stipa
+32,layer_to,1
+32,weight,1
+32,type,herbivory
+32,method,field observation and gut content
+33,node_from,diptera
+33,layer_from,1
+33,node_to,stipa
+33,layer_to,1
+33,weight,1
+33,type,herbivory
+33,method,field observation and gut content
+34,node_from,hemiptera
+34,layer_from,1
+34,node_to,stipa
+34,layer_to,1
+34,weight,1
+34,type,herbivory
+34,method,field observation and gut content
+35,node_from,grasshoppers
+35,layer_from,1
+35,node_to,stipa
+35,layer_to,1
+35,weight,1
+35,type,herbivory
+35,method,field observation and gut content
+36,node_from,insects_in_herb_and_surface_stratum
+36,layer_from,1
+36,node_to,helianthus
+36,layer_to,1
+36,weight,1
+36,type,herbivory
+36,method,field observation and gut content
+37,node_from,diptera
+37,layer_from,1
+37,node_to,helianthus
+37,layer_to,1
+37,weight,1
+37,type,herbivory
+37,method,field observation and gut content
+38,node_from,hemiptera
+38,layer_from,1
+38,node_to,helianthus
+38,layer_to,1
+38,weight,1
+38,type,herbivory
+38,method,field observation and gut content
+39,node_from,grasshoppers
+39,layer_from,1
+39,node_to,helianthus
+39,layer_to,1
+39,weight,1
+39,type,herbivory
+39,method,field observation and gut content
+40,node_from,spiders
+40,layer_from,1
+40,node_to,insects_in_herb_and_surface_stratum
+40,layer_to,1
+40,weight,1
+40,type,predation
+40,method,field observation and gut content
+41,node_from,spiders
+41,layer_from,1
+41,node_to,diptera
+41,layer_to,1
+41,weight,1
+41,type,predation
+41,method,field observation and gut content
+42,node_from,spiders
+42,layer_from,1
+42,node_to,hemiptera
+42,layer_to,1
+42,weight,1
+42,type,predation
+42,method,field observation and gut content
+43,node_from,spiders
+43,layer_from,1
+43,node_to,grasshoppers
+43,layer_to,1
+43,weight,1
+43,type,predation
+43,method,field observation and gut content
+44,node_from,insects_in_soil_stratum
+44,layer_from,1
+44,node_to,agropyron
+44,layer_to,1
+44,weight,1
+44,type,herbivory
+44,method,field observation and gut content
+45,node_from,wire_worms
+45,layer_from,1
+45,node_to,agropyron
+45,layer_to,1
+45,weight,1
+45,type,herbivory
+45,method,field observation and gut content
+46,node_from,cutworms
+46,layer_from,1
+46,node_to,agropyron
+46,layer_to,1
+46,weight,1
+46,type,herbivory
+46,method,field observation and gut content
+47,node_from,white_grubs
+47,layer_from,1
+47,node_to,agropyron
+47,layer_to,1
+47,weight,1
+47,type,herbivory
+47,method,field observation and gut content
+48,node_from,insects_in_soil_stratum
+48,layer_from,1
+48,node_to,stipa
+48,layer_to,1
+48,weight,1
+48,type,herbivory
+48,method,field observation and gut content
+49,node_from,wire_worms
+49,layer_from,1
+49,node_to,stipa
+49,layer_to,1
+49,weight,1
+49,type,herbivory
+49,method,field observation and gut content
+50,node_from,cutworms
+50,layer_from,1
+50,node_to,stipa
+50,layer_to,1
+50,weight,1
+50,type,herbivory
+50,method,field observation and gut content
+51,node_from,white_grubs
+51,layer_from,1
+51,node_to,stipa
+51,layer_to,1
+51,weight,1
+51,type,herbivory
+51,method,field observation and gut content
+52,node_from,insects_in_soil_stratum
+52,layer_from,1
+52,node_to,helianthus
+52,layer_to,1
+52,weight,1
+52,type,herbivory
+52,method,field observation and gut content
+53,node_from,wire_worms
+53,layer_from,1
+53,node_to,helianthus
+53,layer_to,1
+53,weight,1
+53,type,herbivory
+53,method,field observation and gut content
+54,node_from,cutworms
+54,layer_from,1
+54,node_to,helianthus
+54,layer_to,1
+54,weight,1
+54,type,herbivory
+54,method,field observation and gut content
+55,node_from,white_grubs
+55,layer_from,1
+55,node_to,helianthus
+55,layer_to,1
+55,weight,1
+55,type,herbivory
+55,method,field observation and gut content
+56,node_from,meadow_lark
+56,layer_from,1
+56,node_to,insects_in_herb_and_surface_stratum
+56,layer_to,1
+56,weight,1
+56,type,predation
+56,method,field observation and gut content
+57,node_from,chipping_sparrow
+57,layer_from,1
+57,node_to,insects_in_herb_and_surface_stratum
+57,layer_to,1
+57,weight,1
+57,type,predation
+57,method,field observation and gut content
+58,node_from,clay-colored_sparrow
+58,layer_from,1
+58,node_to,insects_in_herb_and_surface_stratum
+58,layer_to,1
+58,weight,1
+58,type,predation
+58,method,field observation and gut content
+59,node_from,vesper_sparrow
+59,layer_from,1
+59,node_to,insects_in_herb_and_surface_stratum
+59,layer_to,1
+59,weight,1
+59,type,predation
+59,method,field observation and gut content
+60,node_from,horned_lark
+60,layer_from,1
+60,node_to,insects_in_herb_and_surface_stratum
+60,layer_to,1
+60,weight,1
+60,type,predation
+60,method,field observation and gut content
+61,node_from,upland_plover
+61,layer_from,1
+61,node_to,insects_in_herb_and_surface_stratum
+61,layer_to,1
+61,weight,1
+61,type,predation
+61,method,field observation and gut content
+62,node_from,meadow_lark
+62,layer_from,1
+62,node_to,diptera
+62,layer_to,1
+62,weight,1
+62,type,predation
+62,method,field observation and gut content
+63,node_from,chipping_sparrow
+63,layer_from,1
+63,node_to,diptera
+63,layer_to,1
+63,weight,1
+63,type,predation
+63,method,field observation and gut content
+64,node_from,clay-colored_sparrow
+64,layer_from,1
+64,node_to,diptera
+64,layer_to,1
+64,weight,1
+64,type,predation
+64,method,field observation and gut content
+65,node_from,vesper_sparrow
+65,layer_from,1
+65,node_to,diptera
+65,layer_to,1
+65,weight,1
+65,type,predation
+65,method,field observation and gut content
+66,node_from,horned_lark
+66,layer_from,1
+66,node_to,diptera
+66,layer_to,1
+66,weight,1
+66,type,predation
+66,method,field observation and gut content
+67,node_from,upland_plover
+67,layer_from,1
+67,node_to,diptera
+67,layer_to,1
+67,weight,1
+67,type,predation
+67,method,field observation and gut content
+68,node_from,meadow_lark
+68,layer_from,1
+68,node_to,hemiptera
+68,layer_to,1
+68,weight,1
+68,type,predation
+68,method,field observation and gut content
+69,node_from,chipping_sparrow
+69,layer_from,1
+69,node_to,hemiptera
+69,layer_to,1
+69,weight,1
+69,type,predation
+69,method,field observation and gut content
+70,node_from,clay-colored_sparrow
+70,layer_from,1
+70,node_to,hemiptera
+70,layer_to,1
+70,weight,1
+70,type,predation
+70,method,field observation and gut content
+71,node_from,vesper_sparrow
+71,layer_from,1
+71,node_to,hemiptera
+71,layer_to,1
+71,weight,1
+71,type,predation
+71,method,field observation and gut content
+72,node_from,horned_lark
+72,layer_from,1
+72,node_to,hemiptera
+72,layer_to,1
+72,weight,1
+72,type,predation
+72,method,field observation and gut content
+73,node_from,meadow_lark
+73,layer_from,1
+73,node_to,grasshoppers
+73,layer_to,1
+73,weight,1
+73,type,predation
+73,method,field observation and gut content
+74,node_from,clay-colored_sparrow
+74,layer_from,1
+74,node_to,grasshoppers
+74,layer_to,1
+74,weight,1
+74,type,predation
+74,method,field observation and gut content
+75,node_from,vesper_sparrow
+75,layer_from,1
+75,node_to,grasshoppers
+75,layer_to,1
+75,weight,1
+75,type,predation
+75,method,field observation and gut content
+76,node_from,horned_lark
+76,layer_from,1
+76,node_to,grasshoppers
+76,layer_to,1
+76,weight,1
+76,type,predation
+76,method,field observation and gut content
+77,node_from,upland_plover
+77,layer_from,1
+77,node_to,grasshoppers
+77,layer_to,1
+77,weight,1
+77,type,predation
+77,method,field observation and gut content
+78,node_from,meadow_lark
+78,layer_from,1
+78,node_to,insects_in_soil_stratum
+78,layer_to,1
+78,weight,1
+78,type,predation
+78,method,field observation and gut content
+79,node_from,upland_plover
+79,layer_from,1
+79,node_to,insects_in_soil_stratum
+79,layer_to,1
+79,weight,1
+79,type,predation
+79,method,field observation and gut content
+80,node_from,meadow_lark
+80,layer_from,1
+80,node_to,wire_worms
+80,layer_to,1
+80,weight,1
+80,type,predation
+80,method,field observation and gut content
+81,node_from,chipping_sparrow
+81,layer_from,1
+81,node_to,wire_worms
+81,layer_to,1
+81,weight,1
+81,type,predation
+81,method,field observation and gut content
+82,node_from,clay-colored_sparrow
+82,layer_from,1
+82,node_to,wire_worms
+82,layer_to,1
+82,weight,1
+82,type,predation
+82,method,field observation and gut content
+83,node_from,vesper_sparrow
+83,layer_from,1
+83,node_to,wire_worms
+83,layer_to,1
+83,weight,1
+83,type,predation
+83,method,field observation and gut content
+84,node_from,horned_lark
+84,layer_from,1
+84,node_to,wire_worms
+84,layer_to,1
+84,weight,1
+84,type,predation
+84,method,field observation and gut content
+85,node_from,upland_plover
+85,layer_from,1
+85,node_to,wire_worms
+85,layer_to,1
+85,weight,1
+85,type,predation
+85,method,field observation and gut content
+86,node_from,meadow_lark
+86,layer_from,1
+86,node_to,cutworms
+86,layer_to,1
+86,weight,1
+86,type,predation
+86,method,field observation and gut content
+87,node_from,chipping_sparrow
+87,layer_from,1
+87,node_to,cutworms
+87,layer_to,1
+87,weight,1
+87,type,predation
+87,method,field observation and gut content
+88,node_from,clay-colored_sparrow
+88,layer_from,1
+88,node_to,cutworms
+88,layer_to,1
+88,weight,1
+88,type,predation
+88,method,field observation and gut content
+89,node_from,vesper_sparrow
+89,layer_from,1
+89,node_to,cutworms
+89,layer_to,1
+89,weight,1
+89,type,predation
+89,method,field observation and gut content
+90,node_from,horned_lark
+90,layer_from,1
+90,node_to,cutworms
+90,layer_to,1
+90,weight,1
+90,type,predation
+90,method,field observation and gut content
+91,node_from,upland_plover
+91,layer_from,1
+91,node_to,cutworms
+91,layer_to,1
+91,weight,1
+91,type,predation
+91,method,field observation and gut content
+92,node_from,meadow_lark
+92,layer_from,1
+92,node_to,white_grubs
+92,layer_to,1
+92,weight,1
+92,type,predation
+92,method,field observation and gut content
+93,node_from,chipping_sparrow
+93,layer_from,1
+93,node_to,white_grubs
+93,layer_to,1
+93,weight,1
+93,type,predation
+93,method,field observation and gut content
+94,node_from,clay-colored_sparrow
+94,layer_from,1
+94,node_to,white_grubs
+94,layer_to,1
+94,weight,1
+94,type,predation
+94,method,field observation and gut content
+95,node_from,vesper_sparrow
+95,layer_from,1
+95,node_to,white_grubs
+95,layer_to,1
+95,weight,1
+95,type,predation
+95,method,field observation and gut content
+96,node_from,horned_lark
+96,layer_from,1
+96,node_to,white_grubs
+96,layer_to,1
+96,weight,1
+96,type,predation
+96,method,field observation and gut content
+97,node_from,upland_plover
+97,layer_from,1
+97,node_to,white_grubs
+97,layer_to,1
+97,weight,1
+97,type,predation
+97,method,field observation and gut content
+98,node_from,crow
+98,layer_from,1
+98,node_to,insects_in_herb_and_surface_stratum
+98,layer_to,1
+98,weight,1
+98,type,predation
+98,method,field observation and gut content
+99,node_from,crow
+99,layer_from,1
+99,node_to,diptera
+99,layer_to,1
+99,weight,1
+99,type,predation
+99,method,field observation and gut content
+100,node_from,crow
+100,layer_from,1
+100,node_to,hemiptera
+100,layer_to,1
+100,weight,1
+100,type,predation
+100,method,field observation and gut content
+101,node_from,crow
+101,layer_from,1
+101,node_to,grasshoppers
+101,layer_to,1
+101,weight,1
+101,type,predation
+101,method,field observation and gut content
+102,node_from,crow
+102,layer_from,1
+102,node_to,insects_in_soil_stratum
+102,layer_to,1
+102,weight,1
+102,type,predation
+102,method,field observation and gut content
+103,node_from,crow
+103,layer_from,1
+103,node_to,wire_worms
+103,layer_to,1
+103,weight,1
+103,type,predation
+103,method,field observation and gut content
+104,node_from,crow
+104,layer_from,1
+104,node_to,white_grubs
+104,layer_to,1
+104,weight,1
+104,type,predation
+104,method,field observation and gut content
+105,node_from,frog
+105,layer_from,1
+105,node_to,insects_in_herb_and_surface_stratum
+105,layer_to,1
+105,weight,1
+105,type,predation
+105,method,field observation and gut content
+106,node_from,frog
+106,layer_from,1
+106,node_to,diptera
+106,layer_to,1
+106,weight,1
+106,type,predation
+106,method,field observation and gut content
+107,node_from,frog
+107,layer_from,1
+107,node_to,hemiptera
+107,layer_to,1
+107,weight,1
+107,type,predation
+107,method,field observation and gut content
+108,node_from,frog
+108,layer_from,1
+108,node_to,grasshoppers
+108,layer_to,1
+108,weight,1
+108,type,predation
+108,method,field observation and gut content
+109,node_from,frog
+109,layer_from,1
+109,node_to,spiders
+109,layer_to,1
+109,weight,1
+109,type,predation
+109,method,field observation and gut content
+110,node_from,garter_snake
+110,layer_from,1
+110,node_to,insects_in_herb_and_surface_stratum
+110,layer_to,1
+110,weight,1
+110,type,predation
+110,method,field observation and gut content
+111,node_from,garter_snake
+111,layer_from,1
+111,node_to,diptera
+111,layer_to,1
+111,weight,1
+111,type,predation
+111,method,field observation and gut content
+112,node_from,garter_snake
+112,layer_from,1
+112,node_to,hemiptera
+112,layer_to,1
+112,weight,1
+112,type,predation
+112,method,field observation and gut content
+113,node_from,garter_snake
+113,layer_from,1
+113,node_to,grasshoppers
+113,layer_to,1
+113,weight,1
+113,type,predation
+113,method,field observation and gut content
+114,node_from,garter_snake
+114,layer_from,1
+114,node_to,frog
+114,layer_to,1
+114,weight,1
+114,type,predation
+114,method,field observation and gut content
+115,node_from,chipping_sparrow
+115,layer_from,1
+115,node_to,insects_in_soil_stratum
+115,layer_to,1
+115,weight,1
+115,type,predation
+115,method,field observation and gut content
+116,node_from,clay-colored_sparrow
+116,layer_from,1
+116,node_to,insects_in_soil_stratum
+116,layer_to,1
+116,weight,1
+116,type,predation
+116,method,field observation and gut content
+117,node_from,vesper_sparrow
+117,layer_from,1
+117,node_to,insects_in_soil_stratum
+117,layer_to,1
+117,weight,1
+117,type,predation
+117,method,field observation and gut content
+118,node_from,horned_lark
+118,layer_from,1
+118,node_to,insects_in_soil_stratum
+118,layer_to,1
+118,weight,1
+118,type,predation
+118,method,field observation and gut content
+119,node_from,diptera
+119,layer_from,1
+119,node_to,agropyron
+119,layer_to,1
+119,weight,1
+119,type,herbivory
+119,method,field observation and gut content
+120,node_from,upland_plover
+120,layer_from,1
+120,node_to,hemiptera
+120,layer_to,1
+120,weight,1
+120,type,predation
+120,method,field observation and gut content
+121,node_from,richardson_spermophile_(ground_squirrel)
+121,layer_from,1
+121,node_to,agropyron
+121,layer_to,1
+121,weight,1
+121,type,herbivory
+121,method,field observation and gut content
+122,node_from,richardson_spermophile_(ground_squirrel)
+122,layer_from,1
+122,node_to,stipa
+122,layer_to,1
+122,weight,1
+122,type,herbivory
+122,method,field observation and gut content
+123,node_from,richardson_spermophile_(ground_squirrel)
+123,layer_from,1
+123,node_to,helianthus
+123,layer_to,1
+123,weight,1
+123,type,herbivory
+123,method,field observation and gut content
+124,node_from,marsh_hawk
+124,layer_from,1
+124,node_to,richardson_spermophile_(ground_squirrel)
+124,layer_to,1
+124,weight,1
+124,type,predation
+124,method,field observation and gut content
+125,node_from,coyote
+125,layer_from,1
+125,node_to,richardson_spermophile_(ground_squirrel)
+125,layer_to,1
+125,weight,1
+125,type,predation
+125,method,field observation and gut content
+126,node_from,red-tailed_hawk
+126,layer_from,1
+126,node_to,richardson_spermophile_(ground_squirrel)
+126,layer_to,1
+126,weight,1
+126,type,predation
+126,method,field observation and gut content
+127,node_from,weasel
+127,layer_from,1
+127,node_to,richardson_spermophile_(ground_squirrel)
+127,layer_to,1
+127,weight,1
+127,type,predation
+127,method,field observation and gut content
+128,node_from,marsh_hawk
+128,layer_from,1
+128,node_to,vole_(microtus)
+128,layer_to,1
+128,weight,1
+128,type,predation
+128,method,field observation and gut content
+129,node_from,coyote
+129,layer_from,1
+129,node_to,vole_(microtus)
+129,layer_to,1
+129,weight,1
+129,type,predation
+129,method,field observation and gut content
+130,node_from,chipping_sparrow
+130,layer_from,1
+130,node_to,grasshoppers
+130,layer_to,1
+130,weight,1
+130,type,predation
+130,method,field observation and gut content
+131,node_from,crow
+131,layer_from,1
+131,node_to,cutworms
+131,layer_to,1
+131,weight,1
+131,type,predation
+131,method,field observation and gut content
+132,node_from,baltimore_oriole
+132,layer_from,2
+132,node_to,spiders_(mature_forest)
+132,layer_to,2
+132,weight,1
+132,type,predation
+132,method,field observation and gut content
+133,node_from,chickadee
+133,layer_from,2
+133,node_to,spiders_(mature_forest)
+133,layer_to,2
+133,weight,1
+133,type,predation
+133,method,field observation and gut content
+134,node_from,least_flycatcher
+134,layer_from,2
+134,node_to,spiders_(mature_forest)
+134,layer_to,2
+134,weight,1
+134,type,predation
+134,method,field observation and gut content
+135,node_from,warbling_vireo
+135,layer_from,2
+135,node_to,spiders_(mature_forest)
+135,layer_to,2
+135,weight,1
+135,type,predation
+135,method,field observation and gut content
+136,node_from,rosebreasted_grossbeak
+136,layer_from,2
+136,node_to,spiders_(mature_forest)
+136,layer_to,2
+136,weight,1
+136,type,predation
+136,method,field observation and gut content
+137,node_from,willow_thrush
+137,layer_from,2
+137,node_to,spiders_(mature_forest)
+137,layer_to,2
+137,weight,1
+137,type,predation
+137,method,field observation and gut content
+138,node_from,baltimore_oriole
+138,layer_from,2
+138,node_to,insects_(mature_forest)
+138,layer_to,2
+138,weight,1
+138,type,predation
+138,method,field observation and gut content
+139,node_from,chickadee
+139,layer_from,2
+139,node_to,insects_(mature_forest)
+139,layer_to,2
+139,weight,1
+139,type,predation
+139,method,field observation and gut content
+140,node_from,least_flycatcher
+140,layer_from,2
+140,node_to,insects_(mature_forest)
+140,layer_to,2
+140,weight,1
+140,type,predation
+140,method,field observation and gut content
+141,node_from,warbling_vireo
+141,layer_from,2
+141,node_to,insects_(mature_forest)
+141,layer_to,2
+141,weight,1
+141,type,predation
+141,method,field observation and gut content
+142,node_from,rosebreasted_grossbeak
+142,layer_from,2
+142,node_to,insects_(mature_forest)
+142,layer_to,2
+142,weight,1
+142,type,predation
+142,method,field observation and gut content
+143,node_from,willow_thrush
+143,layer_from,2
+143,node_to,insects_(mature_forest)
+143,layer_to,2
+143,weight,1
+143,type,predation
+143,method,field observation and gut content
+144,node_from,canker
+144,layer_from,2
+144,node_to,populus
+144,layer_to,2
+144,weight,1
+144,type,herbivory
+144,method,field observation and gut content
+145,node_from,fomes
+145,layer_from,2
+145,node_to,populus
+145,layer_to,2
+145,weight,1
+145,type,herbivory
+145,method,field observation and gut content
+146,node_from,canker
+146,layer_from,2
+146,node_to,cornus
+146,layer_to,2
+146,weight,1
+146,type,herbivory
+146,method,field observation and gut content
+147,node_from,fomes
+147,layer_from,2
+147,node_to,cornus
+147,layer_to,2
+147,weight,1
+147,type,herbivory
+147,method,field observation and gut content
+148,node_from,canker
+148,layer_from,2
+148,node_to,corylus
+148,layer_to,2
+148,weight,1
+148,type,herbivory
+148,method,field observation and gut content
+149,node_from,fomes
+149,layer_from,2
+149,node_to,corylus
+149,layer_to,2
+149,weight,1
+149,type,herbivory
+149,method,field observation and gut content
+150,node_from,canker
+150,layer_from,2
+150,node_to,pyrola
+150,layer_to,2
+150,weight,1
+150,type,herbivory
+150,method,field observation and gut content
+151,node_from,fomes
+151,layer_from,2
+151,node_to,pyrola
+151,layer_to,2
+151,weight,1
+151,type,herbivory
+151,method,field observation and gut content
+152,node_from,canker
+152,layer_from,2
+152,node_to,aralia
+152,layer_to,2
+152,weight,1
+152,type,herbivory
+152,method,field observation and gut content
+153,node_from,fomes
+153,layer_from,2
+153,node_to,aralia
+153,layer_to,2
+153,weight,1
+153,type,herbivory
+153,method,field observation and gut content
+154,node_from,canker
+154,layer_from,2
+154,node_to,symphoricarpos
+154,layer_to,2
+154,weight,1
+154,type,herbivory
+154,method,field observation and gut content
+155,node_from,fomes
+155,layer_from,2
+155,node_to,symphoricarpos
+155,layer_to,2
+155,weight,1
+155,type,herbivory
+155,method,field observation and gut content
+156,node_from,canker
+156,layer_from,2
+156,node_to,prunus
+156,layer_to,2
+156,weight,1
+156,type,herbivory
+156,method,field observation and gut content
+157,node_from,fomes
+157,layer_from,2
+157,node_to,prunus
+157,layer_to,2
+157,weight,1
+157,type,herbivory
+157,method,field observation and gut content
+158,node_from,canker
+158,layer_from,2
+158,node_to,amelanchier
+158,layer_to,2
+158,weight,1
+158,type,herbivory
+158,method,field observation and gut content
+159,node_from,fomes
+159,layer_from,2
+159,node_to,amelanchier
+159,layer_to,2
+159,weight,1
+159,type,herbivory
+159,method,field observation and gut content
+160,node_from,hairy_woodpecker
+160,layer_from,2
+160,node_to,dicera
+160,layer_to,2
+160,weight,1
+160,type,predation
+160,method,field observation and gut content
+161,node_from,hairy_woodpecker
+161,layer_from,2
+161,node_to,saperda
+161,layer_to,2
+161,weight,1
+161,type,predation
+161,method,field observation and gut content
+162,node_from,spiders_(mature_forest)
+162,layer_from,2
+162,node_to,insects_(mature_forest)
+162,layer_to,2
+162,weight,1
+162,type,predation
+162,method,field observation and gut content
+163,node_from,insects_(mature_forest)
+163,layer_from,2
+163,node_to,populus
+163,layer_to,2
+163,weight,1
+163,type,herbivory
+163,method,field observation and gut content
+164,node_from,insects_(mature_forest)
+164,layer_from,2
+164,node_to,cornus
+164,layer_to,2
+164,weight,1
+164,type,herbivory
+164,method,field observation and gut content
+165,node_from,insects_(mature_forest)
+165,layer_from,2
+165,node_to,corylus
+165,layer_to,2
+165,weight,1
+165,type,herbivory
+165,method,field observation and gut content
+166,node_from,insects_(mature_forest)
+166,layer_from,2
+166,node_to,pyrola
+166,layer_to,2
+166,weight,1
+166,type,herbivory
+166,method,field observation and gut content
+167,node_from,insects_(mature_forest)
+167,layer_from,2
+167,node_to,aralia
+167,layer_to,2
+167,weight,1
+167,type,herbivory
+167,method,field observation and gut content
+168,node_from,dicera
+168,layer_from,2
+168,node_to,populus
+168,layer_to,2
+168,weight,1
+168,type,herbivory
+168,method,field observation and gut content
+169,node_from,saperda
+169,layer_from,2
+169,node_to,populus
+169,layer_to,2
+169,weight,1
+169,type,herbivory
+169,method,field observation and gut content
+170,node_from,dicera
+170,layer_from,2
+170,node_to,cornus
+170,layer_to,2
+170,weight,1
+170,type,herbivory
+170,method,field observation and gut content
+171,node_from,saperda
+171,layer_from,2
+171,node_to,cornus
+171,layer_to,2
+171,weight,1
+171,type,herbivory
+171,method,field observation and gut content
+172,node_from,dicera
+172,layer_from,2
+172,node_to,corylus
+172,layer_to,2
+172,weight,1
+172,type,herbivory
+172,method,field observation and gut content
+173,node_from,saperda
+173,layer_from,2
+173,node_to,corylus
+173,layer_to,2
+173,weight,1
+173,type,herbivory
+173,method,field observation and gut content
+174,node_from,dicera
+174,layer_from,2
+174,node_to,pyrola
+174,layer_to,2
+174,weight,1
+174,type,herbivory
+174,method,field observation and gut content
+175,node_from,saperda
+175,layer_from,2
+175,node_to,pyrola
+175,layer_to,2
+175,weight,1
+175,type,herbivory
+175,method,field observation and gut content
+176,node_from,dicera
+176,layer_from,2
+176,node_to,aralia
+176,layer_to,2
+176,weight,1
+176,type,herbivory
+176,method,field observation and gut content
+177,node_from,saperda
+177,layer_from,2
+177,node_to,aralia
+177,layer_to,2
+177,weight,1
+177,type,herbivory
+177,method,field observation and gut content
+178,node_from,dicera
+178,layer_from,2
+178,node_to,symphoricarpos
+178,layer_to,2
+178,weight,1
+178,type,herbivory
+178,method,field observation and gut content
+179,node_from,saperda
+179,layer_from,2
+179,node_to,symphoricarpos
+179,layer_to,2
+179,weight,1
+179,type,herbivory
+179,method,field observation and gut content
+180,node_from,dicera
+180,layer_from,2
+180,node_to,prunus
+180,layer_to,2
+180,weight,1
+180,type,herbivory
+180,method,field observation and gut content
+181,node_from,saperda
+181,layer_from,2
+181,node_to,prunus
+181,layer_to,2
+181,weight,1
+181,type,herbivory
+181,method,field observation and gut content
+182,node_from,dicera
+182,layer_from,2
+182,node_to,amelanchier
+182,layer_to,2
+182,weight,1
+182,type,herbivory
+182,method,field observation and gut content
+183,node_from,saperda
+183,layer_from,2
+183,node_to,amelanchier
+183,layer_to,2
+183,weight,1
+183,type,herbivory
+183,method,field observation and gut content
+184,node_from,red_squirrel
+184,layer_from,2
+184,node_to,populus
+184,layer_to,2
+184,weight,1
+184,type,herbivory
+184,method,field observation and gut content
+185,node_from,red_squirrel
+185,layer_from,2
+185,node_to,cornus
+185,layer_to,2
+185,weight,1
+185,type,herbivory
+185,method,field observation and gut content
+186,node_from,red_squirrel
+186,layer_from,2
+186,node_to,corylus
+186,layer_to,2
+186,weight,1
+186,type,herbivory
+186,method,field observation and gut content
+187,node_from,red_squirrel
+187,layer_from,2
+187,node_to,pyrola
+187,layer_to,2
+187,weight,1
+187,type,herbivory
+187,method,field observation and gut content
+188,node_from,red_squirrel
+188,layer_from,2
+188,node_to,aralia
+188,layer_to,2
+188,weight,1
+188,type,herbivory
+188,method,field observation and gut content
+189,node_from,goshawk
+189,layer_from,2
+189,node_to,ruffed_grouse
+189,layer_to,2
+189,weight,1
+189,type,predation
+189,method,field observation and gut content
+190,node_from,goshawk
+190,layer_from,2
+190,node_to,snowshoe_rabbit
+190,layer_to,2
+190,weight,1
+190,type,predation
+190,method,field observation and gut content
+191,node_from,redbacked_vole_(evolomys)
+191,layer_from,2
+191,node_to,populus
+191,layer_to,2
+191,weight,1
+191,type,herbivory
+191,method,field observation and gut content
+192,node_from,redbacked_vole_(evolomys)
+192,layer_from,2
+192,node_to,cornus
+192,layer_to,2
+192,weight,1
+192,type,herbivory
+192,method,field observation and gut content
+193,node_from,redbacked_vole_(evolomys)
+193,layer_from,2
+193,node_to,corylus
+193,layer_to,2
+193,weight,1
+193,type,herbivory
+193,method,field observation and gut content
+194,node_from,redbacked_vole_(evolomys)
+194,layer_from,2
+194,node_to,pyrola
+194,layer_to,2
+194,weight,1
+194,type,herbivory
+194,method,field observation and gut content
+195,node_from,redbacked_vole_(evolomys)
+195,layer_from,2
+195,node_to,aralia
+195,layer_to,2
+195,weight,1
+195,type,herbivory
+195,method,field observation and gut content
+196,node_from,cooper's_hawk
+196,layer_from,2
+196,node_to,baltimore_oriole
+196,layer_to,2
+196,weight,1
+196,type,predation
+196,method,field observation and gut content
+197,node_from,cooper's_hawk
+197,layer_from,2
+197,node_to,chickadee
+197,layer_to,2
+197,weight,1
+197,type,predation
+197,method,field observation and gut content
+198,node_from,cooper's_hawk
+198,layer_from,2
+198,node_to,least_flycatcher
+198,layer_to,2
+198,weight,1
+198,type,predation
+198,method,field observation and gut content
+199,node_from,cooper's_hawk
+199,layer_from,2
+199,node_to,warbling_vireo
+199,layer_to,2
+199,weight,1
+199,type,predation
+199,method,field observation and gut content
+200,node_from,cooper's_hawk
+200,layer_from,2
+200,node_to,rosebreasted_grossbeak
+200,layer_to,2
+200,weight,1
+200,type,predation
+200,method,field observation and gut content
+201,node_from,cooper's_hawk
+201,layer_from,2
+201,node_to,willow_thrush
+201,layer_to,2
+201,weight,1
+201,type,predation
+201,method,field observation and gut content
+202,node_from,cooper's_hawk
+202,layer_from,2
+202,node_to,house_wren
+202,layer_to,2
+202,weight,1
+202,type,predation
+202,method,field observation and gut content
+203,node_from,cooper's_hawk
+203,layer_from,2
+203,node_to,red-eyed_vireo
+203,layer_to,2
+203,weight,1
+203,type,predation
+203,method,field observation and gut content
+204,node_from,cooper's_hawk
+204,layer_from,2
+204,node_to,yellow_warbler
+204,layer_to,2
+204,weight,1
+204,type,predation
+204,method,field observation and gut content
+205,node_from,cooper's_hawk
+205,layer_from,2
+205,node_to,gold_finch
+205,layer_to,2
+205,weight,1
+205,type,predation
+205,method,field observation and gut content
+206,node_from,cooper's_hawk
+206,layer_from,2
+206,node_to,catbird
+206,layer_to,2
+206,weight,1
+206,type,predation
+206,method,field observation and gut content
+207,node_from,cooper's_hawk
+207,layer_from,2
+207,node_to,brown_thrasher
+207,layer_to,2
+207,weight,1
+207,type,predation
+207,method,field observation and gut content
+208,node_from,cooper's_hawk
+208,layer_from,2
+208,node_to,towhee
+208,layer_to,2
+208,weight,1
+208,type,predation
+208,method,field observation and gut content
+209,node_from,great_horned_owl
+209,layer_from,2
+209,node_to,red_squirrel
+209,layer_to,2
+209,weight,1
+209,type,predation
+209,method,field observation and gut content
+210,node_from,great_horned_owl
+210,layer_from,2
+210,node_to,redbacked_vole_(evolomys)
+210,layer_to,2
+210,weight,1
+210,type,predation
+210,method,field observation and gut content
+211,node_from,great_horned_owl
+211,layer_from,2
+211,node_to,ruffed_grouse
+211,layer_to,2
+211,weight,1
+211,type,predation
+211,method,field observation and gut content
+212,node_from,great_horned_owl
+212,layer_from,2
+212,node_to,flicker
+212,layer_to,2
+212,weight,1
+212,type,predation
+212,method,field observation and gut content
+213,node_from,great_horned_owl
+213,layer_from,2
+213,node_to,crow
+213,layer_to,2
+213,weight,1
+213,type,predation
+213,method,field observation and gut content
+214,node_from,great_horned_owl
+214,layer_from,2
+214,node_to,snowshoe_rabbit
+214,layer_to,2
+214,weight,1
+214,type,predation
+214,method,field observation and gut content
+215,node_from,great_horned_owl
+215,layer_from,2
+215,node_to,redbacked_vole
+215,layer_to,2
+215,weight,1
+215,type,predation
+215,method,field observation and gut content
+216,node_from,great_horned_owl
+216,layer_from,2
+216,node_to,franklin_ground_squirrel
+216,layer_to,2
+216,weight,1
+216,type,predation
+216,method,field observation and gut content
+217,node_from,ruffed_grouse
+217,layer_from,2
+217,node_to,populus
+217,layer_to,2
+217,weight,1
+217,type,herbivory
+217,method,field observation and gut content
+218,node_from,ruffed_grouse
+218,layer_from,2
+218,node_to,cornus
+218,layer_to,2
+218,weight,1
+218,type,herbivory
+218,method,field observation and gut content
+219,node_from,ruffed_grouse
+219,layer_from,2
+219,node_to,corylus
+219,layer_to,2
+219,weight,1
+219,type,herbivory
+219,method,field observation and gut content
+220,node_from,ruffed_grouse
+220,layer_from,2
+220,node_to,pyrola
+220,layer_to,2
+220,weight,1
+220,type,herbivory
+220,method,field observation and gut content
+221,node_from,ruffed_grouse
+221,layer_from,2
+221,node_to,aralia
+221,layer_to,2
+221,weight,1
+221,type,herbivory
+221,method,field observation and gut content
+222,node_from,ruffed_grouse
+222,layer_from,2
+222,node_to,symphoricarpos
+222,layer_to,2
+222,weight,1
+222,type,herbivory
+222,method,field observation and gut content
+223,node_from,ruffed_grouse
+223,layer_from,2
+223,node_to,prunus
+223,layer_to,2
+223,weight,1
+223,type,herbivory
+223,method,field observation and gut content
+224,node_from,ruffed_grouse
+224,layer_from,2
+224,node_to,amelanchier
+224,layer_to,2
+224,weight,1
+224,type,herbivory
+224,method,field observation and gut content
+225,node_from,crow
+225,layer_from,2
+225,node_to,populus
+225,layer_to,2
+225,weight,1
+225,type,herbivory
+225,method,field observation and gut content
+226,node_from,crow
+226,layer_from,2
+226,node_to,cornus
+226,layer_to,2
+226,weight,1
+226,type,herbivory
+226,method,field observation and gut content
+227,node_from,crow
+227,layer_from,2
+227,node_to,corylus
+227,layer_to,2
+227,weight,1
+227,type,herbivory
+227,method,field observation and gut content
+228,node_from,crow
+228,layer_from,2
+228,node_to,pyrola
+228,layer_to,2
+228,weight,1
+228,type,herbivory
+228,method,field observation and gut content
+229,node_from,crow
+229,layer_from,2
+229,node_to,aralia
+229,layer_to,2
+229,weight,1
+229,type,herbivory
+229,method,field observation and gut content
+230,node_from,crow
+230,layer_from,2
+230,node_to,symphoricarpos
+230,layer_to,2
+230,weight,1
+230,type,herbivory
+230,method,field observation and gut content
+231,node_from,crow
+231,layer_from,2
+231,node_to,prunus
+231,layer_to,2
+231,weight,1
+231,type,herbivory
+231,method,field observation and gut content
+232,node_from,crow
+232,layer_from,2
+232,node_to,amelanchier
+232,layer_to,2
+232,weight,1
+232,type,herbivory
+232,method,field observation and gut content
+233,node_from,house_wren
+233,layer_from,2
+233,node_to,insects_(mature_forest)
+233,layer_to,2
+233,weight,1
+233,type,predation
+233,method,field observation and gut content
+234,node_from,house_wren
+234,layer_from,2
+234,node_to,insects_(forest_edge)
+234,layer_to,2
+234,weight,1
+234,type,predation
+234,method,field observation and gut content
+235,node_from,ticks
+235,layer_from,2
+235,node_to,snowshoe_rabbit
+235,layer_to,2
+235,weight,1
+235,type,predation
+235,method,field observation and gut content
+236,node_from,snowshoe_rabbit
+236,layer_from,2
+236,node_to,populus
+236,layer_to,2
+236,weight,1
+236,type,herbivory
+236,method,field observation and gut content
+237,node_from,snowshoe_rabbit
+237,layer_from,2
+237,node_to,symphoricarpos
+237,layer_to,2
+237,weight,1
+237,type,herbivory
+237,method,field observation and gut content
+238,node_from,snowshoe_rabbit
+238,layer_from,2
+238,node_to,corylus
+238,layer_to,2
+238,weight,1
+238,type,herbivory
+238,method,field observation and gut content
+239,node_from,snowshoe_rabbit
+239,layer_from,2
+239,node_to,prunus
+239,layer_to,2
+239,weight,1
+239,type,herbivory
+239,method,field observation and gut content
+240,node_from,snowshoe_rabbit
+240,layer_from,2
+240,node_to,amelanchier
+240,layer_to,2
+240,weight,1
+240,type,herbivory
+240,method,field observation and gut content
+241,node_from,red-eyed_vireo
+241,layer_from,2
+241,node_to,insects_(forest_edge)
+241,layer_to,2
+241,weight,1
+241,type,predation
+241,method,field observation and gut content
+242,node_from,yellow_warbler
+242,layer_from,2
+242,node_to,insects_(forest_edge)
+242,layer_to,2
+242,weight,1
+242,type,predation
+242,method,field observation and gut content
+243,node_from,gold_finch
+243,layer_from,2
+243,node_to,insects_(forest_edge)
+243,layer_to,2
+243,weight,1
+243,type,predation
+243,method,field observation and gut content
+244,node_from,catbird
+244,layer_from,2
+244,node_to,insects_(forest_edge)
+244,layer_to,2
+244,weight,1
+244,type,predation
+244,method,field observation and gut content
+245,node_from,brown_thrasher
+245,layer_from,2
+245,node_to,insects_(forest_edge)
+245,layer_to,2
+245,weight,1
+245,type,predation
+245,method,field observation and gut content
+246,node_from,towhee
+246,layer_from,2
+246,node_to,insects_(forest_edge)
+246,layer_to,2
+246,weight,1
+246,type,predation
+246,method,field observation and gut content
+247,node_from,robin
+247,layer_from,2
+247,node_to,insects_(forest_edge)
+247,layer_to,2
+247,weight,1
+247,type,predation
+247,method,field observation and gut content
+248,node_from,redbacked_vole
+248,layer_from,2
+248,node_to,populus
+248,layer_to,2
+248,weight,1
+248,type,herbivory
+248,method,field observation and gut content
+249,node_from,franklin_ground_squirrel
+249,layer_from,2
+249,node_to,populus
+249,layer_to,2
+249,weight,1
+249,type,herbivory
+249,method,field observation and gut content
+250,node_from,redbacked_vole
+250,layer_from,2
+250,node_to,symphoricarpos
+250,layer_to,2
+250,weight,1
+250,type,herbivory
+250,method,field observation and gut content
+251,node_from,franklin_ground_squirrel
+251,layer_from,2
+251,node_to,symphoricarpos
+251,layer_to,2
+251,weight,1
+251,type,herbivory
+251,method,field observation and gut content
+252,node_from,redbacked_vole
+252,layer_from,2
+252,node_to,corylus
+252,layer_to,2
+252,weight,1
+252,type,herbivory
+252,method,field observation and gut content
+253,node_from,franklin_ground_squirrel
+253,layer_from,2
+253,node_to,corylus
+253,layer_to,2
+253,weight,1
+253,type,herbivory
+253,method,field observation and gut content
+254,node_from,redbacked_vole
+254,layer_from,2
+254,node_to,prunus
+254,layer_to,2
+254,weight,1
+254,type,herbivory
+254,method,field observation and gut content
+255,node_from,franklin_ground_squirrel
+255,layer_from,2
+255,node_to,prunus
+255,layer_to,2
+255,weight,1
+255,type,herbivory
+255,method,field observation and gut content
+256,node_from,redbacked_vole
+256,layer_from,2
+256,node_to,amelanchier
+256,layer_to,2
+256,weight,1
+256,type,herbivory
+256,method,field observation and gut content
+257,node_from,franklin_ground_squirrel
+257,layer_from,2
+257,node_to,amelanchier
+257,layer_to,2
+257,weight,1
+257,type,herbivory
+257,method,field observation and gut content
+258,node_from,insects_(forest_edge)
+258,layer_from,2
+258,node_to,populus
+258,layer_to,2
+258,weight,1
+258,type,herbivory
+258,method,field observation and gut content
+259,node_from,insects_(forest_edge)
+259,layer_from,2
+259,node_to,symphoricarpos
+259,layer_to,2
+259,weight,1
+259,type,herbivory
+259,method,field observation and gut content
+260,node_from,insects_(forest_edge)
+260,layer_from,2
+260,node_to,corylus
+260,layer_to,2
+260,weight,1
+260,type,herbivory
+260,method,field observation and gut content
+261,node_from,insects_(forest_edge)
+261,layer_from,2
+261,node_to,prunus
+261,layer_to,2
+261,weight,1
+261,type,herbivory
+261,method,field observation and gut content
+262,node_from,insects_(forest_edge)
+262,layer_from,2
+262,node_to,amelanchier
+262,layer_to,2
+262,weight,1
+262,type,herbivory
+262,method,field observation and gut content
+263,node_from,spiders_(forest_edge)
+263,layer_from,2
+263,node_to,insects_(forest_edge)
+263,layer_to,2
+263,weight,1
+263,type,predation
+263,method,field observation and gut content
+264,node_from,snails
+264,layer_from,2
+264,node_to,populus
+264,layer_to,2
+264,weight,1
+264,type,herbivory
+264,method,field observation and gut content
+265,node_from,sharpshinned_hawk
+265,layer_from,2
+265,node_to,towhee
+265,layer_to,2
+265,weight,1
+265,type,predation
+265,method,field observation and gut content
+266,node_from,sharpshinned_hawk
+266,layer_from,2
+266,node_to,robin
+266,layer_to,2
+266,weight,1
+266,type,predation
+266,method,field observation and gut content
+267,node_from,snails
+267,layer_from,2
+267,node_to,cornus
+267,layer_to,2
+267,weight,1
+267,type,herbivory
+267,method,field observation and gut content
+268,node_from,snails
+268,layer_from,2
+268,node_to,corylus
+268,layer_to,2
+268,weight,1
+268,type,herbivory
+268,method,field observation and gut content
+269,node_from,snails
+269,layer_from,2
+269,node_to,pyrola
+269,layer_to,2
+269,weight,1
+269,type,herbivory
+269,method,field observation and gut content
+270,node_from,snails
+270,layer_from,2
+270,node_to,aralia
+270,layer_to,2
+270,weight,1
+270,type,herbivory
+270,method,field observation and gut content
+271,node_from,frogs
+271,layer_from,2
+271,node_to,spiders_(mature_forest)
+271,layer_to,2
+271,weight,1
+271,type,predation
+271,method,field observation and gut content
+272,node_from,frogs
+272,layer_from,2
+272,node_to,insects_(mature_forest)
+272,layer_to,2
+272,weight,1
+272,type,predation
+272,method,field observation and gut content
+273,node_from,frogs
+273,layer_from,2
+273,node_to,snails
+273,layer_to,2
+273,weight,1
+273,type,predation
+273,method,field observation and gut content
+274,node_from,downy_woodpecker
+274,layer_from,2
+274,node_to,dicera
+274,layer_to,2
+274,weight,1
+274,type,predation
+274,method,field observation and gut content
+275,node_from,downy_woodpecker
+275,layer_from,2
+275,node_to,saperda
+275,layer_to,2
+275,weight,1
+275,type,predation
+275,method,field observation and gut content
+276,node_from,sharpshinned_hawk
+276,layer_from,2
+276,node_to,baltimore_oriole
+276,layer_to,2
+276,weight,1
+276,type,predation
+276,method,field observation and gut content
+277,node_from,sharpshinned_hawk
+277,layer_from,2
+277,node_to,chickadee
+277,layer_to,2
+277,weight,1
+277,type,predation
+277,method,field observation and gut content
+278,node_from,sharpshinned_hawk
+278,layer_from,2
+278,node_to,least_flycatcher
+278,layer_to,2
+278,weight,1
+278,type,predation
+278,method,field observation and gut content
+279,node_from,sharpshinned_hawk
+279,layer_from,2
+279,node_to,warbling_vireo
+279,layer_to,2
+279,weight,1
+279,type,predation
+279,method,field observation and gut content
+280,node_from,sharpshinned_hawk
+280,layer_from,2
+280,node_to,rosebreasted_grossbeak
+280,layer_to,2
+280,weight,1
+280,type,predation
+280,method,field observation and gut content
+281,node_from,sharpshinned_hawk
+281,layer_from,2
+281,node_to,willow_thrush
+281,layer_to,2
+281,weight,1
+281,type,predation
+281,method,field observation and gut content
+282,node_from,sharpshinned_hawk
+282,layer_from,2
+282,node_to,house_wren
+282,layer_to,2
+282,weight,1
+282,type,predation
+282,method,field observation and gut content
+283,node_from,sharpshinned_hawk
+283,layer_from,2
+283,node_to,red-eyed_vireo
+283,layer_to,2
+283,weight,1
+283,type,predation
+283,method,field observation and gut content
+284,node_from,sharpshinned_hawk
+284,layer_from,2
+284,node_to,yellow_warbler
+284,layer_to,2
+284,weight,1
+284,type,predation
+284,method,field observation and gut content
+285,node_from,sharpshinned_hawk
+285,layer_from,2
+285,node_to,gold_finch
+285,layer_to,2
+285,weight,1
+285,type,predation
+285,method,field observation and gut content
+286,node_from,sharpshinned_hawk
+286,layer_from,2
+286,node_to,catbird
+286,layer_to,2
+286,weight,1
+286,type,predation
+286,method,field observation and gut content
+287,node_from,sharpshinned_hawk
+287,layer_from,2
+287,node_to,brown_thrasher
+287,layer_to,2
+287,weight,1
+287,type,predation
+287,method,field observation and gut content
+288,node_from,cooper's_hawk
+288,layer_from,2
+288,node_to,robin
+288,layer_to,2
+288,weight,1
+288,type,predation
+288,method,field observation and gut content
+289,node_from,baltimore_oriole
+289,layer_from,3
+289,node_to,insects
+289,layer_to,3
+289,weight,1
+289,type,predation
+289,method,field observation and gut content
+290,node_from,chickadee
+290,layer_from,3
+290,node_to,insects
+290,layer_to,3
+290,weight,1
+290,type,predation
+290,method,field observation and gut content
+291,node_from,least_flycatcher
+291,layer_from,3
+291,node_to,insects
+291,layer_to,3
+291,weight,1
+291,type,predation
+291,method,field observation and gut content
+292,node_from,rosebreasted_grosbeak
+292,layer_from,3
+292,node_to,insects
+292,layer_to,3
+292,weight,1
+292,type,predation
+292,method,field observation and gut content
+293,node_from,willow_thrush
+293,layer_from,3
+293,node_to,insects
+293,layer_to,3
+293,weight,1
+293,type,predation
+293,method,field observation and gut content
+294,node_from,baltimore_oriole
+294,layer_from,3
+294,node_to,spiders
+294,layer_to,3
+294,weight,1
+294,type,predation
+294,method,field observation and gut content
+295,node_from,chickadee
+295,layer_from,3
+295,node_to,spiders
+295,layer_to,3
+295,weight,1
+295,type,predation
+295,method,field observation and gut content
+296,node_from,least_flycatcher
+296,layer_from,3
+296,node_to,spiders
+296,layer_to,3
+296,weight,1
+296,type,predation
+296,method,field observation and gut content
+297,node_from,rosebreasted_grosbeak
+297,layer_from,3
+297,node_to,spiders
+297,layer_to,3
+297,weight,1
+297,type,predation
+297,method,field observation and gut content
+298,node_from,willow_thrush
+298,layer_from,3
+298,node_to,spiders
+298,layer_to,3
+298,weight,1
+298,type,predation
+298,method,field observation and gut content
+299,node_from,canker
+299,layer_from,3
+299,node_to,populus
+299,layer_to,3
+299,weight,1
+299,type,herbivory
+299,method,field observation and gut content
+300,node_from,fomes
+300,layer_from,3
+300,node_to,populus
+300,layer_to,3
+300,weight,1
+300,type,herbivory
+300,method,field observation and gut content
+301,node_from,canker
+301,layer_from,3
+301,node_to,cornus
+301,layer_to,3
+301,weight,1
+301,type,herbivory
+301,method,field observation and gut content
+302,node_from,fomes
+302,layer_from,3
+302,node_to,cornus
+302,layer_to,3
+302,weight,1
+302,type,herbivory
+302,method,field observation and gut content
+303,node_from,canker
+303,layer_from,3
+303,node_to,corylus
+303,layer_to,3
+303,weight,1
+303,type,herbivory
+303,method,field observation and gut content
+304,node_from,fomes
+304,layer_from,3
+304,node_to,corylus
+304,layer_to,3
+304,weight,1
+304,type,herbivory
+304,method,field observation and gut content
+305,node_from,canker
+305,layer_from,3
+305,node_to,pryola
+305,layer_to,3
+305,weight,1
+305,type,herbivory
+305,method,field observation and gut content
+306,node_from,fomes
+306,layer_from,3
+306,node_to,pryola
+306,layer_to,3
+306,weight,1
+306,type,herbivory
+306,method,field observation and gut content
+307,node_from,canker
+307,layer_from,3
+307,node_to,aralia
+307,layer_to,3
+307,weight,1
+307,type,herbivory
+307,method,field observation and gut content
+308,node_from,fomes
+308,layer_from,3
+308,node_to,aralia
+308,layer_to,3
+308,weight,1
+308,type,herbivory
+308,method,field observation and gut content
+309,node_from,hairy_woodpecker
+309,layer_from,3
+309,node_to,dicera
+309,layer_to,3
+309,weight,1
+309,type,predation
+309,method,field observation and gut content
+310,node_from,hairy_woodpecker
+310,layer_from,3
+310,node_to,saperda
+310,layer_to,3
+310,weight,1
+310,type,predation
+310,method,field observation and gut content
+311,node_from,dicera
+311,layer_from,3
+311,node_to,populus
+311,layer_to,3
+311,weight,1
+311,type,herbivory
+311,method,field observation and gut content
+312,node_from,saperda
+312,layer_from,3
+312,node_to,populus
+312,layer_to,3
+312,weight,1
+312,type,herbivory
+312,method,field observation and gut content
+313,node_from,dicera
+313,layer_from,3
+313,node_to,cornus
+313,layer_to,3
+313,weight,1
+313,type,herbivory
+313,method,field observation and gut content
+314,node_from,saperda
+314,layer_from,3
+314,node_to,cornus
+314,layer_to,3
+314,weight,1
+314,type,herbivory
+314,method,field observation and gut content
+315,node_from,dicera
+315,layer_from,3
+315,node_to,corylus
+315,layer_to,3
+315,weight,1
+315,type,herbivory
+315,method,field observation and gut content
+316,node_from,saperda
+316,layer_from,3
+316,node_to,corylus
+316,layer_to,3
+316,weight,1
+316,type,herbivory
+316,method,field observation and gut content
+317,node_from,dicera
+317,layer_from,3
+317,node_to,pryola
+317,layer_to,3
+317,weight,1
+317,type,herbivory
+317,method,field observation and gut content
+318,node_from,saperda
+318,layer_from,3
+318,node_to,pryola
+318,layer_to,3
+318,weight,1
+318,type,herbivory
+318,method,field observation and gut content
+319,node_from,dicera
+319,layer_from,3
+319,node_to,aralia
+319,layer_to,3
+319,weight,1
+319,type,herbivory
+319,method,field observation and gut content
+320,node_from,saperda
+320,layer_from,3
+320,node_to,aralia
+320,layer_to,3
+320,weight,1
+320,type,herbivory
+320,method,field observation and gut content
+321,node_from,insects
+321,layer_from,3
+321,node_to,populus
+321,layer_to,3
+321,weight,1
+321,type,herbivory
+321,method,field observation and gut content
+322,node_from,insects
+322,layer_from,3
+322,node_to,cornus
+322,layer_to,3
+322,weight,1
+322,type,herbivory
+322,method,field observation and gut content
+323,node_from,insects
+323,layer_from,3
+323,node_to,corylus
+323,layer_to,3
+323,weight,1
+323,type,herbivory
+323,method,field observation and gut content
+324,node_from,insects
+324,layer_from,3
+324,node_to,pryola
+324,layer_to,3
+324,weight,1
+324,type,herbivory
+324,method,field observation and gut content
+325,node_from,insects
+325,layer_from,3
+325,node_to,aralia
+325,layer_to,3
+325,weight,1
+325,type,herbivory
+325,method,field observation and gut content
+326,node_from,insects
+326,layer_from,3
+326,node_to,salix_longifolia
+326,layer_to,3
+326,weight,1
+326,type,herbivory
+326,method,field observation and gut content
+327,node_from,insects
+327,layer_from,3
+327,node_to,salix_petiolaris
+327,layer_to,3
+327,weight,1
+327,type,herbivory
+327,method,field observation and gut content
+328,node_from,spiders
+328,layer_from,3
+328,node_to,insects
+328,layer_to,3
+328,weight,1
+328,type,predation
+328,method,field observation and gut content
+329,node_from,cooper's_hawk
+329,layer_from,3
+329,node_to,baltimore_oriole
+329,layer_to,3
+329,weight,1
+329,type,predation
+329,method,field observation and gut content
+330,node_from,cooper's_hawk
+330,layer_from,3
+330,node_to,chickadee
+330,layer_to,3
+330,weight,1
+330,type,predation
+330,method,field observation and gut content
+331,node_from,cooper's_hawk
+331,layer_from,3
+331,node_to,least_flycatcher
+331,layer_to,3
+331,weight,1
+331,type,predation
+331,method,field observation and gut content
+332,node_from,cooper's_hawk
+332,layer_from,3
+332,node_to,rosebreasted_grosbeak
+332,layer_to,3
+332,weight,1
+332,type,predation
+332,method,field observation and gut content
+333,node_from,cooper's_hawk
+333,layer_from,3
+333,node_to,willow_thrush
+333,layer_to,3
+333,weight,1
+333,type,predation
+333,method,field observation and gut content
+334,node_from,cooper's_hawk
+334,layer_from,3
+334,node_to,maryland_yellowthroat
+334,layer_to,3
+334,weight,1
+334,type,predation
+334,method,field observation and gut content
+335,node_from,cooper's_hawk
+335,layer_from,3
+335,node_to,yellow_warbler
+335,layer_to,3
+335,weight,1
+335,type,predation
+335,method,field observation and gut content
+336,node_from,cooper's_hawk
+336,layer_from,3
+336,node_to,songsparrow
+336,layer_to,3
+336,weight,1
+336,type,predation
+336,method,field observation and gut content
+337,node_from,cooper's_hawk
+337,layer_from,3
+337,node_to,redwinged_blackbird
+337,layer_to,3
+337,weight,1
+337,type,predation
+337,method,field observation and gut content
+338,node_from,cooper's_hawk
+338,layer_from,3
+338,node_to,bronze_grackle
+338,layer_to,3
+338,weight,1
+338,type,predation
+338,method,field observation and gut content
+339,node_from,crow
+339,layer_from,3
+339,node_to,populus
+339,layer_to,3
+339,weight,1
+339,type,herbivory
+339,method,field observation and gut content
+340,node_from,crow
+340,layer_from,3
+340,node_to,cornus
+340,layer_to,3
+340,weight,1
+340,type,herbivory
+340,method,field observation and gut content
+341,node_from,crow
+341,layer_from,3
+341,node_to,corylus
+341,layer_to,3
+341,weight,1
+341,type,herbivory
+341,method,field observation and gut content
+342,node_from,crow
+342,layer_from,3
+342,node_to,pryola
+342,layer_to,3
+342,weight,1
+342,type,herbivory
+342,method,field observation and gut content
+343,node_from,crow
+343,layer_from,3
+343,node_to,aralia
+343,layer_to,3
+343,weight,1
+343,type,herbivory
+343,method,field observation and gut content
+344,node_from,crow
+344,layer_from,3
+344,node_to,cutworms
+344,layer_to,3
+344,weight,1
+344,type,predation
+344,method,field observation and gut content
+345,node_from,crow
+345,layer_from,3
+345,node_to,grasshoppers
+345,layer_to,3
+345,weight,1
+345,type,predation
+345,method,field observation and gut content
+346,node_from,crow
+346,layer_from,3
+346,node_to,clickbeetles
+346,layer_to,3
+346,weight,1
+346,type,predation
+346,method,field observation and gut content
+347,node_from,ruffed_grouse
+347,layer_from,3
+347,node_to,populus
+347,layer_to,3
+347,weight,1
+347,type,herbivory
+347,method,field observation and gut content
+348,node_from,ruffed_grouse
+348,layer_from,3
+348,node_to,cornus
+348,layer_to,3
+348,weight,1
+348,type,herbivory
+348,method,field observation and gut content
+349,node_from,ruffed_grouse
+349,layer_from,3
+349,node_to,corylus
+349,layer_to,3
+349,weight,1
+349,type,herbivory
+349,method,field observation and gut content
+350,node_from,ruffed_grouse
+350,layer_from,3
+350,node_to,pryola
+350,layer_to,3
+350,weight,1
+350,type,herbivory
+350,method,field observation and gut content
+351,node_from,ruffed_grouse
+351,layer_from,3
+351,node_to,aralia
+351,layer_to,3
+351,weight,1
+351,type,herbivory
+351,method,field observation and gut content
+352,node_from,man
+352,layer_from,3
+352,node_to,populus
+352,layer_to,3
+352,weight,1
+352,type,herbivory
+352,method,field observation and gut content
+353,node_from,man
+353,layer_from,3
+353,node_to,cornus
+353,layer_to,3
+353,weight,1
+353,type,herbivory
+353,method,field observation and gut content
+354,node_from,man
+354,layer_from,3
+354,node_to,corylus
+354,layer_to,3
+354,weight,1
+354,type,herbivory
+354,method,field observation and gut content
+355,node_from,man
+355,layer_from,3
+355,node_to,pryola
+355,layer_to,3
+355,weight,1
+355,type,herbivory
+355,method,field observation and gut content
+356,node_from,man
+356,layer_from,3
+356,node_to,aralia
+356,layer_to,3
+356,weight,1
+356,type,herbivory
+356,method,field observation and gut content
+357,node_from,man
+357,layer_from,3
+357,node_to,ruffed_grouse
+357,layer_to,3
+357,weight,1
+357,type,predation
+357,method,field observation and gut content
+358,node_from,man
+358,layer_from,3
+358,node_to,rabbit
+358,layer_to,3
+358,weight,1
+358,type,predation
+358,method,field observation and gut content
+359,node_from,man
+359,layer_from,3
+359,node_to,fish
+359,layer_to,3
+359,weight,1
+359,type,predation
+359,method,field observation and gut content
+360,node_from,man
+360,layer_from,3
+360,node_to,ducks
+360,layer_to,3
+360,weight,1
+360,type,predation
+360,method,field observation and gut content
+361,node_from,man
+361,layer_from,3
+361,node_to,coyote
+361,layer_to,3
+361,weight,1
+361,type,predation
+361,method,field observation and gut content
+362,node_from,man
+362,layer_from,3
+362,node_to,weasel
+362,layer_to,3
+362,weight,1
+362,type,predation
+362,method,field observation and gut content
+363,node_from,man
+363,layer_from,3
+363,node_to,skunk
+363,layer_to,3
+363,weight,1
+363,type,predation
+363,method,field observation and gut content
+364,node_from,man
+364,layer_from,3
+364,node_to,agrostis
+364,layer_to,3
+364,weight,1
+364,type,herbivory
+364,method,field observation and gut content
+365,node_from,man
+365,layer_from,3
+365,node_to,agropyron
+365,layer_to,3
+365,weight,1
+365,type,herbivory
+365,method,field observation and gut content
+366,node_from,man
+366,layer_from,3
+366,node_to,stipa
+366,layer_to,3
+366,weight,1
+366,type,herbivory
+366,method,field observation and gut content
+367,node_from,man
+367,layer_from,3
+367,node_to,helianthus
+367,layer_to,3
+367,weight,1
+367,type,herbivory
+367,method,field observation and gut content
+368,node_from,goshawk
+368,layer_from,3
+368,node_to,ruffed_grouse
+368,layer_to,3
+368,weight,1
+368,type,predation
+368,method,field observation and gut content
+369,node_from,goshawk
+369,layer_from,3
+369,node_to,rabbit
+369,layer_to,3
+369,weight,1
+369,type,predation
+369,method,field observation and gut content
+370,node_from,rabbit
+370,layer_from,3
+370,node_to,populus
+370,layer_to,3
+370,weight,1
+370,type,herbivory
+370,method,field observation and gut content
+371,node_from,rabbit
+371,layer_from,3
+371,node_to,cornus
+371,layer_to,3
+371,weight,1
+371,type,herbivory
+371,method,field observation and gut content
+372,node_from,rabbit
+372,layer_from,3
+372,node_to,corylus
+372,layer_to,3
+372,weight,1
+372,type,herbivory
+372,method,field observation and gut content
+373,node_from,rabbit
+373,layer_from,3
+373,node_to,pryola
+373,layer_to,3
+373,weight,1
+373,type,herbivory
+373,method,field observation and gut content
+374,node_from,rabbit
+374,layer_from,3
+374,node_to,aralia
+374,layer_to,3
+374,weight,1
+374,type,herbivory
+374,method,field observation and gut content
+375,node_from,rabbit
+375,layer_from,3
+375,node_to,salix_longifolia
+375,layer_to,3
+375,weight,1
+375,type,herbivory
+375,method,field observation and gut content
+376,node_from,rabbit
+376,layer_from,3
+376,node_to,salix_petiolaris
+376,layer_to,3
+376,weight,1
+376,type,herbivory
+376,method,field observation and gut content
+377,node_from,great_horned_owl
+377,layer_from,3
+377,node_to,baltimore_oriole
+377,layer_to,3
+377,weight,1
+377,type,predation
+377,method,field observation and gut content
+378,node_from,great_horned_owl
+378,layer_from,3
+378,node_to,chickadee
+378,layer_to,3
+378,weight,1
+378,type,predation
+378,method,field observation and gut content
+379,node_from,great_horned_owl
+379,layer_from,3
+379,node_to,least_flycatcher
+379,layer_to,3
+379,weight,1
+379,type,predation
+379,method,field observation and gut content
+380,node_from,great_horned_owl
+380,layer_from,3
+380,node_to,rosebreasted_grosbeak
+380,layer_to,3
+380,weight,1
+380,type,predation
+380,method,field observation and gut content
+381,node_from,great_horned_owl
+381,layer_from,3
+381,node_to,willow_thrush
+381,layer_to,3
+381,weight,1
+381,type,predation
+381,method,field observation and gut content
+382,node_from,great_horned_owl
+382,layer_from,3
+382,node_to,crow
+382,layer_to,3
+382,weight,1
+382,type,predation
+382,method,field observation and gut content
+383,node_from,great_horned_owl
+383,layer_from,3
+383,node_to,ruffed_grouse
+383,layer_to,3
+383,weight,1
+383,type,predation
+383,method,field observation and gut content
+384,node_from,great_horned_owl
+384,layer_from,3
+384,node_to,rabbit
+384,layer_to,3
+384,weight,1
+384,type,predation
+384,method,field observation and gut content
+385,node_from,great_horned_owl
+385,layer_from,3
+385,node_to,flicker
+385,layer_to,3
+385,weight,1
+385,type,predation
+385,method,field observation and gut content
+386,node_from,great_horned_owl
+386,layer_from,3
+386,node_to,red_squirrel
+386,layer_to,3
+386,weight,1
+386,type,predation
+386,method,field observation and gut content
+387,node_from,great_horned_owl
+387,layer_from,3
+387,node_to,coots
+387,layer_to,3
+387,weight,1
+387,type,predation
+387,method,field observation and gut content
+388,node_from,great_horned_owl
+388,layer_from,3
+388,node_to,prairie_vole
+388,layer_to,3
+388,weight,1
+388,type,predation
+388,method,field observation and gut content
+389,node_from,great_horned_owl
+389,layer_from,3
+389,node_to,pocket_gophers
+389,layer_to,3
+389,weight,1
+389,type,predation
+389,method,field observation and gut content
+390,node_from,great_horned_owl
+390,layer_from,3
+390,node_to,ground_squirrels
+390,layer_to,3
+390,weight,1
+390,type,predation
+390,method,field observation and gut content
+391,node_from,great_horned_owl
+391,layer_from,3
+391,node_to,mice
+391,layer_to,3
+391,weight,1
+391,type,predation
+391,method,field observation and gut content
+392,node_from,flicker
+392,layer_from,3
+392,node_to,ants
+392,layer_to,3
+392,weight,1
+392,type,predation
+392,method,field observation and gut content
+393,node_from,maryland_yellowthroat
+393,layer_from,3
+393,node_to,insects
+393,layer_to,3
+393,weight,1
+393,type,predation
+393,method,field observation and gut content
+394,node_from,yellow_warbler
+394,layer_from,3
+394,node_to,insects
+394,layer_to,3
+394,weight,1
+394,type,predation
+394,method,field observation and gut content
+395,node_from,songsparrow
+395,layer_from,3
+395,node_to,insects
+395,layer_to,3
+395,weight,1
+395,type,predation
+395,method,field observation and gut content
+396,node_from,yellow_warbler
+396,layer_from,3
+396,node_to,spiders
+396,layer_to,3
+396,weight,1
+396,type,predation
+396,method,field observation and gut content
+397,node_from,songsparrow
+397,layer_from,3
+397,node_to,spiders
+397,layer_to,3
+397,weight,1
+397,type,predation
+397,method,field observation and gut content
+398,node_from,galerucella_decora
+398,layer_from,3
+398,node_to,salix_longifolia
+398,layer_to,3
+398,weight,1
+398,type,herbivory
+398,method,field observation and gut content
+399,node_from,galerucella_decora
+399,layer_from,3
+399,node_to,salix_discolor
+399,layer_to,3
+399,weight,1
+399,type,herbivory
+399,method,field observation and gut content
+400,node_from,galerucella_decora
+400,layer_from,3
+400,node_to,salix_petiolaris
+400,layer_to,3
+400,weight,1
+400,type,herbivory
+400,method,field observation and gut content
+401,node_from,red_squirrel
+401,layer_from,3
+401,node_to,populus
+401,layer_to,3
+401,weight,1
+401,type,herbivory
+401,method,field observation and gut content
+402,node_from,red_squirrel
+402,layer_from,3
+402,node_to,cornus
+402,layer_to,3
+402,weight,1
+402,type,herbivory
+402,method,field observation and gut content
+403,node_from,red_squirrel
+403,layer_from,3
+403,node_to,corylus
+403,layer_to,3
+403,weight,1
+403,type,herbivory
+403,method,field observation and gut content
+404,node_from,red_squirrel
+404,layer_from,3
+404,node_to,pryola
+404,layer_to,3
+404,weight,1
+404,type,herbivory
+404,method,field observation and gut content
+405,node_from,red_squirrel
+405,layer_from,3
+405,node_to,aralia
+405,layer_to,3
+405,weight,1
+405,type,herbivory
+405,method,field observation and gut content
+406,node_from,redwinged_blackbird
+406,layer_from,3
+406,node_to,insects
+406,layer_to,3
+406,weight,1
+406,type,predation
+406,method,field observation and gut content
+407,node_from,bronze_grackle
+407,layer_from,3
+407,node_to,insects
+407,layer_to,3
+407,weight,1
+407,type,predation
+407,method,field observation and gut content
+408,node_from,rana_pipiens
+408,layer_from,3
+408,node_to,insects
+408,layer_to,3
+408,weight,1
+408,type,predation
+408,method,field observation and gut content
+409,node_from,rana_pipiens
+409,layer_from,3
+409,node_to,spiders
+409,layer_to,3
+409,weight,1
+409,type,predation
+409,method,field observation and gut content
+410,node_from,rana_pipiens
+410,layer_from,3
+410,node_to,cutworms
+410,layer_to,3
+410,weight,1
+410,type,predation
+410,method,field observation and gut content
+411,node_from,rana_pipiens
+411,layer_from,3
+411,node_to,grasshoppers
+411,layer_to,3
+411,weight,1
+411,type,predation
+411,method,field observation and gut content
+412,node_from,rana_pipiens
+412,layer_from,3
+412,node_to,clickbeetles
+412,layer_to,3
+412,weight,1
+412,type,predation
+412,method,field observation and gut content
+413,node_from,garter_snake
+413,layer_from,3
+413,node_to,rana_pipiens
+413,layer_to,3
+413,weight,1
+413,type,predation
+413,method,field observation and gut content
+414,node_from,fish
+414,layer_from,3
+414,node_to,rana_pipiens
+414,layer_to,3
+414,weight,1
+414,type,predation
+414,method,field observation and gut content
+415,node_from,fish
+415,layer_from,3
+415,node_to,garter_snake
+415,layer_to,3
+415,weight,1
+415,type,predation
+415,method,field observation and gut content
+416,node_from,coyote
+416,layer_from,3
+416,node_to,rabbit
+416,layer_to,3
+416,weight,1
+416,type,predation
+416,method,field observation and gut content
+417,node_from,weasel
+417,layer_from,3
+417,node_to,rabbit
+417,layer_to,3
+417,weight,1
+417,type,predation
+417,method,field observation and gut content
+418,node_from,skunk
+418,layer_from,3
+418,node_to,rabbit
+418,layer_to,3
+418,weight,1
+418,type,predation
+418,method,field observation and gut content
+419,node_from,coyote
+419,layer_from,3
+419,node_to,prairie_vole
+419,layer_to,3
+419,weight,1
+419,type,predation
+419,method,field observation and gut content
+420,node_from,weasel
+420,layer_from,3
+420,node_to,prairie_vole
+420,layer_to,3
+420,weight,1
+420,type,predation
+420,method,field observation and gut content
+421,node_from,skunk
+421,layer_from,3
+421,node_to,prairie_vole
+421,layer_to,3
+421,weight,1
+421,type,predation
+421,method,field observation and gut content
+422,node_from,coyote
+422,layer_from,3
+422,node_to,pocket_gophers
+422,layer_to,3
+422,weight,1
+422,type,predation
+422,method,field observation and gut content
+423,node_from,weasel
+423,layer_from,3
+423,node_to,pocket_gophers
+423,layer_to,3
+423,weight,1
+423,type,predation
+423,method,field observation and gut content
+424,node_from,skunk
+424,layer_from,3
+424,node_to,pocket_gophers
+424,layer_to,3
+424,weight,1
+424,type,predation
+424,method,field observation and gut content
+425,node_from,coyote
+425,layer_from,3
+425,node_to,ground_squirrels
+425,layer_to,3
+425,weight,1
+425,type,predation
+425,method,field observation and gut content
+426,node_from,weasel
+426,layer_from,3
+426,node_to,ground_squirrels
+426,layer_to,3
+426,weight,1
+426,type,predation
+426,method,field observation and gut content
+427,node_from,skunk
+427,layer_from,3
+427,node_to,ground_squirrels
+427,layer_to,3
+427,weight,1
+427,type,predation
+427,method,field observation and gut content
+428,node_from,prairie_vole
+428,layer_from,3
+428,node_to,agrostis
+428,layer_to,3
+428,weight,1
+428,type,herbivory
+428,method,field observation and gut content
+429,node_from,prairie_vole
+429,layer_from,3
+429,node_to,agropyron
+429,layer_to,3
+429,weight,1
+429,type,herbivory
+429,method,field observation and gut content
+430,node_from,prairie_vole
+430,layer_from,3
+430,node_to,stipa
+430,layer_to,3
+430,weight,1
+430,type,herbivory
+430,method,field observation and gut content
+431,node_from,prairie_vole
+431,layer_from,3
+431,node_to,helianthus
+431,layer_to,3
+431,weight,1
+431,type,herbivory
+431,method,field observation and gut content
+432,node_from,pocket_gophers
+432,layer_from,3
+432,node_to,prairie_vole
+432,layer_to,3
+432,weight,1
+432,type,predation
+432,method,field observation and gut content
+433,node_from,ground_squirrels
+433,layer_from,3
+433,node_to,prairie_vole
+433,layer_to,3
+433,weight,1
+433,type,predation
+433,method,field observation and gut content
+434,node_from,pocket_gophers
+434,layer_from,3
+434,node_to,agrostis
+434,layer_to,3
+434,weight,1
+434,type,herbivory
+434,method,field observation and gut content
+435,node_from,ground_squirrels
+435,layer_from,3
+435,node_to,agrostis
+435,layer_to,3
+435,weight,1
+435,type,herbivory
+435,method,field observation and gut content
+436,node_from,pocket_gophers
+436,layer_from,3
+436,node_to,agropyron
+436,layer_to,3
+436,weight,1
+436,type,herbivory
+436,method,field observation and gut content
+437,node_from,ground_squirrels
+437,layer_from,3
+437,node_to,agropyron
+437,layer_to,3
+437,weight,1
+437,type,herbivory
+437,method,field observation and gut content
+438,node_from,pocket_gophers
+438,layer_from,3
+438,node_to,stipa
+438,layer_to,3
+438,weight,1
+438,type,herbivory
+438,method,field observation and gut content
+439,node_from,ground_squirrels
+439,layer_from,3
+439,node_to,stipa
+439,layer_to,3
+439,weight,1
+439,type,herbivory
+439,method,field observation and gut content
+440,node_from,pocket_gophers
+440,layer_from,3
+440,node_to,helianthus
+440,layer_to,3
+440,weight,1
+440,type,herbivory
+440,method,field observation and gut content
+441,node_from,ground_squirrels
+441,layer_from,3
+441,node_to,helianthus
+441,layer_to,3
+441,weight,1
+441,type,herbivory
+441,method,field observation and gut content
+442,node_from,cutworms
+442,layer_from,3
+442,node_to,agrostis
+442,layer_to,3
+442,weight,1
+442,type,herbivory
+442,method,field observation and gut content
+443,node_from,grasshoppers
+443,layer_from,3
+443,node_to,agrostis
+443,layer_to,3
+443,weight,1
+443,type,herbivory
+443,method,field observation and gut content
+444,node_from,clickbeetles
+444,layer_from,3
+444,node_to,agrostis
+444,layer_to,3
+444,weight,1
+444,type,herbivory
+444,method,field observation and gut content
+445,node_from,cutworms
+445,layer_from,3
+445,node_to,agropyron
+445,layer_to,3
+445,weight,1
+445,type,herbivory
+445,method,field observation and gut content
+446,node_from,grasshoppers
+446,layer_from,3
+446,node_to,agropyron
+446,layer_to,3
+446,weight,1
+446,type,herbivory
+446,method,field observation and gut content
+447,node_from,clickbeetles
+447,layer_from,3
+447,node_to,agropyron
+447,layer_to,3
+447,weight,1
+447,type,herbivory
+447,method,field observation and gut content
+448,node_from,cutworms
+448,layer_from,3
+448,node_to,stipa
+448,layer_to,3
+448,weight,1
+448,type,herbivory
+448,method,field observation and gut content
+449,node_from,grasshoppers
+449,layer_from,3
+449,node_to,stipa
+449,layer_to,3
+449,weight,1
+449,type,herbivory
+449,method,field observation and gut content
+450,node_from,clickbeetles
+450,layer_from,3
+450,node_to,stipa
+450,layer_to,3
+450,weight,1
+450,type,herbivory
+450,method,field observation and gut content
+451,node_from,cutworms
+451,layer_from,3
+451,node_to,helianthus
+451,layer_to,3
+451,weight,1
+451,type,herbivory
+451,method,field observation and gut content
+452,node_from,grasshoppers
+452,layer_from,3
+452,node_to,helianthus
+452,layer_to,3
+452,weight,1
+452,type,herbivory
+452,method,field observation and gut content
+453,node_from,clickbeetles
+453,layer_from,3
+453,node_to,helianthus
+453,layer_to,3
+453,weight,1
+453,type,herbivory
+453,method,field observation and gut content
+454,node_from,downy_woodpecker
+454,layer_from,3
+454,node_to,dicera
+454,layer_to,3
+454,weight,1
+454,type,predation
+454,method,field observation and gut content
+455,node_from,downy_woodpecker
+455,layer_from,3
+455,node_to,saperda
+455,layer_to,3
+455,weight,1
+455,type,predation
+455,method,field observation and gut content
+456,node_from,sharpshinned_hawk
+456,layer_from,3
+456,node_to,baltimore_oriole
+456,layer_to,3
+456,weight,1
+456,type,predation
+456,method,field observation and gut content
+457,node_from,sharpshinned_hawk
+457,layer_from,3
+457,node_to,chickadee
+457,layer_to,3
+457,weight,1
+457,type,predation
+457,method,field observation and gut content
+458,node_from,sharpshinned_hawk
+458,layer_from,3
+458,node_to,least_flycatcher
+458,layer_to,3
+458,weight,1
+458,type,predation
+458,method,field observation and gut content
+459,node_from,sharpshinned_hawk
+459,layer_from,3
+459,node_to,rosebreasted_grosbeak
+459,layer_to,3
+459,weight,1
+459,type,predation
+459,method,field observation and gut content
+460,node_from,sharpshinned_hawk
+460,layer_from,3
+460,node_to,willow_thrush
+460,layer_to,3
+460,weight,1
+460,type,predation
+460,method,field observation and gut content
+461,node_from,sharpshinned_hawk
+461,layer_from,3
+461,node_to,maryland_yellowthroat
+461,layer_to,3
+461,weight,1
+461,type,predation
+461,method,field observation and gut content
+462,node_from,sharpshinned_hawk
+462,layer_from,3
+462,node_to,yellow_warbler
+462,layer_to,3
+462,weight,1
+462,type,predation
+462,method,field observation and gut content
+463,node_from,sharpshinned_hawk
+463,layer_from,3
+463,node_to,songsparrow
+463,layer_to,3
+463,weight,1
+463,type,predation
+463,method,field observation and gut content
+464,node_from,sharpshinned_hawk
+464,layer_from,3
+464,node_to,redwinged_blackbird
+464,layer_to,3
+464,weight,1
+464,type,predation
+464,method,field observation and gut content
+465,node_from,sharpshinned_hawk
+465,layer_from,3
+465,node_to,bronze_grackle
+465,layer_to,3
+465,weight,1
+465,type,predation
+465,method,field observation and gut content
+466,node_from,maryland_yellowthroat
+466,layer_from,3
+466,node_to,spiders
+466,layer_to,3
+466,weight,1
+466,type,predation
+466,method,field observation and gut content
+467,node_from,yellow_warbler
+467,layer_from,4
+467,node_to,disyonicha_quinquevitata
+467,layer_to,4
+467,weight,1
+467,type,predation
+467,method,field observation and gut content
+468,node_from,song_sparrow
+468,layer_from,4
+468,node_to,disyonicha_quinquevitata
+468,layer_to,4
+468,weight,1
+468,type,predation
+468,method,field observation and gut content
+469,node_from,maryland_yellowthroat
+469,layer_from,4
+469,node_to,collembola
+469,layer_to,4
+469,weight,1
+469,type,predation
+469,method,field observation and gut content
+470,node_from,yellow_warbler
+470,layer_from,4
+470,node_to,collembola
+470,layer_to,4
+470,weight,1
+470,type,predation
+470,method,field observation and gut content
+471,node_from,song_sparrow
+471,layer_from,4
+471,node_to,collembola
+471,layer_to,4
+471,weight,1
+471,type,predation
+471,method,field observation and gut content
+472,node_from,spiders
+472,layer_from,4
+472,node_to,insects
+472,layer_to,4
+472,weight,1
+472,type,predation
+472,method,field observation and gut content
+473,node_from,spiders
+473,layer_from,4
+473,node_to,pontania_petiolaridis
+473,layer_to,4
+473,weight,1
+473,type,predation
+473,method,field observation and gut content
+474,node_from,spiders
+474,layer_from,4
+474,node_to,collembola
+474,layer_to,4
+474,weight,1
+474,type,predation
+474,method,field observation and gut content
+475,node_from,spiders
+475,layer_from,4
+475,node_to,disyonicha_quinquevitata
+475,layer_to,4
+475,weight,1
+475,type,predation
+475,method,field observation and gut content
+476,node_from,insects
+476,layer_from,4
+476,node_to,salix_petiolaris
+476,layer_to,4
+476,weight,1
+476,type,herbivory
+476,method,field observation and gut content
+477,node_from,pontania_petiolaridis
+477,layer_from,4
+477,node_to,salix_petiolaris
+477,layer_to,4
+477,weight,1
+477,type,herbivory
+477,method,field observation and gut content
+478,node_from,collembola
+478,layer_from,4
+478,node_to,salix_petiolaris
+478,layer_to,4
+478,weight,1
+478,type,herbivory
+478,method,field observation and gut content
+479,node_from,insects
+479,layer_from,4
+479,node_to,salix_longifolia
+479,layer_to,4
+479,weight,1
+479,type,herbivory
+479,method,field observation and gut content
+480,node_from,rana_pipiens
+480,layer_from,4
+480,node_to,insects
+480,layer_to,4
+480,weight,1
+480,type,predation
+480,method,field observation and gut content
+481,node_from,rana_pipiens
+481,layer_from,4
+481,node_to,pontania_petiolaridis
+481,layer_to,4
+481,weight,1
+481,type,predation
+481,method,field observation and gut content
+482,node_from,rana_pipiens
+482,layer_from,4
+482,node_to,collembola
+482,layer_to,4
+482,weight,1
+482,type,predation
+482,method,field observation and gut content
+483,node_from,rana_pipiens
+483,layer_from,4
+483,node_to,disyonicha_quinquevitata
+483,layer_to,4
+483,weight,1
+483,type,predation
+483,method,field observation and gut content
+484,node_from,rana_pipiens
+484,layer_from,4
+484,node_to,snails
+484,layer_to,4
+484,weight,1
+484,type,predation
+484,method,field observation and gut content
+485,node_from,garter_snake
+485,layer_from,4
+485,node_to,rana_pipiens
+485,layer_to,4
+485,weight,1
+485,type,predation
+485,method,field observation and gut content
+486,node_from,galerucella_decora
+486,layer_from,4
+486,node_to,salix_petiolaris
+486,layer_to,4
+486,weight,1
+486,type,herbivory
+486,method,field observation and gut content
+487,node_from,galerucella_decora
+487,layer_from,4
+487,node_to,salix_longifolia
+487,layer_to,4
+487,weight,1
+487,type,herbivory
+487,method,field observation and gut content
+488,node_from,redwinged_blackbird
+488,layer_from,4
+488,node_to,spiders
+488,layer_to,4
+488,weight,1
+488,type,predation
+488,method,field observation and gut content
+489,node_from,bronze_grackle
+489,layer_from,4
+489,node_to,spiders
+489,layer_to,4
+489,weight,1
+489,type,predation
+489,method,field observation and gut content
+490,node_from,song_sparrow
+490,layer_from,4
+490,node_to,spiders
+490,layer_to,4
+490,weight,1
+490,type,predation
+490,method,field observation and gut content
+491,node_from,maryland_yellowthroat
+491,layer_from,4
+491,node_to,spiders
+491,layer_to,4
+491,weight,1
+491,type,predation
+491,method,field observation and gut content
+492,node_from,yellow_warbler
+492,layer_from,4
+492,node_to,spiders
+492,layer_to,4
+492,weight,1
+492,type,predation
+492,method,field observation and gut content
+493,node_from,maryland_yellowthroat
+493,layer_from,4
+493,node_to,insects
+493,layer_to,4
+493,weight,1
+493,type,predation
+493,method,field observation and gut content
+494,node_from,yellow_warbler
+494,layer_from,4
+494,node_to,insects
+494,layer_to,4
+494,weight,1
+494,type,predation
+494,method,field observation and gut content
+495,node_from,song_sparrow
+495,layer_from,4
+495,node_to,insects
+495,layer_to,4
+495,weight,1
+495,type,predation
+495,method,field observation and gut content
+496,node_from,maryland_yellowthroat
+496,layer_from,4
+496,node_to,disyonicha_quinquevitata
+496,layer_to,4
+496,weight,1
+496,type,predation
+496,method,field observation and gut content
+497,node_from,galerucella_decora
+497,layer_from,4
+497,node_to,salix_discolor
+497,layer_to,4
+497,weight,1
+497,type,herbivory
+497,method,field observation and gut content
+498,node_from,disyonicha_quinquevitata
+498,layer_from,4
+498,node_to,salix_longifolia
+498,layer_to,4
+498,weight,1
+498,type,herbivory
+498,method,field observation and gut content
+499,node_from,collembola
+499,layer_from,4
+499,node_to,salix_longifolia
+499,layer_to,4
+499,weight,1
+499,type,herbivory
+499,method,field observation and gut content

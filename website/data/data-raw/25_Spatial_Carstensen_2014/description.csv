@@ -1,0 +1,8 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Spatial
+description,NA
+source,figshare
+data_url,https://figshare.com/articles/dataset/_Beta_Diversity_of_Plant_Pollinator_Networks_and_the_Spatial_Turnover_of_Pairwise_Interactions_/1234708
+ecological_network_type,Pollination
+state_nodes,FALSE

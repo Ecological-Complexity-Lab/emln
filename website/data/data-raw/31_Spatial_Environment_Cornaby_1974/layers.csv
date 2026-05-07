@@ -1,0 +1,19 @@
+layer,attribute,value
+1,type,space
+1,type,environment
+1,name,The insect community of  a toad carrion in a tropical dry lowland forest
+1,location,"Finac La pacifica, Guanacaste Prov., Costa Rica"
+1,habitat,dry
+1,latitude,10.456804
+1,longitude,-85.094433
+1,date,08/02/1968
+1,directed,TRUE
+2,type,space
+2,type,environment
+2,name,The insect community of  a toad carrion in a tropical wet lowland forest
+2,location,"Rincon de Osa, Puntarenas Prov., Costa Rica"
+2,habitat,wet
+2,latitude,8.534018
+2,longitude,-83.508334
+2,date,29/02/1968
+2,directed,TRUE

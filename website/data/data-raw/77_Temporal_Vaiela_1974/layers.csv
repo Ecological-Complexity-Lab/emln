@@ -1,0 +1,11 @@
+layer,attribute,value
+1,type,time
+1,description,The insect community of cattle dung after one day
+1,location,"Ithaca, New York"
+1,date,27/05/1966
+1,directed,TRUE
+2,type,time
+2,description,The insect community of cattle dung after 5 days
+2,location,"Ithaca, New York"
+2,date,27/05/1966
+2,directed,TRUE

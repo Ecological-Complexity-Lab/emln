@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,time
+1,description,Food web structure of a pelagic community
+1,location,"Tuesday Lake, Michigan, USA"
+1,latitude,46.25131
+1,longitude,-89.4974112
+1,date,01/01/1984
+1,directed,TRUE
+2,type,time
+2,description,Food web structure of a pelagic community
+2,location,"Tuesday Lake, Michigan, USA"
+2,latitude,46.25131
+2,longitude,-89.4974112
+2,date,01/01/1986
+2,directed,TRUE

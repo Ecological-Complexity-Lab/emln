@@ -1,0 +1,10 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Spatial
+description,To what extent and in what ways the the feeding ecology differs among the various Trinidad bird species.
+source,Web_of_Life
+source,Interaction_Web_DataBase
+data_url,http://www.ecologia.ib.usp.br/iwdb/html/snow_snow_1971.htm
+data_url,http://www.web-of-life.es/map.php?type=6
+ecological_network_type,Pollination
+state_nodes,TRUE

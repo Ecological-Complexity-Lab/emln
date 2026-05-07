@@ -1,0 +1,2598 @@
+interaction_id,attribute,value
+1,node_from,Entomobrya_ligate
+1,layer_from,1
+1,node_to,fungi
+1,layer_to,1
+1,weight,1
+1,type,herbivory
+1,method,field observation/experiment
+2,node_from,Lepidocyrtus_cyaneus
+2,layer_from,1
+2,node_to,fungi
+2,layer_to,1
+2,weight,1
+2,type,herbivory
+2,method,field observation/experiment
+3,node_from,Isotoma_sensibilis
+3,layer_from,1
+3,node_to,fungi
+3,layer_to,1
+3,weight,1
+3,type,herbivory
+3,method,field observation/experiment
+4,node_from,Pseudistoma_sensibilis
+4,layer_from,1
+4,node_to,fungi
+4,layer_to,1
+4,weight,1
+4,type,herbivory
+4,method,field observation/experiment
+5,node_from,Parcoblatta_sp.
+5,layer_from,1
+5,node_to,fungi
+5,layer_to,1
+5,weight,1
+5,type,herbivory
+5,method,field observation/experiment
+6,node_from,Tachyta_nana
+6,layer_from,1
+6,node_to,Entomobrya_ligate
+6,layer_to,1
+6,weight,1
+6,type,predation
+6,method,field observation/experiment
+7,node_from,Tachyta_nana
+7,layer_from,1
+7,node_to,Lepidocyrtus_cyaneus
+7,layer_to,1
+7,weight,1
+7,type,predation
+7,method,field observation/experiment
+8,node_from,Tachyta_nana
+8,layer_from,1
+8,node_to,Isotoma_sensibilis
+8,layer_to,1
+8,weight,1
+8,type,predation
+8,method,field observation/experiment
+9,node_from,Tachyta_nana
+9,layer_from,1
+9,node_to,Pseudistoma_sensibilis
+9,layer_to,1
+9,weight,1
+9,type,predation
+9,method,field observation/experiment
+10,node_from,Tachyta_nana
+10,layer_from,1
+10,node_to,Uropoda_sp.
+10,layer_to,1
+10,weight,1
+10,type,predation
+10,method,field observation/experiment
+11,node_from,Tachyta_nana
+11,layer_from,1
+11,node_to,Discopoma_sp.
+11,layer_to,1
+11,weight,1
+11,type,predation
+11,method,field observation/experiment
+12,node_from,Tachyta_nana
+12,layer_from,1
+12,node_to,Pergamasus_sp.
+12,layer_to,1
+12,weight,1
+12,type,predation
+12,method,field observation/experiment
+13,node_from,Tachyta_nana
+13,layer_from,1
+13,node_to,Megisthanus_sp.
+13,layer_to,1
+13,weight,1
+13,type,predation
+13,method,field observation/experiment
+14,node_from,Tachyta_nana
+14,layer_from,1
+14,node_to,Dendrolaelops_sp.
+14,layer_to,1
+14,weight,1
+14,type,predation
+14,method,field observation/experiment
+15,node_from,Canosoma_crassus
+15,layer_from,1
+15,node_to,fungi
+15,layer_to,1
+15,weight,1
+15,type,herbivory
+15,method,field observation/experiment
+16,node_from,Thoracophorus_costalis
+16,layer_from,1
+16,node_to,fungi
+16,layer_to,1
+16,weight,1
+16,type,herbivory
+16,method,field observation/experiment
+17,node_from,Acritus_exiguus
+17,layer_from,1
+17,node_to,fungi
+17,layer_to,1
+17,weight,1
+17,type,herbivory
+17,method,field observation/experiment
+18,node_from,Chariessa_pilosa
+18,layer_from,1
+18,node_to,Lepidocyrtus_cyaneus
+18,layer_to,1
+18,weight,1
+18,type,predation
+18,method,field observation/experiment
+19,node_from,Chariessa_pilosa
+19,layer_from,1
+19,node_to,Pseudistoma_sensibilis
+19,layer_to,1
+19,weight,1
+19,type,predation
+19,method,field observation/experiment
+20,node_from,Chariessa_pilosa
+20,layer_from,1
+20,node_to,Silvanus_embellis
+20,layer_to,1
+20,weight,1
+20,type,predation
+20,method,field observation/experiment
+21,node_from,Chariessa_pilosa
+21,layer_from,1
+21,node_to,S._planatus
+21,layer_to,1
+21,weight,1
+21,type,predation
+21,method,field observation/experiment
+22,node_from,Chariessa_pilosa
+22,layer_from,1
+22,node_to,Brontes_dubius_larvae
+22,layer_to,1
+22,weight,1
+22,type,predation
+22,method,field observation/experiment
+23,node_from,Chariessa_pilosa
+23,layer_from,1
+23,node_to,Megaselia_sp._larvae
+23,layer_to,1
+23,weight,1
+23,type,predation
+23,method,field observation/experiment
+24,node_from,Chariessa_pilosa
+24,layer_from,1
+24,node_to,Lonchaea_sp._larvae
+24,layer_to,1
+24,weight,1
+24,type,predation
+24,method,field observation/experiment
+25,node_from,Chariessa_pilosa
+25,layer_from,1
+25,node_to,tachinid_larvae
+25,layer_to,1
+25,weight,1
+25,type,predation
+25,method,field observation/experiment
+26,node_from,Alaus_oculatus_larvae
+26,layer_from,1
+26,node_to,Romaleum_atomarium_larvae
+26,layer_to,1
+26,weight,1
+26,type,predation
+26,method,field observation/experiment
+27,node_from,Melanopus_sp._larvae
+27,layer_from,1
+27,node_to,fungi
+27,layer_to,1
+27,weight,1
+27,type,herbivory
+27,method,field observation/experiment
+28,node_from,Chrysobothris_femorata_larvae
+28,layer_from,1
+28,node_to,phloem_(Quercus_spp.)
+28,layer_to,1
+28,weight,1
+28,type,herbivory
+28,method,field observation/experiment
+29,node_from,Agrilus_sp._larvae
+29,layer_from,1
+29,node_to,phloem_(Quercus_spp.)
+29,layer_to,1
+29,weight,1
+29,type,herbivory
+29,method,field observation/experiment
+30,node_from,Silvanus_embellis
+30,layer_from,1
+30,node_to,fungi
+30,layer_to,1
+30,weight,1
+30,type,herbivory
+30,method,field observation/experiment
+31,node_from,S._planatus
+31,layer_from,1
+31,node_to,fungi
+31,layer_to,1
+31,weight,1
+31,type,herbivory
+31,method,field observation/experiment
+32,node_from,Brontes_dubius_larvae
+32,layer_from,1
+32,node_to,fungi
+32,layer_to,1
+32,weight,1
+32,type,herbivory
+32,method,field observation/experiment
+33,node_from,Megalodacne_fasciata
+33,layer_from,1
+33,node_to,fungi
+33,layer_to,1
+33,weight,1
+33,type,herbivory
+33,method,field observation/experiment
+34,node_from,Xylotrechus_colonus_larvae
+34,layer_from,1
+34,node_to,phloem_(Quercus_spp.)
+34,layer_to,1
+34,weight,1
+34,type,herbivory
+34,method,field observation/experiment
+35,node_from,Romaleum_atomarium_larvae
+35,layer_from,1
+35,node_to,phloem_(Quercus_spp.)
+35,layer_to,1
+35,weight,1
+35,type,herbivory
+35,method,field observation/experiment
+36,node_from,Neoclytus_scutellaris_larvae
+36,layer_from,1
+36,node_to,phloem_(Quercus_spp.)
+36,layer_to,1
+36,weight,1
+36,type,herbivory
+36,method,field observation/experiment
+37,node_from,Graphisurus_fasciatus_larvae
+37,layer_from,1
+37,node_to,phloem_(Quercus_spp.)
+37,layer_to,1
+37,weight,1
+37,type,herbivory
+37,method,field observation/experiment
+38,node_from,Orthotomicus_coelatus
+38,layer_from,1
+38,node_to,phloem_(Quercus_spp.)
+38,layer_to,1
+38,weight,1
+38,type,herbivory
+38,method,field observation/experiment
+39,node_from,Megaselia_sp._larvae
+39,layer_from,1
+39,node_to,Lonchaea_sp._larvae
+39,layer_to,1
+39,weight,1
+39,type,predation
+39,method,field observation/experiment
+40,node_from,Megaselia_sp._larvae
+40,layer_from,1
+40,node_to,tachinid_larvae
+40,layer_to,1
+40,weight,1
+40,type,predation
+40,method,field observation/experiment
+41,node_from,Lonchaea_sp._larvae
+41,layer_from,1
+41,node_to,fungi
+41,layer_to,1
+41,weight,1
+41,type,herbivory
+41,method,field observation/experiment
+42,node_from,tachinid_larvae
+42,layer_from,1
+42,node_to,Romaleum_atomarium_larvae
+42,layer_to,1
+42,weight,1
+42,type,host-parasite
+42,method,field observation/experiment
+43,node_from,Tremex_columba_larvae
+43,layer_from,1
+43,node_to,sapwood
+43,layer_to,1
+43,weight,1
+43,type,herbivory
+43,method,field observation/experiment
+44,node_from,Atanycolus_simplex
+44,layer_from,1
+44,node_to,Chrysobothris_femorata_larvae
+44,layer_to,1
+44,weight,1
+44,type,host-parasite
+44,method,field observation/experiment
+45,node_from,Sparhius_floridanus
+45,layer_from,1
+45,node_to,Chrysobothris_femorata_larvae
+45,layer_to,1
+45,weight,1
+45,type,host-parasite
+45,method,field observation/experiment
+46,node_from,Camponotus_herculeanus
+46,layer_from,1
+46,node_to,various_larvae_(unspecified)
+46,layer_to,1
+46,weight,1
+46,type,scavenger
+46,method,field observation/experiment
+47,node_from,Crematogaster_lineolata
+47,layer_from,1
+47,node_to,various_larvae_(unspecified)
+47,layer_to,1
+47,weight,1
+47,type,scavenger
+47,method,field observation/experiment
+48,node_from,Leptothorax_curvispinosus
+48,layer_from,1
+48,node_to,various_larvae_(unspecified)
+48,layer_to,1
+48,weight,1
+48,type,scavenger
+48,method,field observation/experiment
+49,node_from,Ponera_coarcta
+49,layer_from,1
+49,node_to,various_larvae_(unspecified)
+49,layer_to,1
+49,weight,1
+49,type,scavenger
+49,method,field observation/experiment
+50,node_from,Proceratium_croceum
+50,layer_from,1
+50,node_to,various_larvae_(unspecified)
+50,layer_to,1
+50,weight,1
+50,type,scavenger
+50,method,field observation/experiment
+51,node_from,Linotaenia_bidens
+51,layer_from,1
+51,node_to,various_larvae_(unspecified)
+51,layer_to,1
+51,weight,1
+51,type,predation
+51,method,field observation/experiment
+52,node_from,Geophilus_varians
+52,layer_from,1
+52,node_to,various_larvae_(unspecified)
+52,layer_to,1
+52,weight,1
+52,type,predation
+52,method,field observation/experiment
+53,node_from,Chthonius_spinosus
+53,layer_from,1
+53,node_to,various_larvae_(unspecified)
+53,layer_to,1
+53,weight,1
+53,type,predation
+53,method,field observation/experiment
+54,node_from,C._longipalpus
+54,layer_from,1
+54,node_to,various_larvae_(unspecified)
+54,layer_to,1
+54,weight,1
+54,type,predation
+54,method,field observation/experiment
+55,node_from,Uropoda_sp.
+55,layer_from,1
+55,node_to,fungi
+55,layer_to,1
+55,weight,1
+55,type,herbivory
+55,method,field observation/experiment
+56,node_from,Discopoma_sp.
+56,layer_from,1
+56,node_to,fungi
+56,layer_to,1
+56,weight,1
+56,type,herbivory
+56,method,field observation/experiment
+57,node_from,Pergamasus_sp.
+57,layer_from,1
+57,node_to,various_larvae_(unspecified)
+57,layer_to,1
+57,weight,1
+57,type,predation
+57,method,field observation/experiment
+58,node_from,Megisthanus_sp.
+58,layer_from,1
+58,node_to,various_larvae_(unspecified)
+58,layer_to,1
+58,weight,1
+58,type,predation
+58,method,field observation/experiment
+59,node_from,Dendrolaelops_sp.
+59,layer_from,1
+59,node_to,various_larvae_(unspecified)
+59,layer_to,1
+59,weight,1
+59,type,predation
+59,method,field observation/experiment
+60,node_from,fungi
+60,layer_from,1
+60,node_to,phloem_(Quercus_spp.)
+60,layer_to,1
+60,weight,1
+60,type,herbivory
+60,method,field observation/experiment
+61,node_from,fungi
+61,layer_from,1
+61,node_to,sapwood
+61,layer_to,1
+61,weight,1
+61,type,herbivory
+61,method,field observation/experiment
+62,node_from,Entomobrya_ligate
+62,layer_from,2
+62,node_to,rotting_wood
+62,layer_to,2
+62,weight,1
+62,type,herbivory
+62,method,field observation/experiment
+63,node_from,Entomobrya_ligate
+63,layer_from,2
+63,node_to,fungi_(red_rot)
+63,layer_to,2
+63,weight,1
+63,type,herbivory
+63,method,field observation/experiment
+64,node_from,Isotoma_sensibilis
+64,layer_from,2
+64,node_to,rotting_wood
+64,layer_to,2
+64,weight,1
+64,type,herbivory
+64,method,field observation/experiment
+65,node_from,Isotoma_sensibilis
+65,layer_from,2
+65,node_to,fungi_(red_rot)
+65,layer_to,2
+65,weight,1
+65,type,herbivory
+65,method,field observation/experiment
+66,node_from,Neosmithurus_clavatus
+66,layer_from,2
+66,node_to,fungi_(red_rot)
+66,layer_to,2
+66,weight,1
+66,type,herbivory
+66,method,field observation/experiment
+67,node_from,Reticulitermes_flavipes
+67,layer_from,2
+67,node_to,rotting_wood
+67,layer_to,2
+67,weight,1
+67,type,herbivory
+67,method,field observation/experiment
+68,node_from,Parcoblatta_sp.
+68,layer_from,2
+68,node_to,fungi_(red_rot)
+68,layer_to,2
+68,weight,1
+68,type,herbivory
+68,method,field observation/experiment
+69,node_from,Tachyta_nana
+69,layer_from,2
+69,node_to,Entomobrya_ligate
+69,layer_to,2
+69,weight,1
+69,type,predation
+69,method,field observation/experiment
+70,node_from,Tachyta_nana
+70,layer_from,2
+70,node_to,Isotoma_sensibilis
+70,layer_to,2
+70,weight,1
+70,type,predation
+70,method,field observation/experiment
+71,node_from,Tachyta_nana
+71,layer_from,2
+71,node_to,Neosmithurus_clavatus
+71,layer_to,2
+71,weight,1
+71,type,predation
+71,method,field observation/experiment
+72,node_from,Tachyta_nana
+72,layer_from,2
+72,node_to,Podothrombium_sp.
+72,layer_to,2
+72,weight,1
+72,type,predation
+72,method,field observation/experiment
+73,node_from,Tachyta_nana
+73,layer_from,2
+73,node_to,Allothrombium_pulvinus
+73,layer_to,2
+73,weight,1
+73,type,predation
+73,method,field observation/experiment
+74,node_from,Tachyta_nana
+74,layer_from,2
+74,node_to,Zetes_sp.
+74,layer_to,2
+74,weight,1
+74,type,predation
+74,method,field observation/experiment
+75,node_from,Tachyta_nana
+75,layer_from,2
+75,node_to,Schelorabates_sp.
+75,layer_to,2
+75,weight,1
+75,type,predation
+75,method,field observation/experiment
+76,node_from,Tachyta_nana
+76,layer_from,2
+76,node_to,Pergamasus_sp.
+76,layer_to,2
+76,weight,1
+76,type,predation
+76,method,field observation/experiment
+77,node_from,Tachyta_nana
+77,layer_from,2
+77,node_to,Megisthanus_sp.
+77,layer_to,2
+77,weight,1
+77,type,predation
+77,method,field observation/experiment
+78,node_from,Canosoma_crassus
+78,layer_from,2
+78,node_to,fungi_(red_rot)
+78,layer_to,2
+78,weight,1
+78,type,herbivory
+78,method,field observation/experiment
+79,node_from,Staphylinus_violacens
+79,layer_from,2
+79,node_to,various_larvae
+79,layer_to,2
+79,weight,1
+79,type,predation
+79,method,field observation/experiment
+80,node_from,Coproporus_ventriculus
+80,layer_from,2
+80,node_to,fungi_(red_rot)
+80,layer_to,2
+80,weight,1
+80,type,herbivory
+80,method,field observation/experiment
+81,node_from,Trachysectus_confluentus
+81,layer_from,2
+81,node_to,fungi_(red_rot)
+81,layer_to,2
+81,weight,1
+81,type,herbivory
+81,method,field observation/experiment
+82,node_from,Actium_sp.
+82,layer_from,2
+82,node_to,Podothrombium_sp.
+82,layer_to,2
+82,weight,1
+82,type,predation
+82,method,field observation/experiment
+83,node_from,Actium_sp.
+83,layer_from,2
+83,node_to,Allothrombium_pulvinus
+83,layer_to,2
+83,weight,1
+83,type,predation
+83,method,field observation/experiment
+84,node_from,Actium_sp.
+84,layer_from,2
+84,node_to,Zetes_sp.
+84,layer_to,2
+84,weight,1
+84,type,predation
+84,method,field observation/experiment
+85,node_from,Actium_sp.
+85,layer_from,2
+85,node_to,Schelorabates_sp.
+85,layer_to,2
+85,weight,1
+85,type,predation
+85,method,field observation/experiment
+86,node_from,Actium_sp.
+86,layer_from,2
+86,node_to,Pergamasus_sp.
+86,layer_to,2
+86,weight,1
+86,type,predation
+86,method,field observation/experiment
+87,node_from,Actium_sp.
+87,layer_from,2
+87,node_to,Megisthanus_sp.
+87,layer_to,2
+87,weight,1
+87,type,predation
+87,method,field observation/experiment
+88,node_from,Epierus_regularis
+88,layer_from,2
+88,node_to,fungi_(red_rot)
+88,layer_to,2
+88,weight,1
+88,type,herbivory
+88,method,field observation/experiment
+89,node_from,Epierus_sp.
+89,layer_from,2
+89,node_to,fungi_(red_rot)
+89,layer_to,2
+89,weight,1
+89,type,herbivory
+89,method,field observation/experiment
+90,node_from,Platysoma_lecontei
+90,layer_from,2
+90,node_to,mycetophilid_larvae_(undet.)
+90,layer_to,2
+90,weight,1
+90,type,predation
+90,method,field observation/experiment
+91,node_from,Platysoma_lecontei
+91,layer_from,2
+91,node_to,cecidomyid_larvae_(undet.)
+91,layer_to,2
+91,weight,1
+91,type,predation
+91,method,field observation/experiment
+92,node_from,Platysoma_lecontei
+92,layer_from,2
+92,node_to,dolicopodid_larvae_(undet.)
+92,layer_to,2
+92,weight,1
+92,type,predation
+92,method,field observation/experiment
+93,node_from,Dendroides_bicolor_larvae
+93,layer_from,2
+93,node_to,rotting_wood
+93,layer_to,2
+93,weight,1
+93,type,herbivory
+93,method,field observation/experiment
+94,node_from,Dendroides_bicolor_larvae
+94,layer_from,2
+94,node_to,fungi_(red_rot)
+94,layer_to,2
+94,weight,1
+94,type,herbivory
+94,method,field observation/experiment
+95,node_from,Elater_nigricollis_larvae
+95,layer_from,2
+95,node_to,rotting_wood
+95,layer_to,2
+95,weight,1
+95,type,herbivory
+95,method,field observation/experiment
+96,node_from,Orthostethus_infuscatus_larvae
+96,layer_from,2
+96,node_to,rotting_wood
+96,layer_to,2
+96,weight,1
+96,type,herbivory
+96,method,field observation/experiment
+97,node_from,Deltometopus_amoenicornis_larvae
+97,layer_from,2
+97,node_to,rotting_wood
+97,layer_to,2
+97,weight,1
+97,type,herbivory
+97,method,field observation/experiment
+98,node_from,Alaus_oculatus_larvae
+98,layer_from,2
+98,node_to,Pseudolucanus_capreole_larvae
+98,layer_to,2
+98,weight,1
+98,type,predation
+98,method,field observation/experiment
+99,node_from,Alaus_oculatus_larvae
+99,layer_from,2
+99,node_to,Polymoecus_brevipes_larvae
+99,layer_to,2
+99,weight,1
+99,type,predation
+99,method,field observation/experiment
+100,node_from,Alaus_oculatus_larvae
+100,layer_from,2
+100,node_to,Derobrachus_brunneus_larvae
+100,layer_to,2
+100,weight,1
+100,type,predation
+100,method,field observation/experiment
+101,node_from,Elaterinae_larvae_(undet.)
+101,layer_from,2
+101,node_to,rotting_wood
+101,layer_to,2
+101,weight,1
+101,type,herbivory
+101,method,field observation/experiment
+102,node_from,Rhysodes_americanus
+102,layer_from,2
+102,node_to,rotting_wood
+102,layer_to,2
+102,weight,1
+102,type,herbivory
+102,method,field observation/experiment
+103,node_from,Brontes_dubius_larvae
+103,layer_from,2
+103,node_to,fungi_(red_rot)
+103,layer_to,2
+103,weight,1
+103,type,herbivory
+103,method,field observation/experiment
+104,node_from,Megalodacne_fasciata
+104,layer_from,2
+104,node_to,fungi_(red_rot)
+104,layer_to,2
+104,weight,1
+104,type,herbivory
+104,method,field observation/experiment
+105,node_from,Triplax_thoracica
+105,layer_from,2
+105,node_to,fungi_(red_rot)
+105,layer_to,2
+105,weight,1
+105,type,herbivory
+105,method,field observation/experiment
+106,node_from,mycetyphagid_(undet.)
+106,layer_from,2
+106,node_to,fungi_(red_rot)
+106,layer_to,2
+106,weight,1
+106,type,herbivory
+106,method,field observation/experiment
+107,node_from,Hymenorus_sp.
+107,layer_from,2
+107,node_to,rotting_wood
+107,layer_to,2
+107,weight,1
+107,type,herbivory
+107,method,field observation/experiment
+108,node_from,Platydema_subcostatum
+108,layer_from,2
+108,node_to,fungi_(red_rot)
+108,layer_to,2
+108,weight,1
+108,type,herbivory
+108,method,field observation/experiment
+109,node_from,P._ruficorne
+109,layer_from,2
+109,node_to,fungi_(red_rot)
+109,layer_to,2
+109,weight,1
+109,type,herbivory
+109,method,field observation/experiment
+110,node_from,P._ruficolle
+110,layer_from,2
+110,node_to,fungi_(red_rot)
+110,layer_to,2
+110,weight,1
+110,type,herbivory
+110,method,field observation/experiment
+111,node_from,Uloma_imberbis
+111,layer_from,2
+111,node_to,rotting_wood
+111,layer_to,2
+111,weight,1
+111,type,herbivory
+111,method,field observation/experiment
+112,node_from,Dioedus_punctatus
+112,layer_from,2
+112,node_to,rotting_wood
+112,layer_to,2
+112,weight,1
+112,type,herbivory
+112,method,field observation/experiment
+113,node_from,Scotobates_carcaratus_larvae
+113,layer_from,2
+113,node_to,rotting_wood
+113,layer_to,2
+113,weight,1
+113,type,herbivory
+113,method,field observation/experiment
+114,node_from,Xylopinus_saperdoides
+114,layer_from,2
+114,node_to,rotting_wood
+114,layer_to,2
+114,weight,1
+114,type,herbivory
+114,method,field observation/experiment
+115,node_from,Alobates_pennsylvanicus_larvae
+115,layer_from,2
+115,node_to,rotting_wood
+115,layer_to,2
+115,weight,1
+115,type,herbivory
+115,method,field observation/experiment
+116,node_from,Meracantha_contracta_larvae
+116,layer_from,2
+116,node_to,rotting_wood
+116,layer_to,2
+116,weight,1
+116,type,herbivory
+116,method,field observation/experiment
+117,node_from,Strongylium_crenatum_larvae
+117,layer_from,2
+117,node_to,rotting_wood
+117,layer_to,2
+117,weight,1
+117,type,herbivory
+117,method,field observation/experiment
+118,node_from,Synchroa_punctata_larvae
+118,layer_from,2
+118,node_to,rotting_wood
+118,layer_to,2
+118,weight,1
+118,type,herbivory
+118,method,field observation/experiment
+119,node_from,Synchroa_punctata_larvae
+119,layer_from,2
+119,node_to,fungi_(red_rot)
+119,layer_to,2
+119,weight,1
+119,type,herbivory
+119,method,field observation/experiment
+120,node_from,Pseudolucanus_capreole_larvae
+120,layer_from,2
+120,node_to,rotting_wood
+120,layer_to,2
+120,weight,1
+120,type,herbivory
+120,method,field observation/experiment
+121,node_from,Platycerus_quercus
+121,layer_from,2
+121,node_to,rotting_wood
+121,layer_to,2
+121,weight,1
+121,type,herbivory
+121,method,field observation/experiment
+122,node_from,Ceruchus_piceus
+122,layer_from,2
+122,node_to,rotting_wood
+122,layer_to,2
+122,weight,1
+122,type,herbivory
+122,method,field observation/experiment
+123,node_from,Dorcus_(brevis?)
+123,layer_from,2
+123,node_to,rotting_wood
+123,layer_to,2
+123,weight,1
+123,type,herbivory
+123,method,field observation/experiment
+124,node_from,Polymoecus_brevipes_larvae
+124,layer_from,2
+124,node_to,rotting_wood
+124,layer_to,2
+124,weight,1
+124,type,herbivory
+124,method,field observation/experiment
+125,node_from,Cloetus_globosus
+125,layer_from,2
+125,node_to,rotting_wood
+125,layer_to,2
+125,weight,1
+125,type,herbivory
+125,method,field observation/experiment
+126,node_from,Trichiotinus_bidens_larvae
+126,layer_from,2
+126,node_to,rotting_wood
+126,layer_to,2
+126,weight,1
+126,type,herbivory
+126,method,field observation/experiment
+127,node_from,Phileurus_valgus_larvae
+127,layer_from,2
+127,node_to,rotting_wood
+127,layer_to,2
+127,weight,1
+127,type,herbivory
+127,method,field observation/experiment
+128,node_from,Passalus_cornutus
+128,layer_from,2
+128,node_to,rotting_wood
+128,layer_to,2
+128,weight,1
+128,type,herbivory
+128,method,field observation/experiment
+129,node_from,Derobrachus_brunneus_larvae
+129,layer_from,2
+129,node_to,rotting_wood
+129,layer_to,2
+129,weight,1
+129,type,herbivory
+129,method,field observation/experiment
+130,node_from,Leptura_proxima_larvae
+130,layer_from,2
+130,node_to,rotting_wood
+130,layer_to,2
+130,weight,1
+130,type,herbivory
+130,method,field observation/experiment
+131,node_from,Eupsalis_minuta
+131,layer_from,2
+131,node_to,rotting_wood
+131,layer_to,2
+131,weight,1
+131,type,herbivory
+131,method,field observation/experiment
+132,node_from,Scolecocampa_liburna_larvae
+132,layer_from,2
+132,node_to,rotting_wood
+132,layer_to,2
+132,weight,1
+132,type,herbivory
+132,method,field observation/experiment
+133,node_from,mycetophilid_larvae_(undet.)
+133,layer_from,2
+133,node_to,fungi_(red_rot)
+133,layer_to,2
+133,weight,1
+133,type,herbivory
+133,method,field observation/experiment
+134,node_from,cecidomyid_larvae_(undet.)
+134,layer_from,2
+134,node_to,microorganisms
+134,layer_to,2
+134,weight,1
+134,type,predation
+134,method,field observation/experiment
+135,node_from,dolicopodid_larvae_(undet.)
+135,layer_from,2
+135,node_to,microorganisms
+135,layer_to,2
+135,weight,1
+135,type,predation
+135,method,field observation/experiment
+136,node_from,Augochlora_pura
+136,layer_from,2
+136,node_to,pollen_(undet.)
+136,layer_to,2
+136,weight,1
+136,type,herbivory
+136,method,field observation/experiment
+137,node_from,Camponotus_herculeanus
+137,layer_from,2
+137,node_to,various_larvae
+137,layer_to,2
+137,weight,1
+137,type,scavenger
+137,method,field observation/experiment
+138,node_from,Crematogaster_lineolata
+138,layer_from,2
+138,node_to,various_larvae
+138,layer_to,2
+138,weight,1
+138,type,scavenger
+138,method,field observation/experiment
+139,node_from,Leptothorax_curvispinosus
+139,layer_from,2
+139,node_to,various_larvae
+139,layer_to,2
+139,weight,1
+139,type,scavenger
+139,method,field observation/experiment
+140,node_from,Ponera_coarcta
+140,layer_from,2
+140,node_to,various_larvae
+140,layer_to,2
+140,weight,1
+140,type,scavenger
+140,method,field observation/experiment
+141,node_from,Proceratium_croceum
+141,layer_from,2
+141,node_to,various_larvae
+141,layer_to,2
+141,weight,1
+141,type,scavenger
+141,method,field observation/experiment
+142,node_from,Pheidole_sp.
+142,layer_from,2
+142,node_to,various_larvae
+142,layer_to,2
+142,weight,1
+142,type,scavenger
+142,method,field observation/experiment
+143,node_from,lumbricid_(undet.)
+143,layer_from,2
+143,node_to,rotting_wood
+143,layer_to,2
+143,weight,1
+143,type,herbivory
+143,method,field observation/experiment
+144,node_from,Strobilops_aena
+144,layer_from,2
+144,node_to,rotting_wood
+144,layer_to,2
+144,weight,1
+144,type,herbivory
+144,method,field observation/experiment
+145,node_from,Strobilops_aena
+145,layer_from,2
+145,node_to,fungi_(red_rot)
+145,layer_to,2
+145,weight,1
+145,type,herbivory
+145,method,field observation/experiment
+146,node_from,Polygyra_fallax
+146,layer_from,2
+146,node_to,rotting_wood
+146,layer_to,2
+146,weight,1
+146,type,herbivory
+146,method,field observation/experiment
+147,node_from,Polygyra_fallax
+147,layer_from,2
+147,node_to,fungi_(red_rot)
+147,layer_to,2
+147,weight,1
+147,type,herbivory
+147,method,field observation/experiment
+148,node_from,P._tridentata
+148,layer_from,2
+148,node_to,rotting_wood
+148,layer_to,2
+148,weight,1
+148,type,herbivory
+148,method,field observation/experiment
+149,node_from,P._tridentata
+149,layer_from,2
+149,node_to,fungi_(red_rot)
+149,layer_to,2
+149,weight,1
+149,type,herbivory
+149,method,field observation/experiment
+150,node_from,P._thyroideus
+150,layer_from,2
+150,node_to,rotting_wood
+150,layer_to,2
+150,weight,1
+150,type,herbivory
+150,method,field observation/experiment
+151,node_from,P._thyroideus
+151,layer_from,2
+151,node_to,fungi_(red_rot)
+151,layer_to,2
+151,weight,1
+151,type,herbivory
+151,method,field observation/experiment
+152,node_from,Zonitoides_arboreus
+152,layer_from,2
+152,node_to,rotting_wood
+152,layer_to,2
+152,weight,1
+152,type,herbivory
+152,method,field observation/experiment
+153,node_from,Zonitoides_arboreus
+153,layer_from,2
+153,node_to,fungi_(red_rot)
+153,layer_to,2
+153,weight,1
+153,type,herbivory
+153,method,field observation/experiment
+154,node_from,Euconulus_chersinus
+154,layer_from,2
+154,node_to,rotting_wood
+154,layer_to,2
+154,weight,1
+154,type,herbivory
+154,method,field observation/experiment
+155,node_from,Euconulus_chersinus
+155,layer_from,2
+155,node_to,fungi_(red_rot)
+155,layer_to,2
+155,weight,1
+155,type,herbivory
+155,method,field observation/experiment
+156,node_from,Retinella_indentata
+156,layer_from,2
+156,node_to,rotting_wood
+156,layer_to,2
+156,weight,1
+156,type,herbivory
+156,method,field observation/experiment
+157,node_from,Retinella_indentata
+157,layer_from,2
+157,node_to,fungi_(red_rot)
+157,layer_to,2
+157,weight,1
+157,type,herbivory
+157,method,field observation/experiment
+158,node_from,Philomycus_carolinensis
+158,layer_from,2
+158,node_to,rotting_wood
+158,layer_to,2
+158,weight,1
+158,type,herbivory
+158,method,field observation/experiment
+159,node_from,Philomycus_carolinensis
+159,layer_from,2
+159,node_to,fungi_(red_rot)
+159,layer_to,2
+159,weight,1
+159,type,herbivory
+159,method,field observation/experiment
+160,node_from,Cambala_annulata
+160,layer_from,2
+160,node_to,rotting_wood
+160,layer_to,2
+160,weight,1
+160,type,herbivory
+160,method,field observation/experiment
+161,node_from,Fontaria_coriacea
+161,layer_from,2
+161,node_to,rotting_wood
+161,layer_to,2
+161,weight,1
+161,type,herbivory
+161,method,field observation/experiment
+162,node_from,Polydesmus_serratus
+162,layer_from,2
+162,node_to,rotting_wood
+162,layer_to,2
+162,weight,1
+162,type,herbivory
+162,method,field observation/experiment
+163,node_from,Spirostephon_lactarium
+163,layer_from,2
+163,node_to,rotting_wood
+163,layer_to,2
+163,weight,1
+163,type,herbivory
+163,method,field observation/experiment
+164,node_from,Scolopendra_viridis
+164,layer_from,2
+164,node_to,various_larvae
+164,layer_to,2
+164,weight,1
+164,type,predation
+164,method,field observation/experiment
+165,node_from,Cryptops_hyalina
+165,layer_from,2
+165,node_to,various_larvae
+165,layer_to,2
+165,weight,1
+165,type,predation
+165,method,field observation/experiment
+166,node_from,Otocryptops_sexspinosus
+166,layer_from,2
+166,node_to,various_larvae
+166,layer_to,2
+166,weight,1
+166,type,predation
+166,method,field observation/experiment
+167,node_from,Bothropolys_multidentatus
+167,layer_from,2
+167,node_to,various_larvae
+167,layer_to,2
+167,weight,1
+167,type,predation
+167,method,field observation/experiment
+168,node_from,Chelanops_dentatus
+168,layer_from,2
+168,node_to,various_larvae
+168,layer_to,2
+168,weight,1
+168,type,predation
+168,method,field observation/experiment
+169,node_from,Podothrombium_sp.
+169,layer_from,2
+169,node_to,various_larvae
+169,layer_to,2
+169,weight,1
+169,type,predation
+169,method,field observation/experiment
+170,node_from,Allothrombium_pulvinus
+170,layer_from,2
+170,node_to,various_larvae
+170,layer_to,2
+170,weight,1
+170,type,predation
+170,method,field observation/experiment
+171,node_from,Zetes_sp.
+171,layer_from,2
+171,node_to,fungi_(red_rot)
+171,layer_to,2
+171,weight,1
+171,type,herbivory
+171,method,field observation/experiment
+172,node_from,Schelorabates_sp.
+172,layer_from,2
+172,node_to,fungi_(red_rot)
+172,layer_to,2
+172,weight,1
+172,type,herbivory
+172,method,field observation/experiment
+173,node_from,Pergamasus_sp.
+173,layer_from,2
+173,node_to,various_larvae
+173,layer_to,2
+173,weight,1
+173,type,predation
+173,method,field observation/experiment
+174,node_from,Megisthanus_sp.
+174,layer_from,2
+174,node_to,various_larvae
+174,layer_to,2
+174,weight,1
+174,type,predation
+174,method,field observation/experiment
+175,node_from,fungi_(red_rot)
+175,layer_from,2
+175,node_to,rotting_wood
+175,layer_to,2
+175,weight,1
+175,type,herbivory
+175,method,field observation/experiment
+176,node_from,Temnochila_virescens
+176,layer_from,3
+176,node_to,Chrysobothris_sp._larvae
+176,layer_to,3
+176,weight,1
+176,type,predation
+176,method,field observation/experiment
+177,node_from,Temnochila_virescens
+177,layer_from,3
+177,node_to,Platypus_flavicornis
+177,layer_to,3
+177,weight,1
+177,type,predation
+177,method,field observation/experiment
+178,node_from,Temnochila_virescens
+178,layer_from,3
+178,node_to,Ips_grandicollis
+178,layer_to,3
+178,weight,1
+178,type,predation
+178,method,field observation/experiment
+179,node_from,Temnochila_virescens
+179,layer_from,3
+179,node_to,I._calligraphus
+179,layer_to,3
+179,weight,1
+179,type,predation
+179,method,field observation/experiment
+180,node_from,Temnochila_virescens
+180,layer_from,3
+180,node_to,Xyleborus_fitchi
+180,layer_to,3
+180,weight,1
+180,type,predation
+180,method,field observation/experiment
+181,node_from,Temnochila_virescens
+181,layer_from,3
+181,node_to,Orthotomicus_coelatus
+181,layer_to,3
+181,weight,1
+181,type,predation
+181,method,field observation/experiment
+182,node_from,Temnochila_virescens
+182,layer_from,3
+182,node_to,Pithyophthorus_annectens
+182,layer_to,3
+182,weight,1
+182,type,predation
+182,method,field observation/experiment
+183,node_from,Temnochila_virescens
+183,layer_from,3
+183,node_to,P._pullus
+183,layer_to,3
+183,weight,1
+183,type,predation
+183,method,field observation/experiment
+184,node_from,Temnochila_virescens
+184,layer_from,3
+184,node_to,Dendroctonus_valens
+184,layer_to,3
+184,weight,1
+184,type,predation
+184,method,field observation/experiment
+185,node_from,Temnochila_virescens
+185,layer_from,3
+185,node_to,D._tenebrans
+185,layer_to,3
+185,weight,1
+185,type,predation
+185,method,field observation/experiment
+186,node_from,Rhizophagus_cylindricus
+186,layer_from,3
+186,node_to,Callidium_antennatum_larvae
+186,layer_to,3
+186,weight,1
+186,type,predation
+186,method,field observation/experiment
+187,node_from,Rhizophagus_cylindricus
+187,layer_from,3
+187,node_to,Platypus_flavicornis
+187,layer_to,3
+187,weight,1
+187,type,predation
+187,method,field observation/experiment
+188,node_from,Rhizophagus_cylindricus
+188,layer_from,3
+188,node_to,Ips_grandicollis
+188,layer_to,3
+188,weight,1
+188,type,predation
+188,method,field observation/experiment
+189,node_from,Rhizophagus_cylindricus
+189,layer_from,3
+189,node_to,I._calligraphus
+189,layer_to,3
+189,weight,1
+189,type,predation
+189,method,field observation/experiment
+190,node_from,Rhizophagus_cylindricus
+190,layer_from,3
+190,node_to,Xyleborus_fitchi
+190,layer_to,3
+190,weight,1
+190,type,predation
+190,method,field observation/experiment
+191,node_from,Rhizophagus_cylindricus
+191,layer_from,3
+191,node_to,Orthotomicus_coelatus
+191,layer_to,3
+191,weight,1
+191,type,predation
+191,method,field observation/experiment
+192,node_from,Rhizophagus_cylindricus
+192,layer_from,3
+192,node_to,Pithyophthorus_annectens
+192,layer_to,3
+192,weight,1
+192,type,predation
+192,method,field observation/experiment
+193,node_from,Rhizophagus_cylindricus
+193,layer_from,3
+193,node_to,P._pullus
+193,layer_to,3
+193,weight,1
+193,type,predation
+193,method,field observation/experiment
+194,node_from,Rhizophagus_cylindricus
+194,layer_from,3
+194,node_to,Dendroctonus_valens
+194,layer_to,3
+194,weight,1
+194,type,predation
+194,method,field observation/experiment
+195,node_from,Rhizophagus_cylindricus
+195,layer_from,3
+195,node_to,D._tenebrans
+195,layer_to,3
+195,weight,1
+195,type,predation
+195,method,field observation/experiment
+196,node_from,Brontes_dubius
+196,layer_from,3
+196,node_to,fungi
+196,layer_to,3
+196,weight,1
+196,type,herbivory
+196,method,field observation/experiment
+197,node_from,Mycetophagus_pini
+197,layer_from,3
+197,node_to,fungi
+197,layer_to,3
+197,weight,1
+197,type,herbivory
+197,method,field observation/experiment
+198,node_from,Colopterus_semitectus
+198,layer_from,3
+198,node_to,fungi
+198,layer_to,3
+198,weight,1
+198,type,herbivory
+198,method,field observation/experiment
+199,node_from,Stelidota_geminata
+199,layer_from,3
+199,node_to,fungi
+199,layer_to,3
+199,weight,1
+199,type,herbivory
+199,method,field observation/experiment
+200,node_from,Bolitotherus_cornutus
+200,layer_from,3
+200,node_to,fungi
+200,layer_to,3
+200,weight,1
+200,type,herbivory
+200,method,field observation/experiment
+201,node_from,Platydema_flavipes
+201,layer_from,3
+201,node_to,fungi
+201,layer_to,3
+201,weight,1
+201,type,herbivory
+201,method,field observation/experiment
+202,node_from,Stephanopachys_rugosus_larvae
+202,layer_from,3
+202,node_to,sapwood
+202,layer_to,3
+202,weight,1
+202,type,herbivory
+202,method,field observation/experiment
+203,node_from,Asemum_moestum_larvae
+203,layer_from,3
+203,node_to,phloem_(Pinus_spp.)
+203,layer_to,3
+203,weight,1
+203,type,herbivory
+203,method,field observation/experiment
+204,node_from,Asemum_moestum_larvae
+204,layer_from,3
+204,node_to,sapwood
+204,layer_to,3
+204,weight,1
+204,type,herbivory
+204,method,field observation/experiment
+205,node_from,Rhagium_lineatum_larvae
+205,layer_from,3
+205,node_to,phloem_(Pinus_spp.)
+205,layer_to,3
+205,weight,1
+205,type,herbivory
+205,method,field observation/experiment
+206,node_from,Xylotrechus_sagittatus_larvae
+206,layer_from,3
+206,node_to,phloem_(Pinus_spp.)
+206,layer_to,3
+206,weight,1
+206,type,herbivory
+206,method,field observation/experiment
+207,node_from,Callidium_antennatum_larvae
+207,layer_from,3
+207,node_to,phloem_(Pinus_spp.)
+207,layer_to,3
+207,weight,1
+207,type,herbivory
+207,method,field observation/experiment
+208,node_from,Acanthocinus_obsoletus_larvae
+208,layer_from,3
+208,node_to,phloem_(Pinus_spp.)
+208,layer_to,3
+208,weight,1
+208,type,herbivory
+208,method,field observation/experiment
+209,node_from,A._nodosus_larvae
+209,layer_from,3
+209,node_to,phloem_(Pinus_spp.)
+209,layer_to,3
+209,weight,1
+209,type,herbivory
+209,method,field observation/experiment
+210,node_from,Eupogonius_tomentosus_larvae
+210,layer_from,3
+210,node_to,phloem_(Pinus_spp.)
+210,layer_to,3
+210,weight,1
+210,type,herbivory
+210,method,field observation/experiment
+211,node_from,Monochammus_titillator_larvae
+211,layer_from,3
+211,node_to,phloem_(Pinus_spp.)
+211,layer_to,3
+211,weight,1
+211,type,herbivory
+211,method,field observation/experiment
+212,node_from,Rhyncolus_sp.
+212,layer_from,3
+212,node_to,fungi
+212,layer_to,3
+212,weight,1
+212,type,herbivory
+212,method,field observation/experiment
+213,node_from,Cossonus_corticola
+213,layer_from,3
+213,node_to,fungi
+213,layer_to,3
+213,weight,1
+213,type,herbivory
+213,method,field observation/experiment
+214,node_from,Pissodes_memorensis_larvae
+214,layer_from,3
+214,node_to,phloem_(Pinus_spp.)
+214,layer_to,3
+214,weight,1
+214,type,herbivory
+214,method,field observation/experiment
+215,node_from,Pachylobins_picivorus_larvae
+215,layer_from,3
+215,node_to,phloem_(Pinus_spp.)
+215,layer_to,3
+215,weight,1
+215,type,herbivory
+215,method,field observation/experiment
+216,node_from,Hylobius_pales_larvae
+216,layer_from,3
+216,node_to,phloem_(Pinus_spp.)
+216,layer_to,3
+216,weight,1
+216,type,herbivory
+216,method,field observation/experiment
+217,node_from,Platypus_flavicornis
+217,layer_from,3
+217,node_to,fungi
+217,layer_to,3
+217,weight,1
+217,type,herbivory
+217,method,field observation/experiment
+218,node_from,Ips_grandicollis
+218,layer_from,3
+218,node_to,phloem_(Pinus_spp.)
+218,layer_to,3
+218,weight,1
+218,type,herbivory
+218,method,field observation/experiment
+219,node_from,I._calligraphus
+219,layer_from,3
+219,node_to,phloem_(Pinus_spp.)
+219,layer_to,3
+219,weight,1
+219,type,herbivory
+219,method,field observation/experiment
+220,node_from,Xyleborus_fitchi
+220,layer_from,3
+220,node_to,fungi
+220,layer_to,3
+220,weight,1
+220,type,herbivory
+220,method,field observation/experiment
+221,node_from,Orthotomicus_coelatus
+221,layer_from,3
+221,node_to,phloem_(Pinus_spp.)
+221,layer_to,3
+221,weight,1
+221,type,herbivory
+221,method,field observation/experiment
+222,node_from,Pithyophthorus_annectens
+222,layer_from,3
+222,node_to,phloem_(Pinus_spp.)
+222,layer_to,3
+222,weight,1
+222,type,herbivory
+222,method,field observation/experiment
+223,node_from,P._pullus
+223,layer_from,3
+223,node_to,phloem_(Pinus_spp.)
+223,layer_to,3
+223,weight,1
+223,type,herbivory
+223,method,field observation/experiment
+224,node_from,Dendroctonus_valens
+224,layer_from,3
+224,node_to,phloem_(Pinus_spp.)
+224,layer_to,3
+224,weight,1
+224,type,herbivory
+224,method,field observation/experiment
+225,node_from,D._tenebrans
+225,layer_from,3
+225,node_to,phloem_(Pinus_spp.)
+225,layer_to,3
+225,weight,1
+225,type,herbivory
+225,method,field observation/experiment
+226,node_from,Sciara_coprophila_larvae
+226,layer_from,3
+226,node_to,dead_cerambycid
+226,layer_to,3
+226,weight,1
+226,type,predation
+226,method,field observation/experiment
+227,node_from,Xylophagus_fasciatus_larvae
+227,layer_from,3
+227,node_to,Rhagium_lineatum_larvae
+227,layer_to,3
+227,weight,1
+227,type,predation
+227,method,field observation/experiment
+228,node_from,Lonchaea_sp._larvae
+228,layer_from,3
+228,node_to,fungi
+228,layer_to,3
+228,weight,1
+228,type,herbivory
+228,method,field observation/experiment
+229,node_from,Theresia_monohammi_larvae
+229,layer_from,3
+229,node_to,Monochammus_titillator_larvae
+229,layer_to,3
+229,weight,1
+229,type,host-parasite
+229,method,field observation/experiment
+230,node_from,Sarcophaga_sp._larvae
+230,layer_from,3
+230,node_to,Monochammus_titillator_larvae
+230,layer_to,3
+230,weight,1
+230,type,host-parasite
+230,method,field observation/experiment
+231,node_from,Sirex_nigricornia_larvae
+231,layer_from,3
+231,node_to,sapwood
+231,layer_to,3
+231,weight,1
+231,type,herbivory
+231,method,field observation/experiment
+232,node_from,Orussus_sp._larvae
+232,layer_from,3
+232,node_to,Chalcophora_sp._larvae
+232,layer_to,3
+232,weight,1
+232,type,host-parasite
+232,method,field observation/experiment
+233,node_from,Orussus_sp._larvae
+233,layer_from,3
+233,node_to,Chrysobothris_sp._larvae
+233,layer_to,3
+233,weight,1
+233,type,host-parasite
+233,method,field observation/experiment
+234,node_from,Coeloides_pissodis_larvae
+234,layer_from,3
+234,node_to,Pissodes_memorensis_larvae
+234,layer_to,3
+234,weight,1
+234,type,host-parasite
+234,method,field observation/experiment
+235,node_from,Camponotus_herculeanus
+235,layer_from,3
+235,node_to,various_larvae_(unsp.)
+235,layer_to,3
+235,weight,1
+235,type,scavenger
+235,method,field observation/experiment
+236,node_from,Leptinothorax_curvispinosus
+236,layer_from,3
+236,node_to,various_larvae_(unsp.)
+236,layer_to,3
+236,weight,1
+236,type,scavenger
+236,method,field observation/experiment
+237,node_from,Ponera_coarctata
+237,layer_from,3
+237,node_to,various_larvae_(unsp.)
+237,layer_to,3
+237,weight,1
+237,type,scavenger
+237,method,field observation/experiment
+238,node_from,Lasius_umbratus
+238,layer_from,3
+238,node_to,various_larvae_(unsp.)
+238,layer_to,3
+238,weight,1
+238,type,scavenger
+238,method,field observation/experiment
+239,node_from,uropodid_sp.
+239,layer_from,3
+239,node_to,fungi
+239,layer_to,3
+239,weight,1
+239,type,herbivory
+239,method,field observation/experiment
+240,node_from,Parasitus_sp
+240,layer_from,3
+240,node_to,various_larvae_(unsp.)
+240,layer_to,3
+240,weight,1
+240,type,predation
+240,method,field observation/experiment
+241,node_from,Dendrolaelaps_sp.
+241,layer_from,3
+241,node_to,various_larvae_(unsp.)
+241,layer_to,3
+241,weight,1
+241,type,predation
+241,method,field observation/experiment
+242,node_from,Pergamasus_sp.
+242,layer_from,3
+242,node_to,various_larvae_(unsp.)
+242,layer_to,3
+242,weight,1
+242,type,predation
+242,method,field observation/experiment
+243,node_from,Geophilus_varians
+243,layer_from,3
+243,node_to,various_larvae_(unsp.)
+243,layer_to,3
+243,weight,1
+243,type,predation
+243,method,field observation/experiment
+244,node_from,Linotaenia_bidens
+244,layer_from,3
+244,node_to,various_larvae_(unsp.)
+244,layer_to,3
+244,weight,1
+244,type,predation
+244,method,field observation/experiment
+245,node_from,Cryptops_hyalina
+245,layer_from,3
+245,node_to,various_larvae_(unsp.)
+245,layer_to,3
+245,weight,1
+245,type,predation
+245,method,field observation/experiment
+246,node_from,Bothropolys_multidentatus
+246,layer_from,3
+246,node_to,various_larvae_(unsp.)
+246,layer_to,3
+246,weight,1
+246,type,predation
+246,method,field observation/experiment
+247,node_from,Chelanops_oblongus
+247,layer_from,3
+247,node_to,various_larvae_(unsp.)
+247,layer_to,3
+247,weight,1
+247,type,predation
+247,method,field observation/experiment
+248,node_from,C._virginnae
+248,layer_from,3
+248,node_to,various_larvae_(unsp.)
+248,layer_to,3
+248,weight,1
+248,type,predation
+248,method,field observation/experiment
+249,node_from,Chelifer_cancroides
+249,layer_from,3
+249,node_to,various_larvae_(unsp.)
+249,layer_to,3
+249,weight,1
+249,type,predation
+249,method,field observation/experiment
+250,node_from,chironomid_larvae
+250,layer_from,3
+250,node_to,fungi
+250,layer_to,3
+250,weight,1
+250,type,herbivory
+250,method,field observation/experiment
+251,node_from,cecidomyid_larvae
+251,layer_from,3
+251,node_to,fungi
+251,layer_to,3
+251,weight,1
+251,type,herbivory
+251,method,field observation/experiment
+252,node_from,dolicopodid_larvae
+252,layer_from,3
+252,node_to,fungi
+252,layer_to,3
+252,weight,1
+252,type,herbivory
+252,method,field observation/experiment
+253,node_from,fungi
+253,layer_from,3
+253,node_to,phloem_(Pinus_spp.)
+253,layer_to,3
+253,weight,1
+253,type,herbivory
+253,method,field observation/experiment
+254,node_from,fungi
+254,layer_from,3
+254,node_to,sapwood
+254,layer_to,3
+254,weight,1
+254,type,herbivory
+254,method,field observation/experiment
+255,node_from,Boros_unicolor_larvae
+255,layer_from,3
+255,node_to,fungi
+255,layer_to,3
+255,weight,1
+255,type,herbivory
+255,method,field observation/experiment
+256,node_from,Entomobrya_corticola
+256,layer_from,3
+256,node_to,fungi
+256,layer_to,3
+256,weight,1
+256,type,herbivory
+256,method,field observation/experiment
+257,node_from,E._ligata
+257,layer_from,3
+257,node_to,fungi
+257,layer_to,3
+257,weight,1
+257,type,herbivory
+257,method,field observation/experiment
+258,node_from,Entomobrya_sp.
+258,layer_from,3
+258,node_to,fungi
+258,layer_to,3
+258,weight,1
+258,type,herbivory
+258,method,field observation/experiment
+259,node_from,Pseudachorutes_sp.
+259,layer_from,3
+259,node_to,fungi
+259,layer_to,3
+259,weight,1
+259,type,herbivory
+259,method,field observation/experiment
+260,node_from,Isotoma_sensibilis
+260,layer_from,3
+260,node_to,fungi
+260,layer_to,3
+260,weight,1
+260,type,herbivory
+260,method,field observation/experiment
+261,node_from,Tomocera_flavescens
+261,layer_from,3
+261,node_to,fungi
+261,layer_to,3
+261,weight,1
+261,type,herbivory
+261,method,field observation/experiment
+262,node_from,Parcoblatta_sp.
+262,layer_from,3
+262,node_to,fungi
+262,layer_to,3
+262,weight,1
+262,type,herbivory
+262,method,field observation/experiment
+263,node_from,heteropteran_(undet.)
+263,layer_from,3
+263,node_to,Ips_grandicollis
+263,layer_to,3
+263,weight,1
+263,type,predation
+263,method,field observation/experiment
+264,node_from,heteropteran_(undet.)
+264,layer_from,3
+264,node_to,I._calligraphus
+264,layer_to,3
+264,weight,1
+264,type,predation
+264,method,field observation/experiment
+265,node_from,heteropteran_(undet.)
+265,layer_from,3
+265,node_to,Xyleborus_fitchi
+265,layer_to,3
+265,weight,1
+265,type,predation
+265,method,field observation/experiment
+266,node_from,heteropteran_(undet.)
+266,layer_from,3
+266,node_to,Orthotomicus_coelatus
+266,layer_to,3
+266,weight,1
+266,type,predation
+266,method,field observation/experiment
+267,node_from,heteropteran_(undet.)
+267,layer_from,3
+267,node_to,Pithyophthorus_annectens
+267,layer_to,3
+267,weight,1
+267,type,predation
+267,method,field observation/experiment
+268,node_from,heteropteran_(undet.)
+268,layer_from,3
+268,node_to,P._pullus
+268,layer_to,3
+268,weight,1
+268,type,predation
+268,method,field observation/experiment
+269,node_from,heteropteran_(undet.)
+269,layer_from,3
+269,node_to,Dendroctonus_valens
+269,layer_to,3
+269,weight,1
+269,type,predation
+269,method,field observation/experiment
+270,node_from,heteropteran_(undet.)
+270,layer_from,3
+270,node_to,D._tenebrans
+270,layer_to,3
+270,weight,1
+270,type,predation
+270,method,field observation/experiment
+271,node_from,Epiptera_sp.
+271,layer_from,3
+271,node_to,fungi
+271,layer_to,3
+271,weight,1
+271,type,herbivory
+271,method,field observation/experiment
+272,node_from,Tachymenis_flavicauda
+272,layer_from,3
+272,node_to,Entomobrya_corticola
+272,layer_to,3
+272,weight,1
+272,type,predation
+272,method,field observation/experiment
+273,node_from,Tachymenis_flavicauda
+273,layer_from,3
+273,node_to,E._ligata
+273,layer_to,3
+273,weight,1
+273,type,predation
+273,method,field observation/experiment
+274,node_from,Tachymenis_flavicauda
+274,layer_from,3
+274,node_to,Entomobrya_sp.
+274,layer_to,3
+274,weight,1
+274,type,predation
+274,method,field observation/experiment
+275,node_from,Tachymenis_flavicauda
+275,layer_from,3
+275,node_to,Pseudachorutes_sp.
+275,layer_to,3
+275,weight,1
+275,type,predation
+275,method,field observation/experiment
+276,node_from,Xylotrechus_sagittatus_larvae
+276,layer_from,3
+276,node_to,phloem_(Pinus_spp.)
+276,layer_to,3
+276,weight,1
+276,type,herbivory
+276,method,field observation/experiment
+277,node_from,Callidium_antennatum_larvae
+277,layer_from,3
+277,node_to,phloem_(Pinus_spp.)
+277,layer_to,3
+277,weight,1
+277,type,herbivory
+277,method,field observation/experiment
+278,node_from,Acanthocinus_obsoletus_larvae
+278,layer_from,3
+278,node_to,phloem_(Pinus_spp.)
+278,layer_to,3
+278,weight,1
+278,type,herbivory
+278,method,field observation/experiment
+279,node_from,A._nodosus_larvae
+279,layer_from,3
+279,node_to,phloem_(Pinus_spp.)
+279,layer_to,3
+279,weight,1
+279,type,herbivory
+279,method,field observation/experiment
+280,node_from,Eupogonius_tomentosus_larvae
+280,layer_from,3
+280,node_to,phloem_(Pinus_spp.)
+280,layer_to,3
+280,weight,1
+280,type,herbivory
+280,method,field observation/experiment
+281,node_from,Monochammus_titillator_larvae
+281,layer_from,3
+281,node_to,phloem_(Pinus_spp.)
+281,layer_to,3
+281,weight,1
+281,type,herbivory
+281,method,field observation/experiment
+282,node_from,Rhyncolus_sp.
+282,layer_from,3
+282,node_to,fungi
+282,layer_to,3
+282,weight,1
+282,type,herbivory
+282,method,field observation/experiment
+283,node_from,Cossonus_corticola
+283,layer_from,3
+283,node_to,fungi
+283,layer_to,3
+283,weight,1
+283,type,herbivory
+283,method,field observation/experiment
+284,node_from,Pissodes_memorensis_larvae
+284,layer_from,3
+284,node_to,phloem_(Pinus_spp.)
+284,layer_to,3
+284,weight,1
+284,type,herbivory
+284,method,field observation/experiment
+285,node_from,Pachylobins_picivorus_larvae
+285,layer_from,3
+285,node_to,phloem_(Pinus_spp.)
+285,layer_to,3
+285,weight,1
+285,type,herbivory
+285,method,field observation/experiment
+286,node_from,Hylobius_pales_larvae
+286,layer_from,3
+286,node_to,phloem_(Pinus_spp.)
+286,layer_to,3
+286,weight,1
+286,type,herbivory
+286,method,field observation/experiment
+287,node_from,Platypus_flavicornis
+287,layer_from,3
+287,node_to,fungi
+287,layer_to,3
+287,weight,1
+287,type,herbivory
+287,method,field observation/experiment
+288,node_from,Ips_grandicollis
+288,layer_from,3
+288,node_to,phloem_(Pinus_spp.)
+288,layer_to,3
+288,weight,1
+288,type,herbivory
+288,method,field observation/experiment
+289,node_from,I._calligraphus
+289,layer_from,3
+289,node_to,phloem_(Pinus_spp.)
+289,layer_to,3
+289,weight,1
+289,type,herbivory
+289,method,field observation/experiment
+290,node_from,Xyleborus_fitchi
+290,layer_from,3
+290,node_to,fungi
+290,layer_to,3
+290,weight,1
+290,type,herbivory
+290,method,field observation/experiment
+291,node_from,Orthotomicus_coelatus
+291,layer_from,3
+291,node_to,phloem_(Pinus_spp.)
+291,layer_to,3
+291,weight,1
+291,type,herbivory
+291,method,field observation/experiment
+292,node_from,Pithyophthorus_annectens
+292,layer_from,3
+292,node_to,phloem_(Pinus_spp.)
+292,layer_to,3
+292,weight,1
+292,type,herbivory
+292,method,field observation/experiment
+293,node_from,P._pullus
+293,layer_from,3
+293,node_to,phloem_(Pinus_spp.)
+293,layer_to,3
+293,weight,1
+293,type,herbivory
+293,method,field observation/experiment
+294,node_from,Dendroctonus_valens
+294,layer_from,3
+294,node_to,phloem_(Pinus_spp.)
+294,layer_to,3
+294,weight,1
+294,type,herbivory
+294,method,field observation/experiment
+295,node_from,D._tenebrans
+295,layer_from,3
+295,node_to,phloem_(Pinus_spp.)
+295,layer_to,3
+295,weight,1
+295,type,herbivory
+295,method,field observation/experiment
+296,node_from,Sciara_coprophila_larvae
+296,layer_from,3
+296,node_to,dead_cerambycid
+296,layer_to,3
+296,weight,1
+296,type,predation
+296,method,field observation/experiment
+297,node_from,Xylophagus_fasciatus_larvae
+297,layer_from,3
+297,node_to,Rhagium_lineatum_larvae
+297,layer_to,3
+297,weight,1
+297,type,predation
+297,method,field observation/experiment
+298,node_from,Lonchaea_sp._larvae
+298,layer_from,3
+298,node_to,fungi
+298,layer_to,3
+298,weight,1
+298,type,herbivory
+298,method,field observation/experiment
+299,node_from,Theresia_monohammi_larvae
+299,layer_from,3
+299,node_to,Monochammus_titillator_larvae
+299,layer_to,3
+299,weight,1
+299,type,host-parasite
+299,method,field observation/experiment
+300,node_from,Sarcophaga_sp._larvae
+300,layer_from,3
+300,node_to,Monochammus_titillator_larvae
+300,layer_to,3
+300,weight,1
+300,type,host-parasite
+300,method,field observation/experiment
+301,node_from,Sirex_nigricornia_larvae
+301,layer_from,3
+301,node_to,sapwood
+301,layer_to,3
+301,weight,1
+301,type,herbivory
+301,method,field observation/experiment
+302,node_from,Orussus_sp._larvae
+302,layer_from,3
+302,node_to,Chalcophora_sp._larvae
+302,layer_to,3
+302,weight,1
+302,type,host-parasite
+302,method,field observation/experiment
+303,node_from,Orussus_sp._larvae
+303,layer_from,3
+303,node_to,Chrysobothris_sp._larvae
+303,layer_to,3
+303,weight,1
+303,type,host-parasite
+303,method,field observation/experiment
+304,node_from,Coeloides_pissodis_larvae
+304,layer_from,3
+304,node_to,Pissodes_memorensis_larvae
+304,layer_to,3
+304,weight,1
+304,type,host-parasite
+304,method,field observation/experiment
+305,node_from,Camponotus_herculeanus
+305,layer_from,3
+305,node_to,various_larvae_(unsp.)
+305,layer_to,3
+305,weight,1
+305,type,scavenger
+305,method,field observation/experiment
+306,node_from,Leptinothorax_curvispinosus
+306,layer_from,3
+306,node_to,various_larvae_(unsp.)
+306,layer_to,3
+306,weight,1
+306,type,scavenger
+306,method,field observation/experiment
+307,node_from,Ponera_coarctata
+307,layer_from,3
+307,node_to,various_larvae_(unsp.)
+307,layer_to,3
+307,weight,1
+307,type,scavenger
+307,method,field observation/experiment
+308,node_from,Lasius_umbratus
+308,layer_from,3
+308,node_to,various_larvae_(unsp.)
+308,layer_to,3
+308,weight,1
+308,type,scavenger
+308,method,field observation/experiment
+309,node_from,uropodid_sp.
+309,layer_from,3
+309,node_to,fungi
+309,layer_to,3
+309,weight,1
+309,type,herbivory
+309,method,field observation/experiment
+310,node_from,Parasitus_sp
+310,layer_from,3
+310,node_to,various_larvae_(unsp.)
+310,layer_to,3
+310,weight,1
+310,type,predation
+310,method,field observation/experiment
+311,node_from,Dendrolaelaps_sp.
+311,layer_from,3
+311,node_to,various_larvae_(unsp.)
+311,layer_to,3
+311,weight,1
+311,type,predation
+311,method,field observation/experiment
+312,node_from,Pergamasus_sp.
+312,layer_from,3
+312,node_to,various_larvae_(unsp.)
+312,layer_to,3
+312,weight,1
+312,type,predation
+312,method,field observation/experiment
+313,node_from,Geophilus_varians
+313,layer_from,3
+313,node_to,various_larvae_(unsp.)
+313,layer_to,3
+313,weight,1
+313,type,predation
+313,method,field observation/experiment
+314,node_from,Linotaenia_bidens
+314,layer_from,3
+314,node_to,various_larvae_(unsp.)
+314,layer_to,3
+314,weight,1
+314,type,predation
+314,method,field observation/experiment
+315,node_from,Cryptops_hyalina
+315,layer_from,3
+315,node_to,various_larvae_(unsp.)
+315,layer_to,3
+315,weight,1
+315,type,predation
+315,method,field observation/experiment
+316,node_from,Bothropolys_multidentatus
+316,layer_from,3
+316,node_to,various_larvae_(unsp.)
+316,layer_to,3
+316,weight,1
+316,type,predation
+316,method,field observation/experiment
+317,node_from,Chelanops_oblongus
+317,layer_from,3
+317,node_to,various_larvae_(unsp.)
+317,layer_to,3
+317,weight,1
+317,type,predation
+317,method,field observation/experiment
+318,node_from,C._virginnae
+318,layer_from,3
+318,node_to,various_larvae_(unsp.)
+318,layer_to,3
+318,weight,1
+318,type,predation
+318,method,field observation/experiment
+319,node_from,Chelifer_cancroides
+319,layer_from,3
+319,node_to,various_larvae_(unsp.)
+319,layer_to,3
+319,weight,1
+319,type,predation
+319,method,field observation/experiment
+320,node_from,chironomid_larvae
+320,layer_from,3
+320,node_to,fungi
+320,layer_to,3
+320,weight,1
+320,type,herbivory
+320,method,field observation/experiment
+321,node_from,cecidomyid_larvae
+321,layer_from,3
+321,node_to,fungi
+321,layer_to,3
+321,weight,1
+321,type,herbivory
+321,method,field observation/experiment
+322,node_from,dolicopodid_larvae
+322,layer_from,3
+322,node_to,fungi
+322,layer_to,3
+322,weight,1
+322,type,herbivory
+322,method,field observation/experiment
+323,node_from,fungi
+323,layer_from,3
+323,node_to,phloem_(Pinus_spp.)
+323,layer_to,3
+323,weight,1
+323,type,herbivory
+323,method,field observation/experiment
+324,node_from,fungi
+324,layer_from,3
+324,node_to,sapwood
+324,layer_to,3
+324,weight,1
+324,type,herbivory
+324,method,field observation/experiment
+325,node_from,Entomobrya_ligata
+325,layer_from,4
+325,node_to,rotting_wood_(Pinus_spp.)
+325,layer_to,4
+325,weight,1
+325,type,herbivory
+325,method,field observation/experiment
+326,node_from,Entomobrya_ligata
+326,layer_from,4
+326,node_to,fungi
+326,layer_to,4
+326,weight,1
+326,type,herbivory
+326,method,field observation/experiment
+327,node_from,E._corticola
+327,layer_from,4
+327,node_to,rotting_wood_(Pinus_spp.)
+327,layer_to,4
+327,weight,1
+327,type,herbivory
+327,method,field observation/experiment
+328,node_from,E._corticola
+328,layer_from,4
+328,node_to,fungi
+328,layer_to,4
+328,weight,1
+328,type,herbivory
+328,method,field observation/experiment
+329,node_from,Entomobrya_sp.
+329,layer_from,4
+329,node_to,rotting_wood_(Pinus_spp.)
+329,layer_to,4
+329,weight,1
+329,type,herbivory
+329,method,field observation/experiment
+330,node_from,Entomobrya_sp.
+330,layer_from,4
+330,node_to,fungi
+330,layer_to,4
+330,weight,1
+330,type,herbivory
+330,method,field observation/experiment
+331,node_from,Isotoma_sensibilis
+331,layer_from,4
+331,node_to,rotting_wood_(Pinus_spp.)
+331,layer_to,4
+331,weight,1
+331,type,herbivory
+331,method,field observation/experiment
+332,node_from,Isotoma_sensibilis
+332,layer_from,4
+332,node_to,fungi
+332,layer_to,4
+332,weight,1
+332,type,herbivory
+332,method,field observation/experiment
+333,node_from,Parcoblatta_sp.
+333,layer_from,4
+333,node_to,fungi
+333,layer_to,4
+333,weight,1
+333,type,herbivory
+333,method,field observation/experiment
+334,node_from,Tachymenis_flavicauda
+334,layer_from,4
+334,node_to,Entomobrya_ligata
+334,layer_to,4
+334,weight,1
+334,type,predation
+334,method,field observation/experiment
+335,node_from,Tachymenis_flavicauda
+335,layer_from,4
+335,node_to,E._corticola
+335,layer_to,4
+335,weight,1
+335,type,predation
+335,method,field observation/experiment
+336,node_from,Tachymenis_flavicauda
+336,layer_from,4
+336,node_to,Entomobrya_sp.
+336,layer_to,4
+336,weight,1
+336,type,predation
+336,method,field observation/experiment
+337,node_from,Tachymenis_flavicauda
+337,layer_from,4
+337,node_to,Isotoma_sensibilis
+337,layer_to,4
+337,weight,1
+337,type,predation
+337,method,field observation/experiment
+338,node_from,Platysoma_lecontei
+338,layer_from,4
+338,node_to,chironomid_larvae
+338,layer_to,4
+338,weight,1
+338,type,predation
+338,method,field observation/experiment
+339,node_from,Platysoma_lecontei
+339,layer_from,4
+339,node_to,cecidomyid_larvae
+339,layer_to,4
+339,weight,1
+339,type,predation
+339,method,field observation/experiment
+340,node_from,Platysoma_lecontei
+340,layer_from,4
+340,node_to,dolicopodid_larvae
+340,layer_to,4
+340,weight,1
+340,type,predation
+340,method,field observation/experiment
+341,node_from,Alaus_myops_larvae
+341,layer_from,4
+341,node_to,Derobrachus_brunneus_larvae
+341,layer_to,4
+341,weight,1
+341,type,predation
+341,method,field observation/experiment
+342,node_from,Alaus_myops_larvae
+342,layer_from,4
+342,node_to,Leptura_sp._larvae
+342,layer_to,4
+342,weight,1
+342,type,predation
+342,method,field observation/experiment
+343,node_from,Orthostethus_infuscatus_larvae
+343,layer_from,4
+343,node_to,rotting_wood_(Pinus_spp.)
+343,layer_to,4
+343,weight,1
+343,type,herbivory
+343,method,field observation/experiment
+344,node_from,Melanotus_sp._larvae
+344,layer_from,4
+344,node_to,rotting_wood_(Pinus_spp.)
+344,layer_to,4
+344,weight,1
+344,type,herbivory
+344,method,field observation/experiment
+345,node_from,Elater_verticinus
+345,layer_from,4
+345,node_to,rotting_wood_(Pinus_spp.)
+345,layer_to,4
+345,weight,1
+345,type,herbivory
+345,method,field observation/experiment
+346,node_from,Uloma_punctulata
+346,layer_from,4
+346,node_to,rotting_wood_(Pinus_spp.)
+346,layer_to,4
+346,weight,1
+346,type,herbivory
+346,method,field observation/experiment
+347,node_from,Xylopinus_rufipes_larvae
+347,layer_from,4
+347,node_to,rotting_wood_(Pinus_spp.)
+347,layer_to,4
+347,weight,1
+347,type,herbivory
+347,method,field observation/experiment
+348,node_from,Scotobates_calcaratus_larvae
+348,layer_from,4
+348,node_to,rotting_wood_(Pinus_spp.)
+348,layer_to,4
+348,weight,1
+348,type,herbivory
+348,method,field observation/experiment
+349,node_from,Passalus_cornutus
+349,layer_from,4
+349,node_to,rotting_wood_(Pinus_spp.)
+349,layer_to,4
+349,weight,1
+349,type,herbivory
+349,method,field observation/experiment
+350,node_from,Pseudolucanus_capreolus_larvae
+350,layer_from,4
+350,node_to,rotting_wood_(Pinus_spp.)
+350,layer_to,4
+350,weight,1
+350,type,herbivory
+350,method,field observation/experiment
+351,node_from,Derobrachus_brunneus_larvae
+351,layer_from,4
+351,node_to,rotting_wood_(Pinus_spp.)
+351,layer_to,4
+351,weight,1
+351,type,herbivory
+351,method,field observation/experiment
+352,node_from,Leptura_sp._larvae
+352,layer_from,4
+352,node_to,rotting_wood_(Pinus_spp.)
+352,layer_to,4
+352,weight,1
+352,type,herbivory
+352,method,field observation/experiment
+353,node_from,chironomid_larvae
+353,layer_from,4
+353,node_to,fungi
+353,layer_to,4
+353,weight,1
+353,type,herbivory
+353,method,field observation/experiment
+354,node_from,cecidomyid_larvae
+354,layer_from,4
+354,node_to,fungi
+354,layer_to,4
+354,weight,1
+354,type,herbivory
+354,method,field observation/experiment
+355,node_from,dolicopodid_larvae
+355,layer_from,4
+355,node_to,fungi
+355,layer_to,4
+355,weight,1
+355,type,herbivory
+355,method,field observation/experiment
+356,node_from,Leptinothorax_curvispinosus
+356,layer_from,4
+356,node_to,various_larvae_(unspecified)
+356,layer_to,4
+356,weight,1
+356,type,scavenger
+356,method,field observation/experiment
+357,node_from,Ponera_coarctata
+357,layer_from,4
+357,node_to,various_larvae_(unspecified)
+357,layer_to,4
+357,weight,1
+357,type,scavenger
+357,method,field observation/experiment
+358,node_from,lumbricid_(undet.)
+358,layer_from,4
+358,node_to,rotting_wood_(Pinus_spp.)
+358,layer_to,4
+358,weight,1
+358,type,herbivory
+358,method,field observation/experiment
+359,node_from,Polygyra_thyriodes
+359,layer_from,4
+359,node_to,rotting_wood_(Pinus_spp.)
+359,layer_to,4
+359,weight,1
+359,type,herbivory
+359,method,field observation/experiment
+360,node_from,Polygyra_thyriodes
+360,layer_from,4
+360,node_to,fungi
+360,layer_to,4
+360,weight,1
+360,type,herbivory
+360,method,field observation/experiment
+361,node_from,Zonitoides_arboreus
+361,layer_from,4
+361,node_to,rotting_wood_(Pinus_spp.)
+361,layer_to,4
+361,weight,1
+361,type,herbivory
+361,method,field observation/experiment
+362,node_from,Zonitoides_arboreus
+362,layer_from,4
+362,node_to,fungi
+362,layer_to,4
+362,weight,1
+362,type,herbivory
+362,method,field observation/experiment
+363,node_from,Philomycus_carolinensis
+363,layer_from,4
+363,node_to,rotting_wood_(Pinus_spp.)
+363,layer_to,4
+363,weight,1
+363,type,herbivory
+363,method,field observation/experiment
+364,node_from,Philomycus_carolinensis
+364,layer_from,4
+364,node_to,fungi
+364,layer_to,4
+364,weight,1
+364,type,herbivory
+364,method,field observation/experiment
+365,node_from,Cambala_annulata
+365,layer_from,4
+365,node_to,rotting_wood_(Pinus_spp.)
+365,layer_to,4
+365,weight,1
+365,type,herbivory
+365,method,field observation/experiment
+366,node_from,Fontaria_coriacen
+366,layer_from,4
+366,node_to,rotting_wood_(Pinus_spp.)
+366,layer_to,4
+366,weight,1
+366,type,herbivory
+366,method,field observation/experiment
+367,node_from,Polydesmus_serratus
+367,layer_from,4
+367,node_to,rotting_wood_(Pinus_spp.)
+367,layer_to,4
+367,weight,1
+367,type,herbivory
+367,method,field observation/experiment
+368,node_from,Geophilus_varians
+368,layer_from,4
+368,node_to,various_larvae_(unspecified)
+368,layer_to,4
+368,weight,1
+368,type,predation
+368,method,field observation/experiment
+369,node_from,Linotaenia_bidens
+369,layer_from,4
+369,node_to,various_larvae_(unspecified)
+369,layer_to,4
+369,weight,1
+369,type,predation
+369,method,field observation/experiment
+370,node_from,Uropoda_sp.
+370,layer_from,4
+370,node_to,fungi
+370,layer_to,4
+370,weight,1
+370,type,herbivory
+370,method,field observation/experiment
+371,node_from,fungi
+371,layer_from,4
+371,node_to,rotting_wood_(Pinus_spp.)
+371,layer_to,4
+371,weight,1
+371,type,herbivory
+371,method,field observation/experiment

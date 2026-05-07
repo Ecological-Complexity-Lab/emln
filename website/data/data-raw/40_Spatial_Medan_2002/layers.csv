@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,space
+1,location,"Laguna Diamante, Mendoza, Argentina"
+1,latitude,-34.166667
+1,longitude,-69.7
+1,num_of_species,66
+1,num_of_interactions,83
+1,connectance,0.088
+2,type,space
+2,location,"Rio Blanco, Mendoza, Argentina"
+2,latitude,-33
+2,longitude,-69.283333
+2,num_of_species,95
+2,num_of_interactions,125
+2,connectance,0.075

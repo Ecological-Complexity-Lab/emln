@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Example for EMLN analysis</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">The EMLN package website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="monolayer.html">Monolayer</a>
+</li>
+<li>
+  <a href="multilayer.html">Multilayer</a>
+</li>
+<li>
+  <a href="data.html">Included data sets</a>
+</li>
+<li>
+  <a href="analysis_example.html">Analysis example</a>
+</li>
+<li>
+  <a href="about.html">About and feedback</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Example for EMLN analysis</h1>
+
+</div>
+
+
+<!-- Use this to add a copy-code button install.packages("remotes") remotes::install_github("rlesur/klippy") -->
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', '#8B0000', '1', 'Copy code', 'Copied!');
+</script>
+<!-- setup -->
+<pre class="r"><code>library(emln)
+library(tidyverse)
+library(infomapecology)
+library(magrittr)</code></pre>
+<p>The <code>emln</code> package is a valuable tool for importing,
+storing, and converting multilayer network data. In this section, we
+will demonstrate its practical application for downstream analysis using
+examples: (1) node-level analysis using an imported data set, and (2) a
+mesoscale analysis using a package-included data set.</p>
+<p><em>We emphasize that the goal of the following analyses is purely
+technical. We do not assume to study or interpret results in the data
+sets we use in the example.</em></p>
+<div id="node-level-analysis-with-an-imported-dataset"
+class="section level1">
+<h1>Node-level analysis with an imported dataset</h1>
+<p>At this analysis level, we will compare the eigenvector centrality
+scores for each state node when calculated separately per layer (as in a
+monolayer network), to those calculated in the multilayer. We use the
+<code>get_igraph</code> function to get the individual layers and the
+<code>get_sam</code> function of EMLN to get the supra-adjacency matrix
+(SAM) to get the multilayer.</p>
+<p>This comparison aims to highlight the differences between monolayer
+and multilayer representations. Since eigenvector centrality takes into
+account the entire network’s structure when calculating the centrality
+of each node, we anticipate no correlation. Examining the scores in
+different contexts (mono vs multilayer) offers valuable insights and
+alternative perspectives on node importance.</p>
+<div id="creating-a-multilayer-object" class="section level2">
+<h2>Creating a Multilayer Object</h2>
+<p>Before calculating the eigenvector centrality scores for each state
+node, it is recommended to transform the data into a multilayer object
+using the <code>create_multilayer_network</code> function. This
+facilitates the handling of the data and ensures a smoother analysis
+process.</p>
+<p>We use the data from <a
+href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002527">Kefi
+et al 2016</a>. The data represents a node-aligned multiplex network
+consisting of three layers: trophic interactions, non-trophic positive
+interactions, and non-trophic negative interactions. For detailed
+instructions on creating a multilayer object, please refer to the <a
+href="https://ecological-complexity-lab.github.io/emln_package/multilayer.html#Example_with_real_data_from_Kefi_2016">Example
+with real data from Kefi 2016 section</a>. The files are also available
+on our repository (file: website_kefi_data.zip).</p>
+<pre class="r"><code># Load and organize the trophic interactions matrix
+chilean_TI &lt;- read_delim(&#39;chilean_TI.txt&#39;, delim = &#39;\t&#39;)
+nodes &lt;- chilean_TI[,2]
+names(nodes) &lt;- &#39;Species&#39;
+chilean_TI &lt;- data.matrix(chilean_TI[,3:ncol(chilean_TI)])
+dimnames(chilean_TI) &lt;- list(nodes$Species,nodes$Species)
+
+# Load and organize the negative non-trophic interactions matrix
+chilean_NTIneg &lt;- read_delim(&#39;chilean_NTIneg.txt&#39;, delim = &#39;\t&#39;)
+nodes &lt;- chilean_NTIneg[,2]
+names(nodes) &lt;- &#39;Species&#39;
+chilean_NTIneg &lt;- data.matrix(chilean_NTIneg[,3:ncol(chilean_NTIneg)])
+dimnames(chilean_NTIneg) &lt;- list(nodes$Species,nodes$Species)
+
+# Load and organize the negative non-trophic positive matrix
+chilean_NTIpos &lt;- read_delim(&#39;chilean_NTIpos.txt&#39;, delim = &#39;\t&#39;)
+nodes &lt;- chilean_NTIpos[,2]
+names(nodes) &lt;- &#39;Species&#39;
+chilean_NTIpos &lt;- data.matrix(chilean_NTIpos[,3:ncol(chilean_NTIpos)])
+dimnames(chilean_NTIpos) &lt;- list(nodes$Species,nodes$Species)
+
+
+layer_attributes &lt;- tibble(layer_id=1:3, layer_name=c(&#39;TI&#39;,&#39;NTIneg&#39;,&#39;NTIpos&#39;))
+multilayer_kefi &lt;- create_multilayer_network(list_of_layers = list(chilean_TI,chilean_NTIneg,chilean_NTIpos),
+                                             interlayer_links = NULL,
+                                             layer_attributes = layer_attributes,
+                                             bipartite = F,
+                                             directed = T)</code></pre>
+</div>
+<div id="eigenvector-centrality" class="section level2">
+<h2>Eigenvector Centrality</h2>
+<p>We will now calculate the eigenvector centrality score of each state
+node using the two different methods:</p>
+<div id="method-1-monolayer-context" class="section level3">
+<h3>Method 1: Monolayer Context</h3>
+<p>Calculating the Eigenvector centrality score of each state node on a
+per-layer basis.</p>
+<pre class="r"><code># get a list of igraph objects as layers igraph 
+g_layer &lt;- get_igraph(multilayer_kefi, bipartite = F, directed = T)
+
+# get Eigenvector scores of igraph layers
+eigen_igraph = c()
+for (layer in g_layer$layers_igraph){
+  eigen_igraph &lt;- append(eigen_igraph, igraph::eigen_centrality(layer, scale = T)$vector)
+}</code></pre>
+</div>
+<div id="method-2-multilayer-context" class="section level3">
+<h3>Method 2: Multilayer Context</h3>
+<p>Calculating the eigenvector centrality score of each state node using
+a SAM of the multilayer network.</p>
+<pre class="r"><code># get the SAM
+sam_multilayer &lt;- get_sam(multilayer = multilayer_kefi, bipartite = F, directed = T, sparse = F, remove_zero_rows_cols = F)
+
+# converting SAM to igraph object
+graph_sam &lt;- graph_from_adjacency_matrix(sam_multilayer$M,mode = &quot;directed&quot;,weighted = NULL,diag = TRUE,add.colnames = NULL,add.rownames = NA)
+
+# get Eigenvector scores
+eigen_sam &lt;- igraph::eigen_centrality(graph_sam, directed = T, scale = T)$vector</code></pre>
+</div>
+</div>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<p>We visualize the correlation between the two sets of scores using a
+scatter plot. The scatter plot was created by merging the scores into a
+data frame called <code>ec_comparison</code> and using the
+<code>ggplot2</code> package. The x-axis and y-axis represent the
+multilayer and monolayer scores, respectively. The function
+<code>geom_abline()</code> adds a reference line to the scatter plot.
+Nodes that fall on this line have the same score in a monolayer and a
+multilayer context.</p>
+<pre class="r"><code># merge to data frame eigenvector comparison
+ec_comparison &lt;- data.frame(eigen_sam, eigen_igraph)
+colnames(ec_comparison) &lt;- c(&quot;multilayer&quot;,&quot;monolayer&quot;)
+
+# scatter plot using r ggplot2
+ggplot(data = ec_comparison, aes(monolayer, multilayer)) + 
+           geom_point(color = &quot;blue&quot;, size = 0.75) + 
+           labs(title = &quot;Eigenvector Centrality (EC) comparison&quot;, x = &quot;EC (monolayer)&quot;, y = &quot;EC (multilayer)&quot;)+
+  geom_abline()+
+  scale_x_continuous(limits = c(0,1))+
+  scale_y_continuous(limits = c(0,1))+
+  coord_fixed() +
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title = element_text(size=15),
+        axis.text = element_text(color=&#39;black&#39;,size = 10),
+        legend.text =  element_text(size=15),
+        legend.title = element_text(size=20))</code></pre>
+<p><img src="analysis_example_files/figure-html/plotting%20eigenvector%20comparison-1.png" width="576" /></p>
+<p>The deviation of the points from the reference line indicates a lack
+of correlation between the two centrality scores. We see that the
+majority of the nodes that are important in a monolayer, lose this
+importance in the multilayer network. There is also a group of species
+that are important in both network types (upper right corner). This
+highlights the value of considering the unique ecological processes and
+interactions represented by different layers when analyzing multilayer
+networks and interpreting node importance.</p>
+</div>
+</div>
+<div id="mesoscale-level-analysis-with-included-data-sets"
+class="section level1">
+<h1>Mesoscale level analysis with included data sets</h1>
+<p>In this example, we showcase how to load and analyze a data set
+included in the <code>emln</code> package. At the mesoscale level of
+network analysis, examining network properties such as modularity can
+provide insights into the temporal behavior of species communities. In
+this analysis, we use the community detection algorithm
+<code>infomap</code> with the <a
+href="https://ecological-complexity-lab.github.io/infomap_ecology_package/">infomapecology
+package</a> to detect modules in a temporal multilayer network.</p>
+<div id="loading-the-data" class="section level2">
+<h2>Loading the data</h2>
+<p>To begin, we load network number 65 using the <code>load_emln</code>
+function, which returns a <code>multilayer</code> object.</p>
+<pre class="r"><code>emln_65 &lt;- load_emln(65)
+emln_65$layers</code></pre>
+<pre><code>## # A tibble: 6 × 7
+##   layer_id latitude location                                         longitude name            year layer_name
+##      &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;                                                &lt;dbl&gt; &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;     
+## 1        1    -32.4 Villavicencio Nature Reserve, Mendoza, Argentina     -69.1 all_sites_2006  2006 layer_1   
+## 2        2    -32.4 Villavicencio Nature Reserve, Mendoza, Argentina     -69.1 all_sites_2007  2007 layer_2   
+## 3        3    -32.4 Villavicencio Nature Reserve, Mendoza, Argentina     -69.1 all_sites_2008  2008 layer_3   
+## 4        4    -32.4 Villavicencio Nature Reserve, Mendoza, Argentina     -69.1 all_sites_209   2009 layer_4   
+## 5        5    -32.4 Villavicencio Nature Reserve, Mendoza, Argentina     -69.1 all_sites_2010  2010 layer_5   
+## 6        6    -32.4 Villavicencio Nature Reserve, Mendoza, Argentina     -69.1 all_sites_2011  2011 layer_6</code></pre>
+<pre class="r"><code>emln_65$nodes</code></pre>
+<pre><code>## # A tibble: 180 × 15
+##    node_id node_name type  corolla_length corolla_aperture height_mean flower_abundance body_thickness body_length proboscis_length proboscis_width body_width taxa_verified
+##      &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;            &lt;int&gt;          &lt;dbl&gt;       &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;        
+##  1       1 aca.ser   plant           3.15            0.912       0.154            42118             NA          NA               NA              NA         NA TRUE         
+##  2       2 alo.gra   plant           5.01            1.02        0.525             5944             NA          NA               NA              NA         NA FALSE        
+##  3       3 arg.sub   plant          35.0            28.8         0.514                0             NA          NA               NA              NA         NA TRUE         
+##  4       4 arj.lon   plant          14.5             1.67        0.222             3252             NA          NA               NA              NA         NA TRUE         
+##  5       5 bou.spi   plant          10.2             1.48        1.77              1610             NA          NA               NA              NA         NA TRUE         
+##  6       6 bre.mic   plant           4.17            2           0.32                 0             NA          NA               NA              NA         NA TRUE         
+##  7       7 bud.men   plant           5.46            1.19        0.49               301             NA          NA               NA              NA         NA TRUE         
+##  8       8 cap.ata   plant           0.25            1.69        1.61                59             NA          NA               NA              NA         NA TRUE         
+##  9       9 cen.sol   plant          17.5             1.5         0.122                3             NA          NA               NA              NA         NA FALSE        
+## 10      10 cer.arv   plant           5.27           13.3         0.277              480             NA          NA               NA              NA         NA TRUE         
+## # ℹ 170 more rows
+## # ℹ 2 more variables: verification_level &lt;chr&gt;, species_name &lt;chr&gt;</code></pre>
+<pre class="r"><code>head(emln_65$extended)</code></pre>
+<pre><code>##   layer_from node_from layer_to node_to weight        type
+## 1    layer_1   cop.sp2  layer_1 aca.ser     19 pollination
+## 2    layer_1   exo.sp1  layer_1 aca.ser      2 pollination
+## 3    layer_1   str.eur  layer_1 aca.ser      1 pollination
+## 4    layer_1   api.mel  layer_1 alo.gra    368 pollination
+## 5    layer_1    aug.sp  layer_1 alo.gra      3 pollination
+## 6    layer_1   bom.opi  layer_1 alo.gra      5 pollination</code></pre>
+<p>This is a temporal plan-pollinator multilayer network with
+<code>nrow(emln_65$layers)</code> layers and
+<code>max(emln_65$nodes$node_id)</code> physical nodes. The network
+comprises <code>nrow(emln_65$extended)</code> intralayer edges that are
+directed and weighted, with no interlayer interactions.</p>
+</div>
+<div id="community-detection-modularity-analysis"
+class="section level2">
+<h2>Community detection (modularity) analysis</h2>
+<p>Next, we use <code>infomap</code> with <code>infomapecology</code> to
+detect modules. We first prepare the data for analysis by selecting the
+relevant columns and modifying their names. Then, we run
+<code>infomap</code> on the modified data set, considering factors such
+as relaxation rate and limits.</p>
+<p><em>Note that the function <code>create_multilayer_object</code>
+prepares a multilayer object for <code>infomapecology</code>. Future
+versions of <code>infomapecology</code> will directly use the multilayer
+object created by the EMLN package.</em></p>
+<pre class="r"><code>emln_65_modularity &lt;- run_infomap_multilayer(M = emln_65,
+                                               relax = T, silent = TRUE,
+                                               trials = 50, seed = 497294,
+                                               multilayer_relax_rate = 0.15,
+                                               multilayer_relax_limit_up = 1,
+                                               multilayer_relax_limit_down = 0,
+                                               temporal_network = T)</code></pre>
+<pre><code>## [1] &quot;Using global relax to determine flow between layers.&quot;
+## [1] &quot;./Infomap infomap_multilayer.txt . --tree -2 -N 50 --seed 497294 --silent --multilayer-relax-rate 0.15 --multilayer-relax-limit-up 1 --multilayer-relax-limit-down 0&quot;
+## [1] &quot;Reorganizing modules...&quot;
+## [1] &quot;Removing auxilary files...&quot;
+## [1] &quot;Partitioned into 38 modules.&quot;</code></pre>
+<p>Let’s take a look at the modules.</p>
+<pre class="r"><code># Number of modules:
+emln_65_modularity$m</code></pre>
+<pre><code>## [1] 38</code></pre>
+<pre class="r"><code>emln_65_modularity$modules %&gt;% 
+  select(node_id, layer_id, node_name, type, module)</code></pre>
+<pre><code>## # A tibble: 642 × 5
+##    node_id layer_id node_name type  module
+##      &lt;int&gt;    &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt;
+##  1       1        1 aca.ser   plant      1
+##  2       1        2 aca.ser   plant     13
+##  3       1        3 aca.ser   plant     16
+##  4       1        4 aca.ser   plant      4
+##  5       1        5 aca.ser   plant      4
+##  6       1        6 aca.ser   plant     36
+##  7       2        1 alo.gra   plant      1
+##  8       2        3 alo.gra   plant      7
+##  9       2        4 alo.gra   plant      4
+## 10       2        5 alo.gra   plant     34
+## # ℹ 632 more rows</code></pre>
+</div>
+<div id="module-persistence" class="section level2">
+<h2>Module persistence</h2>
+<p>As this is a temporal network, we can observe module persistence and
+its temporal dynamics. we plot the changes in each module’s size over
+time.</p>
+<pre class="r"><code># Module&#39; persistence
+plot_multilayer_modules(emln_65_modularity, type = &#39;rectangle&#39;, color_modules = T)+
+  scale_x_continuous(breaks=seq(0,6,1))+
+  scale_y_continuous(breaks=seq(0,40,5))+
+  scale_fill_viridis_c()+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title = element_text(size=20),
+        axis.text = element_text(size = 20),
+        legend.text =  element_text(size=15),
+        legend.title = element_text(size=20))</code></pre>
+<p><img src="analysis_example_files/figure-html/plotting%20Module%20persistence-1.png" width="576" /></p>
+<p>Note that in the first layers there are 4 modules that do not
+persist. Than, in the second layer modules emerge that persist, some
+until the 6th layer.</p>
+<p>We can also visualize the modular structure over time by plotting the
+species flow through modules. In this visualization, modules are
+represented by colors, the size of rectangles indicates the number of
+species in each module, and curved lines depict species moving between
+layers (time periods).</p>
+<pre class="r"><code># Species flow through modules in time
+plot_multilayer_alluvial(emln_65_modularity, module_labels = F)+
+  scale_x_continuous(breaks=seq(0,6,1))+
+  scale_y_continuous(breaks=seq(0,150,20))+
+  labs(y=&#39;Number of species&#39;)+
+  theme_bw()+
+  theme(legend.position = &quot;none&quot;,
+        panel.grid = element_blank(),
+        axis.text = element_text(color=&#39;black&#39;, size = 20),
+        axis.title = element_text(size=20))</code></pre>
+<p><img src="analysis_example_files/figure-html/plotting%20Species%20flow-1.png" width="576" /></p>
+<p>This visual representation of how species transition between modules
+over time helps us gain insights into the dynamics of species
+communities.</p>
+<p>For more details on temporal multilayer network analysis using
+<code>infomapecology</code> visit <a
+href="https://ecological-complexity-lab.github.io/infomap_ecology_package/multilayer_relax">Temporal
+multilayer network with global relax rates</a> and <a
+href="https://ecological-complexity-lab.github.io/infomap_ecology_package/multilayer_interlayer.html">Temporal
+multilayer network with interlayer edges</a>.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

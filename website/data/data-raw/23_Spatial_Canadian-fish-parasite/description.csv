@@ -1,0 +1,8 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Spatial
+description,"Data on host use by parasites were obtained from 7 Canadian freshwater systems, either large lakes or rivers, in which most fish species have been surveyed for parasites."
+source,Interaction_Web_DataBase
+data_url,http://www.ecologia.ib.usp.br/iwdb/html/canadian_fish.html
+ecological_network_type,Host-Parasite
+state_nodes,TRUE

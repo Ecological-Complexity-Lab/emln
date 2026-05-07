@@ -1,0 +1,1549 @@
+layer,attribute,value
+1,type,space
+1,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+1,site,shady_point
+1,week,1
+1,year,2013
+1,start_date,2013-05-24
+1,end_date,2013-05-24
+1,latitude,37.933364
+1,longitude,-107.9038794
+1,type,time
+1,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+1,site,shady_point
+1,week,1
+1,year,2013
+1,start_date,2013-05-24
+1,end_date,2013-05-24
+1,latitude,37.933364
+1,longitude,-107.9038794
+2,type,space
+2,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+2,site,twin_meadows
+2,week,1
+2,year,2013
+2,start_date,2013-05-24
+2,end_date,2013-05-24
+2,latitude,39.150357
+2,longitude,-106.252863
+2,type,time
+2,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+2,site,twin_meadows
+2,week,1
+2,year,2013
+2,start_date,2013-05-24
+2,end_date,2013-05-24
+2,latitude,39.150357
+2,longitude,-106.252863
+3,type,space
+3,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+3,site,shady_point
+3,week,1
+3,year,2014
+3,start_date,2014-06-03
+3,end_date,2014-06-05
+3,latitude,37.933364
+3,longitude,-107.9038794
+3,type,time
+3,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+3,site,shady_point
+3,week,1
+3,year,2014
+3,start_date,2014-06-03
+3,end_date,2014-06-05
+3,latitude,37.933364
+3,longitude,-107.9038794
+4,type,space
+4,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+4,site,twin_meadows
+4,week,1
+4,year,2014
+4,start_date,2014-06-03
+4,end_date,2014-06-05
+4,latitude,39.150357
+4,longitude,-106.252863
+4,type,time
+4,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+4,site,twin_meadows
+4,week,1
+4,year,2014
+4,start_date,2014-06-03
+4,end_date,2014-06-05
+4,latitude,39.150357
+4,longitude,-106.252863
+5,type,space
+5,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+5,site,shady_point
+5,week,1
+5,year,2015
+5,start_date,2015-05-12
+5,end_date,2015-05-13
+5,latitude,37.933364
+5,longitude,-107.9038794
+5,type,time
+5,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+5,site,shady_point
+5,week,1
+5,year,2015
+5,start_date,2015-05-12
+5,end_date,2015-05-13
+5,latitude,37.933364
+5,longitude,-107.9038794
+6,type,space
+6,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+6,site,twin_meadows
+6,week,1
+6,year,2015
+6,start_date,2015-05-12
+6,end_date,2015-05-14
+6,latitude,39.150357
+6,longitude,-106.252863
+6,type,time
+6,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+6,site,twin_meadows
+6,week,1
+6,year,2015
+6,start_date,2015-05-12
+6,end_date,2015-05-14
+6,latitude,39.150357
+6,longitude,-106.252863
+7,type,space
+7,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+7,site,shady_point
+7,week,2
+7,year,2013
+7,start_date,2013-05-31
+7,end_date,2013-06-01
+7,latitude,37.933364
+7,longitude,-107.9038794
+7,type,time
+7,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+7,site,shady_point
+7,week,2
+7,year,2013
+7,start_date,2013-05-31
+7,end_date,2013-06-01
+7,latitude,37.933364
+7,longitude,-107.9038794
+8,type,space
+8,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+8,site,twin_meadows
+8,week,2
+8,year,2013
+8,start_date,2013-05-31
+8,end_date,2013-06-01
+8,latitude,39.150357
+8,longitude,-106.252863
+8,type,time
+8,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+8,site,twin_meadows
+8,week,2
+8,year,2013
+8,start_date,2013-05-31
+8,end_date,2013-06-01
+8,latitude,39.150357
+8,longitude,-106.252863
+9,type,space
+9,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+9,site,shady_point
+9,week,2
+9,year,2014
+9,start_date,2014-06-10
+9,end_date,2014-06-12
+9,latitude,37.933364
+9,longitude,-107.9038794
+9,type,time
+9,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+9,site,shady_point
+9,week,2
+9,year,2014
+9,start_date,2014-06-10
+9,end_date,2014-06-12
+9,latitude,37.933364
+9,longitude,-107.9038794
+10,type,space
+10,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+10,site,twin_meadows
+10,week,2
+10,year,2014
+10,start_date,2014-06-10
+10,end_date,2014-06-12
+10,latitude,39.150357
+10,longitude,-106.252863
+10,type,time
+10,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+10,site,twin_meadows
+10,week,2
+10,year,2014
+10,start_date,2014-06-10
+10,end_date,2014-06-12
+10,latitude,39.150357
+10,longitude,-106.252863
+11,type,space
+11,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+11,site,shady_point
+11,week,2
+11,year,2015
+11,start_date,2015-05-20
+11,end_date,2015-05-22
+11,latitude,37.933364
+11,longitude,-107.9038794
+11,type,time
+11,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+11,site,shady_point
+11,week,2
+11,year,2015
+11,start_date,2015-05-20
+11,end_date,2015-05-22
+11,latitude,37.933364
+11,longitude,-107.9038794
+12,type,space
+12,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+12,site,twin_meadows
+12,week,2
+12,year,2015
+12,start_date,2015-05-21
+12,end_date,2015-05-22
+12,latitude,39.150357
+12,longitude,-106.252863
+12,type,time
+12,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+12,site,twin_meadows
+12,week,2
+12,year,2015
+12,start_date,2015-05-21
+12,end_date,2015-05-22
+12,latitude,39.150357
+12,longitude,-106.252863
+13,type,space
+13,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+13,site,shady_point
+13,week,3
+13,year,2013
+13,start_date,2013-06-05
+13,end_date,2013-06-06
+13,latitude,37.933364
+13,longitude,-107.9038794
+13,type,time
+13,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+13,site,shady_point
+13,week,3
+13,year,2013
+13,start_date,2013-06-05
+13,end_date,2013-06-06
+13,latitude,37.933364
+13,longitude,-107.9038794
+14,type,space
+14,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+14,site,twin_meadows
+14,week,3
+14,year,2013
+14,start_date,2013-06-05
+14,end_date,2013-06-06
+14,latitude,39.150357
+14,longitude,-106.252863
+14,type,time
+14,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+14,site,twin_meadows
+14,week,3
+14,year,2013
+14,start_date,2013-06-05
+14,end_date,2013-06-06
+14,latitude,39.150357
+14,longitude,-106.252863
+15,type,space
+15,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+15,site,shady_point
+15,week,3
+15,year,2014
+15,start_date,2014-06-18
+15,end_date,2014-06-19
+15,latitude,37.933364
+15,longitude,-107.9038794
+15,type,time
+15,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+15,site,shady_point
+15,week,3
+15,year,2014
+15,start_date,2014-06-18
+15,end_date,2014-06-19
+15,latitude,37.933364
+15,longitude,-107.9038794
+16,type,space
+16,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+16,site,twin_meadows
+16,week,3
+16,year,2014
+16,start_date,2014-06-18
+16,end_date,2014-06-19
+16,latitude,39.150357
+16,longitude,-106.252863
+16,type,time
+16,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+16,site,twin_meadows
+16,week,3
+16,year,2014
+16,start_date,2014-06-18
+16,end_date,2014-06-19
+16,latitude,39.150357
+16,longitude,-106.252863
+17,type,space
+17,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+17,site,shady_point
+17,week,3
+17,year,2015
+17,start_date,2015-05-27
+17,end_date,2015-05-28
+17,latitude,37.933364
+17,longitude,-107.9038794
+17,type,time
+17,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+17,site,shady_point
+17,week,3
+17,year,2015
+17,start_date,2015-05-27
+17,end_date,2015-05-28
+17,latitude,37.933364
+17,longitude,-107.9038794
+18,type,space
+18,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+18,site,twin_meadows
+18,week,3
+18,year,2015
+18,start_date,2015-05-27
+18,end_date,2015-05-29
+18,latitude,39.150357
+18,longitude,-106.252863
+18,type,time
+18,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+18,site,twin_meadows
+18,week,3
+18,year,2015
+18,start_date,2015-05-27
+18,end_date,2015-05-29
+18,latitude,39.150357
+18,longitude,-106.252863
+19,type,space
+19,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+19,site,shady_point
+19,week,4
+19,year,2013
+19,start_date,2013-06-11
+19,end_date,2013-06-14
+19,latitude,37.933364
+19,longitude,-107.9038794
+19,type,time
+19,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+19,site,shady_point
+19,week,4
+19,year,2013
+19,start_date,2013-06-11
+19,end_date,2013-06-14
+19,latitude,37.933364
+19,longitude,-107.9038794
+20,type,space
+20,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+20,site,twin_meadows
+20,week,4
+20,year,2013
+20,start_date,2013-06-11
+20,end_date,2013-06-14
+20,latitude,39.150357
+20,longitude,-106.252863
+20,type,time
+20,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+20,site,twin_meadows
+20,week,4
+20,year,2013
+20,start_date,2013-06-11
+20,end_date,2013-06-14
+20,latitude,39.150357
+20,longitude,-106.252863
+21,type,space
+21,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+21,site,shady_point
+21,week,4
+21,year,2014
+21,start_date,2014-06-24
+21,end_date,2014-06-27
+21,latitude,37.933364
+21,longitude,-107.9038794
+21,type,time
+21,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+21,site,shady_point
+21,week,4
+21,year,2014
+21,start_date,2014-06-24
+21,end_date,2014-06-27
+21,latitude,37.933364
+21,longitude,-107.9038794
+22,type,space
+22,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+22,site,twin_meadows
+22,week,4
+22,year,2014
+22,start_date,2014-06-24
+22,end_date,2014-06-27
+22,latitude,39.150357
+22,longitude,-106.252863
+22,type,time
+22,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+22,site,twin_meadows
+22,week,4
+22,year,2014
+22,start_date,2014-06-24
+22,end_date,2014-06-27
+22,latitude,39.150357
+22,longitude,-106.252863
+23,type,space
+23,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+23,site,shady_point
+23,week,4
+23,year,2015
+23,start_date,2015-06-02
+23,end_date,2015-06-04
+23,latitude,37.933364
+23,longitude,-107.9038794
+23,type,time
+23,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+23,site,shady_point
+23,week,4
+23,year,2015
+23,start_date,2015-06-02
+23,end_date,2015-06-04
+23,latitude,37.933364
+23,longitude,-107.9038794
+24,type,space
+24,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+24,site,twin_meadows
+24,week,4
+24,year,2015
+24,start_date,2015-06-02
+24,end_date,2015-06-04
+24,latitude,39.150357
+24,longitude,-106.252863
+24,type,time
+24,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+24,site,twin_meadows
+24,week,4
+24,year,2015
+24,start_date,2015-06-02
+24,end_date,2015-06-04
+24,latitude,39.150357
+24,longitude,-106.252863
+25,type,space
+25,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+25,site,shady_point
+25,week,5
+25,year,2013
+25,start_date,2013-06-19
+25,end_date,2013-06-21
+25,latitude,37.933364
+25,longitude,-107.9038794
+25,type,time
+25,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+25,site,shady_point
+25,week,5
+25,year,2013
+25,start_date,2013-06-19
+25,end_date,2013-06-21
+25,latitude,37.933364
+25,longitude,-107.9038794
+26,type,space
+26,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+26,site,twin_meadows
+26,week,5
+26,year,2013
+26,start_date,2013-06-19
+26,end_date,2013-06-21
+26,latitude,39.150357
+26,longitude,-106.252863
+26,type,time
+26,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+26,site,twin_meadows
+26,week,5
+26,year,2013
+26,start_date,2013-06-19
+26,end_date,2013-06-21
+26,latitude,39.150357
+26,longitude,-106.252863
+27,type,space
+27,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+27,site,shady_point
+27,week,5
+27,year,2014
+27,start_date,2014-07-01
+27,end_date,2014-07-02
+27,latitude,37.933364
+27,longitude,-107.9038794
+27,type,time
+27,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+27,site,shady_point
+27,week,5
+27,year,2014
+27,start_date,2014-07-01
+27,end_date,2014-07-02
+27,latitude,37.933364
+27,longitude,-107.9038794
+28,type,space
+28,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+28,site,twin_meadows
+28,week,5
+28,year,2014
+28,start_date,2014-07-01
+28,end_date,2014-07-02
+28,latitude,39.150357
+28,longitude,-106.252863
+28,type,time
+28,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+28,site,twin_meadows
+28,week,5
+28,year,2014
+28,start_date,2014-07-01
+28,end_date,2014-07-02
+28,latitude,39.150357
+28,longitude,-106.252863
+29,type,space
+29,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+29,site,shady_point
+29,week,5
+29,year,2015
+29,start_date,2015-06-09
+29,end_date,2015-06-11
+29,latitude,37.933364
+29,longitude,-107.9038794
+29,type,time
+29,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+29,site,shady_point
+29,week,5
+29,year,2015
+29,start_date,2015-06-09
+29,end_date,2015-06-11
+29,latitude,37.933364
+29,longitude,-107.9038794
+30,type,space
+30,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+30,site,twin_meadows
+30,week,5
+30,year,2015
+30,start_date,2015-06-09
+30,end_date,2015-06-11
+30,latitude,39.150357
+30,longitude,-106.252863
+30,type,time
+30,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+30,site,twin_meadows
+30,week,5
+30,year,2015
+30,start_date,2015-06-09
+30,end_date,2015-06-11
+30,latitude,39.150357
+30,longitude,-106.252863
+31,type,space
+31,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+31,site,shady_point
+31,week,6
+31,year,2013
+31,start_date,2013-06-25
+31,end_date,2013-06-28
+31,latitude,37.933364
+31,longitude,-107.9038794
+31,type,time
+31,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+31,site,shady_point
+31,week,6
+31,year,2013
+31,start_date,2013-06-25
+31,end_date,2013-06-28
+31,latitude,37.933364
+31,longitude,-107.9038794
+32,type,space
+32,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+32,site,twin_meadows
+32,week,6
+32,year,2013
+32,start_date,2013-06-25
+32,end_date,2013-06-28
+32,latitude,39.150357
+32,longitude,-106.252863
+32,type,time
+32,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+32,site,twin_meadows
+32,week,6
+32,year,2013
+32,start_date,2013-06-25
+32,end_date,2013-06-28
+32,latitude,39.150357
+32,longitude,-106.252863
+33,type,space
+33,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+33,site,shady_point
+33,week,6
+33,year,2014
+33,start_date,2014-07-08
+33,end_date,2014-07-10
+33,latitude,37.933364
+33,longitude,-107.9038794
+33,type,time
+33,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+33,site,shady_point
+33,week,6
+33,year,2014
+33,start_date,2014-07-08
+33,end_date,2014-07-10
+33,latitude,37.933364
+33,longitude,-107.9038794
+34,type,space
+34,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+34,site,twin_meadows
+34,week,6
+34,year,2014
+34,start_date,2014-07-08
+34,end_date,2014-07-10
+34,latitude,39.150357
+34,longitude,-106.252863
+34,type,time
+34,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+34,site,twin_meadows
+34,week,6
+34,year,2014
+34,start_date,2014-07-08
+34,end_date,2014-07-10
+34,latitude,39.150357
+34,longitude,-106.252863
+35,type,space
+35,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+35,site,shady_point
+35,week,6
+35,year,2015
+35,start_date,2015-06-17
+35,end_date,2015-06-18
+35,latitude,37.933364
+35,longitude,-107.9038794
+35,type,time
+35,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+35,site,shady_point
+35,week,6
+35,year,2015
+35,start_date,2015-06-17
+35,end_date,2015-06-18
+35,latitude,37.933364
+35,longitude,-107.9038794
+36,type,space
+36,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+36,site,twin_meadows
+36,week,6
+36,year,2015
+36,start_date,2015-06-17
+36,end_date,2015-06-18
+36,latitude,39.150357
+36,longitude,-106.252863
+36,type,time
+36,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+36,site,twin_meadows
+36,week,6
+36,year,2015
+36,start_date,2015-06-17
+36,end_date,2015-06-18
+36,latitude,39.150357
+36,longitude,-106.252863
+37,type,space
+37,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+37,site,shady_point
+37,week,7
+37,year,2013
+37,start_date,2013-07-02
+37,end_date,2013-07-05
+37,latitude,37.933364
+37,longitude,-107.9038794
+37,type,time
+37,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+37,site,shady_point
+37,week,7
+37,year,2013
+37,start_date,2013-07-02
+37,end_date,2013-07-05
+37,latitude,37.933364
+37,longitude,-107.9038794
+38,type,space
+38,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+38,site,twin_meadows
+38,week,7
+38,year,2013
+38,start_date,2013-07-02
+38,end_date,2013-07-05
+38,latitude,39.150357
+38,longitude,-106.252863
+38,type,time
+38,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+38,site,twin_meadows
+38,week,7
+38,year,2013
+38,start_date,2013-07-02
+38,end_date,2013-07-05
+38,latitude,39.150357
+38,longitude,-106.252863
+39,type,space
+39,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+39,site,shady_point
+39,week,7
+39,year,2014
+39,start_date,2014-07-15
+39,end_date,2014-07-17
+39,latitude,37.933364
+39,longitude,-107.9038794
+39,type,time
+39,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+39,site,shady_point
+39,week,7
+39,year,2014
+39,start_date,2014-07-15
+39,end_date,2014-07-17
+39,latitude,37.933364
+39,longitude,-107.9038794
+40,type,space
+40,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+40,site,twin_meadows
+40,week,7
+40,year,2014
+40,start_date,2014-07-15
+40,end_date,2014-07-17
+40,latitude,39.150357
+40,longitude,-106.252863
+40,type,time
+40,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+40,site,twin_meadows
+40,week,7
+40,year,2014
+40,start_date,2014-07-15
+40,end_date,2014-07-17
+40,latitude,39.150357
+40,longitude,-106.252863
+41,type,space
+41,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+41,site,shady_point
+41,week,7
+41,year,2015
+41,start_date,2015-06-23
+41,end_date,2015-06-24
+41,latitude,37.933364
+41,longitude,-107.9038794
+41,type,time
+41,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+41,site,shady_point
+41,week,7
+41,year,2015
+41,start_date,2015-06-23
+41,end_date,2015-06-24
+41,latitude,37.933364
+41,longitude,-107.9038794
+42,type,space
+42,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+42,site,twin_meadows
+42,week,7
+42,year,2015
+42,start_date,2015-06-23
+42,end_date,2015-06-24
+42,latitude,39.150357
+42,longitude,-106.252863
+42,type,time
+42,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+42,site,twin_meadows
+42,week,7
+42,year,2015
+42,start_date,2015-06-23
+42,end_date,2015-06-24
+42,latitude,39.150357
+42,longitude,-106.252863
+43,type,space
+43,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+43,site,shady_point
+43,week,8
+43,year,2013
+43,start_date,2013-07-09
+43,end_date,2013-07-11
+43,latitude,37.933364
+43,longitude,-107.9038794
+43,type,time
+43,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+43,site,shady_point
+43,week,8
+43,year,2013
+43,start_date,2013-07-09
+43,end_date,2013-07-11
+43,latitude,37.933364
+43,longitude,-107.9038794
+44,type,space
+44,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+44,site,twin_meadows
+44,week,8
+44,year,2013
+44,start_date,2013-07-09
+44,end_date,2013-07-11
+44,latitude,39.150357
+44,longitude,-106.252863
+44,type,time
+44,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+44,site,twin_meadows
+44,week,8
+44,year,2013
+44,start_date,2013-07-09
+44,end_date,2013-07-11
+44,latitude,39.150357
+44,longitude,-106.252863
+45,type,space
+45,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+45,site,shady_point
+45,week,8
+45,year,2014
+45,start_date,2014-07-22
+45,end_date,2014-07-24
+45,latitude,37.933364
+45,longitude,-107.9038794
+45,type,time
+45,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+45,site,shady_point
+45,week,8
+45,year,2014
+45,start_date,2014-07-22
+45,end_date,2014-07-24
+45,latitude,37.933364
+45,longitude,-107.9038794
+46,type,space
+46,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+46,site,twin_meadows
+46,week,8
+46,year,2014
+46,start_date,2014-07-22
+46,end_date,2014-07-24
+46,latitude,39.150357
+46,longitude,-106.252863
+46,type,time
+46,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+46,site,twin_meadows
+46,week,8
+46,year,2014
+46,start_date,2014-07-22
+46,end_date,2014-07-24
+46,latitude,39.150357
+46,longitude,-106.252863
+47,type,space
+47,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+47,site,shady_point
+47,week,8
+47,year,2015
+47,start_date,2015-06-30
+47,end_date,2015-07-01
+47,latitude,37.933364
+47,longitude,-107.9038794
+47,type,time
+47,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+47,site,shady_point
+47,week,8
+47,year,2015
+47,start_date,2015-06-30
+47,end_date,2015-07-01
+47,latitude,37.933364
+47,longitude,-107.9038794
+48,type,space
+48,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+48,site,twin_meadows
+48,week,8
+48,year,2015
+48,start_date,2015-06-30
+48,end_date,2015-07-01
+48,latitude,39.150357
+48,longitude,-106.252863
+48,type,time
+48,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+48,site,twin_meadows
+48,week,8
+48,year,2015
+48,start_date,2015-06-30
+48,end_date,2015-07-01
+48,latitude,39.150357
+48,longitude,-106.252863
+49,type,space
+49,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+49,site,shady_point
+49,week,9
+49,year,2013
+49,start_date,2013-07-16
+49,end_date,2013-07-19
+49,latitude,37.933364
+49,longitude,-107.9038794
+49,type,time
+49,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+49,site,shady_point
+49,week,9
+49,year,2013
+49,start_date,2013-07-16
+49,end_date,2013-07-19
+49,latitude,37.933364
+49,longitude,-107.9038794
+50,type,space
+50,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+50,site,twin_meadows
+50,week,9
+50,year,2013
+50,start_date,2013-07-16
+50,end_date,2013-07-19
+50,latitude,39.150357
+50,longitude,-106.252863
+50,type,time
+50,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+50,site,twin_meadows
+50,week,9
+50,year,2013
+50,start_date,2013-07-16
+50,end_date,2013-07-19
+50,latitude,39.150357
+50,longitude,-106.252863
+51,type,space
+51,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+51,site,shady_point
+51,week,9
+51,year,2014
+51,start_date,2014-07-29
+51,end_date,2014-08-01
+51,latitude,37.933364
+51,longitude,-107.9038794
+51,type,time
+51,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+51,site,shady_point
+51,week,9
+51,year,2014
+51,start_date,2014-07-29
+51,end_date,2014-08-01
+51,latitude,37.933364
+51,longitude,-107.9038794
+52,type,space
+52,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+52,site,twin_meadows
+52,week,9
+52,year,2014
+52,start_date,2014-07-29
+52,end_date,2014-08-01
+52,latitude,39.150357
+52,longitude,-106.252863
+52,type,time
+52,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+52,site,twin_meadows
+52,week,9
+52,year,2014
+52,start_date,2014-07-29
+52,end_date,2014-08-01
+52,latitude,39.150357
+52,longitude,-106.252863
+53,type,space
+53,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+53,site,shady_point
+53,week,9
+53,year,2015
+53,start_date,2015-07-09
+53,end_date,2015-07-10
+53,latitude,37.933364
+53,longitude,-107.9038794
+53,type,time
+53,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+53,site,shady_point
+53,week,9
+53,year,2015
+53,start_date,2015-07-09
+53,end_date,2015-07-10
+53,latitude,37.933364
+53,longitude,-107.9038794
+54,type,space
+54,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+54,site,twin_meadows
+54,week,9
+54,year,2015
+54,start_date,2015-07-09
+54,end_date,2015-07-10
+54,latitude,39.150357
+54,longitude,-106.252863
+54,type,time
+54,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+54,site,twin_meadows
+54,week,9
+54,year,2015
+54,start_date,2015-07-09
+54,end_date,2015-07-10
+54,latitude,39.150357
+54,longitude,-106.252863
+55,type,space
+55,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+55,site,shady_point
+55,week,10
+55,year,2013
+55,start_date,2013-07-23
+55,end_date,2013-07-26
+55,latitude,37.933364
+55,longitude,-107.9038794
+55,type,time
+55,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+55,site,shady_point
+55,week,10
+55,year,2013
+55,start_date,2013-07-23
+55,end_date,2013-07-26
+55,latitude,37.933364
+55,longitude,-107.9038794
+56,type,space
+56,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+56,site,twin_meadows
+56,week,10
+56,year,2013
+56,start_date,2013-07-23
+56,end_date,2013-07-26
+56,latitude,39.150357
+56,longitude,-106.252863
+56,type,time
+56,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+56,site,twin_meadows
+56,week,10
+56,year,2013
+56,start_date,2013-07-23
+56,end_date,2013-07-26
+56,latitude,39.150357
+56,longitude,-106.252863
+57,type,space
+57,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+57,site,shady_point
+57,week,10
+57,year,2014
+57,start_date,2014-08-05
+57,end_date,2014-08-07
+57,latitude,37.933364
+57,longitude,-107.9038794
+57,type,time
+57,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+57,site,shady_point
+57,week,10
+57,year,2014
+57,start_date,2014-08-05
+57,end_date,2014-08-07
+57,latitude,37.933364
+57,longitude,-107.9038794
+58,type,space
+58,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+58,site,twin_meadows
+58,week,10
+58,year,2014
+58,start_date,2014-08-05
+58,end_date,2014-08-07
+58,latitude,39.150357
+58,longitude,-106.252863
+58,type,time
+58,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+58,site,twin_meadows
+58,week,10
+58,year,2014
+58,start_date,2014-08-05
+58,end_date,2014-08-07
+58,latitude,39.150357
+58,longitude,-106.252863
+59,type,space
+59,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+59,site,shady_point
+59,week,10
+59,year,2015
+59,start_date,2015-07-14
+59,end_date,2015-07-15
+59,latitude,37.933364
+59,longitude,-107.9038794
+59,type,time
+59,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+59,site,shady_point
+59,week,10
+59,year,2015
+59,start_date,2015-07-14
+59,end_date,2015-07-15
+59,latitude,37.933364
+59,longitude,-107.9038794
+60,type,space
+60,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+60,site,twin_meadows
+60,week,10
+60,year,2015
+60,start_date,2015-07-14
+60,end_date,2015-07-15
+60,latitude,39.150357
+60,longitude,-106.252863
+60,type,time
+60,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+60,site,twin_meadows
+60,week,10
+60,year,2015
+60,start_date,2015-07-14
+60,end_date,2015-07-15
+60,latitude,39.150357
+60,longitude,-106.252863
+61,type,space
+61,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+61,site,shady_point
+61,week,11
+61,year,2013
+61,start_date,2013-07-30
+61,end_date,2013-08-03
+61,latitude,37.933364
+61,longitude,-107.9038794
+61,type,time
+61,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+61,site,shady_point
+61,week,11
+61,year,2013
+61,start_date,2013-07-30
+61,end_date,2013-08-03
+61,latitude,37.933364
+61,longitude,-107.9038794
+62,type,space
+62,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+62,site,twin_meadows
+62,week,11
+62,year,2013
+62,start_date,2013-07-30
+62,end_date,2013-08-03
+62,latitude,39.150357
+62,longitude,-106.252863
+62,type,time
+62,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+62,site,twin_meadows
+62,week,11
+62,year,2013
+62,start_date,2013-07-30
+62,end_date,2013-08-03
+62,latitude,39.150357
+62,longitude,-106.252863
+63,type,space
+63,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+63,site,shady_point
+63,week,11
+63,year,2014
+63,start_date,2014-08-11
+63,end_date,2014-08-14
+63,latitude,37.933364
+63,longitude,-107.9038794
+63,type,time
+63,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+63,site,shady_point
+63,week,11
+63,year,2014
+63,start_date,2014-08-11
+63,end_date,2014-08-14
+63,latitude,37.933364
+63,longitude,-107.9038794
+64,type,space
+64,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+64,site,twin_meadows
+64,week,11
+64,year,2014
+64,start_date,2014-08-11
+64,end_date,2014-08-14
+64,latitude,39.150357
+64,longitude,-106.252863
+64,type,time
+64,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+64,site,twin_meadows
+64,week,11
+64,year,2014
+64,start_date,2014-08-11
+64,end_date,2014-08-14
+64,latitude,39.150357
+64,longitude,-106.252863
+65,type,space
+65,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+65,site,shady_point
+65,week,11
+65,year,2015
+65,start_date,2015-07-22
+65,end_date,2015-07-23
+65,latitude,37.933364
+65,longitude,-107.9038794
+65,type,time
+65,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+65,site,shady_point
+65,week,11
+65,year,2015
+65,start_date,2015-07-22
+65,end_date,2015-07-23
+65,latitude,37.933364
+65,longitude,-107.9038794
+66,type,space
+66,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+66,site,twin_meadows
+66,week,11
+66,year,2015
+66,start_date,2015-07-22
+66,end_date,2015-07-23
+66,latitude,39.150357
+66,longitude,-106.252863
+66,type,time
+66,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+66,site,twin_meadows
+66,week,11
+66,year,2015
+66,start_date,2015-07-22
+66,end_date,2015-07-23
+66,latitude,39.150357
+66,longitude,-106.252863
+67,type,space
+67,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+67,site,shady_point
+67,week,12
+67,year,2014
+67,start_date,2014-08-19
+67,end_date,2014-08-19
+67,latitude,37.933364
+67,longitude,-107.9038794
+67,type,time
+67,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+67,site,shady_point
+67,week,12
+67,year,2014
+67,start_date,2014-08-19
+67,end_date,2014-08-19
+67,latitude,37.933364
+67,longitude,-107.9038794
+68,type,space
+68,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+68,site,twin_meadows
+68,week,12
+68,year,2014
+68,start_date,2014-08-19
+68,end_date,2014-08-19
+68,latitude,39.150357
+68,longitude,-106.252863
+68,type,time
+68,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+68,site,twin_meadows
+68,week,12
+68,year,2014
+68,start_date,2014-08-19
+68,end_date,2014-08-19
+68,latitude,39.150357
+68,longitude,-106.252863
+69,type,space
+69,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+69,site,shady_point
+69,week,12
+69,year,2015
+69,start_date,2015-07-28
+69,end_date,2015-07-29
+69,latitude,37.933364
+69,longitude,-107.9038794
+69,type,time
+69,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+69,site,shady_point
+69,week,12
+69,year,2015
+69,start_date,2015-07-28
+69,end_date,2015-07-29
+69,latitude,37.933364
+69,longitude,-107.9038794
+70,type,space
+70,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+70,site,twin_meadows
+70,week,12
+70,year,2015
+70,start_date,2015-07-28
+70,end_date,2015-07-29
+70,latitude,39.150357
+70,longitude,-106.252863
+70,type,time
+70,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+70,site,twin_meadows
+70,week,12
+70,year,2015
+70,start_date,2015-07-28
+70,end_date,2015-07-29
+70,latitude,39.150357
+70,longitude,-106.252863
+71,type,space
+71,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+71,site,shady_point
+71,week,13
+71,year,2013
+71,start_date,2013-08-15
+71,end_date,2013-08-17
+71,latitude,37.933364
+71,longitude,-107.9038794
+71,type,time
+71,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+71,site,shady_point
+71,week,13
+71,year,2013
+71,start_date,2013-08-15
+71,end_date,2013-08-17
+71,latitude,37.933364
+71,longitude,-107.9038794
+72,type,space
+72,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+72,site,twin_meadows
+72,week,13
+72,year,2013
+72,start_date,2013-08-15
+72,end_date,2013-08-17
+72,latitude,39.150357
+72,longitude,-106.252863
+72,type,time
+72,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+72,site,twin_meadows
+72,week,13
+72,year,2013
+72,start_date,2013-08-15
+72,end_date,2013-08-17
+72,latitude,39.150357
+72,longitude,-106.252863
+73,type,space
+73,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+73,site,shady_point
+73,week,13
+73,year,2014
+73,start_date,2014-08-25
+73,end_date,2014-08-28
+73,latitude,37.933364
+73,longitude,-107.9038794
+73,type,time
+73,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+73,site,shady_point
+73,week,13
+73,year,2014
+73,start_date,2014-08-25
+73,end_date,2014-08-28
+73,latitude,37.933364
+73,longitude,-107.9038794
+74,type,space
+74,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+74,site,twin_meadows
+74,week,13
+74,year,2014
+74,start_date,2014-08-25
+74,end_date,2014-08-28
+74,latitude,39.150357
+74,longitude,-106.252863
+74,type,time
+74,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+74,site,twin_meadows
+74,week,13
+74,year,2014
+74,start_date,2014-08-25
+74,end_date,2014-08-28
+74,latitude,39.150357
+74,longitude,-106.252863
+75,type,space
+75,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+75,site,shady_point
+75,week,13
+75,year,2015
+75,start_date,2015-08-04
+75,end_date,2015-08-05
+75,latitude,37.933364
+75,longitude,-107.9038794
+75,type,time
+75,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+75,site,shady_point
+75,week,13
+75,year,2015
+75,start_date,2015-08-04
+75,end_date,2015-08-05
+75,latitude,37.933364
+75,longitude,-107.9038794
+76,type,space
+76,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+76,site,twin_meadows
+76,week,13
+76,year,2015
+76,start_date,2015-08-04
+76,end_date,2015-08-05
+76,latitude,39.150357
+76,longitude,-106.252863
+76,type,time
+76,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+76,site,twin_meadows
+76,week,13
+76,year,2015
+76,start_date,2015-08-04
+76,end_date,2015-08-05
+76,latitude,39.150357
+76,longitude,-106.252863
+77,type,space
+77,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+77,site,shady_point
+77,week,14
+77,year,2014
+77,start_date,2014-09-01
+77,end_date,2014-09-02
+77,latitude,37.933364
+77,longitude,-107.9038794
+77,type,time
+77,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+77,site,shady_point
+77,week,14
+77,year,2014
+77,start_date,2014-09-01
+77,end_date,2014-09-02
+77,latitude,37.933364
+77,longitude,-107.9038794
+78,type,space
+78,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+78,site,twin_meadows
+78,week,14
+78,year,2014
+78,start_date,2014-09-01
+78,end_date,2014-09-02
+78,latitude,39.150357
+78,longitude,-106.252863
+78,type,time
+78,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+78,site,twin_meadows
+78,week,14
+78,year,2014
+78,start_date,2014-09-01
+78,end_date,2014-09-02
+78,latitude,39.150357
+78,longitude,-106.252863
+79,type,space
+79,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+79,site,shady_point
+79,week,14
+79,year,2015
+79,start_date,2015-08-11
+79,end_date,2015-08-13
+79,latitude,37.933364
+79,longitude,-107.9038794
+79,type,time
+79,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+79,site,shady_point
+79,week,14
+79,year,2015
+79,start_date,2015-08-11
+79,end_date,2015-08-13
+79,latitude,37.933364
+79,longitude,-107.9038794
+80,type,space
+80,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+80,site,twin_meadows
+80,week,14
+80,year,2015
+80,start_date,2015-08-11
+80,end_date,2015-08-14
+80,latitude,39.150357
+80,longitude,-106.252863
+80,type,time
+80,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+80,site,twin_meadows
+80,week,14
+80,year,2015
+80,start_date,2015-08-11
+80,end_date,2015-08-14
+80,latitude,39.150357
+80,longitude,-106.252863
+81,type,space
+81,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+81,site,shady_point
+81,week,15
+81,year,2014
+81,start_date,2014-09-08
+81,end_date,2014-09-08
+81,latitude,37.933364
+81,longitude,-107.9038794
+81,type,time
+81,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+81,site,shady_point
+81,week,15
+81,year,2014
+81,start_date,2014-09-08
+81,end_date,2014-09-08
+81,latitude,37.933364
+81,longitude,-107.9038794
+82,type,space
+82,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+82,site,twin_meadows
+82,week,15
+82,year,2014
+82,start_date,2014-09-08
+82,end_date,2014-09-08
+82,latitude,39.150357
+82,longitude,-106.252863
+82,type,time
+82,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+82,site,twin_meadows
+82,week,15
+82,year,2014
+82,start_date,2014-09-08
+82,end_date,2014-09-08
+82,latitude,39.150357
+82,longitude,-106.252863
+83,type,space
+83,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+83,site,shady_point
+83,week,15
+83,year,2015
+83,start_date,2015-08-18
+83,end_date,2015-08-19
+83,latitude,37.933364
+83,longitude,-107.9038794
+83,type,time
+83,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+83,site,shady_point
+83,week,15
+83,year,2015
+83,start_date,2015-08-18
+83,end_date,2015-08-19
+83,latitude,37.933364
+83,longitude,-107.9038794
+84,type,space
+84,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+84,site,twin_meadows
+84,week,15
+84,year,2015
+84,start_date,2015-08-18
+84,end_date,2015-08-19
+84,latitude,39.150357
+84,longitude,-106.252863
+84,type,time
+84,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+84,site,twin_meadows
+84,week,15
+84,year,2015
+84,start_date,2015-08-18
+84,end_date,2015-08-19
+84,latitude,39.150357
+84,longitude,-106.252863
+85,type,space
+85,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+85,site,shady_point
+85,week,16
+85,year,2015
+85,start_date,2015-08-25
+85,end_date,2015-08-26
+85,latitude,37.933364
+85,longitude,-107.9038794
+85,type,time
+85,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+85,site,shady_point
+85,week,16
+85,year,2015
+85,start_date,2015-08-25
+85,end_date,2015-08-26
+85,latitude,37.933364
+85,longitude,-107.9038794
+86,type,space
+86,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+86,site,twin_meadows
+86,week,16
+86,year,2015
+86,start_date,2015-08-25
+86,end_date,2015-08-26
+86,latitude,39.150357
+86,longitude,-106.252863
+86,type,time
+86,location,"Rocky Mountain Biological Laboratory,Gothic,CO,USA"
+86,site,twin_meadows
+86,week,16
+86,year,2015
+86,start_date,2015-08-25
+86,end_date,2015-08-26
+86,latitude,39.150357
+86,longitude,-106.252863

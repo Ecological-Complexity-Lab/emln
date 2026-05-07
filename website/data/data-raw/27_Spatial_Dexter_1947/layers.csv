@@ -1,0 +1,31 @@
+layer,attribute,value
+1,type,space
+1,location,the shallow sublittoral at Cape Ann
+1,latitude,42.605557
+1,longitude,-70.665625
+1,date,01/06/1933
+1,directed,TRUE
+2,type,space
+2,location,the high salt marsh at Cape Ann
+2,latitude,42.605557
+2,longitude,-70.665625
+2,date,01/06/1933
+2,directed,TRUE
+3,type,space
+3,location,the rocky shore at Cape Ann
+3,latitude,42.605557
+3,longitude,-70.665625
+3,date,01/06/1933
+3,directed,TRUE
+4,type,space
+4,location,the low salt marsh at Cape Ann
+4,latitude,42.605557
+4,longitude,-70.665625
+4,date,01/06/1933
+4,directed,TRUE
+5,type,space
+5,location,the mudflat at Cape Ann
+5,latitude,42.605557
+5,longitude,-70.665625
+5,date,01/06/1933
+5,directed,TRUE

@@ -1,0 +1,85 @@
+layer,attribute,value
+1,date,01/05/1985
+1,directed,TRUE
+1,latitude,-37.615317
+1,location,Lerderderg River site A
+1,longitude,144.281862
+1,type,space
+1,type,time
+2,date,01/05/1985
+2,directed,TRUE
+2,latitude,-37.615317
+2,location,Lerderderg River site B
+2,longitude,144.281862
+2,type,space
+2,type,time
+3,date,01/05/1985
+3,directed,TRUE
+3,latitude,-37.615317
+3,location,Lerderderg River site C
+3,longitude,144.281862
+3,type,space
+3,type,time
+4,date,01/09/1985
+4,directed,TRUE
+4,latitude,-37.615317
+4,location,Lerderderg River site A
+4,longitude,144.281862
+4,type,space
+4,type,time
+5,date,01/09/1985
+5,directed,TRUE
+5,latitude,-37.615317
+5,location,Lerderderg River site B
+5,longitude,144.281862
+5,type,space
+5,type,time
+6,date,01/09/1985
+6,directed,TRUE
+6,latitude,-37.615317
+6,location,Lerderderg River site C
+6,longitude,144.281862
+6,type,space
+6,type,time
+7,date,01/12/1985
+7,directed,TRUE
+7,latitude,-37.615317
+7,location,Lerderderg River site A
+7,longitude,144.281862
+7,type,space
+7,type,time
+8,date,01/12/1985
+8,directed,TRUE
+8,latitude,-37.615317
+8,location,Lerderderg River site B
+8,longitude,144.281862
+8,type,space
+8,type,time
+9,date,01/12/1985
+9,directed,TRUE
+9,latitude,-37.615317
+9,location,Lerderderg River site C
+9,longitude,144.281862
+9,type,space
+9,type,time
+10,date,01/03/1986
+10,directed,TRUE
+10,latitude,-37.615317
+10,location,Lerderderg River site A
+10,longitude,144.281862
+10,type,space
+10,type,time
+11,date,01/03/1986
+11,directed,TRUE
+11,latitude,-37.615317
+11,location,Lerderderg River site B
+11,longitude,144.281862
+11,type,space
+11,type,time
+12,date,01/03/1986
+12,directed,TRUE
+12,latitude,-37.615317
+12,location,Lerderderg River site C
+12,longitude,144.281862
+12,type,space
+12,type,time

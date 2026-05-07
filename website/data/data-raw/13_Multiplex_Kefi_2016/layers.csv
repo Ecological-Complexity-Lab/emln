@@ -1,0 +1,19 @@
+layer,attribute,value
+1,name,NTIneg
+1,type,interaction
+1,directed,TRUE
+1,latitude,-33.447487
+1,longitude,-70.673676
+1,description,non trophic negative interactions
+2,name,NTIpos
+2,type,interaction
+2,directed,TRUE
+2,latitude,-33.447487
+2,longitude,-70.673676
+2,description,non trophic positive interactions
+3,name,TI
+3,type,interaction
+3,directed,TRUE
+3,latitude,-33.447487
+3,longitude,-70.673676
+3,description,trophic interactions

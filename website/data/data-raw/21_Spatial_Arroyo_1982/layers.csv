@@ -1,0 +1,22 @@
+layer,attribute,value
+1,type,space
+1,location,"Cordón del Cepo, Chile"
+1,latitude,-33.283334
+1,longitude,-70.266668
+1,num_of_species,185
+1,num_of_interactions,361
+1,connectance,0.043
+2,type,space
+2,location,"Cordón del Cepo, Chile"
+2,latitude,-33.283334
+2,longitude,-70.266668
+2,num_of_species,107
+2,num_of_interactions,196
+2,connectance,0.071
+3,type,space
+3,location,"Cordón del Cepo, Chile"
+3,latitude,-33.283334
+3,longitude,-70.266668
+3,num_of_species,61
+3,num_of_interactions,81
+3,connectance,0.09

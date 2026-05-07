@@ -1,0 +1,31 @@
+layer,attribute,value
+1,date,01/06/2003
+1,directed,TRUE
+1,latitude,"42, 42, 48.34, 48.34, 42, 42"
+1,longitude,"-126, -124, -124, -126, -126, -126"
+1,name,Northern California Current
+1,type,time
+2,date,01/06/2004
+2,directed,TRUE
+2,latitude,"42, 42, 48.34, 48.34, 42, 42"
+2,longitude,"-126, -124, -124, -126, -126, -126"
+2,name,Northern California Current
+2,type,time
+3,date,01/06/2005
+3,directed,TRUE
+3,latitude,"42, 42, 48.34, 48.34, 42, 42"
+3,longitude,"-126, -124, -124, -126, -126, -126"
+3,name,Northern California Current
+3,type,time
+4,date,01/06/2006
+4,directed,TRUE
+4,latitude,"42, 42, 48.34, 48.34, 42, 42"
+4,longitude,"-126, -124, -124, -126, -126, -126"
+4,name,Northern California Current
+4,type,time
+5,date,01/06/2007
+5,directed,TRUE
+5,latitude,"42, 42, 48.34, 48.34, 42, 42"
+5,longitude,"-126, -124, -124, -126, -126, -126"
+5,name,Northern California Current
+5,type,time

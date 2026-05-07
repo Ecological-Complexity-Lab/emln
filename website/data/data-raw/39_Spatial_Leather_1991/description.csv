@@ -1,0 +1,10 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Spatial
+description,feeding specialisation and host distribution
+source,Web_of_Life
+source,Interaction_Web_DataBase
+data_url,http://www.web-of-life.es/map.php
+data_url,http://www.ecologia.ib.usp.br/iwdb/html/leather_1991.htm
+ecological_network_type,Plant-Herbivore
+state_nodes,TRUE

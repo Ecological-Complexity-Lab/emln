@@ -1,0 +1,10 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Spatial
+description,"In this paper, the authors examined the feeding patterns of grasshoppers from two arid grassland communities in Trans-Pecos, Texas."
+source,Web_of_Life
+source,Interaction_Web_DataBase
+data_url,http://www.web-of-life.es/map.php?type=6
+data_url,http://www.ecologia.ib.usp.br/iwdb/html/joern_1979.htm
+ecological_network_type,Plant-Herbivore
+state_nodes,TRUE
