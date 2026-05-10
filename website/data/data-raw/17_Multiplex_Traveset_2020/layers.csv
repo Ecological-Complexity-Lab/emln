@@ -1,0 +1,25 @@
+layer,attribute,value
+1,name,pollination_San Cristobal
+1,type,interaction
+1,interaction_type,pollination
+1,location,"San Cristobal,Galapagos"
+1,latitude,-0.909114
+1,longitude,-89.561852
+2,name,seed-dispersal_San Cristobal
+2,type,interaction
+2,interaction_type,seed-dispersal
+2,location,"San Cristobal,Galapagos"
+2,latitude,-0.909114
+2,longitude,-89.561852
+3,name,pollination_Santa Cruz
+3,type,interaction
+3,interaction_type,pollination
+3,location,"Santa Cruz,Galapagos"
+3,latitude,-0.533386
+3,longitude,-90.350216
+4,name,seed-dispersal_Santa Cruz
+4,type,interaction
+4,interaction_type,seed-dispersal
+4,location,"Santa Cruz,Galapagos"
+4,latitude,-0.533386
+4,longitude,-90.350216

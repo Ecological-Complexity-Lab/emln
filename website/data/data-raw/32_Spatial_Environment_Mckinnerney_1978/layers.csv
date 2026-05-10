@@ -1,0 +1,49 @@
+layer,attribute,value
+1,type,space
+1,type,environment
+1,habitat,rabbit carrion (day 25)
+1,location,"Hueco Tanks, Texas, USA"
+1,latitude,31.920385
+1,longitude,-106.0385877
+1,date,01/05/1976
+1,directed,TRUE
+2,type,space
+2,type,environment
+2,habitat,rabbit carrion (day 8)
+2,location,"White Sands, New Mexico, USA"
+2,latitude,32.3837754
+2,longitude,-106.4966154
+2,date,01/05/1976
+2,directed,TRUE
+3,type,space
+3,type,environment
+3,habitat,rabbit carrion (day 79)
+3,location,"White sands, New Mexico, USA"
+3,latitude,32.3837754
+3,longitude,-106.4966154
+3,date,01/05/1976
+3,directed,TRUE
+4,type,space
+4,type,environment
+4,habitat,rabbit carrion (day 2)
+4,location,"Aden Crater, New Mexico, USA"
+4,latitude,32.06945
+4,longitude,-107.058216
+4,date,01/05/1976
+4,directed,TRUE
+5,type,space
+5,type,environment
+5,habitat,rabbit carrion (day 11)
+5,location,"Aden Crater, New Mexico, USA"
+5,latitude,32.06945
+5,longitude,-107.058216
+5,date,01/05/1976
+5,directed,TRUE
+6,type,space
+6,type,environment
+6,habitat,rabbit carrion (day 9)
+6,location,"Hueco Mountains, Texas, USA"
+6,latitude,31.945278
+6,longitude,-105.97
+6,date,01/05/1976
+6,directed,TRUE

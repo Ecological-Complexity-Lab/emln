@@ -1,0 +1,13 @@
+layer,attribute,value
+1,type,space
+1,name,Azorean Flores island
+1,latitude,39.444798
+1,longitude,-31.193594
+1,date,01/07/2000
+1,directed,TRUE
+2,type,space
+2,name,Mauritian Ile aux Aigrettes
+2,latitude,-20.420476
+2,longitude,57.732639
+2,date,01/06/1999
+2,directed,TRUE

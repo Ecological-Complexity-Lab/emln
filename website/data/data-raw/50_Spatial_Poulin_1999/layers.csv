@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,space
+1,location,"Nava Correhuelas. S. Cazorla, SE Spain."
+1,latitude,37.927466
+1,longitude,-2.866349
+1,num_of_species,58
+1,num_of_interactions,150
+1,connectance,0.182
+2,type,space
+2,location,"Nava Noguera, Sierra de Cazorla, SE Spain"
+2,latitude,37.9409
+2,longitude,-2.792725
+2,num_of_species,46
+2,num_of_interactions,129
+2,connectance,0.256

@@ -1,0 +1,329 @@
+interaction_id,attribute,value
+1,node_from,Acmaea_testudinalis
+1,layer_from,1
+1,node_to,algae
+1,layer_to,1
+1,weight,1
+1,type,herbivory
+1,method,field observation/experiment
+1,directed,TRUE
+2,node_from,Littorina
+2,layer_from,1
+2,node_to,algae
+2,layer_to,1
+2,weight,1
+2,type,herbivory
+2,method,field observation/experiment
+2,directed,TRUE
+3,node_from,Mytilus_edulis
+3,layer_from,1
+3,node_to,plankton
+3,layer_to,1
+3,weight,1
+3,type,predation
+3,method,field observation/experiment
+3,directed,TRUE
+4,node_from,Balanus_balanoides
+4,layer_from,1
+4,node_to,plankton
+4,layer_to,1
+4,weight,1
+4,type,predation
+4,method,field observation/experiment
+4,directed,TRUE
+5,node_from,Thais_lapillus
+5,layer_from,1
+5,node_to,Acmaea_testudinalis
+5,layer_to,1
+5,weight,1
+5,type,predation
+5,method,field observation/experiment
+5,directed,TRUE
+6,node_from,Thais_lapillus
+6,layer_from,1
+6,node_to,Littorina
+6,layer_to,1
+6,weight,1
+6,type,predation
+6,method,field observation/experiment
+6,directed,TRUE
+7,node_from,Thais_lapillus
+7,layer_from,1
+7,node_to,Mytilus_edulis
+7,layer_to,1
+7,weight,1
+7,type,predation
+7,method,field observation/experiment
+7,directed,TRUE
+8,node_from,Thais_lapillus
+8,layer_from,1
+8,node_to,Balanus_balanoides
+8,layer_to,1
+8,weight,1
+8,type,predation
+8,method,field observation/experiment
+8,directed,TRUE
+9,node_from,Balanus_balanoides
+9,layer_from,1
+9,node_to,Mytilus_edulis
+9,layer_to,1
+9,weight,1
+9,type,competition
+9,method,field observation/experiment
+9,directed,FALSE
+10,node_from,Mytilus_edulis
+10,layer_from,1
+10,node_to,detritus
+10,layer_to,1
+10,weight,1
+10,type,detritivore
+10,method,field observation/experiment
+10,directed,TRUE
+11,node_from,Balanus_balanoides
+11,layer_from,1
+11,node_to,detritus
+11,layer_to,1
+11,weight,1
+11,type,detritivore
+11,method,field observation/experiment
+11,directed,TRUE
+12,node_from,Seariesia
+12,layer_from,2
+12,node_to,chitons
+12,layer_to,2
+12,weight,1
+12,type,predation
+12,method,field observation/experiment
+12,directed,TRUE
+13,node_from,Pisaster
+13,layer_from,2
+13,node_to,acorn_barnacles
+13,layer_to,2
+13,weight,1
+13,type,predation
+13,method,field observation/experiment
+13,directed,TRUE
+14,node_from,Pisaster
+14,layer_from,2
+14,node_to,limpets
+14,layer_to,2
+14,weight,1
+14,type,predation
+14,method,field observation/experiment
+14,directed,TRUE
+15,node_from,Pisaster
+15,layer_from,2
+15,node_to,other_herbivorous_gastropods
+15,layer_to,2
+15,weight,1
+15,type,predation
+15,method,field observation/experiment
+15,directed,TRUE
+16,node_from,Pisaster
+16,layer_from,2
+16,node_to,Mytilus_edulis
+16,layer_to,2
+16,weight,1
+16,type,predation
+16,method,field observation/experiment
+16,directed,TRUE
+17,node_from,Pisaster
+17,layer_from,2
+17,node_to,chitons
+17,layer_to,2
+17,weight,1
+17,type,predation
+17,method,field observation/experiment
+17,directed,TRUE
+18,node_from,Pisaster
+18,layer_from,2
+18,node_to,Littorina
+18,layer_to,2
+18,weight,1
+18,type,predation
+18,method,field observation/experiment
+18,directed,TRUE
+19,node_from,Pisaster
+19,layer_from,2
+19,node_to,Thais
+19,layer_to,2
+19,weight,1
+19,type,predation
+19,method,field observation/experiment
+19,directed,TRUE
+20,node_from,Pisaster
+20,layer_from,2
+20,node_to,Seariesia
+20,layer_to,2
+20,weight,1
+20,type,predation
+20,method,field observation/experiment
+20,directed,TRUE
+21,node_from,Leptasterias
+21,layer_from,2
+21,node_to,acorn_barnacles
+21,layer_to,2
+21,weight,1
+21,type,predation
+21,method,field observation/experiment
+21,directed,TRUE
+22,node_from,Leptasterias
+22,layer_from,2
+22,node_to,limpets
+22,layer_to,2
+22,weight,1
+22,type,predation
+22,method,field observation/experiment
+22,directed,TRUE
+23,node_from,Leptasterias
+23,layer_from,2
+23,node_to,other_herbivorous_gastropods
+23,layer_to,2
+23,weight,1
+23,type,predation
+23,method,field observation/experiment
+23,directed,TRUE
+24,node_from,Leptasterias
+24,layer_from,2
+24,node_to,Mytilus_edulis
+24,layer_to,2
+24,weight,1
+24,type,predation
+24,method,field observation/experiment
+24,directed,TRUE
+25,node_from,Leptasterias
+25,layer_from,2
+25,node_to,chitons
+25,layer_to,2
+25,weight,1
+25,type,predation
+25,method,field observation/experiment
+25,directed,TRUE
+26,node_from,Leptasterias
+26,layer_from,2
+26,node_to,Littorina
+26,layer_to,2
+26,weight,1
+26,type,predation
+26,method,field observation/experiment
+26,directed,TRUE
+27,node_from,Leptasterias
+27,layer_from,2
+27,node_to,Thais
+27,layer_to,2
+27,weight,1
+27,type,predation
+27,method,field observation/experiment
+27,directed,TRUE
+28,node_from,Leptasterias
+28,layer_from,2
+28,node_to,Seariesia
+28,layer_to,2
+28,weight,1
+28,type,predation
+28,method,field observation/experiment
+28,directed,TRUE
+29,node_from,acorn_barnacles
+29,layer_from,2
+29,node_to,Mytilus_californianus
+29,layer_to,2
+29,weight,1
+29,type,competition
+29,method,field observation/experiment
+29,directed,FALSE
+30,node_from,acorn_barnacles
+30,layer_from,2
+30,node_to,plankton
+30,layer_to,2
+30,weight,1
+30,type,predation
+30,method,field observation/experiment
+30,directed,TRUE
+31,node_from,limpets
+31,layer_from,2
+31,node_to,algae
+31,layer_to,2
+31,weight,1
+31,type,herbivory
+31,method,field observation/experiment
+31,directed,TRUE
+32,node_from,other_herbivorous_gastropods
+32,layer_from,2
+32,node_to,algae
+32,layer_to,2
+32,weight,1
+32,type,herbivory
+32,method,field observation/experiment
+32,directed,TRUE
+33,node_from,Mytilus_edulis
+33,layer_from,2
+33,node_to,plankton
+33,layer_to,2
+33,weight,1
+33,type,predation
+33,method,field observation/experiment
+33,directed,TRUE
+34,node_from,chitons
+34,layer_from,2
+34,node_to,algae
+34,layer_to,2
+34,weight,1
+34,type,herbivory
+34,method,field observation/experiment
+34,directed,TRUE
+35,node_from,Littorina
+35,layer_from,2
+35,node_to,algae
+35,layer_to,2
+35,weight,1
+35,type,herbivory
+35,method,field observation/experiment
+35,directed,TRUE
+36,node_from,Thais
+36,layer_from,2
+36,node_to,acorn_barnacles
+36,layer_to,2
+36,weight,1
+36,type,predation
+36,method,field observation/experiment
+36,directed,TRUE
+37,node_from,Thais
+37,layer_from,2
+37,node_to,Mytilus_edulis
+37,layer_to,2
+37,weight,1
+37,type,predation
+37,method,field observation/experiment
+37,directed,TRUE
+38,node_from,Seariesia
+38,layer_from,2
+38,node_to,acorn_barnacles
+38,layer_to,2
+38,weight,1
+38,type,predation
+38,method,field observation/experiment
+38,directed,TRUE
+39,node_from,Seariesia
+39,layer_from,2
+39,node_to,limpets
+39,layer_to,2
+39,weight,1
+39,type,predation
+39,method,field observation/experiment
+39,directed,TRUE
+40,node_from,acorn_barnacles
+40,layer_from,2
+40,node_to,detritus
+40,layer_to,2
+40,weight,1
+40,type,detritivore
+40,method,field observation/experiment
+40,directed,TRUE
+41,node_from,Mytilus_edulis
+41,layer_from,2
+41,node_to,detritus
+41,layer_to,2
+41,weight,1
+41,type,detritivore
+41,method,field observation/experiment
+41,directed,TRUE

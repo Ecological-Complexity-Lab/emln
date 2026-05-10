@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,time
+1,habitat,rabbit carrion after after 4 days
+1,location,"Chihuahan Desert, El Paso County, Texas"
+1,latitude,31.9333333
+1,longitude,-106.416666666667
+1,date,01/05/1980
+1,directed,TRUE
+2,type,time
+2,habitat,rabbit carrion after after 14 days
+2,location,"Chihuahan Desert, El Paso County, Texas"
+2,latitude,31.9333333
+2,longitude,-106.416666666667
+2,date,01/05/1980
+2,directed,TRUE

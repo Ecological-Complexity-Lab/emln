@@ -1,0 +1,28 @@
+layer,attribute,value
+1,name,M_PL_069_01
+1,type,environment
+1,species,24
+1,location,"Atlantic Forest, low elevation"
+1,elevation,350-600 m
+1,interactions,29
+1,connectance,0.269
+1,latitude,-27.27
+1,longitude,-49.01
+2,name,M_PL_069_02
+2,type,environment
+2,species,14
+2,location,"Atlantic Forest, mid elevation"
+2,elevation,600-850 m
+2,interactions,16
+2,connectance,0.4
+2,latitude,-27.26
+2,longitude,-49.02
+3,name,M_PL_069_03
+3,type,environment
+3,species,11
+3,location,"Atlantic Forest, high elevation"
+3,elevation,850-1100 m
+3,interactions,15
+3,connectance,0.536
+3,latitude,-27.26
+3,longitude,-49.02

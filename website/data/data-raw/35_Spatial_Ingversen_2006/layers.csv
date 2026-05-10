@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,space
+1,location,"Windsor, The Cockpit Country, Jamaica"
+1,latitude,18.353889
+1,longitude,-77.645278
+1,num_of_species,72
+1,num_of_interactions,114
+1,connectance,0.091
+2,type,space
+2,location,"Syndicate, Dominica"
+2,latitude,15.518889
+2,longitude,-61.467222
+2,num_of_species,74
+2,num_of_interactions,145
+2,connectance,0.109

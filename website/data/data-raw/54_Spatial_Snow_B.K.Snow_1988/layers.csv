@@ -1,0 +1,17 @@
+layer,attribute,value
+1,name,M_SD_010
+1,type,space
+1,species,64
+1,location,Tropical rainforest. Trinidad.
+1,interactions,234
+1,connectance,0.334
+1,latitude,10.716667
+1,longitude,-61.3
+2,name,M_SD_011
+2,type,space
+2,species,25
+2,location,"Calton, Great Britain"
+2,interactions,47
+2,connectance,0.305
+2,latitude,53.056889
+2,longitude,-1.851371

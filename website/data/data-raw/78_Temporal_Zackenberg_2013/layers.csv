@@ -1,0 +1,979 @@
+layer,attribute,value
+1,date,1996-06-21
+1,latitude,74.466667
+1,location,"high–arctic research station Zackenberg, NE Greenland"
+1,longitude,-20.583333
+1,name,6/21/96
+1,type,time
+2,date,1996-06-23
+2,latitude,74.466667
+2,location,"high–arctic research station Zackenberg, NE Greenland"
+2,longitude,-20.583333
+2,name,6/23/96
+2,type,time
+3,date,1996-06-24
+3,latitude,74.466667
+3,location,"high–arctic research station Zackenberg, NE Greenland"
+3,longitude,-20.583333
+3,name,6/24/96
+3,type,time
+4,date,1996-06-25
+4,latitude,74.466667
+4,location,"high–arctic research station Zackenberg, NE Greenland"
+4,longitude,-20.583333
+4,name,6/25/96
+4,type,time
+5,date,1996-06-27
+5,latitude,74.466667
+5,location,"high–arctic research station Zackenberg, NE Greenland"
+5,longitude,-20.583333
+5,name,6/27/96
+5,type,time
+6,date,1996-06-28
+6,latitude,74.466667
+6,location,"high–arctic research station Zackenberg, NE Greenland"
+6,longitude,-20.583333
+6,name,6/28/96
+6,type,time
+7,date,1996-07-01
+7,latitude,74.466667
+7,location,"high–arctic research station Zackenberg, NE Greenland"
+7,longitude,-20.583333
+7,name,7/1/96
+7,type,time
+8,date,1996-07-02
+8,latitude,74.466667
+8,location,"high–arctic research station Zackenberg, NE Greenland"
+8,longitude,-20.583333
+8,name,7/2/96
+8,type,time
+9,date,1996-07-03
+9,latitude,74.466667
+9,location,"high–arctic research station Zackenberg, NE Greenland"
+9,longitude,-20.583333
+9,name,7/3/96
+9,type,time
+10,date,1996-07-04
+10,latitude,74.466667
+10,location,"high–arctic research station Zackenberg, NE Greenland"
+10,longitude,-20.583333
+10,name,7/4/96
+10,type,time
+11,date,1996-07-05
+11,latitude,74.466667
+11,location,"high–arctic research station Zackenberg, NE Greenland"
+11,longitude,-20.583333
+11,name,7/5/96
+11,type,time
+12,date,1996-07-06
+12,latitude,74.466667
+12,location,"high–arctic research station Zackenberg, NE Greenland"
+12,longitude,-20.583333
+12,name,7/6/96
+12,type,time
+13,date,1996-07-07
+13,latitude,74.466667
+13,location,"high–arctic research station Zackenberg, NE Greenland"
+13,longitude,-20.583333
+13,name,7/7/96
+13,type,time
+14,date,1996-07-09
+14,latitude,74.466667
+14,location,"high–arctic research station Zackenberg, NE Greenland"
+14,longitude,-20.583333
+14,name,7/9/96
+14,type,time
+15,date,1996-07-10
+15,latitude,74.466667
+15,location,"high–arctic research station Zackenberg, NE Greenland"
+15,longitude,-20.583333
+15,name,7/10/96
+15,type,time
+16,date,1996-07-11
+16,latitude,74.466667
+16,location,"high–arctic research station Zackenberg, NE Greenland"
+16,longitude,-20.583333
+16,name,7/11/96
+16,type,time
+17,date,1996-07-14
+17,latitude,74.466667
+17,location,"high–arctic research station Zackenberg, NE Greenland"
+17,longitude,-20.583333
+17,name,7/14/96
+17,type,time
+18,date,1996-07-15
+18,latitude,74.466667
+18,location,"high–arctic research station Zackenberg, NE Greenland"
+18,longitude,-20.583333
+18,name,7/15/96
+18,type,time
+19,date,1996-07-16
+19,latitude,74.466667
+19,location,"high–arctic research station Zackenberg, NE Greenland"
+19,longitude,-20.583333
+19,name,7/16/96
+19,type,time
+20,date,1996-07-17
+20,latitude,74.466667
+20,location,"high–arctic research station Zackenberg, NE Greenland"
+20,longitude,-20.583333
+20,name,7/17/96
+20,type,time
+21,date,1996-07-18
+21,latitude,74.466667
+21,location,"high–arctic research station Zackenberg, NE Greenland"
+21,longitude,-20.583333
+21,name,7/18/96
+21,type,time
+22,date,1996-07-21
+22,latitude,74.466667
+22,location,"high–arctic research station Zackenberg, NE Greenland"
+22,longitude,-20.583333
+22,name,7/21/96
+22,type,time
+23,date,1996-07-22
+23,latitude,74.466667
+23,location,"high–arctic research station Zackenberg, NE Greenland"
+23,longitude,-20.583333
+23,name,7/22/96
+23,type,time
+24,date,1996-07-23
+24,latitude,74.466667
+24,location,"high–arctic research station Zackenberg, NE Greenland"
+24,longitude,-20.583333
+24,name,7/23/96
+24,type,time
+25,date,1996-07-24
+25,latitude,74.466667
+25,location,"high–arctic research station Zackenberg, NE Greenland"
+25,longitude,-20.583333
+25,name,7/24/96
+25,type,time
+26,date,1996-07-27
+26,latitude,74.466667
+26,location,"high–arctic research station Zackenberg, NE Greenland"
+26,longitude,-20.583333
+26,name,7/27/96
+26,type,time
+27,date,1996-08-01
+27,latitude,74.466667
+27,location,"high–arctic research station Zackenberg, NE Greenland"
+27,longitude,-20.583333
+27,name,8/1/96
+27,type,time
+28,date,1997-06-17
+28,latitude,74.466667
+28,location,"high–arctic research station Zackenberg, NE Greenland"
+28,longitude,-20.583333
+28,name,6/17/97
+28,type,time
+29,date,1997-06-18
+29,latitude,74.466667
+29,location,"high–arctic research station Zackenberg, NE Greenland"
+29,longitude,-20.583333
+29,name,6/18/97
+29,type,time
+30,date,1997-06-21
+30,latitude,74.466667
+30,location,"high–arctic research station Zackenberg, NE Greenland"
+30,longitude,-20.583333
+30,name,6/21/97
+30,type,time
+31,date,1997-06-22
+31,latitude,74.466667
+31,location,"high–arctic research station Zackenberg, NE Greenland"
+31,longitude,-20.583333
+31,name,6/22/97
+31,type,time
+32,date,1997-06-23
+32,latitude,74.466667
+32,location,"high–arctic research station Zackenberg, NE Greenland"
+32,longitude,-20.583333
+32,name,6/23/97
+32,type,time
+33,date,1997-06-24
+33,latitude,74.466667
+33,location,"high–arctic research station Zackenberg, NE Greenland"
+33,longitude,-20.583333
+33,name,6/24/97
+33,type,time
+34,date,1997-06-25
+34,latitude,74.466667
+34,location,"high–arctic research station Zackenberg, NE Greenland"
+34,longitude,-20.583333
+34,name,6/25/97
+34,type,time
+35,date,1997-06-29
+35,latitude,74.466667
+35,location,"high–arctic research station Zackenberg, NE Greenland"
+35,longitude,-20.583333
+35,name,6/29/97
+35,type,time
+36,date,1997-07-02
+36,latitude,74.466667
+36,location,"high–arctic research station Zackenberg, NE Greenland"
+36,longitude,-20.583333
+36,name,7/2/97
+36,type,time
+37,date,1997-07-09
+37,latitude,74.466667
+37,location,"high–arctic research station Zackenberg, NE Greenland"
+37,longitude,-20.583333
+37,name,7/9/97
+37,type,time
+38,date,1997-07-12
+38,latitude,74.466667
+38,location,"high–arctic research station Zackenberg, NE Greenland"
+38,longitude,-20.583333
+38,name,7/12/97
+38,type,time
+39,date,1997-07-14
+39,latitude,74.466667
+39,location,"high–arctic research station Zackenberg, NE Greenland"
+39,longitude,-20.583333
+39,name,7/14/97
+39,type,time
+40,date,1997-07-15
+40,latitude,74.466667
+40,location,"high–arctic research station Zackenberg, NE Greenland"
+40,longitude,-20.583333
+40,name,7/15/97
+40,type,time
+41,date,1997-07-17
+41,latitude,74.466667
+41,location,"high–arctic research station Zackenberg, NE Greenland"
+41,longitude,-20.583333
+41,name,7/17/97
+41,type,time
+42,date,1997-07-20
+42,latitude,74.466667
+42,location,"high–arctic research station Zackenberg, NE Greenland"
+42,longitude,-20.583333
+42,name,7/20/97
+42,type,time
+43,date,1997-07-21
+43,latitude,74.466667
+43,location,"high–arctic research station Zackenberg, NE Greenland"
+43,longitude,-20.583333
+43,name,7/21/97
+43,type,time
+44,date,1997-07-22
+44,latitude,74.466667
+44,location,"high–arctic research station Zackenberg, NE Greenland"
+44,longitude,-20.583333
+44,name,7/22/97
+44,type,time
+45,date,1997-07-23
+45,latitude,74.466667
+45,location,"high–arctic research station Zackenberg, NE Greenland"
+45,longitude,-20.583333
+45,name,7/23/97
+45,type,time
+46,date,1997-07-24
+46,latitude,74.466667
+46,location,"high–arctic research station Zackenberg, NE Greenland"
+46,longitude,-20.583333
+46,name,7/24/97
+46,type,time
+47,date,1997-07-28
+47,latitude,74.466667
+47,location,"high–arctic research station Zackenberg, NE Greenland"
+47,longitude,-20.583333
+47,name,7/28/97
+47,type,time
+48,date,1997-07-29
+48,latitude,74.466667
+48,location,"high–arctic research station Zackenberg, NE Greenland"
+48,longitude,-20.583333
+48,name,7/29/97
+48,type,time
+49,date,1997-07-31
+49,latitude,74.466667
+49,location,"high–arctic research station Zackenberg, NE Greenland"
+49,longitude,-20.583333
+49,name,7/31/97
+49,type,time
+50,date,1997-08-05
+50,latitude,74.466667
+50,location,"high–arctic research station Zackenberg, NE Greenland"
+50,longitude,-20.583333
+50,name,8/5/97
+50,type,time
+51,date,1997-08-09
+51,latitude,74.466667
+51,location,"high–arctic research station Zackenberg, NE Greenland"
+51,longitude,-20.583333
+51,name,8/9/97
+51,type,time
+52,date,1997-08-10
+52,latitude,74.466667
+52,location,"high–arctic research station Zackenberg, NE Greenland"
+52,longitude,-20.583333
+52,name,8/10/97
+52,type,time
+53,date,1997-08-19
+53,latitude,74.466667
+53,location,"high–arctic research station Zackenberg, NE Greenland"
+53,longitude,-20.583333
+53,name,8/19/97
+53,type,time
+54,date,1997-08-20
+54,latitude,74.466667
+54,location,"high–arctic research station Zackenberg, NE Greenland"
+54,longitude,-20.583333
+54,name,8/20/97
+54,type,time
+55,date,1997-08-21
+55,latitude,74.466667
+55,location,"high–arctic research station Zackenberg, NE Greenland"
+55,longitude,-20.583333
+55,name,8/21/97
+55,type,time
+56,date,1997-08-24
+56,latitude,74.466667
+56,location,"high–arctic research station Zackenberg, NE Greenland"
+56,longitude,-20.583333
+56,name,8/24/97
+56,type,time
+57,date,2010-06-15
+57,latitude,74.466667
+57,location,"high–arctic research station Zackenberg, NE Greenland"
+57,longitude,-20.583333
+57,name,6/15/10
+57,type,time
+58,date,2010-06-16
+58,latitude,74.466667
+58,location,"high–arctic research station Zackenberg, NE Greenland"
+58,longitude,-20.583333
+58,name,6/16/10
+58,type,time
+59,date,2010-06-17
+59,latitude,74.466667
+59,location,"high–arctic research station Zackenberg, NE Greenland"
+59,longitude,-20.583333
+59,name,6/17/10
+59,type,time
+60,date,2010-06-18
+60,latitude,74.466667
+60,location,"high–arctic research station Zackenberg, NE Greenland"
+60,longitude,-20.583333
+60,name,6/18/10
+60,type,time
+61,date,2010-06-19
+61,latitude,74.466667
+61,location,"high–arctic research station Zackenberg, NE Greenland"
+61,longitude,-20.583333
+61,name,6/19/10
+61,type,time
+62,date,2010-06-22
+62,latitude,74.466667
+62,location,"high–arctic research station Zackenberg, NE Greenland"
+62,longitude,-20.583333
+62,name,6/22/10
+62,type,time
+63,date,2010-06-23
+63,latitude,74.466667
+63,location,"high–arctic research station Zackenberg, NE Greenland"
+63,longitude,-20.583333
+63,name,6/23/10
+63,type,time
+64,date,2010-06-24
+64,latitude,74.466667
+64,location,"high–arctic research station Zackenberg, NE Greenland"
+64,longitude,-20.583333
+64,name,6/24/10
+64,type,time
+65,date,2010-06-25
+65,latitude,74.466667
+65,location,"high–arctic research station Zackenberg, NE Greenland"
+65,longitude,-20.583333
+65,name,6/25/10
+65,type,time
+66,date,2010-06-26
+66,latitude,74.466667
+66,location,"high–arctic research station Zackenberg, NE Greenland"
+66,longitude,-20.583333
+66,name,6/26/10
+66,type,time
+67,date,2010-06-29
+67,latitude,74.466667
+67,location,"high–arctic research station Zackenberg, NE Greenland"
+67,longitude,-20.583333
+67,name,6/29/10
+67,type,time
+68,date,2010-06-30
+68,latitude,74.466667
+68,location,"high–arctic research station Zackenberg, NE Greenland"
+68,longitude,-20.583333
+68,name,6/30/10
+68,type,time
+69,date,2010-07-01
+69,latitude,74.466667
+69,location,"high–arctic research station Zackenberg, NE Greenland"
+69,longitude,-20.583333
+69,name,7/1/10
+69,type,time
+70,date,2010-07-02
+70,latitude,74.466667
+70,location,"high–arctic research station Zackenberg, NE Greenland"
+70,longitude,-20.583333
+70,name,7/2/10
+70,type,time
+71,date,2010-07-03
+71,latitude,74.466667
+71,location,"high–arctic research station Zackenberg, NE Greenland"
+71,longitude,-20.583333
+71,name,7/3/10
+71,type,time
+72,date,2010-07-06
+72,latitude,74.466667
+72,location,"high–arctic research station Zackenberg, NE Greenland"
+72,longitude,-20.583333
+72,name,7/6/10
+72,type,time
+73,date,2010-07-07
+73,latitude,74.466667
+73,location,"high–arctic research station Zackenberg, NE Greenland"
+73,longitude,-20.583333
+73,name,7/7/10
+73,type,time
+74,date,2010-07-08
+74,latitude,74.466667
+74,location,"high–arctic research station Zackenberg, NE Greenland"
+74,longitude,-20.583333
+74,name,7/8/10
+74,type,time
+75,date,2010-07-09
+75,latitude,74.466667
+75,location,"high–arctic research station Zackenberg, NE Greenland"
+75,longitude,-20.583333
+75,name,7/9/10
+75,type,time
+76,date,2010-07-10
+76,latitude,74.466667
+76,location,"high–arctic research station Zackenberg, NE Greenland"
+76,longitude,-20.583333
+76,name,7/10/10
+76,type,time
+77,date,2010-07-12
+77,latitude,74.466667
+77,location,"high–arctic research station Zackenberg, NE Greenland"
+77,longitude,-20.583333
+77,name,7/12/10
+77,type,time
+78,date,2010-07-13
+78,latitude,74.466667
+78,location,"high–arctic research station Zackenberg, NE Greenland"
+78,longitude,-20.583333
+78,name,7/13/10
+78,type,time
+79,date,2010-07-14
+79,latitude,74.466667
+79,location,"high–arctic research station Zackenberg, NE Greenland"
+79,longitude,-20.583333
+79,name,7/14/10
+79,type,time
+80,date,2010-07-15
+80,latitude,74.466667
+80,location,"high–arctic research station Zackenberg, NE Greenland"
+80,longitude,-20.583333
+80,name,7/15/10
+80,type,time
+81,date,2010-07-16
+81,latitude,74.466667
+81,location,"high–arctic research station Zackenberg, NE Greenland"
+81,longitude,-20.583333
+81,name,7/16/10
+81,type,time
+82,date,2010-07-17
+82,latitude,74.466667
+82,location,"high–arctic research station Zackenberg, NE Greenland"
+82,longitude,-20.583333
+82,name,7/17/10
+82,type,time
+83,date,2010-07-19
+83,latitude,74.466667
+83,location,"high–arctic research station Zackenberg, NE Greenland"
+83,longitude,-20.583333
+83,name,7/19/10
+83,type,time
+84,date,2010-07-20
+84,latitude,74.466667
+84,location,"high–arctic research station Zackenberg, NE Greenland"
+84,longitude,-20.583333
+84,name,7/20/10
+84,type,time
+85,date,2010-07-21
+85,latitude,74.466667
+85,location,"high–arctic research station Zackenberg, NE Greenland"
+85,longitude,-20.583333
+85,name,7/21/10
+85,type,time
+86,date,2010-07-22
+86,latitude,74.466667
+86,location,"high–arctic research station Zackenberg, NE Greenland"
+86,longitude,-20.583333
+86,name,7/22/10
+86,type,time
+87,date,2010-07-23
+87,latitude,74.466667
+87,location,"high–arctic research station Zackenberg, NE Greenland"
+87,longitude,-20.583333
+87,name,7/23/10
+87,type,time
+88,date,2010-07-24
+88,latitude,74.466667
+88,location,"high–arctic research station Zackenberg, NE Greenland"
+88,longitude,-20.583333
+88,name,7/24/10
+88,type,time
+89,date,2010-07-26
+89,latitude,74.466667
+89,location,"high–arctic research station Zackenberg, NE Greenland"
+89,longitude,-20.583333
+89,name,7/26/10
+89,type,time
+90,date,2010-07-27
+90,latitude,74.466667
+90,location,"high–arctic research station Zackenberg, NE Greenland"
+90,longitude,-20.583333
+90,name,7/27/10
+90,type,time
+91,date,2010-07-28
+91,latitude,74.466667
+91,location,"high–arctic research station Zackenberg, NE Greenland"
+91,longitude,-20.583333
+91,name,7/28/10
+91,type,time
+92,date,2010-07-29
+92,latitude,74.466667
+92,location,"high–arctic research station Zackenberg, NE Greenland"
+92,longitude,-20.583333
+92,name,7/29/10
+92,type,time
+93,date,2010-07-30
+93,latitude,74.466667
+93,location,"high–arctic research station Zackenberg, NE Greenland"
+93,longitude,-20.583333
+93,name,7/30/10
+93,type,time
+94,date,2010-07-31
+94,latitude,74.466667
+94,location,"high–arctic research station Zackenberg, NE Greenland"
+94,longitude,-20.583333
+94,name,7/31/10
+94,type,time
+95,date,2010-08-02
+95,latitude,74.466667
+95,location,"high–arctic research station Zackenberg, NE Greenland"
+95,longitude,-20.583333
+95,name,8/2/10
+95,type,time
+96,date,2010-08-04
+96,latitude,74.466667
+96,location,"high–arctic research station Zackenberg, NE Greenland"
+96,longitude,-20.583333
+96,name,8/4/10
+96,type,time
+97,date,2010-08-06
+97,latitude,74.466667
+97,location,"high–arctic research station Zackenberg, NE Greenland"
+97,longitude,-20.583333
+97,name,8/6/10
+97,type,time
+98,date,2010-08-07
+98,latitude,74.466667
+98,location,"high–arctic research station Zackenberg, NE Greenland"
+98,longitude,-20.583333
+98,name,8/7/10
+98,type,time
+99,date,2010-08-08
+99,latitude,74.466667
+99,location,"high–arctic research station Zackenberg, NE Greenland"
+99,longitude,-20.583333
+99,name,8/8/10
+99,type,time
+100,date,2010-08-10
+100,latitude,74.466667
+100,location,"high–arctic research station Zackenberg, NE Greenland"
+100,longitude,-20.583333
+100,name,8/10/10
+100,type,time
+101,date,2010-08-11
+101,latitude,74.466667
+101,location,"high–arctic research station Zackenberg, NE Greenland"
+101,longitude,-20.583333
+101,name,8/11/10
+101,type,time
+102,date,2010-08-12
+102,latitude,74.466667
+102,location,"high–arctic research station Zackenberg, NE Greenland"
+102,longitude,-20.583333
+102,name,8/12/10
+102,type,time
+103,date,2010-08-13
+103,latitude,74.466667
+103,location,"high–arctic research station Zackenberg, NE Greenland"
+103,longitude,-20.583333
+103,name,8/13/10
+103,type,time
+104,date,2010-08-14
+104,latitude,74.466667
+104,location,"high–arctic research station Zackenberg, NE Greenland"
+104,longitude,-20.583333
+104,name,8/14/10
+104,type,time
+105,date,2010-08-17
+105,latitude,74.466667
+105,location,"high–arctic research station Zackenberg, NE Greenland"
+105,longitude,-20.583333
+105,name,8/17/10
+105,type,time
+106,date,2010-08-18
+106,latitude,74.466667
+106,location,"high–arctic research station Zackenberg, NE Greenland"
+106,longitude,-20.583333
+106,name,8/18/10
+106,type,time
+107,date,2010-08-19
+107,latitude,74.466667
+107,location,"high–arctic research station Zackenberg, NE Greenland"
+107,longitude,-20.583333
+107,name,8/19/10
+107,type,time
+108,date,2010-08-20
+108,latitude,74.466667
+108,location,"high–arctic research station Zackenberg, NE Greenland"
+108,longitude,-20.583333
+108,name,8/20/10
+108,type,time
+109,date,2010-08-22
+109,latitude,74.466667
+109,location,"high–arctic research station Zackenberg, NE Greenland"
+109,longitude,-20.583333
+109,name,8/22/10
+109,type,time
+110,date,2010-08-23
+110,latitude,74.466667
+110,location,"high–arctic research station Zackenberg, NE Greenland"
+110,longitude,-20.583333
+110,name,8/23/10
+110,type,time
+111,date,2011-06-17
+111,latitude,74.466667
+111,location,"high–arctic research station Zackenberg, NE Greenland"
+111,longitude,-20.583333
+111,name,6/17/11
+111,type,time
+112,date,2011-06-19
+112,latitude,74.466667
+112,location,"high–arctic research station Zackenberg, NE Greenland"
+112,longitude,-20.583333
+112,name,6/19/11
+112,type,time
+113,date,2011-06-20
+113,latitude,74.466667
+113,location,"high–arctic research station Zackenberg, NE Greenland"
+113,longitude,-20.583333
+113,name,6/20/11
+113,type,time
+114,date,2011-06-21
+114,latitude,74.466667
+114,location,"high–arctic research station Zackenberg, NE Greenland"
+114,longitude,-20.583333
+114,name,6/21/11
+114,type,time
+115,date,2011-06-22
+115,latitude,74.466667
+115,location,"high–arctic research station Zackenberg, NE Greenland"
+115,longitude,-20.583333
+115,name,6/22/11
+115,type,time
+116,date,2011-06-23
+116,latitude,74.466667
+116,location,"high–arctic research station Zackenberg, NE Greenland"
+116,longitude,-20.583333
+116,name,6/23/11
+116,type,time
+117,date,2011-06-24
+117,latitude,74.466667
+117,location,"high–arctic research station Zackenberg, NE Greenland"
+117,longitude,-20.583333
+117,name,6/24/11
+117,type,time
+118,date,2011-06-25
+118,latitude,74.466667
+118,location,"high–arctic research station Zackenberg, NE Greenland"
+118,longitude,-20.583333
+118,name,6/25/11
+118,type,time
+119,date,2011-06-28
+119,latitude,74.466667
+119,location,"high–arctic research station Zackenberg, NE Greenland"
+119,longitude,-20.583333
+119,name,6/28/11
+119,type,time
+120,date,2011-06-29
+120,latitude,74.466667
+120,location,"high–arctic research station Zackenberg, NE Greenland"
+120,longitude,-20.583333
+120,name,6/29/11
+120,type,time
+121,date,2011-07-01
+121,latitude,74.466667
+121,location,"high–arctic research station Zackenberg, NE Greenland"
+121,longitude,-20.583333
+121,name,7/1/11
+121,type,time
+122,date,2011-07-02
+122,latitude,74.466667
+122,location,"high–arctic research station Zackenberg, NE Greenland"
+122,longitude,-20.583333
+122,name,7/2/11
+122,type,time
+123,date,2011-07-03
+123,latitude,74.466667
+123,location,"high–arctic research station Zackenberg, NE Greenland"
+123,longitude,-20.583333
+123,name,7/3/11
+123,type,time
+124,date,2011-07-04
+124,latitude,74.466667
+124,location,"high–arctic research station Zackenberg, NE Greenland"
+124,longitude,-20.583333
+124,name,7/4/11
+124,type,time
+125,date,2011-07-05
+125,latitude,74.466667
+125,location,"high–arctic research station Zackenberg, NE Greenland"
+125,longitude,-20.583333
+125,name,7/5/11
+125,type,time
+126,date,2011-07-06
+126,latitude,74.466667
+126,location,"high–arctic research station Zackenberg, NE Greenland"
+126,longitude,-20.583333
+126,name,7/6/11
+126,type,time
+127,date,2011-07-07
+127,latitude,74.466667
+127,location,"high–arctic research station Zackenberg, NE Greenland"
+127,longitude,-20.583333
+127,name,7/7/11
+127,type,time
+128,date,2011-07-08
+128,latitude,74.466667
+128,location,"high–arctic research station Zackenberg, NE Greenland"
+128,longitude,-20.583333
+128,name,7/8/11
+128,type,time
+129,date,2011-07-09
+129,latitude,74.466667
+129,location,"high–arctic research station Zackenberg, NE Greenland"
+129,longitude,-20.583333
+129,name,7/9/11
+129,type,time
+130,date,2011-07-10
+130,latitude,74.466667
+130,location,"high–arctic research station Zackenberg, NE Greenland"
+130,longitude,-20.583333
+130,name,7/10/11
+130,type,time
+131,date,2011-07-11
+131,latitude,74.466667
+131,location,"high–arctic research station Zackenberg, NE Greenland"
+131,longitude,-20.583333
+131,name,7/11/11
+131,type,time
+132,date,2011-07-12
+132,latitude,74.466667
+132,location,"high–arctic research station Zackenberg, NE Greenland"
+132,longitude,-20.583333
+132,name,7/12/11
+132,type,time
+133,date,2011-07-13
+133,latitude,74.466667
+133,location,"high–arctic research station Zackenberg, NE Greenland"
+133,longitude,-20.583333
+133,name,7/13/11
+133,type,time
+134,date,2011-07-14
+134,latitude,74.466667
+134,location,"high–arctic research station Zackenberg, NE Greenland"
+134,longitude,-20.583333
+134,name,7/14/11
+134,type,time
+135,date,2011-07-15
+135,latitude,74.466667
+135,location,"high–arctic research station Zackenberg, NE Greenland"
+135,longitude,-20.583333
+135,name,7/15/11
+135,type,time
+136,date,2011-07-16
+136,latitude,74.466667
+136,location,"high–arctic research station Zackenberg, NE Greenland"
+136,longitude,-20.583333
+136,name,7/16/11
+136,type,time
+137,date,2011-07-18
+137,latitude,74.466667
+137,location,"high–arctic research station Zackenberg, NE Greenland"
+137,longitude,-20.583333
+137,name,7/18/11
+137,type,time
+138,date,2011-07-19
+138,latitude,74.466667
+138,location,"high–arctic research station Zackenberg, NE Greenland"
+138,longitude,-20.583333
+138,name,7/19/11
+138,type,time
+139,date,2011-07-20
+139,latitude,74.466667
+139,location,"high–arctic research station Zackenberg, NE Greenland"
+139,longitude,-20.583333
+139,name,7/20/11
+139,type,time
+140,date,2011-07-21
+140,latitude,74.466667
+140,location,"high–arctic research station Zackenberg, NE Greenland"
+140,longitude,-20.583333
+140,name,7/21/11
+140,type,time
+141,date,2011-07-22
+141,latitude,74.466667
+141,location,"high–arctic research station Zackenberg, NE Greenland"
+141,longitude,-20.583333
+141,name,7/22/11
+141,type,time
+142,date,2011-07-23
+142,latitude,74.466667
+142,location,"high–arctic research station Zackenberg, NE Greenland"
+142,longitude,-20.583333
+142,name,7/23/11
+142,type,time
+143,date,2011-07-25
+143,latitude,74.466667
+143,location,"high–arctic research station Zackenberg, NE Greenland"
+143,longitude,-20.583333
+143,name,7/25/11
+143,type,time
+144,date,2011-07-26
+144,latitude,74.466667
+144,location,"high–arctic research station Zackenberg, NE Greenland"
+144,longitude,-20.583333
+144,name,7/26/11
+144,type,time
+145,date,2011-07-29
+145,latitude,74.466667
+145,location,"high–arctic research station Zackenberg, NE Greenland"
+145,longitude,-20.583333
+145,name,7/29/11
+145,type,time
+146,date,2011-07-30
+146,latitude,74.466667
+146,location,"high–arctic research station Zackenberg, NE Greenland"
+146,longitude,-20.583333
+146,name,7/30/11
+146,type,time
+147,date,2011-08-01
+147,latitude,74.466667
+147,location,"high–arctic research station Zackenberg, NE Greenland"
+147,longitude,-20.583333
+147,name,8/1/11
+147,type,time
+148,date,2011-08-02
+148,latitude,74.466667
+148,location,"high–arctic research station Zackenberg, NE Greenland"
+148,longitude,-20.583333
+148,name,8/2/11
+148,type,time
+149,date,2011-08-03
+149,latitude,74.466667
+149,location,"high–arctic research station Zackenberg, NE Greenland"
+149,longitude,-20.583333
+149,name,8/3/11
+149,type,time
+150,date,2011-08-06
+150,latitude,74.466667
+150,location,"high–arctic research station Zackenberg, NE Greenland"
+150,longitude,-20.583333
+150,name,8/6/11
+150,type,time
+151,date,2011-08-07
+151,latitude,74.466667
+151,location,"high–arctic research station Zackenberg, NE Greenland"
+151,longitude,-20.583333
+151,name,8/7/11
+151,type,time
+152,date,2011-08-08
+152,latitude,74.466667
+152,location,"high–arctic research station Zackenberg, NE Greenland"
+152,longitude,-20.583333
+152,name,8/8/11
+152,type,time
+153,date,2011-08-09
+153,latitude,74.466667
+153,location,"high–arctic research station Zackenberg, NE Greenland"
+153,longitude,-20.583333
+153,name,8/9/11
+153,type,time
+154,date,2011-08-10
+154,latitude,74.466667
+154,location,"high–arctic research station Zackenberg, NE Greenland"
+154,longitude,-20.583333
+154,name,8/10/11
+154,type,time
+155,date,2011-08-11
+155,latitude,74.466667
+155,location,"high–arctic research station Zackenberg, NE Greenland"
+155,longitude,-20.583333
+155,name,8/11/11
+155,type,time
+156,date,2011-08-12
+156,latitude,74.466667
+156,location,"high–arctic research station Zackenberg, NE Greenland"
+156,longitude,-20.583333
+156,name,8/12/11
+156,type,time
+157,date,2011-08-13
+157,latitude,74.466667
+157,location,"high–arctic research station Zackenberg, NE Greenland"
+157,longitude,-20.583333
+157,name,8/13/11
+157,type,time
+158,date,2011-08-15
+158,latitude,74.466667
+158,location,"high–arctic research station Zackenberg, NE Greenland"
+158,longitude,-20.583333
+158,name,8/15/11
+158,type,time
+159,date,2011-08-19
+159,latitude,74.466667
+159,location,"high–arctic research station Zackenberg, NE Greenland"
+159,longitude,-20.583333
+159,name,8/19/11
+159,type,time
+160,date,2011-08-20
+160,latitude,74.466667
+160,location,"high–arctic research station Zackenberg, NE Greenland"
+160,longitude,-20.583333
+160,name,8/20/11
+160,type,time
+161,date,2011-08-22
+161,latitude,74.466667
+161,location,"high–arctic research station Zackenberg, NE Greenland"
+161,longitude,-20.583333
+161,name,8/22/11
+161,type,time
+162,date,2011-08-24
+162,latitude,74.466667
+162,location,"high–arctic research station Zackenberg, NE Greenland"
+162,longitude,-20.583333
+162,name,8/24/11
+162,type,time
+163,date,NA
+163,latitude,74.466667
+163,location,"high–arctic research station Zackenberg, NE Greenland"
+163,longitude,-20.583333
+163,name,n.d.
+163,type,time

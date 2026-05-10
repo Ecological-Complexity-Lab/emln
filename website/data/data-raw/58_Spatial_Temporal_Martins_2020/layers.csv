@@ -1,0 +1,541 @@
+layer,attribute,value
+1,name,site01_period03
+1,type,space
+1,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+1,mean_distance_between_sites,11.3 km
+1,period,january-feburary 2004
+1,temporal_herbivore_abundance,42
+1,temporal_plant_abundance,22
+1,latitude,-23.533773
+1,longitude,-46.62529
+1,name,site01_period03
+1,type,time
+1,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+1,mean_distance_between_sites,11.3 km
+1,period,january-feburary 2004
+1,temporal_herbivore_abundance,42
+1,temporal_plant_abundance,22
+1,latitude,-23.533773
+1,longitude,-46.62529
+2,name,site02_period03
+2,type,space
+2,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+2,mean_distance_between_sites,11.3 km
+2,period,january-feburary 2004
+2,temporal_herbivore_abundance,42
+2,temporal_plant_abundance,22
+2,latitude,-23.533773
+2,longitude,-46.62529
+2,name,site02_period03
+2,type,time
+2,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+2,mean_distance_between_sites,11.3 km
+2,period,january-feburary 2004
+2,temporal_herbivore_abundance,42
+2,temporal_plant_abundance,22
+2,latitude,-23.533773
+2,longitude,-46.62529
+3,name,site03_period03
+3,type,space
+3,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+3,mean_distance_between_sites,11.3 km
+3,period,january-feburary 2004
+3,temporal_herbivore_abundance,42
+3,temporal_plant_abundance,22
+3,latitude,-23.533773
+3,longitude,-46.62529
+3,name,site03_period03
+3,type,time
+3,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+3,mean_distance_between_sites,11.3 km
+3,period,january-feburary 2004
+3,temporal_herbivore_abundance,42
+3,temporal_plant_abundance,22
+3,latitude,-23.533773
+3,longitude,-46.62529
+4,name,site04_period03
+4,type,space
+4,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+4,mean_distance_between_sites,11.3 km
+4,period,january-feburary 2004
+4,temporal_herbivore_abundance,42
+4,temporal_plant_abundance,22
+4,latitude,-23.533773
+4,longitude,-46.62529
+4,name,site04_period03
+4,type,time
+4,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+4,mean_distance_between_sites,11.3 km
+4,period,january-feburary 2004
+4,temporal_herbivore_abundance,42
+4,temporal_plant_abundance,22
+4,latitude,-23.533773
+4,longitude,-46.62529
+5,name,site05_period03
+5,type,space
+5,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+5,mean_distance_between_sites,11.3 km
+5,period,january-feburary 2004
+5,temporal_herbivore_abundance,42
+5,temporal_plant_abundance,22
+5,latitude,-23.533773
+5,longitude,-46.62529
+5,name,site05_period03
+5,type,time
+5,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+5,mean_distance_between_sites,11.3 km
+5,period,january-feburary 2004
+5,temporal_herbivore_abundance,42
+5,temporal_plant_abundance,22
+5,latitude,-23.533773
+5,longitude,-46.62529
+6,name,site06_period03
+6,type,space
+6,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+6,mean_distance_between_sites,11.3 km
+6,period,january-feburary 2004
+6,temporal_herbivore_abundance,42
+6,temporal_plant_abundance,22
+6,latitude,-23.533773
+6,longitude,-46.62529
+6,name,site06_period03
+6,type,time
+6,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+6,mean_distance_between_sites,11.3 km
+6,period,january-feburary 2004
+6,temporal_herbivore_abundance,42
+6,temporal_plant_abundance,22
+6,latitude,-23.533773
+6,longitude,-46.62529
+7,name,site07_period03
+7,type,space
+7,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+7,mean_distance_between_sites,11.3 km
+7,period,january-feburary 2004
+7,temporal_herbivore_abundance,42
+7,temporal_plant_abundance,22
+7,latitude,-23.533773
+7,longitude,-46.62529
+7,name,site07_period03
+7,type,time
+7,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+7,mean_distance_between_sites,11.3 km
+7,period,january-feburary 2004
+7,temporal_herbivore_abundance,42
+7,temporal_plant_abundance,22
+7,latitude,-23.533773
+7,longitude,-46.62529
+8,name,site08_period03
+8,type,space
+8,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+8,mean_distance_between_sites,11.3 km
+8,period,january-feburary 2004
+8,temporal_herbivore_abundance,42
+8,temporal_plant_abundance,22
+8,latitude,-23.533773
+8,longitude,-46.62529
+8,name,site08_period03
+8,type,time
+8,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+8,mean_distance_between_sites,11.3 km
+8,period,january-feburary 2004
+8,temporal_herbivore_abundance,42
+8,temporal_plant_abundance,22
+8,latitude,-23.533773
+8,longitude,-46.62529
+9,name,site09_period03
+9,type,space
+9,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+9,mean_distance_between_sites,11.3 km
+9,period,january-feburary 2004
+9,temporal_herbivore_abundance,42
+9,temporal_plant_abundance,22
+9,latitude,-23.533773
+9,longitude,-46.62529
+9,name,site09_period03
+9,type,time
+9,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+9,mean_distance_between_sites,11.3 km
+9,period,january-feburary 2004
+9,temporal_herbivore_abundance,42
+9,temporal_plant_abundance,22
+9,latitude,-23.533773
+9,longitude,-46.62529
+10,name,site10_period03
+10,type,space
+10,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+10,mean_distance_between_sites,11.3 km
+10,period,january-feburary 2004
+10,temporal_herbivore_abundance,42
+10,temporal_plant_abundance,22
+10,latitude,-23.533773
+10,longitude,-46.62529
+10,name,site10_period03
+10,type,time
+10,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+10,mean_distance_between_sites,11.3 km
+10,period,january-feburary 2004
+10,temporal_herbivore_abundance,42
+10,temporal_plant_abundance,22
+10,latitude,-23.533773
+10,longitude,-46.62529
+11,name,site01_period01
+11,type,space
+11,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+11,mean_distance_between_sites,11.3 km
+11,period,april-may 2004
+11,temporal_herbivore_abundance,77
+11,temporal_plant_abundance,29
+11,latitude,-23.533773
+11,longitude,-46.62529
+11,name,site01_period01
+11,type,time
+11,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+11,mean_distance_between_sites,11.3 km
+11,period,april-may 2004
+11,temporal_herbivore_abundance,77
+11,temporal_plant_abundance,29
+11,latitude,-23.533773
+11,longitude,-46.62529
+12,name,site02_period01
+12,type,space
+12,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+12,mean_distance_between_sites,11.3 km
+12,period,april-may 2004
+12,temporal_herbivore_abundance,77
+12,temporal_plant_abundance,29
+12,latitude,-23.533773
+12,longitude,-46.62529
+12,name,site02_period01
+12,type,time
+12,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+12,mean_distance_between_sites,11.3 km
+12,period,april-may 2004
+12,temporal_herbivore_abundance,77
+12,temporal_plant_abundance,29
+12,latitude,-23.533773
+12,longitude,-46.62529
+13,name,site03_period01
+13,type,space
+13,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+13,mean_distance_between_sites,11.3 km
+13,period,april-may 2004
+13,temporal_herbivore_abundance,77
+13,temporal_plant_abundance,29
+13,latitude,-23.533773
+13,longitude,-46.62529
+13,name,site03_period01
+13,type,time
+13,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+13,mean_distance_between_sites,11.3 km
+13,period,april-may 2004
+13,temporal_herbivore_abundance,77
+13,temporal_plant_abundance,29
+13,latitude,-23.533773
+13,longitude,-46.62529
+14,name,site04_period01
+14,type,space
+14,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+14,mean_distance_between_sites,11.3 km
+14,period,april-may 2004
+14,temporal_herbivore_abundance,77
+14,temporal_plant_abundance,29
+14,latitude,-23.533773
+14,longitude,-46.62529
+14,name,site04_period01
+14,type,time
+14,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+14,mean_distance_between_sites,11.3 km
+14,period,april-may 2004
+14,temporal_herbivore_abundance,77
+14,temporal_plant_abundance,29
+14,latitude,-23.533773
+14,longitude,-46.62529
+15,name,site05_period01
+15,type,space
+15,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+15,mean_distance_between_sites,11.3 km
+15,period,april-may 2004
+15,temporal_herbivore_abundance,77
+15,temporal_plant_abundance,29
+15,latitude,-23.533773
+15,longitude,-46.62529
+15,name,site05_period01
+15,type,time
+15,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+15,mean_distance_between_sites,11.3 km
+15,period,april-may 2004
+15,temporal_herbivore_abundance,77
+15,temporal_plant_abundance,29
+15,latitude,-23.533773
+15,longitude,-46.62529
+16,name,site06_period01
+16,type,space
+16,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+16,mean_distance_between_sites,11.3 km
+16,period,april-may 2004
+16,temporal_herbivore_abundance,77
+16,temporal_plant_abundance,29
+16,latitude,-23.533773
+16,longitude,-46.62529
+16,name,site06_period01
+16,type,time
+16,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+16,mean_distance_between_sites,11.3 km
+16,period,april-may 2004
+16,temporal_herbivore_abundance,77
+16,temporal_plant_abundance,29
+16,latitude,-23.533773
+16,longitude,-46.62529
+17,name,site07_period01
+17,type,space
+17,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+17,mean_distance_between_sites,11.3 km
+17,period,april-may 2004
+17,temporal_herbivore_abundance,77
+17,temporal_plant_abundance,29
+17,latitude,-23.533773
+17,longitude,-46.62529
+17,name,site07_period01
+17,type,time
+17,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+17,mean_distance_between_sites,11.3 km
+17,period,april-may 2004
+17,temporal_herbivore_abundance,77
+17,temporal_plant_abundance,29
+17,latitude,-23.533773
+17,longitude,-46.62529
+18,name,site08_period01
+18,type,space
+18,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+18,mean_distance_between_sites,11.3 km
+18,period,april-may 2004
+18,temporal_herbivore_abundance,77
+18,temporal_plant_abundance,29
+18,latitude,-23.533773
+18,longitude,-46.62529
+18,name,site08_period01
+18,type,time
+18,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+18,mean_distance_between_sites,11.3 km
+18,period,april-may 2004
+18,temporal_herbivore_abundance,77
+18,temporal_plant_abundance,29
+18,latitude,-23.533773
+18,longitude,-46.62529
+19,name,site09_period01
+19,type,space
+19,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+19,mean_distance_between_sites,11.3 km
+19,period,april-may 2004
+19,temporal_herbivore_abundance,77
+19,temporal_plant_abundance,29
+19,latitude,-23.533773
+19,longitude,-46.62529
+19,name,site09_period01
+19,type,time
+19,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+19,mean_distance_between_sites,11.3 km
+19,period,april-may 2004
+19,temporal_herbivore_abundance,77
+19,temporal_plant_abundance,29
+19,latitude,-23.533773
+19,longitude,-46.62529
+20,name,site10_period01
+20,type,space
+20,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+20,mean_distance_between_sites,11.3 km
+20,period,april-may 2004
+20,temporal_herbivore_abundance,77
+20,temporal_plant_abundance,29
+20,latitude,-23.533773
+20,longitude,-46.62529
+20,name,site10_period01
+20,type,time
+20,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+20,mean_distance_between_sites,11.3 km
+20,period,april-may 2004
+20,temporal_herbivore_abundance,77
+20,temporal_plant_abundance,29
+20,latitude,-23.533773
+20,longitude,-46.62529
+21,name,site01_period02
+21,type,space
+21,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+21,mean_distance_between_sites,11.3 km
+21,period,august-september 2004
+21,temporal_herbivore_abundance,26
+21,temporal_plant_abundance,12
+21,latitude,-23.533773
+21,longitude,-46.62529
+21,name,site01_period02
+21,type,time
+21,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+21,mean_distance_between_sites,11.3 km
+21,period,august-september 2004
+21,temporal_herbivore_abundance,26
+21,temporal_plant_abundance,12
+21,latitude,-23.533773
+21,longitude,-46.62529
+22,name,site02_period02
+22,type,space
+22,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+22,mean_distance_between_sites,11.3 km
+22,period,august-september 2004
+22,temporal_herbivore_abundance,26
+22,temporal_plant_abundance,12
+22,latitude,-23.533773
+22,longitude,-46.62529
+22,name,site02_period02
+22,type,time
+22,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+22,mean_distance_between_sites,11.3 km
+22,period,august-september 2004
+22,temporal_herbivore_abundance,26
+22,temporal_plant_abundance,12
+22,latitude,-23.533773
+22,longitude,-46.62529
+23,name,site03_period02
+23,type,space
+23,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+23,mean_distance_between_sites,11.3 km
+23,period,august-september 2004
+23,temporal_herbivore_abundance,26
+23,temporal_plant_abundance,12
+23,latitude,-23.533773
+23,longitude,-46.62529
+23,name,site03_period02
+23,type,time
+23,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+23,mean_distance_between_sites,11.3 km
+23,period,august-september 2004
+23,temporal_herbivore_abundance,26
+23,temporal_plant_abundance,12
+23,latitude,-23.533773
+23,longitude,-46.62529
+24,name,site04_period02
+24,type,space
+24,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+24,mean_distance_between_sites,11.3 km
+24,period,august-september 2004
+24,temporal_herbivore_abundance,26
+24,temporal_plant_abundance,12
+24,latitude,-23.533773
+24,longitude,-46.62529
+24,name,site04_period02
+24,type,time
+24,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+24,mean_distance_between_sites,11.3 km
+24,period,august-september 2004
+24,temporal_herbivore_abundance,26
+24,temporal_plant_abundance,12
+24,latitude,-23.533773
+24,longitude,-46.62529
+25,name,site05_period02
+25,type,space
+25,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+25,mean_distance_between_sites,11.3 km
+25,period,august-september 2004
+25,temporal_herbivore_abundance,26
+25,temporal_plant_abundance,12
+25,latitude,-23.533773
+25,longitude,-46.62529
+25,name,site05_period02
+25,type,time
+25,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+25,mean_distance_between_sites,11.3 km
+25,period,august-september 2004
+25,temporal_herbivore_abundance,26
+25,temporal_plant_abundance,12
+25,latitude,-23.533773
+25,longitude,-46.62529
+26,name,site06_period02
+26,type,space
+26,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+26,mean_distance_between_sites,11.3 km
+26,period,august-september 2004
+26,temporal_herbivore_abundance,26
+26,temporal_plant_abundance,12
+26,latitude,-23.533773
+26,longitude,-46.62529
+26,name,site06_period02
+26,type,time
+26,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+26,mean_distance_between_sites,11.3 km
+26,period,august-september 2004
+26,temporal_herbivore_abundance,26
+26,temporal_plant_abundance,12
+26,latitude,-23.533773
+26,longitude,-46.62529
+27,name,site07_period02
+27,type,space
+27,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+27,mean_distance_between_sites,11.3 km
+27,period,august-september 2004
+27,temporal_herbivore_abundance,26
+27,temporal_plant_abundance,12
+27,latitude,-23.533773
+27,longitude,-46.62529
+27,name,site07_period02
+27,type,time
+27,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+27,mean_distance_between_sites,11.3 km
+27,period,august-september 2004
+27,temporal_herbivore_abundance,26
+27,temporal_plant_abundance,12
+27,latitude,-23.533773
+27,longitude,-46.62529
+28,name,site08_period02
+28,type,space
+28,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+28,mean_distance_between_sites,11.3 km
+28,period,august-september 2004
+28,temporal_herbivore_abundance,26
+28,temporal_plant_abundance,12
+28,latitude,-23.533773
+28,longitude,-46.62529
+28,name,site08_period02
+28,type,time
+28,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+28,mean_distance_between_sites,11.3 km
+28,period,august-september 2004
+28,temporal_herbivore_abundance,26
+28,temporal_plant_abundance,12
+28,latitude,-23.533773
+28,longitude,-46.62529
+29,name,site09_period02
+29,type,space
+29,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+29,mean_distance_between_sites,11.3 km
+29,period,august-september 2004
+29,temporal_herbivore_abundance,26
+29,temporal_plant_abundance,12
+29,latitude,-23.533773
+29,longitude,-46.62529
+29,name,site09_period02
+29,type,time
+29,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+29,mean_distance_between_sites,11.3 km
+29,period,august-september 2004
+29,temporal_herbivore_abundance,26
+29,temporal_plant_abundance,12
+29,latitude,-23.533773
+29,longitude,-46.62529
+30,name,site10_period02
+30,type,space
+30,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+30,mean_distance_between_sites,11.3 km
+30,period,august-september 2004
+30,temporal_herbivore_abundance,26
+30,temporal_plant_abundance,12
+30,latitude,-23.533773
+30,longitude,-46.62529
+30,name,site10_period02
+30,type,time
+30,location,"remnants of Cerrado vegetattion in Sao Paulo, Brazil"
+30,mean_distance_between_sites,11.3 km
+30,period,august-september 2004
+30,temporal_herbivore_abundance,26
+30,temporal_plant_abundance,12
+30,latitude,-23.533773
+30,longitude,-46.62529

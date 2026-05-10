@@ -1,0 +1,575 @@
+interaction_id,attribute,value
+1,node_from,Halictus_sp.
+1,layer_from,1
+1,node_to,Azorina_vidalii
+1,layer_to,1
+1,weight,98
+1,type,pollination
+1,method,field observations
+2,node_from,Sepsis_thoracica
+2,layer_from,1
+2,node_to,Azorina_vidalii
+2,layer_to,1
+2,weight,51
+2,type,pollination
+2,method,field observations
+3,node_from,Bombus_ruderatus
+3,layer_from,1
+3,node_to,Azorina_vidalii
+3,layer_to,1
+3,weight,9
+3,type,pollination
+3,method,field observations
+4,node_from,Colias_crocea
+4,layer_from,1
+4,node_to,Azorina_vidalii
+4,layer_to,1
+4,weight,9
+4,type,pollination
+4,method,field observations
+5,node_from,Musca_domestica
+5,layer_from,1
+5,node_to,Azorina_vidalii
+5,layer_to,1
+5,weight,23
+5,type,pollination
+5,method,field observations
+6,node_from,Apis_mellifera
+6,layer_from,1
+6,node_to,Azorina_vidalii
+6,layer_to,1
+6,weight,89
+6,type,pollination
+6,method,field observations
+7,node_from,Lasius_niger
+7,layer_from,1
+7,node_to,Azorina_vidalii
+7,layer_to,1
+7,weight,37
+7,type,pollination
+7,method,field observations
+8,node_from,Calliphora_vemitoria
+8,layer_from,1
+8,node_to,Azorina_vidalii
+8,layer_to,1
+8,weight,13
+8,type,pollination
+8,method,field observations
+9,node_from,Sepsis_thoracica
+9,layer_from,1
+9,node_to,Crithmum_maritimum
+9,layer_to,1
+9,weight,87
+9,type,pollination
+9,method,field observations
+10,node_from,Musca_domestica
+10,layer_from,1
+10,node_to,Crithmum_maritimum
+10,layer_to,1
+10,weight,83
+10,type,pollination
+10,method,field observations
+11,node_from,Lucilia_sericata
+11,layer_from,1
+11,node_to,Crithmum_maritimum
+11,layer_to,1
+11,weight,93
+11,type,pollination
+11,method,field observations
+12,node_from,Eristalix_tenax
+12,layer_from,1
+12,node_to,Crithmum_maritimum
+12,layer_to,1
+12,weight,12
+12,type,pollination
+12,method,field observations
+13,node_from,Halictus_sp.
+13,layer_from,1
+13,node_to,Solidago_sempervivens
+13,layer_to,1
+13,weight,141
+13,type,pollination
+13,method,field observations
+14,node_from,Agrotis_ipsilon
+14,layer_from,1
+14,node_to,Solidago_sempervivens
+14,layer_to,1
+14,weight,22
+14,type,pollination
+14,method,field observations
+15,node_from,Sepsis_thoracica
+15,layer_from,1
+15,node_to,Beta_vulgaris
+15,layer_to,1
+15,weight,8
+15,type,pollination
+15,method,field observations
+16,node_from,Halictus_sp.
+16,layer_from,1
+16,node_to,Daucus_carota
+16,layer_to,1
+16,weight,11
+16,type,pollination
+16,method,field observations
+17,node_from,Musca_domestica
+17,layer_from,1
+17,node_to,Daucus_carota
+17,layer_to,1
+17,weight,102
+17,type,pollination
+17,method,field observations
+18,node_from,Lucilia_sericata
+18,layer_from,1
+18,node_to,Daucus_carota
+18,layer_to,1
+18,weight,8
+18,type,pollination
+18,method,field observations
+19,node_from,Halictus_sp.
+19,layer_from,1
+19,node_to,Silene_vulgaris
+19,layer_to,1
+19,weight,7
+19,type,pollination
+19,method,field observations
+20,node_from,Sepsis_thoracica
+20,layer_from,1
+20,node_to,Silene_vulgaris
+20,layer_to,1
+20,weight,30
+20,type,pollination
+20,method,field observations
+21,node_from,Halictus_sp.
+21,layer_from,1
+21,node_to,Chamomilla_suaveolens
+21,layer_to,1
+21,weight,21
+21,type,pollination
+21,method,field observations
+22,node_from,Musca_domestica
+22,layer_from,1
+22,node_to,Chamomilla_suaveolens
+22,layer_to,1
+22,weight,42
+22,type,pollination
+22,method,field observations
+23,node_from,Anothomyia_pluvialis
+23,layer_from,1
+23,node_to,Chamomilla_suaveolens
+23,layer_to,1
+23,weight,23
+23,type,pollination
+23,method,field observations
+24,node_from,Bombus_ruderatus
+24,layer_from,1
+24,node_to,Lotus_corniculatus
+24,layer_to,1
+24,weight,47
+24,type,pollination
+24,method,field observations
+25,node_from,Colias_crocea
+25,layer_from,1
+25,node_to,Lotus_corniculatus
+25,layer_to,1
+25,weight,21
+25,type,pollination
+25,method,field observations
+26,node_from,Apis_mellifera
+26,layer_from,1
+26,node_to,Lotus_corniculatus
+26,layer_to,1
+26,weight,9
+26,type,pollination
+26,method,field observations
+27,node_from,Bombus_ruderatus
+27,layer_from,1
+27,node_to,Freesia_refracta
+27,layer_to,1
+27,weight,11
+27,type,pollination
+27,method,field observations
+28,node_from,Colias_crocea
+28,layer_from,1
+28,node_to,Freesia_refracta
+28,layer_to,1
+28,weight,12
+28,type,pollination
+28,method,field observations
+29,node_from,Halictus_sp.
+29,layer_from,1
+29,node_to,Reseda_luteola
+29,layer_to,1
+29,weight,11
+29,type,pollination
+29,method,field observations
+30,node_from,Apis_mellifera
+30,layer_from,1
+30,node_to,Reseda_luteola
+30,layer_to,1
+30,weight,9
+30,type,pollination
+30,method,field observations
+31,node_from,Stratiomydae_sp.
+31,layer_from,2
+31,node_to,Leucaena_leucocephala
+31,layer_to,2
+31,weight,5
+31,type,pollination
+31,method,field observations
+32,node_from,Phelsuma_ornata
+32,layer_from,2
+32,node_to,Passiflora_suberosa
+32,layer_to,2
+32,weight,7
+32,type,pollination
+32,method,field observations
+33,node_from,Phalantha_phalantha
+33,layer_from,2
+33,node_to,Stachytapheta_jamaicencis
+33,layer_to,2
+33,weight,26
+33,type,pollination
+33,method,field observations
+34,node_from,Leptotes_pirithous
+34,layer_from,2
+34,node_to,Stachytapheta_jamaicencis
+34,layer_to,2
+34,weight,1
+34,type,pollination
+34,method,field observations
+35,node_from,Syrphid_sp.
+35,layer_from,2
+35,node_to,Stachytapheta_jamaicencis
+35,layer_to,2
+35,weight,2
+35,type,pollination
+35,method,field observations
+36,node_from,Xylocopa_fenestrata
+36,layer_from,2
+36,node_to,Turnera_angustifolia
+36,layer_to,2
+36,weight,2
+36,type,pollination
+36,method,field observations
+37,node_from,Borbo_borbonica
+37,layer_from,2
+37,node_to,Turnera_angustifolia
+37,layer_to,2
+37,weight,1
+37,type,pollination
+37,method,field observations
+38,node_from,Phelsuma_ornata
+38,layer_from,2
+38,node_to,Gastonia_mauritiana
+38,layer_to,2
+38,weight,30
+38,type,pollination
+38,method,field observations
+39,node_from,Stratiomydae_sp.
+39,layer_from,2
+39,node_to,Gastonia_mauritiana
+39,layer_to,2
+39,weight,16
+39,type,pollination
+39,method,field observations
+40,node_from,Protaetia_aurichalcea
+40,layer_from,2
+40,node_to,Gastonia_mauritiana
+40,layer_to,2
+40,weight,15
+40,type,pollination
+40,method,field observations
+41,node_from,Leptotes_pirithous
+41,layer_from,2
+41,node_to,Gastonia_mauritiana
+41,layer_to,2
+41,weight,2
+41,type,pollination
+41,method,field observations
+42,node_from,Apis_mellifera
+42,layer_from,2
+42,node_to,Gastonia_mauritiana
+42,layer_to,2
+42,weight,149
+42,type,pollination
+42,method,field observations
+43,node_from,Musca_domestica
+43,layer_from,2
+43,node_to,Gastonia_mauritiana
+43,layer_to,2
+43,weight,16
+43,type,pollination
+43,method,field observations
+44,node_from,Lucilia_sp.
+44,layer_from,2
+44,node_to,Gastonia_mauritiana
+44,layer_to,2
+44,weight,16
+44,type,pollination
+44,method,field observations
+45,node_from,Ornidia_obesa
+45,layer_from,2
+45,node_to,Gastonia_mauritiana
+45,layer_to,2
+45,weight,16
+45,type,pollination
+45,method,field observations
+46,node_from,Phelsuma_ornata
+46,layer_from,2
+46,node_to,Dracaena_concinna
+46,layer_to,2
+46,weight,33
+46,type,pollination
+46,method,field observations
+47,node_from,Apis_mellifera
+47,layer_from,2
+47,node_to,Dracaena_concinna
+47,layer_to,2
+47,weight,11
+47,type,pollination
+47,method,field observations
+48,node_from,Syrphid_sp.
+48,layer_from,2
+48,node_to,Dracaena_concinna
+48,layer_to,2
+48,weight,17
+48,type,pollination
+48,method,field observations
+49,node_from,Phelsuma_ornata
+49,layer_from,2
+49,node_to,Scaevola_sericea
+49,layer_to,2
+49,weight,19
+49,type,pollination
+49,method,field observations
+50,node_from,Xylocopa_fenestrata
+50,layer_from,2
+50,node_to,Scaevola_sericea
+50,layer_to,2
+50,weight,15
+50,type,pollination
+50,method,field observations
+51,node_from,Megachile_sp.
+51,layer_from,2
+51,node_to,Scaevola_sericea
+51,layer_to,2
+51,weight,15
+51,type,pollination
+51,method,field observations
+52,node_from,Apis_mellifera
+52,layer_from,2
+52,node_to,Scaevola_sericea
+52,layer_to,2
+52,weight,92
+52,type,pollination
+52,method,field observations
+53,node_from,Apis_mellifera
+53,layer_from,2
+53,node_to,Ipomoea_macrantha
+53,layer_to,2
+53,weight,126
+53,type,pollination
+53,method,field observations
+54,node_from,Phelsuma_ornata
+54,layer_from,2
+54,node_to,Pemphis_acidula
+54,layer_to,2
+54,weight,21
+54,type,pollination
+54,method,field observations
+55,node_from,Phalantha_phalantha
+55,layer_from,2
+55,node_to,Pemphis_acidula
+55,layer_to,2
+55,weight,117
+55,type,pollination
+55,method,field observations
+56,node_from,Stratiomydae_sp.
+56,layer_from,2
+56,node_to,Pemphis_acidula
+56,layer_to,2
+56,weight,11
+56,type,pollination
+56,method,field observations
+57,node_from,Xylocopa_fenestrata
+57,layer_from,2
+57,node_to,Pemphis_acidula
+57,layer_to,2
+57,weight,16
+57,type,pollination
+57,method,field observations
+58,node_from,Leptotes_pirithous
+58,layer_from,2
+58,node_to,Pemphis_acidula
+58,layer_to,2
+58,weight,1
+58,type,pollination
+58,method,field observations
+59,node_from,Apis_mellifera
+59,layer_from,2
+59,node_to,Pemphis_acidula
+59,layer_to,2
+59,weight,103
+59,type,pollination
+59,method,field observations
+60,node_from,Phelsuma_ornata
+60,layer_from,2
+60,node_to,Hibiscus_tiliaceus
+60,layer_to,2
+60,weight,28
+60,type,pollination
+60,method,field observations
+61,node_from,Apis_mellifera
+61,layer_from,2
+61,node_to,Hibiscus_tiliaceus
+61,layer_to,2
+61,weight,138
+61,type,pollination
+61,method,field observations
+62,node_from,Megachile_sp.
+62,layer_from,2
+62,node_to,Suriana_maritima
+62,layer_to,2
+62,weight,13
+62,type,pollination
+62,method,field observations
+63,node_from,Leptotes_pirithous
+63,layer_from,2
+63,node_to,Suriana_maritima
+63,layer_to,2
+63,weight,1
+63,type,pollination
+63,method,field observations
+64,node_from,Apis_mellifera
+64,layer_from,2
+64,node_to,Suriana_maritima
+64,layer_to,2
+64,weight,23
+64,type,pollination
+64,method,field observations
+65,node_from,Phelsuma_ornata
+65,layer_from,2
+65,node_to,Argusia_argentea
+65,layer_to,2
+65,weight,12
+65,type,pollination
+65,method,field observations
+66,node_from,Apis_mellifera
+66,layer_from,2
+66,node_to,Argusia_argentea
+66,layer_to,2
+66,weight,57
+66,type,pollination
+66,method,field observations
+67,node_from,Musca_domestica
+67,layer_from,2
+67,node_to,Argusia_argentea
+67,layer_to,2
+67,weight,6
+67,type,pollination
+67,method,field observations
+68,node_from,Syrphid_sp.
+68,layer_from,2
+68,node_to,Argusia_argentea
+68,layer_to,2
+68,weight,6
+68,type,pollination
+68,method,field observations
+69,node_from,Phelsuma_ornata
+69,layer_from,2
+69,node_to,Thespesia_populnea
+69,layer_to,2
+69,weight,14
+69,type,pollination
+69,method,field observations
+70,node_from,Stratiomydae_sp.
+70,layer_from,2
+70,node_to,Thespesia_populnea
+70,layer_to,2
+70,weight,7
+70,type,pollination
+70,method,field observations
+71,node_from,Borbo_borbonica
+71,layer_from,2
+71,node_to,Thespesia_populnea
+71,layer_to,2
+71,weight,2
+71,type,pollination
+71,method,field observations
+72,node_from,Apis_mellifera
+72,layer_from,2
+72,node_to,Thespesia_populnea
+72,layer_to,2
+72,weight,69
+72,type,pollination
+72,method,field observations
+73,node_from,Phelsuma_ornata
+73,layer_from,2
+73,node_to,Morinda_citrifolia
+73,layer_to,2
+73,weight,23
+73,type,pollination
+73,method,field observations
+74,node_from,Leptotes_pirithous
+74,layer_from,2
+74,node_to,Morinda_citrifolia
+74,layer_to,2
+74,weight,2
+74,type,pollination
+74,method,field observations
+75,node_from,Apis_mellifera
+75,layer_from,2
+75,node_to,Morinda_citrifolia
+75,layer_to,2
+75,weight,115
+75,type,pollination
+75,method,field observations
+76,node_from,Phelsuma_ornata
+76,layer_from,2
+76,node_to,Leucaena_leucocephala
+76,layer_to,2
+76,weight,9
+76,type,pollination
+76,method,field observations
+77,node_from,Apis_mellifera
+77,layer_from,2
+77,node_to,Leucaena_leucocephala
+77,layer_to,2
+77,weight,46
+77,type,pollination
+77,method,field observations
+78,node_from,Apis_mellifera
+78,layer_from,2
+78,node_to,Passiflora_suberosa
+78,layer_to,2
+78,weight,34
+78,type,pollination
+78,method,field observations
+79,node_from,Stratiomydae_sp.
+79,layer_from,2
+79,node_to,Stachytapheta_jamaicencis
+79,layer_to,2
+79,weight,2
+79,type,pollination
+79,method,field observations
+80,node_from,Borbo_borbonica
+80,layer_from,2
+80,node_to,Stachytapheta_jamaicencis
+80,layer_to,2
+80,weight,1
+80,type,pollination
+80,method,field observations
+81,node_from,Stratiomydae_sp.
+81,layer_from,2
+81,node_to,Turnera_angustifolia
+81,layer_to,2
+81,weight,1
+81,type,pollination
+81,method,field observations
+82,node_from,Megachile_sp.
+82,layer_from,2
+82,node_to,Turnera_angustifolia
+82,layer_to,2
+82,weight,2
+82,type,pollination
+82,method,field observations

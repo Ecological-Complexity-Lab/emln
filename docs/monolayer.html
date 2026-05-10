@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Handling monolayer network data</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">The EMLN package website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="monolayer.html">Monolayer</a>
+</li>
+<li>
+  <a href="multilayer.html">Multilayer</a>
+</li>
+<li>
+  <a href="data.html">Included data sets</a>
+</li>
+<li>
+  <a href="analysis_example.html">Analysis example</a>
+</li>
+<li>
+  <a href="plotting.html">Plotting emln</a>
+</li>
+<li>
+  <a href="about.html">About and feedback</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Handling monolayer network data</h1>
+
+</div>
+
+
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', '#8B0000', '1', 'Copy code', 'Copied!');
+</script>
+<pre class="r"><code>library(emln)
+library(igraph)
+library(tidyverse)
+library(bipartite)
+library(magrittr)</code></pre>
+<p>We provide examples with simulated toy networks and with real data to
+create an object of class <code>monolayer</code>. See help
+(<code>?monolayer</code>) to learn more about this class</p>
+<div id="unipartite" class="section level1">
+<h1>Unipartite</h1>
+<p>We start with a toy example. We generate a 3x3 matrix with random
+weighted interactions.</p>
+<pre class="r"><code>n &lt;- 3
+adjacency_matrix &lt;- matrix(round(runif(n*n,1,5),0), ncol = n, dimnames = list(paste0(&quot;A&quot;, 1:n), paste0(&quot;A&quot;, 1:n)))
+
+# Convert a matrix to a monolayer object
+matrix_to_list_unipartite(adjacency_matrix, directed = TRUE)</code></pre>
+<pre><code>## $mode
+## [1] &quot;U&quot;
+## 
+## $directed
+## [1] TRUE
+## 
+## $nodes
+## # A tibble: 3 × 2
+##   node_id node_name
+##     &lt;int&gt; &lt;chr&gt;    
+## 1       1 A1       
+## 2       2 A2       
+## 3       3 A3       
+## 
+## $mat
+##    A1 A2 A3
+## A1  2  4  2
+## A2  2  2  5
+## A3  4  4  4
+## 
+## $edge_list
+## # A tibble: 9 × 3
+##   from  to    weight
+##   &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1 A1    A1         2
+## 2 A1    A2         2
+## 3 A1    A3         4
+## 4 A2    A1         4
+## 5 A2    A2         2
+## 6 A2    A3         4
+## 7 A3    A1         2
+## 8 A3    A2         5
+## 9 A3    A3         4
+## 
+## $igraph_object
+## IGRAPH af31ef2 DNW- 3 9 -- 
+## + attr: name (v/c), weight (e/n)
+## + edges from af31ef2 (vertex names):
+## [1] A1-&gt;A1 A1-&gt;A2 A1-&gt;A3 A2-&gt;A1 A2-&gt;A2 A2-&gt;A3 A3-&gt;A1 A3-&gt;A2 A3-&gt;A3
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;monolayer&quot;</code></pre>
+<p>Now let’s see a toy example for converting a link list.</p>
+<pre class="r"><code># Generate a data frame with random links
+link_list_unipartite &lt;- data.frame(from=c(&quot;A1&quot;, &quot;A1&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;A2&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A3&quot;,&quot;A3&quot;), to=c(&quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A1&quot;, &quot;A2&quot;,&quot;A3&quot;), weight=round(runif(n*n,1,5),0))
+
+list_to_matrix(link_list_unipartite, directed = TRUE, bipartite = FALSE)</code></pre>
+<pre><code>## $mode
+## [1] &quot;U&quot;
+## 
+## $directed
+## [1] TRUE
+## 
+## $nodes
+## # A tibble: 3 × 2
+##   node_id node_name
+##     &lt;int&gt; &lt;chr&gt;    
+## 1       1 A1       
+## 2       2 A2       
+## 3       3 A3       
+## 
+## $mat
+##    A1 A2 A3
+## A1  3  4  3
+## A2  1  2  1
+## A3  5  4  2
+## 
+## $edge_list
+##   from to weight
+## 1   A1 A1      3
+## 2   A1 A2      1
+## 3   A1 A3      5
+## 4   A2 A1      4
+## 5   A2 A2      2
+## 6   A2 A3      4
+## 7   A3 A1      3
+## 8   A3 A2      1
+## 9   A3 A3      2
+## 
+## $igraph_object
+## IGRAPH 54a995f DNW- 3 9 -- 
+## + attr: name (v/c), weight (e/n)
+## + edges from 54a995f (vertex names):
+## [1] A1-&gt;A1 A1-&gt;A2 A1-&gt;A3 A2-&gt;A1 A2-&gt;A2 A2-&gt;A3 A3-&gt;A1 A3-&gt;A2 A3-&gt;A3
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;monolayer&quot;</code></pre>
+<p>To illustrate working with real data we will use a binary directed
+marine food web from <a
+href="https://www.sciencedirect.com/science/article/pii/B9780123864758000058">Jacob,
+Ute, Aaron Thierry, Ulrich Brose, Wolf E. Arntz, Sofia Berg, Thomas
+Brey, Ingo Fetzer, et al. 2011. “The Role of Body Size in Complex Food
+Webs: A Cold Case.” In Advances in Ecological Research, edited by Andrea
+Belgrano, 45:181–223. Academic Press.</a> Kongsfjorden is a glacial
+fjord on the northwest corner of the Svalbard archipelago. It is a 30 km
+open fjord with no marked sill at the entrance, and with a maximum depth
+exceeding 300 m. The network consists of 262 species with 1,544 feeding
+interactions. <strong>Note the warning messages</strong>; these are OK
+for this data set.</p>
+<p><strong>These data are organized as a link list, so it is possible to
+include node attributes.</strong></p>
+<pre class="r"><code># The data is included in the infomapecology package
+data(&quot;kongsfjorden_links&quot;, package = &#39;infomapecology&#39;)
+data(&quot;kongsfjorden_nodes&quot;, package = &#39;infomapecology&#39;)
+nodes &lt;- kongsfjorden_nodes %&gt;%
+  select(node_name=Species, node_id_original=NodeID, everything())
+
+interactions &lt;- kongsfjorden_links %&gt;%
+  select(from=consumer, to=resource) %&gt;%
+  mutate_if(is.factor, as.character) %&gt;%
+  mutate(weight=1)
+
+monolayer_unipartite &lt;- list_to_matrix(x=interactions, directed = T, bipartite = F, node_metadata = nodes)
+
+head(monolayer_unipartite$nodes)</code></pre>
+<pre><code>## # A tibble: 6 × 2
+##   node_id node_name                    
+##     &lt;int&gt; &lt;chr&gt;                        
+## 1       1 Phaeocystis pouchetii        
+## 2       2 Chaetoceros socialis         
+## 3       3 Thalassiosira nordenskioeldii
+## 4       4 Fragilariopsis               
+## 5       5 Protoperidinium              
+## 6       6 Gymnodinium</code></pre>
+<pre class="r"><code>head(monolayer_unipartite$edge_list)</code></pre>
+<pre><code>##                    from                            to weight
+## 1 Calanus finnmarchicus         Phaeocystis pouchetii      1
+## 2 Calanus finnmarchicus          Chaetoceros socialis      1
+## 3 Calanus finnmarchicus Thalassiosira nordenskioeldii      1
+## 4 Calanus finnmarchicus                Fragilariopsis      1
+## 5 Calanus finnmarchicus               Protoperidinium      1
+## 6 Calanus finnmarchicus                   Gymnodinium      1</code></pre>
+<p>Now let’s take the matrix we obtained as an example, and create a
+monolayer object from a matrix.</p>
+<pre class="r"><code>kongsfjorden_matrix &lt;- monolayer_unipartite$mat
+monolayer_unipartite &lt;- matrix_to_list_unipartite(x = kongsfjorden_matrix, directed = T)</code></pre>
+</div>
+<div id="bipartite" class="section level1">
+<h1>Bipartite</h1>
+<p>We start with a toy example. We generate a random incidence matrix
+with dimensions P X A. Bipartite networks have two sets of nodes with no
+overlap between the sets.</p>
+<pre class="r"><code># Case &quot;Bipartite networks&quot;
+# 
+P &lt;- 4 # 4 rows
+A &lt;- 3 # 3 columns
+incidence_matrix &lt;- matrix(round(runif(P*A,1,5),0), ncol = A, dimnames = list(paste0(&quot;P&quot;, 1:P), paste0(&quot;A&quot;, 1:A)))
+
+# Convert an matrix to an edge list for bipartite network
+matrix_to_list_bipartite(incidence_matrix, group_names = c(&#39;A_set&#39;, &#39;P_set&#39;))$edge_list</code></pre>
+<pre><code>## # A tibble: 12 × 3
+##    from  to    weight
+##    &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
+##  1 A1    P1         4
+##  2 A1    P2         4
+##  3 A1    P3         3
+##  4 A1    P4         3
+##  5 A2    P1         2
+##  6 A2    P2         5
+##  7 A2    P3         4
+##  8 A2    P4         5
+##  9 A3    P1         4
+## 10 A3    P2         2
+## 11 A3    P3         1
+## 12 A3    P4         2</code></pre>
+<p>To demonstrate real data we use the incidence matrix olesen2002flores
+included in the bipartite package.</p>
+<pre class="r"><code># create a monolayer object from a bipartite matrix
+monolayer_bipartite &lt;- matrix_to_list_bipartite(x = olesen2002flores, group_names = c(&#39;Pollinator&#39;, &#39;Plant&#39;))
+
+# What is included in the monolayer class object
+names(monolayer_bipartite)</code></pre>
+<pre><code>## [1] &quot;mode&quot;          &quot;directed&quot;      &quot;nodes&quot;         &quot;mat&quot;           &quot;edge_list&quot;     &quot;igraph_object&quot;</code></pre>
+<pre class="r"><code># The nodes in the network
+monolayer_bipartite$nodes</code></pre>
+<pre><code>## # A tibble: 22 × 3
+##    node_id node_group node_name           
+##      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;               
+##  1       1 Pollinator Halictus.sp.        
+##  2       2 Pollinator Sepsis.thoracica    
+##  3       3 Pollinator Agrotis.ipsilon     
+##  4       4 Pollinator Bombus.ruderatus    
+##  5       5 Pollinator Colias.crocea       
+##  6       6 Pollinator Musca.domestica     
+##  7       7 Pollinator Apis.mellifera      
+##  8       8 Pollinator Lucilia.sericata    
+##  9       9 Pollinator Lasius.niger        
+## 10      10 Pollinator Anothomyia.pluvialis
+## # ℹ 12 more rows</code></pre>
+<pre class="r"><code># The link (edge) list
+monolayer_bipartite$edge_list</code></pre>
+<pre><code>## # A tibble: 30 × 3
+##    from             to                    weight
+##    &lt;chr&gt;            &lt;chr&gt;                  &lt;dbl&gt;
+##  1 Halictus.sp.     Azorina:vidalii           98
+##  2 Halictus.sp.     Solidago:sempervivens    141
+##  3 Halictus.sp.     Daucus:carota             11
+##  4 Halictus.sp.     Silene:vulgaris            7
+##  5 Halictus.sp.     Chamomilla:suaveolens     21
+##  6 Halictus.sp.     Reseda:luteola            11
+##  7 Sepsis.thoracica Azorina:vidalii           51
+##  8 Sepsis.thoracica Crithmum:maritimum        87
+##  9 Sepsis.thoracica Beta:vulgaris              8
+## 10 Sepsis.thoracica Silene:vulgaris           30
+## # ℹ 20 more rows</code></pre>
+<pre class="r"><code># An igraph object is also created
+monolayer_bipartite$igraph_object</code></pre>
+<pre><code>## IGRAPH 1a6ac48 UNWB 22 30 -- 
+## + attr: type (v/l), name (v/c), weight (e/n)
+## + edges from 1a6ac48 (vertex names):
+##  [1] Halictus.sp.    --Azorina:vidalii       Halictus.sp.    --Solidago:sempervivens Halictus.sp.    --Daucus:carota        
+##  [4] Halictus.sp.    --Silene:vulgaris       Halictus.sp.    --Chamomilla:suaveolens Halictus.sp.    --Reseda:luteola       
+##  [7] Sepsis.thoracica--Azorina:vidalii       Sepsis.thoracica--Crithmum:maritimum    Sepsis.thoracica--Beta:vulgaris        
+## [10] Sepsis.thoracica--Silene:vulgaris       Agrotis.ipsilon --Solidago:sempervivens Bombus.ruderatus--Azorina:vidalii      
+## [13] Bombus.ruderatus--Lotus:corniculatus    Bombus.ruderatus--Freesia:refracta      Colias.crocea   --Azorina:vidalii      
+## [16] Colias.crocea   --Lotus:corniculatus    Colias.crocea   --Freesia:refracta      Musca.domestica --Azorina:vidalii      
+## [19] Musca.domestica --Crithmum:maritimum    Musca.domestica --Daucus:carota         Musca.domestica --Chamomilla:suaveolens
+## [22] Apis.mellifera  --Azorina:vidalii       Apis.mellifera  --Lotus:corniculatus    Apis.mellifera  --Reseda:luteola       
+## + ... omitted several edges</code></pre>
+<p>We can also convert a link list to a monolayer object.</p>
+<pre class="r"><code>ll &lt;- monolayer_bipartite$edge_list
+monolayer_bipartite_2 &lt;- list_to_matrix(ll, bipartite = T, group_names = c(&#39;Pollinator&#39;, &#39;Plant&#39;))</code></pre>
+</div>
+<div id="function-create_monolayer_network" class="section level1">
+<h1>Function <code>create_monolayer_network</code></h1>
+<p>This function is a wrapper for the
+<code>matrix_to_list_unipartite</code>,
+<code>matrix_to_list_bipartite</code>, and <code>list_to_matrix</code>
+functions. It is convenient because it automatically selects the input
+type.</p>
+<pre class="r"><code>#Input is a link list
+monolayer_unipartite &lt;- create_monolayer_network(x=interactions, directed = T, bipartite = F, node_metadata = nodes)
+
+# Input is a matrix
+bipartite_monolayer &lt;- create_monolayer_network(x = olesen2002flores, group_names = c(&#39;Pollinator&#39;, &#39;Plant&#39;), bipartite = T)</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Spatial
+description,NA
+source,Web_of_Life
+data_url,http://www.web-of-life.es/map.php
+ecological_network_type,Seed-Dispersal
+state_nodes,FALSE

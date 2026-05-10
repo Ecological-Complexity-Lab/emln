@@ -1,0 +1,10 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Spatial
+description,NA
+source,Web_of_Life
+source,Interaction_Web_DataBase
+data_url,http://www.web-of-life.es/map.php
+data_url,http://www.ecologia.ib.usp.br/iwdb/resources.html
+ecological_network_type,Pollination
+state_nodes,FALSE

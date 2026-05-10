@@ -1,0 +1,109 @@
+layer,attribute,value
+1,name,BAT1CA
+1,type,environment
+1,type,perturbation
+1,location,"Cap de Creus, Catalonia, Spain"
+1,perturbed,FALSE
+1,invasive_organism,Carpobrotus
+1,perturbation_type,presence of invasive species
+1,latitude,42.3181
+1,longitude,3.3198
+2,name,BAT2CA
+2,type,environment
+2,type,perturbation
+2,location,"Cap de Creus, Catalonia, Spain"
+2,perturbed,TRUE
+2,invasive_organism,Carpobrotus
+2,perturbation_type,presence of invasive species
+2,latitude,42.3181
+2,longitude,3.3198
+3,name,FRA1OP
+3,type,environment
+3,type,perturbation
+3,location,"Cap de Creus, Catalonia, Spain"
+3,perturbed,FALSE
+3,invasive_organism,Opuntia
+3,perturbation_type,presence of invasive species
+3,latitude,42.3181
+3,longitude,3.3198
+4,name,FRA2OP
+4,type,environment
+4,type,perturbation
+4,location,"Cap de Creus, Catalonia, Spain"
+4,perturbed,TRUE
+4,invasive_organism,Opuntia
+4,perturbation_type,presence of invasive species
+4,latitude,42.3181
+4,longitude,3.3198
+5,name,MED1CA
+5,type,environment
+5,type,perturbation
+5,location,"Cap de Creus, Catalonia, Spain"
+5,perturbed,FALSE
+5,invasive_organism,Carpobrotus
+5,perturbation_type,presence of invasive species
+5,latitude,42.3181
+5,longitude,3.3198
+6,name,MED2CA
+6,type,environment
+6,type,perturbation
+6,location,"Cap de Creus, Catalonia, Spain"
+6,perturbed,TRUE
+6,invasive_organism,Carpobrotus
+6,perturbation_type,presence of invasive species
+6,latitude,42.3181
+6,longitude,3.3198
+7,name,MED3CA
+7,type,environment
+7,type,perturbation
+7,location,"Cap de Creus, Catalonia, Spain"
+7,perturbed,FALSE
+7,invasive_organism,Carpobrotus
+7,perturbation_type,presence of invasive species
+7,latitude,42.3181
+7,longitude,3.3198
+8,name,MED4CA
+8,type,environment
+8,type,perturbation
+8,location,"Cap de Creus, Catalonia, Spain"
+8,perturbed,TRUE
+8,invasive_organism,Carpobrotus
+8,perturbation_type,presence of invasive species
+8,latitude,42.3181
+8,longitude,3.3198
+9,name,MIQ1OP
+9,type,environment
+9,type,perturbation
+9,location,"Cap de Creus, Catalonia, Spain"
+9,perturbed,FALSE
+9,invasive_organism,Opuntia
+9,perturbation_type,presence of invasive species
+9,latitude,42.3181
+9,longitude,3.3198
+10,name,MIQ2OP
+10,type,environment
+10,type,perturbation
+10,location,"Cap de Creus, Catalonia, Spain"
+10,perturbed,TRUE
+10,invasive_organism,Opuntia
+10,perturbation_type,presence of invasive species
+10,latitude,42.3181
+10,longitude,3.3198
+11,name,SEL1OP
+11,type,environment
+11,type,perturbation
+11,location,"Cap de Creus, Catalonia, Spain"
+11,perturbed,FALSE
+11,invasive_organism,Opuntia
+11,perturbation_type,presence of invasive species
+11,latitude,42.3181
+11,longitude,3.3198
+12,name,SEL2OP
+12,type,environment
+12,type,perturbation
+12,location,"Cap de Creus, Catalonia, Spain"
+12,perturbed,TRUE
+12,invasive_organism,Opuntia
+12,perturbation_type,presence of invasive species
+12,latitude,42.3181
+12,longitude,3.3198

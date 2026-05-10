@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Working with included data sets</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">The EMLN package website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="monolayer.html">Monolayer</a>
+</li>
+<li>
+  <a href="multilayer.html">Multilayer</a>
+</li>
+<li>
+  <a href="data.html">Included data sets</a>
+</li>
+<li>
+  <a href="analysis_example.html">Analysis example</a>
+</li>
+<li>
+  <a href="plotting.html">Plotting emln</a>
+</li>
+<li>
+  <a href="about.html">About and feedback</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Working with included data sets</h1>
+
+</div>
+
+
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', '#8B0000', '1', 'Copy code', 'Copied!');
+</script>
+<pre class="r"><code>library(emln)
+library(igraph)
+library(bipartite)
+library(magrittr)
+library(ggplot2)
+library(readr)
+library(tibble)
+library(dplyr)
+library(readr)
+library(stringr)
+library(ggsci)
+library(ggbreak)
+library(ggpubr)</code></pre>
+<div id="about-the-data-sets" class="section level1">
+<h1>About the data sets</h1>
+<p>The package includes 78 data sets of multilayer networks, collected
+from different sources. This collection of data is highly useful for
+comparative analysis and for practicing workflows. How data were
+collected and organized is described in the paper.</p>
+<p>The data includes 5 types of multilayer networks:</p>
+<pre><code>##     multi_type count
+## 1      Spatial    42
+## 2     Temporal    22
+## 3  Environment    17
+## 4 Perturbation     4
+## 5    Multiplex     4</code></pre>
+<p>These are divided into 7 types of ecological interaction
+networks:.</p>
+<pre><code>##          eco_type count
+## 1        Food-Web    35
+## 2     Pollination    25
+## 3  Seed-Dispersal     7
+## 4   Host-Parasite     5
+## 5 Plant-Herbivore     3
+## 6        Multiple     2
+## 7    Anemone-Fish     1</code></pre>
+<p>Here is a visual summary:</p>
+<p><img src="data_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<p>The data is distributed globally:</p>
+<p><img src="data_files/figure-html/Map_Visualization-1.png" width="960" /></p>
+</div>
+<div id="browsing-the-data" class="section level1">
+<h1>Browsing the data</h1>
+<p>You can browse through the data sets using <code>view_emln()</code>
+in RStudio. The function will open a user interface in the viewer panel.
+To search for a network with a certain set of parameters, you can use
+<code>search_emln()</code>. Here are a few examples.</p>
+<pre class="r"><code>search_1 &lt;- search_emln(ecological_network_type = &#39;Host-parasite&#39;)
+names(search_1)</code></pre>
+<pre><code>##  [1] &quot;network_id&quot;              &quot;network_name&quot;            &quot;ecological_network_type&quot; &quot;multilayer_network_type&quot; &quot;state_nodes&quot;            
+##  [6] &quot;weighted&quot;                &quot;directed&quot;                &quot;interlayer&quot;              &quot;layer_num&quot;               &quot;node_num&quot;</code></pre>
+<pre class="r"><code># Show some of the columns
+search_1 %&gt;% select(&quot;network_id&quot;,&quot;network_name&quot;,&quot;ecological_network_type&quot;,&quot;multilayer_network_type&quot;,&quot;layer_num&quot;)</code></pre>
+<pre><code>## # A tibble: 6 × 5
+## # Groups:   network_id, network_name [5]
+##   network_id network_name                          ecological_network_type multilayer_network_type layer_num
+##        &lt;dbl&gt; &lt;chr&gt;                                 &lt;chr&gt;                   &lt;chr&gt;                       &lt;dbl&gt;
+## 1          7 emln7_environment_rejmanek_stary_1979 Host-Parasite           Environment                     4
+## 2         23 emln23_spatial_canadian_fish_parasite Host-Parasite           Spatial                        12
+## 3         33 emln33_spatial_hadfield_2013          Host-Parasite           Spatial                        51
+## 4         53 emln53_spatial_slovakia               Host-Parasite           Spatial                       120
+## 5         57 emln57_spatial_temporal_kolpelke_2017 Host-Parasite           Spatial                      1532
+## 6         57 emln57_spatial_temporal_kolpelke_2017 Host-Parasite           Temporal                     1532</code></pre>
+<pre class="r"><code>search_2 &lt;- search_emln(ecological_network_type = &#39;Pollination&#39;, layer_number_minimum = 15)
+search_2 %&gt;% select(&quot;network_id&quot;,&quot;network_name&quot;,&quot;ecological_network_type&quot;,&quot;multilayer_network_type&quot;,&quot;layer_num&quot;)</code></pre>
+<pre><code>## # A tibble: 6 × 5
+## # Groups:   network_id, network_name [5]
+##   network_id network_name                                     ecological_network_type multilayer_network_type layer_num
+##        &lt;dbl&gt; &lt;chr&gt;                                            &lt;chr&gt;                   &lt;chr&gt;                       &lt;dbl&gt;
+## 1          2 emln2_environment_benadi_jae_2013                Pollination             Environment                    69
+## 2         64 emln64_temporal_caradona_2020                    Pollination             Temporal                       86
+## 3         71 emln71_temporal_perturbation_kaiser_bunbury_2009 Pollination             Temporal                       24
+## 4         71 emln71_temporal_perturbation_kaiser_bunbury_2009 Pollination             Perturbation                   24
+## 5         72 emln72_temporal_ponisio_2017                     Pollination             Temporal                      141
+## 6         78 emln78_temporal_zackenberg_2013                  Pollination             Temporal                      163</code></pre>
+<pre class="r"><code># Networks with state node attributes
+search_emln(state_nodes = TRUE)</code></pre>
+<pre><code>## # A tibble: 12 × 10
+## # Groups:   network_id, network_name [11]
+##    network_id network_name                      ecological_network_t…¹ multilayer_network_t…² state_nodes weighted directed interlayer layer_num node_num
+##         &lt;dbl&gt; &lt;chr&gt;                             &lt;chr&gt;                  &lt;chr&gt;                  &lt;chr&gt;       &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+##  1          6 emln6_environment_kohler_2011     Pollination            Environment            TRUE        TRUE     FALSE    FALSE              3       31
+##  2         23 emln23_spatial_canadian_fish_par… Host-Parasite          Spatial                TRUE        TRUE     FALSE    FALSE             12      311
+##  3         28 emln28_spatial_dicks_2002         Pollination            Spatial                TRUE        TRUE     FALSE    FALSE              2      102
+##  4         30 emln30_spatial_elberling_1999     Pollination            Spatial                TRUE        FALSE    FALSE    FALSE              2      241
+##  5         33 emln33_spatial_hadfield_2013      Host-Parasite          Spatial                TRUE        TRUE     FALSE    FALSE             51      327
+##  6         36 emln36_spatial_joern_1979         Plant-Herbivore        Spatial                TRUE        FALSE    FALSE    FALSE              2      105
+##  7         39 emln39_spatial_leather_1991       Plant-Herbivore        Spatial                TRUE        FALSE    FALSE    FALSE              2      112
+##  8         43 emln43_spatial_montero_2005       Pollination            Spatial                TRUE        FALSE    FALSE    FALSE              3      173
+##  9         51 emln51_spatial_primack_1983       Pollination            Spatial                TRUE        FALSE    FALSE    FALSE              3      305
+## 10         54 emln54_spatial_snow_b_k_snow_1988 Pollination            Spatial                TRUE        TRUE     FALSE    FALSE              2       89
+## 11         58 emln58_spatial_temporal_martins_… Plant-Herbivore        Spatial                TRUE        TRUE     FALSE    FALSE             30      149
+## 12         58 emln58_spatial_temporal_martins_… Plant-Herbivore        Temporal               TRUE        TRUE     FALSE    FALSE             30      149
+## # ℹ abbreviated names: ¹​ecological_network_type, ²​multilayer_network_type</code></pre>
+<pre class="r"><code># Networks with interlayer links
+search_emln(interlayer = TRUE)</code></pre>
+<pre><code>## # A tibble: 1 × 10
+## # Groups:   network_id, network_name [1]
+##   network_id network_name                   ecological_network_type multilayer_network_type state_nodes weighted directed interlayer layer_num node_num
+##        &lt;dbl&gt; &lt;chr&gt;                          &lt;chr&gt;                   &lt;chr&gt;                   &lt;chr&gt;       &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+## 1         17 emln17_multiplex_traveset_2020 Multiples               Multiplex               FALSE       TRUE     FALSE    TRUE               4      129</code></pre>
+</div>
+<div id="loading-a-network" class="section level1">
+<h1>Loading a network</h1>
+<p>We load the spatial multilayer network (network_id = 38) that comes
+with the package. This is a spatial seed-Dispersal network (collected
+from Web of Life). The network has five layers and 22 physical nodes,
+with a total of 84 interactions that are all intralayer, undirected, and
+weighted. There are no interlayer interactions recorded for this
+network.</p>
+<pre class="r"><code>d38 &lt;- load_emln(38)
+names(d38)</code></pre>
+<pre><code>## [1] &quot;nodes&quot;        &quot;layers&quot;       &quot;extended&quot;     &quot;extended_ids&quot; &quot;state_nodes&quot;  &quot;description&quot;  &quot;references&quot;</code></pre>
+<pre class="r"><code>d38$layers</code></pre>
+<pre><code>## # A tibble: 7 × 10
+##   layer_id name                location                                latitude longitude years num_of_species num_of_interactions connectance layer_name
+##      &lt;int&gt; &lt;chr&gt;               &lt;chr&gt;                                      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;int&gt;               &lt;int&gt;       &lt;dbl&gt; &lt;chr&gt;     
+## 1        1 Amami-Ohsima_Island Amami-Ohsima Island, Japan                  28.4      129. 1996…            719                1125       0.017 layer_1   
+## 2        2 Ashu                Ashu, Kyoto, Japan                          35.3      136. 1984…            768                1193       0.019 layer_2   
+## 3        3 Kibune              Kibune, Kyoto, Japan                        35.2      136. 1984…            997                1920       0.019 layer_3   
+## 4        4 Kyoto_City          Kyoto City, Japan                           35.0      136. 1985…            431                 773       0.022 layer_4   
+## 5        5 Mt.Kushigata        Mt. Kushigata, Yamanashi Pref., Japan       35.6      138. 1990…            456                 871       0.026 layer_5   
+## 6        6 Mt.Yufu             Mt. Yufu, Japan                             33.4      132. 2001             393                 589       0.02  layer_6   
+## 7        7 Nakaikemi_marsh     Nakaikemi marsh, Fukui Prefecture, Jap…     35.6      136. 1994…            259                 431       0.035 layer_7</code></pre>
+<pre class="r"><code>head(d38$extended)</code></pre>
+<pre><code>##   layer_from             node_from layer_to                 node_to weight        type
+## 1    layer_1 Castanopsis_sieboldii  layer_1    Stomorhina.obsoleta.      3 pollination
+## 2    layer_1 Castanopsis_sieboldii  layer_1      Hylaeus.insularum.      1 pollination
+## 3    layer_1 Castanopsis_sieboldii  layer_1  Lygocoris.sp1.M_PL_044      1 pollination
+## 4    layer_1 Castanopsis_sieboldii  layer_1    Mordellina.tsutsuii.      1 pollination
+## 5    layer_1 Castanopsis_sieboldii  layer_1 Lasioglossum.subopacum.     19 pollination
+## 6    layer_1 Castanopsis_sieboldii  layer_1       Anaspis.shibatai.     15 pollination</code></pre>
+<!-- Here is another example: -->
+<!-- ```{r} -->
+<!-- search_emln(ecological_network_type = 'Pollination', directed = TRUE) -->
+<!-- d47 <- load_emln(47) -->
+<!-- d47 -->
+<!-- ``` -->
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

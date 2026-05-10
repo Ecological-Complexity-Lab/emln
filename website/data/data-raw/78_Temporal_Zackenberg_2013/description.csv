@@ -1,0 +1,8 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Temporal
+description,the impact of temporal resolution on the structure of an plant-pollinator ecological network.
+source,plos
+data_url,https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0081694
+ecological_network_type,Pollination
+state_nodes,FALSE

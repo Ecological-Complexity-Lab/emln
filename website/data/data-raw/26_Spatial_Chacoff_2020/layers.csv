@@ -1,0 +1,25 @@
+layer,attribute,value
+1,type,space
+1,name,site1_2006
+1,location,"Villavicencio Nature Reserve, Mendoza, Argentina"
+1,year,2006
+1,latitude,-32.629722
+1,longitude,69.008333
+2,type,space
+2,name,site2_2006
+2,location,"Villavicencio Nature Reserve, Mendoza, Argentina"
+2,year,2006
+2,latitude,-32.749722
+2,longitude,69.175278
+3,type,space
+3,name,site3_2006
+3,location,"Villavicencio Nature Reserve, Mendoza, Argentina"
+3,year,2006
+3,latitude,-32.639444
+3,longitude,69.031111
+4,type,space
+4,name,site4_2006
+4,location,"Villavicencio Nature Reserve, Mendoza, Argentina"
+4,year,2006
+4,latitude,-32.629167
+4,longitude,69.018333

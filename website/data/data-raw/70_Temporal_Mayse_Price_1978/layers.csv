@@ -1,0 +1,17 @@
+layer,attribute,value
+1,date,01/05/1975
+1,description,Food web structure of a soybean agro-ecosystem
+1,directed,TRUE
+1,latitude,40
+1,location,"Champaign, Illinois, USA"
+1,longitude,-88
+1,term,after 3 weeks
+1,type,time
+2,date,01/05/1975
+2,description,Food web structure of a soybean agro-ecosystem
+2,directed,TRUE
+2,latitude,40
+2,location,"Champaign, Illinois, USA"
+2,longitude,-88
+2,term,after 12 weeks
+2,type,time

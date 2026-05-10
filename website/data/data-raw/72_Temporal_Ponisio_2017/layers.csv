@@ -1,0 +1,847 @@
+layer,attribute,value
+1,date,01/01/2006
+1,latitude,37.703663852
+1,location,Central Valley of California
+1,longitude,-120.988162714
+1,name,MullerB
+1,type,time
+2,date,01/01/2006
+2,latitude,37.703663852
+2,location,Central Valley of California
+2,longitude,-120.988162714
+2,name,USS
+2,type,time
+3,date,01/01/2006
+3,latitude,37.703663852
+3,location,Central Valley of California
+3,longitude,-120.988162714
+3,name,H16
+3,type,time
+4,date,01/01/2006
+4,latitude,37.703663852
+4,location,Central Valley of California
+4,longitude,-120.988162714
+4,name,Butler
+4,type,time
+5,date,01/01/2006
+5,latitude,37.703663852
+5,location,Central Valley of California
+5,longitude,-120.988162714
+5,name,DQU
+5,type,time
+6,date,01/01/2006
+6,latitude,37.703663852
+6,location,Central Valley of California
+6,longitude,-120.988162714
+6,name,Barger
+6,type,time
+7,date,01/01/2006
+7,latitude,37.703663852
+7,location,Central Valley of California
+7,longitude,-120.988162714
+7,name,Turkovich
+7,type,time
+8,date,01/01/2007
+8,latitude,37.703663852
+8,location,Central Valley of California
+8,longitude,-120.988162714
+8,name,BC2
+8,type,time
+9,date,01/01/2007
+9,latitude,37.703663852
+9,location,Central Valley of California
+9,longitude,-120.988162714
+9,name,DQU
+9,type,time
+10,date,01/01/2007
+10,latitude,37.703663852
+10,location,Central Valley of California
+10,longitude,-120.988162714
+10,name,MullerB
+10,type,time
+11,date,01/01/2007
+11,latitude,37.703663852
+11,location,Central Valley of California
+11,longitude,-120.988162714
+11,name,USS
+11,type,time
+12,date,01/01/2007
+12,latitude,37.703663852
+12,location,Central Valley of California
+12,longitude,-120.988162714
+12,name,MC1
+12,type,time
+13,date,01/01/2007
+13,latitude,37.703663852
+13,location,Central Valley of California
+13,longitude,-120.988162714
+13,name,Spiva
+13,type,time
+14,date,01/01/2007
+14,latitude,37.703663852
+14,location,Central Valley of California
+14,longitude,-120.988162714
+14,name,Sperandio
+14,type,time
+15,date,01/01/2007
+15,latitude,37.703663852
+15,location,Central Valley of California
+15,longitude,-120.988162714
+15,name,H16
+15,type,time
+16,date,01/01/2007
+16,latitude,37.703663852
+16,location,Central Valley of California
+16,longitude,-120.988162714
+16,name,Chamberlain
+16,type,time
+17,date,01/01/2007
+17,latitude,37.703663852
+17,location,Central Valley of California
+17,longitude,-120.988162714
+17,name,Gregory
+17,type,time
+18,date,01/01/2007
+18,latitude,37.703663852
+18,location,Central Valley of California
+18,longitude,-120.988162714
+18,name,Barger
+18,type,time
+19,date,01/01/2007
+19,latitude,37.703663852
+19,location,Central Valley of California
+19,longitude,-120.988162714
+19,name,Turkovich
+19,type,time
+20,date,01/01/2007
+20,latitude,37.703663852
+20,location,Central Valley of California
+20,longitude,-120.988162714
+20,name,Butler
+20,type,time
+21,date,01/01/2007
+21,latitude,37.703663852
+21,location,Central Valley of California
+21,longitude,-120.988162714
+21,name,Hrdy
+21,type,time
+22,date,01/01/2008
+22,latitude,37.703663852
+22,location,Central Valley of California
+22,longitude,-120.988162714
+22,name,MullerB
+22,type,time
+23,date,01/01/2008
+23,latitude,37.703663852
+23,location,Central Valley of California
+23,longitude,-120.988162714
+23,name,Hrdy
+23,type,time
+24,date,01/01/2008
+24,latitude,37.703663852
+24,location,Central Valley of California
+24,longitude,-120.988162714
+24,name,Spiva
+24,type,time
+25,date,01/01/2008
+25,latitude,37.703663852
+25,location,Central Valley of California
+25,longitude,-120.988162714
+25,name,Sperandio
+25,type,time
+26,date,01/01/2008
+26,latitude,37.703663852
+26,location,Central Valley of California
+26,longitude,-120.988162714
+26,name,Turkovich
+26,type,time
+27,date,01/01/2008
+27,latitude,37.703663852
+27,location,Central Valley of California
+27,longitude,-120.988162714
+27,name,USS
+27,type,time
+28,date,01/01/2008
+28,latitude,37.703663852
+28,location,Central Valley of California
+28,longitude,-120.988162714
+28,name,BC2
+28,type,time
+29,date,01/01/2008
+29,latitude,37.703663852
+29,location,Central Valley of California
+29,longitude,-120.988162714
+29,name,DQU
+29,type,time
+30,date,01/01/2008
+30,latitude,37.703663852
+30,location,Central Valley of California
+30,longitude,-120.988162714
+30,name,MC1
+30,type,time
+31,date,01/01/2008
+31,latitude,37.703663852
+31,location,Central Valley of California
+31,longitude,-120.988162714
+31,name,Fong
+31,type,time
+32,date,01/01/2008
+32,latitude,37.703663852
+32,location,Central Valley of California
+32,longitude,-120.988162714
+32,name,Barger
+32,type,time
+33,date,01/01/2008
+33,latitude,37.703663852
+33,location,Central Valley of California
+33,longitude,-120.988162714
+33,name,H16
+33,type,time
+34,date,01/01/2008
+34,latitude,37.703663852
+34,location,Central Valley of California
+34,longitude,-120.988162714
+34,name,Butler
+34,type,time
+35,date,01/01/2008
+35,latitude,37.703663852
+35,location,Central Valley of California
+35,longitude,-120.988162714
+35,name,Gregory
+35,type,time
+36,date,01/01/2008
+36,latitude,37.703663852
+36,location,Central Valley of California
+36,longitude,-120.988162714
+36,name,Chamberlain
+36,type,time
+37,date,01/01/2009
+37,latitude,37.703663852
+37,location,Central Valley of California
+37,longitude,-120.988162714
+37,name,Joe
+37,type,time
+38,date,01/01/2009
+38,latitude,37.703663852
+38,location,Central Valley of California
+38,longitude,-120.988162714
+38,name,Sperandio
+38,type,time
+39,date,01/01/2009
+39,latitude,37.703663852
+39,location,Central Valley of California
+39,longitude,-120.988162714
+39,name,H16
+39,type,time
+40,date,01/01/2009
+40,latitude,37.703663852
+40,location,Central Valley of California
+40,longitude,-120.988162714
+40,name,MC1
+40,type,time
+41,date,01/01/2009
+41,latitude,37.703663852
+41,location,Central Valley of California
+41,longitude,-120.988162714
+41,name,DQU
+41,type,time
+42,date,01/01/2009
+42,latitude,37.703663852
+42,location,Central Valley of California
+42,longitude,-120.988162714
+42,name,Hrdy
+42,type,time
+43,date,01/01/2009
+43,latitude,37.703663852
+43,location,Central Valley of California
+43,longitude,-120.988162714
+43,name,Harlan
+43,type,time
+44,date,01/01/2009
+44,latitude,37.703663852
+44,location,Central Valley of California
+44,longitude,-120.988162714
+44,name,Tractor
+44,type,time
+45,date,01/01/2009
+45,latitude,37.703663852
+45,location,Central Valley of California
+45,longitude,-120.988162714
+45,name,Fong
+45,type,time
+46,date,01/01/2009
+46,latitude,37.703663852
+46,location,Central Valley of California
+46,longitude,-120.988162714
+46,name,USS
+46,type,time
+47,date,01/01/2009
+47,latitude,37.703663852
+47,location,Central Valley of California
+47,longitude,-120.988162714
+47,name,MullerB
+47,type,time
+48,date,01/01/2009
+48,latitude,37.703663852
+48,location,Central Valley of California
+48,longitude,-120.988162714
+48,name,Gregory
+48,type,time
+49,date,01/01/2009
+49,latitude,37.703663852
+49,location,Central Valley of California
+49,longitude,-120.988162714
+49,name,Spiva
+49,type,time
+50,date,01/01/2009
+50,latitude,37.703663852
+50,location,Central Valley of California
+50,longitude,-120.988162714
+50,name,Butler
+50,type,time
+51,date,01/01/2009
+51,latitude,37.703663852
+51,location,Central Valley of California
+51,longitude,-120.988162714
+51,name,Turkovich
+51,type,time
+52,date,01/01/2009
+52,latitude,37.703663852
+52,location,Central Valley of California
+52,longitude,-120.988162714
+52,name,Rominger
+52,type,time
+53,date,01/01/2009
+53,latitude,37.703663852
+53,location,Central Valley of California
+53,longitude,-120.988162714
+53,name,BC2
+53,type,time
+54,date,01/01/2009
+54,latitude,37.703663852
+54,location,Central Valley of California
+54,longitude,-120.988162714
+54,name,Barger
+54,type,time
+55,date,01/01/2009
+55,latitude,37.703663852
+55,location,Central Valley of California
+55,longitude,-120.988162714
+55,name,Barn
+55,type,time
+56,date,01/01/2009
+56,latitude,37.703663852
+56,location,Central Valley of California
+56,longitude,-120.988162714
+56,name,Chamberlain
+56,type,time
+57,date,01/01/2010
+57,latitude,37.703663852
+57,location,Central Valley of California
+57,longitude,-120.988162714
+57,name,Joe
+57,type,time
+58,date,01/01/2010
+58,latitude,37.703663852
+58,location,Central Valley of California
+58,longitude,-120.988162714
+58,name,Rominger
+58,type,time
+59,date,01/01/2010
+59,latitude,37.703663852
+59,location,Central Valley of California
+59,longitude,-120.988162714
+59,name,MullerM
+59,type,time
+60,date,01/01/2010
+60,latitude,37.703663852
+60,location,Central Valley of California
+60,longitude,-120.988162714
+60,name,Barn
+60,type,time
+61,date,01/01/2010
+61,latitude,37.703663852
+61,location,Central Valley of California
+61,longitude,-120.988162714
+61,name,Fong
+61,type,time
+62,date,01/01/2011
+62,latitude,37.703663852
+62,location,Central Valley of California
+62,longitude,-120.988162714
+62,name,Chamberlain
+62,type,time
+63,date,01/01/2011
+63,latitude,37.703663852
+63,location,Central Valley of California
+63,longitude,-120.988162714
+63,name,Rominger
+63,type,time
+64,date,01/01/2011
+64,latitude,37.703663852
+64,location,Central Valley of California
+64,longitude,-120.988162714
+64,name,MullerM
+64,type,time
+65,date,01/01/2011
+65,latitude,37.703663852
+65,location,Central Valley of California
+65,longitude,-120.988162714
+65,name,H16
+65,type,time
+66,date,01/01/2011
+66,latitude,37.703663852
+66,location,Central Valley of California
+66,longitude,-120.988162714
+66,name,Sperandio
+66,type,time
+67,date,01/01/2011
+67,latitude,37.703663852
+67,location,Central Valley of California
+67,longitude,-120.988162714
+67,name,Harlan
+67,type,time
+68,date,01/01/2011
+68,latitude,37.703663852
+68,location,Central Valley of California
+68,longitude,-120.988162714
+68,name,Hrdy
+68,type,time
+69,date,01/01/2011
+69,latitude,37.703663852
+69,location,Central Valley of California
+69,longitude,-120.988162714
+69,name,MC1
+69,type,time
+70,date,01/01/2011
+70,latitude,37.703663852
+70,location,Central Valley of California
+70,longitude,-120.988162714
+70,name,Tractor
+70,type,time
+71,date,01/01/2011
+71,latitude,37.703663852
+71,location,Central Valley of California
+71,longitude,-120.988162714
+71,name,Spiva
+71,type,time
+72,date,01/01/2011
+72,latitude,37.703663852
+72,location,Central Valley of California
+72,longitude,-120.988162714
+72,name,Butler
+72,type,time
+73,date,01/01/2011
+73,latitude,37.703663852
+73,location,Central Valley of California
+73,longitude,-120.988162714
+73,name,Fong
+73,type,time
+74,date,01/01/2011
+74,latitude,37.703663852
+74,location,Central Valley of California
+74,longitude,-120.988162714
+74,name,Turkovich
+74,type,time
+75,date,01/01/2011
+75,latitude,37.703663852
+75,location,Central Valley of California
+75,longitude,-120.988162714
+75,name,USS
+75,type,time
+76,date,01/01/2011
+76,latitude,37.703663852
+76,location,Central Valley of California
+76,longitude,-120.988162714
+76,name,BC2
+76,type,time
+77,date,01/01/2011
+77,latitude,37.703663852
+77,location,Central Valley of California
+77,longitude,-120.988162714
+77,name,DQU
+77,type,time
+78,date,01/01/2011
+78,latitude,37.703663852
+78,location,Central Valley of California
+78,longitude,-120.988162714
+78,name,MullerB
+78,type,time
+79,date,01/01/2011
+79,latitude,37.703663852
+79,location,Central Valley of California
+79,longitude,-120.988162714
+79,name,Gregory
+79,type,time
+80,date,01/01/2011
+80,latitude,37.703663852
+80,location,Central Valley of California
+80,longitude,-120.988162714
+80,name,Barger
+80,type,time
+81,date,01/01/2012
+81,latitude,37.703663852
+81,location,Central Valley of California
+81,longitude,-120.988162714
+81,name,Rominger
+81,type,time
+82,date,01/01/2012
+82,latitude,37.703663852
+82,location,Central Valley of California
+82,longitude,-120.988162714
+82,name,Harlan
+82,type,time
+83,date,01/01/2012
+83,latitude,37.703663852
+83,location,Central Valley of California
+83,longitude,-120.988162714
+83,name,Sperandio
+83,type,time
+84,date,01/01/2012
+84,latitude,37.703663852
+84,location,Central Valley of California
+84,longitude,-120.988162714
+84,name,Spiva
+84,type,time
+85,date,01/01/2012
+85,latitude,37.703663852
+85,location,Central Valley of California
+85,longitude,-120.988162714
+85,name,MC1
+85,type,time
+86,date,01/01/2012
+86,latitude,37.703663852
+86,location,Central Valley of California
+86,longitude,-120.988162714
+86,name,Joe
+86,type,time
+87,date,01/01/2012
+87,latitude,37.703663852
+87,location,Central Valley of California
+87,longitude,-120.988162714
+87,name,MullerM
+87,type,time
+88,date,01/01/2012
+88,latitude,37.703663852
+88,location,Central Valley of California
+88,longitude,-120.988162714
+88,name,Barger
+88,type,time
+89,date,01/01/2012
+89,latitude,37.703663852
+89,location,Central Valley of California
+89,longitude,-120.988162714
+89,name,Chamberlain
+89,type,time
+90,date,01/01/2012
+90,latitude,37.703663852
+90,location,Central Valley of California
+90,longitude,-120.988162714
+90,name,Tractor
+90,type,time
+91,date,01/01/2012
+91,latitude,37.703663852
+91,location,Central Valley of California
+91,longitude,-120.988162714
+91,name,USS
+91,type,time
+92,date,01/01/2012
+92,latitude,37.703663852
+92,location,Central Valley of California
+92,longitude,-120.988162714
+92,name,Fong
+92,type,time
+93,date,01/01/2012
+93,latitude,37.703663852
+93,location,Central Valley of California
+93,longitude,-120.988162714
+93,name,Barn
+93,type,time
+94,date,01/01/2012
+94,latitude,37.703663852
+94,location,Central Valley of California
+94,longitude,-120.988162714
+94,name,DQU
+94,type,time
+95,date,01/01/2012
+95,latitude,37.703663852
+95,location,Central Valley of California
+95,longitude,-120.988162714
+95,name,Turkovich
+95,type,time
+96,date,01/01/2012
+96,latitude,37.703663852
+96,location,Central Valley of California
+96,longitude,-120.988162714
+96,name,Butler
+96,type,time
+97,date,01/01/2012
+97,latitude,37.703663852
+97,location,Central Valley of California
+97,longitude,-120.988162714
+97,name,BC2
+97,type,time
+98,date,01/01/2012
+98,latitude,37.703663852
+98,location,Central Valley of California
+98,longitude,-120.988162714
+98,name,Gregory
+98,type,time
+99,date,01/01/2012
+99,latitude,37.703663852
+99,location,Central Valley of California
+99,longitude,-120.988162714
+99,name,Hrdy
+99,type,time
+100,date,01/01/2012
+100,latitude,37.703663852
+100,location,Central Valley of California
+100,longitude,-120.988162714
+100,name,MullerB
+100,type,time
+101,date,01/01/2013
+101,latitude,37.703663852
+101,location,Central Valley of California
+101,longitude,-120.988162714
+101,name,Joe
+101,type,time
+102,date,01/01/2013
+102,latitude,37.703663852
+102,location,Central Valley of California
+102,longitude,-120.988162714
+102,name,Fong
+102,type,time
+103,date,01/01/2013
+103,latitude,37.703663852
+103,location,Central Valley of California
+103,longitude,-120.988162714
+103,name,Rominger
+103,type,time
+104,date,01/01/2013
+104,latitude,37.703663852
+104,location,Central Valley of California
+104,longitude,-120.988162714
+104,name,Sperandio
+104,type,time
+105,date,01/01/2013
+105,latitude,37.703663852
+105,location,Central Valley of California
+105,longitude,-120.988162714
+105,name,Hrdy
+105,type,time
+106,date,01/01/2013
+106,latitude,37.703663852
+106,location,Central Valley of California
+106,longitude,-120.988162714
+106,name,H16
+106,type,time
+107,date,01/01/2013
+107,latitude,37.703663852
+107,location,Central Valley of California
+107,longitude,-120.988162714
+107,name,Harlan
+107,type,time
+108,date,01/01/2013
+108,latitude,37.703663852
+108,location,Central Valley of California
+108,longitude,-120.988162714
+108,name,MC1
+108,type,time
+109,date,01/01/2013
+109,latitude,37.703663852
+109,location,Central Valley of California
+109,longitude,-120.988162714
+109,name,Gregory
+109,type,time
+110,date,01/01/2013
+110,latitude,37.703663852
+110,location,Central Valley of California
+110,longitude,-120.988162714
+110,name,Tractor
+110,type,time
+111,date,01/01/2013
+111,latitude,37.703663852
+111,location,Central Valley of California
+111,longitude,-120.988162714
+111,name,Barger
+111,type,time
+112,date,01/01/2013
+112,latitude,37.703663852
+112,location,Central Valley of California
+112,longitude,-120.988162714
+112,name,USS
+112,type,time
+113,date,01/01/2013
+113,latitude,37.703663852
+113,location,Central Valley of California
+113,longitude,-120.988162714
+113,name,Chamberlain
+113,type,time
+114,date,01/01/2013
+114,latitude,37.703663852
+114,location,Central Valley of California
+114,longitude,-120.988162714
+114,name,Barn
+114,type,time
+115,date,01/01/2013
+115,latitude,37.703663852
+115,location,Central Valley of California
+115,longitude,-120.988162714
+115,name,MullerM
+115,type,time
+116,date,01/01/2013
+116,latitude,37.703663852
+116,location,Central Valley of California
+116,longitude,-120.988162714
+116,name,DQU
+116,type,time
+117,date,01/01/2013
+117,latitude,37.703663852
+117,location,Central Valley of California
+117,longitude,-120.988162714
+117,name,Butler
+117,type,time
+118,date,01/01/2013
+118,latitude,37.703663852
+118,location,Central Valley of California
+118,longitude,-120.988162714
+118,name,MullerB
+118,type,time
+119,date,01/01/2013
+119,latitude,37.703663852
+119,location,Central Valley of California
+119,longitude,-120.988162714
+119,name,BC2
+119,type,time
+120,date,01/01/2013
+120,latitude,37.703663852
+120,location,Central Valley of California
+120,longitude,-120.988162714
+120,name,Spiva
+120,type,time
+121,date,01/01/2013
+121,latitude,37.703663852
+121,location,Central Valley of California
+121,longitude,-120.988162714
+121,name,Turkovich
+121,type,time
+122,date,01/01/2014
+122,latitude,37.703663852
+122,location,Central Valley of California
+122,longitude,-120.988162714
+122,name,MullerM
+122,type,time
+123,date,01/01/2014
+123,latitude,37.703663852
+123,location,Central Valley of California
+123,longitude,-120.988162714
+123,name,MullerB
+123,type,time
+124,date,01/01/2014
+124,latitude,37.703663852
+124,location,Central Valley of California
+124,longitude,-120.988162714
+124,name,Rominger
+124,type,time
+125,date,01/01/2014
+125,latitude,37.703663852
+125,location,Central Valley of California
+125,longitude,-120.988162714
+125,name,Sperandio
+125,type,time
+126,date,01/01/2014
+126,latitude,37.703663852
+126,location,Central Valley of California
+126,longitude,-120.988162714
+126,name,Joe
+126,type,time
+127,date,01/01/2014
+127,latitude,37.703663852
+127,location,Central Valley of California
+127,longitude,-120.988162714
+127,name,Hrdy
+127,type,time
+128,date,01/01/2014
+128,latitude,37.703663852
+128,location,Central Valley of California
+128,longitude,-120.988162714
+128,name,Turkovich
+128,type,time
+129,date,01/01/2014
+129,latitude,37.703663852
+129,location,Central Valley of California
+129,longitude,-120.988162714
+129,name,USS
+129,type,time
+130,date,01/01/2014
+130,latitude,37.703663852
+130,location,Central Valley of California
+130,longitude,-120.988162714
+130,name,Barn
+130,type,time
+131,date,01/01/2014
+131,latitude,37.703663852
+131,location,Central Valley of California
+131,longitude,-120.988162714
+131,name,Barger
+131,type,time
+132,date,01/01/2014
+132,latitude,37.703663852
+132,location,Central Valley of California
+132,longitude,-120.988162714
+132,name,DQU
+132,type,time
+133,date,01/01/2014
+133,latitude,37.703663852
+133,location,Central Valley of California
+133,longitude,-120.988162714
+133,name,Chamberlain
+133,type,time
+134,date,01/01/2014
+134,latitude,37.703663852
+134,location,Central Valley of California
+134,longitude,-120.988162714
+134,name,Gregory
+134,type,time
+135,date,01/01/2014
+135,latitude,37.703663852
+135,location,Central Valley of California
+135,longitude,-120.988162714
+135,name,Butler
+135,type,time
+136,date,01/01/2014
+136,latitude,37.703663852
+136,location,Central Valley of California
+136,longitude,-120.988162714
+136,name,Spiva
+136,type,time
+137,date,01/01/2014
+137,latitude,37.703663852
+137,location,Central Valley of California
+137,longitude,-120.988162714
+137,name,H16
+137,type,time
+138,date,01/01/2014
+138,latitude,37.703663852
+138,location,Central Valley of California
+138,longitude,-120.988162714
+138,name,Fong
+138,type,time
+139,date,01/01/2014
+139,latitude,37.703663852
+139,location,Central Valley of California
+139,longitude,-120.988162714
+139,name,Tractor
+139,type,time
+140,date,01/01/2014
+140,latitude,37.703663852
+140,location,Central Valley of California
+140,longitude,-120.988162714
+140,name,Harlan
+140,type,time
+141,date,01/01/2014
+141,latitude,37.703663852
+141,location,Central Valley of California
+141,longitude,-120.988162714
+141,name,BC2
+141,type,time

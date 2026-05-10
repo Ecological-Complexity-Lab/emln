@@ -1,0 +1,81 @@
+layer,attribute,value
+1,name,llao_llao
+1,type,space
+1,perturbed,FALSE
+1,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+1,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+1,name,llao_llao
+1,type,perturbation
+1,perturbed,FALSE
+1,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+1,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+2,name,cerro_lopez
+2,type,space
+2,perturbed,TRUE
+2,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+2,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+2,name,cerro_lopez
+2,type,perturbation
+2,perturbed,TRUE
+2,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+2,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+3,name,safariland
+3,type,space
+3,perturbed,FALSE
+3,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+3,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+3,name,safariland
+3,type,perturbation
+3,perturbed,FALSE
+3,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+3,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+4,name,arroyo_goye
+4,type,space
+4,perturbed,TRUE
+4,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+4,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+4,name,arroyo_goye
+4,type,perturbation
+4,perturbed,TRUE
+4,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+4,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+5,name,mascardi_nc
+5,type,space
+5,perturbed,FALSE
+5,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+5,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+5,name,mascardi_nc
+5,type,perturbation
+5,perturbed,FALSE
+5,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+5,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+6,name,mascardi_c
+6,type,space
+6,perturbed,TRUE
+6,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+6,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+6,name,mascardi_c
+6,type,perturbation
+6,perturbed,TRUE
+6,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+6,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+7,name,quetrihue_nc
+7,type,space
+7,perturbed,FALSE
+7,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+7,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+7,name,quetrihue_nc
+7,type,perturbation
+7,perturbed,FALSE
+7,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+7,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+8,name,quetrihue_c
+8,type,space
+8,perturbed,TRUE
+8,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+8,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)
+8,name,quetrihue_c
+8,type,perturbation
+8,perturbed,TRUE
+8,location,"Nothofagus dombeyi forest, Nahuel Huapi National Park, Argentina"
+8,perturbation_type,moderate levels of grazing by cattle for extended periods (>20 years)

@@ -1,0 +1,265 @@
+layer,attribute,value
+1,name,CMA1
+1,type,time
+1,type,perturbation
+1,perturbed,FALSE
+1,site,CMA
+1,period,1
+1,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+1,perturbation_type,invasion of exotic plants
+1,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+1,latitude,-20.7
+1,longitude,57.733333
+2,name,Control1
+2,type,time
+2,type,perturbation
+2,perturbed,TRUE
+2,site,Control
+2,period,1
+2,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+2,perturbation_type,invasion of exotic plants
+2,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+2,latitude,-20.7
+2,longitude,57.733333
+3,name,CMA2
+3,type,time
+3,type,perturbation
+3,perturbed,FALSE
+3,site,CMA
+3,period,2
+3,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+3,perturbation_type,invasion of exotic plants
+3,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+3,latitude,-20.7
+3,longitude,57.733333
+4,name,Control2
+4,type,time
+4,type,perturbation
+4,perturbed,TRUE
+4,site,Control
+4,period,2
+4,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+4,perturbation_type,invasion of exotic plants
+4,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+4,latitude,-20.7
+4,longitude,57.733333
+5,name,CMA3
+5,type,time
+5,type,perturbation
+5,perturbed,FALSE
+5,site,CMA
+5,period,3
+5,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+5,perturbation_type,invasion of exotic plants
+5,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+5,latitude,-20.7
+5,longitude,57.733333
+6,name,Control3
+6,type,time
+6,type,perturbation
+6,perturbed,TRUE
+6,site,Control
+6,period,3
+6,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+6,perturbation_type,invasion of exotic plants
+6,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+6,latitude,-20.7
+6,longitude,57.733333
+7,name,CMA4
+7,type,time
+7,type,perturbation
+7,perturbed,FALSE
+7,site,CMA
+7,period,4
+7,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+7,perturbation_type,invasion of exotic plants
+7,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+7,latitude,-20.7
+7,longitude,57.733333
+8,name,Control4
+8,type,time
+8,type,perturbation
+8,perturbed,TRUE
+8,site,Control
+8,period,4
+8,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+8,perturbation_type,invasion of exotic plants
+8,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+8,latitude,-20.7
+8,longitude,57.733333
+9,name,CMA5
+9,type,time
+9,type,perturbation
+9,perturbed,FALSE
+9,site,CMA
+9,period,5
+9,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+9,perturbation_type,invasion of exotic plants
+9,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+9,latitude,-20.7
+9,longitude,57.733333
+10,name,Control5
+10,type,time
+10,type,perturbation
+10,perturbed,TRUE
+10,site,Control
+10,period,5
+10,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+10,perturbation_type,invasion of exotic plants
+10,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+10,latitude,-20.7
+10,longitude,57.733333
+11,name,CMA6
+11,type,time
+11,type,perturbation
+11,perturbed,FALSE
+11,site,CMA
+11,period,6
+11,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+11,perturbation_type,invasion of exotic plants
+11,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+11,latitude,-20.7
+11,longitude,57.733333
+12,name,Control6
+12,type,time
+12,type,perturbation
+12,perturbed,TRUE
+12,site,Control
+12,period,6
+12,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+12,perturbation_type,invasion of exotic plants
+12,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+12,latitude,-20.7
+12,longitude,57.733333
+13,name,CMA7
+13,type,time
+13,type,perturbation
+13,perturbed,FALSE
+13,site,CMA
+13,period,7
+13,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+13,perturbation_type,invasion of exotic plants
+13,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+13,latitude,-20.7
+13,longitude,57.733333
+14,name,Control7
+14,type,time
+14,type,perturbation
+14,perturbed,TRUE
+14,site,Control
+14,period,7
+14,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+14,perturbation_type,invasion of exotic plants
+14,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+14,latitude,-20.7
+14,longitude,57.733333
+15,name,CMA8
+15,type,time
+15,type,perturbation
+15,perturbed,FALSE
+15,site,CMA
+15,period,8
+15,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+15,perturbation_type,invasion of exotic plants
+15,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+15,latitude,-20.7
+15,longitude,57.733333
+16,name,Control8
+16,type,time
+16,type,perturbation
+16,perturbed,TRUE
+16,site,Control
+16,period,8
+16,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+16,perturbation_type,invasion of exotic plants
+16,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+16,latitude,-20.7
+16,longitude,57.733333
+17,name,CMA9
+17,type,time
+17,type,perturbation
+17,perturbed,FALSE
+17,site,CMA
+17,period,9
+17,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+17,perturbation_type,invasion of exotic plants
+17,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+17,latitude,-20.7
+17,longitude,57.733333
+18,name,Control9
+18,type,time
+18,type,perturbation
+18,perturbed,TRUE
+18,site,Control
+18,period,9
+18,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+18,perturbation_type,invasion of exotic plants
+18,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+18,latitude,-20.7
+18,longitude,57.733333
+19,name,CMA10
+19,type,time
+19,type,perturbation
+19,perturbed,FALSE
+19,site,CMA
+19,period,10
+19,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+19,perturbation_type,invasion of exotic plants
+19,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+19,latitude,-20.7
+19,longitude,57.733333
+20,name,Control10
+20,type,time
+20,type,perturbation
+20,perturbed,TRUE
+20,site,Control
+20,period,10
+20,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+20,perturbation_type,invasion of exotic plants
+20,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+20,latitude,-20.7
+20,longitude,57.733333
+21,name,CMA11
+21,type,time
+21,type,perturbation
+21,perturbed,FALSE
+21,site,CMA
+21,period,11
+21,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+21,perturbation_type,invasion of exotic plants
+21,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+21,latitude,-20.7
+21,longitude,57.733333
+22,name,Control11
+22,type,time
+22,type,perturbation
+22,perturbed,TRUE
+22,site,Control
+22,period,11
+22,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+22,perturbation_type,invasion of exotic plants
+22,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+22,latitude,-20.7
+22,longitude,57.733333
+23,name,CMA12
+23,type,time
+23,type,perturbation
+23,perturbed,FALSE
+23,site,CMA
+23,period,12
+23,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+23,perturbation_type,invasion of exotic plants
+23,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+23,latitude,-20.7
+23,longitude,57.733333
+24,name,Control12
+24,type,time
+24,type,perturbation
+24,perturbed,TRUE
+24,site,Control
+24,period,12
+24,location,"Black River Gorges National Park, Mauritius; Collected at Le Pétrin CMA and an adjacent unrestored (nonmanaged) site (Control)"
+24,perturbation_type,invasion of exotic plants
+24,sample_dates,"Between 15th September 2003 and 15th March 2004, 2-weeks networks"
+24,latitude,-20.7
+24,longitude,57.733333

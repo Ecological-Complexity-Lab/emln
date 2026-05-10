@@ -1,0 +1,31 @@
+layer,attribute,value
+1,name,plant - flower visitor
+1,type,interaction
+2,name,plant - aphid
+2,type,interaction
+3,name,plant - primary aphid parasitoid
+3,type,interaction
+4,name,plant - secondary aphid parasitoid
+4,type,interaction
+5,name,plant - leaf-miner parasitoid
+5,type,interaction
+6,name,plant - seed-feeding insect
+6,type,interaction
+7,name,plant - seed-feeding bird
+7,type,interaction
+8,name,plant - seed-feeding rodent
+8,type,interaction
+9,name,plant - butterfly
+9,type,interaction
+10,name,plant - seed-feeder parasitoid
+10,type,interaction
+11,name,plant - rodent ectoparasite
+11,type,interaction
+12,name,aphid - primary aphid parasitoid
+12,type,interaction
+13,name,aphid - secondary aphid parasitoid
+13,type,interaction
+14,name,seed-feeding insect - seed-feeder parasitoid
+14,type,interaction
+15,name,seed-feeding rodent - rodent ectoparasite
+15,type,interaction

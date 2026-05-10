@@ -1,0 +1,9 @@
+attribute,value
+data_entry,ofir_segev
+multilayer_network_type,Environment
+description,NA
+source,mangal
+data_url,https://mangal.io/doc/api/
+mangal_code,94
+ecological_network_type,Food-Web
+state_nodes,FALSE

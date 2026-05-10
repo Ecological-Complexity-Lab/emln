@@ -1,0 +1,113 @@
+interaction_id,attribute,value
+1,node_from,Gillisius_sp._adults
+1,layer_from,1
+1,node_to,floral_parts
+1,layer_to,1
+1,weight,1
+1,type,herbivory
+1,method,field observation/experiment
+2,node_from,Quichuana_picadoi_larvae
+2,layer_from,1
+2,node_to,floral_parts
+2,layer_to,1
+2,weight,1
+2,type,herbivory
+2,method,field observation/experiment
+3,node_from,Quichuana_picadoi_larvae
+3,layer_from,1
+3,node_to,nectar
+3,layer_to,1
+3,weight,1
+3,type,herbivory
+3,method,field observation/experiment
+4,node_from,Copestylum_obscurior_larvae
+4,layer_from,1
+4,node_to,nectar
+4,layer_to,1
+4,weight,1
+4,type,herbivory
+4,method,field observation/experiment
+5,node_from,Beebeomyia_sp._larvae
+5,layer_from,1
+5,node_to,floral_parts
+5,layer_to,1
+5,weight,1
+5,type,herbivory
+5,method,field observation/experiment
+6,node_from,Beebeomyia_sp._larvae
+6,layer_from,1
+6,node_to,nectar
+6,layer_to,1
+6,weight,1
+6,type,herbivory
+6,method,field observation/experiment
+7,node_from,Quichuana_picadoi_larvae
+7,layer_from,1
+7,node_to,detritus
+7,layer_to,1
+7,weight,1
+7,type,detritivore
+7,method,field observation/experiment
+8,node_from,Copestylum_obscurior_larvae
+8,layer_from,1
+8,node_to,detritus
+8,layer_to,1
+8,weight,1
+8,type,detritivore
+8,method,field observation/experiment
+9,node_from,Gillisius_sp._adults
+9,layer_from,2
+9,node_to,floral_parts
+9,layer_to,2
+9,weight,1
+9,type,herbivory
+9,method,field observation/experiment
+10,node_from,Quichuana_picadoi_larvae
+10,layer_from,2
+10,node_to,floral_parts
+10,layer_to,2
+10,weight,1
+10,type,herbivory
+10,method,field observation/experiment
+11,node_from,Quichuana_picadoi_larvae
+11,layer_from,2
+11,node_to,nectar
+11,layer_to,2
+11,weight,1
+11,type,herbivory
+11,method,field observation/experiment
+12,node_from,Cephaloleia_puncticollis_larvae
+12,layer_from,2
+12,node_to,floral_parts
+12,layer_to,2
+12,weight,1
+12,type,herbivory
+12,method,field observation/experiment
+13,node_from,C._puncticollis_adults
+13,layer_from,2
+13,node_to,young_leaves
+13,layer_to,2
+13,weight,1
+13,type,herbivory
+13,method,field observation/experiment
+14,node_from,Merosargus_sp._larvae
+14,layer_from,2
+14,node_to,floral_parts
+14,layer_to,2
+14,weight,1
+14,type,herbivory
+14,method,field observation/experiment
+15,node_from,Quichuana_picadoi_larvae
+15,layer_from,2
+15,node_to,detritus
+15,layer_to,2
+15,weight,1
+15,type,detritivore
+15,method,field observation/experiment
+16,node_from,Merosargus_sp._larvae
+16,layer_from,2
+16,node_to,detritus
+16,layer_to,2
+16,weight,1
+16,type,detritivore
+16,method,field observation/experiment

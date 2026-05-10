@@ -1,0 +1,8 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Environment
+description,NA
+source,Interaction_Web_DataBase
+data_url,http://www.ecologia.ib.usp.br/iwdb/html/schleuning-et-al-2010.html
+ecological_network_type,Seed-Dispersal
+state_nodes,FALSE

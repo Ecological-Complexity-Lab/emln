@@ -1,0 +1,13 @@
+layer,attribute,value
+1,type,space
+1,name,Food_web_of_the_Brackish_lagoon
+1,latitude,17.069151
+1,longitude,-100.365564
+1,date,01/09/1973
+1,directed,TRUE
+2,type,space
+2,name,Food_web_of_the_Costal_lagoon
+2,latitude,17.069151
+2,longitude,-100.365564
+2,date,01/09/1973
+2,directed,TRUE

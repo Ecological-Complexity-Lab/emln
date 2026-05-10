@@ -1,0 +1,13 @@
+layer,attribute,value
+1,type,time
+1,location,"Itaipu Reservoir, Brazil"
+1,years,1983-1987
+1,latitude,-25.218893
+1,longitude,-54.452729
+1,directed,TRUE
+2,type,time
+2,location,"Itaipu Reservoir, Brazil"
+2,years,1988-1992
+2,latitude,-25.218893
+2,longitude,-54.452729
+2,directed,TRUE

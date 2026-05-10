@@ -1,0 +1,64 @@
+layer,attribute,value
+1,name,Amami-Ohsima_Island
+1,type,space
+1,location,"Amami-Ohsima Island, Japan"
+1,latitude,28.377248
+1,longitude,129.493741
+1,years,1996-1999
+1,num_of_species,719
+1,num_of_interactions,1125
+1,connectance,0.017
+2,name,Ashu
+2,type,space
+2,location,"Ashu, Kyoto, Japan"
+2,latitude,35.333333
+2,longitude,135.75
+2,years,1984-1987
+2,num_of_species,768
+2,num_of_interactions,1193
+2,connectance,0.019
+3,name,Kibune
+3,type,space
+3,location,"Kibune, Kyoto, Japan"
+3,latitude,35.166667
+3,longitude,135.866667
+3,years,1984-1987
+3,num_of_species,997
+3,num_of_interactions,1920
+3,connectance,0.019
+4,name,Kyoto_City
+4,type,space
+4,location,"Kyoto City, Japan"
+4,latitude,35.033333
+4,longitude,135.783333
+4,years,1985-1987
+4,num_of_species,431
+4,num_of_interactions,773
+4,connectance,0.022
+5,name,Mt.Kushigata
+5,type,space
+5,location,"Mt. Kushigata, Yamanashi Pref., Japan"
+5,latitude,35.583333
+5,longitude,138.383333
+5,years,1990-1991
+5,num_of_species,456
+5,num_of_interactions,871
+5,connectance,0.026
+6,name,Mt.Yufu
+6,type,space
+6,location,"Mt. Yufu, Japan"
+6,latitude,33.4
+6,longitude,131.5
+6,years,2001
+6,num_of_species,393
+6,num_of_interactions,589
+6,connectance,0.02
+7,name,Nakaikemi_marsh
+7,type,space
+7,location,"Nakaikemi marsh, Fukui Prefecture, Japan"
+7,latitude,35.65
+7,longitude,136.083333
+7,years,1994-1995
+7,num_of_species,259
+7,num_of_interactions,431
+7,connectance,0.035

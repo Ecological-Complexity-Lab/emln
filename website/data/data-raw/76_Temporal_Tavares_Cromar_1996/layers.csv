@@ -1,0 +1,50 @@
+layer,attribute,value
+1,date,01/10/1985
+1,description,Food web structure of the macroinvertebrate riffle community
+1,directed,TRUE
+1,latitude,43.962998328108
+1,location,"Duffin Creek, Ontario, Canada"
+1,longitude,-79.082275953158
+1,type,time
+2,date,01/12/1985
+2,description,Food web structure of the macroinvertebrate riffle community
+2,directed,TRUE
+2,latitude,43.962998328108
+2,location,"Duffin Creek, Ontario, Canada"
+2,longitude,-79.082275953158
+2,type,time
+3,date,01/02/1986
+3,description,Food web structure of the macroinvertebrate riffle community
+3,directed,TRUE
+3,latitude,43.962998328108
+3,location,"Duffin Creek, Ontario, Canada"
+3,longitude,-79.082275953158
+3,type,time
+4,date,01/04/1986
+4,description,Food web structure of the macroinvertebrate riffle community
+4,directed,TRUE
+4,latitude,43.962998328108
+4,location,"Duffin Creek, Ontario, Canada"
+4,longitude,-79.082275953158
+4,type,time
+5,date,01/06/1986
+5,description,Food web structure of the macroinvertebrate riffle community
+5,directed,TRUE
+5,latitude,43.962998328108
+5,location,"Duffin Creek, Ontario, Canada"
+5,longitude,-79.082275953158
+5,type,time
+6,date,01/08/1986
+6,description,Food web structure of the macroinvertebrate riffle community
+6,directed,TRUE
+6,latitude,43.962998328108
+6,location,"Duffin Creek, Ontario, Canada"
+6,longitude,-79.082275953158
+6,type,time
+7,date,01/10/1986
+7,description,Food web structure of the macroinvertebrate riffle community
+7,directed,TRUE
+7,latitude,43.962998328108
+7,location,"Duffin Creek, Ontario, Canada"
+7,longitude,-79.082275953158
+7,type,time

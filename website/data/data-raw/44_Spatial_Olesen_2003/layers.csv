@@ -1,0 +1,17 @@
+layer,attribute,value
+1,type,space
+1,type,time
+1,location,"Tenerife, Canary Islands"
+1,latitude,28.216667
+1,longitude,-16.633333
+1,num_of_species,49
+1,num_of_interactions,106
+1,connectance,0.254
+2,type,space
+2,type,time
+2,location,"Garajonay, Gomera, Spain"
+2,latitude,28.127842
+2,longitude,-17.248908
+2,num_of_species,84
+2,num_of_interactions,145
+2,connectance,0.091

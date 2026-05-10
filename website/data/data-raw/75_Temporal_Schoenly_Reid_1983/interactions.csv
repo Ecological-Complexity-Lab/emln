@@ -1,0 +1,659 @@
+interaction_id,attribute,value
+1,node_from,Pheidole_sp.
+1,layer_from,1
+1,node_to,dipteran_eggs_(unknown)
+1,layer_to,1
+1,weight,1
+1,type,predation
+1,method,field observation and literature
+2,node_from,Blaesoxipha_plinthopyga
+2,layer_from,1
+2,node_to,rabbit_carcass_(L._californicus)
+2,layer_to,1
+2,weight,1
+2,type,scavenger
+2,method,field observation and literature
+3,node_from,Cochyliomyia_macellaria
+3,layer_from,1
+3,node_to,rabbit_carcass_(L._californicus)
+3,layer_to,1
+3,weight,1
+3,type,scavenger
+3,method,field observation and literature
+4,node_from,Musca_domestica
+4,layer_from,1
+4,node_to,rabbit_carcass_(L._californicus)
+4,layer_to,1
+4,weight,1
+4,type,scavenger
+4,method,field observation and literature
+5,node_from,Boreocanthon_puncticollis
+5,layer_from,1
+5,node_to,rabbit_carcass_(L._californicus)
+5,layer_to,1
+5,weight,1
+5,type,scavenger
+5,method,field observation and literature
+6,node_from,Dermestes_marmoratus
+6,layer_from,1
+6,node_to,rabbit_carcass_(L._californicus)
+6,layer_to,1
+6,weight,1
+6,type,scavenger
+6,method,field observation and literature
+7,node_from,Eleodes_carbonarius
+7,layer_from,1
+7,node_to,rabbit_carcass_(L._californicus)
+7,layer_to,1
+7,weight,1
+7,type,scavenger
+7,method,field observation and literature
+8,node_from,E._longicollis
+8,layer_from,1
+8,node_to,rabbit_carcass_(L._californicus)
+8,layer_to,1
+8,weight,1
+8,type,scavenger
+8,method,field observation and literature
+9,node_from,Embaphion_sp.
+9,layer_from,1
+9,node_to,rabbit_carcass_(L._californicus)
+9,layer_to,1
+9,weight,1
+9,type,scavenger
+9,method,field observation and literature
+10,node_from,Silpha_truncata
+10,layer_from,1
+10,node_to,B._plinthopyga_larvae
+10,layer_to,1
+10,weight,1
+10,type,predation
+10,method,field observation and literature
+11,node_from,Silpha_truncata
+11,layer_from,1
+11,node_to,C._macellaria_larvae
+11,layer_to,1
+11,weight,1
+11,type,predation
+11,method,field observation and literature
+12,node_from,Silpha_truncata
+12,layer_from,1
+12,node_to,M._domestica_larvae
+12,layer_to,1
+12,weight,1
+12,type,predation
+12,method,field observation and literature
+13,node_from,Silpha_truncata
+13,layer_from,1
+13,node_to,rabbit_carcass_(L._californicus)
+13,layer_to,1
+13,weight,1
+13,type,scavenger
+13,method,field observation and literature
+14,node_from,Necrophorus_marginatus
+14,layer_from,1
+14,node_to,B._plinthopyga_larvae
+14,layer_to,1
+14,weight,1
+14,type,predation
+14,method,field observation and literature
+15,node_from,Necrophorus_marginatus
+15,layer_from,1
+15,node_to,C._macellaria_larvae
+15,layer_to,1
+15,weight,1
+15,type,predation
+15,method,field observation and literature
+16,node_from,Necrophorus_marginatus
+16,layer_from,1
+16,node_to,M._domestica_larvae
+16,layer_to,1
+16,weight,1
+16,type,predation
+16,method,field observation and literature
+17,node_from,Necrophorus_marginatus
+17,layer_from,1
+17,node_to,rabbit_carcass_(L._californicus)
+17,layer_to,1
+17,weight,1
+17,type,scavenger
+17,method,field observation and literature
+18,node_from,Conomyrma_bicolor
+18,layer_from,1
+18,node_to,dipteran_eggs_(unknown)
+18,layer_to,1
+18,weight,1
+18,type,predation
+18,method,field observation and literature
+19,node_from,Conomyrma_bicolor
+19,layer_from,1
+19,node_to,B._plinthopyga_larvae
+19,layer_to,1
+19,weight,1
+19,type,predation
+19,method,field observation and literature
+20,node_from,Conomyrma_bicolor
+20,layer_from,1
+20,node_to,C._macellaria_larvae
+20,layer_to,1
+20,weight,1
+20,type,predation
+20,method,field observation and literature
+21,node_from,Conomyrma_bicolor
+21,layer_from,1
+21,node_to,M._domestica_larvae
+21,layer_to,1
+21,weight,1
+21,type,predation
+21,method,field observation and literature
+22,node_from,Conomyrma_bicolor
+22,layer_from,1
+22,node_to,rabbit_carcass_(L._californicus)
+22,layer_to,1
+22,weight,1
+22,type,scavenger
+22,method,field observation and literature
+23,node_from,Pheidole_sp.
+23,layer_from,1
+23,node_to,B._plinthopyga_larvae
+23,layer_to,1
+23,weight,1
+23,type,predation
+23,method,field observation and literature
+24,node_from,Pheidole_sp.
+24,layer_from,1
+24,node_to,C._macellaria_larvae
+24,layer_to,1
+24,weight,1
+24,type,predation
+24,method,field observation and literature
+25,node_from,Pheidole_sp.
+25,layer_from,1
+25,node_to,M._domestica_larvae
+25,layer_to,1
+25,weight,1
+25,type,predation
+25,method,field observation and literature
+26,node_from,Pheidole_sp.
+26,layer_from,1
+26,node_to,rabbit_carcass_(L._californicus)
+26,layer_to,1
+26,weight,1
+26,type,scavenger
+26,method,field observation and literature
+27,node_from,Novomessor_cockerelli
+27,layer_from,1
+27,node_to,dipteran_eggs_(unknown)
+27,layer_to,1
+27,weight,1
+27,type,predation
+27,method,field observation and literature
+28,node_from,Novomessor_cockerelli
+28,layer_from,1
+28,node_to,B._plinthopyga_larvae
+28,layer_to,1
+28,weight,1
+28,type,predation
+28,method,field observation and literature
+29,node_from,Novomessor_cockerelli
+29,layer_from,1
+29,node_to,C._macellaria_larvae
+29,layer_to,1
+29,weight,1
+29,type,predation
+29,method,field observation and literature
+30,node_from,Novomessor_cockerelli
+30,layer_from,1
+30,node_to,M._domestica_larvae
+30,layer_to,1
+30,weight,1
+30,type,predation
+30,method,field observation and literature
+31,node_from,Novomessor_cockerelli
+31,layer_from,1
+31,node_to,rabbit_carcass_(L._californicus)
+31,layer_to,1
+31,weight,1
+31,type,scavenger
+31,method,field observation and literature
+32,node_from,Crematogaster_clara
+32,layer_from,1
+32,node_to,dipteran_eggs_(unknown)
+32,layer_to,1
+32,weight,1
+32,type,predation
+32,method,field observation and literature
+33,node_from,Crematogaster_clara
+33,layer_from,1
+33,node_to,B._plinthopyga_larvae
+33,layer_to,1
+33,weight,1
+33,type,predation
+33,method,field observation and literature
+34,node_from,Crematogaster_clara
+34,layer_from,1
+34,node_to,C._macellaria_larvae
+34,layer_to,1
+34,weight,1
+34,type,predation
+34,method,field observation and literature
+35,node_from,Crematogaster_clara
+35,layer_from,1
+35,node_to,M._domestica_larvae
+35,layer_to,1
+35,weight,1
+35,type,predation
+35,method,field observation and literature
+36,node_from,Crematogaster_clara
+36,layer_from,1
+36,node_to,rabbit_carcass_(L._californicus)
+36,layer_to,1
+36,weight,1
+36,type,scavenger
+36,method,field observation and literature
+37,node_from,Iridomyrmex_pruinosum
+37,layer_from,1
+37,node_to,dipteran_eggs_(unknown)
+37,layer_to,1
+37,weight,1
+37,type,predation
+37,method,field observation and literature
+38,node_from,Iridomyrmex_pruinosum
+38,layer_from,1
+38,node_to,B._plinthopyga_larvae
+38,layer_to,1
+38,weight,1
+38,type,predation
+38,method,field observation and literature
+39,node_from,Iridomyrmex_pruinosum
+39,layer_from,1
+39,node_to,C._macellaria_larvae
+39,layer_to,1
+39,weight,1
+39,type,predation
+39,method,field observation and literature
+40,node_from,Iridomyrmex_pruinosum
+40,layer_from,1
+40,node_to,M._domestica_larvae
+40,layer_to,1
+40,weight,1
+40,type,predation
+40,method,field observation and literature
+41,node_from,Iridomyrmex_pruinosum
+41,layer_from,1
+41,node_to,rabbit_carcass_(L._californicus)
+41,layer_to,1
+41,weight,1
+41,type,scavenger
+41,method,field observation and literature
+42,node_from,Saprinus_discoidalis
+42,layer_from,1
+42,node_to,B._plinthopyga_larvae
+42,layer_to,1
+42,weight,1
+42,type,predation
+42,method,field observation and literature
+43,node_from,Saprinus_discoidalis
+43,layer_from,1
+43,node_to,C._macellaria_larvae
+43,layer_to,1
+43,weight,1
+43,type,predation
+43,method,field observation and literature
+44,node_from,Saprinus_discoidalis
+44,layer_from,1
+44,node_to,M._domestica_larvae
+44,layer_to,1
+44,weight,1
+44,type,predation
+44,method,field observation and literature
+45,node_from,Syspira_longipes
+45,layer_from,1
+45,node_to,Blaesoxipha_plinthopyga
+45,layer_to,1
+45,weight,1
+45,type,predation
+45,method,field observation and literature
+46,node_from,Syspira_longipes
+46,layer_from,1
+46,node_to,Cochyliomyia_macellaria
+46,layer_to,1
+46,weight,1
+46,type,predation
+46,method,field observation and literature
+47,node_from,Syspira_longipes
+47,layer_from,1
+47,node_to,Musca_domestica
+47,layer_to,1
+47,weight,1
+47,type,predation
+47,method,field observation and literature
+48,node_from,Psilochorus_utahensis
+48,layer_from,1
+48,node_to,Blaesoxipha_plinthopyga
+48,layer_to,1
+48,weight,1
+48,type,predation
+48,method,field observation and literature
+49,node_from,Psilochorus_utahensis
+49,layer_from,1
+49,node_to,Cochyliomyia_macellaria
+49,layer_to,1
+49,weight,1
+49,type,predation
+49,method,field observation and literature
+50,node_from,Psilochorus_utahensis
+50,layer_from,1
+50,node_to,Musca_domestica
+50,layer_to,1
+50,weight,1
+50,type,predation
+50,method,field observation and literature
+51,node_from,Creophilis_maxillosus
+51,layer_from,1
+51,node_to,Blaesoxipha_plinthopyga
+51,layer_to,1
+51,weight,1
+51,type,predation
+51,method,field observation and literature
+52,node_from,Creophilis_maxillosus
+52,layer_from,1
+52,node_to,Cochyliomyia_macellaria
+52,layer_to,1
+52,weight,1
+52,type,predation
+52,method,field observation and literature
+53,node_from,Creophilis_maxillosus
+53,layer_from,1
+53,node_to,Musca_domestica
+53,layer_to,1
+53,weight,1
+53,type,predation
+53,method,field observation and literature
+54,node_from,Creophilis_maxillosus
+54,layer_from,1
+54,node_to,Boreocanthon_puncticollis
+54,layer_to,1
+54,weight,1
+54,type,predation
+54,method,field observation and literature
+55,node_from,Creophilis_maxillosus
+55,layer_from,1
+55,node_to,Dermestes_marmoratus
+55,layer_to,1
+55,weight,1
+55,type,predation
+55,method,field observation and literature
+56,node_from,Creophilis_maxillosus
+56,layer_from,1
+56,node_to,Trox_suberosus
+56,layer_to,1
+56,weight,1
+56,type,predation
+56,method,field observation and literature
+57,node_from,Creophilis_maxillosus
+57,layer_from,1
+57,node_to,Saprinus_discoidalis
+57,layer_to,1
+57,weight,1
+57,type,predation
+57,method,field observation and literature
+58,node_from,Creophilis_maxillosus
+58,layer_from,1
+58,node_to,B._plinthopyga_larvae
+58,layer_to,1
+58,weight,1
+58,type,predation
+58,method,field observation and literature
+59,node_from,Creophilis_maxillosus
+59,layer_from,1
+59,node_to,C._macellaria_larvae
+59,layer_to,1
+59,weight,1
+59,type,predation
+59,method,field observation and literature
+60,node_from,Creophilis_maxillosus
+60,layer_from,1
+60,node_to,M._domestica_larvae
+60,layer_to,1
+60,weight,1
+60,type,predation
+60,method,field observation and literature
+61,node_from,B._plinthopyga_larvae
+61,layer_from,1
+61,node_to,rabbit_carcass_(L._californicus)
+61,layer_to,1
+61,weight,1
+61,type,scavenger
+61,method,field observation and literature
+62,node_from,C._macellaria_larvae
+62,layer_from,1
+62,node_to,rabbit_carcass_(L._californicus)
+62,layer_to,1
+62,weight,1
+62,type,scavenger
+62,method,field observation and literature
+63,node_from,M._domestica_larvae
+63,layer_from,1
+63,node_to,rabbit_carcass_(L._californicus)
+63,layer_to,1
+63,weight,1
+63,type,scavenger
+63,method,field observation and literature
+64,node_from,Trox_suberosus
+64,layer_from,1
+64,node_to,rabbit_carcass_(L._californicus)
+64,layer_to,1
+64,weight,1
+64,type,scavenger
+64,method,field observation and literature
+65,node_from,Blaesoxipha_plinthopyga
+65,layer_from,2
+65,node_to,carrion
+65,layer_to,2
+65,weight,1
+65,type,scavenger
+65,method,field observation and literature
+66,node_from,Cochyliomyia_macellaria
+66,layer_from,2
+66,node_to,carrion
+66,layer_to,2
+66,weight,1
+66,type,scavenger
+66,method,field observation and literature
+67,node_from,Musca_domestica
+67,layer_from,2
+67,node_to,carrion
+67,layer_to,2
+67,weight,1
+67,type,scavenger
+67,method,field observation and literature
+68,node_from,Saprinus_discoidalis
+68,layer_from,2
+68,node_to,C._macellaria_larvae
+68,layer_to,2
+68,weight,1
+68,type,predation
+68,method,field observation and literature
+69,node_from,Saprinus_discoidalis
+69,layer_from,2
+69,node_to,M._domestica_larvae
+69,layer_to,2
+69,weight,1
+69,type,predation
+69,method,field observation and literature
+70,node_from,Saprinus_discoidalis
+70,layer_from,2
+70,node_to,B._plinthopyga_larvae
+70,layer_to,2
+70,weight,1
+70,type,predation
+70,method,field observation and literature
+71,node_from,Dermestes_marmoratus
+71,layer_from,2
+71,node_to,carrion
+71,layer_to,2
+71,weight,1
+71,type,scavenger
+71,method,field observation and literature
+72,node_from,Conomyrma_bicolor
+72,layer_from,2
+72,node_to,C._macellaria_larvae
+72,layer_to,2
+72,weight,1
+72,type,predation
+72,method,field observation and literature
+73,node_from,Conomyrma_bicolor
+73,layer_from,2
+73,node_to,M._domestica_larvae
+73,layer_to,2
+73,weight,1
+73,type,predation
+73,method,field observation and literature
+74,node_from,Conomyrma_bicolor
+74,layer_from,2
+74,node_to,B._plinthopyga_larvae
+74,layer_to,2
+74,weight,1
+74,type,predation
+74,method,field observation and literature
+75,node_from,Conomyrma_bicolor
+75,layer_from,2
+75,node_to,carrion
+75,layer_to,2
+75,weight,1
+75,type,scavenger
+75,method,field observation and literature
+76,node_from,Pheidole_sp.
+76,layer_from,2
+76,node_to,C._macellaria_larvae
+76,layer_to,2
+76,weight,1
+76,type,predation
+76,method,field observation and literature
+77,node_from,Pheidole_sp.
+77,layer_from,2
+77,node_to,M._domestica_larvae
+77,layer_to,2
+77,weight,1
+77,type,predation
+77,method,field observation and literature
+78,node_from,Pheidole_sp.
+78,layer_from,2
+78,node_to,B._plinthopyga_larvae
+78,layer_to,2
+78,weight,1
+78,type,predation
+78,method,field observation and literature
+79,node_from,Pheidole_sp.
+79,layer_from,2
+79,node_to,carrion
+79,layer_to,2
+79,weight,1
+79,type,scavenger
+79,method,field observation and literature
+80,node_from,Novomessor_cockerelli
+80,layer_from,2
+80,node_to,C._macellaria_larvae
+80,layer_to,2
+80,weight,1
+80,type,predation
+80,method,field observation and literature
+81,node_from,Novomessor_cockerelli
+81,layer_from,2
+81,node_to,M._domestica_larvae
+81,layer_to,2
+81,weight,1
+81,type,predation
+81,method,field observation and literature
+82,node_from,Novomessor_cockerelli
+82,layer_from,2
+82,node_to,B._plinthopyga_larvae
+82,layer_to,2
+82,weight,1
+82,type,predation
+82,method,field observation and literature
+83,node_from,Novomessor_cockerelli
+83,layer_from,2
+83,node_to,carrion
+83,layer_to,2
+83,weight,1
+83,type,scavenger
+83,method,field observation and literature
+84,node_from,Crematogaster_clara
+84,layer_from,2
+84,node_to,C._macellaria_larvae
+84,layer_to,2
+84,weight,1
+84,type,predation
+84,method,field observation and literature
+85,node_from,Crematogaster_clara
+85,layer_from,2
+85,node_to,M._domestica_larvae
+85,layer_to,2
+85,weight,1
+85,type,predation
+85,method,field observation and literature
+86,node_from,Crematogaster_clara
+86,layer_from,2
+86,node_to,B._plinthopyga_larvae
+86,layer_to,2
+86,weight,1
+86,type,predation
+86,method,field observation and literature
+87,node_from,Crematogaster_clara
+87,layer_from,2
+87,node_to,carrion
+87,layer_to,2
+87,weight,1
+87,type,scavenger
+87,method,field observation and literature
+88,node_from,Iridomyrmex_pruinosum
+88,layer_from,2
+88,node_to,C._macellaria_larvae
+88,layer_to,2
+88,weight,1
+88,type,predation
+88,method,field observation and literature
+89,node_from,Iridomyrmex_pruinosum
+89,layer_from,2
+89,node_to,M._domestica_larvae
+89,layer_to,2
+89,weight,1
+89,type,predation
+89,method,field observation and literature
+90,node_from,Iridomyrmex_pruinosum
+90,layer_from,2
+90,node_to,B._plinthopyga_larvae
+90,layer_to,2
+90,weight,1
+90,type,predation
+90,method,field observation and literature
+91,node_from,Iridomyrmex_pruinosum
+91,layer_from,2
+91,node_to,carrion
+91,layer_to,2
+91,weight,1
+91,type,scavenger
+91,method,field observation and literature
+92,node_from,C._macellaria_larvae
+92,layer_from,2
+92,node_to,carrion
+92,layer_to,2
+92,weight,1
+92,type,scavenger
+92,method,field observation and literature
+93,node_from,M._domestica_larvae
+93,layer_from,2
+93,node_to,carrion
+93,layer_to,2
+93,weight,1
+93,type,scavenger
+93,method,field observation and literature
+94,node_from,B._plinthopyga_larvae
+94,layer_from,2
+94,node_to,carrion
+94,layer_to,2
+94,weight,1
+94,type,scavenger
+94,method,field observation and literature

@@ -1,0 +1,10 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Environment
+description,Data describing the interactions between hummingbirds and floral resources in an altitudinal gradient in the Brazilian Atlantic Rainforest.
+source,Web_of_Life
+source,Interaction_Web_DataBase
+data_url,http://www.web-of-life.es/map.php?type=6
+data_url,http://www.ecologia.ib.usp.br/iwdb/html/schleuning-et-al-2010.html
+ecological_network_type,Pollination
+state_nodes,TRUE

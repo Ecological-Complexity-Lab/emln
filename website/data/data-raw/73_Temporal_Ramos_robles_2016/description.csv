@@ -1,0 +1,8 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Temporal
+description,the effects of bird migration and food availability on the temporal structure of a plant-frugivore network.
+source,PeerJ
+data_url,https://peerj.com/articles/2048/#supplemental-information
+ecological_network_type,Seed-Dispersal
+state_nodes,FALSE

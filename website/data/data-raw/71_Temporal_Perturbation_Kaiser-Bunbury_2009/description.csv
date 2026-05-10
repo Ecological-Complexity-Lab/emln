@@ -1,0 +1,11 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Temporal
+multilayer_network_type,Perturbation
+description,This paper describes the community structure of pollination webs of Mauritian heathland habitats. Visitation rates are calculated and  compared between areas that are heavily invaded by introduced plant species (control site) and areas from which non-native plants were removed (restored site).
+source,Interaction_Web_DataBase
+source,Web_of_Life
+data_url,http://www.ecologia.ib.usp.br/iwdb/html/kaiser-bunbury_2009.html
+data_url,http://www.web-of-life.es/map.php
+ecological_network_type,Pollination
+state_nodes,FALSE

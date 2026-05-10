@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,environment
+1,habitat,River Clydach
+1,location,"River Clydach, Black Mountain district, south Wales"
+1,latitude,51.860871367609
+1,longitude,-3.832550988294
+1,date,24/03/1948
+1,directed,TRUE
+2,type,environment
+2,habitat,a calcareous stream (Clydach river)
+2,location,"River Clydach, Black Mountain district, south Wales"
+2,latitude,51.860871367609
+2,longitude,-3.8325509882942
+2,date,24/03/1948
+2,directed,TRUE

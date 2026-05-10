@@ -1,0 +1,8 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Temporal
+description,the stability of a pollination networks biodiverse hotspot over four years
+source,web
+data_url,https://figshare.com/articles/dataset/Relative_Stability_of_Core_Groups_in_Pollination_Networks_in_a_Biodiversity_Hotspot_over_Four_Years/127797
+ecological_network_type,Pollination
+state_nodes,FALSE

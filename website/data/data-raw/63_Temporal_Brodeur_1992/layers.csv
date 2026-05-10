@@ -1,0 +1,25 @@
+layer,attribute,value
+1,date,01/05/1981
+1,directed,TRUE
+1,latitude,46.265856
+1,location,"the coastal upwelling zone off Oregon and Washington,USA"
+1,longitude,-124.21295
+1,type,time
+2,date,01/05/1982
+2,directed,TRUE
+2,latitude,46.265856
+2,location,"the coastal upwelling zone off Oregon and Washington,USA"
+2,longitude,-124.21295
+2,type,time
+3,date,01/05/1983
+3,directed,TRUE
+3,latitude,46.265856
+3,location,"the coastal upwelling zone off Oregon and Washington,USA"
+3,longitude,-124.21295
+3,type,time
+4,date,01/06/1984
+4,directed,TRUE
+4,latitude,46.265856
+4,location,"the coastal upwelling zone off Oregon and Washington,USA"
+4,longitude,-124.21295
+4,type,time

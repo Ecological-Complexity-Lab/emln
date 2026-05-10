@@ -1,0 +1,17 @@
+layer,attribute,value
+1,name,M_PL_009
+1,type,space
+1,species,142
+1,location,"Latnjajaure, Abisko, Sweden"
+1,interactions,242
+1,connectance,0.085
+1,latitude,68.35
+1,longitude,18.5
+2,name,M_PL_010
+2,type,space
+2,species,107
+2,location,Zackenberg
+2,interactions,456
+2,connectance,0.194
+2,latitude,74.5
+2,longitude,-20.5

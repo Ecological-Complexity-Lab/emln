@@ -1,0 +1,17 @@
+layer,attribute,value
+1,name,A_PH_006
+1,type,space
+1,species,94
+1,location,Britain
+1,interactions,116
+1,connectance,0.22
+1,latitude,53.833333
+1,longitude,-2.416667
+2,name,A_PH_007
+2,type,space
+2,species,69
+2,location,Finland
+2,interactions,95
+2,connectance,0.297
+2,latitude,64.9146659
+2,longitude,26.0672553

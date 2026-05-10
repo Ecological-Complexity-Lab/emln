@@ -1,0 +1,29 @@
+layer,attribute,value
+1,date,01/11/1994
+1,directed,TRUE
+1,latitude,41.401557018825
+1,location,"Lake_La_Muerte,Los Monegros,Spain"
+1,longitude,-0.2617804879778
+1,type,space
+1,type,time
+2,date,01/11/1994
+2,directed,TRUE
+2,latitude,41.408560271
+2,location,"Lake_Pinol,Los Monegros,Spain"
+2,longitude,-0.2568220921262
+2,type,space
+2,type,time
+3,date,01/01/1996
+3,directed,TRUE
+3,latitude,41.408560271
+3,location,"Lake_Pinol,Los Monegros,Spain"
+3,longitude,-0.2568220921262
+3,type,space
+3,type,time
+4,date,01/01/1996
+4,directed,TRUE
+4,latitude,41.401557018825
+4,location,"Lake_La_Muerte,Los Monegros,Spain"
+4,longitude,-0.2617804879778
+4,type,space
+4,type,time

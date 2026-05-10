@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Handling multilayer network data</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">The EMLN package website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="monolayer.html">Monolayer</a>
+</li>
+<li>
+  <a href="multilayer.html">Multilayer</a>
+</li>
+<li>
+  <a href="data.html">Included data sets</a>
+</li>
+<li>
+  <a href="analysis_example.html">Analysis example</a>
+</li>
+<li>
+  <a href="plotting.html">Plotting emln</a>
+</li>
+<li>
+  <a href="about.html">About and feedback</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Handling multilayer network data</h1>
+
+</div>
+
+
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', '#8B0000', '1', 'Copy code', 'Copied!');
+</script>
+<pre class="r"><code>library(emln)
+library(igraph)
+library(tidyverse)
+library(bipartite)
+library(magrittr)</code></pre>
+<div id="unipartite-multilayer-network" class="section level1">
+<h1>Unipartite multilayer network</h1>
+<div id="toy-example" class="section level2">
+<h2>Toy example</h2>
+<p>We start with a toy example using Fig. 1A from the paper shown
+below.</p>
+<p><img src="unipartite_multilayer_For%20Rmd.png" /></p>
+<pre class="r"><code>pond_1 &lt;- matrix(c(0,1,1,0,0,1,0,0,0), byrow = T, nrow = 3, ncol = 3, dimnames = list(c(&#39;pelican&#39;,&#39;fish&#39;,&#39;crab&#39;),c(&#39;pelican&#39;,&#39;fish&#39;,&#39;crab&#39;)))
+
+pond_2 &lt;- matrix(c(0,1,0,0,0,1,0,0,0), byrow = T, nrow = 3, ncol = 3, dimnames = list(c(&#39;pelican&#39;,&#39;fish&#39;,&#39;crab&#39;),c(&#39;pelican&#39;,&#39;fish&#39;,&#39;crab&#39;)))
+
+pond_3 &lt;- matrix(c(0,1,1,0,0,1,0,0,0), byrow = T, nrow = 3, ncol = 3, dimnames = list(c(&#39;pelican&#39;,&#39;fish&#39;,&#39;tadpole&#39;),c(&#39;pelican&#39;,&#39;fish&#39;,&#39;tadpole&#39;)))
+
+layer_attrib &lt;- tibble(layer_id=1:3,
+                     layer_name=c(&#39;pond_1&#39;,&#39;pond_2&#39;,&#39;pond_3&#39;),
+                     location=c(&#39;valley&#39;,&#39;mid-elevation&#39;,&#39;uphill&#39;))
+
+
+# Create the ELL tibble with interlayer links.
+interlayer &lt;- tibble(layer_from=c(&#39;pond_1&#39;,&#39;pond_1&#39;,&#39;pond_1&#39;),
+                     node_from=c(&#39;pelican&#39;,&#39;crab&#39;,&#39;pelican&#39;),
+                     layer_to=c(&#39;pond_2&#39;,&#39;pond_2&#39;,&#39;pond_3&#39;), 
+                     node_to=c(&#39;pelican&#39;,&#39;crab&#39;,&#39;pelican&#39;),
+                     weight=1)
+
+# This is a directed network so the links should go both ways, even though they are symmetric.
+interlayer_2 &lt;- interlayer[,c(3,4,1,2,5)]
+names(interlayer_2) &lt;- names(interlayer)
+interlayer &lt;- rbind(interlayer, interlayer_2)
+
+
+# This example is commented out because it cannot run. It fails because we provide interlayer links, which include layer names, but not the layer attributes that contain the layer names
+# multilayer &lt;- create_multilayer_network(list_of_layers = list(pond_1, pond_2, pond_3),
+#                           interlayer_links = interlayer,
+#                           bipartite = F,
+#                           directed = T)
+
+# When layer attributes are not included they are auto-generated
+multilayer &lt;- create_multilayer_network(list_of_layers = list(pond_1, pond_2, pond_3), 
+                                        bipartite = F, 
+                                        directed = T)
+
+multilayer$layers</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##   layer_id layer_name
+##      &lt;int&gt; &lt;chr&gt;     
+## 1        1 layer_1   
+## 2        2 layer_2   
+## 3        3 layer_3</code></pre>
+<pre class="r"><code># An example with layer attributes and interlayer links
+multilayer_unip_toy &lt;- create_multilayer_network(list_of_layers = list(pond_1, pond_2, pond_3),
+                          interlayer_links = interlayer,
+                          layer_attributes = layer_attrib,
+                          bipartite = F,
+                          directed = T)</code></pre>
+</div>
+</div>
+<div id="the-multilayer-class" class="section level1">
+<h1>The <code>multilayer</code> class</h1>
+<p>The resulting <code>multilayer</code> class includes the following
+tables:</p>
+<ul>
+<li><strong>nodes:</strong> Physical nodes. First column is a unique
+node id. Node attributes are included if provided as input.</li>
+<li><strong>layers:</strong> Information on layers.</li>
+<li><strong>extended:</strong> An extended link list of the format
+<code>layer_from node_from layer_to node_to weight</code>. All nodes and
+layers are identified by names.</li>
+<li><strong>extended_ids:</strong> An extended link list of the format
+<code>layer_from node_from layer_to node_to weight</code>. All nodes and
+layers are identified by unique IDs automatically generated.</li>
+<li><strong>state_nodes:</strong> List of state nodes of the format
+<code>layer_id node_id layer_name node_name</code>. Also includes state
+node attributes if provided as input.</li>
+</ul>
+<pre class="r"><code>multilayer_unip_toy</code></pre>
+<pre><code>## $nodes
+## # A tibble: 4 × 2
+##   node_id node_name
+##     &lt;int&gt; &lt;chr&gt;    
+## 1       1 crab     
+## 2       2 fish     
+## 3       3 pelican  
+## 4       4 tadpole  
+## 
+## $layers
+## # A tibble: 3 × 3
+##   layer_id layer_name location     
+##      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;        
+## 1        1 pond_1     valley       
+## 2        2 pond_2     mid-elevation
+## 3        3 pond_3     uphill       
+## 
+## $extended
+## # A tibble: 14 × 5
+##    layer_from node_from layer_to node_to weight
+##    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt;
+##  1 pond_1     fish      pond_1   pelican      1
+##  2 pond_1     crab      pond_1   pelican      1
+##  3 pond_1     crab      pond_1   fish         1
+##  4 pond_2     fish      pond_2   pelican      1
+##  5 pond_2     crab      pond_2   fish         1
+##  6 pond_3     fish      pond_3   pelican      1
+##  7 pond_3     tadpole   pond_3   pelican      1
+##  8 pond_3     tadpole   pond_3   fish         1
+##  9 pond_1     pelican   pond_2   pelican      1
+## 10 pond_1     crab      pond_2   crab         1
+## 11 pond_1     pelican   pond_3   pelican      1
+## 12 pond_2     pelican   pond_1   pelican      1
+## 13 pond_2     crab      pond_1   crab         1
+## 14 pond_3     pelican   pond_1   pelican      1
+## 
+## $extended_ids
+## # A tibble: 14 × 5
+##    layer_from node_from layer_to node_to weight
+##         &lt;int&gt;     &lt;int&gt;    &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;
+##  1          1         2        1       3      1
+##  2          1         1        1       3      1
+##  3          1         1        1       2      1
+##  4          2         2        2       3      1
+##  5          2         1        2       2      1
+##  6          3         2        3       3      1
+##  7          3         4        3       3      1
+##  8          3         4        3       2      1
+##  9          1         3        2       3      1
+## 10          1         1        2       1      1
+## 11          1         3        3       3      1
+## 12          2         3        1       3      1
+## 13          2         1        1       1      1
+## 14          3         3        1       3      1
+## 
+## $state_nodes
+## # A tibble: 9 × 4
+##   layer_id node_id layer_name node_name
+##      &lt;int&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;    
+## 1        1       3 pond_1     pelican  
+## 2        1       2 pond_1     fish     
+## 3        1       1 pond_1     crab     
+## 4        2       3 pond_2     pelican  
+## 5        2       2 pond_2     fish     
+## 6        2       1 pond_2     crab     
+## 7        3       3 pond_3     pelican  
+## 8        3       2 pond_3     fish     
+## 9        3       4 pond_3     tadpole  
+## 
+## $description
+## NULL
+## 
+## $references
+## NULL
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;multilayer&quot;</code></pre>
+</div>
+<div id="working-with-node-and-link-attributes" class="section level1">
+<h1>Working with node and link attributes</h1>
+<p>Now let’s try to provide attributes for state nodes. That is, a
+specific attribute of a physical node in a layer. For instance, the
+abundance of species can change between layers. When providing state
+nodes the names of the nodes and the layers must be the same as in the
+list of layers and in the layer attribute table.</p>
+<p>We also include in this example attributes of intralayer links. This
+can be done when the input is a link list. <strong>When providing link
+attributes, the headers of all the layers’ link lists, and that of the
+interlayer links, must be the same, even if not all the attributes are
+provided in all layers.</strong> Here, we add a link attribute called
+method.</p>
+<pre class="r"><code># Input will be link lists
+pond_1_ll &lt;- matrix_to_list_unipartite(pond_1, directed = T)$edge_list
+pond_2_ll &lt;- matrix_to_list_unipartite(pond_2, directed = T)$edge_list
+pond_3_ll &lt;- matrix_to_list_unipartite(pond_3, directed = T)$edge_list
+
+# Add attributes to links
+pond_1_ll$method &lt;- c(&#39;observation&#39;, &#39;observation&#39;, &#39;gut analysis&#39;)
+pond_2_ll$method &lt;- c(&#39;observation&#39;, &#39;gut analysis&#39;)
+pond_3_ll$method &lt;- c(&#39;observation&#39;, &#39;observation&#39;, &#39;gut analysis&#39;)
+# Check that the column names correspond after the weight column
+identical(names(pond_1_ll)[4:length(pond_1_ll)], names(interlayer)[6:length(interlayer)])</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># The column names after the weight in the interlayer must be the same as in the layers&#39; link lists
+interlayer$method &lt;- NA
+identical(names(pond_1_ll)[4:length(pond_1_ll)], names(interlayer)[6:length(interlayer)])</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Add state node attributes
+pond_1_sn &lt;- data.frame(node_name=c(&#39;fish&#39;,&#39;pelican&#39;,&#39;crab&#39;),n=c(10,1,100))
+pond_2_sn &lt;- data.frame(node_name=c(&#39;fish&#39;,&#39;pelican&#39;,&#39;crab&#39;),n=c(20,2,200))
+pond_3_sn &lt;- data.frame(node_name=c(&#39;fish&#39;,&#39;pelican&#39;,&#39;tadpole&#39;),n=c(30,3,300))
+abundance_sn &lt;- bind_rows(pond_1_sn, pond_2_sn, pond_3_sn) %&gt;% 
+  mutate(layer_name=rep(c(&#39;pond_1&#39;,&#39;pond_2&#39;,&#39;pond_3&#39;),each=3)) %&gt;% 
+  select(node_name, layer_name, n) # make sure node_name is the first column
+
+# Add attributes of the physical nodes
+physical_node_attrib &lt;- data.frame(node_name=c(&#39;fish&#39;,&#39;pelican&#39;,&#39;crab&#39;,&#39;tadpole&#39;), 
+                                   order=c(&#39;Chondrichthyes&#39;,&#39;Pelecaniformes&#39;,&#39;Decapoda&#39;,&#39;Anura&#39;))
+
+multilayer_unip_attributes &lt;- create_multilayer_network(list_of_layers = list(pond_1_ll, pond_2_ll, pond_3_ll),
+                          interlayer_links = interlayer,
+                          layer_attributes = layer_attrib,
+                          state_node_attributes=abundance_sn %&gt;% select(node_name, layer_name, ),
+                          physical_node_attributes=physical_node_attrib,
+                          bipartite = F,
+                          directed = T)</code></pre>
+<p>Note that the node, state_nodes and link tables now include the
+attributes.</p>
+<pre class="r"><code>multilayer_unip_attributes</code></pre>
+<pre><code>## $nodes
+## # A tibble: 4 × 3
+##   node_id node_name order         
+##     &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;         
+## 1       1 crab      Decapoda      
+## 2       2 fish      Chondrichthyes
+## 3       3 pelican   Pelecaniformes
+## 4       4 tadpole   Anura         
+## 
+## $layers
+## # A tibble: 3 × 3
+##   layer_id layer_name location     
+##      &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;        
+## 1        1 pond_1     valley       
+## 2        2 pond_2     mid-elevation
+## 3        3 pond_3     uphill       
+## 
+## $extended
+## # A tibble: 14 × 6
+##    layer_from node_from layer_to node_to weight method      
+##    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;       
+##  1 pond_1     fish      pond_1   pelican      1 observation 
+##  2 pond_1     crab      pond_1   pelican      1 observation 
+##  3 pond_1     crab      pond_1   fish         1 gut analysis
+##  4 pond_2     fish      pond_2   pelican      1 observation 
+##  5 pond_2     crab      pond_2   fish         1 gut analysis
+##  6 pond_3     fish      pond_3   pelican      1 observation 
+##  7 pond_3     tadpole   pond_3   pelican      1 observation 
+##  8 pond_3     tadpole   pond_3   fish         1 gut analysis
+##  9 pond_1     pelican   pond_2   pelican      1 &lt;NA&gt;        
+## 10 pond_1     crab      pond_2   crab         1 &lt;NA&gt;        
+## 11 pond_1     pelican   pond_3   pelican      1 &lt;NA&gt;        
+## 12 pond_2     pelican   pond_1   pelican      1 &lt;NA&gt;        
+## 13 pond_2     crab      pond_1   crab         1 &lt;NA&gt;        
+## 14 pond_3     pelican   pond_1   pelican      1 &lt;NA&gt;        
+## 
+## $extended_ids
+## # A tibble: 14 × 6
+##    layer_from node_from layer_to node_to weight method      
+##         &lt;int&gt;     &lt;int&gt;    &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;       
+##  1          1         2        1       3      1 observation 
+##  2          1         1        1       3      1 observation 
+##  3          1         1        1       2      1 gut analysis
+##  4          2         2        2       3      1 observation 
+##  5          2         1        2       2      1 gut analysis
+##  6          3         2        3       3      1 observation 
+##  7          3         4        3       3      1 observation 
+##  8          3         4        3       2      1 gut analysis
+##  9          1         3        2       3      1 &lt;NA&gt;        
+## 10          1         1        2       1      1 &lt;NA&gt;        
+## 11          1         3        3       3      1 &lt;NA&gt;        
+## 12          2         3        1       3      1 &lt;NA&gt;        
+## 13          2         1        1       1      1 &lt;NA&gt;        
+## 14          3         3        1       3      1 &lt;NA&gt;        
+## 
+## $state_nodes
+## # A tibble: 9 × 4
+##   layer_id node_id layer_name node_name
+##      &lt;int&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;    
+## 1        1       2 pond_1     fish     
+## 2        1       3 pond_1     pelican  
+## 3        1       1 pond_1     crab     
+## 4        2       2 pond_2     fish     
+## 5        2       3 pond_2     pelican  
+## 6        2       1 pond_2     crab     
+## 7        3       2 pond_3     fish     
+## 8        3       3 pond_3     pelican  
+## 9        3       4 pond_3     tadpole  
+## 
+## $description
+## NULL
+## 
+## $references
+## NULL
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;multilayer&quot;</code></pre>
+</div>
+<div id="example-with-real-data-from-kefi-2016" class="section level1">
+<h1>Example with real data from Kefi 2016</h1>
+<p>This is a node-aligned multiplex network with three layers: trophic
+interactions, non-trophic positive interactions and non-trophic negative
+interactions.</p>
+<p>First, we will see how we can use matrices as input. Along the way we
+perform sanity checks such as making sure the number and identity of of
+species is the same in the 3 layers.</p>
+<pre class="r"><code># Load and organize the trophic interactions matrix
+chilean_TI &lt;- read_delim(&#39;chilean_TI.txt&#39;, delim = &#39;\t&#39;)
+nodes &lt;- chilean_TI[,2]
+names(nodes) &lt;- &#39;Species&#39;
+chilean_TI &lt;- data.matrix(chilean_TI[,3:ncol(chilean_TI)])
+dim(chilean_TI)</code></pre>
+<pre><code>## [1] 106 106</code></pre>
+<pre class="r"><code>dimnames(chilean_TI) &lt;- list(nodes$Species,nodes$Species)
+
+# Load and organize the negative non-trophic interactions matrix
+chilean_NTIneg &lt;- read_delim(&#39;chilean_NTIneg.txt&#39;, delim = &#39;\t&#39;)
+nodes &lt;- chilean_NTIneg[,2]
+names(nodes) &lt;- &#39;Species&#39;
+chilean_NTIneg &lt;- data.matrix(chilean_NTIneg[,3:ncol(chilean_NTIneg)])
+dim(chilean_NTIneg)</code></pre>
+<pre><code>## [1] 106 106</code></pre>
+<pre class="r"><code>dimnames(chilean_NTIneg) &lt;- list(nodes$Species,nodes$Species)
+
+# Are all row and column names the same?
+setequal(rownames(chilean_TI), rownames(chilean_NTIneg))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>setequal(colnames(chilean_TI), colnames(chilean_NTIneg))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>chilean_NTIneg &lt;- chilean_NTIneg[rownames(chilean_TI),colnames(chilean_TI)]
+all(rownames(chilean_TI)==rownames(chilean_NTIneg))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Load and organize the negative non-trophic positive matrix
+chilean_NTIpos &lt;- read_delim(&#39;chilean_NTIpos.txt&#39;, delim = &#39;\t&#39;)
+nodes &lt;- chilean_NTIpos[,2]
+names(nodes) &lt;- &#39;Species&#39;
+chilean_NTIpos &lt;- data.matrix(chilean_NTIpos[,3:ncol(chilean_NTIpos)])
+dim(chilean_NTIpos)</code></pre>
+<pre><code>## [1] 106 106</code></pre>
+<pre class="r"><code>dimnames(chilean_NTIpos) &lt;- list(nodes$Species,nodes$Species)
+
+# Are all row and column names the same?
+setequal(rownames(chilean_TI), rownames(chilean_NTIpos))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>setequal(colnames(chilean_TI), colnames(chilean_NTIpos))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>chilean_NTIpos &lt;- chilean_NTIpos[rownames(chilean_TI),colnames(chilean_TI)]
+all(rownames(chilean_TI)==rownames(chilean_NTIpos))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Total number of links
+sum(chilean_TI, chilean_NTIpos, chilean_NTIneg)</code></pre>
+<pre><code>## [1] 4623</code></pre>
+<pre class="r"><code>layer_attributes &lt;- tibble(layer_id=1:3, layer_name=c(&#39;TI&#39;,&#39;NTIneg&#39;,&#39;NTIpos&#39;))
+
+multilayer_kefi &lt;- create_multilayer_network(list_of_layers = list(chilean_TI,chilean_NTIneg,chilean_NTIpos),
+                                             interlayer_links = NULL,
+                                             layer_attributes = layer_attributes,
+                                             bipartite = F,
+                                             directed = T)</code></pre>
+<p>Now, we can try and use link lists as input. We will convert the
+matrices to link lists first.</p>
+<pre class="r"><code># This is for the Kefi data set
+chilean_TI_ll &lt;- matrix_to_list_unipartite(x = chilean_TI, directed = TRUE)$edge_list
+chilean_NTIneg_ll &lt;- matrix_to_list_unipartite(x = chilean_NTIneg, directed = TRUE)$edge_list
+chilean_NTIpos_ll &lt;- matrix_to_list_unipartite(x = chilean_NTIpos, directed = TRUE)$edge_list
+
+multilayer_kefi_ll &lt;- create_multilayer_network(list_of_layers = list(chilean_TI_ll,chilean_NTIneg_ll,chilean_NTIpos_ll), layer_attributes = layer_attributes, bipartite = F, directed = T)
+
+# Check that the set of links is the same in both
+links_mat &lt;- multilayer_kefi$extended_ids %&gt;% unite(layer_from, node_from, layer_to, node_to)
+links_ll &lt;- multilayer_kefi_ll$extended_ids %&gt;% unite(layer_from, node_from, layer_to, node_to)
+
+any(duplicated(links_mat$layer_from))</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>any(duplicated(links_ll$layer_from))</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>setequal(links_mat$layer_from, links_ll$layer_from)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="bipartite-multilayer-network" class="section level1">
+<h1>Bipartite multilayer network</h1>
+<div id="toy-example-1" class="section level2">
+<h2>Toy example</h2>
+<p>We will work with the toy example from Fig. 3 in the paper.</p>
+<p><img src="bipartite_multilayer.png" /></p>
+<pre class="r"><code>pollination_layer &lt;- matrix(c(5,3,5,3,1,1,
+                              3,3,3,3,0,0,
+                              3,0,0,0,1,0,
+                              0,0,3,1,0,0), byrow = T, nrow = 4, ncol = 6,
+                            dimnames = list(paste(&#39;P&#39;,1:4,sep=&#39;&#39;),paste(&#39;A&#39;,1:6,sep=&#39;&#39;)))
+
+herbivory_layer &lt;- matrix(c(6,4,6,2,2,
+                            0,4,0,2,0,
+                            6,0,4,0,0,
+                            6,0,6,0,0), byrow = T, nrow = 4, ncol = 5,
+                            dimnames = list(paste(&#39;P&#39;,1:4,sep=&#39;&#39;),paste(&#39;H&#39;,1:5,sep=&#39;&#39;)))
+
+
+layer_attrib &lt;- tibble(layer_id=1:2,
+                     layer_name=c(&#39;Pollination&#39;,&#39;Herbivory&#39;),
+                     Method=c(&#39;Observation&#39;,&#39;Collection&#39;))
+
+
+# Create the ELL tibble with interlayer links.
+interlayer &lt;- tibble(layer_from=c(&#39;Pollination&#39;,&#39;Pollination&#39;,&#39;Pollination&#39;,&#39;Pollination&#39;),
+                     node_from=c(&#39;P1&#39;,&#39;P2&#39;,&#39;P3&#39;,&#39;P4&#39;),
+                     layer_to=c(&#39;Herbivory&#39;,&#39;Herbivory&#39;,&#39;Herbivory&#39;,&#39;Herbivory&#39;), 
+                     node_to=c(&#39;P1&#39;,&#39;P2&#39;,&#39;P3&#39;,&#39;P4&#39;),
+                     weight=1)
+
+multilayer_bip_toy &lt;- create_multilayer_network(list_of_layers = list(pollination_layer, herbivory_layer), bipartite = T, directed = F, interlayer_links = interlayer, layer_attributes = layer_attrib)
+
+# Now add information on state nodes for pollinators
+abundance_sn &lt;- data.frame(layer_name=c(&#39;Pollination&#39;,&#39;Pollination&#39;,&#39;Pollination&#39;), node_name=c(&#39;A1&#39;,&#39;A2&#39;,&#39;A3&#39;,&#39;A4&#39;,&#39;A5&#39;,&#39;A6&#39;), abund=c(15,20,7,8,12,3))
+
+multilayer &lt;- create_multilayer_network(list_of_layers = list(pollination_layer, herbivory_layer), bipartite = T, directed = F, interlayer_links = interlayer, layer_attributes = layer_attrib, state_node_attributes = abundance_sn)</code></pre>
+</div>
+<div id="real-data-example" class="section level2">
+<h2>Real data example</h2>
+<p>We will work with data from the paper <a
+href="http://dx.doi.org/10.1111/1365-2656.12304">Hot spots of
+mutualistic networks (Gilarranz et al 2014. J Anim Ecol)</a>. The data
+contains 12 layers (patches) of plant-pollinator interactions. We use
+the original data, provided in Excel to show how working with real data
+feels like. This illustrates the workflow discussed in the paper.</p>
+<pre class="r"><code>library(readxl)
+# Import layers
+Sierras_matrices &lt;- NULL
+for (layer in 1:12){
+  d &lt;- suppressMessages(read_excel(&#39;Gilarranz2014_Datos Sierras.xlsx&#39;, sheet = layer+2))
+  web &lt;- data.matrix(d[,2:ncol(d)])
+  rownames(web) &lt;- as.data.frame(d)[,1]
+  web[is.na(web)] &lt;- 0
+  Sierras_matrices[[layer]] &lt;- web
+}
+
+# Layer dimensions
+sapply(Sierras_matrices, dim)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+## [1,]   39   36   33   38   25   17   24   33   28    22    34    34
+## [2,]   67   58   63   79   69   67   58   61   48    66    74    68</code></pre>
+<pre class="r"><code># Layer attribute table
+layer_attrib &lt;- tibble(layer_id=1:12,
+                     layer_name=excel_sheets(&#39;Gilarranz2014_Datos Sierras.xlsx&#39;)[3:14])
+
+multilayer_sierras &lt;- create_multilayer_network(list_of_layers = Sierras_matrices, bipartite = T, directed = F, layer_attributes = layer_attrib)</code></pre>
+<p>To illustrate working with interlayer links, we will connect a
+pollinator to itself between layers, and weigh these links by the
+distance between the layers. <strong>We emphasize that this is for
+illustration purposes only; there is no hypothesis behind this
+exercise.</strong> We already calculated the distances between the 12
+patches.</p>
+<pre class="r"><code>dist &lt;- data.matrix(read_csv(&#39;Gilarranz2014_distances.csv&#39;))
+dimnames(dist) &lt;- list(layer_attrib$layer_name, layer_attrib$layer_name)
+
+# Get the dispersal matrix, for pollinators only. This matrix shows which pollinator is in which layer
+dispersal &lt;- multilayer_sierras$extended %&gt;% group_by(node_from) %&gt;% dplyr::select(layer_from) %&gt;% table()
+dispersal &lt;- 1*(dispersal&gt;0)
+
+Sierras_interlayer &lt;- NULL
+for (s in rownames(dispersal)){ # For each pollinator
+  x &lt;- dispersal[s,]
+  locations &lt;- names(which(x!=0)) # locations where pollinator occurs
+  if (length(locations)&lt;2){next}
+  pairwise &lt;- combn(locations, 2)
+  # Create interlayer edges between pairwise combinations of locations
+  for (i in 1:ncol(pairwise)){
+    a &lt;- pairwise[1,i]
+    b &lt;- pairwise[2,i]
+    weight &lt;- dist[a,b] # Get the interlayer edge weight
+    Sierras_interlayer %&lt;&gt;% bind_rows(tibble(layer_from=a, node_from=s, layer_to=b, node_to=s, weight=weight))
+  }
+}
+
+# Re-create the multilayer object with interlayer links
+multilayer_sierras_interlayer &lt;- create_multilayer_network(list_of_layers = Sierras_matrices, bipartite = T, directed = F, layer_attributes = layer_attrib, interlayer_links = Sierras_interlayer)
+
+# See the interlayer links
+multilayer_sierras_interlayer$extended %&gt;% filter(layer_from!=layer_to)</code></pre>
+<pre><code>## # A tibble: 2,657 × 5
+##    layer_from node_from         layer_to   node_to           weight
+##    &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;
+##  1 La Brava   Achyra similalis  Vigilancia Achyra similalis  0.0652
+##  2 Amarante   Agraulis vanillae Barrosa    Agraulis vanillae 0.166 
+##  3 Amarante   Agraulis vanillae Difuntito  Agraulis vanillae 0.183 
+##  4 Amarante   Agraulis vanillae Difuntos   Agraulis vanillae 0.871 
+##  5 Amarante   Agraulis vanillae La Brava   Agraulis vanillae 0.617 
+##  6 Amarante   Agraulis vanillae Vigilancia Agraulis vanillae 0.552 
+##  7 Barrosa    Agraulis vanillae Difuntito  Agraulis vanillae 0.0173
+##  8 Barrosa    Agraulis vanillae Difuntos   Agraulis vanillae 0.705 
+##  9 Barrosa    Agraulis vanillae La Brava   Agraulis vanillae 0.452 
+## 10 Barrosa    Agraulis vanillae Vigilancia Agraulis vanillae 0.387 
+## # ℹ 2,647 more rows</code></pre>
+<pre class="r"><code>multilayer_sierras_interlayer$extended_ids %&gt;% filter(layer_from!=layer_to)</code></pre>
+<pre><code>## # A tibble: 2,657 × 5
+##    layer_from node_from layer_to node_to weight
+##         &lt;int&gt;     &lt;int&gt;    &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;
+##  1          7         2       11       2 0.0652
+##  2          1         6        2       6 0.166 
+##  3          1         6        4       6 0.183 
+##  4          1         6        5       6 0.871 
+##  5          1         6        7       6 0.617 
+##  6          1         6       11       6 0.552 
+##  7          2         6        4       6 0.0173
+##  8          2         6        5       6 0.705 
+##  9          2         6        7       6 0.452 
+## 10          2         6       11       6 0.387 
+## # ℹ 2,647 more rows</code></pre>
+<!-- ## Example of linking node/layer attributes with network topology -->
+</div>
+</div>
+<div id="converting-a-multilayer-class" class="section level1">
+<h1>Converting a multilayer class</h1>
+<div id="to-supra-adjacency-matrices" class="section level2">
+<h2>To supra-adjacency matrices</h2>
+<p>A SAM is convenient for matrix operations. See a <a
+href="https://github.com/manlius/muxViz/blob/master/gui-old/theory/README.md#operatively-rank-4-tensors-can-be-mapped-into-rank-2-supra-adjacency-matrices-to-facilitate-operations-with-care">visual
+guide</a> on the idea of tensor flattening and producing SAM. Use the
+function <code>get_sam</code> to obtain a SAM. See <code>?get_sam</code>
+for an explanation on what the function returns.</p>
+<div id="unipartite-example" class="section level3">
+<h3>Unipartite example</h3>
+<p>Let’s take take the toy unipartite network first. This is a directed
+network.</p>
+<p><img src="unipartite_multilayer_For%20Rmd.png" /></p>
+<pre class="r"><code># Order the physical nodes as in the image for convenience
+multilayer_unip_toy$nodes &lt;- multilayer_unip_toy$nodes[c(3,2,1,4),]
+
+# get the SAM
+sam_unipartite &lt;- get_sam(multilayer = multilayer_unip_toy, bipartite = F, directed = T, sparse = F, remove_zero_rows_cols = F)</code></pre>
+<p>The SAM contains 3 layers by 4 physical nodes = 12 state nodes.</p>
+<pre class="r"><code>sam_unipartite$M</code></pre>
+<pre><code>##    1 2 3 4 5 6 7 8 9 10 11 12
+## 1  0 1 1 0 1 0 0 0 1  0  0  0
+## 2  0 0 1 0 0 0 0 0 0  0  0  0
+## 3  0 0 0 0 0 0 1 0 0  0  0  0
+## 4  0 0 0 0 0 0 0 0 0  0  0  0
+## 5  1 0 0 0 0 1 0 0 0  0  0  0
+## 6  0 0 0 0 0 0 1 0 0  0  0  0
+## 7  0 0 1 0 0 0 0 0 0  0  0  0
+## 8  0 0 0 0 0 0 0 0 0  0  0  0
+## 9  1 0 0 0 0 0 0 0 0  1  0  1
+## 10 0 0 0 0 0 0 0 0 0  0  0  1
+## 11 0 0 0 0 0 0 0 0 0  0  0  0
+## 12 0 0 0 0 0 0 0 0 0  0  0  0</code></pre>
+<p><strong>The row and column names correspond to the <code>sn_id</code>
+column in <code>sam_unipartite$state_nodes_map</code>.</strong> However,
+not all nodes always occur in all layers. This will be reflected in the
+<code>state_nodes_map</code>: When layer and node ids are NA that means
+that the node did not occur in the layer.</p>
+<pre class="r"><code>sam_unipartite$state_nodes_map</code></pre>
+<pre><code>##    sn_id layer_name node_name layer_id node_id          tuple
+## 1      1     pond_1   pelican        1       3 pond_1_pelican
+## 2      2     pond_1      fish        1       2    pond_1_fish
+## 3      3     pond_1      crab        1       1    pond_1_crab
+## 4      4     pond_1   tadpole       NA      NA pond_1_tadpole
+## 5      5     pond_2   pelican        2       3 pond_2_pelican
+## 6      6     pond_2      fish        2       2    pond_2_fish
+## 7      7     pond_2      crab        2       1    pond_2_crab
+## 8      8     pond_2   tadpole       NA      NA pond_2_tadpole
+## 9      9     pond_3   pelican        3       3 pond_3_pelican
+## 10    10     pond_3      fish        3       2    pond_3_fish
+## 11    11     pond_3      crab       NA      NA    pond_3_crab
+## 12    12     pond_3   tadpole        3       4 pond_3_tadpole</code></pre>
+<p>A node may not have links across all the layers. In that case, its
+row or column sum will be zero. This can happen in a directed network
+like this one; for example, the tadpole does not have incoming links.
+The user can choose to remove rows and columns that sum to zero by
+setting `remove_zero_rows_cols to TRUE.</p>
+<pre class="r"><code>sam_unipartite &lt;- get_sam(multilayer = multilayer_unip_toy, bipartite = F, directed = T, sparse = F, remove_zero_rows_cols = T)
+# That matrix has less than 12 rows/columns
+dim(sam_unipartite$M)</code></pre>
+<pre><code>## [1] 8 9</code></pre>
+<pre class="r"><code>sam_unipartite$M</code></pre>
+<pre><code>##    1 2 3 5 6 7 9 10 12
+## 1  0 1 1 1 0 0 1  0  0
+## 2  0 0 1 0 0 0 0  0  0
+## 3  0 0 0 0 0 1 0  0  0
+## 5  1 0 0 0 1 0 0  0  0
+## 6  0 0 0 0 0 1 0  0  0
+## 7  0 0 1 0 0 0 0  0  0
+## 9  1 0 0 0 0 0 0  1  1
+## 10 0 0 0 0 0 0 0  0  1</code></pre>
+<p>When matrices are very large and sparse, excess of zeroes takes a lot
+of memory. It is possible to use a sparse matrix.</p>
+<pre class="r"><code>sam_unipartite &lt;- get_sam(multilayer = multilayer_unip_toy, bipartite = F, directed = T, sparse = T, remove_zero_rows_cols = T)
+sam_unipartite$M</code></pre>
+<pre><code>## 8 x 9 sparse Matrix of class &quot;dgCMatrix&quot;
+##    1 2 3 5 6 7 9 10 12
+## 1  . 1 1 1 . . 1  .  .
+## 2  . . 1 . . . .  .  .
+## 3  . . . . . 1 .  .  .
+## 5  1 . . . 1 . .  .  .
+## 6  . . . . . 1 .  .  .
+## 7  . . 1 . . . .  .  .
+## 9  1 . . . . . .  1  1
+## 10 . . . . . . .  .  1</code></pre>
+</div>
+<div id="bipartite-example" class="section level3">
+<h3>Bipartite example</h3>
+<p>Bipartite networks are rectangular matrices. Therefore, it is
+necessary first to transform the incidence matrix to a square adjacency
+matrix. A visual example is in the figure below, in panels A–&gt;B. Each
+layer is independently transformed. Then the layers are put together to
+a SAM as for unipartite network (panel C).</p>
+<p><img src="bipartite_sam.png" /></p>
+<p>Now that the network is effectively a unipartite network, we proceed
+as with the previous example (e.g., state nodes and rows/columns that
+sum to zero).</p>
+<div id="toy-example-2" class="section level4">
+<h4>Toy example</h4>
+<p>We will start with the example in this figure. We already created
+this network. Note the <code>bipartite</code> and <code>directed</code>
+arguments.</p>
+<pre class="r"><code># get the SAM
+sam_bipartite &lt;- get_sam(multilayer = multilayer_bip_toy, bipartite = T, directed = F, sparse = F, remove_zero_rows_cols = F)</code></pre>
+<p>Because this is a diagnoally-copouled network and only plants are
+common between layers, there will be many NAs in the state node
+table.</p>
+<pre class="r"><code>sam_bipartite$state_nodes_map</code></pre>
+<pre><code>##    sn_id  layer_name node_name layer_id node_id          tuple
+## 1      1 Pollination        A1        1       1 Pollination_A1
+## 2      2 Pollination        A2        1       2 Pollination_A2
+## 3      3 Pollination        A3        1       3 Pollination_A3
+## 4      4 Pollination        A4        1       4 Pollination_A4
+## 5      5 Pollination        A5        1       5 Pollination_A5
+## 6      6 Pollination        A6        1       6 Pollination_A6
+## 7      7 Pollination        H1       NA      NA Pollination_H1
+## 8      8 Pollination        H2       NA      NA Pollination_H2
+## 9      9 Pollination        H3       NA      NA Pollination_H3
+## 10    10 Pollination        H4       NA      NA Pollination_H4
+## 11    11 Pollination        H5       NA      NA Pollination_H5
+## 12    12 Pollination        P1        1      12 Pollination_P1
+## 13    13 Pollination        P2        1      13 Pollination_P2
+## 14    14 Pollination        P3        1      14 Pollination_P3
+## 15    15 Pollination        P4        1      15 Pollination_P4
+## 16    16   Herbivory        A1       NA      NA   Herbivory_A1
+## 17    17   Herbivory        A2       NA      NA   Herbivory_A2
+## 18    18   Herbivory        A3       NA      NA   Herbivory_A3
+## 19    19   Herbivory        A4       NA      NA   Herbivory_A4
+## 20    20   Herbivory        A5       NA      NA   Herbivory_A5
+## 21    21   Herbivory        A6       NA      NA   Herbivory_A6
+## 22    22   Herbivory        H1        2       7   Herbivory_H1
+## 23    23   Herbivory        H2        2       8   Herbivory_H2
+## 24    24   Herbivory        H3        2       9   Herbivory_H3
+## 25    25   Herbivory        H4        2      10   Herbivory_H4
+## 26    26   Herbivory        H5        2      11   Herbivory_H5
+## 27    27   Herbivory        P1        2      12   Herbivory_P1
+## 28    28   Herbivory        P2        2      13   Herbivory_P2
+## 29    29   Herbivory        P3        2      14   Herbivory_P3
+## 30    30   Herbivory        P4        2      15   Herbivory_P4</code></pre>
+<p>Also possible to remove zero rows/cols and get a sparse matrix</p>
+<pre class="r"><code>sam_bipartite &lt;- get_sam(multilayer = multilayer_bip_toy, bipartite = T, directed = F, sparse = F, remove_zero_rows_cols = T)
+# That matrix has less than 12 rows/columns
+dim(sam_bipartite$M)</code></pre>
+<pre><code>## [1] 19 19</code></pre>
+<pre class="r"><code>sam_bipartite$M</code></pre>
+<pre><code>##    1 2 3 4 5 6 12 13 14 15 22 23 24 25 26 27 28 29 30
+## 1  0 0 0 0 0 0  5  3  3  0  0  0  0  0  0  0  0  0  0
+## 2  0 0 0 0 0 0  3  3  0  0  0  0  0  0  0  0  0  0  0
+## 3  0 0 0 0 0 0  5  3  0  3  0  0  0  0  0  0  0  0  0
+## 4  0 0 0 0 0 0  3  3  0  1  0  0  0  0  0  0  0  0  0
+## 5  0 0 0 0 0 0  1  0  1  0  0  0  0  0  0  0  0  0  0
+## 6  0 0 0 0 0 0  1  0  0  0  0  0  0  0  0  0  0  0  0
+## 12 5 3 5 3 1 1  0  0  0  0  0  0  0  0  0  1  0  0  0
+## 13 3 3 3 3 0 0  0  0  0  0  0  0  0  0  0  0  1  0  0
+## 14 3 0 0 0 1 0  0  0  0  0  0  0  0  0  0  0  0  1  0
+## 15 0 0 3 1 0 0  0  0  0  0  0  0  0  0  0  0  0  0  1
+## 22 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  6  0  6  6
+## 23 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  4  4  0  0
+## 24 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  6  0  4  6
+## 25 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  2  2  0  0
+## 26 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  2  0  0  0
+## 27 0 0 0 0 0 0  1  0  0  0  6  4  6  2  2  0  0  0  0
+## 28 0 0 0 0 0 0  0  1  0  0  0  4  0  2  0  0  0  0  0
+## 29 0 0 0 0 0 0  0  0  1  0  6  0  4  0  0  0  0  0  0
+## 30 0 0 0 0 0 0  0  0  0  1  6  0  6  0  0  0  0  0  0</code></pre>
+<pre class="r"><code># Sparse
+sam_bipartite &lt;- get_sam(multilayer = multilayer_bip_toy, bipartite = T, directed = F, sparse = T, remove_zero_rows_cols = T)
+sam_bipartite$M</code></pre>
+<pre><code>## 19 x 19 sparse Matrix of class &quot;dsCMatrix&quot;</code></pre>
+<pre><code>##                                         
+## 1  . . . . . . 5 3 3 . . . . . . . . . .
+## 2  . . . . . . 3 3 . . . . . . . . . . .
+## 3  . . . . . . 5 3 . 3 . . . . . . . . .
+## 4  . . . . . . 3 3 . 1 . . . . . . . . .
+## 5  . . . . . . 1 . 1 . . . . . . . . . .
+## 6  . . . . . . 1 . . . . . . . . . . . .
+## 12 5 3 5 3 1 1 . . . . . . . . . 1 . . .
+## 13 3 3 3 3 . . . . . . . . . . . . 1 . .
+## 14 3 . . . 1 . . . . . . . . . . . . 1 .
+## 15 . . 3 1 . . . . . . . . . . . . . . 1
+## 22 . . . . . . . . . . . . . . . 6 . 6 6
+## 23 . . . . . . . . . . . . . . . 4 4 . .
+## 24 . . . . . . . . . . . . . . . 6 . 4 6
+## 25 . . . . . . . . . . . . . . . 2 2 . .
+## 26 . . . . . . . . . . . . . . . 2 . . .
+## 27 . . . . . . 1 . . . 6 4 6 2 2 . . . .
+## 28 . . . . . . . 1 . . . 4 . 2 . . . . .
+## 29 . . . . . . . . 1 . 6 . 4 . . . . . .
+## 30 . . . . . . . . . 1 6 . 6 . . . . . .</code></pre>
+<p>Note that in this undirected network, each layer and the final SAM
+are symmetric.</p>
+<pre class="r"><code>Matrix::isSymmetric(sam_bipartite$M) # Does not work on sparse matrices</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="temporal-bipartite" class="section level4">
+<h4>Temporal bipartite</h4>
+<p>The past example was a Now let’s try an example with a directed,
+temporal bipartite network. We will use the pollination layer from the
+previous example to start with, and we will work with the same
+pollinators and plants.</p>
+<pre class="r"><code>time_1 &lt;- matrix(c(5,3,5,3,1,1,
+                   3,3,3,3,0,0,
+                   3,0,0,0,1,0,
+                   0,0,3,1,0,0), byrow = T, nrow = 4, ncol = 6,
+                   dimnames = list(paste(&#39;P&#39;,1:4,sep=&#39;&#39;),paste(&#39;A&#39;,1:6,sep=&#39;&#39;)))
+
+time_2 &lt;- matrix(c(7,0,5,3,0,1,
+                   5,2,3,2,0,1,
+                   1,0,0,0,1,0,
+                   0,2,2,1,0,0), byrow = T, nrow = 4, ncol = 6,
+                   dimnames = list(paste(&#39;P&#39;,1:4,sep=&#39;&#39;),paste(&#39;A&#39;,1:6,sep=&#39;&#39;)))
+
+time_3 &lt;- matrix(c(5,1,1,1,0,1,
+                   3,0,1,1,0,1,
+                   2,0,0,0,0,0,
+                   1,0,0,1,0,0), byrow = T, nrow = 4, ncol = 6,
+                   dimnames = list(paste(&#39;P&#39;,1:4,sep=&#39;&#39;),paste(&#39;A&#39;,1:6,sep=&#39;&#39;)))
+
+# Plot the layers
+visweb(time_1, type = &#39;none&#39;)</code></pre>
+<p><img src="multilayer_files/figure-html/unnamed-chunk-18-1.png" width="576" /></p>
+<pre class="r"><code>visweb(time_2, type = &#39;none&#39;)</code></pre>
+<p><img src="multilayer_files/figure-html/unnamed-chunk-18-2.png" width="576" /></p>
+<pre class="r"><code>visweb(time_3, type = &#39;none&#39;) # A5 has no links here</code></pre>
+<p><img src="multilayer_files/figure-html/unnamed-chunk-18-3.png" width="576" /></p>
+<pre class="r"><code>layer_attrib &lt;- tibble(layer_id=1:3, layer_name=c(&#39;Time_1&#39;,&#39;Time_2&#39;, &#39;Time_3&#39;))
+                    
+# Create the ELL tibble with interlayer links.
+# We will link a some plant species for the example. The value is 100 so they will be easy to spot
+interlayer &lt;- tibble(layer_from=c(&#39;Time_1&#39;, &#39;Time_2&#39;, &#39;Time_2&#39;, &#39;Time_2&#39;),
+                     node_from= c(&#39;P1&#39;,     &#39;P1&#39;,     &#39;P2&#39;,     &#39;P4&#39;),
+                     layer_to=  c(&#39;Time_2&#39;, &#39;Time_3&#39;, &#39;Time_3&#39;, &#39;Time_3&#39;), 
+                     node_to=  c(&#39;P1&#39;,     &#39;P1&#39;,     &#39;P2&#39;,     &#39;P4&#39;),
+                     weight=c(100,100,100,100))
+
+multilayer_bip_temporal &lt;- create_multilayer_network(list_of_layers = list(time_1, time_2,time_3), bipartite = T, directed = F, interlayer_links = interlayer, layer_attributes = layer_attrib)</code></pre>
+<p>Now get the SAM. Notice that interlayer links are only on one matrix
+diagonal off-blocks.</p>
+<pre class="r"><code>temporal_SAM &lt;- get_sam(multilayer_bip_temporal, bipartite = T, directed = T, sparse = T)
+temporal_SAM$M</code></pre>
+<pre><code>## 30 x 30 sparse Matrix of class &quot;dgCMatrix&quot;</code></pre>
+<pre><code>##                                                                       
+## 1  . . . . . .   5 3 3 . . . . . . .   .   . .   . . . . . . . . . . .
+## 2  . . . . . .   3 3 . . . . . . . .   .   . .   . . . . . . . . . . .
+## 3  . . . . . .   5 3 . 3 . . . . . .   .   . .   . . . . . . . . . . .
+## 4  . . . . . .   3 3 . 1 . . . . . .   .   . .   . . . . . . . . . . .
+## 5  . . . . . .   1 . 1 . . . . . . .   .   . .   . . . . . . . . . . .
+## 6  . . . . . .   1 . . . . . . . . .   .   . .   . . . . . . . . . . .
+## 7  5 3 5 3 1 1   . . . . . . . . . .   .   . .   . . . . . . . . . . .
+## 8  3 3 3 3 . .   . . . . . . . . . .   .   . .   . . . . . . . . . . .
+## 9  3 . . . 1 .   . . . . . . . . . .   .   . .   . . . . . . . . . . .
+## 10 . . 3 1 . .   . . . . . . . . . .   .   . .   . . . . . . . . . . .
+## 11 . . . . . .   . . . . . . . . . .   7   5 1   . . . . . . . . . . .
+## 12 . . . . . .   . . . . . . . . . .   .   2 .   2 . . . . . . . . . .
+## 13 . . . . . .   . . . . . . . . . .   5   3 .   2 . . . . . . . . . .
+## 14 . . . . . .   . . . . . . . . . .   3   2 .   1 . . . . . . . . . .
+## 15 . . . . . .   . . . . . . . . . .   .   . 1   . . . . . . . . . . .
+## 16 . . . . . .   . . . . . . . . . .   1   1 .   . . . . . . . . . . .
+## 17 . . . . . . 100 . . . 7 . 5 3 . 1   .   . .   . . . . . . . . . . .
+## 18 . . . . . .   . . . . 5 2 3 2 . 1   .   . .   . . . . . . . . . . .
+## 19 . . . . . .   . . . . 1 . . . 1 .   .   . .   . . . . . . . . . . .
+## 20 . . . . . .   . . . . . 2 2 1 . .   .   . .   . . . . . . . . . . .
+## 21 . . . . . .   . . . . . . . . . .   .   . .   . . . . . . . 5 3 2 1
+## 22 . . . . . .   . . . . . . . . . .   .   . .   . . . . . . . 1 . . .
+## 23 . . . . . .   . . . . . . . . . .   .   . .   . . . . . . . 1 1 . .
+## 24 . . . . . .   . . . . . . . . . .   .   . .   . . . . . . . 1 1 . 1
+## 25 . . . . . .   . . . . . . . . . .   .   . .   . . . . . . . . . . .
+## 26 . . . . . .   . . . . . . . . . .   .   . .   . . . . . . . 1 1 . .
+## 27 . . . . . .   . . . . . . . . . . 100   . .   . 5 1 1 1 . 1 . . . .
+## 28 . . . . . .   . . . . . . . . . .   . 100 .   . 3 . 1 1 . 1 . . . .
+## 29 . . . . . .   . . . . . . . . . .   .   . .   . 2 . . . . . . . . .
+## 30 . . . . . .   . . . . . . . . . .   .   . . 100 1 . . 1 . . . . . .</code></pre>
+<pre class="r"><code>Matrix::isSymmetric(temporal_SAM$M) # Should be FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="real-data-example-1" class="section level4">
+<h4>Real data example</h4>
+<p>This example shows that the function can handle large networks. This
+is the spatial network we used before.</p>
+<pre class="r"><code># Without interlayer links
+sierras_SAM &lt;- get_sam(multilayer = multilayer_sierras, bipartite = T, directed = F, sparse = T, remove_zero_rows_cols = F)
+sum(sierras_SAM$M)==2*nrow(multilayer_sierras$extended) # Number of interactions in the SAM should be links the number of links because we created the square matrices</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># With interlayer links
+sierras_SAM_interlayer &lt;- get_sam(multilayer = multilayer_sierras_interlayer, bipartite = T, directed = F, sparse = T, remove_zero_rows_cols = F)
+
+# Look at a subset of the data
+sierras_SAM_interlayer$M[1:20,1:20]</code></pre>
+<pre><code>## 20 x 20 sparse Matrix of class &quot;dsCMatrix&quot;</code></pre>
+<pre><code>##                                           
+## 1  . . . . . . . . . . . . . . . . . . . .
+## 2  . . . . . . . . . . . . . . . . . . . .
+## 3  . . . . . . . . . . 1 . 1 . . . . . 1 .
+## 4  . . . . . . . . . . . . . . . . . . . .
+## 5  . . . . . . . . . . . . . . . . . . . .
+## 6  . . . . . . . . . . . . . . . . . . . .
+## 7  . . . . . . . . . . . . . . . . . . . .
+## 8  . . . . . . . . . . . . . . . . . . . .
+## 9  . . . . . . . . . . . . . . . . . 1 . .
+## 10 . . . . . . . . . . . . . . . . . . . .
+## 11 . . 1 . . . . . . . . . . . . . . . . .
+## 12 . . . . . . . . . . . . . . . . . . . .
+## 13 . . 1 . . . . . . . . . . . . . . . . .
+## 14 . . . . . . . . . . . . . . . . . . . .
+## 15 . . . . . . . . . . . . . . . . . . . .
+## 16 . . . . . . . . . . . . . . . . . . . .
+## 17 . . . . . . . . . . . . . . . . . . . .
+## 18 . . . . . . . . 1 . . . . . . . . . . .
+## 19 . . 1 . . . . . . . . . . . . . . . . .
+## 20 . . . . . . . . . . . . . . . . . . . .</code></pre>
+</div>
+</div>
+</div>
+<div id="to-igraph-objects" class="section level2">
+<h2>To igraph objects</h2>
+<p>igraph is used frequently for analysis. Hence, it is convenient to
+obtain a list of igraph objects as layers. This can be done with the
+<code>get_igraph</code> function. The attributes of the links, state
+nodes and the physical nodes are all included in the igraph objects. We
+will show this using the ponds example with atteibutes we used before.
+The <code>sn_id</code> corresponds to that in the
+<code>state_nodes_map</code>.</p>
+<pre class="r"><code>g_layers &lt;- get_igraph(multilayer_unip_attributes, bipartite = F, directed = T)</code></pre>
+<p>Let’s look at one layer as an example.</p>
+<pre class="r"><code>g_layers$layers_igraph[[2]]</code></pre>
+<pre><code>## IGRAPH 6992e34 DNW- 3 2 -- 
+## + attr: name (v/c), layer_id (v/n), node_id (v/n), weight (e/n), method (e/c)
+## + edges from 6992e34 (vertex names):
+## [1] fish-&gt;pelican crab-&gt;fish</code></pre>
+<p>The state nodes are listed below. Note that they include the
+attributes of the physical nodes (order in this example), and that all
+attributes are included in the igraph objects.</p>
+<pre class="r"><code>g_layers$state_nodes_map</code></pre>
+<pre><code>##    sn_id layer_name node_name layer_id node_id          tuple          order
+## 1      1     pond_1      crab        1       1    pond_1_crab       Decapoda
+## 2      2     pond_1      fish        1       2    pond_1_fish Chondrichthyes
+## 3      3     pond_1   pelican        1       3 pond_1_pelican Pelecaniformes
+## 4      4     pond_1   tadpole       NA      NA pond_1_tadpole           &lt;NA&gt;
+## 5      5     pond_2      crab        2       1    pond_2_crab       Decapoda
+## 6      6     pond_2      fish        2       2    pond_2_fish Chondrichthyes
+## 7      7     pond_2   pelican        2       3 pond_2_pelican Pelecaniformes
+## 8      8     pond_2   tadpole       NA      NA pond_2_tadpole           &lt;NA&gt;
+## 9      9     pond_3      crab       NA      NA    pond_3_crab           &lt;NA&gt;
+## 10    10     pond_3      fish        3       2    pond_3_fish Chondrichthyes
+## 11    11     pond_3   pelican        3       3 pond_3_pelican Pelecaniformes
+## 12    12     pond_3   tadpole        3       4 pond_3_tadpole          Anura</code></pre>
+<pre class="r"><code># Attributes in pond 1
+vertex.attributes(g_layers$layers_igraph[[1]])</code></pre>
+<pre><code>## $name
+## [1] &quot;fish&quot;    &quot;pelican&quot; &quot;crab&quot;   
+## 
+## $layer_id
+## [1] 1 1 1
+## 
+## $node_id
+## [1] 2 3 1</code></pre>
+<pre class="r"><code>edge.attributes(g_layers$layers_igraph[[1]])</code></pre>
+<pre><code>## $weight
+## [1] 1 1 1
+## 
+## $method
+## [1] &quot;observation&quot;  &quot;observation&quot;  &quot;gut analysis&quot;</code></pre>
+<pre class="r"><code>#Attributes in pond 2
+vertex.attributes(g_layers$layers_igraph[[2]])</code></pre>
+<pre><code>## $name
+## [1] &quot;fish&quot;    &quot;pelican&quot; &quot;crab&quot;   
+## 
+## $layer_id
+## [1] 2 2 2
+## 
+## $node_id
+## [1] 2 3 1</code></pre>
+<pre class="r"><code>edge.attributes(g_layers$layers_igraph[[2]])</code></pre>
+<pre><code>## $weight
+## [1] 1 1
+## 
+## $method
+## [1] &quot;observation&quot;  &quot;gut analysis&quot;</code></pre>
+<pre class="r"><code>#Attributes in pond 3
+vertex.attributes(g_layers$layers_igraph[[3]])</code></pre>
+<pre><code>## $name
+## [1] &quot;fish&quot;    &quot;pelican&quot; &quot;tadpole&quot;
+## 
+## $layer_id
+## [1] 3 3 3
+## 
+## $node_id
+## [1] 2 3 4</code></pre>
+<pre class="r"><code>edge.attributes(g_layers$layers_igraph[[3]])</code></pre>
+<pre><code>## $weight
+## [1] 1 1 1
+## 
+## $method
+## [1] &quot;observation&quot;  &quot;observation&quot;  &quot;gut analysis&quot;</code></pre>
+<p>Here is an example with a bipartite network.</p>
+<pre class="r"><code>g_layers_bip &lt;- get_igraph(multilayer = multilayer_bip_toy, bipartite = T, directed = F)
+l2 &lt;- g_layers_bip$layers_igraph[[2]]
+l2</code></pre>
+<pre><code>## IGRAPH 420c8f0 UNWB 9 11 -- 
+## + attr: name (v/c), layer_id (v/n), node_id (v/n), type (v/l), weight (e/n)
+## + edges from 420c8f0 (vertex names):
+##  [1] H1--P1 H1--P3 H1--P4 H2--P1 H2--P2 H3--P1 H3--P3 H3--P4 H4--P1 H4--P2 H5--P1</code></pre>
+<pre class="r"><code>vertex.attributes(l2)</code></pre>
+<pre><code>## $name
+## [1] &quot;H1&quot; &quot;H2&quot; &quot;H3&quot; &quot;H4&quot; &quot;H5&quot; &quot;P1&quot; &quot;P2&quot; &quot;P3&quot; &quot;P4&quot;
+## 
+## $layer_id
+## [1] 2 2 2 2 2 2 2 2 2
+## 
+## $node_id
+## [1]  7  8  9 10 11 12 13 14 15
+## 
+## $type
+## [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE</code></pre>
+<!-- # Working with included data sets -->
+<!-- ## Searching -->
+<!-- ```{r} -->
+<!-- view_emln() -->
+<!-- load_emln() -->
+<!-- ``` -->
+<!-- ## Loading -->
+<!-- We load the spatial multilayer network (network_id = 38) that comes with the package. The development of the network and other networks is described in the paper and in our Wiki page. This is a seed-Dispersal network (collected from Web of Life) with a spatial multilayer aspect. The network has five layers and 22 physical nodes, with a total of 84 interactions that are all intralayer, undirected, and weighted. There are no interlayer interactions recorded for this network. -->
+<!-- ```{r} -->
+<!-- d38 <- load_emln(38) -->
+<!-- d38 -->
+<!-- ``` -->
+<!-- # Other -->
+<!-- # Creating supra-adjacency matrices for bipartite networks -->
+<!-- Use the example from the figure -->
+<!-- ```{r} -->
+<!-- #Test case for #48 Supra-adjacency matrix for bipartite layers -->
+<!-- #Input - list of matrices -->
+<!-- mat3 <- matrix(rbinom(16, 1, 0.6) * sample(1:4, 16, replace=TRUE), 4, 4) -->
+<!-- mat4<- cbind (mat3,c(7,7,7,7)) -->
+<!-- interlayer_edges <- data.frame(node_from = c('R1','R2','C1'), layer_from = c(1,2,1), node_to = c('R4','C4','R1'), layer_to = c(2,1,2), weight = c(23,33,43)) -->
+<!-- tb<-create_multilayer_network(list(mat3, mat4), bipartite = TRUE, Directed = FALSE, isSupraMatrix = TRUE, Interlayer = interlayer_edges) -->
+<!-- #Input - list of intralayer edges. -->
+<!-- EdgeListB <- data.frame(from=c(1, 1, 2, 2, 2, 3, 3), to=c(4, 5, 6, 4, 5, 6, 5), weight=round(rnorm(7, 1, 0.2),2)) -->
+<!-- interlayer_edges_E <- data.frame(node_from = c('1','5','3'), layer_from = c(1,2,1), node_to = c('4','3','1'), layer_to = c(2,1,2), weight = c(23,33,43)) -->
+<!-- tb2_E<-create_multilayer_network(list(EdgeListB, EdgeListB), isMatrix = FALSE,bipartite = TRUE, Directed = FALSE, isSupraMatrix = TRUE, Interlayer = interlayer_edges_E) -->
+<!-- #Issue 52 - Allow input of layers and state nodes -->
+<!-- layersInput <- data.frame(layer_name = c('pond green','pond orange'), type = c('space','space')) -->
+<!-- networkULayers<-create_multilayer_network(list(mat2, mat3), layersData = layersInput, bipartite = FALSE, Directed = TRUE, isSupraMatrix = FALSE) -->
+<!-- networkBLayers<-create_multilayer_network(list(EdgeListB, EdgeListB), isMatrix = FALSE, layersData = layersInput, bipartite = TRUE, Directed = FALSE, isSupraMatrix = TRUE, Interlayer = interlayer_edges_E) -->
+<!-- ``` -->
+<!-- # Internal use from the Wiki -->
+<!-- ```{r} -->
+<!-- ```R -->
+<!-- #Test case for #48 Supra-adjacency matrix for bipartite layers -->
+<!-- #Input - list of matrices  -->
+<!-- mat3 <- matrix(rbinom(16, 1, 0.6) * sample(1:4, 16, replace=TRUE), 4, 4) -->
+<!-- mat2 <- mat3 -->
+<!-- mat4<- cbind (mat3,c(7,7,7,7)) -->
+<!-- interlayer_edges <- data.frame(node_from = c('R1','R2','C1'), layer_from = c(1,2,1), node_to = c('R4','C4','R1'), layer_to = c(2,1,2), weight = c(23,33,43)) -->
+<!-- tb<-create_multilayer_network(list(mat3, mat4), bipartite = TRUE, Directed = FALSE, isSupraMatrix = TRUE, Interlayer = interlayer_edges) -->
+<!-- #Input - list of intralayer edges. -->
+<!-- EdgeListB <- data.frame(from=c(1, 1, 2, 2, 2, 3, 3), to=c(4, 5, 6, 4, 5, 6, 5), weight=round(rnorm(7, 1, 0.2),2)) -->
+<!-- interlayer_edges_E <- data.frame(node_from = c('1','5','3'), layer_from = c(1,2,1), node_to = c('4','3','1'), layer_to = c(2,1,2), weight = c(23,33,43)) -->
+<!-- tb2_E<-create_multilayer_network(list(EdgeListB, EdgeListB), isMatrix = FALSE,bipartite = TRUE, Directed = FALSE, isSupraMatrix = TRUE, Interlayer = interlayer_edges_E) -->
+<!-- #Issue 52 - Allow input of layers and state nodes -->
+<!-- layersInput <- data.frame(layer_name = c('pond green','pond orange'), type = c('space','space')) -->
+<!-- networkULayers<-create_multilayer_network(list(mat2, mat3), layersData = layersInput, bipartite = FALSE, Directed = TRUE, isSupraMatrix = FALSE) -->
+<!-- networkBLayers<-create_multilayer_network(list(EdgeListB, EdgeListB), isMatrix = FALSE, layersData = layersInput, bipartite = TRUE, Directed = FALSE, isSupraMatrix = TRUE, Interlayer = interlayer_edges_E) -->
+<!-- ``` -->
+<p>```</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

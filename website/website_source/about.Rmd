@@ -1,0 +1,31 @@
+---
+title: ""
+output:
+  html_document: 
+    fig_height: 4
+    fig_width: 6
+    theme: cerulean
+    toc: false
+---
+
+# About
+The package and this website were developed by Noa Frydman, Itamar Talpaz, Shirly Freilikhman and Shai Pilosof, in the [Ecological Complexity Lab](https://ecomplab.com/), in Israel.
+
+The R package code is available on GitHub here: [https://github.com/Ecological-Complexity-Lab/emln](https://github.com/Ecological-Complexity-Lab/emln)
+
+# Grants
+
+- Israel Science Foundation (grant number 1281/20): "Ecological multilayer networks: advancing theory and methodology for understanding the complexity of ecological systems", awarded to Dr. Shai Pilosof.
+- Human Frontiers Science Program Organization (grant number RGY0064/2022) 
+
+# Feedback
+We welcome any feedback on the paper and this website! The best way to provide feedback is to open an issue on the GitHub repository of the package: [https://github.com/Ecological-Complexity-Lab/emln/issues](https://github.com/Ecological-Complexity-Lab/emln/issues).
+
+___
+
+```{r out.height="80px", out.extra='style="float:left, padding:10px"', echo=FALSE}
+knitr::include_graphics("logos.png")
+```
+
+
+

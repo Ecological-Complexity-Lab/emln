@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,space
+1,location,Isenbjerg
+1,latitude,56.066667
+1,longitude,9.266667
+1,num_of_species,205
+1,num_of_interactions,425
+1,connectance,0.12
+2,type,space
+2,location,Denmark
+2,latitude,56.1
+2,longitude,9.1
+2,num_of_species,266
+2,num_of_interactions,671
+2,connectance,0.095

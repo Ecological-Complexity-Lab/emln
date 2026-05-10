@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Visualizing multilayer networks</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">The EMLN package website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="monolayer.html">Monolayer</a>
+</li>
+<li>
+  <a href="multilayer.html">Multilayer</a>
+</li>
+<li>
+  <a href="data.html">Included data sets</a>
+</li>
+<li>
+  <a href="analysis_example.html">Analysis example</a>
+</li>
+<li>
+  <a href="plotting.html">Plotting emln</a>
+</li>
+<li>
+  <a href="about.html">About and feedback</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Visualizing multilayer networks</h1>
+
+</div>
+
+
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', '#8B0000', '1', 'Copy code', 'Copied!');
+</script>
+<pre class="r"><code>library(emln)</code></pre>
+<p>The <code>emln</code> package ships with an interactive
+<strong>Multilayer Network Visualizer</strong> — a browser-based web app
+for exploring multilayer networks in multiple views. You can launch it
+directly from R with <code>plot_multilayer()</code>, which starts a
+local server and opens the app in your browser. Alternatively, export
+your network to JSON or CSV and upload it to the <a
+href="https://mira.ecomplab.com/">standalone version of the app</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> The Multilayer Network Visualizer is currently
+in <strong>beta</strong>. Feedback and bug reports are welcome at the <a
+href="https://github.com/Ecological-Complexity-Lab/emln/issues">emln
+GitHub issues page</a>.</p>
+</blockquote>
+<div id="load-a-dataset" class="section level1">
+<h1>Load a dataset</h1>
+<p>We will use network 60 from the built-in emln dataset collection — a
+bipartite multilayer network. Load it with <code>load_emln()</code> and
+inspect its reference.</p>
+<pre class="r"><code>net &lt;- load_emln(60)
+net$references</code></pre>
+<pre><code>## # A tibble: 1 × 5
+##   doi                    author          year  paper_url                                                          data_url                               
+##   &lt;chr&gt;                  &lt;chr&gt;           &lt;lgl&gt; &lt;chr&gt;                                                              &lt;chr&gt;                                  
+## 1 10.1098/rspb.2014.2925 Trøjelsgaard K. NA    https://royalsocietypublishing.org/doi/full/10.1098/rspb.2014.2925 https://datadryad.org/stash/dataset/do…</code></pre>
+<p>The result is a <code>multilayer</code> object. Its three core tables
+are the physical nodes, the layers, and the extended edge list (one row
+per interaction, identified by the layer and node on each end).</p>
+<pre class="r"><code># Physical nodes (first few rows)
+head(net$nodes)</code></pre>
+<pre><code>## # A tibble: 6 × 5
+##   node_id node_name          type       taxa_verified verification_level
+##     &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;         &lt;chr&gt;             
+## 1       1 Attagenus_sp_1     pollinator TRUE          genus             
+## 2       2 Axinotarsus_sp_1   pollinator TRUE          genus             
+## 3       3 Chloropidae_sp     pollinator TRUE          family            
+## 4       4 Lucilia_sericata   pollinator TRUE          species           
+## 5       5 Nomioides_deceptor pollinator FALSE         &lt;NA&gt;              
+## 6       6 Sciaridae_sp       pollinator TRUE          family</code></pre>
+<pre class="r"><code># Layers
+net$layers</code></pre>
+<pre><code>## # A tibble: 14 × 5
+##    layer_id name                  latitude longitude layer_name
+##       &lt;int&gt; &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     
+##  1        1 Tenerife_Teno_site_1      28.4     -16.9 layer_1   
+##  2        2 Tenerife_Teno_site_2      28.4     -16.9 layer_2   
+##  3        3 Tenerife_South_site_2     28.2     -16.4 layer_3   
+##  4        4 Tenerife_South_site_1     28.2     -16.4 layer_4   
+##  5        5 Gran_Canaria_site_2       27.9     -15.4 layer_5   
+##  6        6 Gran_Canaria_site_1       27.9     -15.4 layer_6   
+##  7        7 Fuerteventura_site_2      28.6     -13.9 layer_7   
+##  8        8 Fuerteventura_site_1      28.6     -13.9 layer_8   
+##  9        9 Western_Sahara_site_2     26.2     -14.4 layer_9   
+## 10       10 Western_Sahara_site_1     26.2     -14.4 layer_10  
+## 11       11 El_Hierro_site_2          27.8     -17.9 layer_11  
+## 12       12 El_Hierro_site_1          27.8     -17.9 layer_12  
+## 13       13 La_Gomera_site_2          28.0     -17.2 layer_13  
+## 14       14 La_Gomera_site_1          28.0     -17.2 layer_14</code></pre>
+<pre class="r"><code># Extended edge list (first few rows)
+head(net$extended)</code></pre>
+<pre><code>##   layer_from             node_from layer_to            node_to weight        type
+## 1   layer_10 Asparagus_pastorianus layer_10     Attagenus_sp_1      2 pollination
+## 2   layer_10 Asparagus_pastorianus layer_10   Axinotarsus_sp_1      1 pollination
+## 3   layer_10 Asparagus_pastorianus layer_10     Chloropidae_sp      4 pollination
+## 4   layer_10 Asparagus_pastorianus layer_10   Lucilia_sericata     11 pollination
+## 5   layer_10 Asparagus_pastorianus layer_10 Nomioides_deceptor      4 pollination
+## 6   layer_10 Asparagus_pastorianus layer_10       Sciaridae_sp      2 pollination</code></pre>
+<p>Note that interlayer edges (where
+<code>layer_from != layer_to</code>) encode connections between layers,
+while intralayer edges (<code>layer_from == layer_to</code>) encode
+connections within a layer.</p>
+</div>
+<div id="interactive-visualization-with-plot_multilayer"
+class="section level1">
+<h1>Interactive visualization with <code>plot_multilayer()</code></h1>
+<p><code>plot_multilayer()</code> converts the multilayer object to
+JSON, starts a local HTTP server using <code>httpuv</code>, and opens
+the visualizer in your browser. The network data is held in memory —
+nothing is written to disk. The function returns the server handle,
+which you use to stop the server when you are done.</p>
+<p><strong>Important:</strong> <code>bipartite</code> is not
+auto-detected; you must set it explicitly. The <code>directed</code>
+argument defaults to <code>NULL</code> and is auto-detected from edge
+symmetry.</p>
+<pre class="r"><code># Open the visualizer in the browser
+srv &lt;- plot_multilayer(net, bipartite = TRUE, browser = &#39;Chrome&#39;)
+
+# When done, stop the local server
+httpuv::stopServer(srv)</code></pre>
+<p>The app opens at <code>http://localhost:8080?autoload=true</code>
+(the port increments automatically if 8080 is busy). It provides four
+main views:</p>
+<ul>
+<li><strong>Network view</strong> — a 3D stacked-layer canvas. Rotate,
+pan, drag nodes, zoom, and hover to inspect individual nodes and
+links.</li>
+<li><strong>Map view</strong> — layers positioned on an interactive
+world map when latitude and longitude coordinates are present in the
+layers table.</li>
+<li><strong>Layer view</strong> — a meta-graph where each layer is a
+bubble; click a bubble to open a side-by-side comparison of any two
+layers.</li>
+<li><strong>Dashboard view</strong> — analytics panels including degree
+distributions, link weight distributions, a presence/absence matrix
+across layers, a Jaccard similarity heatmap between layers, and
+more.</li>
+</ul>
+</div>
+<div id="export-to-json-with-multilayer_to_json" class="section level1">
+<h1>Export to JSON with <code>multilayer_to_json()</code></h1>
+<p>Use <code>multilayer_to_json()</code> to save your network as a JSON
+file compatible with the visualizer’s <strong>Import</strong> button.
+This is useful when you want to share the network, reload it later
+without re-running R, or upload it to the standalone app.</p>
+<pre class="r"><code>multilayer_to_json(net, file = &quot;net60.json&quot;, bipartite = TRUE)</code></pre>
+<p>If you omit <code>file</code>, the function returns the JSON string —
+useful for passing it to another function or inspecting the output
+programmatically.</p>
+<pre class="r"><code>json_str &lt;- multilayer_to_json(net, bipartite = TRUE)
+cat(substr(json_str, 1, 500))   # preview the first 500 characters</code></pre>
+<p>The JSON object contains four arrays that the visualizer expects:</p>
+<table>
+<colgroup>
+<col width="41%" />
+<col width="58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Array</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>nodes</code></td>
+<td>Physical nodes: <code>node_id</code>, <code>node_name</code>, and
+any extra node attributes</td>
+</tr>
+<tr class="even">
+<td><code>layers</code></td>
+<td>Layer metadata: <code>layer_id</code>, <code>layer_name</code>, and
+any extra layer attributes. For bipartite networks a
+<code>bipartite: true</code> flag is added.</td>
+</tr>
+<tr class="odd">
+<td><code>extended</code></td>
+<td>Extended edge list: <code>layer_from</code>, <code>node_from</code>,
+<code>layer_to</code>, <code>node_to</code>, <code>weight</code>, and
+any extra link attributes</td>
+</tr>
+<tr class="even">
+<td><code>state_nodes</code></td>
+<td>State node map: <code>layer_id</code>, <code>node_id</code>,
+<code>layer_name</code>, <code>node_name</code></td>
+</tr>
+</tbody>
+</table>
+<p>A top-level <code>directed</code> flag is set automatically based on
+edge symmetry (unless you override it with the <code>directed</code>
+argument).</p>
+</div>
+<div id="export-to-csv-with-multilayer_to_csv" class="section level1">
+<h1>Export to CSV with <code>multilayer_to_csv()</code></h1>
+<p>If you prefer a tabular format, <code>multilayer_to_csv()</code>
+writes three or four CSV files to a directory of your choice, following
+the schema accepted by the visualizer’s CSV importer.</p>
+<pre class="r"><code>multilayer_to_csv(net, dir = &quot;out/&quot;, prefix = &quot;net60&quot;, bipartite = TRUE)</code></pre>
+<p>The files written are:</p>
+<table>
+<colgroup>
+<col width="37%" />
+<col width="62%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>net60_edges.csv</code></td>
+<td>Extended edge list: <code>layer_from</code>, <code>node_from</code>,
+<code>layer_to</code>, <code>node_to</code>, <code>weight</code>, plus
+any extra link attributes</td>
+</tr>
+<tr class="even">
+<td><code>net60_layers.csv</code></td>
+<td>Layer metadata: <code>layer_id</code>, <code>layer_name</code>, plus
+any extra layer attributes (and a <code>bipartite</code> column for
+bipartite networks)</td>
+</tr>
+<tr class="odd">
+<td><code>net60_nodes.csv</code></td>
+<td>Physical node attributes: <code>node_name</code>,
+<code>node_type</code>, plus any extras that are constant across
+layers</td>
+</tr>
+<tr class="even">
+<td><code>net60_state_nodes.csv</code></td>
+<td>Per-(layer, node) attributes such as abundance or module membership
+— <strong>written only when such attributes exist</strong> in the
+multilayer object</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>directed</code> flag is not stored in the CSV files. You
+specify it in the visualizer’s CSV import dialog at load time.</p>
+<p>To import the CSV files, open the visualizer, click <strong>Import
+CSV</strong>, select your three (or four) files, and confirm the
+<code>directed</code> setting.</p>
+</div>
+<div id="using-the-standalone-visualizer" class="section level1">
+<h1>Using the standalone visualizer</h1>
+<p>The visualizer is also available as a standalone web app at <a
+href="https://mira.ecomplab.com/">https://mira.ecomplab.com/</a> — no R
+session required. Export your network to JSON or CSV from R, then upload
+it there to share or explore it in any browser.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

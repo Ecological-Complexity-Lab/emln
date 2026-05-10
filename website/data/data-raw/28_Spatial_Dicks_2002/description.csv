@@ -1,0 +1,8 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Spatial
+description,Study the compartmentalization in plants-insects webs in two sites.
+source,Web_of_Life
+data_url,http://www.web-of-life.es/map.php?type=6
+ecological_network_type,Pollination
+state_nodes,TRUE

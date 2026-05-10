@@ -1,0 +1,49 @@
+layer,attribute,value
+1,date,01/01/1993
+1,directed,TRUE
+1,environment,bare sediment ecosystem
+1,latitude,40.141109
+1,location,"Mondego bay estuary,Portugal"
+1,longitude,-8.856905
+1,type,time
+1,type,environment
+2,date,01/01/1993
+2,directed,TRUE
+2,environment,Zoostera ecosystem
+2,latitude,40.141109
+2,location,"Mondego bay estuary,Portugal"
+2,longitude,-8.856905
+2,type,time
+2,type,environment
+3,date,01/01/1999
+3,directed,TRUE
+3,environment,Zoostera ecosystem
+3,latitude,40.141109
+3,location,"Mondego bay estuary,Portugal"
+3,longitude,-8.856905
+3,type,time
+3,type,environment
+4,date,01/01/1999
+4,directed,TRUE
+4,environment,bare sediment ecosystem
+4,latitude,40.141109
+4,location,"Mondego bay estuary,Portugal"
+4,longitude,-8.856905
+4,type,time
+4,type,environment
+5,date,01/01/2001
+5,directed,TRUE
+5,environment,bare sediment ecosystem
+5,latitude,40.141109
+5,location,"Mondego bay estuary,Portugal"
+5,longitude,-8.856905
+5,type,time
+5,type,environment
+6,date,01/01/2001
+6,directed,TRUE
+6,environment,Zoostera ecosystem
+6,latitude,40.141109
+6,location,"Mondego bay estuary,Portugal"
+6,longitude,-8.856905
+6,type,time
+6,type,environment

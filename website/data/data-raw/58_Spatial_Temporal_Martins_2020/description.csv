@@ -1,0 +1,9 @@
+attribute,value
+data_entry,noa_frydman
+multilayer_network_type,Spatial
+multilayer_network_type,Temporal
+description,"Here, we used a spatial-temporal system comprising asteraceous plants and flower head herbivores from remnants of Brazilian Cerrado to investigate whether the relationship between spatial beta-diversity of species and network structural dissimilarity changes over time."
+source,Dryad
+data_url,https://doi.org/10.5061/dryad.vmcvdncq0
+ecological_network_type,Plant-Herbivore
+state_nodes,TRUE

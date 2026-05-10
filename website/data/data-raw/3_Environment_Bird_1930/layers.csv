@@ -1,0 +1,29 @@
+layer,attribute,value
+1,type,environment
+1,name,The biotic interactions of the prairie community
+1,location,"Aspen Parkland, North America"
+1,latitude,50.4218
+1,longitude,-101.046
+1,date,01/01/1928
+1,directed,TRUE
+2,type,environment
+2,name,The biotic interactions of the aspen community
+2,location,"Aspen Parkland, North America"
+2,latitude,50.4218
+2,longitude,-101.046
+2,date,01/01/1928
+2,directed,TRUE
+3,type,environment
+3,name,The biotic interactions of all communities
+3,location,"Aspen Parkland, North America"
+3,latitude,50.4218
+3,longitude,-101.046
+3,date,01/01/1928
+3,directed,TRUE
+4,type,environment
+4,name,The biotic interactions of the willow community
+4,location,"Aspen Parkland, North America"
+4,latitude,50.4218
+4,longitude,-101.046
+4,date,01/01/1928
+4,directed,TRUE

@@ -1,0 +1,15 @@
+layer,attribute,value
+1,type,environment
+1,name,Heliconia wagneriana
+1,location,"Peninsula de Osa, Costa Rica"
+1,latitude,8.7068775
+1,longitude,-83.48878
+1,date,01/07/1970
+1,directed,TRUE
+2,type,environment
+2,name,Heliconia imbricata
+2,location,"Peninsula de Osa, Costa Rica"
+2,latitude,8.7068775
+2,longitude,-83.48878
+2,date,01/07/1970
+2,directed,TRUE

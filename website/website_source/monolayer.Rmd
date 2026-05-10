@@ -1,0 +1,143 @@
+---
+title: "Handling monolayer network data"
+output:
+  html_document: 
+    fig_height: 4
+    fig_width: 6
+    theme: cerulean
+    code_folding: show
+    toc: true
+    toc_float:
+      collapsed: false
+      number_sections: true
+---
+
+
+```{r klippy, echo=FALSE, include=TRUE}
+# Use this to add a copy-code buttong
+klippy::klippy(position = c('top', 'right'), color = 'darkred')
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, message=FALSE, warning=FALSE, cache=FALSE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(emln)
+library(igraph)
+library(tidyverse)
+library(bipartite)
+library(magrittr)
+```
+
+
+We provide examples with simulated toy networks and with real data to create an object of class `monolayer`. See help (`?monolayer`) to learn more about this class 
+
+# Unipartite 
+
+We start with a toy example. We generate a 3x3 matrix with random weighted interactions.
+
+```{r monolayer_uni_1}
+n <- 3
+adjacency_matrix <- matrix(round(runif(n*n,1,5),0), ncol = n, dimnames = list(paste0("A", 1:n), paste0("A", 1:n)))
+
+# Convert a matrix to a monolayer object
+matrix_to_list_unipartite(adjacency_matrix, directed = TRUE)
+```
+
+Now let's see a toy example for converting a link list.
+
+```{r monolayer_uni_2}
+# Generate a data frame with random links
+link_list_unipartite <- data.frame(from=c("A1", "A1", "A1", "A2", "A2", "A2", "A3", "A3","A3"), to=c("A1", "A2", "A3", "A1", "A2", "A3", "A1", "A2","A3"), weight=round(runif(n*n,1,5),0))
+
+list_to_matrix(link_list_unipartite, directed = TRUE, bipartite = FALSE)
+```
+
+To illustrate working with real data we will use a binary directed marine food web from [Jacob, Ute, Aaron Thierry, Ulrich Brose, Wolf E. Arntz, Sofia Berg, Thomas Brey, Ingo Fetzer, et al. 2011. “The Role of Body Size in Complex Food Webs: A Cold Case.” In Advances in Ecological Research, edited by Andrea Belgrano, 45:181–223. Academic Press.](https://www.sciencedirect.com/science/article/pii/B9780123864758000058) Kongsfjorden is a glacial fjord on the northwest corner of the Svalbard archipelago. It is a 30 km open fjord with no marked sill at the entrance, and with a maximum depth exceeding 300 m. The network consists of 262 species with 1,544 feeding interactions. **Note the warning messages**; these are OK for this data set.
+
+**These data are organized as a link list, so it is possible to include node attributes.**
+
+
+```{r monolayer_uni_data_1}
+# The data is included in the infomapecology package
+data("kongsfjorden_links", package = 'infomapecology')
+data("kongsfjorden_nodes", package = 'infomapecology')
+nodes <- kongsfjorden_nodes %>%
+  select(node_name=Species, node_id_original=NodeID, everything())
+
+interactions <- kongsfjorden_links %>%
+  select(from=consumer, to=resource) %>%
+  mutate_if(is.factor, as.character) %>%
+  mutate(weight=1)
+
+monolayer_unipartite <- list_to_matrix(x=interactions, directed = T, bipartite = F, node_metadata = nodes)
+
+head(monolayer_unipartite$nodes)
+
+head(monolayer_unipartite$edge_list)
+```
+
+Now let's take the matrix we obtained as an example, and create a monolayer object from a matrix.
+
+```{r monolayer_uni_data_2}
+kongsfjorden_matrix <- monolayer_unipartite$mat
+monolayer_unipartite <- matrix_to_list_unipartite(x = kongsfjorden_matrix, directed = T)
+```
+
+
+
+# Bipartite
+
+We start with a toy example. We generate a random incidence matrix with dimensions P X A. Bipartite networks have two sets of nodes with no overlap between the sets.
+
+```{r monolayer_bip_1}
+# Case "Bipartite networks"
+# 
+P <- 4 # 4 rows
+A <- 3 # 3 columns
+incidence_matrix <- matrix(round(runif(P*A,1,5),0), ncol = A, dimnames = list(paste0("P", 1:P), paste0("A", 1:A)))
+
+# Convert an matrix to an edge list for bipartite network
+matrix_to_list_bipartite(incidence_matrix, group_names = c('A_set', 'P_set'))$edge_list
+```
+
+To demonstrate real data we use the incidence matrix olesen2002flores included in the bipartite package.
+
+```{r monolayer_bip_2}
+# create a monolayer object from a bipartite matrix
+monolayer_bipartite <- matrix_to_list_bipartite(x = olesen2002flores, group_names = c('Pollinator', 'Plant'))
+
+# What is included in the monolayer class object
+names(monolayer_bipartite)
+
+# The nodes in the network
+monolayer_bipartite$nodes
+
+# The link (edge) list
+monolayer_bipartite$edge_list
+
+# An igraph object is also created
+monolayer_bipartite$igraph_object
+```
+
+We can also convert a link list to a monolayer object.
+
+```{r monolayer_bip_3}
+ll <- monolayer_bipartite$edge_list
+monolayer_bipartite_2 <- list_to_matrix(ll, bipartite = T, group_names = c('Pollinator', 'Plant'))
+```
+
+
+# Function `create_monolayer_network`
+
+This function is a wrapper for the `matrix_to_list_unipartite`, `matrix_to_list_bipartite`, and `list_to_matrix` functions. It is convenient because it automatically selects the input type.
+
+```{r create_monolayer_network}
+#Input is a link list
+monolayer_unipartite <- create_monolayer_network(x=interactions, directed = T, bipartite = F, node_metadata = nodes)
+
+# Input is a matrix
+bipartite_monolayer <- create_monolayer_network(x = olesen2002flores, group_names = c('Pollinator', 'Plant'), bipartite = T)
+```
+

@@ -1,0 +1,19 @@
+layer,attribute,value
+1,type,space
+1,location,"Parana, Brazil"
+1,latitude,-24.4842187
+1,longitude,-51.8148872
+1,num_of_species,40
+1,num_of_interactions,185
+1,connectance,0.237
+1,year,1992-1995
+1,directed,TRUE
+2,type,space
+2,location,"Cerrado River, Brazil"
+2,latitude,-24.0469624
+2,longitude,-49.3478448
+2,num_of_species,14
+2,num_of_interactions,38
+2,connectance,0.418
+2,year,2003-2005
+2,directed,TRUE

@@ -1,0 +1,17 @@
+layer,attribute,value
+1,name,A_PH_004
+1,type,space
+1,species,74
+1,location,"Altuda, Trans-Pecos, Texas"
+1,interactions,184
+1,connectance,0.161
+1,latitude,30.3025799
+1,longitude,-103.4558401
+2,name,A_PH_005
+2,type,space
+2,species,78
+2,location,"Marathon, Trans-Pecos, Texas"
+2,interactions,173
+2,connectance,0.133
+2,latitude,30.206431
+2,longitude,-103.245385
