@@ -348,7 +348,7 @@ div.tocify {
   <a href="analysis_example.html">Analysis example</a>
 </li>
 <li>
-  <a href="plotting.html">Plotting with MiRa</a>
+  <a href="plotting.html">Plotting with MiRA</a>
 </li>
 <li>
   <a href="about.html">About and feedback</a>
@@ -1209,9 +1209,9 @@ The <code>sn_id</code> corresponds to that in the
 <pre class="r"><code>g_layers &lt;- get_igraph(multilayer_unip_attributes, bipartite = F, directed = T)</code></pre>
 <p>Let’s look at one layer as an example.</p>
 <pre class="r"><code>g_layers$layers_igraph[[2]]</code></pre>
-<pre><code>## IGRAPH ff1da96 DNW- 3 2 -- 
+<pre><code>## IGRAPH 894132d DNW- 3 2 -- 
 ## + attr: name (v/c), layer_id (v/n), node_id (v/n), weight (e/n), method (e/c)
-## + edges from ff1da96 (vertex names):
+## + edges from 894132d (vertex names):
 ## [1] fish-&gt;pelican crab-&gt;fish</code></pre>
 <p>The state nodes are listed below. Note that they include the
 attributes of the physical nodes (order in this example), and that all
@@ -1282,9 +1282,9 @@ vertex.attributes(g_layers$layers_igraph[[3]])</code></pre>
 <pre class="r"><code>g_layers_bip &lt;- get_igraph(multilayer = multilayer_bip_toy, bipartite = T, directed = F)
 l2 &lt;- g_layers_bip$layers_igraph[[2]]
 l2</code></pre>
-<pre><code>## IGRAPH 3b96a6b UNWB 9 11 -- 
+<pre><code>## IGRAPH e8c2ea0 UNWB 9 11 -- 
 ## + attr: name (v/c), layer_id (v/n), node_id (v/n), type (v/l), weight (e/n)
-## + edges from 3b96a6b (vertex names):
+## + edges from e8c2ea0 (vertex names):
 ##  [1] H1--P1 H1--P3 H1--P4 H2--P1 H2--P2 H3--P1 H3--P3 H3--P4 H4--P1 H4--P2 H5--P1</code></pre>
 <pre class="r"><code>vertex.attributes(l2)</code></pre>
 <pre><code>## $name

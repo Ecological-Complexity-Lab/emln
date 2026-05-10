@@ -348,7 +348,7 @@ div.tocify {
   <a href="analysis_example.html">Analysis example</a>
 </li>
 <li>
-  <a href="plotting.html">Plotting with MiRa</a>
+  <a href="plotting.html">Plotting with MiRA</a>
 </li>
 <li>
   <a href="about.html">About and feedback</a>
@@ -383,7 +383,8 @@ div.tocify {
   addKlippy('right', 'top', '#8B0000', '1', 'Copy code', 'Copied!');
 </script>
 <pre class="r"><code>library(emln)</code></pre>
-<p>The <code>emln</code> package ships with MiRa, an interactive
+<p><img src="MiRA_logo.svg" alt="MiRA logo" style="float:right; width:100px; margin-left:20px; margin-right:5px; margin-bottom:10px;" /></p>
+<p>The <code>emln</code> package ships with MiRA, an interactive
 <strong>Multilayer Network Visualizer</strong> — a browser-based web app
 for exploring multilayer networks in multiple views. You can launch it
 directly from R with <code>plot_multilayer()</code>, which starts a
@@ -391,17 +392,16 @@ local server and opens the app in your browser. Alternatively, export
 your network to JSON or CSV and upload it to the <a
 href="https://mira.ecomplab.com/">standalone version of the app</a>.</p>
 <blockquote>
-<p><strong>Note:</strong> MiRA is currently in <strong>beta</strong>.
-Feedback and bug reports are welcome at the <a
+<p><strong>Note:</strong> Feedback and bug reports for MiRA are welcome
+at the <a
 href="https://github.com/Ecological-Complexity-Lab/MiRA/issues">MiRA
 GitHub issues page</a>.</p>
 </blockquote>
 <p>If you use MiRA in published research, please cite: Nehorai S, Bloch
 Y and Pilosof S. <em>Interactively visualizing biological multilayer
 networks using MiRA.</em> (forthcoming)</p>
-<div id="interactive-visualization-with-plot_multilayer"
-class="section level1">
-<h1>Interactive visualization with <code>plot_multilayer()</code></h1>
+<div id="interactive-visualization" class="section level1">
+<h1>Interactive visualization</h1>
 <p><code>plot_multilayer()</code> converts the multilayer object to
 JSON, starts a local HTTP server using <code>httpuv</code>, and opens
 MiRA in your browser. The network data is held in memory — nothing is
@@ -425,7 +425,7 @@ If <code>NULL</code> (default), it inherits the value of
 <code>directed</code>.</li>
 </ul>
 <pre class="r"><code># Load data
-net &lt;- load_emln(60)
+net &lt;- load_emln(65)
 
 # Open MiRA in the browser
 srv &lt;- plot_multilayer(net, bipartite = TRUE, setA_type = &quot;pollinator&quot;, browser = &#39;Chrome&#39;)
@@ -461,8 +461,8 @@ and layer attributes; supports filtering, subsetting, and CSV export
 directly from the browser.</li>
 </ul>
 </div>
-<div id="export-to-json-with-multilayer_to_json" class="section level1">
-<h1>Export to JSON with <code>multilayer_to_json()</code></h1>
+<div id="export-to-json" class="section level1">
+<h1>Export to JSON</h1>
 <p>Use <code>multilayer_to_json()</code> to save your network as a JSON
 file compatible with the visualizer’s <strong>Import</strong> button.
 This is useful when you want to share the network, reload it later
@@ -518,8 +518,8 @@ symmetry unless overridden; <code>directed_interlayer</code> is written
 only when set explicitly, and defaults to inheriting from
 <code>directed</code>.</p>
 </div>
-<div id="export-to-csv-with-multilayer_to_csv" class="section level1">
-<h1>Export to CSV with <code>multilayer_to_csv()</code></h1>
+<div id="export-to-csv" class="section level1">
+<h1>Export to CSV</h1>
 <p>If you prefer a tabular format, <code>multilayer_to_csv()</code>
 writes three or four CSV files to a directory of your choice, following
 the schema accepted by the visualizer’s CSV importer.</p>

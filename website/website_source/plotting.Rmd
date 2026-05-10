@@ -26,14 +26,16 @@ knitr::opts_chunk$set(echo = T, message=FALSE, warning=FALSE, cache=FALSE)
 library(emln)
 ```
 
-The `emln` package ships with MiRa, an interactive **Multilayer Network Visualizer** — a browser-based web app for exploring multilayer networks in multiple views. You can launch it directly from R with `plot_multilayer()`, which starts a local server and opens the app in your browser. Alternatively, export your network to JSON or CSV and upload it to the [standalone version of the app](https://mira.ecomplab.com/).
+<img src="MiRA_logo.svg" alt="MiRA logo" style="float:right; width:100px; margin-left:20px; margin-right:5px; margin-bottom:10px;" />
 
-> **Note:** MiRA is currently in **beta**. Feedback and bug reports are welcome at the [MiRA GitHub issues page](https://github.com/Ecological-Complexity-Lab/MiRA/issues).
+The `emln` package ships with MiRA, an interactive **Multilayer Network Visualizer** — a browser-based web app for exploring multilayer networks in multiple views. You can launch it directly from R with `plot_multilayer()`, which starts a local server and opens the app in your browser. Alternatively, export your network to JSON or CSV and upload it to the [standalone version of the app](https://mira.ecomplab.com/).
+
+> **Note:** Feedback and bug reports for MiRA are welcome at the [MiRA GitHub issues page](https://github.com/Ecological-Complexity-Lab/MiRA/issues).
 
 If you use MiRA in published research, please cite: Nehorai S, Bloch Y and Pilosof S. *Interactively visualizing biological multilayer networks using MiRA.* (forthcoming)
 
 
-# Interactive visualization with `plot_multilayer()`
+# Interactive visualization
 
 `plot_multilayer()` converts the multilayer object to JSON, starts a local HTTP server using `httpuv`, and opens MiRA in your browser. The network data is held in memory — nothing is written to disk. The function returns the server handle, which you use to stop the server when you are done.
 
@@ -46,7 +48,7 @@ Two additional optional arguments are worth knowing:
 
 ```{r plot_multilayer, eval=FALSE}
 # Load data
-net <- load_emln(60)
+net <- load_emln(65)
 
 # Open MiRA in the browser
 srv <- plot_multilayer(net, bipartite = TRUE, setA_type = "pollinator", browser = 'Chrome')
@@ -65,7 +67,7 @@ The app opens at `http://localhost:8080?autoload=true` (the port increments auto
 - **Dashboard mode** — analytics panels including degree distributions, link weight distributions, a presence/absence matrix across layers, a Jaccard similarity heatmap between layers, and more.
 - **Data mode** — a tabular inspector for nodes, links, and layer attributes; supports filtering, subsetting, and CSV export directly from the browser.
 
-# Export to JSON with `multilayer_to_json()`
+# Export to JSON
 
 Use `multilayer_to_json()` to save your network as a JSON file compatible with the visualizer's **Import** button. This is useful when you want to share the network, reload it later without re-running R, or upload it to the standalone app.
 
@@ -91,7 +93,7 @@ The JSON object contains four arrays that the visualizer expects:
 
 Two top-level flags control edge directionality: `directed` (intralayer) is set automatically from edge symmetry unless overridden; `directed_interlayer` is written only when set explicitly, and defaults to inheriting from `directed`.
 
-# Export to CSV with `multilayer_to_csv()`
+# Export to CSV
 
 If you prefer a tabular format, `multilayer_to_csv()` writes three or four CSV files to a directory of your choice, following the schema accepted by the visualizer's CSV importer.
 
