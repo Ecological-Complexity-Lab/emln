@@ -170,6 +170,10 @@ Next, we use `infomap` with `infomapecology` to detect modules. We first prepare
 
 _Note that the function `create_multilayer_object` prepares a multilayer object for `infomapecology`. Future versions of `infomapecology` will directly use the multilayer object created by the EMLN package._
 
+```{r download infomap, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+install_infomap()
+```
+
 ```{r infomap with infomapecology,echo=TRUE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
 emln_65_modularity <- run_infomap_multilayer(M = emln_65,
                                                relax = T, silent = TRUE,
@@ -178,6 +182,11 @@ emln_65_modularity <- run_infomap_multilayer(M = emln_65,
                                                multilayer_relax_limit_up = 1,
                                                multilayer_relax_limit_down = 0,
                                                temporal_network = T)
+```
+
+```{r ramove infomap, echo=FALSE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
+unlink('Infomap', force = FALSE)
+unlink('Infomap.zip', force = FALSE)
 ```
 
 Let's take a look at the modules.
