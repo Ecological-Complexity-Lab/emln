@@ -120,7 +120,7 @@ eigen_sam <- igraph::eigen_centrality(graph_sam, directed = T, scale = T)$vector
 
 We visualize the correlation between the two sets of scores using a scatter plot. The scatter plot was created by merging the scores into a data frame called `ec_comparison` and using the `ggplot2` package. The x-axis and y-axis represent the multilayer and monolayer scores, respectively. The function `geom_abline()` adds a reference line to the scatter plot. Nodes that fall on this line have the same score in a monolayer and a multilayer context.
 
-```{r plotting eigenvector comparison,echo=TRUE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
+```{r plotting_eigenvector_comparison,echo=TRUE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
 # merge to data frame eigenvector comparison
 ec_comparison <- data.frame(eigen_sam, eigen_igraph)
 colnames(ec_comparison) <- c("multilayer","monolayer")
@@ -202,7 +202,7 @@ emln_65_modularity$modules %>%
 
 As this is a temporal network, we can observe module persistence and its temporal dynamics. we plot the changes in each module's size over time.
 
-```{r plotting Module persistence,echo=TRUE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
+```{r plotting_Module_persistence,echo=TRUE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
 # Module' persistence
 plot_multilayer_modules(emln_65_modularity, type = 'rectangle', color_modules = T)+
   scale_x_continuous(breaks=seq(0,6,1))+
@@ -221,7 +221,7 @@ Note that in the first layers there are 4 modules that do not persist. Than, in 
 
 We can also visualize the modular structure over time by plotting the species flow through modules. In this visualization, modules are represented by colors, the size of rectangles indicates the number of species in each module, and curved lines depict species moving between layers (time periods).
 
-```{r plotting Species flow,echo=TRUE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
+```{r plotting_Species_flow,echo=TRUE, eval=TRUE, include=TRUE, message=FALSE, warning=FALSE}
 # Species flow through modules in time
 plot_multilayer_alluvial(emln_65_modularity, module_labels = F)+
   scale_x_continuous(breaks=seq(0,6,1))+

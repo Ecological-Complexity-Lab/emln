@@ -36,7 +36,7 @@ library(magrittr)
 
 We start with a toy example using Fig. 1A from the paper shown below.
 
-![](unipartite_multilayer_For Rmd.png)
+![](unipartite_multilayer_For_Rmd.png)
 
 
 ```{r emln_fig1A_1}
@@ -282,7 +282,7 @@ library(readxl)
 # Import layers
 Sierras_matrices <- NULL
 for (layer in 1:12){
-  d <- suppressMessages(read_excel('Gilarranz2014_Datos Sierras.xlsx', sheet = layer+2))
+  d <- suppressMessages(read_excel('Gilarranz2014_Datos_Sierras.xlsx', sheet = layer+2))
   web <- data.matrix(d[,2:ncol(d)])
   rownames(web) <- as.data.frame(d)[,1]
   web[is.na(web)] <- 0
@@ -294,7 +294,7 @@ sapply(Sierras_matrices, dim)
 
 # Layer attribute table
 layer_attrib <- tibble(layer_id=1:12,
-                     layer_name=excel_sheets('Gilarranz2014_Datos Sierras.xlsx')[3:14])
+                     layer_name=excel_sheets('Gilarranz2014_Datos_Sierras.xlsx')[3:14])
 
 multilayer_sierras <- create_multilayer_network(list_of_layers = Sierras_matrices, bipartite = T, directed = F, layer_attributes = layer_attrib)
 ```
@@ -344,7 +344,7 @@ A SAM is convenient for matrix operations. See a [visual guide](https://github.c
 
 Let's take take the toy unipartite network first. This is a directed network.
 
-![](unipartite_multilayer_For Rmd.png)
+![](unipartite_multilayer_For_Rmd.png)
 
 ```{r}
 # Order the physical nodes as in the image for convenience

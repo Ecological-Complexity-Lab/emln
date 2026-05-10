@@ -516,7 +516,7 @@ ggplot(data = ec_comparison, aes(monolayer, multilayer)) +
         axis.text = element_text(color=&#39;black&#39;,size = 10),
         legend.text =  element_text(size=15),
         legend.title = element_text(size=20))</code></pre>
-<p><img src="analysis_example_files/figure-html/plotting%20eigenvector%20comparison-1.png" width="576" /></p>
+<p><img src="analysis_example_files/figure-html/plotting_eigenvector_comparison-1.png" width="576" /></p>
 <p>The deviation of the points from the reference line indicates a lack
 of correlation between the two centrality scores. We see that the
 majority of the nodes that are important in a monolayer, lose this
@@ -645,7 +645,7 @@ plot_multilayer_modules(emln_65_modularity, type = &#39;rectangle&#39;, color_mo
         axis.text = element_text(size = 20),
         legend.text =  element_text(size=15),
         legend.title = element_text(size=20))</code></pre>
-<p><img src="analysis_example_files/figure-html/plotting%20Module%20persistence-1.png" width="576" /></p>
+<p><img src="analysis_example_files/figure-html/plotting_Module_persistence-1.png" width="576" /></p>
 <p>Note that in the first layers there are 4 modules that do not
 persist. Than, in the second layer modules emerge that persist, some
 until the 6th layer.</p>
@@ -664,7 +664,7 @@ plot_multilayer_alluvial(emln_65_modularity, module_labels = F)+
         panel.grid = element_blank(),
         axis.text = element_text(color=&#39;black&#39;, size = 20),
         axis.title = element_text(size=20))</code></pre>
-<p><img src="analysis_example_files/figure-html/plotting%20Species%20flow-1.png" width="576" /></p>
+<p><img src="analysis_example_files/figure-html/plotting_Species_flow-1.png" width="576" /></p>
 <p>This visual representation of how species transition between modules
 over time helps us gain insights into the dynamics of species
 communities.</p>

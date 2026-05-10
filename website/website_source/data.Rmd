@@ -223,7 +223,7 @@ ggplot(multi_eco, aes(x=multi_type,y=n, fill=eco_type)) +
 
 The data is distributed globally:
 
-```{r Map Visualization, echo=FALSE}
+```{r Map_Visualization, echo=FALSE}
 latitudes<-NULL
 longitudes<-NULL
 coord <- NULL
