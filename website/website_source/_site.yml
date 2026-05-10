@@ -13,6 +13,8 @@ navbar:
       href: data.html
     - text: "Analysis example"
       href: analysis_example.html
+    - text: "Plotting emln"
+      href: plotting.html
     - text: "About and feedback"
       href: about.html
 logo:

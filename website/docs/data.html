@@ -348,6 +348,9 @@ div.tocify {
   <a href="analysis_example.html">Analysis example</a>
 </li>
 <li>
+  <a href="plotting.html">Plotting emln</a>
+</li>
+<li>
   <a href="about.html">About and feedback</a>
 </li>
       </ul>
@@ -428,8 +431,8 @@ To search for a network with a certain set of parameters, you can use
 <code>search_emln()</code>. Here are a few examples.</p>
 <pre class="r"><code>search_1 &lt;- search_emln(ecological_network_type = &#39;Host-parasite&#39;)
 names(search_1)</code></pre>
-<pre><code>##  [1] &quot;network_id&quot;              &quot;network_name&quot;            &quot;ecological_network_type&quot; &quot;multilayer_network_type&quot; &quot;state_nodes&quot;             &quot;weighted&quot;               
-##  [7] &quot;directed&quot;                &quot;interlayer&quot;              &quot;layer_num&quot;               &quot;node_num&quot;</code></pre>
+<pre><code>##  [1] &quot;network_id&quot;              &quot;network_name&quot;            &quot;ecological_network_type&quot; &quot;multilayer_network_type&quot; &quot;state_nodes&quot;            
+##  [6] &quot;weighted&quot;                &quot;directed&quot;                &quot;interlayer&quot;              &quot;layer_num&quot;               &quot;node_num&quot;</code></pre>
 <pre class="r"><code># Show some of the columns
 search_1 %&gt;% select(&quot;network_id&quot;,&quot;network_name&quot;,&quot;ecological_network_type&quot;,&quot;multilayer_network_type&quot;,&quot;layer_num&quot;)</code></pre>
 <pre><code>## # A tibble: 6 × 5
@@ -458,20 +461,21 @@ search_2 %&gt;% select(&quot;network_id&quot;,&quot;network_name&quot;,&quot;eco
 search_emln(state_nodes = TRUE)</code></pre>
 <pre><code>## # A tibble: 12 × 10
 ## # Groups:   network_id, network_name [11]
-##    network_id network_name                          ecological_network_type multilayer_network_type state_nodes weighted directed interlayer layer_num node_num
-##         &lt;dbl&gt; &lt;chr&gt;                                 &lt;chr&gt;                   &lt;chr&gt;                   &lt;chr&gt;       &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;          &lt;dbl&gt;    &lt;dbl&gt;
-##  1          6 emln6_environment_kohler_2011         Pollination             Environment             TRUE        TRUE     FALSE    FALSE              3       31
-##  2         23 emln23_spatial_canadian_fish_parasite Host-Parasite           Spatial                 TRUE        TRUE     FALSE    FALSE             12      311
-##  3         28 emln28_spatial_dicks_2002             Pollination             Spatial                 TRUE        TRUE     FALSE    FALSE              2      102
-##  4         30 emln30_spatial_elberling_1999         Pollination             Spatial                 TRUE        FALSE    FALSE    FALSE              2      241
-##  5         33 emln33_spatial_hadfield_2013          Host-Parasite           Spatial                 TRUE        TRUE     FALSE    FALSE             51      327
-##  6         36 emln36_spatial_joern_1979             Plant-Herbivore         Spatial                 TRUE        FALSE    FALSE    FALSE              2      105
-##  7         39 emln39_spatial_leather_1991           Plant-Herbivore         Spatial                 TRUE        FALSE    FALSE    FALSE              2      112
-##  8         43 emln43_spatial_montero_2005           Pollination             Spatial                 TRUE        FALSE    FALSE    FALSE              3      173
-##  9         51 emln51_spatial_primack_1983           Pollination             Spatial                 TRUE        FALSE    FALSE    FALSE              3      305
-## 10         54 emln54_spatial_snow_b_k_snow_1988     Pollination             Spatial                 TRUE        TRUE     FALSE    FALSE              2       89
-## 11         58 emln58_spatial_temporal_martins_2020  Plant-Herbivore         Spatial                 TRUE        TRUE     FALSE    FALSE             30      149
-## 12         58 emln58_spatial_temporal_martins_2020  Plant-Herbivore         Temporal                TRUE        TRUE     FALSE    FALSE             30      149</code></pre>
+##    network_id network_name                      ecological_network_t…¹ multilayer_network_t…² state_nodes weighted directed interlayer layer_num node_num
+##         &lt;dbl&gt; &lt;chr&gt;                             &lt;chr&gt;                  &lt;chr&gt;                  &lt;chr&gt;       &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+##  1          6 emln6_environment_kohler_2011     Pollination            Environment            TRUE        TRUE     FALSE    FALSE              3       31
+##  2         23 emln23_spatial_canadian_fish_par… Host-Parasite          Spatial                TRUE        TRUE     FALSE    FALSE             12      311
+##  3         28 emln28_spatial_dicks_2002         Pollination            Spatial                TRUE        TRUE     FALSE    FALSE              2      102
+##  4         30 emln30_spatial_elberling_1999     Pollination            Spatial                TRUE        FALSE    FALSE    FALSE              2      241
+##  5         33 emln33_spatial_hadfield_2013      Host-Parasite          Spatial                TRUE        TRUE     FALSE    FALSE             51      327
+##  6         36 emln36_spatial_joern_1979         Plant-Herbivore        Spatial                TRUE        FALSE    FALSE    FALSE              2      105
+##  7         39 emln39_spatial_leather_1991       Plant-Herbivore        Spatial                TRUE        FALSE    FALSE    FALSE              2      112
+##  8         43 emln43_spatial_montero_2005       Pollination            Spatial                TRUE        FALSE    FALSE    FALSE              3      173
+##  9         51 emln51_spatial_primack_1983       Pollination            Spatial                TRUE        FALSE    FALSE    FALSE              3      305
+## 10         54 emln54_spatial_snow_b_k_snow_1988 Pollination            Spatial                TRUE        TRUE     FALSE    FALSE              2       89
+## 11         58 emln58_spatial_temporal_martins_… Plant-Herbivore        Spatial                TRUE        TRUE     FALSE    FALSE             30      149
+## 12         58 emln58_spatial_temporal_martins_… Plant-Herbivore        Temporal               TRUE        TRUE     FALSE    FALSE             30      149
+## # ℹ abbreviated names: ¹​ecological_network_type, ²​multilayer_network_type</code></pre>
 <pre class="r"><code># Networks with interlayer links
 search_emln(interlayer = TRUE)</code></pre>
 <pre><code>## # A tibble: 1 × 10
@@ -493,15 +497,15 @@ names(d38)</code></pre>
 <pre><code>## [1] &quot;nodes&quot;        &quot;layers&quot;       &quot;extended&quot;     &quot;extended_ids&quot; &quot;state_nodes&quot;  &quot;description&quot;  &quot;references&quot;</code></pre>
 <pre class="r"><code>d38$layers</code></pre>
 <pre><code>## # A tibble: 7 × 10
-##   layer_id name                location                                 latitude longitude years     num_of_species num_of_interactions connectance layer_name
-##      &lt;int&gt; &lt;chr&gt;               &lt;chr&gt;                                       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;              &lt;int&gt;               &lt;int&gt;       &lt;dbl&gt; &lt;chr&gt;     
-## 1        1 Amami-Ohsima_Island Amami-Ohsima Island, Japan                   28.4      129. 1996-1999            719                1125       0.017 layer_1   
-## 2        2 Ashu                Ashu, Kyoto, Japan                           35.3      136. 1984-1987            768                1193       0.019 layer_2   
-## 3        3 Kibune              Kibune, Kyoto, Japan                         35.2      136. 1984-1987            997                1920       0.019 layer_3   
-## 4        4 Kyoto_City          Kyoto City, Japan                            35.0      136. 1985-1987            431                 773       0.022 layer_4   
-## 5        5 Mt.Kushigata        Mt. Kushigata, Yamanashi Pref., Japan        35.6      138. 1990-1991            456                 871       0.026 layer_5   
-## 6        6 Mt.Yufu             Mt. Yufu, Japan                              33.4      132. 2001                 393                 589       0.02  layer_6   
-## 7        7 Nakaikemi_marsh     Nakaikemi marsh, Fukui Prefecture, Japan     35.6      136. 1994-1995            259                 431       0.035 layer_7</code></pre>
+##   layer_id name                location                                latitude longitude years num_of_species num_of_interactions connectance layer_name
+##      &lt;int&gt; &lt;chr&gt;               &lt;chr&gt;                                      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;int&gt;               &lt;int&gt;       &lt;dbl&gt; &lt;chr&gt;     
+## 1        1 Amami-Ohsima_Island Amami-Ohsima Island, Japan                  28.4      129. 1996…            719                1125       0.017 layer_1   
+## 2        2 Ashu                Ashu, Kyoto, Japan                          35.3      136. 1984…            768                1193       0.019 layer_2   
+## 3        3 Kibune              Kibune, Kyoto, Japan                        35.2      136. 1984…            997                1920       0.019 layer_3   
+## 4        4 Kyoto_City          Kyoto City, Japan                           35.0      136. 1985…            431                 773       0.022 layer_4   
+## 5        5 Mt.Kushigata        Mt. Kushigata, Yamanashi Pref., Japan       35.6      138. 1990…            456                 871       0.026 layer_5   
+## 6        6 Mt.Yufu             Mt. Yufu, Japan                             33.4      132. 2001             393                 589       0.02  layer_6   
+## 7        7 Nakaikemi_marsh     Nakaikemi marsh, Fukui Prefecture, Jap…     35.6      136. 1994…            259                 431       0.035 layer_7</code></pre>
 <pre class="r"><code>head(d38$extended)</code></pre>
 <pre><code>##   layer_from             node_from layer_to                 node_to weight        type
 ## 1    layer_1 Castanopsis_sieboldii  layer_1    Stomorhina.obsoleta.      3 pollination
