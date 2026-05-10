@@ -13,7 +13,7 @@ navbar:
       href: data.html
     - text: "Analysis example"
       href: analysis_example.html
-    - text: "Plotting emln"
+    - text: "Plotting with MiRa"
       href: plotting.html
     - text: "About and feedback"
       href: about.html

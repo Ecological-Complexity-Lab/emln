@@ -348,7 +348,7 @@ div.tocify {
   <a href="analysis_example.html">Analysis example</a>
 </li>
 <li>
-  <a href="plotting.html">Plotting emln</a>
+  <a href="plotting.html">Plotting with MiRa</a>
 </li>
 <li>
   <a href="about.html">About and feedback</a>
@@ -383,7 +383,7 @@ div.tocify {
   addKlippy('right', 'top', '#8B0000', '1', 'Copy code', 'Copied!');
 </script>
 <pre class="r"><code>library(emln)</code></pre>
-<p>The <code>emln</code> package ships with an interactive
+<p>The <code>emln</code> package ships with MiRa, an interactive
 <strong>Multilayer Network Visualizer</strong> — a browser-based web app
 for exploring multilayer networks in multiple views. You can launch it
 directly from R with <code>plot_multilayer()</code>, which starts a
@@ -391,103 +391,74 @@ local server and opens the app in your browser. Alternatively, export
 your network to JSON or CSV and upload it to the <a
 href="https://mira.ecomplab.com/">standalone version of the app</a>.</p>
 <blockquote>
-<p><strong>Note:</strong> The Multilayer Network Visualizer is currently
-in <strong>beta</strong>. Feedback and bug reports are welcome at the <a
-href="https://github.com/Ecological-Complexity-Lab/emln/issues">emln
+<p><strong>Note:</strong> MiRA is currently in <strong>beta</strong>.
+Feedback and bug reports are welcome at the <a
+href="https://github.com/Ecological-Complexity-Lab/MiRA/issues">MiRA
 GitHub issues page</a>.</p>
 </blockquote>
-<div id="load-a-dataset" class="section level1">
-<h1>Load a dataset</h1>
-<p>We will use network 60 from the built-in emln dataset collection — a
-bipartite multilayer network. Load it with <code>load_emln()</code> and
-inspect its reference.</p>
-<pre class="r"><code>net &lt;- load_emln(60)
-net$references</code></pre>
-<pre><code>## # A tibble: 1 × 5
-##   doi                    author          year  paper_url                                                          data_url                               
-##   &lt;chr&gt;                  &lt;chr&gt;           &lt;lgl&gt; &lt;chr&gt;                                                              &lt;chr&gt;                                  
-## 1 10.1098/rspb.2014.2925 Trøjelsgaard K. NA    https://royalsocietypublishing.org/doi/full/10.1098/rspb.2014.2925 https://datadryad.org/stash/dataset/do…</code></pre>
-<p>The result is a <code>multilayer</code> object. Its three core tables
-are the physical nodes, the layers, and the extended edge list (one row
-per interaction, identified by the layer and node on each end).</p>
-<pre class="r"><code># Physical nodes (first few rows)
-head(net$nodes)</code></pre>
-<pre><code>## # A tibble: 6 × 5
-##   node_id node_name          type       taxa_verified verification_level
-##     &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;         &lt;chr&gt;             
-## 1       1 Attagenus_sp_1     pollinator TRUE          genus             
-## 2       2 Axinotarsus_sp_1   pollinator TRUE          genus             
-## 3       3 Chloropidae_sp     pollinator TRUE          family            
-## 4       4 Lucilia_sericata   pollinator TRUE          species           
-## 5       5 Nomioides_deceptor pollinator FALSE         &lt;NA&gt;              
-## 6       6 Sciaridae_sp       pollinator TRUE          family</code></pre>
-<pre class="r"><code># Layers
-net$layers</code></pre>
-<pre><code>## # A tibble: 14 × 5
-##    layer_id name                  latitude longitude layer_name
-##       &lt;int&gt; &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     
-##  1        1 Tenerife_Teno_site_1      28.4     -16.9 layer_1   
-##  2        2 Tenerife_Teno_site_2      28.4     -16.9 layer_2   
-##  3        3 Tenerife_South_site_2     28.2     -16.4 layer_3   
-##  4        4 Tenerife_South_site_1     28.2     -16.4 layer_4   
-##  5        5 Gran_Canaria_site_2       27.9     -15.4 layer_5   
-##  6        6 Gran_Canaria_site_1       27.9     -15.4 layer_6   
-##  7        7 Fuerteventura_site_2      28.6     -13.9 layer_7   
-##  8        8 Fuerteventura_site_1      28.6     -13.9 layer_8   
-##  9        9 Western_Sahara_site_2     26.2     -14.4 layer_9   
-## 10       10 Western_Sahara_site_1     26.2     -14.4 layer_10  
-## 11       11 El_Hierro_site_2          27.8     -17.9 layer_11  
-## 12       12 El_Hierro_site_1          27.8     -17.9 layer_12  
-## 13       13 La_Gomera_site_2          28.0     -17.2 layer_13  
-## 14       14 La_Gomera_site_1          28.0     -17.2 layer_14</code></pre>
-<pre class="r"><code># Extended edge list (first few rows)
-head(net$extended)</code></pre>
-<pre><code>##   layer_from             node_from layer_to            node_to weight        type
-## 1   layer_10 Asparagus_pastorianus layer_10     Attagenus_sp_1      2 pollination
-## 2   layer_10 Asparagus_pastorianus layer_10   Axinotarsus_sp_1      1 pollination
-## 3   layer_10 Asparagus_pastorianus layer_10     Chloropidae_sp      4 pollination
-## 4   layer_10 Asparagus_pastorianus layer_10   Lucilia_sericata     11 pollination
-## 5   layer_10 Asparagus_pastorianus layer_10 Nomioides_deceptor      4 pollination
-## 6   layer_10 Asparagus_pastorianus layer_10       Sciaridae_sp      2 pollination</code></pre>
-<p>Note that interlayer edges (where
-<code>layer_from != layer_to</code>) encode connections between layers,
-while intralayer edges (<code>layer_from == layer_to</code>) encode
-connections within a layer.</p>
-</div>
+<p>If you use MiRA in published research, please cite: Nehorai S, Bloch
+Y and Pilosof S. <em>Interactively visualizing biological multilayer
+networks using MiRA.</em> (forthcoming)</p>
 <div id="interactive-visualization-with-plot_multilayer"
 class="section level1">
 <h1>Interactive visualization with <code>plot_multilayer()</code></h1>
 <p><code>plot_multilayer()</code> converts the multilayer object to
 JSON, starts a local HTTP server using <code>httpuv</code>, and opens
-the visualizer in your browser. The network data is held in memory —
-nothing is written to disk. The function returns the server handle,
-which you use to stop the server when you are done.</p>
+MiRA in your browser. The network data is held in memory — nothing is
+written to disk. The function returns the server handle, which you use
+to stop the server when you are done.</p>
 <p><strong>Important:</strong> <code>bipartite</code> is not
 auto-detected; you must set it explicitly. The <code>directed</code>
 argument defaults to <code>NULL</code> and is auto-detected from edge
 symmetry.</p>
-<pre class="r"><code># Open the visualizer in the browser
-srv &lt;- plot_multilayer(net, bipartite = TRUE, browser = &#39;Chrome&#39;)
+<p>Two additional optional arguments are worth knowing:</p>
+<ul>
+<li><code>setA_type</code> — for bipartite networks, specifies which
+<code>node_type</code> value is displayed as Set A (the top row). By
+ecological convention this is the higher trophic level
+(e.g. <code>"pollinator"</code>, <code>"parasite"</code>). If omitted,
+MiRA falls back to alphabetical ordering.</li>
+<li><code>directed_interlayer</code> — controls whether interlayer links
+are directed independently from intralayer links. Useful for temporal
+multilayer networks where interlayer links represent time progression.
+If <code>NULL</code> (default), it inherits the value of
+<code>directed</code>.</li>
+</ul>
+<pre class="r"><code># Load data
+net &lt;- load_emln(60)
+
+# Open MiRA in the browser
+srv &lt;- plot_multilayer(net, bipartite = TRUE, setA_type = &quot;pollinator&quot;, browser = &#39;Chrome&#39;)
 
 # When done, stop the local server
 httpuv::stopServer(srv)</code></pre>
 <p>The app opens at <code>http://localhost:8080?autoload=true</code>
-(the port increments automatically if 8080 is busy). It provides four
-main views:</p>
+(the port increments automatically if 8080 is busy). MiRA provides seven
+visualization modes:</p>
 <ul>
-<li><strong>Network view</strong> — a 3D stacked-layer canvas. Rotate,
+<li><strong>Network mode</strong> — a 3D stacked-layer canvas. Rotate,
 pan, drag nodes, zoom, and hover to inspect individual nodes and
 links.</li>
-<li><strong>Map view</strong> — layers positioned on an interactive
+<li><strong>Map mode</strong> — layers positioned on an interactive
 world map when latitude and longitude coordinates are present in the
 layers table.</li>
-<li><strong>Layer view</strong> — a meta-graph where each layer is a
-bubble; click a bubble to open a side-by-side comparison of any two
+<li><strong>Grid view</strong> — a small-multiples layout that shows all
+layers simultaneously as individual panels with a shared colour scheme
+and selection state; useful for quick visual comparison across many
 layers.</li>
-<li><strong>Dashboard view</strong> — analytics panels including degree
+<li><strong>Layer view</strong> — a meta-graph where each layer is a
+force-directed bubble with a micro-graph preview; click a bubble to open
+a side-by-side comparison of any two layers.</li>
+<li><strong>Meta-network mode</strong> — aggregates all layers into a
+single-layer view that highlights cross-layer connectivity
+patterns.</li>
+<li><strong>Dashboard mode</strong> — analytics panels including degree
 distributions, link weight distributions, a presence/absence matrix
 across layers, a Jaccard similarity heatmap between layers, and
 more.</li>
+<li><strong>Data mode</strong> — a tabular inspector for nodes, links,
+and layer attributes; supports filtering, subsetting, and CSV export
+directly from the browser.</li>
 </ul>
 </div>
 <div id="export-to-json-with-multilayer_to_json" class="section level1">
@@ -524,7 +495,8 @@ any extra node attributes</td>
 <td><code>layers</code></td>
 <td>Layer metadata: <code>layer_id</code>, <code>layer_name</code>, and
 any extra layer attributes. For bipartite networks a
-<code>bipartite: true</code> flag is added.</td>
+<code>bipartite: true</code> flag is added; if <code>setA_type</code> is
+provided it is also written per layer.</td>
 </tr>
 <tr class="odd">
 <td><code>extended</code></td>
@@ -535,13 +507,16 @@ any extra link attributes</td>
 <tr class="even">
 <td><code>state_nodes</code></td>
 <td>State node map: <code>layer_id</code>, <code>node_id</code>,
-<code>layer_name</code>, <code>node_name</code></td>
+<code>layer_name</code>, <code>node_name</code>, plus any extra
+per-(layer, node) attributes (e.g. abundance, module membership)</td>
 </tr>
 </tbody>
 </table>
-<p>A top-level <code>directed</code> flag is set automatically based on
-edge symmetry (unless you override it with the <code>directed</code>
-argument).</p>
+<p>Two top-level flags control edge directionality:
+<code>directed</code> (intralayer) is set automatically from edge
+symmetry unless overridden; <code>directed_interlayer</code> is written
+only when set explicitly, and defaults to inheriting from
+<code>directed</code>.</p>
 </div>
 <div id="export-to-csv-with-multilayer_to_csv" class="section level1">
 <h1>Export to CSV with <code>multilayer_to_csv()</code></h1>
@@ -571,8 +546,8 @@ any extra link attributes</td>
 <tr class="even">
 <td><code>net60_layers.csv</code></td>
 <td>Layer metadata: <code>layer_id</code>, <code>layer_name</code>, plus
-any extra layer attributes (and a <code>bipartite</code> column for
-bipartite networks)</td>
+any extra layer attributes (and <code>bipartite</code> and
+<code>setA_type</code> columns for bipartite networks)</td>
 </tr>
 <tr class="odd">
 <td><code>net60_nodes.csv</code></td>

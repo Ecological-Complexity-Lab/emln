@@ -26,54 +26,44 @@ knitr::opts_chunk$set(echo = T, message=FALSE, warning=FALSE, cache=FALSE)
 library(emln)
 ```
 
-The `emln` package ships with an interactive **Multilayer Network Visualizer** — a browser-based web app for exploring multilayer networks in multiple views. You can launch it directly from R with `plot_multilayer()`, which starts a local server and opens the app in your browser. Alternatively, export your network to JSON or CSV and upload it to the [standalone version of the app](https://mira.ecomplab.com/).
+The `emln` package ships with MiRa, an interactive **Multilayer Network Visualizer** — a browser-based web app for exploring multilayer networks in multiple views. You can launch it directly from R with `plot_multilayer()`, which starts a local server and opens the app in your browser. Alternatively, export your network to JSON or CSV and upload it to the [standalone version of the app](https://mira.ecomplab.com/).
 
-> **Note:** The Multilayer Network Visualizer is currently in **beta**. Feedback and bug reports are welcome at the [emln GitHub issues page](https://github.com/Ecological-Complexity-Lab/emln/issues).
+> **Note:** MiRA is currently in **beta**. Feedback and bug reports are welcome at the [MiRA GitHub issues page](https://github.com/Ecological-Complexity-Lab/MiRA/issues).
 
-# Load a dataset
+If you use MiRA in published research, please cite: Nehorai S, Bloch Y and Pilosof S. *Interactively visualizing biological multilayer networks using MiRA.* (forthcoming)
 
-We will use network 60 from the built-in emln dataset collection — a bipartite multilayer network. Load it with `load_emln()` and inspect its reference.
-
-```{r load_data}
-net <- load_emln(60)
-net$references
-```
-
-The result is a `multilayer` object. Its three core tables are the physical nodes, the layers, and the extended edge list (one row per interaction, identified by the layer and node on each end).
-
-```{r inspect_data}
-# Physical nodes (first few rows)
-head(net$nodes)
-
-# Layers
-net$layers
-
-# Extended edge list (first few rows)
-head(net$extended)
-```
-
-Note that interlayer edges (where `layer_from != layer_to`) encode connections between layers, while intralayer edges (`layer_from == layer_to`) encode connections within a layer.
 
 # Interactive visualization with `plot_multilayer()`
 
-`plot_multilayer()` converts the multilayer object to JSON, starts a local HTTP server using `httpuv`, and opens the visualizer in your browser. The network data is held in memory — nothing is written to disk. The function returns the server handle, which you use to stop the server when you are done.
+`plot_multilayer()` converts the multilayer object to JSON, starts a local HTTP server using `httpuv`, and opens MiRA in your browser. The network data is held in memory — nothing is written to disk. The function returns the server handle, which you use to stop the server when you are done.
 
 **Important:** `bipartite` is not auto-detected; you must set it explicitly. The `directed` argument defaults to `NULL` and is auto-detected from edge symmetry.
 
+Two additional optional arguments are worth knowing:
+
+- `setA_type` — for bipartite networks, specifies which `node_type` value is displayed as Set A (the top row). By ecological convention this is the higher trophic level (e.g. `"pollinator"`, `"parasite"`). If omitted, MiRA falls back to alphabetical ordering.
+- `directed_interlayer` — controls whether interlayer links are directed independently from intralayer links. Useful for temporal multilayer networks where interlayer links represent time progression. If `NULL` (default), it inherits the value of `directed`.
+
 ```{r plot_multilayer, eval=FALSE}
-# Open the visualizer in the browser
-srv <- plot_multilayer(net, bipartite = TRUE, browser = 'Chrome')
+# Load data
+net <- load_emln(60)
+
+# Open MiRA in the browser
+srv <- plot_multilayer(net, bipartite = TRUE, setA_type = "pollinator", browser = 'Chrome')
 
 # When done, stop the local server
 httpuv::stopServer(srv)
 ```
 
-The app opens at `http://localhost:8080?autoload=true` (the port increments automatically if 8080 is busy). It provides four main views:
+The app opens at `http://localhost:8080?autoload=true` (the port increments automatically if 8080 is busy). MiRA provides seven visualization modes:
 
-- **Network view** — a 3D stacked-layer canvas. Rotate, pan, drag nodes, zoom, and hover to inspect individual nodes and links.
-- **Map view** — layers positioned on an interactive world map when latitude and longitude coordinates are present in the layers table.
-- **Layer view** — a meta-graph where each layer is a bubble; click a bubble to open a side-by-side comparison of any two layers.
-- **Dashboard view** — analytics panels including degree distributions, link weight distributions, a presence/absence matrix across layers, a Jaccard similarity heatmap between layers, and more.
+- **Network mode** — a 3D stacked-layer canvas. Rotate, pan, drag nodes, zoom, and hover to inspect individual nodes and links.
+- **Map mode** — layers positioned on an interactive world map when latitude and longitude coordinates are present in the layers table.
+- **Grid view** — a small-multiples layout that shows all layers simultaneously as individual panels with a shared colour scheme and selection state; useful for quick visual comparison across many layers.
+- **Layer view** — a meta-graph where each layer is a force-directed bubble with a micro-graph preview; click a bubble to open a side-by-side comparison of any two layers.
+- **Meta-network mode** — aggregates all layers into a single-layer view that highlights cross-layer connectivity patterns.
+- **Dashboard mode** — analytics panels including degree distributions, link weight distributions, a presence/absence matrix across layers, a Jaccard similarity heatmap between layers, and more.
+- **Data mode** — a tabular inspector for nodes, links, and layer attributes; supports filtering, subsetting, and CSV export directly from the browser.
 
 # Export to JSON with `multilayer_to_json()`
 
@@ -95,11 +85,11 @@ The JSON object contains four arrays that the visualizer expects:
 | Array | Contents |
 |-------|----------|
 | `nodes` | Physical nodes: `node_id`, `node_name`, and any extra node attributes |
-| `layers` | Layer metadata: `layer_id`, `layer_name`, and any extra layer attributes. For bipartite networks a `bipartite: true` flag is added. |
+| `layers` | Layer metadata: `layer_id`, `layer_name`, and any extra layer attributes. For bipartite networks a `bipartite: true` flag is added; if `setA_type` is provided it is also written per layer. |
 | `extended` | Extended edge list: `layer_from`, `node_from`, `layer_to`, `node_to`, `weight`, and any extra link attributes |
-| `state_nodes` | State node map: `layer_id`, `node_id`, `layer_name`, `node_name` |
+| `state_nodes` | State node map: `layer_id`, `node_id`, `layer_name`, `node_name`, plus any extra per-(layer, node) attributes (e.g. abundance, module membership) |
 
-A top-level `directed` flag is set automatically based on edge symmetry (unless you override it with the `directed` argument).
+Two top-level flags control edge directionality: `directed` (intralayer) is set automatically from edge symmetry unless overridden; `directed_interlayer` is written only when set explicitly, and defaults to inheriting from `directed`.
 
 # Export to CSV with `multilayer_to_csv()`
 
@@ -114,7 +104,7 @@ The files written are:
 | File | Contents |
 |------|----------|
 | `net60_edges.csv` | Extended edge list: `layer_from`, `node_from`, `layer_to`, `node_to`, `weight`, plus any extra link attributes |
-| `net60_layers.csv` | Layer metadata: `layer_id`, `layer_name`, plus any extra layer attributes (and a `bipartite` column for bipartite networks) |
+| `net60_layers.csv` | Layer metadata: `layer_id`, `layer_name`, plus any extra layer attributes (and `bipartite` and `setA_type` columns for bipartite networks) |
 | `net60_nodes.csv` | Physical node attributes: `node_name`, `node_type`, plus any extras that are constant across layers |
 | `net60_state_nodes.csv` | Per-(layer, node) attributes such as abundance or module membership — **written only when such attributes exist** in the multilayer object |
 
