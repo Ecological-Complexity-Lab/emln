@@ -16,7 +16,7 @@ install.packages("emln")
 # :globe_with_meridians: Website
 Detailed explanations on workflows accompanied by examples for handling monolayer and multilayer data using emln are in: [emln.ecomplab.com](https://emln.ecomplab.com/).
 
-# :bar_chart: Interactively visualizaing multilayer networks
+# :spider_web: Interactively visualizaing multilayer networks
 EMLN integrates **[MiRA](https://mira.ecomplab.com/)** (Multilayer Interactive Rendering Application), a browser-based, installation-free visualizer launched from R via `plot_multilayer()`, or by exporting with `multilayer_to_json()` / `multilayer_to_csv()`. MiRA offers seven complementary modes — Network (3D), Map, Grid View, Layer View, Meta-Network, Dashboard, and Data — with interactive rotation, filtering, color/size mapping, and bipartite support, plus nine bundled empirical datasets.
 
 If you use MiRA in your published research, please cite the MiRA preprint:
