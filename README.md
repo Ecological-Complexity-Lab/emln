@@ -7,7 +7,7 @@
 Frydman N, Freilikhman S, Talpaz I, Pilosof S. **Practical guidelines and the EMLN R package for handling ecological multilayer networks**. Methods in Ecology and Evolution. 2023. [DOI:10.1111/2041-210X.14225](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.14225). Please cite the paper when implementing the guidelines we describe or when using the package, this helps us a lot!
 
 # :package: Installation
-EMLN is available on CRAN. installation is as follows:
+EMLN is available on CRAN. Installation is as follows:
 ```R
 install.packages("emln")
 ```
