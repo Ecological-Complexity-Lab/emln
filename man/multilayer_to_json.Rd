@@ -77,8 +77,10 @@ interactive visualization tool for multilayer networks, available at
 \url{https://mira.ecomplab.com/}.
 
 If you use MiRA in published research, please cite:
-Nehorai S, Bloch Y and Pilosof S. Interactively visualizing biological
-multilayer networks using MiRA. (forthcoming)
+
+Nehoray SM, Bloch Y, Pilosof S (2026). Interactively visualizing biological
+multilayer networks using MiRA. \emph{arXiv}:2605.09597 [cs.SI].
+\url{https://doi.org/10.48550/arXiv.2605.09597}
 
 Feedback and bug reports:
 \url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.

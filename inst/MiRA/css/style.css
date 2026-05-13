@@ -960,6 +960,196 @@ body {
   flex-wrap: wrap;
 }
 
+/* ============================================
+   Citation Button + Dialog
+   ============================================ */
+.branding-cite-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px 4px 8px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.10), rgba(168, 85, 247, 0.10));
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 999px;
+  color: #4338ca;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease, transform 0.08s ease;
+}
+.branding-cite-btn:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(168, 85, 247, 0.22));
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #3730a3;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.18);
+}
+.branding-cite-btn:active {
+  transform: translateY(1px);
+}
+.branding-cite-btn svg {
+  flex-shrink: 0;
+}
+.branding-cite-label {
+  line-height: 1;
+}
+
+#citeDialog .cite-dialog-box {
+  width: 520px;
+  max-width: calc(100vw - 32px);
+  padding: 22px 24px 18px;
+  position: relative;
+}
+
+.cite-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.cite-close-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #1a1a2e;
+}
+
+.cite-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+.dialog-box p.cite-subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6d28d9;
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.cite-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 14px;
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+.cite-meta-row {
+  display: contents;
+}
+.cite-meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 1px;
+}
+.cite-meta-value {
+  font-size: 12.5px;
+  color: #1a1a2e;
+}
+.cite-meta-link {
+  font-size: 12.5px;
+  color: #4338ca;
+  text-decoration: none;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+.cite-meta-link:hover {
+  text-decoration: underline;
+}
+
+.cite-section {
+  margin-bottom: 12px;
+}
+.cite-section:last-of-type {
+  margin-bottom: 14px;
+}
+.cite-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 5px;
+}
+
+.cite-block-wrap {
+  position: relative;
+}
+.cite-block {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  padding: 12px 14px;
+  padding-right: 70px;
+  border-radius: 10px;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 220px;
+  overflow: auto;
+}
+.cite-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e8f0;
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease,
+              border-color 0.15s ease, transform 0.08s ease;
+}
+.cite-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.cite-copy-btn:active {
+  transform: translateY(1px);
+}
+.cite-copy-btn.copied {
+  background: rgba(34, 197, 94, 0.22);
+  border-color: rgba(34, 197, 94, 0.5);
+  color: #86efac;
+}
+
+.cite-buttons {
+  justify-content: flex-end;
+}
+.cite-buttons .btn-primary {
+  text-decoration: none;
+}
+
 /* ---- Dashboard Mode ---- */
 #dashboardContainer {
   position: absolute;

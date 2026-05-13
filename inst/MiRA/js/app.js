@@ -4778,6 +4778,57 @@ document.addEventListener('click', e => {
     }
 });
 
+// ---- Citation Dialog ----
+const citeBtn         = document.getElementById('citeBtn');
+const citeDialog      = document.getElementById('citeDialog');
+const citeDialogClose = document.getElementById('citeDialogClose');
+const citeDialogDone  = document.getElementById('citeDialogDone');
+
+const openCiteDialog  = () => { citeDialog.style.display = 'flex'; };
+const closeCiteDialog = () => { citeDialog.style.display = 'none'; };
+
+citeBtn.addEventListener('click', openCiteDialog);
+citeDialogClose.addEventListener('click', closeCiteDialog);
+citeDialogDone.addEventListener('click', closeCiteDialog);
+citeDialog.addEventListener('click', e => {
+    if (e.target === citeDialog) closeCiteDialog();
+});
+
+const copyTextToClipboard = async (text) => {
+    try {
+        await navigator.clipboard.writeText(text);
+    } catch (_) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (__) {}
+        document.body.removeChild(ta);
+    }
+};
+
+citeDialog.querySelectorAll('.cite-copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const which = btn.dataset.citeCopy;
+        const block = citeDialog.querySelector(`.cite-block[data-cite-content="${which}"]`);
+        if (!block) return;
+        await copyTextToClipboard(block.textContent);
+        const label = btn.querySelector('.cite-copy-label');
+        btn.classList.add('copied');
+        if (label) label.textContent = 'Copied!';
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+        }, 1500);
+    });
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && citeDialog.style.display !== 'none') closeCiteDialog();
+});
+
 // ---- Legend Visibility Toggle ----
 const toggleLegendBtn = document.getElementById('toggleLegendBtn');
 let legendVisible = true;

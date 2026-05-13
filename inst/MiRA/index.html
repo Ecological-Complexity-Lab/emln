@@ -635,6 +635,12 @@
 
     <!-- Branding -->
     <div id="brandingGroup">
+      <button id="citeBtn" class="branding-link branding-cite-btn" title="Cite MiRA" aria-label="Cite MiRA">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M9.17 6.5C5.5 6.5 3 9.5 3 14v3.5h6.5V11H6.4c.27-2.07 1.77-2.97 3.27-2.97V6.5zm11.33 0c-3.67 0-6.17 3-6.17 7.5v3.5h6.5V11h-3.1c.27-2.07 1.77-2.97 3.27-2.97V6.5z"/>
+        </svg>
+        <span class="branding-cite-label">Cite</span>
+      </button>
       <a href="https://mira.ecomplab.com/" target="_blank" rel="noopener" title="Open MiRA online" class="branding-home-link">
         <img src="assets/favicon.svg" alt="MiRA" class="branding-favicon">
       </a>
@@ -726,6 +732,81 @@
       <button id="layerCompareClose" class="close-btn" style="flex-shrink:0; margin-left:8px;">✕</button>
     </div>
     <div id="layerCompareContent" style="padding:14px 16px; font-size:12px;"></div>
+  </div>
+
+  <!-- Citation dialog -->
+  <div id="citeDialog" class="dialog-overlay" style="display:none;">
+    <div class="dialog-box cite-dialog-box">
+      <button id="citeDialogClose" class="cite-close-btn" aria-label="Close" title="Close">✕</button>
+      <h4 class="cite-title">Cite MiRA</h4>
+      <p class="cite-subtitle">
+        If MiRA helped your research or figures, please cite the preprint. 🙏
+      </p>
+
+      <div class="cite-meta">
+        <div class="cite-meta-row">
+          <span class="cite-meta-label">Authors</span>
+          <span class="cite-meta-value">Nehoray SM, Bloch Y, Pilosof S</span>
+        </div>
+        <div class="cite-meta-row">
+          <span class="cite-meta-label">Year</span>
+          <span class="cite-meta-value">2026</span>
+        </div>
+        <div class="cite-meta-row">
+          <span class="cite-meta-label">DOI</span>
+          <a class="cite-meta-link" href="https://doi.org/10.48550/arXiv.2605.09597" target="_blank" rel="noopener">
+            10.48550/arXiv.2605.09597
+          </a>
+        </div>
+      </div>
+
+      <div class="cite-section">
+        <div class="cite-section-label">Plain text</div>
+        <div class="cite-block-wrap">
+          <pre class="cite-block" data-cite-content="plain">Nehoray SM, Bloch Y, Pilosof S (2026). Interactively visualizing biological multilayer networks using MiRA. arXiv:2605.09597 [cs.SI]. https://doi.org/10.48550/arXiv.2605.09597</pre>
+          <button class="cite-copy-btn" data-cite-copy="plain" title="Copy plain text">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="cite-copy-label">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cite-section">
+        <div class="cite-section-label">BibTeX</div>
+        <div class="cite-block-wrap">
+          <pre class="cite-block" data-cite-content="bibtex">@article{Nehoray2026,
+  title        = {Interactively visualizing biological multilayer networks using {MiRA}},
+  author       = {Nehoray, Shir Miryam and Bloch, Yuval and Pilosof, Shai},
+  journal      = {arXiv [cs.SI]},
+  year         = {2026},
+  eprint       = {2605.09597},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SI},
+  doi          = {10.48550/arXiv.2605.09597},
+  url          = {https://doi.org/10.48550/arXiv.2605.09597}
+}</pre>
+          <button class="cite-copy-btn" data-cite-copy="bibtex" title="Copy BibTeX">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="cite-copy-label">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dialog-buttons cite-buttons">
+        <a class="btn btn-primary" href="https://doi.org/10.48550/arXiv.2605.09597" target="_blank" rel="noopener">
+          Open on arXiv ↗
+        </a>
+        <button class="btn" id="citeDialogDone">Done</button>
+      </div>
+    </div>
   </div>
 
   <!-- Export format dialog -->

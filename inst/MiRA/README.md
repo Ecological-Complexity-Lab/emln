@@ -4,15 +4,33 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![R package: emln](https://img.shields.io/badge/R%20package-emln-blue.svg)](https://github.com/Ecological-Complexity-Lab/emln)
-[![Paper coming soon](https://img.shields.io/badge/paper-coming%20soon-yellow.svg)](#)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.09597-b31b1b.svg)](https://doi.org/10.48550/arXiv.2605.09597)
 
 An interactive, browser-based visualization tool for multilayer networks. While developed with biology in mind, MiRA can render any multilayer network. Available as a standalone web app and also fully integrated into the [`emln`](https://github.com/Ecological-Complexity-Lab/emln) R package.
 
 
 ## 📝 Citation
-If you use MiRA to explore your networks as part of your published research or to prodcue figures, cite our paper:
+If you use MiRA to explore your networks as part of your published research or to produce figures, please cite our preprint:
 
-_Nehorai S, Bloch, Y and Pilosof S. Interactively visualizing biological multilayer networks using MiRA (paper link is forthcoming)._
+Nehoray SM, Bloch Y and Pilosof S (2026). **Interactively visualizing biological multilayer networks using MiRA**. _arXiv_:2605.09597 [cs.SI]. [https://doi.org/10.48550/arXiv.2605.09597](https://doi.org/10.48550/arXiv.2605.09597)
+
+<details>
+<summary>BibTeX</summary>
+
+```bibtex
+@article{Nehoray2026,
+  title        = {Interactively visualizing biological multilayer networks using {MiRA}},
+  author       = {Nehoray, Shir Miryam and Bloch, Yuval and Pilosof, Shai},
+  journal      = {arXiv [cs.SI]},
+  year         = {2026},
+  eprint       = {2605.09597},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SI},
+  doi          = {10.48550/arXiv.2605.09597},
+  url          = {https://doi.org/10.48550/arXiv.2605.09597}
+}
+```
+</details>
 
 ## 📄 Documentation and help
 
@@ -48,7 +66,7 @@ python3 -m http.server 8000
 
 ## 🗂️ Built-in Example Datasets
 
-Eight empirical multilayer networks are bundled for immediate exploration, covering pollination, host–parasite interactions, seed dispersal, gene recombination, human disease, brain connectivity, plasmid sharing, and protein–protein interactions. See the full list and references in the [manual](https://mira.ecomplab.com/docs/manual.html).
+Nine empirical multilayer networks are bundled for immediate exploration, from six biological domains, covering pollination, host–parasite interactions, seed dispersal, gene recombination, human disease, brain connectivity, plasmid sharing, and protein–protein interactions. See the full list and references in the [manual](https://mira.ecomplab.com/docs/manual.html).
 
 ## 📥 Import Your Own Multilayer Network
 
@@ -71,6 +89,9 @@ Or export to JSON/CSV for manual loading:
 multilayer_to_json(net, file = "my_network.json", bipartite = TRUE)
 multilayer_to_csv(net, path = "my_network/")
 ```
+
+## App development process
+We developed the MiRA codebase using an AI-assisted workflow. Initial scaffolding and iterative feature implementation were carried out using Claude Code (Anthropic), an agentic AI programming tool, with Claude Sonnet~4.6 used for routine implementation tasks and Claude Opus~4 used for complex architectural decisions and refactoring. Human oversight was applied throughout: all AI-generated code was reviewed, debugged, and revised. We paid particular attention to calculation of properties, domain-specific logic, including bipartite layout computation, geographic placement of layers, multilayer data structure validation, and EMLN integration. The codebase was audited periodically to identify inconsistencies between behavior and documentation, to enforce modularity via refactoring, and to remove redundancy introduced during iterative development.
 
 ## Feedback and issues
 
