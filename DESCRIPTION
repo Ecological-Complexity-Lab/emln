@@ -11,8 +11,8 @@ Authors@R: c(
     )
 URL: https://emln.ecomplab.com/
 BugReports: https://github.com/Ecological-Complexity-Lab/emln/issues
-Description: Data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. Includes an interactive multilayer network visualizer (beta, paper forthcoming), and a collection of 78 empirical ecological multilayer network datasets. This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof. Noa Frydman (2023) <doi:10.1111/2041-210X.14225>. 
-License: CC BY 4.0
+Description: Data and analysis of ecological multilayer networks, including standardization of data structures and functions to convert between them. Includes an interactive multilayer network visualizer (beta, paper forthcoming), and a collection of 78 empirical ecological multilayer network datasets. This work was supported by research grant ISF (Israel Science Foundation) 1281/20 to Shai Pilosof. Noa Frydman (2023) <doi:10.1111/2041-210X.14225>. Package code is licensed under GPL-3. Mira, the network visualizer, is licensed under CC-BY-NC-4.0; see inst/MiRA/LICENSE.md for full terms.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
