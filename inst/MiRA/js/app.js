@@ -15,6 +15,7 @@ import { DataMode, dataMode, layerColors, initLayerColors } from './dataMode.js'
 import { saveSession, loadSession, loadSessionFromUrl } from './sessionManager.js';
 import { startTour } from './tourManager.js';
 import { initDemoDatasets } from './demoDatasets.js';
+import { initFeedback } from './feedback.js';
 import { initExportManager } from './exportManager.js';
 import { GridView } from './gridView.js';
 
@@ -264,6 +265,10 @@ const lvStreetMapCheckbox = document.getElementById('lvStreetMapCheckbox');
 const showSetNamesCheckbox = document.getElementById('showSetNamesCheckbox');
 const bipartiteNestedCheckbox = document.getElementById('bipartiteNestedCheckbox');
 const sectionInterLinks      = document.getElementById('sectionInterLinks');
+// Clear the bluish "look here" highlight (added in loadData) whenever the user
+// opens/interacts with the Interlayer links section. Permanent listener so the
+// highlight re-applies and re-clears correctly across dataset loads.
+sectionInterLinks.addEventListener('toggle', () => sectionInterLinks.classList.remove('attn-highlight'));
 const showInterlayerCheckbox = document.getElementById('showInterlayerCheckbox');
 const layoutSelect = document.getElementById('layoutSelect');
 const nodeSizeSlider = document.getElementById('nodeSizeSlider');
@@ -282,6 +287,7 @@ const tooltip = document.getElementById('tooltip');
 
 // ---- Application State ----
 let appMode = 'network'; // 'network', 'map', 'layer', 'dashboard', 'metanetwork', 'data', or 'grid'
+let currentDatasetName = null; // name of the loaded dataset (demo payloads carry dataset.name); used by feedback diagnostics
 let gridView = null;
 let layerViewHandlers = null;
 let lvRAF  = null; // requestAnimationFrame id for layer-view animation
@@ -687,6 +693,7 @@ function resetVisualizationOptions() {
 function loadData(json) {
     try {
         model = parseMultilayerData(json);
+        currentDatasetName = json?.dataset?.name ?? null;
 
         if (model.warnings && model.warnings.length) {
             alert('Data warnings:\n\n• ' + model.warnings.join('\n• '));
@@ -719,7 +726,10 @@ function loadData(json) {
         const hasInterlayer = model.interlayerLinks.length > 0;
         sectionInterLinks.style.display = hasInterlayer ? '' : 'none';
         if (hasInterlayer) {
-            setTimeout(() => showBounceArrow(sectionInterLinks.querySelector('summary'), 'left'), 800);
+            // Draw attention to the section with a static bluish highlight
+            // (cleared on first open — see the 'toggle' listener above) instead
+            // of a bouncing arrow.
+            sectionInterLinks.classList.add('attn-highlight');
             const iWeights = model.interlayerLinks.map(l => l.weight || 0).filter(w => w > 0);
             const maxIW = iWeights.length ? Math.max(...iWeights) : 1;
             interlayerWeightSlider.max  = maxIW.toFixed(4);
@@ -826,6 +836,9 @@ function loadData(json) {
 
 // ---- Demo datasets dialog ----
 initDemoDatasets(loadData);
+
+// ---- Feedback dialog ----
+initFeedback(() => ({ mode: appMode, model, datasetName: currentDatasetName }));
 
 
 // ---- Mode Button Highlighting ----
@@ -2326,7 +2339,7 @@ function openLayerComparison(nameA, nameB) {
 
 function _drawComparisonHistogram(canvas, degsA, degsB, colorA, colorB) {
     const ctx = canvas.getContext('2d');
-    const W = cssW, H = cssH;
+    const W = canvas.width, H = canvas.height;
     const PAD = { top: 6, right: 8, bottom: 22, left: 28 };
     ctx.clearRect(0, 0, W, H);
     if (!degsA.length && !degsB.length) return;
@@ -2532,7 +2545,7 @@ function openLayerDrillDown(layerName) {
 
 function _drawDegreeHistogram(canvas, degByType, allDegrees) {
     const ctx  = canvas.getContext('2d');
-    const W    = cssW, H = cssH;
+    const W    = canvas.width, H = canvas.height;
     const PAD  = { top: 8, right: 8, bottom: 28, left: 32 };
     ctx.clearRect(0, 0, W, H);
 
@@ -3247,9 +3260,14 @@ function populateDropdowns() {
     let labelA = "Set A", labelB = "Set B";
 
     // Per-set walks collect every attribute exposed on a node belonging to
-    // that set, except (a) structural keys, and (b) MiRA-computed state-node
-    // fields — those are network-wide so we add them to both sets explicitly.
-    const STRUCTURAL_NODE_KEYS = new Set(['node_id', 'node_name']);
+    // that set, intersected with the canonical scalar allowlists. Node attrs
+    // are filtered through model.nodeAttributeNames so structural keys
+    // (layer_name), MiRA metadata (layers_present), and Map-valued `_by_layer`
+    // fields never leak into the dropdown — those would render as "[object Map]"
+    // and force categorical mode on what should be continuous scales. State
+    // attrs exclude structural keys and MiRA-computed fields (network-wide, so
+    // added to both sets explicitly via stateMira below).
+    const nodeAttrAllowed = new Set(model.nodeAttributeNames || []);
     const STRUCTURAL_STATE_KEYS = new Set(['layer_id', 'node_id', 'layer_name', 'node_name']);
     const computedStateSet = new Set(model.computedStateNodeAttributes || []);
 
@@ -3260,13 +3278,13 @@ function populateDropdowns() {
         labelB = info.setBLabel || labelB;
         for (const nodeName of info.setA) {
             const pn = model.nodesByName.get(nodeName);
-            if (pn) Object.keys(pn).forEach(k => { if (!STRUCTURAL_NODE_KEYS.has(k)) setA_nodeAttrs.add(k); });
+            if (pn) Object.keys(pn).forEach(k => { if (nodeAttrAllowed.has(k)) setA_nodeAttrs.add(k); });
             const sn = model.stateNodeMap.get(`${layerName}::${nodeName}`);
             if (sn) Object.keys(sn).forEach(k => { if (!STRUCTURAL_STATE_KEYS.has(k) && !computedStateSet.has(k)) setA_stateAttrs.add(k); });
         }
         for (const nodeName of info.setB) {
             const pn = model.nodesByName.get(nodeName);
-            if (pn) Object.keys(pn).forEach(k => { if (!STRUCTURAL_NODE_KEYS.has(k)) setB_nodeAttrs.add(k); });
+            if (pn) Object.keys(pn).forEach(k => { if (nodeAttrAllowed.has(k)) setB_nodeAttrs.add(k); });
             const sn = model.stateNodeMap.get(`${layerName}::${nodeName}`);
             if (sn) Object.keys(sn).forEach(k => { if (!STRUCTURAL_STATE_KEYS.has(k) && !computedStateSet.has(k)) setB_stateAttrs.add(k); });
         }
@@ -4658,26 +4676,9 @@ function _createLVLegendBtn(scale) {
 // ---- Tour ----
 const tourBtn = document.getElementById('tourBtn');
 tourBtn.addEventListener('click', startTour);
-setTimeout(() => showBounceArrow(tourBtn, 'up'), 1200);
-
-function showBounceArrow(el, dir) {
-    if (dir === 'up') {
-        const rect = el.getBoundingClientRect();
-        const span = document.createElement('span');
-        span.className = 'bounce-arrow-fixed';
-        span.textContent = '⬆';
-        span.style.left = `${rect.left + rect.width / 2 - 10}px`;
-        span.style.top  = `${rect.bottom + 4}px`;
-        document.body.appendChild(span);
-        span.addEventListener('animationend', () => span.remove(), { once: true });
-    } else {
-        const span = document.createElement('span');
-        span.className = 'bounce-arrow-inline';
-        span.textContent = '⬅';
-        el.appendChild(span);
-        span.addEventListener('animationend', () => span.remove(), { once: true });
-    }
-}
+// The Tour/Help buttons and the Interlayer links section are drawn attention via
+// static indigo highlights (see .attn-btn and .control-section.attn-highlight in
+// style.css) instead of bouncing arrows, which distracted users sensitive to motion.
 
 // ---- Help Popup ----
 const helpBtn            = document.getElementById('helpBtn');
@@ -4722,6 +4723,17 @@ const HELP_CONTENT = {
   <li><b>Click+drag</b> to pan the map.</li>
 </ul>
 <p><b>Blue lines</b> = interlayer links &nbsp;·&nbsp; <b>Gray lines</b> = shared nodes</p>`,
+    },
+    grid: {
+        title: '▦ Grid View',
+        body: `<p>Each layer is drawn in its own cell of a responsive grid (a small-multiples / matrix view) so you can compare intralayer structure across layers side-by-side.</p>
+<ul style="padding-left:16px;margin:8px 0;">
+  <li><b>Click</b> a node — highlights every instance of it across all cells, plus its 1-hop neighbours</li>
+  <li><b>Click</b> empty space — clear the selection</li>
+  <li><b>Search</b> (left panel) — highlights a node in every cell</li>
+  <li><b>Columns slider</b> (Layers panel) — set how many columns the cells wrap into</li>
+</ul>
+<p>Bipartite layers keep the two-row Set A / Set B layout inside each cell.</p>`,
     },
     metanetwork: {
         title: 'Σ Meta-network Mode',

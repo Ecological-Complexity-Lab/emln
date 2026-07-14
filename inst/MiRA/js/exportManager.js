@@ -30,6 +30,14 @@ export function initExportManager({ getRenderer, getAppMode }) {
     captureBtn.addEventListener('click', () => {
         const renderer = getRenderer();
         const appMode  = getAppMode();
+
+        // Data mode is a table, not a picture — there's nothing to rasterise.
+        if (appMode === 'data') {
+            alert('Data mode can’t be exported as an image.\n\n' +
+                  'Use the “Export CSV” button in the Data panel to download the table as CSV.');
+            return;
+        }
+
         const hasMap = appMode === 'map' || (appMode === 'layer' && renderer.layerView?.geoMode);
         const gridLabel = exportDialog.querySelector('#exportGridCheckbox + span');
         if (gridLabel) gridLabel.textContent = hasMap ? 'Background map / grid' : 'Background grid';
@@ -204,27 +212,45 @@ export function initExportManager({ getRenderer, getAppMode }) {
         const isLvGeo = appMode === 'layer' && renderer.layerView?.geoMode;
         const isGeoMode = appMode === 'map' || isLvGeo;
 
+        // Dashboard is DOM (SVG charts), not the canvas — capture the container.
+        if (appMode === 'dashboard') {
+            const offscreen = await _captureDashboard(multiplier);
+            if (!offscreen) { alert('Nothing to export — open the Dashboard first.'); return; }
+            await _drawBranding(offscreen.getContext('2d'), offscreen.width, offscreen.height, multiplier);
+            const mimeType = format === 'jpg' ? 'image/jpeg' : 'image/png';
+            const quality  = format === 'jpg' ? 0.92 : undefined;
+            await _saveCanvas(offscreen, filename, mimeType, quality, dirHandle);
+            return;
+        }
+
         const origW = srcCanvas.width, origH = srcCanvas.height;
         const dpr  = renderer.dpr || 1;
         const cssW = Math.round(origW / dpr), cssH = Math.round(origH / dpr);
         const prevShowGrid = renderer.showGrid;
 
         if (!isGeoMode) {
-            // Non-map modes: genuinely re-render at multiplier× resolution
-            const origOX = renderer.offsetX, origOY = renderer.offsetY;
-            const origS  = renderer.scale;
+            // Meta-network draws onto the shared canvas via its own renderer, so
+            // we can't ask the base renderer to re-render at multiplier× without
+            // wiping it. Snapshot the current canvas as-is and stretch instead
+            // (same trade-off as geo modes: correct content, screen-res detail).
+            const snapshot = appMode === 'metanetwork';
 
-            srcCanvas.width  = origW  * multiplier;
-            srcCanvas.height = origH * multiplier;
-            renderer.offsetX = origOX * multiplier;
-            renderer.offsetY = origOY * multiplier;
-            renderer.scale   = origS  * multiplier;
-            renderer.showGrid = includeGrid;
-            // In grid mode, drop the sidebar/toolbar margins so the grid fills
-            // the export canvas instead of leaving an empty strip at top-left.
-            const isGrid = appMode === 'grid';
-            if (isGrid) renderer._gridMarginOverride = { left: 0, top: 0 };
-            renderer.render();
+            let origOX, origOY, origS, isGrid = false;
+            if (!snapshot) {
+                // Non-map modes: genuinely re-render at multiplier× resolution
+                origOX = renderer.offsetX; origOY = renderer.offsetY; origS = renderer.scale;
+                srcCanvas.width  = origW  * multiplier;
+                srcCanvas.height = origH * multiplier;
+                renderer.offsetX = origOX * multiplier;
+                renderer.offsetY = origOY * multiplier;
+                renderer.scale   = origS  * multiplier;
+                renderer.showGrid = includeGrid;
+                // In grid mode, drop the sidebar/toolbar margins so the grid fills
+                // the export canvas instead of leaving an empty strip at top-left.
+                isGrid = appMode === 'grid';
+                if (isGrid) renderer._gridMarginOverride = { left: 0, top: 0 };
+                renderer.render();
+            }
 
             const W = cssW * multiplier, H = cssH * multiplier;
             const offscreen = document.createElement('canvas');
@@ -235,14 +261,16 @@ export function initExportManager({ getRenderer, getAppMode }) {
             ctx.fillRect(0, 0, W, H);
             ctx.drawImage(srcCanvas, 0, 0, W, H);
 
-            srcCanvas.width  = origW;
-            srcCanvas.height = origH;
-            renderer.offsetX = origOX;
-            renderer.offsetY = origOY;
-            renderer.scale   = origS;
-            renderer.showGrid = prevShowGrid;
-            if (isGrid) renderer._gridMarginOverride = null;
-            renderer.render();
+            if (!snapshot) {
+                srcCanvas.width  = origW;
+                srcCanvas.height = origH;
+                renderer.offsetX = origOX;
+                renderer.offsetY = origOY;
+                renderer.scale   = origS;
+                renderer.showGrid = prevShowGrid;
+                if (isGrid) renderer._gridMarginOverride = null;
+                renderer.render();
+            }
 
             if (includePanels) await _compositeOverlays(ctx, multiplier);
             await _drawBranding(ctx, W, H, multiplier);
@@ -306,6 +334,25 @@ export function initExportManager({ getRenderer, getAppMode }) {
         const mimeType = format === 'jpg' ? 'image/jpeg' : 'image/png';
         const quality  = format === 'jpg' ? 0.92 : undefined;
         await _saveCanvas(offscreen, filename, mimeType, quality, dirHandle);
+    }
+
+    // Rasterise the Dashboard DOM (KPI cards + SVG charts) to an offscreen
+    // canvas at `scale`×, capturing its full scroll height. Returns null if the
+    // dashboard isn't open / has no content.
+    async function _captureDashboard(scale) {
+        const el = document.getElementById('dashboardContainer');
+        if (!el || el.scrollHeight === 0) return null;
+        await _loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+        return html2canvas(el, {
+            scale,
+            backgroundColor: '#ffffff',
+            useCORS: true,
+            logging: false,
+            width:  el.scrollWidth,
+            height: el.scrollHeight,
+            windowWidth:  el.scrollWidth,
+            windowHeight: el.scrollHeight,
+        });
     }
 
     async function _saveCanvas(offscreen, filename, mimeType, quality, dirHandle) {
@@ -390,11 +437,32 @@ export function initExportManager({ getRenderer, getAppMode }) {
             const scale = 4; // ~300 DPI
             const includeGrid   = document.getElementById('exportGridCheckbox').checked;
             const includePanels = document.getElementById('exportPanelsCheckbox').checked;
+
+            // Dashboard is DOM — rasterise it, then embed in a PDF sized to match.
+            if (appMode === 'dashboard') {
+                const dash = await _captureDashboard(scale);
+                if (!dash) { alert('Nothing to export — open the Dashboard first.'); return; }
+                await _drawBranding(dash.getContext('2d'), dash.width, dash.height, scale);
+                const pageW = Math.round(dash.width / scale), pageH = Math.round(dash.height / scale);
+                const dpdf = new jsPDF({
+                    orientation: pageW > pageH ? 'landscape' : 'portrait',
+                    unit: 'px', format: [pageW, pageH], hotfixes: ['px_scaling'],
+                });
+                dpdf.addImage(dash, 'PNG', 0, 0, pageW, pageH, undefined, 'FAST');
+                await _saveBlob(dpdf.output('blob'), _buildFilename('pdf'), dirHandle);
+                return;
+            }
+
+            // Meta-network owns the shared canvas — snapshot it as-is rather than
+            // re-rendering the base network (which would blank the meta view).
+            const snapshot = appMode === 'metanetwork';
             const prevShowGrid  = renderer.showGrid;
-            renderer.showGrid = includeGrid;
             const isGridPdf = appMode === 'grid';
-            if (isGridPdf) renderer._gridMarginOverride = { left: 0, top: 0 };
-            renderer.render();
+            if (!snapshot) {
+                renderer.showGrid = includeGrid;
+                if (isGridPdf) renderer._gridMarginOverride = { left: 0, top: 0 };
+                renderer.render();
+            }
 
             const w = srcCanvas.width, h = srcCanvas.height;
             const pdfDpr  = renderer.dpr || 1;
@@ -436,9 +504,11 @@ export function initExportManager({ getRenderer, getAppMode }) {
                 } catch (e) { console.warn('Map markers capture failed (PDF):', e); }
             }
 
-            renderer.showGrid = prevShowGrid;
-            if (isGridPdf) renderer._gridMarginOverride = null;
-            renderer.render();
+            if (!snapshot) {
+                renderer.showGrid = prevShowGrid;
+                if (isGridPdf) renderer._gridMarginOverride = null;
+                renderer.render();
+            }
 
             if (includePanels) await _compositeOverlays(ctx, scale);
 

@@ -64,6 +64,20 @@ python3 -m http.server 8000
 # Open http://localhost:8000
 ```
 
+### 📦 Dependencies
+
+MiRA has no build step; the runtime libraries are loaded directly in [`index.html`](index.html) from CDNs at **pinned, exact versions** for reproducibility:
+
+| Library | Version | Purpose |
+|---|---|---|
+| [PapaParse](https://www.papaparse.com/) | 5.5.2 | CSV parsing |
+| [D3](https://d3js.org/) | 7.9.0 | Force layout & number formatting |
+| [Konva](https://konvajs.org/) | 9.3.22 | Canvas hit-testing overlay |
+| [chroma.js](https://gka.github.io/chroma.js/) | 2.4.2 | Color scales & palettes |
+| [Leaflet](https://leafletjs.com/) | 1.9.4 | Map Mode base layers |
+
+The development and test toolchain (Vitest, Playwright, jsdom, and helper libraries) is declared in [`package.json`](package.json) and locked to exact resolved versions in the committed [`package-lock.json`](package-lock.json), so `npm ci` reproduces the test environment exactly.
+
 ## 🗂️ Built-in Example Datasets
 
 Nine empirical multilayer networks are bundled for immediate exploration, from six biological domains, covering pollination, host–parasite interactions, seed dispersal, gene recombination, human disease, brain connectivity, plasmid sharing, and protein–protein interactions. See the full list and references in the [manual](https://mira.ecomplab.com/docs/manual.html).
@@ -91,7 +105,7 @@ multilayer_to_csv(net, path = "my_network/")
 ```
 
 ## App development process
-We developed the MiRA codebase using an AI-assisted workflow. Initial scaffolding and iterative feature implementation were carried out using Claude Code (Anthropic), an agentic AI programming tool, with Claude Sonnet~4.6 used for routine implementation tasks and Claude Opus~4 used for complex architectural decisions and refactoring. Human oversight was applied throughout: all AI-generated code was reviewed, debugged, and revised. We paid particular attention to calculation of properties, domain-specific logic, including bipartite layout computation, geographic placement of layers, multilayer data structure validation, and EMLN integration. The codebase was audited periodically to identify inconsistencies between behavior and documentation, to enforce modularity via refactoring, and to remove redundancy introduced during iterative development.
+We developed the MiRA codebase using an AI-assisted workflow. Initial scaffolding and iterative feature implementation were carried out using Claude Code (Anthropic), an agentic AI programming tool, with Claude Sonnet~4.6 used for a few routine implementation tasks but with the bulk use of Claude Opus 4.7 and 4.8 used for complex architectural decisions and refactoring. Human oversight was applied throughout: all AI-generated code was reviewed, debugged, and revised. We paid particular attention to calculation of properties and to domain-specific logic, including bipartite layout computation, geographic placement of layers, multilayer data structure validation, and EMLN integration. The codebase was audited periodically to identify inconsistencies between behaviour and documentation, to enforce modularity via refactoring, and to remove redundancy introduced during iterative development. The authors take full responsibility for the code.
 
 ## Feedback and issues
 

@@ -86,6 +86,21 @@ export const DATASET_INFO = {
         nodeAttrs: ['node_type (plant / bird)', 'group (resident / partial-migratory)', 'versatility', 'degree', 'strength', 'd_specialisation', 'n_years'],
         linkAttrs: ['weight (seed count)'],
     },
+    kefi2016: {
+        domain: 'Ecology',
+        mlType: 'multiplex',
+        name: 'Chilean intertidal food web',
+        citation: 'Kéfi et al. 2016',
+        doi: 'https://doi.org/10.1371/journal.pbio.1002527',
+        dataDoi: 'https://doi.org/10.5061/dryad.b4vg0',
+        layers: '3 layers — Trophic, NTI positive, NTI negative',
+        nodes: '106 species',
+        links: '4,623 directed interactions (predation or non-trophic facilitation/competition per layer)',
+        network: 'Directed · multiplex',
+        nodeAttrs: ['body_mass', 'mobility (sessile / mobile)', 'functional_role',
+                    'phylum', 'cluster (1–14)', 'functional_group (5 groups)', 'shore_height'],
+        linkAttrs: ['weight', 'type (trophic / non-trophic+ / non-trophic−)'],
+    },
     larremore2013_malaria: {
         domain: 'Population genetics',
         mlType: 'multiplex',
@@ -101,6 +116,7 @@ export const DATASET_INFO = {
         linkAttrs: ['(unweighted — edge indicates a shared recombinant sequence block)'],
     },
     diseasome_multiplex: {
+        hidden: true,  // Kept (JSON + description) but removed from the example list; flip to false to restore.
         domain: 'Biomedicine',
         mlType: 'multiplex',
         name: 'Human disease multiplex network',
@@ -220,6 +236,7 @@ export function initDemoDatasets(loadData) {
 
         const loadBtn = document.createElement('button');
         loadBtn.className    = `btn ${domainClass}`;
+        loadBtn.dataset.file = file;   // stable hook for browser tests
         loadBtn.style.cssText = 'flex:1; text-align:left; padding:7px 10px; line-height:1.3;';
         loadBtn.innerHTML = `
             <span style="display:flex; align-items:baseline; width:100%; gap:6px; margin-bottom:2px;">

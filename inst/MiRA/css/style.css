@@ -996,6 +996,153 @@ body {
   line-height: 1;
 }
 
+/* Feedback button — same pill as Cite, teal/green tint to distinguish */
+.branding-feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px 4px 8px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.10), rgba(20, 184, 166, 0.10));
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  border-radius: 999px;
+  color: #0f766e;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease, transform 0.08s ease;
+}
+.branding-feedback-btn:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(20, 184, 166, 0.22));
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #115e59;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.18);
+}
+.branding-feedback-btn:active {
+  transform: translateY(1px);
+}
+.branding-feedback-btn svg {
+  flex-shrink: 0;
+}
+
+/* Feedback dialog form */
+#feedbackDialog .feedback-dialog-box {
+  width: 460px;
+  max-width: calc(100vw - 32px);
+  padding: 22px 24px 18px;
+  position: relative;
+}
+.feedback-field {
+  margin-bottom: 14px;
+  text-align: left;
+}
+.feedback-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
+}
+.feedback-req {
+  color: #dc2626;
+}
+.feedback-optional {
+  font-weight: 400;
+  color: #9ca3af;
+}
+.feedback-textarea,
+.feedback-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.02);
+  color: #1a1a2e;
+  font-family: inherit;
+  font-size: 13px;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.feedback-textarea {
+  resize: vertical;
+  min-height: 84px;
+  line-height: 1.5;
+}
+.feedback-textarea:focus,
+.feedback-input:focus {
+  outline: none;
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
+}
+.feedback-hint {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 3px;
+  text-align: right;
+}
+.feedback-diag-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 12px;
+  color: #4b5563;
+  cursor: pointer;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.feedback-diag-toggle input {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.feedback-diag-details {
+  margin-bottom: 12px;
+}
+.feedback-diag-details summary {
+  font-size: 11px;
+  color: #6b7280;
+  cursor: pointer;
+  user-select: none;
+}
+.feedback-diag-pre {
+  margin-top: 6px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #4b5563;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 140px;
+  overflow-y: auto;
+}
+.feedback-error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+.feedback-thanks {
+  text-align: center;
+  padding: 12px 0 4px;
+}
+.feedback-thanks-icon {
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.feedback-thanks-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+.feedback-thanks-sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+
 #citeDialog .cite-dialog-box {
   width: 520px;
   max-width: calc(100vw - 32px);
@@ -1725,61 +1872,41 @@ body {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #6366f1;
-  border: 1.5px solid rgba(99, 102, 241, 0.4);
+  /* Indigo attention styling — matches .attn-btn; overrides it here because
+     the #tourBtn ID rule wins on specificity. */
+  color: #4f46e5;
+  border: 1.5px solid #6366f1;
+  background: rgba(99, 102, 241, 0.12);
 }
 #tourBtn:hover {
-  color: #4f46e5;
-  border-color: rgba(99, 102, 241, 0.65);
-  background: rgba(99, 102, 241, 0.06);
+  color: #4338ca;
+  border-color: #4f46e5;
+  background: rgba(99, 102, 241, 0.20);
 }
 
-@keyframes arrowBounceUp {
-  0%   { opacity: 0; transform: translateY(0); }
-  5%   { opacity: 1; transform: translateY(0); }
-  14%  { opacity: 1; transform: translateY(-9px); }
-  23%  { opacity: 1; transform: translateY(0); }
-  32%  { opacity: 1; transform: translateY(-9px); }
-  41%  { opacity: 1; transform: translateY(0); }
-  50%  { opacity: 1; transform: translateY(-9px); }
-  59%  { opacity: 1; transform: translateY(0); }
-  68%  { opacity: 1; transform: translateY(-9px); }
-  77%  { opacity: 1; transform: translateY(0); }
-  86%  { opacity: 1; transform: translateY(-9px); }
-  95%  { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(0); }
+
+/* Static attention highlight for the Help / Tour buttons — the app's indigo
+   accent as a frame + matching tinted background, replacing the bouncing
+   arrow (which was distracting for users sensitive to motion). No animation. */
+.attn-btn {
+  border: 1.5px solid #6366f1;
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
 }
-@keyframes arrowBounceLeft {
-  0%   { opacity: 0; transform: translateX(0); }
-  5%   { opacity: 1; transform: translateX(0); }
-  14%  { opacity: 1; transform: translateX(-9px); }
-  23%  { opacity: 1; transform: translateX(0); }
-  32%  { opacity: 1; transform: translateX(-9px); }
-  41%  { opacity: 1; transform: translateX(0); }
-  50%  { opacity: 1; transform: translateX(-9px); }
-  59%  { opacity: 1; transform: translateX(0); }
-  68%  { opacity: 1; transform: translateX(-9px); }
-  77%  { opacity: 1; transform: translateX(0); }
-  86%  { opacity: 1; transform: translateX(-9px); }
-  95%  { opacity: 1; transform: translateX(0); }
-  100% { opacity: 0; transform: translateX(0); }
+.attn-btn:hover {
+  border-color: #4f46e5;
+  background: rgba(99, 102, 241, 0.20);
+  color: #4338ca;
 }
-.bounce-arrow-fixed {
-  position: fixed;
-  pointer-events: none;
-  font-size: 28px;
-  line-height: 1;
-  z-index: 9999;
-  color: #6366f1;
-  animation: arrowBounceUp 3.5s ease-out forwards;
-}
-.bounce-arrow-inline {
-  display: inline-block;
-  margin-left: auto;
-  padding-left: 8px;
-  font-size: 22px;
-  color: #1e64dc;
-  animation: arrowBounceLeft 3.5s ease-out forwards;
+
+/* First-time bluish highlight for the Interlayer links section — drawn until
+   the user opens it (see the 'toggle' listener in app.js). Replaces the
+   bouncing arrow; no animation. */
+.control-section.attn-highlight {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.08);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.35),
+              0 4px 16px rgba(99, 102, 241, 0.14);
 }
 
 #tourHighlight {

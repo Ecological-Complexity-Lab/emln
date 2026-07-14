@@ -225,7 +225,7 @@ export class Dashboard {
         this._showBipartite    = true;
         this._matrixFlipped    = true; // false = Node rows × Layer cols; true = Layer rows × Node cols
         this._tip              = null;
-        this._intraLayer       = 'all'; // 'all' or a layer name
+        this._intralayer       = 'all'; // 'all' or a layer name
         this._interPair        = null;  // null = all, or { from, to }
     }
 
@@ -684,17 +684,17 @@ export class Dashboard {
                 .filter(lk => layerName === 'all' || lk.layer_from === layerName)
                 .map(lk => lk.weight ?? 1);
 
-        const intraWeights = intraWeightsFor(this._intraLayer);
+        const intraWeights = intraWeightsFor(this._intralayer);
         const allUniform   = intraWeights.every(w => w === intraWeights[0]);
 
-        const dropdownOpts = [`<option value="all"${this._intraLayer === 'all' ? ' selected' : ''}>All layers</option>`]
+        const dropdownOpts = [`<option value="all"${this._intralayer === 'all' ? ' selected' : ''}>All layers</option>`]
             .concat(layerNames.map(ln =>
-                `<option value="${ln}"${this._intraLayer === ln ? ' selected' : ''}>${ln}</option>`
+                `<option value="${ln}"${this._intralayer === ln ? ' selected' : ''}>${ln}</option>`
             )).join('');
 
-        const intraTitle = this._intraLayer === 'all'
+        const intraTitle = this._intralayer === 'all'
             ? 'Intralayer link weights (all layers)'
-            : `Intralayer link weights — ${this._intraLayer}`;
+            : `Intralayer link weights — ${this._intralayer}`;
 
         const intraHist = intraWeights.length === 0
             ? `<p style="font-size:11px;color:${SUBTEXT};margin:8px 0;">No intralayer links.</p>`
@@ -867,7 +867,7 @@ export class Dashboard {
         const intraSelect = root.querySelector('#dbIntraLayerSelect');
         if (intraSelect) {
             intraSelect.addEventListener('change', () => {
-                this._intraLayer = intraSelect.value;
+                this._intralayer = intraSelect.value;
                 this.render();
             });
         }
