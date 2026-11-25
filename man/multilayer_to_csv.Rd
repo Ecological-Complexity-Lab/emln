@@ -96,5 +96,5 @@ multilayer_to_csv(net, dir = "tests/out/", prefix = "kefi", bipartite = TRUE)
 }
 }
 \seealso{
-\code{\link{multilayer_to_json}}, \code{\link{plot_multilayer}}
+\code{\link{multilayer_to_json}}
 }

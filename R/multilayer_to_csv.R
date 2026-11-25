@@ -68,7 +68,7 @@
 #' The \code{directed} flag is not written to the CSV files; it is a property
 #' you specify in MiRA's CSV import dialog at load time.
 #'
-#' @seealso \code{\link{multilayer_to_json}}, \code{\link{plot_multilayer}}
+#' @seealso \code{\link{multilayer_to_json}}
 #'
 #' @export
 #'

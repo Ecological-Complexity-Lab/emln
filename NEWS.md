@@ -4,6 +4,7 @@
 
 ## Changes
 * Update package License.
+* Remove MiRA inst, as it was moved to ggmira package, to be better managed.
 
 # emln 1.2.0 (2026-05-13)
 

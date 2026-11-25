@@ -99,5 +99,5 @@ json_str <- multilayer_to_json(net)
 }
 }
 \seealso{
-\code{plot_multilayer, create_multilayer_network, load_emln}
+\code{create_multilayer_network, load_emln}
 }

@@ -64,7 +64,7 @@
 #' Top-level flags \code{directed} and (when set) \code{directed_interlayer}
 #' indicate edge directionality globally; they are not repeated per link.
 #'
-#' @seealso \code{plot_multilayer, create_multilayer_network, load_emln}
+#' @seealso \code{create_multilayer_network, load_emln}
 #'
 #' @export
 #' @import dplyr
