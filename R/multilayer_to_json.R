@@ -1,52 +1,32 @@
 #' Export a multilayer network to JSON
 #'
-#' Converts an EMLN \code{multilayer} object to JSON format compatible with
-#' MiRA, the multilayer interactive R-network app.
+#' Converts an EMLN \code{multilayer} object to a structured JSON format,
+#' to be used with other tools (such as MiRA).
 #'
 #' @param multilayer A multilayer object (created by \code{create_multilayer_network}
 #'   or \code{load_emln}).
 #' @param file Optional file path to write the JSON to. If NULL, returns the JSON
 #'   string.
 #' @param bipartite Logical. Whether the network is bipartite. Defaults to
-#'   \code{FALSE}. MiRA does not auto-detect bipartite structure — you must
-#'   set this to \code{TRUE} explicitly. When \code{TRUE}, the nodes table
+#'   \code{FALSE}. When \code{TRUE}, the nodes table
 #'   must contain a \code{node_type} (or legacy \code{node_group}) column
 #'   with exactly two distinct values across the network. Any \code{node_group}
 #'   column is renamed to \code{node_type} in the output regardless of the
-#'   bipartite flag (MiRA's canonical name).
-#' @param setA_type Optional character. The \code{node_type} value to render
-#'   as Set A (top row) in MiRA's bipartite layout. By ecological convention
-#'   this is the higher trophic level (e.g. \code{"pollinator"},
-#'   \code{"parasite"}, \code{"disperser"}). Only used when
-#'   \code{bipartite = TRUE}. If \code{NULL} (default), MiRA falls back to
-#'   alphabetical ordering of the two types.
+#'   bipartite flag.
+#' @param setA_type Optional character. A \code{node_type} value to record
+#'   in the layer metadata when \code{bipartite = TRUE}. If \code{NULL}
+#'   (default), no value is recorded.
 #' @param directed Logical or NULL. Whether intralayer links are directed.
 #'   If NULL (default), auto-detected by checking intralayer edge symmetry.
 #' @param directed_interlayer Logical or NULL. Whether interlayer links are
-#'   directed. If NULL (default), inherits from \code{directed} (matching
-#'   MiRA's parser behavior). Set explicitly when intra- and interlayer
-#'   directionality differ.
-#'
-#' @note
-#' MiRA (Multilayer Interactive Rendering Application) is a browser-based
-#' interactive visualization tool for multilayer networks, available at
-#' \url{https://mira.ecomplab.com/}.
-#'
-#' If you use MiRA in published research, please cite:
-#'
-#' Nehoray SM, Bloch Y, Pilosof S (2026). Interactively visualizing biological
-#' multilayer networks using MiRA. \emph{arXiv}:2605.09597 [cs.SI].
-#' \doi{doi:10.48550/arXiv.2605.09597}
-#'
-#' Feedback and bug reports:
-#' \url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
+#'   directed. If NULL (default), the value is omitted from the output.
 #'
 #' @return If \code{file} is NULL, returns the JSON string invisibly.
 #'   If \code{file} is specified, writes JSON to disk and returns the file path
 #'   invisibly.
 #'
 #' @details
-#' The JSON output contains four arrays matching MiRA's expected format:
+#' The JSON output contains four arrays:
 #' \itemize{
 #'   \item \code{nodes}: Physical nodes with \code{node_id}, \code{node_name}, and
 #'     any extra attributes. For bipartite networks, \code{node_group} is mapped to
@@ -108,9 +88,6 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE,
     stop("`directed_interlayer` must be a single TRUE/FALSE value or NULL.")
   }
 
-  message("Please report issues at ",
-          "https://github.com/Ecological-Complexity-Lab/MiRA/issues")
-
   # Resolve canonical type column. Precedence: node_type > node_group > type.
   # node_group and type are legacy names from older emln data.
   nodes_names <- names(multilayer$nodes)
@@ -156,7 +133,7 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE,
 
   # ---- Build nodes array ----
   nodes_df <- as.data.frame(multilayer$nodes)
-  # Canonicalize legacy names -> node_type (MiRA's canonical name).
+  # Canonicalize legacy names -> node_type.
   # Precedence: node_type > node_group > type.
   if (!("node_type" %in% names(nodes_df))) {
     if ("node_group" %in% names(nodes_df)) {
@@ -165,7 +142,7 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE,
       names(nodes_df)[names(nodes_df) == "type"] <- "node_type"
     }
   }
-  # Dedupe by node_name — MiRA expects one physical node per row
+  # Keep one physical node per row.
   if ("node_name" %in% names(nodes_df)) {
     nodes_df <- nodes_df[!duplicated(nodes_df$node_name), , drop = FALSE]
   }
@@ -232,8 +209,7 @@ multilayer_to_json <- function(multilayer, file = NULL, bipartite = FALSE,
     ]
   }
   # Keep core identity columns first, then any extra per-(layer, node)
-  # attributes (e.g. abundance, module). MiRA's parser surfaces these in
-  # the state-node attribute dropdown.
+  # attributes (e.g. abundance, module).
   core_cols <- c("layer_id", "node_id", "layer_name", "node_name")
   available_core <- intersect(core_cols, names(state_nodes_df))
   extra_cols <- setdiff(names(state_nodes_df), core_cols)

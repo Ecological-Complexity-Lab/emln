@@ -1,7 +1,8 @@
 #' Export a multilayer network to CSV files
 #'
-#' Writes an EMLN \code{multilayer} object as a set of CSV files consumed
-#' by MiRA's CSV importer. Three files are always written; a fourth
+#' Writes an EMLN \code{multilayer} object as a set of CSV files,
+#' in a standard format to be used on other tools (such as MiRA). Three files
+#' are always written; a fourth
 #' (\code{<prefix>_state_nodes.csv}) is added when per-(layer, node)
 #' attributes are present.
 #'
@@ -22,36 +23,18 @@
 #'   \code{node_type} (or legacy \code{node_group}) column with exactly two
 #'   distinct values across the network, and a \code{bipartite} column is
 #'   written to the layers CSV.
-#' @param setA_type Optional character. The \code{node_type} value to render
-#'   as Set A (top row) in MiRA's bipartite layout. By ecological convention
-#'   this is the higher trophic level (e.g. \code{"pollinator"},
-#'   \code{"parasite"}, \code{"disperser"}). Only used when
-#'   \code{bipartite = TRUE}; written as a \code{setA_type} column in the
-#'   layers CSV. If \code{NULL} (default), MiRA falls back to alphabetical
-#'   ordering of the two types.
+#' @param setA_type Optional character. A \code{node_type} value to record
+#'   in the \code{setA_type} column of the layers CSV when
+#'   \code{bipartite = TRUE}. If \code{NULL} (default), no value is recorded.
 #' @param directed Logical or NULL. Whether the network is directed. If NULL
 #'   (default), auto-detected by checking intralayer edge symmetry.
-#'
-#' @note
-#' MiRA (Multilayer Interactive Rendering Application) is a browser-based
-#' interactive visualization tool for multilayer networks, available at
-#' \url{https://mira.ecomplab.com/}.
-#'
-#' If you use MiRA in published research, please cite:
-#'
-#' Nehoray SM, Bloch Y, Pilosof S (2026). Interactively visualizing biological
-#' multilayer networks using MiRA. \emph{arXiv}:2605.09597 [cs.SI].
-#' \doi{doi:10.48550/arXiv.2605.09597}
-#'
-#' Feedback and bug reports:
-#' \url{https://github.com/Ecological-Complexity-Lab/MiRA/issues}.
 #'
 #' @return Invisibly returns a named character vector of file paths written
 #'   (\code{edges}, \code{layers}, \code{nodes}, and optionally
 #'   \code{state_nodes}).
 #'
 #' @details
-#' The CSV files follow the schema accepted by MiRA's CSV importer:
+#' The CSV files contain the following tables:
 #' \itemize{
 #'   \item \strong{edges}: \code{layer_from, node_from, layer_to, node_to,
 #'     weight} (+ any extra link attributes).
@@ -65,8 +48,8 @@
 #'     Use this when the same node has different attribute values in
 #'     different layers (e.g. abundance, module membership).
 #' }
-#' The \code{directed} flag is not written to the CSV files; it is a property
-#' you specify in MiRA's CSV import dialog at load time.
+#' The \code{directed} flag is not written to the CSV files and must be
+#' specified separately when interpreting the data.
 #'
 #' @seealso \code{\link{multilayer_to_json}}
 #'
@@ -99,9 +82,6 @@ multilayer_to_csv <- function(multilayer, dir, prefix = "network",
       setA_type <- NULL
     }
   }
-
-  message("Please report issues at ",
-          "https://github.com/Ecological-Complexity-Lab/MiRA/issues")
 
   if (!dir.exists(dir)) {
     dir.create(dir, recursive = TRUE)
@@ -204,9 +184,9 @@ multilayer_to_csv <- function(multilayer, dir, prefix = "network",
 
   if (!is.null(directed)) {
     message(sprintf(
-      "Note: directed=%s is not stored in the CSV files; set it in ",
+      "Note: directed=%s is not stored in the CSV files; retain this setting ",
       directed
-    ), "MiRA's CSV import dialog at load time.")
+    ), "when interpreting the exported data.")
   }
 
   invisible(paths)
